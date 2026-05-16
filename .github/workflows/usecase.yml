@@ -1,0 +1,259 @@
+# Scheduled / on-demand UseCase Intel run.
+#
+# This workflow is a thin CI wrapper. The `UseCase Intel` agent owns the
+# end-to-end pipeline: discover → fetch → extract → author records →
+# rebuild dashboard data. CI installs dependencies, invokes the agent,
+# rebuilds and commits any new records.
+#
+# Required secrets / setup:
+# - COPILOT_PAT — PAT for a Copilot-licensed account; passed to the Copilot CLI.
+# - USECASE_PAT — PAT with repo write access for checkout/push so downstream
+#   deploys trigger on the commit (built-in GITHUB_TOKEN commits do not
+#   trigger other workflows).
+
+name: UseCase Intel — discover, extract, and publish records
+
+on:
+  # schedule: # Disable by default; opt in once secrets are configured.
+  #   - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      cap:
+        description: "Max new records per run (1-10)"
+        type: string
+        required: false
+        default: "5"
+      vendor:
+        description: "Vendor display name (matches data/sources.json); blank for all vendors"
+        type: string
+        required: false
+        default: ""
+      since:
+        description: "Skip URLs whose sitemap lastmod is older than this date (YYYY-MM-DD); blank for no cutoff"
+        type: string
+        required: false
+        default: ""
+      discoverLimit:
+        description: "Per-vendor cap on newly discovered URLs this run (1-200)"
+        type: string
+        required: false
+        default: "25"
+      model:
+        description: "Copilot model to use (effort is derived automatically)"
+        type: choice
+        options:
+          - "gpt-5.4"
+          - "gpt-5.5"
+          - "claude-opus-4.6"
+          - "claude-sonnet-4.6"
+        required: false
+        default: "gpt-5.4"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: usecase-intel
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Verify secrets
+        env:
+          COPILOT_PAT: ${{ secrets.COPILOT_PAT }}
+          USECASE_PAT: ${{ secrets.USECASE_PAT }}
+        run: |
+          set -euo pipefail
+          missing=0
+          if [ -z "${COPILOT_PAT:-}" ]; then
+            echo "Missing required secret: COPILOT_PAT" >&2
+            missing=1
+          fi
+          if [ -z "${USECASE_PAT:-}" ]; then
+            echo "Missing required secret: USECASE_PAT" >&2
+            missing=1
+          fi
+          exit "$missing"
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.USECASE_PAT }}
+
+      - name: Snapshot data/records
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/usecase-snapshot
+          if [ -d data/records ]; then
+            find data/records -type f -name '*.json' | LC_ALL=C sort > /tmp/usecase-snapshot/before.txt
+          else
+            : > /tmp/usecase-snapshot/before.txt
+          fi
+          echo "Snapshotted $(wc -l < /tmp/usecase-snapshot/before.txt) record file(s)."
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install npm deps
+        run: npm ci --no-audit --no-fund
+
+      - name: Install Copilot CLI
+        run: npm install -g @github/copilot --no-audit --no-fund
+
+      - name: Verify Python available
+        run: |
+          set -euo pipefail
+          python3 --version
+          # Pipeline is stdlib-only; ubuntu-latest ships Python 3.12.
+
+      - name: Resolve inputs
+        id: inputs
+        env:
+          RAW_CAP: ${{ github.event.inputs.cap }}
+          RAW_VENDOR: ${{ github.event.inputs.vendor }}
+          RAW_SINCE: ${{ github.event.inputs.since }}
+          RAW_DISCOVER_LIMIT: ${{ github.event.inputs.discoverLimit }}
+          RAW_MODEL: ${{ github.event.inputs.model }}
+        run: |
+          set -euo pipefail
+          CAP="${RAW_CAP:-5}"
+          VENDOR="${RAW_VENDOR:-}"
+          SINCE="${RAW_SINCE:-}"
+          DISCOVER_LIMIT="${RAW_DISCOVER_LIMIT:-25}"
+          MODEL="${RAW_MODEL:-gpt-5.4}"
+
+          if ! [[ "$CAP" =~ ^([1-9]|10)$ ]]; then
+            echo "Invalid cap '$CAP'; expected an integer from 1 to 10." >&2
+            exit 2
+          fi
+          if ! [[ "$DISCOVER_LIMIT" =~ ^([1-9][0-9]?|1[0-9]{2}|200)$ ]]; then
+            echo "Invalid discoverLimit '$DISCOVER_LIMIT'; expected 1-200." >&2
+            exit 2
+          fi
+          if [ -n "$VENDOR" ]; then
+            if [ "${#VENDOR}" -gt 60 ] || ! [[ "$VENDOR" =~ ^[A-Za-z0-9][A-Za-z0-9\ .\&-]*$ ]]; then
+              echo "Invalid vendor '$VENDOR'; use a short plain-text vendor display name." >&2
+              exit 2
+            fi
+          fi
+          if [ -n "$SINCE" ]; then
+            if ! [[ "$SINCE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "Invalid since '$SINCE'; expected YYYY-MM-DD." >&2
+              exit 2
+            fi
+          fi
+          case "$MODEL" in
+            gpt-5.4)           EFFORT="xhigh" ;;
+            gpt-5.5)           EFFORT="xhigh" ;;
+            claude-opus-4.6)   EFFORT="high" ;;
+            claude-sonnet-4.6) EFFORT="high" ;;
+            *)
+              echo "Invalid model '$MODEL'; allowed: gpt-5.4, gpt-5.5, claude-opus-4.6, claude-sonnet-4.6." >&2
+              exit 2
+              ;;
+          esac
+
+          echo "cap=$CAP" >> "$GITHUB_OUTPUT"
+          echo "vendor=$VENDOR" >> "$GITHUB_OUTPUT"
+          echo "since=$SINCE" >> "$GITHUB_OUTPUT"
+          echo "discoverLimit=$DISCOVER_LIMIT" >> "$GITHUB_OUTPUT"
+          echo "model=$MODEL" >> "$GITHUB_OUTPUT"
+          echo "effort=$EFFORT" >> "$GITHUB_OUTPUT"
+
+      - name: Run UseCase Intel agent
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT }}
+        run: |
+          set -euo pipefail
+          VENDOR_CLAUSE=""
+          if [ -n "${{ steps.inputs.outputs.vendor }}" ]; then
+            VENDOR_CLAUSE=" vendor: ${{ steps.inputs.outputs.vendor }}."
+          fi
+          SINCE_CLAUSE=""
+          if [ -n "${{ steps.inputs.outputs.since }}" ]; then
+            SINCE_CLAUSE=" since: ${{ steps.inputs.outputs.since }}."
+          fi
+          copilot --yolo --autopilot \
+            --model "${{ steps.inputs.outputs.model }}" \
+            --effort "${{ steps.inputs.outputs.effort }}" \
+            --agent "UseCase Intel" \
+            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE} Orchestrate every stage yourself: discover, fetch, extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:merge / seed / export / npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
+
+      - name: Rebuild dashboard data (safety net)
+        run: |
+          set -euo pipefail
+          npm run data:build
+
+      - name: Validate site build
+        run: npm run build
+
+      - name: Commit & push
+        run: |
+          set -euo pipefail
+          git config user.name "usecase-intel-bot"
+          git config user.email "usecase-intel-bot@users.noreply.github.com"
+          git fetch origin "${{ github.ref_name }}"
+          git rebase --autostash "origin/${{ github.ref_name }}"
+          git add data/records data/discovered_urls.jsonl data/fetch_manifest.jsonl
+          if git diff --cached --quiet; then
+            echo "No new records this run."
+            exit 0
+          fi
+          STAMP="$(date -u +%F)"
+          git commit -m "chore(data): usecase intel run $STAMP"
+          git push origin HEAD:${{ github.ref_name }}
+
+      - name: Collect new data/records files
+        if: failure()
+        id: collect_new_records
+        run: |
+          set -euo pipefail
+          BEFORE="/tmp/usecase-snapshot/before.txt"
+          STAGE="/tmp/usecase-snapshot/new-files"
+          if [ ! -f "$BEFORE" ]; then
+            echo "No baseline snapshot; skipping."
+            echo "has_new=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          rm -rf "$STAGE"
+          mkdir -p "$STAGE"
+          if [ -d data/records ]; then
+            find data/records -type f -name '*.json' | LC_ALL=C sort > /tmp/usecase-snapshot/after.txt
+          else
+            : > /tmp/usecase-snapshot/after.txt
+          fi
+          comm -13 "$BEFORE" /tmp/usecase-snapshot/after.txt > /tmp/usecase-snapshot/new.txt
+          COUNT=$(wc -l < /tmp/usecase-snapshot/new.txt | tr -d ' ')
+          if [ "$COUNT" = "0" ]; then
+            echo "No new record files since snapshot."
+            echo "has_new=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "Collecting $COUNT new file(s) for artifact upload."
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            dest="$STAGE/$f"
+            mkdir -p "$(dirname "$dest")"
+            cp -p "$f" "$dest"
+          done < /tmp/usecase-snapshot/new.txt
+          cp /tmp/usecase-snapshot/new.txt "$STAGE/_new-files.txt"
+          echo "has_new=true" >> "$GITHUB_OUTPUT"
+
+      - name: Upload new records on failure
+        if: failure() && steps.collect_new_records.outputs.has_new == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: usecase-records-on-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: /tmp/usecase-snapshot/new-files
+          if-no-files-found: ignore
+          retention-days: 14
