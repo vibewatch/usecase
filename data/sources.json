@@ -80,7 +80,7 @@
     {
       "vendor": "Databricks",
       "sitemaps": [
-        "https://www.databricks.com/sitemap.xml"
+        "https://www.databricks.com/en-customer-assets/sitemap/sitemap-index.xml"
       ],
       "index_pages": [
         "https://www.databricks.com/customers"
@@ -89,7 +89,42 @@
         "^https://www\\.databricks\\.com/customers/[^/]+/?$"
       ],
       "exclude_patterns": [
-        "/customers/?$"
+        "/customers/?$",
+        "/customers/(gen-ai|your-ai|champions-program|solutions-accelerator-general|all)$"
+      ]
+    },
+    {
+      "vendor": "Oracle",
+      "sitemaps": [],
+      "index_pages": [
+        "https://www.oracle.com/customers/"
+      ],
+      "url_patterns": [
+        "^https://www\\.oracle\\.com/customers/[^/?#]+/?$"
+      ],
+      "exclude_patterns": [
+        "/customers/?$",
+        "/customers/signin",
+        "/customers/find",
+        "/customers/search",
+        "#",
+        "\\?"
+      ]
+    },
+    {
+      "vendor": "Alibaba Cloud",
+      "sitemaps": [],
+      "index_pages": [
+        "https://www.alibabacloud.com/customers"
+      ],
+      "url_patterns": [
+        "^https://www\\.alibabacloud\\.com/customers/[^/?#]+/?$"
+      ],
+      "exclude_patterns": [
+        "/customers/?$",
+        "/customers/search",
+        "#",
+        "\\?"
       ]
     }
   ]
