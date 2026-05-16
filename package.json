@@ -1,0 +1,18 @@
+{
+  "name": "customer-use-case-intelligence",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "data:seed": "python3 -m pipeline.usecase_intel.seed data/case-studies.sample.json data/usecase_intel.sqlite",
+    "data:export": "python3 -m pipeline.usecase_intel.export data/usecase_intel.sqlite data/case-studies.generated.json"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.7.12",
+    "typescript": "^5.8.3"
+  }
+}

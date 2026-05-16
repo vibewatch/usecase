@@ -1,0 +1,408 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  averageConfidence,
+  buildMatrix,
+  flattenValues,
+  formatDate,
+  formatPercent,
+  maturityDistribution,
+  topValues,
+  uniqueSorted,
+} from "../lib/analytics";
+import { caseStudies } from "../lib/caseStudies";
+
+const vendors = uniqueSorted(caseStudies.map((record) => record.vendor));
+const industries = uniqueSorted(caseStudies.map((record) => record.industry));
+const technicalAreas = uniqueSorted(flattenValues(caseStudies, (record) => record.technical_area));
+const useCases = uniqueSorted(flattenValues(caseStudies, (record) => record.use_case_category));
+const topUseCases = topValues(flattenValues(caseStudies, (record) => record.use_case_category), 8);
+const topProducts = topValues(flattenValues(caseStudies, (record) => record.products_used), 8);
+const outcomeMix = topValues(flattenValues(caseStudies, (record) => record.outcome_category), 8);
+const maturityMix = maturityDistribution(caseStudies);
+const industryMatrix = buildMatrix(
+  caseStudies,
+  industries,
+  useCases.slice(0, 8),
+  (record) => [record.industry],
+  (record) => record.use_case_category,
+);
+const vendorMatrix = buildMatrix(
+  caseStudies,
+  vendors,
+  useCases.slice(0, 8),
+  (record) => [record.vendor],
+  (record) => record.use_case_category,
+);
+const maxUseCaseCount = topUseCases.reduce((max, entry) => Math.max(max, entry.count), 1);
+const maxProductCount = topProducts.reduce((max, entry) => Math.max(max, entry.count), 1);
+const latestUpdate = caseStudies
+  .map((record) => record.published_date)
+  .sort((left, right) => right.localeCompare(left))[0];
+const avgConfidence = averageConfidence(caseStudies);
+---
+
+<BaseLayout title="Use Case Intelligence">
+  <main>
+    <section class="hero-band">
+      <div class="container hero-band__inner">
+        <span class="badge badge--yellow">Customer Use Case Intelligence</span>
+        <h1 class="hero-display">Vendor case studies, normalized into market signals.</h1>
+        <p class="hero-subtitle">
+          Track where vendors show repeatable customer value across industries, technologies, products, and outcomes — all in one structured dataset.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#records">Browse the dataset</a>
+          <a class="btn btn--secondary" href="#matrix">See the coverage matrix</a>
+        </div>
+
+        <div class="stat-row" id="sample">
+          <div class="stat">
+            <span class="stat__value">{caseStudies.length}</span>
+            <span class="stat__label">Records</span>
+            <span class="stat__caption">Sample intelligence rows</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">{vendors.length}</span>
+            <span class="stat__label">Vendors</span>
+            <span class="stat__caption">Tracked providers</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">{formatPercent(avgConfidence)}</span>
+            <span class="stat__label">Avg. confidence</span>
+            <span class="stat__caption">Field completeness across rows</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">{latestUpdate ? formatDate(latestUpdate) : "n/a"}</span>
+            <span class="stat__label">Latest story</span>
+            <span class="stat__caption">Most recent publication date</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Highlights</p>
+            <h2 class="section__title">What this dataset already shows.</h2>
+          </div>
+          <p class="section__subtitle">Four pastel snapshots — top use cases, products, outcomes, and maturity — from the synthetic seed.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-card--yellow">
+            <span class="feature-card__label">Top use case</span>
+            <strong class="feature-card__value">{topUseCases[0]?.label ?? "—"}</strong>
+            <span class="feature-card__caption">Cited in {topUseCases[0]?.count ?? 0} records.</span>
+          </article>
+          <article class="feature-card feature-card--coral">
+            <span class="feature-card__label">Most cited product</span>
+            <strong class="feature-card__value">{topProducts[0]?.label ?? "—"}</strong>
+            <span class="feature-card__caption">{topProducts[0]?.count ?? 0} appearances across the seed.</span>
+          </article>
+          <article class="feature-card feature-card--teal">
+            <span class="feature-card__label">Outcome leader</span>
+            <strong class="feature-card__value">{outcomeMix[0]?.label ?? "—"}</strong>
+            <span class="feature-card__caption">{outcomeMix[0]?.count ?? 0} customer wins claim this outcome.</span>
+          </article>
+          <article class="feature-card feature-card--rose">
+            <span class="feature-card__label">Maturity lean</span>
+            <strong class="feature-card__value">{maturityMix[0]?.label ?? "—"}</strong>
+            <span class="feature-card__caption">{maturityMix[0] ? formatPercent(maturityMix[0].share) : "0%"} of stories sit at this stage.</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Hotspots</p>
+            <h2 class="section__title">Top use case categories</h2>
+          </div>
+          <p class="section__subtitle">Where vendors are publishing the most repeatable customer wins.</p>
+        </div>
+        <div class="feature-grid" style="grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);">
+          <article class="surface-card">
+            <div class="surface-card__head">
+              <h3 class="surface-card__title">Frequency by use case</h3>
+              <span class="badge badge--neutral">{topUseCases.length} categories</span>
+            </div>
+            <div class="bar-list">
+              {topUseCases.map((entry) => (
+                <div class="bar-row">
+                  <div class="bar-row__label">
+                    <span>{entry.label}</span>
+                    <span class="bar-row__count">{entry.count}</span>
+                  </div>
+                  <div class="bar-track" aria-hidden="true">
+                    <span class="bar-track__fill" style={`width: ${(entry.count / maxUseCaseCount) * 100}%`}></span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <article class="surface-card">
+            <div class="surface-card__head">
+              <h3 class="surface-card__title">Most cited products</h3>
+              <span class="badge badge--purple">Ranked</span>
+            </div>
+            <div class="rank-list">
+              {topProducts.map((entry, index) => (
+                <div class="rank-row">
+                  <span class="rank-row__index">{String(index + 1).padStart(2, "0")}</span>
+                  <div class="rank-row__body">
+                    <span class="rank-row__label">{entry.label}</span>
+                    <div class="bar-track" aria-hidden="true">
+                      <span class="bar-track__fill" style={`width: ${(entry.count / maxProductCount) * 100}%`}></span>
+                    </div>
+                  </div>
+                  <em class="rank-row__count">{entry.count}</em>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Texture</p>
+            <h2 class="section__title">Outcomes &amp; solution maturity</h2>
+          </div>
+          <p class="section__subtitle">How vendors talk about value, and how mature the deployments actually are.</p>
+        </div>
+        <div class="feature-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <article class="surface-card">
+            <div class="surface-card__head">
+              <h3 class="surface-card__title">Business value mix</h3>
+              <span class="badge badge--coral">Outcomes</span>
+            </div>
+            <div class="chip-cloud">
+              {outcomeMix.map((entry) => (
+                <span class="chip">{entry.label}<span class="chip__count">·{entry.count}</span></span>
+              ))}
+            </div>
+          </article>
+
+          <article class="surface-card">
+            <div class="surface-card__head">
+              <h3 class="surface-card__title">Solution maturity</h3>
+              <span class="badge badge--teal">Quality</span>
+            </div>
+            <div class="maturity-stack">
+              {maturityMix.map((entry) => (
+                <div class="maturity-row">
+                  <span>{entry.label}</span>
+                  <strong class="maturity-row__share">{formatPercent(entry.share)}</strong>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="matrix">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Coverage</p>
+            <h2 class="section__title">Where each vendor and industry shows up.</h2>
+          </div>
+          <p class="section__subtitle">Two cross-tabs over the top eight use cases. Yellow cells mark live coverage.</p>
+        </div>
+
+        <div class="feature-grid" style="grid-template-columns: 1fr; gap: var(--space-xl);">
+          <article class="surface-card">
+            <div class="surface-card__head">
+              <h3 class="surface-card__title">Industry × use case</h3>
+              <span class="badge badge--neutral">{industries.length} industries</span>
+            </div>
+            <div class="matrix-scroll">
+              <table class="matrix-table">
+                <thead>
+                  <tr>
+                    <th>Industry</th>
+                    {useCases.slice(0, 8).map((useCase) => <th>{useCase}</th>)}
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {industryMatrix.map((row) => (
+                    <tr>
+                      <th>{row.label}</th>
+                      {row.cells.map((cell) => <td class={cell.count > 0 ? "is-active" : ""}>{cell.count || ""}</td>)}
+                      <td>{row.total}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="surface-card">
+            <div class="surface-card__head">
+              <h3 class="surface-card__title">Vendor × use case</h3>
+              <span class="badge badge--neutral">{vendors.length} vendors</span>
+            </div>
+            <div class="matrix-scroll">
+              <table class="matrix-table">
+                <thead>
+                  <tr>
+                    <th>Vendor</th>
+                    {useCases.slice(0, 8).map((useCase) => <th>{useCase}</th>)}
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {vendorMatrix.map((row) => (
+                    <tr>
+                      <th>{row.label}</th>
+                      {row.cells.map((cell) => <td class={cell.count > 0 ? "is-active" : ""}>{cell.count || ""}</td>)}
+                      <td>{row.total}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="records">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Records</p>
+            <h2 class="section__title">Case study browser</h2>
+          </div>
+          <span class="record-count"><span data-visible-count>{caseStudies.length}</span> visible</span>
+        </div>
+
+        <article class="surface-card">
+          <div class="filters" aria-label="Record filters">
+            <input class="filter-search" data-search type="search" placeholder="Search customer, product, problem…" />
+            <label class="filter-control">
+              <span class="filter-control__label">Vendor</span>
+              <select data-vendor>
+                <option value="">All</option>
+                {vendors.map((vendor) => <option value={vendor}>{vendor}</option>)}
+              </select>
+            </label>
+            <label class="filter-control">
+              <span class="filter-control__label">Industry</span>
+              <select data-industry>
+                <option value="">All</option>
+                {industries.map((industry) => <option value={industry}>{industry}</option>)}
+              </select>
+            </label>
+            <label class="filter-control">
+              <span class="filter-control__label">Tech area</span>
+              <select data-area>
+                <option value="">All</option>
+                {technicalAreas.map((area) => <option value={area}>{area}</option>)}
+              </select>
+            </label>
+          </div>
+
+          <div class="record-table-wrap">
+            <table class="record-table">
+              <thead>
+                <tr>
+                  <th>Customer</th>
+                  <th>Vendor</th>
+                  <th>Industry</th>
+                  <th>Use case</th>
+                  <th>Products</th>
+                  <th>Maturity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {caseStudies.map((record) => (
+                  <tr
+                    data-case-row
+                    data-vendor={record.vendor}
+                    data-industry={record.industry}
+                    data-area={record.technical_area.join("|")}
+                    data-search-text={`${record.customer_name} ${record.vendor} ${record.industry} ${record.business_problem} ${record.solution_summary} ${record.products_used.join(" ")} ${record.use_case_category.join(" ")}`.toLowerCase()}
+                  >
+                    <th>
+                      <a href={`/cases/${record.slug}/`}>{record.customer_name}</a>
+                      <span>{formatDate(record.published_date)}</span>
+                    </th>
+                    <td>{record.vendor}</td>
+                    <td>{record.industry}</td>
+                    <td>{record.use_case_category.slice(0, 2).join(", ")}</td>
+                    <td>{record.products_used.slice(0, 3).join(", ")}</td>
+                    <td><span class="score-pill">{record.maturity_score}/6</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="cta">
+      <div class="cta-banner">
+        <h2 class="cta-banner__title">Plug in your vendor sources next.</h2>
+        <p class="cta-banner__subtitle">Swap the synthetic seed for your own crawler output. Same schema, same dashboard, real intelligence.</p>
+        <div class="hero-actions">
+          <a class="btn btn--on-dark" href="https://github.com/vibewatch/usecase" target="_blank" rel="noreferrer">Read the pipeline docs</a>
+          <a class="btn btn--yellow" href="https://github.com/vibewatch/usecase/issues" target="_blank" rel="noreferrer">Open an issue</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const searchInput = document.querySelector("[data-search]");
+    const vendorSelect = document.querySelector("[data-vendor]");
+    const industrySelect = document.querySelector("[data-industry]");
+    const areaSelect = document.querySelector("[data-area]");
+    const visibleCount = document.querySelector("[data-visible-count]");
+    const rows = Array.from(document.querySelectorAll("[data-case-row]"));
+
+    function valueOf(element: Element | null) {
+      return element instanceof HTMLInputElement || element instanceof HTMLSelectElement ? element.value : "";
+    }
+
+    function applyFilters() {
+      const query = valueOf(searchInput).trim().toLowerCase();
+      const vendor = valueOf(vendorSelect);
+      const industry = valueOf(industrySelect);
+      const area = valueOf(areaSelect);
+      let shown = 0;
+
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const searchText = row.dataset.searchText ?? "";
+        const areas = row.dataset.area ?? "";
+        const matches =
+          (!query || searchText.includes(query)) &&
+          (!vendor || row.dataset.vendor === vendor) &&
+          (!industry || row.dataset.industry === industry) &&
+          (!area || areas.split("|").includes(area));
+
+        row.hidden = !matches;
+        if (matches) shown += 1;
+      });
+
+      if (visibleCount) visibleCount.textContent = String(shown);
+    }
+
+    [searchInput, vendorSelect, industrySelect, areaSelect].forEach((control) => {
+      control?.addEventListener("input", applyFilters);
+      control?.addEventListener("change", applyFilters);
+    });
+  </script>
+</BaseLayout>

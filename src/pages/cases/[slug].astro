@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { caseStudies } from "../../lib/caseStudies";
+import { formatDate, formatPercent, maturityLabel } from "../../lib/analytics";
+import type { CaseStudyRecord } from "../../lib/types";
+
+type Props = {
+  record: CaseStudyRecord;
+};
+
+export function getStaticPaths() {
+  return caseStudies.map((record) => ({ params: { slug: record.slug }, props: { record } }));
+}
+
+const { record } = Astro.props as Props;
+---
+
+<BaseLayout title={`${record.customer_name} | Use Case Intelligence`}>
+  <main class="container detail-shell">
+    <a class="back-link" href="/">← Back to dashboard</a>
+
+    <section class="detail-hero">
+      <div class="detail-hero__main">
+        <div class="detail-hero__chips">
+          <span class="badge badge--yellow">{record.vendor}</span>
+          <span class="badge badge--purple">{record.industry}</span>
+          <span class="badge badge--neutral">{record.region}</span>
+        </div>
+        <h1 class="detail-hero__title">{record.customer_name}</h1>
+        <p class="detail-hero__problem">{record.business_problem}</p>
+      </div>
+      <aside class="detail-score">
+        <span class="detail-score__label">Maturity score</span>
+        <strong class="detail-score__value">{record.maturity_score}<span style="font-size: 0.4em; color: var(--color-on-dark-muted);">/6</span></strong>
+        <span class="detail-score__pill">{maturityLabel(record.maturity_score)}</span>
+        <span class="detail-score__caption">Confidence {formatPercent(record.confidence_score)} · Published {formatDate(record.published_date)}</span>
+      </aside>
+    </section>
+
+    <section class="detail-grid" aria-label="Case details">
+      <article class="surface-card">
+        <h2>Solution</h2>
+        <p>{record.solution_summary}</p>
+      </article>
+      <article class="surface-card">
+        <h2>Outcome</h2>
+        <p>{record.business_outcome}</p>
+      </article>
+      <article class="surface-card">
+        <h2>Products</h2>
+        <ul class="tag-list">
+          {record.products_used.map((product) => <li>{product}</li>)}
+        </ul>
+      </article>
+      <article class="surface-card">
+        <h2>Categories</h2>
+        <ul class="tag-list">
+          {[...record.technical_area, ...record.use_case_category].map((category) => <li>{category}</li>)}
+        </ul>
+      </article>
+    </section>
+
+    <section class="evidence-grid" aria-label="Evidence and quality">
+      <article class="surface-card">
+        <h2>Metrics</h2>
+        <ul>
+          {record.metrics.map((metric) => <li>{metric}</li>)}
+        </ul>
+      </article>
+      <article class="surface-card">
+        <h2>Architecture clues</h2>
+        <ul>
+          {record.architecture_clues.map((clue) => <li>{clue}</li>)}
+        </ul>
+      </article>
+      <article class="surface-card">
+        <h2>Traceability</h2>
+        <dl class="trace-list">
+          <div><dt>Published</dt><dd>{formatDate(record.published_date)}</dd></div>
+          <div><dt>Region</dt><dd>{record.region}</dd></div>
+          <div><dt>Company size</dt><dd>{record.company_size}</dd></div>
+          <div><dt>Confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
+        </dl>
+        <a class="btn btn--primary btn--small" href={record.source_url} target="_blank" rel="noreferrer">Open source record</a>
+      </article>
+    </section>
+
+    <section class="cta-banner">
+      <h2 class="cta-banner__title">More from {record.vendor}?</h2>
+      <p class="cta-banner__subtitle">Browse the full dataset to compare this story against other deployments in the same vendor or industry slice.</p>
+      <div class="hero-actions">
+        <a class="btn btn--on-dark" href="/#records">Open the dataset</a>
+        <a class="btn btn--yellow" href="/#matrix">Coverage matrix</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,92 @@
+---
+import "../styles/global.css";
+
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description = "Customer use case intelligence dashboard" } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="promo-banner" role="status">
+      <span class="promo-banner__pill">Sample data</span>
+      <span>Crawlers and extraction jobs are not wired up yet — every record below is synthetic.</span>
+    </div>
+
+    <header class="site-header">
+      <div class="container site-nav">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true">UCI</span>
+          <span>Use Case Intelligence</span>
+        </a>
+        <ul class="nav-links" aria-label="Primary">
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="/#records">Records</a></li>
+          <li><a href="/#matrix">Coverage</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn--ghost btn--small" href="https://github.com/vibewatch/usecase" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn btn--primary btn--small" href="/#records">Browse dataset</a>
+        </div>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__grid">
+          <div class="site-footer__brand">
+            <a class="brand" href="/">
+              <span class="brand__mark" aria-hidden="true">UCI</span>
+              <span style="color: var(--color-on-dark);">Use Case Intelligence</span>
+            </a>
+            <p>Vendor case studies, normalized into a structured market signal.</p>
+          </div>
+          <div class="site-footer__col">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="/">Dashboard</a></li>
+              <li><a href="/#records">Records</a></li>
+              <li><a href="/#matrix">Coverage matrix</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__col">
+            <h3>Pipeline</h3>
+            <ul>
+              <li><a href="/#sample">Sample data</a></li>
+              <li><a href="https://github.com/vibewatch/usecase" target="_blank" rel="noreferrer">Repository</a></li>
+              <li><a href="/#cta">Bring your sources</a></li>
+            </ul>
+          </div>
+          <div class="site-footer__col">
+            <h3>About</h3>
+            <ul>
+              <li><a href="/#cta">Roadmap</a></li>
+              <li><a href="https://github.com/vibewatch/usecase/issues" target="_blank" rel="noreferrer">Report an issue</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="site-footer__legal">
+          <span>© {year} Use Case Intelligence — synthetic data shown.</span>
+          <span>Built with Astro · Styled after the Miro design system.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
