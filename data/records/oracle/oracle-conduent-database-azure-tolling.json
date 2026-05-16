@@ -1,0 +1,86 @@
+{
+  "id": "oracle-conduent-database-azure-tolling",
+  "slug": "oracle-conduent-database-azure-tolling",
+  "vendor": "Oracle",
+  "customer_name": "Conduent",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Conduent—which processes nearly 13 million roadway tolling transactions every day and billions of customer-service interactions per year for 6 of the 10 largest US toll systems—needed faster transaction performance for one large US tolling client whose Microsoft-based front-end and Oracle Database back-end on premises could not keep up.",
+  "solution_summary": "Conduent, a global digital services provider processing 13M tolling transactions daily across 6 major US toll systems, migrated a high-volume tolling customer's back-end database workload from on-premises Oracle Database to Oracle Database@Azure—co-locating OCI services inside Azure data centers. This architecture enabled customers to keep their Microsoft front-end stack (Dynamics 365, Azure) while Conduent provided Exadata performance on the back end, doubling application performance, reducing transaction latency, and maintaining Microsoft/Oracle licensing flexibility.",
+  "products_used": [
+    "Oracle Database@Azure",
+    "Oracle Exadata Database Service",
+    "Microsoft Dynamics 365",
+    "Oracle Fusion Cloud ERP"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "System Migration",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Conduent doubled tolling-application performance versus on-premises, improved system resiliency, met regulatory and Microsoft-licensing requirements via Azure co-location, and positioned its data for future AI/ML use cases across European and Australian transit expansion.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "~13 million roadway tolling transactions per day",
+    "Supports 6 of the 10 largest US toll systems",
+    "600+ government and transportation agency customers",
+    "Double the application performance vs on-premises"
+  ],
+  "architecture_clues": [
+    "Oracle Database@Azure: OCI Exadata services co-located inside Azure data centers",
+    "Microsoft Dynamics 365 front end integrated with Oracle Fusion Cloud ERP",
+    "Distributed cloud architecture spanning Oracle Database@Azure, Exadata Cloud@Customer, and OCI public regions under one control plane",
+    "Microsoft Azure Consumption Commitments (MACC) used alongside Oracle licensing"
+  ],
+  "source_url": "https://www.oracle.com/customers/conduent/",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Oracle Database@Azure helped Conduent double the application performance compared with an on-premises deployment and improve system resiliency without impacting regulatory compliance.",
+    "Conduent processes nearly 13 million roadway tolling transactions every day, and billions of customer service interactions a year.",
+    "The performance of Exadata Database Service on Oracle Database@Azure is amazing—better than anticipated."
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Database@Azure",
+      "role": "High-performance transactional database for tolling and payment processing co-located in Azure data centers; doubles performance vs. on-premises and provides real-time toll account updates.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Oracle Exadata Database Service",
+      "role": "Optimized database engine delivering sub-millisecond query performance for 13M daily toll transactions and billing operations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Dynamics 365",
+      "role": "Front-end toll account management and customer-facing interface; customers replenish toll accounts through integrated portal.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Oracle Fusion Cloud ERP",
+      "role": "Back-office financial transaction recording and reconciliation of toll revenue.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Toll collection transactions from toll plazas and readers → Oracle Exadata Database on Azure → real-time account updates via Dynamics 365 front-end → Oracle Fusion Cloud ERP for financial posting; contact data stored in Dynamics 365.",
+  "integration_points": [
+    "Microsoft Dynamics 365 platform",
+    "Azure ecosystem",
+    "toll agency systems",
+    "legacy on-premises Oracle Database",
+    "customer tolling infrastructure",
+    "payment processing networks"
+  ]
+}

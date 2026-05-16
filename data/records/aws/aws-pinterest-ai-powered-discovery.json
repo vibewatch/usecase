@@ -1,0 +1,115 @@
+{
+  "id": "aws-pinterest-ai-powered-discovery",
+  "slug": "aws-pinterest-ai-powered-discovery",
+  "vendor": "AWS",
+  "customer_name": "Pinterest",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Pinterest needed to scale AI-powered visual discovery to 600 million monthly active users while keeping the platform a positive, trusted, and safe experience differentiated from competitors who optimize for viral engagement.",
+  "solution_summary": "Pinterest, serving 600M monthly users, runs its AI-powered visual discovery platform entirely on AWS, processing 500+ petabytes of data and over 10M AI recommendations per second. The recommendation system trains on 600+ Amazon EC2 P4/P4de GPU instances and serves inference on 10,000+ Amazon EC2 G5 GPU instances, all orchestrated by Amazon EKS for rapid microservices deployment. Pinterest Canvas, a homegrown latent diffusion vision foundation model, generates and manipulates high-resolution product images on EC2 GPUs for advertiser creative tooling. Visual search across 2.5B+ recognized objects uses vision language models built on Amazon SageMaker, while Pinterest Assistant adds a voice-enabled conversational discovery experience powered by foundation models from Amazon Bedrock.",
+  "products_used": [
+    "Amazon EKS",
+    "Amazon EC2 G5 instances",
+    "Amazon EC2 P4 instances",
+    "Amazon EC2 P4de instances",
+    "Amazon EC2",
+    "Amazon SageMaker",
+    "Amazon Bedrock"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Pinterest scaled AI-powered discovery to 600 million monthly active users while delivering revenue growth and user growth, driving 70% of user discovery through AI and significantly improving search fulfillment.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "600 million monthly active users",
+    "500+ petabytes of data scaled on AWS",
+    "10,000+ Amazon EC2 G5 instances for inference",
+    "600+ P4/P4de instances for training",
+    "18 terabytes of data analyzed daily",
+    "10 million AI-powered recommendations per second",
+    "2.5 billion objects recognized via visual search",
+    "17% year-over-year revenue growth",
+    "11% increase in monthly active users",
+    "230 basis point improvement in search fulfillment",
+    "70% of user discovery now AI-driven"
+  ],
+  "architecture_clues": [
+    "Microservices-based architecture on AWS since 2010",
+    "Recommendation system built entirely on AWS",
+    "Amazon EKS for rapid AI deployment",
+    "Pinterest Canvas: homegrown latent diffusion vision foundation model on EC2 GPU instances",
+    "Visual language models built using Amazon SageMaker",
+    "Pinterest Assistant: generative AI voice-enabled conversational experience"
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/pinterest-ai-case-study/",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Built entirely on AWS, Pinterest uses Amazon EKS for rapid AI deployment across the business, 10,000+ Amazon EC2 G5 instances for inference and 600+ P4/P4de instances for training, analyzing over 18 terabytes of data daily.",
+    "Pinterest processes over 10 million AI-powered recommendations per second to support personalized discovery, advanced content moderation, and responsible features.",
+    "With the help of AWS, Pinterest scales processing, storage, and analysis of over 500 petabytes of data with ease.",
+    "17% year-over-year revenue growth ... 11% increase in monthly active users ... 230 basis point improvement in search fulfillment ... 70% of user discovery now AI-driven."
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EKS",
+      "role": "Orchestrates microservices-based recommendation, ranking, and safety pipelines, enabling rapid AI deployment across the entire Pinterest platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon EC2 G5 instances",
+      "role": "Run 10,000+ GPU instances for real-time recommendation and ranking inference at over 10M predictions per second.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 P4 instances",
+      "role": "Provide 600+ high-end GPU instances for training large multimodal recommendation and content-understanding models on 18+ TB of daily data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 P4de instances",
+      "role": "Extend P4 training capacity for the most demanding vision and foundation-model workloads including Pinterest Canvas.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides the underlying compute fabric for microservices, data processing, and supporting infrastructure across 500+ petabytes of data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Builds and serves the vision language models powering visual search across 2.5B+ recognized objects for refined in-image search and discovery.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Supplies managed foundation models that power Pinterest Assistant's voice-enabled conversational discovery experience.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Pinterest ingests user signals, Pin metadata, and uploaded images at scale; training data (18+ TB/day) flows to EC2 P4/P4de clusters that fit multimodal recommendation and Canvas diffusion models. Trained models deploy via EKS to EC2 G5 inference fleets, which generate 10M+ recommendations per second for the feed, search, and ads. Visual search queries route to SageMaker-hosted vision language models for object recognition, while Pinterest Assistant queries call Bedrock foundation models for conversational responses.",
+  "integration_points": [
+    "Pinterest mobile and web apps (600M MAU)",
+    "Advertiser creative tooling (Pinterest Canvas)",
+    "Visual search and shopping surfaces",
+    "Content moderation and trust & safety pipelines",
+    "Pinterest Assistant voice/chat interface",
+    "Internal data lake (500+ PB)"
+  ]
+}

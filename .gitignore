@@ -4,19 +4,23 @@ dist/
 .env
 .env.*
 
-# Crawler artifacts
-data/discovered_urls.jsonl
-data/fetch_manifest.jsonl
+# Crawler caches (rebuildable from tracked ledgers + records)
 data/http_cache/
 data/raw_html/
 data/extract_jobs/
-data/records/
-data/usecase_intel.sqlite
-data/case-studies.generated.json
 .fetch-cache/
-__pycache__/
+
+# Build artifacts (rebuildable from data/records/)
+data/usecase_intel.sqlite
 data/*.sqlite
 data/*.sqlite-*
+data/case-studies.merged.json
 data/case-studies.generated.json
+
+# Tracked (do NOT ignore — these persist across CI runs and drive resumability):
+#   data/records/**                — authored normalized records
+#   data/discovered_urls.jsonl     — URL queue with sitemap lastmod
+#   data/fetch_manifest.jsonl      — fetch ledger
+
 __pycache__/
 *.pyc

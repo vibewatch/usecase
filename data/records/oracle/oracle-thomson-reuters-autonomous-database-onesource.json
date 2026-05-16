@@ -1,0 +1,98 @@
+{
+  "id": "oracle-thomson-reuters-autonomous-database-onesource",
+  "slug": "oracle-thomson-reuters-autonomous-database-onesource",
+  "vendor": "Oracle",
+  "customer_name": "Thomson Reuters",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Thomson Reuters ONESOURCE, which calculates over 10 billion tax transactions per year representing more than $23 trillion of economic value across 60,000+ taxing jurisdictions in 205+ countries, faced rising IT maintenance burden on on-premises platforms that limited availability, scalability, and security for sensitive customer financial data.",
+  "solution_summary": "Thomson Reuters ONESOURCE, a unified indirect tax engine processing 10B+ tax transactions annually representing $23 trillion of economic value across 60K+ global taxing jurisdictions, migrated to Oracle Autonomous Transaction Processing on Oracle Cloud Infrastructure to achieve millisecond transaction latency, zero downtime for patches and content updates, and automatic scaling during peak demand periods (Black Friday, Cyber Monday). Integration with Oracle Fusion Cloud ERP enabled tax calculations grounded in invoice-level financial data for improved accuracy and faster compliance reporting globally.",
+  "products_used": [
+    "Oracle Autonomous Transaction Processing",
+    "OCI Kubernetes Engine",
+    "OCI Functions",
+    "Oracle Fusion Cloud ERP",
+    "Oracle GoldenGate"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Migration",
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "System Migration",
+    "Real-time Analytics",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Thomson Reuters achieved millisecond data processing speeds with zero downtime, eliminated 6–12 hours of monthly patching downtime on the previous on-premises environment, and exceeded internal cost projections—plans now include moving the global trade offering to Oracle Autonomous Database.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability",
+    "Compliance"
+  ],
+  "metrics": [
+    "10+ billion tax transactions calculated per year",
+    "$23 trillion of economic value processed",
+    "60,000+ global taxing jurisdictions",
+    "205+ countries and territories",
+    "6 to 12 hours per month of downtime eliminated",
+    "Oracle has 50 cloud regions worldwide"
+  ],
+  "architecture_clues": [
+    "Native deployment of ONESOURCE on OCI",
+    "Autonomous Transaction Processing for OLTP",
+    "OCI Kubernetes Engine and OCI Functions for scalability and event handling",
+    "OCI GoldenGate for real-time production DB replication and DR",
+    "Oracle Data Safe and Oracle Cloud Guard for unified security insights",
+    "Cloud Lift Services for planning, architecting, and testing"
+  ],
+  "source_url": "https://www.oracle.com/customers/thomson-reuters/",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Thomson Reuters ONESOURCE calculates, collects, and reports on more than 10 billion tax transactions a year, representing over $23 trillion of economic value.",
+    "Oracle Autonomous Database provides autoscaling, self-tuning, self-repairing, and self-encryption, so we have zero downtime to securely process critical financial transactions.",
+    "Thomson Reuters also eliminated the roughly 6 to 12 hours per month of downtime previously needed for patching and updating transactional on-premises environments."
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Autonomous Transaction Processing",
+      "role": "Processes 10B+ tax transactions annually with millisecond latency; auto-scales during peak periods; eliminates 6–12 hours of monthly patching downtime.",
+      "layer": "Storage"
+    },
+    {
+      "name": "OCI Kubernetes Engine",
+      "role": "Container orchestration for flexible deployment of ONESOURCE application services and microservices.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OCI Functions",
+      "role": "Serverless compute for event-driven tax calculation workflows and API integrations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Oracle Fusion Cloud ERP",
+      "role": "Financial integration; connects tax calculations at invoice level for accurate and timely tax liability recording.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Oracle GoldenGate",
+      "role": "Real-time replication of production databases to secondary systems for critical backup and disaster recovery.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Transactional data from 60K+ jurisdictions and 205+ countries flows into ONESOURCE → Oracle Autonomous Transaction Processing calculates tax liabilities in milliseconds → results posted to Oracle Fusion Cloud ERP for accounting → GoldenGate replicates to disaster recovery systems.",
+  "integration_points": [
+    "60K+ global taxing jurisdictions (205+ countries)",
+    "Oracle Fusion Cloud ERP for financial posting",
+    "customer on-premises systems",
+    "compliance reporting frameworks",
+    "Oracle Cloud Marketplace for distribution",
+    "Black Friday and Cyber Monday peak periods"
+  ]
+}

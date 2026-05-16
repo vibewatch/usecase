@@ -1,0 +1,68 @@
+{
+  "id": "databricks-skyscanner-travel-search-ranking",
+  "slug": "databricks-skyscanner-travel-search-ranking",
+  "vendor": "Databricks",
+  "customer_name": "Skyscanner",
+  "industry": "Software / SaaS",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "Skyscanner handles 35 million searches and tens of billions of events every day, so a healthy unified data ecosystem is essential for travel search at this scale — teams across many use cases need to share reliable data and move quickly without breaking safety or governance.",
+  "solution_summary": "Skyscanner unifies its data ecosystem on the Databricks Data Intelligence Platform to handle 35 million searches and tens of billions of events every day. Bronze, silver, and gold layers feed shared 'Cornerstone Data Products' that many teams reuse, including a flight ranking model that serves 180 million predictions daily. Unity Catalog governs access to the shared products so teams can move faster and experiment safely on the same trusted data, while emerging agentic AI capabilities are being layered on top to surface more relevant results for travelers across the globe.",
+  "products_used": [
+    "Databricks Data Intelligence Platform",
+    "Unity Catalog"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "With shared Cornerstone Data Products built on a bronze/silver/gold medallion architecture and governed by Unity Catalog, Skyscanner ranks flights at 180 million predictions per day, processes 35 million daily searches and tens of billions of events, and can experiment with agentic AI safely.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "35 million searches per day",
+    "Tens of billions of events per day",
+    "180 million flight-ranking predictions per day"
+  ],
+  "architecture_clues": [
+    "Bronze/silver/gold medallion architecture on Databricks",
+    "Shared 'Cornerstone Data Products' powering many use cases",
+    "Unity Catalog governance",
+    "Runs on AWS"
+  ],
+  "source_url": "https://www.databricks.com/customers/skyscanner",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Skyscanner handles 35 million searches and tens of billions of events every day",
+    "a flight ranking model serving 180 million predictions daily",
+    "By building bronze, silver and gold layers on the Databricks Platform, teams create shared Cornerstone Data Products that power many use cases"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data Intelligence Platform",
+      "role": "Hosts the bronze/silver/gold medallion and shared Cornerstone Data Products powering 35M daily searches, tens of billions of events, and a flight-ranking model serving 180M predictions/day",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Governs the shared Cornerstone Data Products across teams and underpins emerging agentic AI capabilities",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Tens of billions of events from 35 million daily Skyscanner searches land in the Databricks Lakehouse and flow through bronze, silver, and gold layers into shared 'Cornerstone Data Products' that many internal teams reuse. A flight-ranking model trained on these products serves 180 million predictions a day. Unity Catalog governs the shared data products and is the foundation for emerging agentic AI capabilities.",
+  "integration_points": [
+    "Skyscanner travel-search front-ends consuming the flight-ranking model (180M predictions/day)",
+    "35M daily searches generating tens of billions of events as input",
+    "Multiple internal teams sharing Cornerstone Data Products",
+    "AWS cloud deployment"
+  ]
+}

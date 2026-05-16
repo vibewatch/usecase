@@ -1,0 +1,81 @@
+{
+  "id": "databricks-elliptic-agent-bricks-crypto-compliance",
+  "slug": "databricks-elliptic-agent-bricks-crypto-compliance",
+  "vendor": "Databricks",
+  "customer_name": "Elliptic",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Elliptic's clients—compliance teams at crypto exchanges, banks, payment providers, and institutional custody platforms—face rising alert volumes and stringent regulation, and analysts must document each decision by reconciling exposure values, addresses, and transaction chronology. Applying LLMs to sanctions, terrorist-financing, and child-exploitation workflows required strong assurances against hallucination, omission, and opaque reasoning before outputs could feed formal investigations or regulator-facing reports.",
+  "solution_summary": "Elliptic extended its existing Data & Intelligence Platform with Agent Bricks to build Elliptic's copilot — an agent that describes wallet activity, highlights exposure paths, and produces neutral, report-ready risk narratives aligned to each client's risk appetite. The copilot is backed by Databricks Foundation Model APIs and Model Serving, and every interaction is captured by MLflow tracing so each prompt, intermediate step, and final narrative can be audited end-to-end. Automated evaluation pipelines score responses for correctness, relevance, and safety using LLMs-as-judges, with custom domain-specific safety scorers that distinguish describing money-laundering typologies (appropriate) from promoting harmful activity (inappropriate). Prompt and safety controls are versioned in MLflow so the team can iterate without rework.",
+  "products_used": [
+    "Agent Bricks / Mosaic AI",
+    "MLflow",
+    "Databricks Foundation Model APIs",
+    "Databricks Model Serving"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Fraud Detection",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Elliptic delivered a compliance copilot in production without building its own governance and traceability stack, helping clients resolve high-risk screenings up to 2x faster and cut Suspicious Activity Report time by 40%, while keeping outputs grounded, evaluated, and regulator-defensible.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "2x faster resolution of high-risk screenings",
+    "40% less time to complete a Suspicious Activity Report"
+  ],
+  "architecture_clues": [
+    "Agent Bricks for production governance, evaluation, and observability",
+    "MLflow tracing for end-to-end lineage from prompt to narrative",
+    "LLM-as-judge automated evaluation with custom safety scorers",
+    "Databricks Foundation Model APIs + Model Serving"
+  ],
+  "source_url": "https://www.databricks.com/customers/elliptic",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Compliance teams are resolving high-risk screenings up to 2x faster, without sacrificing accuracy or documentation quality.",
+    "40% Less time needed to complete a Suspicious Activity Report",
+    "Being able to trace and evaluate responses consistently was critical for us."
+  ],
+  "solution_components": [
+    {
+      "name": "Agent Bricks / Mosaic AI",
+      "role": "Agent runtime hosting Elliptic's copilot that produces neutral, report-ready risk narratives from wallet and transaction activity",
+      "layer": "Compute"
+    },
+    {
+      "name": "MLflow",
+      "role": "End-to-end tracing, evaluation, versioning, and audit of every copilot interaction with custom LLM-as-judge safety scorers",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Foundation Model APIs",
+      "role": "Backing model access for the copilot, future-proofed for multi-agent expansion",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Model Serving",
+      "role": "Hosts the copilot endpoint for client-facing compliance workflows",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Wallet activity, transaction history, exposure values, screening results, and Elliptic's risk scores flow from the existing Data & Intelligence Platform into Agent Bricks, where Elliptic's copilot runs on models served via Databricks Foundation Model APIs and Model Serving. Every prompt, intermediate step, and final narrative is captured by MLflow tracing, with automated LLM-as-judge evaluation pipelines and custom domain-specific safety scorers feeding back into prompt and safety versioning. The resulting narratives are surfaced to compliance analysts at exchanges, banks, payment providers, and institutional custody clients.",
+  "integration_points": [
+    "Existing Elliptic Data & Intelligence Platform (source of wallet, transaction, screening, and risk-score data)",
+    "Compliance teams at exchanges, banks, payment providers, and institutional custody platforms (consumers)",
+    "Suspicious Activity Report (SAR) workflow at client institutions",
+    "AWS cloud deployment"
+  ]
+}

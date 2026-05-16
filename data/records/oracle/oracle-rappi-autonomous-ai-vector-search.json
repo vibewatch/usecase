@@ -1,0 +1,82 @@
+{
+  "id": "oracle-rappi-autonomous-ai-vector-search",
+  "slug": "oracle-rappi-autonomous-ai-vector-search",
+  "vendor": "Oracle",
+  "customer_name": "Rappi",
+  "industry": "Software / SaaS",
+  "region": "Latin America",
+  "company_size": "Enterprise",
+  "business_problem": "Rappi—Latin America's super-app for on-demand delivery operating across nine countries—needed to deliver faster, more personalized search and recommendation experiences while keeping costs in check and integrating semantic search across millions of products, restaurants, and services.",
+  "solution_summary": "Rappi, Latin America's fastest-growing delivery app operating in 300+ cities, upgraded from keyword-based search to semantic vector search powered by Oracle Autonomous AI Database and AI Vector Search to handle vague queries, misspellings, and intent-based product discovery. The migration reduced search latency by 40%, improved conversion rates by 25%, and supports millions of user queries per minute through vectorized retail and restaurant catalogs stored directly in Autonomous Database.",
+  "products_used": [
+    "Oracle Autonomous AI Database",
+    "Oracle AI Vector Search",
+    "OCI Generative AI",
+    "Oracle Cloud Infrastructure"
+  ],
+  "technical_area": [
+    "AI / Machine Learning",
+    "Generative AI",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Personalization / Recommendations",
+    "Knowledge Retrieval",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Rappi cut search latency by ~40% and improved customer conversion by ~25% by serving semantic search and AI-driven recommendations directly from Oracle Autonomous AI Database with AI Vector Search.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Operations across 9 Latin American countries",
+    "~40% reduction in search latency",
+    "~25% improvement in customer conversion"
+  ],
+  "architecture_clues": [
+    "AI Vector Search co-located with operational data in Oracle Autonomous AI Database",
+    "No separate vector database—eliminates data movement",
+    "OCI Generative AI for personalization and recommendations"
+  ],
+  "source_url": "https://www.oracle.com/customers/rappi/",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Rappi uses Oracle Autonomous AI Database with AI Vector Search and OCI Generative AI to power semantic search and personalized recommendations across its Latin American super-app.",
+    "Rappi reduced search latency by approximately 40% and improved customer conversion by approximately 25%."
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Autonomous AI Database",
+      "role": "Core search platform; stores vectorized product catalog (restaurants and retail) and processes millions of user search queries per minute with semantic understanding.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Oracle AI Vector Search",
+      "role": "Native vector search engine within Autonomous Database; enables semantic matching of user intent against product catalog vectors without external vector store.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OCI Generative AI",
+      "role": "Powers natural language understanding and image-to-text processing; vectorizes user queries and product descriptions for semantic matching.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure",
+      "role": "Provides scalable infrastructure, regional distribution, and high availability for real-time search serving to millions of app users.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User search queries (text or image) → OCI Generative AI vectorization → Oracle AI Vector Search against product catalog vectors → semantic results ranked and returned to app → improved product discovery increases average order value and conversion.",
+  "integration_points": [
+    "Rappi mobile app",
+    "restaurant product catalogs",
+    "retail product catalogs",
+    "user search queries",
+    "e-commerce transaction flows",
+    "regional Latin American infrastructure"
+  ]
+}

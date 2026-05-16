@@ -4,7 +4,12 @@ Reads `data/sources.json`, walks each vendor's sitemap(s), applies include/exclu
 filters, and appends new URLs to `data/discovered_urls.jsonl`.
 
 JSONL schema per line:
-    {"vendor": str, "url": str, "discovered_at": ISO8601, "source": "sitemap" | "index"}
+    {"vendor": str, "url": str, "discovered_at": ISO8601,
+     "source": "sitemap" | "index", "lastmod": "YYYY-MM-DD" | null}
+
+`lastmod` is the sitemap-reported last-modified date when available (sitemap source
+only; index-page URLs get null). Downstream stages (fetch, extract) sort the queue by
+`lastmod` desc so the most recent case studies are processed first.
 
 Idempotent — already-known URLs are skipped on rerun.
 """
@@ -42,8 +47,12 @@ class _LinkExtractor(HTMLParser):
                 return
 
 
-def _parse_sitemap(body: bytes) -> tuple[list[str], list[str]]:
-    """Return (nested_sitemap_urls, page_urls). Handles sitemap index + urlset."""
+def _parse_sitemap(body: bytes) -> tuple[list[str], list[tuple[str, Optional[str]]]]:
+    """Return (nested_sitemap_urls, [(page_url, lastmod_yyyy_mm_dd | None), ...]).
+
+    Handles sitemap index + urlset. `lastmod` is normalized to YYYY-MM-DD (the
+    first 10 chars of the ISO 8601 value) so it sorts lexicographically.
+    """
     try:
         root = ElementTree.fromstring(body)
     except ElementTree.ParseError:
@@ -51,16 +60,23 @@ def _parse_sitemap(body: bytes) -> tuple[list[str], list[str]]:
 
     tag = root.tag.lower()
     nested: list[str] = []
-    pages: list[str] = []
+    pages: list[tuple[str, Optional[str]]] = []
 
     if tag.endswith("sitemapindex"):
         for loc in root.findall("sm:sitemap/sm:loc", SITEMAP_NS):
             if loc.text:
                 nested.append(loc.text.strip())
     elif tag.endswith("urlset"):
-        for loc in root.findall("sm:url/sm:loc", SITEMAP_NS):
-            if loc.text:
-                pages.append(loc.text.strip())
+        for url_el in root.findall("sm:url", SITEMAP_NS):
+            loc_el = url_el.find("sm:loc", SITEMAP_NS)
+            if loc_el is None or not loc_el.text:
+                continue
+            lastmod_el = url_el.find("sm:lastmod", SITEMAP_NS)
+            lastmod: Optional[str] = None
+            if lastmod_el is not None and lastmod_el.text:
+                raw = lastmod_el.text.strip()
+                lastmod = raw[:10] if len(raw) >= 10 else raw
+            pages.append((loc_el.text.strip(), lastmod))
     return nested, pages
 
 
@@ -72,15 +88,16 @@ def _walk_sitemap(
     exclude_patterns: list[re.Pattern[str]],
     max_sitemaps: int = 20,
     enough: Optional[int] = None,
-) -> list[str]:
+) -> list[tuple[str, Optional[str]]]:
     """Walk sitemap (index → child sitemaps → urls) with progress + early-exit.
 
-    Stops as soon as `enough` filter-matching urls accumulate, so a 180-child
-    sitemap index doesn't fully expand on every run.
+    Returns `[(url, lastmod_yyyy_mm_dd | None), ...]`. Stops as soon as `enough`
+    filter-matching urls accumulate, so a 180-child sitemap index doesn't fully
+    expand on every run.
     """
     pending: list[str] = [root_url]
     visited: set[str] = set()
-    matched: list[str] = []
+    matched: list[tuple[str, Optional[str]]] = []
     matched_seen: set[str] = set()
     fetched = 0
 
@@ -97,14 +114,14 @@ def _walk_sitemap(
             continue
         fetched += 1
         nested, found = _parse_sitemap(result.body)
-        for page in found:
+        for page, lastmod in found:
             if page in matched_seen:
                 continue
             if include_patterns and not any(p.search(page) for p in include_patterns):
                 continue
             if any(p.search(page) for p in exclude_patterns):
                 continue
-            matched.append(page)
+            matched.append((page, lastmod))
             matched_seen.add(page)
             if enough is not None and len(matched) >= enough:
                 print(f"  sitemap walk: reached limit {enough}, stopping early", file=sys.stderr, flush=True)
@@ -200,7 +217,7 @@ def discover(
             include = [re.compile(p) for p in source.get("url_patterns", [])]
             exclude = [re.compile(p) for p in source.get("exclude_patterns", [])]
 
-            filtered_sitemap: list[str] = []
+            filtered_sitemap: list[tuple[str, Optional[str]]] = []
             if use_sitemaps:
                 for sitemap in source.get("sitemaps", []):
                     filtered_sitemap.extend(
@@ -222,25 +239,34 @@ def discover(
                     raw_links = _extract_index_links(client, index)
                     filtered_index.extend(_filter_urls(raw_links, include, exclude))
 
-            combined: list[tuple[str, str]] = []
+            combined: list[tuple[str, str, Optional[str]]] = []
             seen: set[str] = set()
-            for url in filtered_sitemap:
+            for url, lastmod in filtered_sitemap:
                 if url not in seen and url not in existing:
-                    combined.append((url, "sitemap"))
+                    combined.append((url, "sitemap", lastmod))
                     seen.add(url)
             for url in filtered_index:
                 if url not in seen and url not in existing:
-                    combined.append((url, "index"))
+                    combined.append((url, "index", None))
                     seen.add(url)
+
+            # Newest first so a --limit cap keeps recent URLs over stale ones.
+            combined.sort(key=lambda item: (item[2] is not None, item[2] or ""), reverse=True)
 
             if limit_per_vendor is not None:
                 combined = combined[:limit_per_vendor]
 
             now = datetime.now(timezone.utc).isoformat(timespec="seconds")
-            for url, source_kind in combined:
+            for url, source_kind, lastmod in combined:
                 out.write(
                     json.dumps(
-                        {"vendor": vendor, "url": url, "discovered_at": now, "source": source_kind},
+                        {
+                            "vendor": vendor,
+                            "url": url,
+                            "discovered_at": now,
+                            "source": source_kind,
+                            "lastmod": lastmod,
+                        },
                         ensure_ascii=False,
                     )
                     + "\n"

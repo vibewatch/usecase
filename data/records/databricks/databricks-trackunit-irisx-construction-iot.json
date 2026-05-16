@@ -1,0 +1,101 @@
+{
+  "id": "databricks-trackunit-irisx-construction-iot",
+  "slug": "databricks-trackunit-irisx-construction-iot",
+  "vendor": "Databricks",
+  "customer_name": "Trackunit",
+  "industry": "Manufacturing",
+  "region": "Denmark",
+  "company_size": "Enterprise",
+  "business_problem": "Construction is one of the least digitized industries in the world, with stagnant productivity despite heavy IT investment. Internally, Trackunit had to handle 6 million connected machines generating 3 billion data points per day across siloed lakehouses for Finance, Engineering, and RevOps. Their customers — rental companies, contractors, and OEMs — typically lacked the data capabilities to build modern analytics on top of 'internal spaghetti' systems.",
+  "solution_summary": "Trackunit unified what was previously a Finance/Engineering/RevOps trio of siloed 'lakehouses' into a single Databricks Lakehouse that harmonizes ~3 billion daily data points from 6 million connected construction machines together with Salesforce, Planhat, and proprietary machine data — ingested through Lakeflow Connect and governed end-to-end by Unity Catalog. Trackunit then took the rare step of becoming a 'Built-on' partner: Databricks capabilities are embedded directly into IrisX, Trackunit's customer-facing platform for OEMs, rental companies, and construction contractors, giving customers enterprise-grade data and AI without building it themselves. Databricks SQL, AI/BI, and Genie surface analytics to both internal teams and IrisX customers in plain language, and Agent Bricks is being prepared for upcoming agentic capabilities. Customers building on IrisX report 5x faster time-to-market.",
+  "products_used": [
+    "Databricks Data Intelligence Platform",
+    "Lakeflow Connect",
+    "Unity Catalog",
+    "Databricks SQL",
+    "Databricks AI/BI",
+    "Databricks Genie",
+    "Agent Bricks / Mosaic AI"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Trackunit ingests and analyzes 3 billion data points per day from 6 million connected machines on a unified Databricks platform, and IrisX customers see 5x faster time-to-market compared with building their own data architectures — with predictive maintenance and spare-part lead generation already driving ROI for OEMs.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "6 million connected machines on the platform",
+    "3 billion data points processed daily",
+    "5x faster time-to-market for IrisX customers"
+  ],
+  "architecture_clues": [
+    "Central Databricks lakehouse harmonizing Salesforce, Planhat, and machine telemetry",
+    "Databricks capabilities embedded into IrisX customer-facing platform ('Built-on' partner)",
+    "Genie and Agent Bricks planned for natural-language data access",
+    "Runs on AWS"
+  ],
+  "source_url": "https://www.databricks.com/customers/trackunit",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "6 Million Connected machines on the platform",
+    "3 Billion Data points processed daily",
+    "Trackunit estimates that customers building on IrisX see a 5x faster time-to-market"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data Intelligence Platform",
+      "role": "Central Lakehouse harmonizing 3B daily data points from 6M connected construction machines plus Salesforce, Planhat, and proprietary machine data; embedded into IrisX as Trackunit's customer-facing platform",
+      "layer": "Compute"
+    },
+    {
+      "name": "Lakeflow Connect",
+      "role": "Connectors ingesting data from Salesforce, Planhat, and proprietary machine telemetry into the central Lakehouse",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Governs the unified Lakehouse across Finance, Engineering, and RevOps as a single source of truth, replacing siloed per-function 'lakehouses'",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "SQL warehouse powering the IrisX platform for rental companies, contractors, and OEMs",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks AI/BI",
+      "role": "BI surface for customers and internal teams on top of the unified Lakehouse",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Genie",
+      "role": "Natural-language queries letting non-technical business users adjust visualizations and query data in plain language",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agent Bricks / Mosaic AI",
+      "role": "Upcoming agentic capabilities planned for IrisX customers",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "More than 6 million connected construction machines stream ~3 billion data points per day into Trackunit's central Databricks Lakehouse, alongside Salesforce, Planhat, and other proprietary data ingested through Lakeflow Connect. Unity Catalog harmonizes what was previously a siloed Finance/Engineering/RevOps trio of 'lakehouses' into a single source of truth. Databricks SQL and AI/BI surface analytics through IrisX directly to OEM, rental, and construction-company customers — giving them the full Databricks toolkit without having to build it themselves. Genie lets non-technical users query and adjust visualizations in plain language, and Agent Bricks is queued for upcoming agentic capabilities.",
+  "integration_points": [
+    "6M connected construction machines (telemetry source)",
+    "Salesforce and Planhat (internal source systems)",
+    "OEMs, rental companies, and construction contractors as customer-facing platform consumers",
+    "IrisX customer-facing platform (Trackunit's product) embedding Databricks capabilities",
+    "AWS cloud deployment"
+  ]
+}

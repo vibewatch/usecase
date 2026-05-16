@@ -1,0 +1,93 @@
+{
+  "id": "databricks-hp-indigo-manufacturing-yield-unity-catalog",
+  "slug": "databricks-hp-indigo-manufacturing-yield-unity-catalog",
+  "vendor": "Databricks",
+  "customer_name": "HP Indigo",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "HP Indigo's industrial print business was managing 3,500+ data volumes (~10TB) across hundreds of jobs spanning ERPs, manufacturing platforms, and field data sources, with critical data tracked in manual spreadsheets. Teams spent days tracing parts and analyzing data across disconnected systems, sometimes halting production while waiting for answers, and there was no single source of truth.",
+  "solution_summary": "HP Indigo is unifying more than 3,500 data volumes (~10TB) from ERPs, manufacturing platforms, field data sources, and previously-manual spreadsheets onto Databricks under Unity Catalog governance, replacing fragmented legacy warehouses. Lakehouse Federation covers data that still lives outside Databricks, while Unity Catalog provides end-to-end lineage that tracks consumables from manufacturing through customer-site consumption — collapsing a 2-3 day traceability process to 60 minutes. Databricks AI/BI and AI/BI Genie deliver trusted analytics alongside existing Tableau and Power BI, with Genie surfacing natural-language access on top of Unity Catalog-governed data using role-level security and simplified naming conventions. Delta Sharing distributes governed data internally, with plans to extend to external vendors. A first prediction model running on Databricks lifted manufacturing yield from 60% to 92%.",
+  "products_used": [
+    "Unity Catalog",
+    "Lakehouse Federation",
+    "Delta Sharing",
+    "Databricks AI/BI",
+    "Databricks AI/BI Genie"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "HP Indigo cut consumable traceability from 2–3 days (often pausing production) to about 60 minutes using Unity Catalog lineage, and used a Databricks-built prediction model to lift manufacturing yield on a key part from 60% to 92% — while AI/BI Genie removed the dependency on technical teams for routine data questions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Manufacturing yield improved from 60% to 92% via prediction model",
+    "Consumable traceability cut from 3 days to about 1 hour",
+    "3,500+ data volumes (~10 TB) under management",
+    "Ad hoc requests replaced with instant natural-language answers via AI/BI Genie"
+  ],
+  "architecture_clues": [
+    "Unity Catalog lineage across manufacturing, field, and customer data",
+    "Lakehouse Federation to govern non-Databricks data",
+    "Delta Sharing for governed external-vendor sharing",
+    "AI/BI Genie alongside Tableau and Power BI",
+    "Role-level security in Unity Catalog with simplified naming conventions",
+    "Runs on AWS"
+  ],
+  "source_url": "https://www.databricks.com/customers/hp-indigo",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Leveraging this prediction model in Databricks, we increased the yield from 60% to 92%.",
+    "With Unity Catalog, that process now takes just 60 minutes.",
+    "60% → 92% Manufacturing yield improvement with prediction models"
+  ],
+  "solution_components": [
+    {
+      "name": "Unity Catalog",
+      "role": "End-to-end manufacturing/field/customer data lineage and role-level security; tracks consumables from line through customer-site consumption",
+      "layer": "Governance"
+    },
+    {
+      "name": "Lakehouse Federation",
+      "role": "Governs data that still lives outside Databricks alongside in-Lakehouse data",
+      "layer": "Governance"
+    },
+    {
+      "name": "Delta Sharing",
+      "role": "Governed data sharing inside HP Indigo with planned extension to external vendors",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks AI/BI",
+      "role": "Trusted, governed analytics layer running alongside existing Tableau and Power BI",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks AI/BI Genie",
+      "role": "Natural-language access to Unity Catalog-governed data with role-level security and simplified naming conventions",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "More than 3,500 data volumes (~10TB) from ERPs, manufacturing platforms, field data sources, and previously-manual spreadsheets are migrating into Databricks under Unity Catalog governance, with Lakehouse Federation covering data that still lives outside the Lakehouse. End-to-end lineage links manufacturing, field, and customer data so consumables can be traced from the line through customer-site consumption. Tableau, Power BI, and AI/BI surface curated analytics to business users; Genie adds natural-language access on top of Unity Catalog-governed data with role-level security; Delta Sharing distributes governed datasets internally with plans to extend to external vendors. A first prediction model running on Databricks improved manufacturing yield from 60% to 92%.",
+  "integration_points": [
+    "ERPs and manufacturing platforms feeding the Lakehouse",
+    "Field data sources and customer-site telemetry",
+    "Tableau and Power BI consuming alongside Databricks AI/BI",
+    "Active Directory and role-level security for Genie access",
+    "Planned: external vendor data sharing via Delta Sharing",
+    "AWS cloud deployment"
+  ]
+}

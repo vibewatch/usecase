@@ -1,0 +1,106 @@
+{
+  "id": "databricks-sse-airtricity-ai-energy-advisor",
+  "slug": "databricks-sse-airtricity-ai-energy-advisor",
+  "vendor": "Databricks",
+  "customer_name": "SSE Airtricity",
+  "industry": "Energy",
+  "region": "Ireland",
+  "company_size": "Enterprise",
+  "business_problem": "SSE Airtricity serves around 750,000 customers across the island of Ireland with smart meters widely deployed, but generic energy tips and black-box third-party tools fell short of personalized insights. The Data & Analytics team needed a fully governed, in-house generative AI solution able to ingest billions of smart-meter readings (48 daily readings per meter) and deliver trusted, auditable recommendations.",
+  "solution_summary": "SSE Airtricity built the in-house Enhanced Smart Insights (ESI) Energy Advisor on the Databricks Data Intelligence Platform — already on Azure after migrating from Oracle, with Unity Catalog providing centralized governance for both data and AI models and Delta Lake as the storage foundation. Lakeflow Spark Declarative Pipelines ingest billions of rows of smart-meter data nightly (48 readings per meter per day across 65,000+ customers) and feed personalization models that call Anthropic Claude Sonnet 4.5 through Databricks AI Model Serving. An evaluation-first MLflow GenAI framework with custom AI judges defined alongside human feedback automatically rejects and regenerates any insights that fail on length, language, tone, or accuracy before they reach customers. Custom Databricks Apps surface real-time monitoring of cost, model performance, and judge failure rates with automated alerts. The team went from concept to production in four months.",
+  "products_used": [
+    "Delta Lake",
+    "Lakeflow Spark Declarative Pipelines",
+    "Unity Catalog",
+    "Databricks AI Model Serving",
+    "MLflow",
+    "Databricks Apps",
+    "Agent Bricks / Mosaic AI"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Soft-launched in mid-December 2025, the ESI Energy Advisor reached production in four months, drove a 12% increase in unique visitors to the insights section in the first month, and now engages 90% of logged-in customers with personalized recommendations — delivering bill-day insights vs. competitors' 120-day wait and laying the foundation for tariff recommendations, bill analyzer, peer comparisons, and energy disaggregation.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "90% of logged-in customers engage with personalized insights",
+    "+12% unique visitors to insights section in first month",
+    "4 months from concept to production",
+    "65,000+ smart meter customers served",
+    "Billions of rows processed nightly",
+    "48 daily readings per smart meter"
+  ],
+  "architecture_clues": [
+    "Anthropic Claude Sonnet 4.5 via Databricks AI Model Serving",
+    "Lakeflow Spark Declarative Pipelines for nightly ingestion",
+    "Unity Catalog governance across data and AI models",
+    "MLflow GenAI evaluation framework with AI judges + human feedback",
+    "Databricks Apps for real-time cost and quality monitoring",
+    "Runs on Azure"
+  ],
+  "source_url": "https://www.databricks.com/customers/sse-airtricity",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We went from proof of concept to production in about four months",
+    "90% of logged-in customers now navigate to the insights section to engage with the recommendations",
+    "Within the first month, SSE Airtricity saw a 12% increase in web visits to the insights section"
+  ],
+  "solution_components": [
+    {
+      "name": "Delta Lake",
+      "role": "Reliable Lakehouse storage forming the foundational data architecture for the AI strategy",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakeflow Spark Declarative Pipelines",
+      "role": "Ingests and transforms billions of rows of smart-meter data nightly (48 readings per meter per day) to feed the AI models",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Centralized governance for both data and AI models inherited from the Oracle→Databricks migration",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks AI Model Serving",
+      "role": "Serves Anthropic Claude Sonnet 4.5 to the ESI Energy Advisor without managing infrastructure",
+      "layer": "Serving"
+    },
+    {
+      "name": "MLflow",
+      "role": "Tracing, GenAI evaluation framework, and AI judges that auto-reject and regenerate failing insights for complete observability and traceability",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Apps",
+      "role": "Custom monitoring apps tracking cost, model performance, and AI-judge failure rates in real time with automated alerts",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agent Bricks / Mosaic AI",
+      "role": "Generative AI tooling backing the ESI Energy Advisor",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Billions of rows of smart-meter readings (48 per meter per day across 65,000+ customers) and customer-survey responses are ingested nightly through Lakeflow Spark Declarative Pipelines into Delta Lake on Databricks (migrated from Oracle), governed by Unity Catalog for both data and AI models. The ESI Energy Advisor calls Anthropic Claude Sonnet 4.5 through Databricks AI Model Serving to generate personalized energy-saving advice. MLflow Traces and an evaluation-first framework — AI judges defined alongside human feedback — automatically reject and regenerate insights that fail on length, language, tone, or accuracy. Databricks Apps host custom monitoring dashboards tracking cost, model performance, and judge failure rates in real time.",
+  "integration_points": [
+    "Smart-meter network (~65,000 customers, 48 readings per meter per day)",
+    "Customer-survey response data",
+    "Customer-facing web insights section (90% engagement)",
+    "Anthropic Claude Sonnet 4.5 foundation model",
+    "Legacy Oracle system already retired",
+    "Azure cloud deployment"
+  ]
+}

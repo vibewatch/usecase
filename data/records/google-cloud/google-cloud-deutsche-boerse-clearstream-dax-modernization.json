@@ -1,0 +1,112 @@
+{
+  "id": "google-cloud-deutsche-boerse-clearstream-dax-modernization",
+  "slug": "google-cloud-deutsche-boerse-clearstream-dax-modernization",
+  "vendor": "Google Cloud",
+  "customer_name": "Deutsche Börse Group",
+  "industry": "Financial Services",
+  "region": "Europe",
+  "company_size": "Enterprise",
+  "business_problem": "Deutsche Börse Group's exchange, clearing and post-trade infrastructure — including Clearstream's central securities depository processing over one million transactions per day across more than 60 markets, SAP S/4HANA and the DAX index calculation — ran on stable but rigid on-premises systems where provisioning new environments took weeks or months, hardware bounded release cycles, and the platform was no longer keeping pace with evolving regulation and client demands for faster innovation.",
+  "solution_summary": "Deutsche Börse Group migrated mission-critical post-trade and DAX index systems to Google Cloud, replacing on-premises infrastructure with a scalable, latency-sensitive architecture. Financial transaction data flows through Compute Engine instances (N/C series machines) running settlement and index calculation workloads, backed by Hyperdisk Balanced and Extreme for consistent millisecond-level database performance. BigQuery ingests market indices and transaction analytics. The infrastructure supports 13,000+ daily DAX index calculations, 30M ticks, processing over 1M transactions daily while maintaining regulatory compliance and enabling provisioning times to drop from months to hours.",
+  "products_used": [
+    "Compute Engine",
+    "Hyperdisk Balanced",
+    "Hyperdisk Extreme",
+    "Google Kubernetes Engine",
+    "BigQuery",
+    "OpenShift on Compute Engine"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Application Refactoring",
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Deutsche Börse Group lowered total cost of ownership, sharply improved settlement and DAX-index latency, cut SAP disaster-recovery time, and turned infrastructure provisioning from a months-long bottleneck into an on-demand capability that no longer limits delivery of new financial services.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "33% lower total cost of ownership",
+    "Settlement times improved up to 50%",
+    "Thousands of CPU cores and 60+ apps migrated",
+    "85% reduction in disaster recovery time for the critical SAP S/4HANA environment",
+    "50% less latency for the DAX index engine handling 13,000+ indices and ~30M ticks daily",
+    "More than 75% of workloads running in the cloud",
+    "Provisioning time reduced from months to hours",
+    "Development cycles for new financial services shortened from months to days"
+  ],
+  "architecture_clues": [
+    "Clearstream core financial apps run on Compute Engine N-series and latest C-series; latency-sensitive databases on C4D; broader app services on C4/N4",
+    "Hyperdisk Balanced and Hyperdisk Extreme underpin core database workloads",
+    "Multi-zone highly resilient architecture engineered for zero data loss while meeting regulatory requirements",
+    "OpenShift clusters on Compute Engine using Intel-based CPUs to preserve portability while standardizing on Google Cloud",
+    "SAP S/4HANA migrated from on-premises to a secure Google Cloud foundation",
+    "DAX family and EUROSTOXX50 index calculations executed in the cloud — 13,000+ indices, ~30M ticks/day",
+    "Cortex, BigQuery and AI used downstream to accelerate innovation and reduce cost",
+    "Customer-managed encryption keys, zone separation and regional failover safeguards as standard compliance controls",
+    "Dual strategy in progress: migrate traditional enterprise systems to Compute Engine, build new microservices on Compute Engine and GKE"
+  ],
+  "source_url": "https://cloud.google.com/customers/deutsche-boerse",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "33% lower TCO",
+    "Settlement times improved up to 50% for greater efficiency",
+    "85% reduction in disaster recovery time for critical SAP S/4HANA systems",
+    "50% less latency for DAX® index engine: 13k+ indices, 30M ticks",
+    "Latency-sensitive databases run on high-performance C4D machines optimized for compute-intensive transaction processing, while C4/N4 instances support broader application services.",
+    "Clearstream engineered a multi-zone, highly resilient architecture on Google Cloud to achieve zero data loss for workloads while meeting strict regulatory requirements."
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "Runs latency-sensitive transaction processing and settlement workloads using C4D compute-optimized and N4 general-purpose instances for financial applications.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Hyperdisk Balanced",
+      "role": "Provides consistent storage performance for post-trade processing databases handling millions of daily financial transactions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Hyperdisk Extreme",
+      "role": "Delivers high-performance storage for core DAX index calculation and trading databases requiring sub-millisecond latency.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Orchestrates microservices-based applications for new financial services, enabling scalability and continuous delivery across business lines.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Aggregates index calculation results, market data analytics, and business intelligence for the DAX family and EUROSTOXX50 indices.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenShift on Compute Engine",
+      "role": "Maintains portability and standardization of containerized applications using Intel-based CPUs on Google Cloud infrastructure.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Trading and settlement transactions ingest into Compute Engine instances where they are processed in real-time. Core databases on Hyperdisk Extreme store transactional state with millisecond persistence. Index calculation engines on C4D machines compute 13,000+ indices and 30M daily ticks, with aggregation results flowing to BigQuery for analytics and regulatory reporting. Microsecond-level latency between components ensures sub-50ms settlement turnaround.",
+  "integration_points": [
+    "SAP S/4HANA (ERP)",
+    "Trading systems",
+    "Clearstream settlement infrastructure",
+    "Customer CRM",
+    "Multi-zone disaster recovery",
+    "Regulatory compliance systems"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "databricks-capital-one-feature-hub-credit-decisions",
+  "slug": "databricks-capital-one-feature-hub-credit-decisions",
+  "vendor": "Databricks",
+  "customer_name": "Capital One",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Capital One's credit line increase program relies on intelligent, trusted data to deliver financial empowerment to millions of customers, but growing data volumes and complex pipelines meant the team needed a single, centralized feature environment that could handle both historical and operational feature pipelines and run large-scale backfills quickly enough to support timely credit decisions.",
+  "solution_summary": "Capital One's data and engineering teams built a centralized Feature Hub on Databricks that serves as the single environment for both historical and operational feature pipelines across millions of accounts, delivering a 360-degree view of customer insights to the credit line increase program. Delta Lake holds the curated feature tables, Photon runs as the vectorized compute engine on top of them, and engineers use Databricks APIs to automate job triggers, monitoring, and reruns. Autoscaling clusters match capacity to workload for both large-scale backfills and the daily operational scoring path, while the same Hub feeds both modeling work and live credit-decisioning, removing the prior split between batch and operational feature stores.",
+  "products_used": [
+    "Delta Lake",
+    "Databricks Photon",
+    "Databricks Autoscaling Clusters",
+    "Databricks APIs"
+  ],
+  "solution_components": [
+    {
+      "name": "Delta Lake",
+      "role": "Storage foundation holding curated feature tables across millions of customer accounts",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks Photon",
+      "role": "Vectorized compute engine that runs large-scale feature backfills and operational scoring jobs",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Autoscaling Clusters",
+      "role": "Matches compute capacity to workload size for both historical backfills and daily jobs",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks APIs",
+      "role": "Automates job triggers, monitoring, and reruns across the feature pipelines",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Account-level data is curated into Delta Lake feature tables, where Photon executes both historical backfills and daily operational pipelines on autoscaling clusters orchestrated through Databricks APIs. The resulting Feature Hub views feed both the modeling workflow and the production credit-line-increase decisioning application from a single environment.",
+  "integration_points": [
+    "Credit line increase decisioning workflow",
+    "Modeling and analytics workloads consuming the Feature Hub"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Risk Management"
+  ],
+  "business_outcome": "The Feature Hub delivers 60x faster job completion vs. the prior compute environment and an 80% decrease in time and cost per job after migrating production pipelines, freeing budget for innovation while supporting more timely, trusted credit decisions for millions of customers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "60x faster compute performance enabling real-time iteration",
+    "80% decrease in time and cost per job",
+    "New model features shipped in weeks including historical backfills"
+  ],
+  "architecture_clues": [
+    "Centralized Feature Hub built on Databricks",
+    "Single environment for historical and operational feature pipelines",
+    "Curates records across millions of accounts for a 360-degree customer view",
+    "Autoscaling clusters tuned to balance spend and performance",
+    "Operational scoring and modeling workloads share the same feature store"
+  ],
+  "source_url": "https://www.databricks.com/customers/capital-one",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We consistently see Databricks performing 60x faster than other available systems.",
+    "We have seen an 80% decrease in time and cost per job",
+    "developing and deploying new model features only takes weeks, including full historical backfills"
+  ]
+}

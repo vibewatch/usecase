@@ -1,0 +1,106 @@
+{
+  "id": "alibaba-cloud-ai-rudder-voice-ai-kubernetes",
+  "slug": "alibaba-cloud-ai-rudder-voice-ai-kubernetes",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "AI Rudder",
+  "industry": "Software / SaaS",
+  "region": "Asia Pacific",
+  "company_size": "SMB",
+  "business_problem": "AI Rudder, a 2019-founded Indonesian SaaS company providing Voice AI for B2C communication across banking, fintech, insurance, e-commerce, logistics, and supply chain, needed massive compute for ASR, NLU, NLG, and sentiment analysis, high-performance big-data storage for deep-learning training, and easy-to-manage cloud-native services to reduce O&M costs while serving 200+ customer companies as of 2022.",
+  "solution_summary": "AI Rudder operates a cloud-native Voice AI platform that ingests millions of customer interactions daily across banking, fintech, insurance, e-commerce, and logistics verticals. The microservice architecture deployed on Kubernetes clusters orchestrates Automatic Speech Recognition, Natural Language Understanding, Natural Language Generation, and Sentiment Analysis workloads. Customer interaction data flows through the platform, persisted in relational and NoSQL databases while leveraging Redis caching for real-time response generation. Service Mesh traffic control and unified application monitoring ensure 24/7 availability and performance at scale across 200+ enterprise customers worldwide.",
+  "products_used": [
+    "Container Service for Kubernetes",
+    "Serverless Kubernetes",
+    "Service Mesh",
+    "Application Real-Time Monitoring Service",
+    "ApsaraDB RDS",
+    "Tair",
+    "Object Storage Service",
+    "ApsaraDB for HBase"
+  ],
+  "technical_area": [
+    "AI / Machine Learning",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Generative AI Chat / Assistant",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "AI Rudder built a globally scalable cloud-native Voice AI platform serving 200+ companies worldwide, used Alibaba Cloud's three Indonesian data centers for regulatory-compliant local service, and ran auto-scaling, O&M-free Kubernetes infrastructure that lets a small startup compete at world-class scale.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "200+ companies worldwide use AI Rudder as of 2022",
+    "3 world-class Alibaba Cloud data centers in Indonesia"
+  ],
+  "architecture_clues": [
+    "Microservices on ACK + Serverless Kubernetes (ASK) for auto-scaling, O&M-free clusters",
+    "Service Mesh (ASM) for unified traffic management",
+    "ARMS for application monitoring",
+    "Polyglot data: ApsaraDB RDS (structured), Tair (cache), OSS (raw), HBase (NoSQL)"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/ai_rudder",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As of 2022, more than 200 companies worldwide use AI Rudder's software as a service (SaaS) platform with an AI voice bot to maximize profits, efficiency, and scalability.",
+    "AI Rudder uses ACK to set up its microservice system on top of Serverless Kubernetes (ASK) clusters, which are O&M-free and support auto scaling based on the workload requirements.",
+    "Alibaba Cloud has three world-class local data centers in Indonesia, allowing AI Rudder to serve Indonesian companies in a more secure and responsive manner."
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes",
+      "role": "Managed Kubernetes orchestration for microservice-based Voice AI platform architecture",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Serverless Kubernetes",
+      "role": "Auto-scaling container runtime eliminating cluster management overhead for dynamic Voice AI workload demands",
+      "layer": "Compute"
+    },
+    {
+      "name": "Service Mesh",
+      "role": "Unified traffic management and circuit breaking across Voice AI microservices",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service",
+      "role": "Real-time observability and performance monitoring of Voice AI application components in production",
+      "layer": "Governance"
+    },
+    {
+      "name": "ApsaraDB RDS",
+      "role": "Transactional database for structured customer interaction records and voice bot training data",
+      "layer": "Storage"
+    },
+    {
+      "name": "Tair",
+      "role": "High-performance cache for real-time voice bot responses and user session state",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service",
+      "role": "Raw audio and unstructured data storage for voice interaction analysis",
+      "layer": "Storage"
+    },
+    {
+      "name": "ApsaraDB for HBase",
+      "role": "NoSQL database for high-volume time-series voice interaction metrics and analytics"
+    }
+  ],
+  "data_flow": "Customer voice interactions → ASR/NLU processing → RDS/HBase storage → real-time cache layer (Tair) → personalized response generation → customer channels",
+  "integration_points": [
+    "Banking platforms",
+    "Fintech institutions",
+    "Insurance providers",
+    "E-commerce channels",
+    "Logistics operators",
+    "200+ enterprise customer integrations"
+  ]
+}

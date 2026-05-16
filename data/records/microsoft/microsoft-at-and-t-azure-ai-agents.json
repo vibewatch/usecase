@@ -1,0 +1,117 @@
+{
+  "id": "microsoft-at-and-t-azure-ai-agents",
+  "slug": "microsoft-at-and-t-azure-ai-agents",
+  "vendor": "Microsoft",
+  "customer_name": "AT&T",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "AT&T's employees were spending too much time investigating across many search links to find answers, developers were debugging code line by line, and data flowed faster than humans could keep up. Leadership needed proof that AI could handle sensitive customer data at enterprise scale, meet strict compliance and security requirements, and deliver measurable ROI across millions of daily customer interactions.",
+  "solution_summary": "AT&T deployed a highly scalable AI platform built on Azure to handle millions of daily interactions across customer care and internal workflows. The system ingests customer context, historical chat histories, and operational data, storing long-term records in Azure DocumentDB and maintaining real-time responsiveness through Azure Cache for Redis. Multiple specialized agents collaborate via Microsoft Agent Framework, orchestrated through Azure Kubernetes Service, with Azure OpenAI in Foundry Models providing foundational AI capabilities. Azure AI Search retrieves verified customer knowledge, while agents autonomously update call notes and summarize context. Governance is enforced through Azure API Management for containerized agents, Azure AI Content Safety for safety guardrails, and comprehensive monitoring via Azure Monitor and Log Analytics. All compliance requirements are met through audit trails and transparency controls.",
+  "products_used": [
+    "Azure AI Foundry",
+    "Azure OpenAI in Foundry Models",
+    "Azure AI Search",
+    "Azure Cosmos DB & Azure DocumentDB",
+    "Azure Cache for Redis",
+    "Azure Kubernetes Service",
+    "Azure API Management",
+    "Azure Storage"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Contact Center",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "AT&T deployed 71 governed generative AI solutions to over 100,000 employees, reduced customer-care information-search time by 33%, processes about 9 billion tokens daily, and delivers more than double year-over-year ROI with over two times the free cash flow benefits saved annually through efficiency gains and automation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "71 generative AI solutions deployed",
+    "100,000+ employees actively using agents",
+    "~9 billion tokens processed daily",
+    "33% faster information searching for customer care agents",
+    "More than 2× free cash flow benefits saved annually",
+    "More than double year-over-year ROI"
+  ],
+  "architecture_clues": [
+    "Multi-agent system orchestrated with Microsoft Foundry and Azure OpenAI",
+    "Azure Kubernetes Service for container orchestration of agents",
+    "Azure API Management for governance and monitoring of containerized agents",
+    "Azure Cosmos DB chosen for high-performance chat/agent apps",
+    "Azure DocumentDB stores long-term chat history and master configurations",
+    "Azure AI Content Safety filters, data governance policies, and model protection controls",
+    "Azure Monitor + Log Analytics + OpenTelemetry-compliant Arize AI for tracing and observability",
+    "Legal, security, and finance review before launching every agent"
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/25679-at-and-t-azure",
+  "published_date": "2025-11-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With Microsoft, we’ve deployed 71 unique generative AI solutions serving over 100,000 employees—every one of them governed, trusted, and delivering ROI.",
+    "We chose Azure Cosmos DB because it is optimized for high-performance chat and agent apps, super-responsive user experiences, and scalability.",
+    "Digital coworkers surface answers faster than the old systems, reducing the time spent searching for information during calls by 33% and cutting average handle time.",
+    "Approximately 9 billion tokens ... processed daily ... Over two times the free cash flow benefits saved annually through efficiency gains and automation."
+  ],
+  "solution_components": [
+    {
+      "name": "Azure AI Foundry",
+      "role": "Orchestrates multi-agent workflows where specialized agents collaborate and communicate through Microsoft Agent Framework.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure OpenAI in Foundry Models",
+      "role": "Provides foundational LLM capabilities and model orchestration for specialized AI agents across customer care and operational domains.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure AI Search",
+      "role": "Retrieves verified customer content and contextual information to enable grounded, accurate agent responses.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure Cosmos DB & Azure DocumentDB",
+      "role": "Optimized data layer providing high-performance chat interactions and long-term configuration storage with disaster recovery.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure Cache for Redis",
+      "role": "Provides real-time responsiveness and low-latency data access for interactive agent conversations across millions of daily sessions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure Kubernetes Service",
+      "role": "Manages containerized agent deployments and orchestrates enterprise-scale operations across distributed infrastructure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure API Management",
+      "role": "Ensures governance, monitoring, and compliance controls across all agent API endpoints with traceability and performance metrics.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Azure Storage",
+      "role": "Stores long-term records for governance, analytics, and compliance audit trails required by telecommunications regulations."
+    }
+  ],
+  "data_flow": "Customer interactions and operational data are ingested from millions of daily touchpoints. Azure AI Search retrieves verified knowledge about customer accounts and issues. Multiple specialized agents collaborate via Microsoft Agent Framework, with one handling customer context retrieval, another summarizing information, and a third autonomously updating call notes. High-performance Azure Cosmos DB ensures near-real-time responsiveness, while Azure DocumentDB stores long-term chat history for future analysis. Azure Storage maintains records for governance and compliance. All agent decisions and outputs are monitored in real time via Azure Monitor and Log Analytics.",
+  "integration_points": [
+    "Customer data systems and internal CRM platforms",
+    "Internal knowledge repositories and verified content sources",
+    "Call center operations and workforce management systems",
+    "Network operations and business analytics platforms",
+    "Compliance and regulatory audit trail systems"
+  ]
+}

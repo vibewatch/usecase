@@ -1,0 +1,110 @@
+{
+  "id": "microsoft-accenture-azure-ai-foundry",
+  "slug": "microsoft-accenture-azure-ai-foundry",
+  "vendor": "Microsoft",
+  "customer_name": "Accenture",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Accenture's enterprise clients wanted to move past generative AI proofs of concept to production-grade, scalable, compliant applications, but ad hoc development stitched together a dozen tools and could not answer how AI would scale reliably, comply with regulations, and be explainable across regulated industries like energy, healthcare, and financial services.",
+  "solution_summary": "Accenture deployed a production-grade AI platform on Azure AI Foundry that orchestrates responsible AI at enterprise scale. The system ingests enterprise knowledge and client data, leveraging Azure Machine Learning for custom model training and Azure AI Foundry Models for fine-tuning foundational models to specific domains. Azure AI Search enables retrieval-augmented generation for grounded, contextual responses, while Azure Functions and App Service manage application state and event-driven agent workflows. Safety is enforced through layered Azure AI Content Safety filters pre- and post-response, with continuous evaluation across dimensions like groundedness, coherence, and jailbreak resistance. Observability is provided by Azure Monitor and Application Insights, tracking every model call, user interaction, and agent decision for compliance and debugging across regulated industries.",
+  "products_used": [
+    "Azure AI Foundry",
+    "Azure AI Search",
+    "Azure AI Content Safety",
+    "Azure Machine Learning",
+    "Azure Functions & App Service",
+    "Azure Monitor & Application Insights",
+    "Microsoft AI Red Teaming Agent"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Accenture reduced the time to build AI applications by up to 50%, projects up to a 30% efficiency increase and 20% cost reduction, has deployed 75+ generative AI use cases with 16+ in production across industries, and delivered 17 use cases in four months for a client that had originally requested 14 over eight months.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "50% reduction in time to build AI apps",
+    "30% increase in overall efficiency (potential)",
+    "20% reduction in costs (potential)",
+    "75+ generative AI use cases deployed across clients",
+    "16+ solutions in full production",
+    "17 use cases delivered in 4 months vs 14 originally requested over 8 months",
+    "800,000+ Accenture employees"
+  ],
+  "architecture_clues": [
+    "Azure AI Foundry as unified SDK for safety, accuracy, and performance tracking",
+    "Azure AI Search for RAG with indexed, vectorized enterprise knowledge",
+    "Azure Functions persist application state, session metadata, and agent memory",
+    "Azure App Service for modular, event-driven agent workflows",
+    "Two-layer cascading safety nets pre- and post-response using Azure AI Content Safety",
+    "Iterative AI red teaming simulations and A/B comparisons against golden datasets",
+    "Azure AI Foundry Observability with Azure Monitor + Application Insights for full traceability",
+    "Microsoft AI Red Teaming Agent simulates adversarial prompts and detects model and application risk posture"
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/23953-accenture-azure-ai-foundry",
+  "published_date": "2025-05-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Accenture has already deployed 75+ use cases across industries, with 16 in production, reducing AI app build time by 50%.",
+    "Azure AI Foundry gives us a unified view across all our applications. Instead of stitching together a dozen tools, we had a single SDK to track safety, accuracy, and performance.",
+    "We were able to establish two layers of filtration. Even if one misses something, the second catches it. That’s peace of mind at scale.",
+    "Accenture delivered 17 use cases in just four months. That’s the power of having a unified, Azure-native foundation."
+  ],
+  "solution_components": [
+    {
+      "name": "Azure AI Foundry",
+      "role": "Unified platform for orchestrating agent workflows, evaluating outputs, and maintaining observability throughout the AI application lifecycle.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure AI Search",
+      "role": "Enables retrieval-augmented generation to index enterprise knowledge and provide grounded, contextually relevant responses without hallucination.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure AI Content Safety",
+      "role": "Enforces multi-layer safety filtering to detect and remove personal data, offensive language, and policy violations from model responses.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Azure Machine Learning",
+      "role": "Powers custom model training and domain-specific fine-tuning for specialized AI applications across multiple industry verticals.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Functions & App Service",
+      "role": "Manage application state, agent memory, and event-driven orchestration with seamless interoperability to internal systems and third-party APIs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure Monitor & Application Insights",
+      "role": "Provides unified observability and traceability for all model interactions, agent decisions, and system behavior across distributed deployments.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft AI Red Teaming Agent",
+      "role": "Proactively validates multi-agent workflows and detects model and application risk posture through simulation of adversarial scenarios before production."
+    }
+  ],
+  "data_flow": "Enterprise-specific knowledge is ingested and indexed into Azure AI Search vectors. User queries flow through the application, which retrieves grounded context from search, processes through fine-tuned models via Azure Machine Learning, passes through Azure AI Content Safety filters, and returns compliant responses. Application state and agent memory are persisted in Azure Functions. All interactions, model calls, and decisions are logged to Azure Monitor for real-time observability and continuous improvement cycles.",
+  "integration_points": [
+    "PostgreSQL databases for hybrid deployments",
+    "Enterprise internal systems and legacy backend APIs",
+    "Third-party knowledge management platforms",
+    "Regulatory compliance frameworks in financial services, healthcare, and energy sectors"
+  ]
+}

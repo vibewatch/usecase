@@ -1,0 +1,85 @@
+{
+  "id": "databricks-baylor-agent-bricks-contact-center",
+  "slug": "databricks-baylor-agent-bricks-contact-center",
+  "vendor": "Databricks",
+  "customer_name": "Baylor University Enrollment Management",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Baylor's Enrollment Management division serves 19,000 students and 50,000 annual applications, with a small contact-center team handling 100–300 calls per day about financial aid and student accounts. Dedicated QA could only cover about 5% of calls, feedback often arrived days after escalations, FERPA constraints prevented sending student data to external models, and the richest voice-of-student insights stayed trapped in audio recordings.",
+  "solution_summary": "Baylor's Enrollment Management team built an agent workflow on Agent Bricks (Mosaic AI) that pulls call recordings and metadata from the contact-center phone system into a medallion architecture on Databricks. A Knowledge Assistant grounded in Baylor's policies and procedures gives representatives in-call guidance, while a Multi-Agent Supervisor scores every call against standard operating procedures, surfaces sentiment trends and Q&A patterns, and links findings to the original transcript with timestamps and source citations. Unity Catalog provides FERPA-aware governance, with row-level security tied to Active Directory groups so different departments see only the calls relevant to their work. Supervisors query call data on demand in natural language through Databricks Genie and generate daily summaries in about two minutes.",
+  "products_used": [
+    "Agent Bricks / Mosaic AI",
+    "Databricks Marketplace",
+    "Unity Catalog",
+    "Databricks Genie"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Baylor moved from ~5% QA sampling to 100% call review coverage without adding headcount, generates a daily volume/sentiment/exemplar report in about two minutes, and delivers timely coaching tied to specific moments in calls — all inside a FERPA-safe, Unity Catalog–governed environment.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "100% call review coverage (up from ~5%)",
+    "Daily report generated in ~2 minutes",
+    "Full QA coverage without adding headcount",
+    "19,000 students served",
+    "50,000 applications evaluated annually",
+    "100–300 calls handled per day"
+  ],
+  "architecture_clues": [
+    "Phone system connected via API into a Databricks medallion architecture",
+    "Knowledge Assistant + Multi-Agent Supervisor agents in Agent Bricks",
+    "Databricks Genie for natural-language querying by supervisors",
+    "Unity Catalog row-level security via Active Directory groups",
+    "FERPA-secure 'locked room' environment for sensitive student data"
+  ],
+  "source_url": "https://www.databricks.com/customers/baylor-university",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Agent Bricks shifted review from occasional escalation responses to an operational process covering 100% of calls.",
+    "The first time Kyle generated a report, it took about two minutes to write and run the prompt.",
+    "Even a dedicated QA hire would cover only about 5% of calls"
+  ],
+  "solution_components": [
+    {
+      "name": "Agent Bricks / Mosaic AI",
+      "role": "Agent runtime hosting the Knowledge Assistant and Multi-Agent Supervisor that score every call against standard operating procedures",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Marketplace",
+      "role": "Distribution channel for reusable agent components leveraged in the workflow"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "FERPA-aware governance with row-level security tied to Active Directory groups for student-data access control",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Genie",
+      "role": "Natural-language interface for supervisors to query call data by sentiment, topic, or compliance flag",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Baylor's phone system feeds call recordings and metadata via API into a medallion architecture on Databricks. Agent Bricks runs two agents over the curated calls — a Knowledge Assistant grounded in policies and procedures, and a Multi-Agent Supervisor that evaluates each call against standard operating procedures and links findings back to the original transcript with timestamps and source citations. Supervisors explore results through Databricks Genie under FERPA-aware Unity Catalog row-level security backed by Active Directory groups, and generate daily reports summarizing volume, sentiment, and coaching examples in a couple of minutes.",
+  "integration_points": [
+    "Contact-center phone system feeding call recordings and metadata via API",
+    "Active Directory groups driving row-level access control",
+    "Internal policy and procedure documents grounding the Knowledge Assistant",
+    "Planned next phase: email communications and student-account data"
+  ]
+}

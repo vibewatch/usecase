@@ -1,0 +1,106 @@
+{
+  "id": "microsoft-st-lukes-security-copilot",
+  "slug": "microsoft-st-lukes-security-copilot",
+  "vendor": "Microsoft",
+  "customer_name": "St. Luke’s University Health Network",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "St. Luke’s—with 15 campuses, 300 outpatient sites, 23,000+ employees, and 2.5+ petabytes of patient data—needed unified, real-time visibility across a previously disconnected security stack so its SOC could anticipate and disrupt phishing and DDoS attacks before they paralyzed life-saving care delivery.",
+  "solution_summary": "St. Luke's University Health Network implemented Microsoft Security Copilot as a unified AI layer across its security operations, connecting Microsoft Defender, Microsoft Sentinel, Microsoft Entra, Microsoft Intune, and Microsoft Purview. The system ingests millions of daily security signals from endpoints, email, identity, applications, and cloud workloads, correlating threats across fragmented platforms. Security Copilot agents including the Security Alert Triage Agent, Vulnerability Remediation Agent, and Conditional Access Optimization Agent autonomously handle routine tasks—triaging phishing emails, categorizing false positives, and remediating vulnerabilities—freeing SOC analysts for proactive threat hunting. All alerts, access controls, and vulnerabilities are consolidated in one interface, providing real-time visibility for faster incident response. Azure Monitor and Log Analytics provide comprehensive audit trails for compliance with healthcare regulations.",
+  "products_used": [
+    "Microsoft Security Copilot",
+    "Microsoft Defender",
+    "Microsoft Sentinel",
+    "Microsoft Entra",
+    "Microsoft Intune",
+    "Microsoft Purview",
+    "Azure Monitor & Log Analytics"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "St. Luke’s saves nearly 200 hours monthly with the Security Alert Triage Agent autonomously closing thousands of false-positive phishing alerts, reduced incident-report creation from hours to minutes, shifted analysts from reactive triage to proactive threat hunting, and uses Security Copilot’s gap analysis to drive its security roadmap.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Nearly 200 hours saved monthly with Security Alert Triage Agent",
+    "Incident reports created in minutes instead of hours",
+    "15 campuses and 300 outpatient sites",
+    "2.5+ petabytes of patient data in motion",
+    "23,000+ employees"
+  ],
+  "architecture_clues": [
+    "Security Copilot as connective tissue across Defender, Sentinel, Entra, Purview, and Intune",
+    "Security Alert Triage Agent uses advanced language-model analysis to classify reported phishing emails",
+    "Conditional Access Optimization Agent in Entra",
+    "Vulnerability Remediation Agent in Intune",
+    "Alert Triage Agents in Purview DLP and IRM",
+    "Agent explanations in plain text used by analysts to validate decisions"
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/25330-st-lukes-university-health-network-microsoft-security-copilot",
+  "published_date": "2025-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Security Alert Triage Agent is a game changer. It’s saving us nearly 200 hours monthly by autonomously handling and closing thousands of false positive alerts.",
+    "Creating an incident report by hand can take hours, but with Copilot, the process is reduced to minutes.",
+    "Healthcare is the number one cyberattack target in the world.",
+    "Our team shifted from reactive triage to proactive threat hunting, now that they’re not bogged down by routine triage."
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Security Copilot",
+      "role": "Unified AI layer providing centralized visibility and intelligent correlation of security signals across all platforms.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft Defender",
+      "role": "Spans endpoint, email, identity, application, and cloud workload protection providing security events across the attack surface.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft Sentinel",
+      "role": "Provides SIEM capabilities for security information and event management with correlation and analytics.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft Entra",
+      "role": "Manages identity and access controls with Conditional Access Optimization Agent for proactive policy refinement.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft Intune",
+      "role": "Manages endpoints across 15 campuses and 300+ sites with Vulnerability Remediation Agent for automated patch management.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft Purview",
+      "role": "Provides data loss prevention and information rights management with Alert Triage Agents for user behavior analysis.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Azure Monitor & Log Analytics",
+      "role": "Offers comprehensive observability, audit trail logging, and compliance reporting required by healthcare regulations."
+    }
+  ],
+  "data_flow": "Security signals flow from millions of daily events across endpoints, email, identity, cloud workloads, and data interactions into Azure Monitor and Log Analytics. Security Copilot ingests these signals, correlates threats across platforms using OpenTelemetry-compliant integration, and surfaces actionable insights. The Security Alert Triage Agent analyzes suspicious email submissions to determine if they are genuine phishing or false alarms, autonomously closing false positives. Incident reports are generated by Security Copilot in minutes, consolidating correlated data from all sources for escalation to leadership or forensic investigation.",
+  "integration_points": [
+    "Endpoint security events from 15 campuses and 300+ outpatient facilities",
+    "Email security and user-reported phishing submissions",
+    "Identity and access control systems across enterprise",
+    "Vulnerability data from thousands of endpoints and servers",
+    "Data loss prevention and user activity monitoring",
+    "Healthcare compliance requirements and regulatory frameworks"
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": "google-cloud-hershey-entertainment-resorts-ces",
+  "slug": "google-cloud-hershey-entertainment-resorts-ces",
+  "vendor": "Google Cloud",
+  "customer_name": "Hershey Entertainment & Resorts",
+  "industry": "Media and Entertainment",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Hershey Entertainment & Resorts (HE&R) needed to personalize experiences for highly varied guests across an amusement park, hotel, hockey team and entertainment venues, but its prior reliance on manual data sampling from Google Analytics and call recordings meant it could only review small slices of customer signals. The contact center also absorbed high volumes of repetitive calls — particularly seasonal-employee shift call-offs and password resets — diverting agents from complex guest issues.",
+  "solution_summary": "Hershey Entertainment & Resorts built a comprehensive customer and employee engagement platform using BigQuery, Gemini, Conversational Agents, and the Customer Engagement Suite IVR ('Agnes'). Guest service data from calls and web activity aggregates into BigQuery, where Gemini analyzes sentiment, engagement surveys, and interaction patterns. Conversational Agents power a chatbot deployed on the website within 40 hours to handle invoice requests and password resets. The Customer Engagement Suite deploys 'Agnes', an agentic IVR system that recognizes callers, automates employee call-offs (25%+ of volume), and manages password reset requests (50%+ of calls) via webhook integrations to internal systems.",
+  "products_used": [
+    "BigQuery",
+    "Gemini",
+    "Conversational Agents",
+    "Customer Engagement Suite",
+    "Dialogflow",
+    "Looker Studio",
+    "Google Analytics"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "HE&R automated a large share of repetitive guest and employee contact-center interactions, freed staff to focus on complex requests and innovation, and shortened the loop from raw interaction data to actionable reporting.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Natural-language customer chatbot implemented in less than 40 hours",
+    "More than 25% of team-member shift call-off requests fully automated",
+    "More than 50% of password reset calls managed by Customer Engagement Suite",
+    "A full eight hours of employee work saved per day on call-off handling",
+    "Dialogflow-to-BigQuery-to-Looker Studio reporting built in 30 minutes"
+  ],
+  "architecture_clues": [
+    "Unified customer interaction data stored in BigQuery as the single analytical store",
+    "Vertex AI and Gemini summarize social-channel sentiment (e.g. the 'Connoisseurs' Facebook page) and the annual employee engagement survey",
+    "Website chatbot powered by Conversational Agents extended with a webhook that takes an email address, checks for stays in the last 60 days, and emails a PDF invoice",
+    "Dialogflow interactions tagged with three answer fields are pushed to BigQuery and visualized in Looker Studio",
+    "'Agnes' IVR on Customer Engagement Suite uses caller-ID webhooks to identify callers and read context (account lockouts, failed logins, open support tickets) from HE&R's enterprise systems",
+    "Agnes proactively suggests password reset emails to locked-out users rather than presenting an IVR menu"
+  ],
+  "source_url": "https://cloud.google.com/customers/hershey",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Implemented a natural language customer chatbot in less than 40 hours",
+    "Fully automated more than 25% of team member 'call off' requests",
+    "Manages 50%+ of password reset calls with Customer Engagement Suite",
+    "That's a full eight hours of employee work per day. By saving those hours, our people can spend time innovating and solving more complex guest problems.",
+    "We can take our Dialogflow interactions, push them to BigQuery by answering three questions in Dialogflow, and then go to Looker Studio to create a report in 30 minutes.",
+    "Since Agnes is plugged into our infrastructure, it can see things like account lockouts, failed logins, or open support tickets"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Centralizes guest call data, web activity from Google Analytics, social sentiment from Facebook forums, and employee survey responses for comprehensive analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "Analyzes complete call and engagement datasets to identify sentiment trends, summarizes employee engagement surveys in seconds, and provides actionable recommendations for guest experience improvements.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Conversational Agents",
+      "role": "Powers the website chatbot that handles guest invoice requests and password resets with dynamic, segment-aware responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Customer Engagement Suite",
+      "role": "Deploys 'Agnes' IVR agent that recognizes callers, orchestrates call-offs, manages password resets, and identifies customer needs via webhook integrations to backend systems.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Dialogflow",
+      "role": "Enables natural language conversation flow design for both website chatbot and IVR interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Looker Studio",
+      "role": "Generates real-time reports from Dialogflow and BigQuery data, accessible to managers for call volume and performance monitoring.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Analytics",
+      "role": "Tracks guest web sessions and engagement to feed into BigQuery for comprehensive customer journey analysis."
+    }
+  ],
+  "data_flow": "Guest calls and web interactions flow into Google Analytics and BigQuery. Call metadata and IVR interactions captured by Customer Engagement Suite feed into BigQuery. Gemini analyzes aggregated data to identify patterns and sentiment. Website visitor behavior triggers Conversational Agents for chatbot responses. Employee or guest calls route through 'Agnes' which queries internal systems via webhooks to determine action (call-off, password reset, invoice request) and responds conversationally.",
+  "integration_points": [
+    "Phone system (caller ID integration)",
+    "Google Analytics web tracking",
+    "Internal employee scheduling system",
+    "Account management system",
+    "Support ticketing system",
+    "Email delivery (invoice PDFs)",
+    "Social media forums (Facebook sentiment)"
+  ]
+}

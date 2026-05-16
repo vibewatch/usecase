@@ -1,0 +1,115 @@
+{
+  "id": "google-cloud-fairpricegroup-storeoftomorrow",
+  "slug": "google-cloud-fairpricegroup-storeoftomorrow",
+  "vendor": "Google Cloud",
+  "customer_name": "FairPrice Group",
+  "industry": "Retail",
+  "region": "Asia Pacific",
+  "company_size": "Enterprise",
+  "business_problem": "FairPrice Group needed to keep pace with rapidly shifting retail consumer needs across more than 570 physical and digital touchpoints, personalize the in-store and online shopping journey, and equip more than its existing workforce with AI tools to streamline marketing, HR, customer service and store operations.",
+  "solution_summary": "FairPrice Group deployed agentic AI assistants across its 'Store of Tomorrow' supermarket to personalize shopping experiences and empower employees. Cloud-connected in-cart tablets run Chirp 2 speech recognition and Gemini multimodal APIs for conversational product recommendations and recipe suggestions. A knowledge agent powered by Vertex AI RAG Engine, Gemini, and Google Search grounding retrieves trusted nutritional and product information. Employees use Gemini Enterprise agents to automate ad creation, wellness consultations via body composition analysis (Tanita API integration), and inventory search using local context. Video and image generation (Veo 3 and Imagen 4) create promotional content.",
+  "products_used": [
+    "Chirp 2",
+    "Gemini API",
+    "Vertex AI RAG Engine",
+    "Vertex AI Search",
+    "Imagen 4",
+    "Veo 3",
+    "Gemini Enterprise",
+    "Google Agent Development Kit"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Customers receive personalized, conversational shopping assistance across in-cart, search, wine and wellness scenarios while employees produce promotional content dramatically faster and build custom workflow agents inside Google Workspace.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Up to 18% click rate on in-cart assistant product recommendations",
+    "Ad creation time reduced by 10x",
+    "Ad creation cost reduced by up to 100x"
+  ],
+  "architecture_clues": [
+    "Cloud-connected shopping carts with integrated tablets running an in-cart conversational agent",
+    "In-cart speech agent powered by Chirp 2 speech recognition and the multimodal Gemini API",
+    "Knowledge agent built on Gemini API, Vertex AI RAG Engine, and the Grounding with Google Search API, triggered by scanning a product barcode",
+    "Product catalog and inventory search agent built on Vertex AI Search supporting local-context queries",
+    "Custom creative agent generating thematic ads using Imagen 4 and Veo 3 on Vertex AI plus Gemini API for ad copy",
+    "Digital wine sommelier using a multi-agent architecture triggered via NFC tap on the product",
+    "Wellness assistant in the Unity pharmacy: data agent calls the Tanita body composition API plus the Gemini API; conversational and search agents drive the workflow",
+    "Agents built using the Google Agent Development Kit (ADK) with open standards including Model Context Protocol",
+    "Gemini Enterprise integrated with employees' Google Workspace, exposing Google-built agents (Deep Research, Idea Generation), FairPrice-built agents, and a no-code Agent Designer"
+  ],
+  "source_url": "https://cloud.google.com/customers/fairpricegroup",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Lets customers converse with in-cart assistants for personalized product recommendations and achieving up to 18% click rate",
+    "Reduces ad creation time by 10x while eliminating cost by up to 100x with Google Cloud",
+    "The 'Store of Tomorrow' program launched in Q3, 2025, when FairPrice Group opened the doors to its first AI-powered supermarket.",
+    "The conversational agent is driven by Chirp 2, the most advanced speech recognition model of Google Cloud, and the multimodal Gemini API.",
+    "Using a knowledge agent built on Gemini API, Vertex AI RAG Engine, and the Grounding with Google Search API, customers can get this information simply by scanning on the product's barcode.",
+    "Using Imagen 4 and Veo 3 models on Vertex AI, and the Gemini API to turn promotional details into ad copy, employees can create ads quickly and seamlessly"
+  ],
+  "solution_components": [
+    {
+      "name": "Chirp 2",
+      "role": "Provides real-time speech recognition for in-cart tablet interactions, enabling customers to speak product queries and preferences conversationally.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Gemini API",
+      "role": "Powers multimodal conversational agents on in-cart assistants, knowledge agents, and creative ad generation, processing customer requests into personalized recommendations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vertex AI RAG Engine",
+      "role": "Retrieves grounded recipes, nutritional data, and product information from trusted sources for knowledge agents answering customer food pairing and wellness questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vertex AI Search",
+      "role": "Enables product catalog search with local context interpretation (e.g., searching 'Orh Nee' for local condiment names), summarizing inventory and availability.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Imagen 4",
+      "role": "Generates promotional product images and thematic ad visuals from text prompts for weekly store marketing campaigns.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Veo 3",
+      "role": "Creates high-quality promotional video content from text or image prompts for digital marketing and in-store displays.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Enterprise",
+      "role": "Provides employee agents for deep research, idea generation, ad creation automation, and custom workflow agents reducing ad creation time by 10x.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Agent Development Kit",
+      "role": "Framework enabling rapid development and deployment of multi-agent architectures across retail operations and employee workflows."
+    }
+  ],
+  "data_flow": "Customer voice input captured by in-cart tablets → Chirp 2 speech-to-text → Gemini API multimodal processing → Vertex AI RAG Engine retrieves product and recipe data → responses return to tablet and optional Veo 3 video generation. Tanita body composition data flows via API → Gemini API for health insights → personalized recommendations. Employees create ads via Gemini Enterprise → Imagen 4 image generation and Veo 3 video generation → marketing publication.",
+  "integration_points": [
+    "Tanita body composition analyzer API",
+    "NFC tablet readers",
+    "Product catalog database",
+    "Recipe and health databases",
+    "Google Search API (grounding)",
+    "Employee Google Workspace",
+    "In-store digital displays"
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "google-cloud-shopify-black-friday-compute",
+  "slug": "google-cloud-shopify-black-friday-compute",
+  "vendor": "Google Cloud",
+  "customer_name": "Shopify",
+  "industry": "Retail",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Shopify powers millions of merchants in more than 175 countries whose traffic can spike within seconds — particularly during Black Friday and Cyber Monday — and traditional static environments would have required costly overprovisioning to survive peak demand without compromising reliability for 81M buyers.",
+  "solution_summary": "Shopify's commerce platform processes record-breaking transaction volumes on Google Cloud during Black Friday weekend 2025, handling $14.6B in global sales and 489M requests per minute at peak. Compute Engine runs general-purpose commerce services on N2/N4 machines, C4 instances power Shop App catalog search, and Z-series machines provide high-performance local storage for real-time package tracking across 136M deliveries. Google Kubernetes Engine orchestrates auto-scaling microservices to absorb traffic spikes instantly. Hyperdisk Balanced and Extreme store databases supporting 14.8T queries and 1.75T writes during the weekend. AI workloads leverage accelerator-optimized VMs to power Shopify Magic recommendations and Sidekick assistant features.",
+  "products_used": [
+    "Compute Engine",
+    "Google Kubernetes Engine",
+    "Persistent Disk",
+    "Hyperdisk Balanced",
+    "Hyperdisk Extreme"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Cloud Migration",
+    "Application Modernization",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "System Migration",
+    "Real-time Analytics",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Shopify absorbed record peak commerce traffic without overprovisioning, giving merchants confidence that flash sales, viral campaigns and global expansion are no longer bounded by platform reliability.",
+  "outcome_category": [
+    "Scalability",
+    "Revenue Growth",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "$14.6B in global Black Friday-Cyber Monday weekend sales (27% YoY)",
+    "$5.1M per minute peak sales",
+    "489M requests per minute at peak traffic",
+    "2.2 trillion edge requests over the weekend",
+    "14.8 trillion database queries",
+    "1.75 trillion database writes",
+    "136M packages tracked globally via the Shop App"
+  ],
+  "architecture_clues": [
+    "Compute Engine N2 and N4 for general-purpose core commerce, C4 for Shop App catalogue search",
+    "Distributed global database layer on Compute Engine Z-series machines with high-performance local storage",
+    "Microservices on GKE for instant elastic scaling during traffic spikes",
+    "Custom machine types tuning CPU-to-memory ratio per workload",
+    "Persistent Disk for general storage; Hyperdisk Balanced and Extreme for high-performance databases",
+    "Accelerator-optimized VMs powering Shopify Magic and Sidekick AI assistant",
+    "Classic compute workloads on GKE call AI services through internal APIs; Hyperdisk provides high-throughput delivery"
+  ],
+  "source_url": "https://cloud.google.com/customers/shopify-compute",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Processed $14.6B in global sales, a 27% increase YoY, during Black Friday weekend",
+    "489M requests per minute at peak traffic",
+    "We chose Google because we needed a partner who could understand and support hyper-scale reliability engineering.",
+    "Shopify has also built a distributed global-scale database layer on Compute Engine's Z-series machines, which provide high-performance local storage.",
+    "We used Google's accelerator-optimized VMs to take these workloads from PoC to production."
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "Runs core commerce services on N2/N4 general-purpose machines, C4 compute-optimized machines for search, and Z-series storage-optimized machines for distributed database layers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Orchestrates containerized microservices with instant horizontal auto-scaling to handle traffic spikes from 0 to 489M requests/minute during peak demand.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Persistent Disk",
+      "role": "Provides standard block storage for general application workloads and middleware components.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Hyperdisk Balanced",
+      "role": "Delivers high-throughput, balanced performance storage for transactional databases supporting order processing and customer data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Hyperdisk Extreme",
+      "role": "Enables ultra-high-performance databases for real-time inventory and package tracking handling 14.8T queries and 1.75T writes during peak shopping periods."
+    }
+  ],
+  "data_flow": "Customer purchase requests → N2/N4 Compute Engine processing → checkout service updates order database on Hyperdisk Extreme → payment processing → inventory deduction → Z-series machines track 136M packages globally in real-time via Shop App. Recommendation queries route to C4 machines for catalog search. AI inference for Shopify Magic and Sidekick routes to accelerator-optimized VMs. All responses aggregated through GKE service mesh.",
+  "integration_points": [
+    "Payment processors",
+    "Merchant inventory systems",
+    "Logistics and shipping partners",
+    "Real-time package tracking systems",
+    "Merchant admin portal",
+    "Buyer Shop App",
+    "Customer data platforms",
+    "Fraud detection systems"
+  ]
+}

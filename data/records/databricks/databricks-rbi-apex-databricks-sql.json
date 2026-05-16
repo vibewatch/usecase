@@ -1,0 +1,69 @@
+{
+  "id": "databricks-rbi-apex-databricks-sql",
+  "slug": "databricks-rbi-apex-databricks-sql",
+  "vendor": "Databricks",
+  "customer_name": "Raiffeisen Bank International",
+  "industry": "Financial Services",
+  "region": "Central and Eastern Europe",
+  "company_size": "Enterprise",
+  "business_problem": "Raiffeisen Bank International (RBI) operates a highly federated network of banks across many countries with stringent European banking requirements for security, governance, and auditability. Decades of organic growth left a fragmented analytics environment of on-prem and cloud systems with their own SQL dialects, access controls, and operational models — limiting collaboration, code reuse, and group-level governance, with one query taking 30 days on the legacy infrastructure.",
+  "solution_summary": "Raiffeisen Bank International consolidated a fragmented analytics environment — on-premises and cloud systems with different SQL dialects, access controls, and operational models across federated banks in Central and Eastern Europe — into the APEX decentralized analytics platform built on Databricks SQL. The rollout was deliberately phased: legacy platforms ran in parallel while users were onboarded gradually and production workloads were protected. Once on Databricks SQL, queries that previously took up to 30 days dropped to ~12 minutes, average workloads run 3–4x faster, and BI is served directly from the Lakehouse without unnecessary data movement. Elastic compute scales on demand for hundreds of concurrent risk, compliance, finance, and retail analysts. Centralized access controls, audit logs, and lineage meet stringent European banking governance requirements, while open formats and APIs avoid future lock-in.",
+  "products_used": [
+    "Databricks SQL"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "System Migration",
+    "Security and Compliance"
+  ],
+  "business_outcome": "On Databricks SQL, RBI's average workloads now run 3–4x faster than on the previous cloud solution and time to insight is 30–40% shorter, with one extreme legacy query dropping from 30 days to about 12 minutes. Analytics TCO is 5x lower than the previous cloud solution, achieved through architectural simplification rather than usage caps, while audit, lineage, and openness satisfy European banking regulators.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "~3–4x average SQL performance improvement",
+    "~30–40% faster time to insight",
+    "5x analytics TCO reduction vs. previous cloud solution",
+    "Legacy query reduced from 30 days to ~12 minutes",
+    "Hundreds of concurrent users across risk, compliance, finance, retail analytics"
+  ],
+  "architecture_clues": [
+    "APEX decentralized analytics platform integrating Databricks SQL",
+    "Phased parallel-run migration from legacy systems",
+    "Elastic compute scaled on demand for large analytical jobs",
+    "Centralized access controls, audit logs, and lineage in Databricks SQL",
+    "Automated cluster shutdowns and centralized operations",
+    "Internal cost-monitoring and forecasting platform built on Databricks",
+    "Open formats and APIs to avoid vendor lock-in"
+  ],
+  "source_url": "https://www.databricks.com/customers/rbi",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Average workloads now run three to four times faster compared to our previous cloud solution",
+    "we had queries that were taking 30 days within our legacy infrastructure, and with Databricks SQL, we reduced them to about 12 minutes",
+    "5x Analytics TCO reduction compared to the previous cloud solution"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks SQL",
+      "role": "Unified SQL warehouse running the APEX analytics platform; serves hundreds of concurrent users across risk, compliance, finance, and retail analytics with elastic compute scaling on demand, plus centralized access controls, audit logs, and lineage for European banking compliance",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "RBI consolidated a fragmented analytics environment — on-prem and cloud systems with different SQL dialects across federated banks in Central and Eastern Europe — into the APEX decentralized analytics platform on Databricks SQL. Legacy platforms ran in parallel during onboarding so production workloads were protected. BI workloads are now served directly from the Lakehouse without unnecessary data movement, and an internal cost-monitoring platform on Databricks tracks usage by warehouse, user, and workload. Centralized access controls, audit logs, and lineage support stringent European banking governance requirements.",
+  "integration_points": [
+    "Legacy on-prem and cloud analytics systems (multiple per bank) being retired",
+    "BI workloads served directly from Databricks SQL",
+    "Internal cost-monitoring and forecasting platform built on Databricks",
+    "Federated network of RBI banks across Central and Eastern European jurisdictions"
+  ]
+}

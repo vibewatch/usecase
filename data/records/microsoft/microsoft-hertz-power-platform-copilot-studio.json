@@ -1,0 +1,97 @@
+{
+  "id": "microsoft-hertz-power-platform-copilot-studio",
+  "slug": "microsoft-hertz-power-platform-copilot-studio",
+  "vendor": "Microsoft",
+  "customer_name": "Hertz",
+  "industry": "Automotive",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Hertz needed to modernize hundreds of legacy processes—employee shift planning, roadside-assistance lookups across vehicle manuals on SharePoint, and payroll updates—to improve responsiveness for 26,000+ employees serving customers across 11,000+ rental locations in 160 countries.",
+  "solution_summary": "Hertz developed a suite of low-code applications on Power Platform to drive enterprise automation and AI innovation. The 'Plan My Day' app integrates Microsoft Shifts data from Teams, Palantir workflow information, and operational reports, unified in Dataverse to create a single source of truth for employee shift management and huddle planning. A second AI-driven agent, built with Microsoft Copilot Studio, provides intelligent roadside assistance to customers by retrieving vehicle manuals, manufacturer websites, government vehicle databases, and instructional video platforms. Copilot Studio enforces precise guardrails through limited knowledge source configurations and natural language constraints. Both solutions leverage Power Automate for cloud flows and API integrations, demonstrating how low-code platforms enable rapid innovation while maintaining governance and data security.",
+  "products_used": [
+    "Microsoft Power Platform",
+    "Power Apps",
+    "Power Automate",
+    "Microsoft Copilot Studio",
+    "Microsoft Teams & Shifts",
+    "Dataverse"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Application Modernization",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Hertz reduced customer-issue resolution time by over 15% in a pilot of its Copilot Studio agent, streamlined frontline shift planning and payroll integration, and enabled an employee with no prior agent experience to build a production-quality roadside-assistance agent.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "11,000+ rental locations in 160 countries",
+    "26,000+ employees",
+    "Fleet of 560,000+ vehicles",
+    "Over 15% reduction in time to resolve customer issues during agent pilot"
+  ],
+  "architecture_clues": [
+    "Plan My Day Power App integrates Microsoft Shifts and Palantir data via Dataverse using Power Automate cloud flows and APIs",
+    "Automatic payroll updates pushed to ADP system",
+    "Copilot Studio agent ('Manny') uses natural-language queries grounded in a limited set of trusted vehicle-manufacturer sites and a government VIN lookup",
+    "Agent extended with links to instructional video platforms",
+    "Future plans: image recognition in Copilot Studio and multi-agent orchestration"
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/25989-hertz-microsoft-power-platform",
+  "published_date": "2026-01-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "An early pilot of its agent, built on Copilot Studio has already reduced the time to resolve customer issues by over 15%.",
+    "We have literally hundreds of processes that could benefit from automation and AI, and we see Power Platform as a fast, efficient way to develop solutions that deliver those benefits.",
+    "Work shift data from Microsoft Shifts and Palantir moved to Dataverse using Power Automate cloud flows and APIs.",
+    "This is actually the first agent that I’ve created. Even if I could do this with custom code, it would have taken a lot longer."
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Power Platform",
+      "role": "Core infrastructure enabling rapid low-code development of business applications and AI agents with built-in governance.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Power Apps",
+      "role": "Develops custom business applications like the 'Plan My Day' employee shift scheduler integrating multiple data sources.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power Automate",
+      "role": "Orchestrates API integrations and cloud flows between Microsoft Shifts, Palantir, operational systems, and Dataverse.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Copilot Studio",
+      "role": "Builds AI-driven agents for customer service with built-in safeguards, knowledge source limits, and natural language instruction enforcement.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Teams & Shifts",
+      "role": "Provides employee shift scheduling data and collaboration context integrated into planning applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Dataverse",
+      "role": "Central data repository unifying shift schedules, operational huddle data, and custom application records as single source of truth."
+    }
+  ],
+  "data_flow": "Employee shift data flows from Microsoft Shifts through Power Automate into Dataverse, combined with operational huddle sheet data from internal systems. The Plan My Day app queries Dataverse to display unified shift and planning information. For roadside assistance, customer queries enter Copilot Studio, which retrieves context from vehicle manufacturer sites, government databases, and instructional videos, processes the query through fine-tuned agent logic, and returns step-by-step instructions back to the customer service representative. All data operations are logged and governed through Power Platform security controls.",
+  "integration_points": [
+    "Microsoft Shifts for employee scheduling data",
+    "Internal operational systems and huddle sheet data sources",
+    "Vehicle manufacturer websites and technical documentation",
+    "Government vehicle identification and information databases",
+    "Instructional video platforms for customer guidance"
+  ]
+}

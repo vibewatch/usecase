@@ -1,0 +1,97 @@
+{
+  "id": "databricks-amagi-unified-streaming-data-platform",
+  "slug": "databricks-amagi-unified-streaming-data-platform",
+  "vendor": "Databricks",
+  "customer_name": "Amagi",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Amagi supports 8,000+ streaming channels, 300+ distributors, and 26B annual ad impressions for 45% of the world's top media companies, but its legacy stack (Dataproc for batch, Snowflake for analytics, in-house platforms) created data silos with separate governance models, conflicting numbers across Finance, Operations, and Product, and complex cross-region governance across AWS and GCP.",
+  "solution_summary": "Amagi rebuilt its data platform as the Amagi Data Platform (ADP) on Databricks, consolidating Dataproc, Snowflake, and multiple in-house systems into a single Lakehouse spanning AWS and GCP. Lakeflow Spark Declarative Pipelines ingest content metadata, asset catalogs, advertising data, service streams, program schedules, and user data into governed Delta Lake tables, where Unity Catalog enforces lineage, access controls, sensitive-data tagging, and cross-cloud compliance. Finance, Operations, and Product teams query the same source of truth through Databricks SQL warehouses, Genie natural-language sessions, and notebooks running on serverless compute, while customer-facing data products for streaming platforms, ad-tech partners, and content owners are derived from the same governed Lakehouse, eliminating reconciliation between systems.",
+  "products_used": [
+    "Delta Lake",
+    "Lakeflow Spark Declarative Pipelines",
+    "Unity Catalog",
+    "Databricks SQL",
+    "Databricks Genie",
+    "Databricks Serverless Compute"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Consolidating Dataproc, Snowflake, and in-house platforms onto Databricks across AWS and GCP cut costs by 45%, sped time-to-market for new data products by 15x, and reduced production incidents by 35% — with a single governed source of truth that aligns Finance, Operations, Product, and customer-facing reporting.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "45% cost savings",
+    "15x faster time to market for new data products",
+    "35% fewer production incidents",
+    "8,000+ streaming channels supported",
+    "26 billion annual ad impressions"
+  ],
+  "architecture_clues": [
+    "Unified lakehouse on Databricks with Unity Catalog governance",
+    "Multicloud across AWS and GCP",
+    "Serverless compute for dynamic scaling",
+    "Internal access via notebooks, Genie, SQL warehouses",
+    "Customer-facing data products served from the same platform"
+  ],
+  "source_url": "https://www.databricks.com/customers/amagi",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "45% Cost savings after consolidating fragmented data systems",
+    "15x Faster time to market for new data products and features",
+    "35% Fewer production incidents due to improved data reliability"
+  ],
+  "solution_components": [
+    {
+      "name": "Delta Lake",
+      "role": "Lakehouse storage holding the governed source-of-truth tables for content, ads, services, schedules, and user data",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakeflow Spark Declarative Pipelines",
+      "role": "Ingestion and validation framework that lands data from all source systems into the governed Lakehouse",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Cross-cloud governance for lineage, access control, sensitive-data tagging, and compliance across AWS and GCP",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "SQL warehouse access for Finance, Operations, and Product analytics on the unified Lakehouse",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Genie",
+      "role": "Natural-language querying for internal stakeholders against governed Lakehouse data",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Serverless Compute",
+      "role": "Auto-scaling compute that replaces always-on infrastructure across analytics workloads",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Source systems — content metadata, asset catalogs, advertising data, service streams, program schedules, and user data — land in Delta Lake via Lakeflow declarative pipelines. Unity Catalog governs lineage, access, and sensitive-data tagging across the multicloud AWS+GCP footprint. Internal users query the same governed Lakehouse through Databricks SQL warehouses, Genie natural-language sessions, and notebooks on serverless compute, while customer-facing data products (streaming analytics, ad attribution, usage and revenue reporting) are derived from the same source of truth.",
+  "integration_points": [
+    "Streaming platforms (channel delivery and content performance analytics)",
+    "Ad-tech partners (ad intelligence and personalized attribution feeds)",
+    "Content owners (usage and revenue reporting)",
+    "Multicloud deployment across AWS and Google Cloud",
+    "Legacy systems being retired: Dataproc, Snowflake, and in-house platforms"
+  ]
+}

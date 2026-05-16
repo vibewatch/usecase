@@ -9,6 +9,8 @@ Manifest JSONL line:
      "sha256": str, "fetched_at": ISO8601, "from_cache": bool, "error": null | str}
 
 Rerun-safe: URLs already in the manifest (with status 200) are skipped unless --refresh.
+Queue is sorted by sitemap `lastmod` desc so the most recent case studies are fetched
+first; URLs without a `lastmod` (e.g. discovered via index pages) sort to the end.
 """
 
 from __future__ import annotations
@@ -53,6 +55,7 @@ def fetch_urls(
     limit: Optional[int] = None,
     refresh: bool = False,
     sources_path: Optional[Path] = None,
+    since: Optional[str] = None,
 ) -> dict[str, int]:
     sources_path = sources_path or Path("data/sources.json")
     user_agent = "UseCaseIntelBot/0.1 (+https://github.com/vibewatch/usecase)"
@@ -78,15 +81,24 @@ def fetch_urls(
             continue
         if vendor_filter and vendor.lower() != vendor_filter.lower():
             continue
+        if since and row.get("lastmod") and row["lastmod"] < since:
+            # Skip stale items with a known lastmod; unknown-date items still pass.
+            continue
         existing = already.get(url)
         if not refresh and existing and existing.get("status") == 200 and not existing.get("error"):
             continue
         queue.append(row)
-        if limit is not None and len(queue) >= limit:
-            break
+
+    # Newest first; unknown dates sink to the bottom.
+    queue.sort(
+        key=lambda r: (r.get("lastmod") is not None, r.get("lastmod") or ""),
+        reverse=True,
+    )
+    if limit is not None:
+        queue = queue[:limit]
 
     counts: dict[str, int] = {"ok": 0, "error": 0, "skipped": len(discovered) - len(queue)}
-    print(f"Fetching {len(queue)} url(s); {counts['skipped']} already in manifest")
+    print(f"Fetching {len(queue)} url(s); {counts['skipped']} skipped (already fetched, vendor-filtered, --since, or trimmed by --limit)")
 
     with manifest_path.open("a", encoding="utf-8") as out:
         for row in queue:
@@ -142,6 +154,13 @@ def main() -> None:
     parser.add_argument("--vendor", type=str, default=None)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--refresh", action="store_true", help="Refetch URLs already in manifest")
+    parser.add_argument(
+        "--since",
+        type=str,
+        default=None,
+        help="Only fetch URLs whose sitemap lastmod is >= this date (YYYY-MM-DD). "
+        "URLs without a known lastmod are kept.",
+    )
     args = parser.parse_args()
 
     counts = fetch_urls(
@@ -151,6 +170,7 @@ def main() -> None:
         vendor_filter=args.vendor,
         limit=args.limit,
         refresh=args.refresh,
+        since=args.since,
     )
     print(f"Fetched ok={counts['ok']} error={counts['error']} skipped={counts['skipped']}")
 

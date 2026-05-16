@@ -1,0 +1,91 @@
+{
+  "id": "google-cloud-kraftheinz-tastemaker",
+  "slug": "google-cloud-kraftheinz-tastemaker",
+  "vendor": "Google Cloud",
+  "customer_name": "The Kraft Heinz Company",
+  "industry": "Consumer Goods",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Across more than 200 global brands, Kraft Heinz marketing and R&D teams had to keep pace with rapidly shifting consumer culture and personalize content, but new product concept and marketing content development was manual, took roughly eight weeks per cycle, and could not scale to the volume of personalized, on-brand assets the business wanted.",
+  "solution_summary": "The Kraft Heinz Company built TasteMaker, a generative AI platform that accelerates product development and marketing content creation from 8 weeks to 8 hours. BigQuery consolidates proprietary brand intelligence including guidelines, product catalogs, photo libraries, and consumer research data. Gemini multimodal models ground content generation in this brand data, Imagen 4 creates text-to-image product visuals for consumer testing, and Veo 3 generates promotional videos. Marketing and R&D teams use TasteMaker's no-code interface to ideate product concepts, test packaging, and generate personalized promotional content tailored to brand voice, eliminating traditional procurement delays.",
+  "products_used": [
+    "BigQuery",
+    "Vertex AI",
+    "Gemini",
+    "Imagen 4",
+    "Veo 3"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Document Processing"
+  ],
+  "business_outcome": "TasteMaker became Kraft Heinz's unified AI platform for marketing and innovation, dramatically compressing concept-to-content time, cutting cost per asset, and giving non-technical marketers a prompt-less way to produce on-brand, personalized content at scale.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "8 hours instead of 8 weeks for new product content development",
+    "75% faster time to value for AI-supported processes",
+    "Thousands of hours saved by R&D, Innovation and Marketing teams",
+    "70% adoption rate among product development and marketing users on the platform"
+  ],
+  "architecture_clues": [
+    "Brand intelligence (brand guidelines, product catalog, photo libraries, consumer insights, culinary data) consolidated in BigQuery",
+    "Vertex AI orchestrates Gemini, Imagen and Veo for multimodal content generation",
+    "Gemini grounded in proprietary data evaluates and optimizes content for target audiences",
+    "Prompt-less, workflow-driven app suite designed for non-technical marketers",
+    "Built in partnership with Google Cloud Partner Apply Digital on the existing Google Cloud environment"
+  ],
+  "source_url": "https://cloud.google.com/customers/kraftheinz",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "8 hours instead of 8 weeks for new product content development",
+    "Today the team sees a 70% rate of adoption among product development and marketing users who are on the TasteMaker platform.",
+    "Vertex AI integrates these models with Kraft Heinz's brand intelligence, a smorgasbord of proprietary data consolidated in BigQuery.",
+    "TasteMaker is a secure, prompt-less, web-based AI platform that runs on Google Cloud",
+    "Today, TasteMaker is our AI platform for all of marketing and innovation at Kraft Heinz"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores consolidated brand intelligence including brand guidelines, product catalog, photo libraries, consumer insights, and formulation data for AI model grounding.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Provides the machine learning platform infrastructure enabling model integration, semantic search, and custom model training for Kraft Heinz proprietary use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Multimodal generative AI model processing text/speech prompts into marketing copy, product concept ideas, and content optimization recommendations grounded in BigQuery brand data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Imagen 4",
+      "role": "Generates photorealistic product images and packaging visuals from text prompts, enabling rapid iteration on product concepts for consumer testing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Veo 3",
+      "role": "Creates high-quality promotional video content from text descriptions or image inputs for marketing campaigns and social media."
+    }
+  ],
+  "data_flow": "Marketing prompt input → Gemini processes against BigQuery brand intelligence and consumer insights → Imagen 4 generates product images or Veo 3 generates videos → output reviewed and approved by marketer → content published to campaigns. R&D teams similarly input product concepts → Gemini suggests flavor/formulation variations → Imagen generates packaging visuals → consumer test routing.",
+  "integration_points": [
+    "Brand asset library (photos, guidelines)",
+    "Product catalog database",
+    "Consumer research testing systems",
+    "Marketing campaign management",
+    "R&D innovation systems",
+    "Portfolio management across 200+ brands"
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "id": "databricks-bayada-lakehouse-home-health",
+  "slug": "databricks-bayada-lakehouse-home-health",
+  "vendor": "Databricks",
+  "customer_name": "BAYADA Home Health Care",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "BAYADA delivers clinical, assistive, and hospice services to tens of thousands of patients weekly, but its legacy landscape of multiple practice management systems, an on-prem ODS, Snowflake, and legacy cubes forced analysts to reconcile conflicting numbers across systems for hours before every weekly review, slowing decisions about clients, caregivers, and operations.",
+  "solution_summary": "BAYADA is rebuilding its analytics estate as a Databricks Lakehouse organized around mastered entities — Client, Worker, Visit, Payor, Office, Candidate, Referrer — using a medallion architecture (Landing/Raw, Bronze, Silver, Enriched, Master Data, Gold) to consolidate practice management systems, an on-prem ODS, Snowflake, Workday, RiskConnect, and marketing and experience tools. Lakeflow Jobs and Asset Bundles orchestrate ingestion and CI/CD across the tiers, while Unity Catalog enforces ownership, access, lineage, and quality. Databricks SQL serves the curated Gold layer to finance, operations, and clinical analytics as the single source of truth, and Databricks Assistant plus an LLM-powered code converter accelerate Snowflake migration. Genie extends natural-language access on the same governed foundation, preparing BAYADA for AI agents in payroll, compliance, and clinical workflows.",
+  "products_used": [
+    "Databricks SQL",
+    "Lakeflow Jobs",
+    "Databricks Asset Bundles",
+    "Unity Catalog",
+    "Databricks Assistant",
+    "Databricks Genie"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "System Migration"
+  ],
+  "business_outcome": "BAYADA consolidated three separate data platforms into one governed Databricks SQL warehouse with 65+ enterprise sources unified, delivered roughly 30% better workload performance and cost efficiency than Snowflake, and laid an AI-ready foundation for use cases spanning AR analytics, payer KPIs, AI-assisted chart review, payroll integrity, scheduling, and referral optimization.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "~30% better workload performance and cost efficiency compared to Snowflake",
+    "65+ enterprise data sources unified into a single Databricks SQL environment",
+    "3 separate data platforms consolidated into one governed warehouse"
+  ],
+  "architecture_clues": [
+    "Medallion architecture: Landing/Raw → Bronze → Silver → Enriched → Master Data → Gold",
+    "Entity-driven, event-based ingestion around Client, Worker, Visit, Payor, Office, Candidate, Referrer",
+    "FHIR-aligned canonical schemas",
+    "Lakeflow Jobs + Asset Bundles for orchestration and CI/CD",
+    "Unity Catalog for governance, lineage, and access control",
+    "LLM-powered code converter + Databricks Assistant for SQL migration",
+    "T-Validator for automated integration test coverage",
+    "ML-based data mastering accelerator"
+  ],
+  "source_url": "https://www.databricks.com/customers/bayada",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "~30% Better workload performance and cost efficiency compared to Snowflake",
+    "65+ Enterprise data sources unified into a single Databricks SQL environment",
+    "3 Separate data platforms consolidated into one governed warehouse on DBSQL"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks SQL",
+      "role": "Warehouse performance on top of the Lakehouse, serving finance, operations, and clinical analytics as the single source of truth",
+      "layer": "Serving"
+    },
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Pipeline orchestration across the medallion tiers from raw landing through gold",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Databricks Asset Bundles",
+      "role": "CI/CD packaging for jobs, pipelines, and shared assets across the platform",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Ownership, access, lineage, and quality governance across the unified Lakehouse",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Assistant",
+      "role": "LLM-powered code conversion that automates large portions of SQL and stored-procedure migration from Snowflake",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Genie",
+      "role": "Natural-language access to mastered Client, Worker, Visit, and Payor entities",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Source systems — practice management platforms, an on-prem ODS, Snowflake, Workday, RiskConnect, and marketing/experience tooling — feed a standardized ingestion layer into medallion tiers (Landing/Raw, Bronze, Silver, Enriched, Master Data, Gold) on the Databricks Lakehouse. Lakeflow Jobs and Asset Bundles orchestrate pipelines and CI/CD, while Unity Catalog enforces ownership, access, lineage, and quality. Databricks SQL serves the curated Gold layer to finance, operations, and clinical analytics, and Genie plus Sigma provide natural-language and self-service access on the same governed foundation.",
+  "integration_points": [
+    "Practice management systems (multiple) feeding source data",
+    "Workday HR data",
+    "RiskConnect incident and risk data",
+    "Marketing and customer-experience tooling",
+    "Legacy on-prem ODS and Snowflake being decommissioned",
+    "Sigma self-service BI consuming the Gold layer",
+    "Planned AI agents for payroll validation, compliance/EVV monitoring, and operational insights"
+  ]
+}

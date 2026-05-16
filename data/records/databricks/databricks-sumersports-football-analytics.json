@@ -1,0 +1,115 @@
+{
+  "id": "databricks-sumersports-football-analytics",
+  "slug": "databricks-sumersports-football-analytics",
+  "vendor": "Databricks",
+  "customer_name": "SūmerSports",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "mid-market",
+  "business_problem": "SūmerSports helps NFL and college football teams make multimillion-dollar roster decisions by aggregating 14 data sources (player tracking, scouting, client data, NFL contracts) at up to 200TB per season. Its pre-Databricks stack was a fragmented patchwork of Azure-native services, open-source tools, and custom orchestration with no formal lineage or governance, forcing overly broad access patterns and making data engineering the bottleneck.",
+  "solution_summary": "SūmerSports rebuilt its football-analytics stack on the Databricks Data Intelligence Platform, consolidating fragmented Azure-native services, open-source tools, and custom orchestration into a single foundation that handles ~200TB of structured and semi-structured data per NFL season from 14 sources (sensor tracking, scraped web data, in-house scouting evaluations, client data, NFL contract financials). Unity Catalog governs the data sources with curated, tagged datasets and lineage; MLflow tracks experiments and prototypes; Databricks Asset Bundles let data scientists deploy model training, cleaning, and inference jobs as infrastructure-as-code; ~95% of workloads run on serverless compute. AI/BI Dashboards, Genie, and the Databricks Assistant surface analytics to ~60 internal users and to customers. Embeddings for the SūmerBrain chatbot are prototyped on Mosaic AI and served in production through AWS Bedrock. Time-to-market dropped from 3 months to 4 weeks, and post-game insights from 4 days to under a minute.",
+  "products_used": [
+    "Databricks Data Intelligence Platform",
+    "Unity Catalog",
+    "MLflow",
+    "Databricks Asset Bundles",
+    "Databricks AI/BI",
+    "Agent Bricks / Mosaic AI",
+    "Databricks Assistant",
+    "Databricks Serverless Compute"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "SūmerSports cut time-to-market for new models from three months to four weeks (3x), accelerated post-game player insights from four days to within minutes, scaled to roughly 3x the weekly NFL data volume, and runs ~95% of workflows on serverless — letting ~50 technical and ~10 non-technical users self-serve insights from a shared governed platform.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "7x increase in unstructured data processed",
+    "3x faster time-to-market for new models (3 months → 4 weeks)",
+    "Insights down from 4 days to within minutes",
+    "~3x weekly NFL season data volume vs. two years ago",
+    "~200TB processed per season",
+    "14 data sources aggregated",
+    "~95% of workflows on serverless compute"
+  ],
+  "architecture_clues": [
+    "Single Databricks Data Intelligence Platform across ingestion, ML, and analytics",
+    "Unity Catalog over 14 curated data sources",
+    "MLflow for experiment tracking and lifecycle management",
+    "Asset Bundles as infrastructure-as-code for model deployment",
+    "Mosaic AI for embeddings and chatbot prototyping",
+    "Production model serving via AWS Bedrock",
+    "Runs on AWS"
+  ],
+  "source_url": "https://www.databricks.com/customers/sumersports",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We were able to serve customers that EPA model in just under four weeks. The same work would have previously taken three months.",
+    "About 95% of our workflow is on serverless. It’s one of the biggest boons in our day-to-day operations.",
+    "In the last six months, we’ve cut it down to where it’s happening within the minute"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data Intelligence Platform",
+      "role": "Single platform underpinning ~200TB/season of football-data ingestion, feature engineering, model training, and inference across ~14 data sources",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Governs 14 primary data sources with curated, tagged datasets, lineage, and access control across product teams",
+      "layer": "Governance"
+    },
+    {
+      "name": "MLflow",
+      "role": "Experiment tracking, exploratory analysis, and lifecycle management for ML projects in a single persistent location",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Asset Bundles",
+      "role": "Infrastructure-as-code templates that let data scientists deploy model training, cleaning, and inference jobs to production themselves",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Databricks AI/BI",
+      "role": "Collaborative Notebooks and Dashboards surfacing analytics internally and to customers, with Genie enabling natural-language access",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agent Bricks / Mosaic AI",
+      "role": "Prototypes the embeddings powering SūmerBrain chatbot interfaces (production models served via AWS Bedrock)",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Assistant",
+      "role": "Context-aware AI assistant integrated with Unity Catalog so analysts can ask routine table/availability questions without involving data engineering",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Serverless Compute",
+      "role": "~95% of workflows run on serverless, eliminating cluster management for most jobs",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "SūmerSports ingests ~200TB/season of structured and semi-structured football data from 14 sources (sensor telemetry, scraped web data, in-house scouting evaluations, client data, NFL contract financials) staged in AWS S3, runs nightly jobs to clean, feature-engineer, retrain, and serve inference, and stores everything under Unity Catalog as curated, tagged datasets. ML development happens in collaborative Notebooks tracked by MLflow; Asset Bundles deploy training/cleaning/inference jobs as infrastructure-as-code. AI/BI Dashboards and Genie surface analytics internally and to customers. Embeddings prototyped in Mosaic AI power the SūmerBrain chatbot, served in production through AWS Bedrock. ~95% of jobs run on serverless compute.",
+  "integration_points": [
+    "14 source systems: sensor tracking, scraped web data, in-house scouting evaluations, client data, NFL contract financials",
+    "AWS S3 for sample-data staging",
+    "AWS Bedrock serving production chatbot models",
+    "SūmerBrain consumer fantasy-football chatbot",
+    "Team-facing analytics for coaches, scouts, and executives",
+    "Built-in monitoring integrated with SūmerSports observability tooling",
+    "~50 technical + ~10 non-technical internal users"
+  ]
+}

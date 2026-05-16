@@ -1,0 +1,78 @@
+{
+  "id": "databricks-nab-lakeflow-declarative-pipelines",
+  "slug": "databricks-nab-lakeflow-declarative-pipelines",
+  "vendor": "Databricks",
+  "customer_name": "National Australia Bank (NAB)",
+  "industry": "Financial Services",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "NAB had standardized on Databricks but its 300–400 data engineers were building 1,600+ Spark pipelines in inconsistent ways, with hand-written Spark and legacy SQL DMLs of 5,000–8,000 lines and some pipelines containing 64 union-alls. The bank needed a single, governed way to run, standardize, and productionize Spark workloads from ingestion to transformation without slowing teams down.",
+  "solution_summary": "National Australia Bank (NAB) is consolidating 1,600+ hand-written Spark and legacy SQL pipelines onto Lakeflow Spark Declarative Pipelines on Databricks — 1,800 declarative pipelines run today — to give 300–400 engineers a single, consistent way to build, run, and operationalize Spark workloads. Engineers define what the data should look like (target tables, merge keys, business logic); Lakeflow handles orchestration, scaling, incremental processing, and state management, while AutoCDC eliminates the thousands of lines of hand-coded SCD logic that previously spanned Spark and SQL. Bronze ingestion is 100% declarative, ~50% of the Silver layer is migrated, and Gold is the next target — moving the bank toward a fully declarative, streaming-first architecture with under-15-minute end-to-end latency across AWS, Azure, and Google Cloud.",
+  "products_used": [
+    "Lakeflow Spark Declarative Pipelines",
+    "Lakeflow",
+    "Databricks AutoCDC"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "NAB collapsed multi-thousand-line pipelines (some 64 union-alls down to 3), raised pipeline success rates from 86% to 99.6%, improved data quality by 38%, and brought end-to-end latency under 15 minutes — with 100% of Bronze pipelines and roughly 50% of Silver pipelines now running declaratively.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "100% of Bronze pipelines on Spark Declarative Pipelines",
+    "~50% of Silver pipelines migrated",
+    "120 data sources onboarded in the first year",
+    "Pipeline success rate up from 86% to 99.6%",
+    "Data quality improved by 38%",
+    "End-to-end latency under 15 minutes",
+    "Some pipelines reduced from 64 union-alls to 3"
+  ],
+  "architecture_clues": [
+    "Spark Declarative Pipelines as the standardization layer",
+    "Lakeflow for orchestration and operationalization",
+    "AutoCDC for change data capture across SCDs",
+    "Runs on AWS, Azure, and Google Cloud"
+  ],
+  "source_url": "https://www.databricks.com/customers/national-australian-bank-nab",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "I call Spark Declarative Pipelines hyper-standardization. There’s only one way to do things - and that consistency is what we were missing.",
+    "Pipeline success rates have increased from 86% to 99.6%",
+    "Latency has dropped dramatically, now supporting under 15 minutes for end to end use cases"
+  ],
+  "solution_components": [
+    {
+      "name": "Lakeflow Spark Declarative Pipelines",
+      "role": "Declarative pipeline framework replacing 5,000–8,000-line hand-written Spark DMLs with target-table/merge-key definitions; Bronze 100% migrated, Silver ~50%, Gold next",
+      "layer": "Compute"
+    },
+    {
+      "name": "Lakeflow",
+      "role": "Runs and operationalizes the declarative pipelines with built-in orchestration, scaling, and reliability",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Databricks AutoCDC",
+      "role": "Built-in change-data-capture that eliminates hand-coded SCD logic previously spanning thousands of lines",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "More than 1,600 data pipelines (1,800 declarative pipelines running today) flow from upstream banking source systems into a Bronze→Silver→Gold medallion on Databricks. Spark Declarative Pipelines define the target tables, merge keys, and business logic; Lakeflow handles orchestration, scaling, incremental processing, and state management; AutoCDC eliminates hand-coded SCD logic. Bronze ingestion is 100% declarative, ~50% of Silver is migrated, and Gold is next — enabling end-to-end streaming with under-15-minute latency.",
+  "integration_points": [
+    "Multicloud deployment across AWS, Azure, and Google Cloud",
+    "ADA central data platform serving ~300–400 data engineers",
+    "Legacy hand-written Spark and SQL pipelines being retired",
+    "Self-service for business users planned once Gold layer migration completes"
+  ]
+}

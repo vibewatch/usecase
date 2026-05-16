@@ -1,0 +1,75 @@
+{
+  "id": "google-cloud-vodafone-cz-bigquery-migration",
+  "slug": "google-cloud-vodafone-cz-bigquery-migration",
+  "vendor": "Google Cloud",
+  "customer_name": "Vodafone Czech Republic",
+  "industry": "Telecommunications",
+  "region": "Europe",
+  "company_size": "Enterprise",
+  "business_problem": "Vodafone CZ's commercial teams had to make trading and campaign decisions on day-old data because the on-premises analytics estate was fragmented across a legacy data warehouse, a separate network platform and a separate campaign tool — each with its own integrations — and was operated by external vendors, producing inconsistent figures, costly nine-month upgrade cycles and reports that did not land until afternoon.",
+  "solution_summary": "Vodafone Czech Republic unified fragmented on-premises data infrastructure by migrating all business performance, network, and campaign data to BigQuery, replacing siloed legacy systems with a single source of truth. Cloud Data Fusion (CDAP) orchestrates data integration, bringing operations in-house and eliminating external vendor dependencies. Data processing now completes by 9 AM, enabling same-day decision-making versus previous day-old reports. The serverless, pay-per-query model reduced operational costs 46% while improving team agility. Teams gained real-time visibility into trading positions, campaign performance, and network metrics, enabling commercial teams to respond to market dynamics within hours instead of days.",
+  "products_used": [
+    "BigQuery",
+    "Cloud Data Fusion"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "System Migration"
+  ],
+  "business_outcome": "Vodafone CZ now operates from a single source of truth with daily data ready before business hours, has eliminated multi-month upgrade outages, is materially cheaper to run on a serverless pay-as-you-go model, and is positioned to migrate ML workloads next.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "46% reduction in operational costs after migrating to BigQuery",
+    "Data delivery moved from day-old to same-day, ready by 9 AM",
+    "Eliminated nine-month hardware and software upgrade cycles"
+  ],
+  "architecture_clues": [
+    "BigQuery as the single warehouse holding CRM, billing and network traffic data",
+    "Serverless, pay-as-you-go BigQuery model replacing fixed-capacity on-premises infrastructure",
+    "CDAP Cloud Data Fusion (open source) for in-house data integration pipelines, deployed with help from Vodafone's central AI and Data team",
+    "Automatic multi-region backup of data, replacing single-location on-premises servers",
+    "Per-query cost visibility used as a forcing function to write more efficient pipelines",
+    "ML workloads being prepared for migration onto the same BigQuery foundation"
+  ],
+  "source_url": "https://cloud.google.com/customers/vodafone-cz",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "46% reduction in operational costs by migrating to BigQuery",
+    "Data delivery improved from day-old to same-day by 9AM",
+    "First thing each day, all our data is pre-calculated and ready for users",
+    "We're now self-sufficient. We integrated all operations inside our teams with Google Cloud.",
+    "Every query we run has a cost associated with it, so we're challenged to be better data engineers"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Centralizes all CRM, billing, network traffic, and campaign data into a unified data warehouse with sub-second query performance for business analytics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Data Fusion",
+      "role": "Manages data integration and ETL pipelines, replacing external vendor integrations with in-house control over data flow from CRM, billing, and network sources to BigQuery."
+    }
+  ],
+  "data_flow": "CRM customer data, billing records, and network traffic metrics extract from source systems via Cloud Data Fusion ETL processes. Data consolidates into BigQuery with consistent schemas. Pre-calculated aggregations complete by 9 AM each morning. Business users query BigQuery directly for daily trend analysis, campaign ROI, and network performance dashboards. Reports and insights feed into decision-making for trading strategies and campaign optimization.",
+  "integration_points": [
+    "On-premises CRM system",
+    "Legacy billing platform",
+    "Network monitoring infrastructure",
+    "Campaign management tools",
+    "Business intelligence dashboards",
+    "External data vendors (eliminated)",
+    "Regional backup infrastructure"
+  ]
+}
