@@ -1,4 +1,4 @@
-import rawCaseStudies from '../../data/case-studies.sample.json';
+import rawCaseStudies from '../../data/case-studies.generated.json';
 import type { CaseStudyRecord } from './types';
 
 export const caseStudies = rawCaseStudies as unknown as CaseStudyRecord[];

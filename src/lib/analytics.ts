@@ -78,8 +78,17 @@ export function formatPercent(value: number): string {
   return `${Math.round(value * 100)}%`;
 }
 
+const ISO_DATE_RE = /^\d{4}-\d{2}(?:-\d{2})?(?:T\d{2}:\d{2}(?::\d{2})?(?:\.\d+)?Z?)?$/;
+
+export function isParseableDate(value: string): boolean {
+  if (!value || !ISO_DATE_RE.test(value)) return false;
+  const date = new Date(value);
+  return !Number.isNaN(date.getTime());
+}
+
 export function formatDate(value: string): string {
-  return new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric' }).format(
-    new Date(value)
+  if (!isParseableDate(value)) return value || "—";
+  return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(
+    new Date(value),
   );
 }

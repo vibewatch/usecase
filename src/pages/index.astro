@@ -6,6 +6,7 @@ import {
   flattenValues,
   formatDate,
   formatPercent,
+  isParseableDate,
   maturityDistribution,
   topValues,
   uniqueSorted,
@@ -38,6 +39,7 @@ const maxUseCaseCount = topUseCases.reduce((max, entry) => Math.max(max, entry.c
 const maxProductCount = topProducts.reduce((max, entry) => Math.max(max, entry.count), 1);
 const latestUpdate = caseStudies
   .map((record) => record.published_date)
+  .filter(isParseableDate)
   .sort((left, right) => right.localeCompare(left))[0];
 const avgConfidence = averageConfidence(caseStudies);
 ---
@@ -60,7 +62,7 @@ const avgConfidence = averageConfidence(caseStudies);
           <div class="stat">
             <span class="stat__value">{caseStudies.length}</span>
             <span class="stat__label">Records</span>
-            <span class="stat__caption">Sample intelligence rows</span>
+            <span class="stat__caption">Normalized case studies in the dataset</span>
           </div>
           <div class="stat">
             <span class="stat__value">{vendors.length}</span>
@@ -88,7 +90,7 @@ const avgConfidence = averageConfidence(caseStudies);
             <p class="eyebrow">Highlights</p>
             <h2 class="section__title">What this dataset already shows.</h2>
           </div>
-          <p class="section__subtitle">Four pastel snapshots — top use cases, products, outcomes, and maturity — from the synthetic seed.</p>
+          <p class="section__subtitle">Four pastel snapshots — top use cases, products, outcomes, and maturity — from the current dataset.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card feature-card--yellow">
@@ -99,7 +101,7 @@ const avgConfidence = averageConfidence(caseStudies);
           <article class="feature-card feature-card--coral">
             <span class="feature-card__label">Most cited product</span>
             <strong class="feature-card__value">{topProducts[0]?.label ?? "—"}</strong>
-            <span class="feature-card__caption">{topProducts[0]?.count ?? 0} appearances across the seed.</span>
+            <span class="feature-card__caption">{topProducts[0]?.count ?? 0} appearances across the dataset.</span>
           </article>
           <article class="feature-card feature-card--teal">
             <span class="feature-card__label">Outcome leader</span>
@@ -355,7 +357,7 @@ const avgConfidence = averageConfidence(caseStudies);
     <section class="container" id="cta">
       <div class="cta-banner">
         <h2 class="cta-banner__title">Plug in your vendor sources next.</h2>
-        <p class="cta-banner__subtitle">Swap the synthetic seed for your own crawler output. Same schema, same dashboard, real intelligence.</p>
+        <p class="cta-banner__subtitle">Add another vendor source, rerun the pipeline, and the dashboard picks up the new records on next build. Same schema, same dashboard, larger intelligence surface.</p>
         <div class="hero-actions">
           <a class="btn btn--on-dark" href="https://github.com/vibewatch/usecase" target="_blank" rel="noreferrer">Read the pipeline docs</a>
           <a class="btn btn--yellow" href="https://github.com/vibewatch/usecase/issues" target="_blank" rel="noreferrer">Open an issue</a>

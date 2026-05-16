@@ -1,24 +1,93 @@
 # Customer Use Case Intelligence
 
-Astro dashboard plus a lightweight Python data pipeline for normalizing vendor customer stories into comparable market intelligence records.
+Astro dashboard backed by a Python pipeline that turns vendor customer stories
+(AWS / Microsoft / Google Cloud / Oracle / Snowflake / Databricks / Alibaba
+Cloud / …) into a normalized, comparable dataset.
+
+The pipeline discovers candidate URLs from vendor sitemaps, fetches HTML,
+prepares extraction bundles, and lets an agent (this assistant) author one
+JSON record per page using the [`case-study-extraction`](.agents/skills/case-study-extraction/SKILL.md)
+skill. Records are merged, seeded into SQLite, and re-exported as the JSON
+the dashboard reads.
+
+## Current dataset
+
+66 records · 58 extracted from live vendor pages · 8 synthetic seeds.
+
+| Vendor        | Records |
+| ------------- | ------- |
+| Alibaba Cloud | 15      |
+| Databricks    | 15      |
+| Oracle        | 13      |
+| Microsoft     | 10      |
+| Google Cloud  | 9       |
+| AWS           | 4       |
+| Seed samples  | 8       |
+
+Average confidence ≈ 0.97, average maturity ≈ 5.9 / 6.
 
 ## Commands
 
 ```bash
-npm install
-npm run dev
-npm run build
-npm run data:seed
-npm run data:export
+npm install          # install Astro + jsdom + readability
+npm run dev          # local dashboard at http://localhost:4321
+npm run build        # astro check && astro build → dist/
+
+# Pipeline (Python 3, stdlib only)
+npm run data:discover   # walk data/sources.json sitemaps → data/discovered_urls.jsonl
+npm run data:fetch      # fetch HTML → data/raw_html/, append data/fetch_manifest.jsonl
+npm run data:extract    # build prompt bundles in data/extract_jobs/{vendor}/
+npm run data:merge      # fold data/records/**/*.json + samples → data/case-studies.merged.json
+npm run data:build      # merge → seed SQLite → export data/case-studies.generated.json
 ```
 
-The current dashboard reads `data/case-studies.sample.json`. Those records are synthetic placeholders with `is_sample: true` so the UI, SQLite schema, and analysis functions can be exercised before real crawlers and LLM extraction jobs are connected.
+The dashboard imports `data/case-studies.generated.json`, so any rerun of
+`npm run data:build` is picked up by the next `npm run dev` / `build`.
 
-## Current Shape
+## Adding records
 
-- `src/pages/index.astro` renders the dashboard.
-- `src/pages/cases/[slug].astro` renders traceable case detail pages.
-- `data/case-studies.sample.json` is the normalized record format consumed by Astro.
-- `taxonomy.json` is the canonical category vocabulary for extraction and analysis.
-- `pipeline/usecase_intel` validates records, computes missing scores, seeds SQLite, and exports JSON.
-- `prompts/extract_case_study.md` is the initial LLM extraction contract.
+End-to-end agent loop:
+
+1. Add the vendor to [`data/sources.json`](data/sources.json) with a sitemap,
+   index page(s), include `url_patterns`, and `exclude_patterns`.
+2. `npm run data:discover` to populate `data/discovered_urls.jsonl`.
+3. `npm run data:fetch` to mirror raw HTML and write the fetch manifest.
+4. `npm run data:extract` to produce `data/extract_jobs/{vendor_slug}/{sha}.json`
+   bundles (self-contained prompts with cleaned text + the extraction skill +
+   the taxonomy).
+5. Open the bundle and write the structured record to
+   `data/records/{vendor_slug}/{slug}.json` following the
+   [`case-study-extraction`](.agents/skills/case-study-extraction/SKILL.md) skill.
+6. `npm run data:build` to merge, seed SQLite, and refresh the dashboard JSON.
+
+When a vendor is anti-bot heavy (AWS, Snowflake), prefer the
+[`fetch-url`](.agents/skills/fetch-url/SKILL.md) skill — it rotates
+curl-impersonate profiles and falls back to reader/wayback. Known per-host
+strategies live in
+[`.agents/skills/fetch-url/references/host-strategies.json`](.agents/skills/fetch-url/references/host-strategies.json).
+
+## Repository shape
+
+- `src/pages/index.astro` — dashboard (top use cases, products, outcomes,
+  maturity, vendor × use-case and industry × use-case coverage matrices,
+  filterable record table).
+- `src/pages/cases/[slug].astro` — per-record detail page.
+- `src/lib/` — `caseStudies.ts` data import, `analytics.ts` aggregations,
+  `types.ts` schema.
+- `taxonomy.json` — canonical vocabulary for vendors / industries / technical
+  areas / use cases / outcomes.
+- `pipeline/usecase_intel/` — `discover`, `fetch`, `clean`, `extract`,
+  `merge_records`, `seed`, `scoring`, `export`, plus the polite stdlib
+  `http_client` for sitemap-level fetches.
+- `data/sources.json` — vendor source config (sitemaps, index pages, regex
+  filters).
+- `data/records/{vendor_slug}/{slug}.json` — authored records (tracked).
+- `data/case-studies.sample.json` — synthetic seed records (`is_sample: true`).
+- `data/case-studies.generated.json` — built artifact consumed by the
+  dashboard (gitignored).
+- `data/usecase_intel.sqlite` — built SQLite database (gitignored).
+- `.agents/skills/` — agent skills (`case-study-extraction`, `fetch-url`).
+- `docs/customer-use-case-intelligence-plan.md` — design doc / north-star
+  spec for the data model and taxonomy.
+- `DESIGN.md` — external design-system reference (Miro) used to inform the
+  dashboard styling.
