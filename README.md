@@ -10,6 +10,9 @@ JSON record per page using the [`case-study-extraction`](.agents/skills/case-stu
 skill. Records are merged, seeded into SQLite, and re-exported as the JSON
 the dashboard reads.
 
+For the full system design (data flow, component responsibilities, schemas,
+extension recipes, and known design debt) see [ARCHITECTURE.md](ARCHITECTURE.md).
+
 ## Current dataset
 
 66 records · 58 extracted from live vendor pages · 8 synthetic seeds.
@@ -25,6 +28,24 @@ the dashboard reads.
 | Seed samples  | 8       |
 
 Average confidence ≈ 0.97, average maturity ≈ 5.9 / 6.
+
+## Solution depth
+
+Each record carries a structured per-component view:
+
+- `solution_components[]` — `{name, role, layer?}` per product/service that is
+  actually part of the implementation. `layer` comes from
+  `taxonomy.json → component_layers` (`Ingest` / `Compute` / `Storage` /
+  `Serving` / `Orchestration` / `Governance`).
+- `data_flow` — one paragraph tracing how data moves end-to-end.
+- `integration_points[]` — external systems, upstream sources, downstream
+  consumers.
+
+`solution_summary` targets 600–1000 characters covering ingest → process →
+store → serve. Older records that predate the structured fields render via a
+fallback chip list of `products_used`. See
+[`.agents/skills/case-study-extraction/SKILL.md`](.agents/skills/case-study-extraction/SKILL.md)
+for the full extraction contract.
 
 ## Commands
 
@@ -87,7 +108,7 @@ strategies live in
   dashboard (gitignored).
 - `data/usecase_intel.sqlite` — built SQLite database (gitignored).
 - `.agents/skills/` — agent skills (`case-study-extraction`, `fetch-url`).
-- `docs/customer-use-case-intelligence-plan.md` — design doc / north-star
-  spec for the data model and taxonomy.
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — system architecture: data flow,
+  component boundaries, schemas, extension recipes, known design debt.
 - `DESIGN.md` — external design-system reference (Miro) used to inform the
   dashboard styling.

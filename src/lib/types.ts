@@ -1,3 +1,9 @@
+export interface SolutionComponent {
+  name: string;
+  role: string;
+  layer?: string;
+}
+
 export interface CaseStudyRecord {
   id: string;
   slug: string;
@@ -9,6 +15,9 @@ export interface CaseStudyRecord {
   business_problem: string;
   solution_summary: string;
   products_used: string[];
+  solution_components?: SolutionComponent[];
+  data_flow?: string;
+  integration_points?: string[];
   technical_area: string[];
   use_case_category: string[];
   business_outcome: string;
@@ -44,4 +53,5 @@ export interface Taxonomy {
   technical_areas: string[];
   use_case_categories: string[];
   outcome_categories: string[];
+  component_layers: string[];
 }

@@ -1,8 +1,16 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { caseStudies } from "../../lib/caseStudies";
-import { formatDate, formatPercent, maturityLabel } from "../../lib/analytics";
+import {
+  formatDate,
+  formatPercent,
+  groupComponentsByLayer,
+  hasSolutionComponents,
+  maturityLabel,
+  solutionComponents,
+} from "../../lib/analytics";
 import type { CaseStudyRecord } from "../../lib/types";
+import taxonomy from "../../../taxonomy.json";
 
 type Props = {
   record: CaseStudyRecord;
@@ -13,6 +21,14 @@ export function getStaticPaths() {
 }
 
 const { record } = Astro.props as Props;
+
+const layerOrder: string[] = (taxonomy as { component_layers?: string[] }).component_layers ?? [];
+const components = solutionComponents(record);
+const componentsByLayer = hasSolutionComponents(record)
+  ? groupComponentsByLayer(components, layerOrder)
+  : [];
+const integrationPoints = record.integration_points ?? [];
+const dataFlow = record.data_flow?.trim() ?? "";
 ---
 
 <BaseLayout title={`${record.customer_name} | Use Case Intelligence`}>
@@ -37,25 +53,74 @@ const { record } = Astro.props as Props;
       </aside>
     </section>
 
-    <section class="detail-grid" aria-label="Case details">
-      <article class="surface-card">
-        <h2>Solution</h2>
+    <section class="solution-grid" aria-label="Solution overview">
+      <article class="surface-card solution-summary-card">
+        <h2>Solution summary</h2>
         <p>{record.solution_summary}</p>
+        {dataFlow && (
+          <div class="solution-subsection">
+            <h3>Data flow</h3>
+            <p>{dataFlow}</p>
+          </div>
+        )}
       </article>
       <article class="surface-card">
         <h2>Outcome</h2>
         <p>{record.business_outcome}</p>
+        {integrationPoints.length > 0 && (
+          <div class="solution-subsection">
+            <h3>Integration points</h3>
+            <ul class="tag-list">
+              {integrationPoints.map((point) => <li>{point}</li>)}
+            </ul>
+          </div>
+        )}
       </article>
-      <article class="surface-card">
-        <h2>Products</h2>
+    </section>
+
+    <section class="surface-card components-card" aria-label="Solution components">
+      <div class="components-card__header">
+        <h2>Solution components</h2>
+        <span class="components-card__meta">
+          {hasSolutionComponents(record)
+            ? `${components.length} components across ${componentsByLayer.length} layer${componentsByLayer.length === 1 ? "" : "s"}`
+            : `${record.products_used.length} products mentioned (no layer breakdown yet)`}
+        </span>
+      </div>
+      {hasSolutionComponents(record) ? (
+        <div class="components-layers">
+          {componentsByLayer.map(({ layer, items }) => (
+            <div class="components-layer">
+              <span class="components-layer__label">{layer}</span>
+              <ul class="components-list">
+                {items.map((item) => (
+                  <li class="components-list__item">
+                    <span class="components-list__name">{item.name}</span>
+                    <span class="components-list__role">{item.role}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : (
         <ul class="tag-list">
           {record.products_used.map((product) => <li>{product}</li>)}
         </ul>
-      </article>
+      )}
+    </section>
+
+    <section class="detail-grid" aria-label="Categories">
       <article class="surface-card">
         <h2>Categories</h2>
         <ul class="tag-list">
           {[...record.technical_area, ...record.use_case_category].map((category) => <li>{category}</li>)}
+        </ul>
+      </article>
+      <article class="surface-card">
+        <h2>Architecture clues</h2>
+        <ul>
+          {record.architecture_clues.map((clue) => <li>{clue}</li>)}
         </ul>
       </article>
     </section>
@@ -68,9 +133,9 @@ const { record } = Astro.props as Props;
         </ul>
       </article>
       <article class="surface-card">
-        <h2>Architecture clues</h2>
-        <ul>
-          {record.architecture_clues.map((clue) => <li>{clue}</li>)}
+        <h2>Evidence quotes</h2>
+        <ul class="quote-list">
+          {record.evidence_quotes.map((quote) => <li>“{quote}”</li>)}
         </ul>
       </article>
       <article class="surface-card">

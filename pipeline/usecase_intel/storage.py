@@ -12,6 +12,7 @@ MULTI_VALUE_FIELDS = {
     "metrics": "metric",
     "architecture_clues": "architecture_clue",
     "evidence_quotes": "evidence_quote",
+    "integration_points": "integration_point",
 }
 
 

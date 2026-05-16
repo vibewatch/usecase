@@ -1,4 +1,4 @@
-import type { CaseStudyRecord, CountItem, MatrixRow } from './types';
+import type { CaseStudyRecord, CountItem, MatrixRow, SolutionComponent } from './types';
 
 export function uniqueSorted(values: string[]): string[] {
   return Array.from(new Set(values)).sort((left, right) => left.localeCompare(right));
@@ -91,4 +91,49 @@ export function formatDate(value: string): string {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(
     new Date(value),
   );
+}
+
+const UNCATEGORIZED_LAYER = "Uncategorized";
+
+export function solutionComponents(record: CaseStudyRecord): SolutionComponent[] {
+  return record.solution_components ?? [];
+}
+
+export function hasSolutionComponents(record: CaseStudyRecord): boolean {
+  return solutionComponents(record).length > 0;
+}
+
+export function groupComponentsByLayer(
+  components: SolutionComponent[],
+  layerOrder: string[] = [],
+): Array<{ layer: string; items: SolutionComponent[] }> {
+  const buckets = new Map<string, SolutionComponent[]>();
+  for (const component of components) {
+    const layer = component.layer?.trim() || UNCATEGORIZED_LAYER;
+    if (!buckets.has(layer)) buckets.set(layer, []);
+    buckets.get(layer)!.push(component);
+  }
+
+  const orderIndex = new Map(layerOrder.map((label, index) => [label, index]));
+  return Array.from(buckets.entries())
+    .map(([layer, items]) => ({ layer, items }))
+    .sort((left, right) => {
+      const leftIndex = orderIndex.get(left.layer) ?? Number.MAX_SAFE_INTEGER;
+      const rightIndex = orderIndex.get(right.layer) ?? Number.MAX_SAFE_INTEGER;
+      if (leftIndex !== rightIndex) return leftIndex - rightIndex;
+      return left.layer.localeCompare(right.layer);
+    });
+}
+
+export function componentLayerCounts(records: CaseStudyRecord[]): CountItem[] {
+  const layers = records.flatMap((record) =>
+    solutionComponents(record)
+      .map((component) => component.layer?.trim())
+      .filter((layer): layer is string => Boolean(layer)),
+  );
+  return countValues(layers);
+}
+
+export function integrationPointCounts(records: CaseStudyRecord[]): CountItem[] {
+  return countValues(records.flatMap((record) => record.integration_points ?? []));
 }
