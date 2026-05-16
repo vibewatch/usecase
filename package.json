@@ -8,7 +8,12 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "data:seed": "python3 -m pipeline.usecase_intel.seed data/case-studies.sample.json data/usecase_intel.sqlite",
-    "data:export": "python3 -m pipeline.usecase_intel.export data/usecase_intel.sqlite data/case-studies.generated.json"
+    "data:export": "python3 -m pipeline.usecase_intel.export data/usecase_intel.sqlite data/case-studies.generated.json",
+    "data:discover": "python3 -m pipeline.usecase_intel.discover",
+    "data:fetch": "python3 -m pipeline.usecase_intel.fetch",
+    "data:extract": "python3 -m pipeline.usecase_intel.extract",
+    "data:merge": "python3 -m pipeline.usecase_intel.merge_records --include-samples data/case-studies.sample.json",
+    "data:build": "npm run data:merge && python3 -m pipeline.usecase_intel.seed data/case-studies.merged.json data/usecase_intel.sqlite && npm run data:export"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

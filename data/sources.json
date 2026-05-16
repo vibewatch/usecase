@@ -1,0 +1,96 @@
+{
+  "user_agent": "UseCaseIntelBot/0.1 (+https://github.com/vibewatch/usecase)",
+  "default_delay_seconds": 1.0,
+  "sources": [
+    {
+      "vendor": "AWS",
+      "sitemaps": [
+        "https://aws.amazon.com/api/dirs/items/search?item.directoryId=case-studies&sort_by=item.additionalFields.sortDate&sort_order=desc&size=50"
+      ],
+      "index_pages": [
+        "https://aws.amazon.com/solutions/case-studies/"
+      ],
+      "url_patterns": [
+        "^https://aws\\.amazon\\.com/solutions/case-studies/[^/]+/?$"
+      ],
+      "exclude_patterns": [
+        "/case-studies/?$",
+        "/case-studies/all/",
+        "/innovators/?$",
+        "-stories/?$",
+        "filter=",
+        "#",
+        "\\?"
+      ]
+    },
+    {
+      "vendor": "Google Cloud",
+      "sitemaps": [
+        "https://cloud.google.com/sitemap.xml"
+      ],
+      "index_pages": [
+        "https://cloud.google.com/customers"
+      ],
+      "url_patterns": [
+        "^https://cloud\\.google\\.com/customers/[^/]+/?$"
+      ],
+      "exclude_patterns": [
+        "/customers/?$",
+        "/customers/find-a-partner",
+        "/customers/featured"
+      ]
+    },
+    {
+      "vendor": "Microsoft",
+      "sitemaps": [
+        "https://www.microsoft.com/en-us/sitemap.xml"
+      ],
+      "index_pages": [
+        "https://www.microsoft.com/en-us/customers"
+      ],
+      "url_patterns": [
+        "^https://www\\.microsoft\\.com/en/customers/story/[^/?#]+/?$"
+      ],
+      "exclude_patterns": [
+        "/customers/?$",
+        "/customers/search",
+        "/customers/locale",
+        "/customers/brand-collections",
+        "filter=",
+        "msockid="
+      ]
+    },
+    {
+      "vendor": "Snowflake",
+      "sitemaps": [
+        "https://www.snowflake.com/sitemap.xml"
+      ],
+      "index_pages": [
+        "https://www.snowflake.com/en/customers/all-customers/"
+      ],
+      "url_patterns": [
+        "^https://www\\.snowflake\\.com/en/customers/[^/]+/?$"
+      ],
+      "exclude_patterns": [
+        "/customers/?$",
+        "/all-customers",
+        "/customer-stories/?$"
+      ]
+    },
+    {
+      "vendor": "Databricks",
+      "sitemaps": [
+        "https://www.databricks.com/sitemap.xml"
+      ],
+      "index_pages": [
+        "https://www.databricks.com/customers"
+      ],
+      "url_patterns": [
+        "^https://www\\.databricks\\.com/customers/[^/]+/?$"
+      ],
+      "exclude_patterns": [
+        "/customers/?$"
+      ]
+    }
+  ]
+}
