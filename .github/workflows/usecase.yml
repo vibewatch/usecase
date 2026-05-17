@@ -114,7 +114,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 --version
-          # Pipeline is stdlib-only; ubuntu-latest ships Python 3.12.
+          python3 -m pip install -r requirements.txt
 
       - name: Resolve inputs
         id: inputs

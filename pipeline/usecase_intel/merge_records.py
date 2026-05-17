@@ -14,6 +14,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from .settings import MERGED_CASE_STUDIES_PATH, RECORDS_ROOT
+
 
 def _load_record(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as handle:
@@ -82,13 +84,13 @@ def main() -> None:
     parser.add_argument(
         "--records-root",
         type=Path,
-        default=Path("data/records"),
+        default=RECORDS_ROOT,
         help="Directory containing per-vendor record JSON files",
     )
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("data/case-studies.merged.json"),
+        default=MERGED_CASE_STUDIES_PATH,
         help="Path to write the merged JSON array",
     )
     parser.add_argument(

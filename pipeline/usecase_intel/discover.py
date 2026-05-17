@@ -27,7 +27,9 @@ from typing import Iterable, Optional
 from urllib.parse import urljoin
 from xml.etree import ElementTree
 
-from .http_client import PoliteClient
+from .fetch_client import FetchClient
+from .settings import DISCOVERED_URLS_PATH, HTTP_CACHE_DIR, SOURCES_PATH, fetch_options
+from .utils import load_json, load_jsonl
 
 SITEMAP_NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
@@ -81,7 +83,7 @@ def _parse_sitemap(body: bytes) -> tuple[list[str], list[tuple[str, Optional[str
 
 
 def _walk_sitemap(
-    client: PoliteClient,
+    client: FetchClient,
     root_url: str,
     *,
     include_patterns: list[re.Pattern[str]],
@@ -133,7 +135,7 @@ def _walk_sitemap(
     return matched
 
 
-def _extract_index_links(client: PoliteClient, index_url: str) -> list[str]:
+def _extract_index_links(client: FetchClient, index_url: str) -> list[str]:
     print(f"  index {index_url}", file=sys.stderr, flush=True)
     try:
         result = client.fetch(index_url)
@@ -170,18 +172,11 @@ def _filter_urls(
 
 
 def _load_existing(path: Path) -> set[str]:
-    if not path.exists():
-        return set()
     urls: set[str] = set()
-    with path.open("r", encoding="utf-8") as handle:
-        for line in handle:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                urls.add(json.loads(line)["url"])
-            except (json.JSONDecodeError, KeyError):
-                continue
+    for row in load_jsonl(path):
+        url = row.get("url")
+        if isinstance(url, str):
+            urls.add(url)
     return urls
 
 
@@ -196,10 +191,13 @@ def discover(
     use_index_pages: bool = True,
     max_sitemaps: int = 20,
 ) -> dict[str, int]:
-    config = json.loads(sources_path.read_text(encoding="utf-8"))
-    client = PoliteClient(
-        user_agent=config.get("user_agent", "UseCaseIntelBot/0.1"),
-        per_host_delay_seconds=config.get("default_delay_seconds", 1.0),
+    config = load_json(sources_path, {})
+    if not isinstance(config, dict):
+        raise ValueError(f"invalid source config: {sources_path}")
+    user_agent, delay = fetch_options(config)
+    client = FetchClient(
+        user_agent=user_agent,
+        per_host_delay_seconds=delay,
         cache_dir=cache_dir,
     )
 
@@ -283,8 +281,8 @@ def discover(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Discover vendor case study URLs from sitemaps.")
-    parser.add_argument("--sources", type=Path, default=Path("data/sources.json"))
-    parser.add_argument("--output", type=Path, default=Path("data/discovered_urls.jsonl"))
+    parser.add_argument("--sources", type=Path, default=SOURCES_PATH)
+    parser.add_argument("--output", type=Path, default=DISCOVERED_URLS_PATH)
     parser.add_argument("--vendor", type=str, default=None, help="Restrict to one vendor name")
     parser.add_argument("--limit-per-vendor", type=int, default=None)
     parser.add_argument("--max-sitemaps", type=int, default=20, help="Cap on sitemap fetches per source")
@@ -293,7 +291,7 @@ def main() -> None:
     parser.add_argument(
         "--cache-dir",
         type=Path,
-        default=Path("data/http_cache"),
+        default=HTTP_CACHE_DIR,
         help="Disk cache for sitemap/index responses",
     )
     args = parser.parse_args()

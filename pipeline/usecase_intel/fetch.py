@@ -1,11 +1,10 @@
 """Fetch discovered URLs to disk, idempotently.
 
-Reads `data/discovered_urls.jsonl`, fetches each unfetched URL via the polite client,
-writes raw HTML to `data/raw_html/{vendor_slug}/{sha256}.html`, and appends a manifest
-record per URL.
+Reads discovered URL rows, fetches each new URL via the pipeline client, writes
+raw response bytes to disk, and appends one manifest record per URL.
 
 Manifest JSONL line:
-    {"vendor": str, "url": str, "html_path": str, "status": int,
+    {"vendor": str, "url": str, "raw_path": str, "status": int,
      "sha256": str, "fetched_at": ISO8601, "from_cache": bool, "error": null | str}
 
 Rerun-safe: URLs already in the manifest (with status 200) are skipped unless --refresh.
@@ -17,33 +16,31 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-from .http_client import PoliteClient
+from .fetch_client import FetchClient
+from .settings import (
+    DISCOVERED_URLS_PATH,
+    FETCH_MANIFEST_PATH,
+    RAW_CONTENT_ROOT,
+    SOURCES_PATH,
+    fetch_options,
+)
+from .utils import load_json, load_jsonl, slugify
 
 
-def _slugify_vendor(vendor: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", vendor.lower()).strip("-")
-
-
-def _load_jsonl(path: Path) -> list[dict]:
-    if not path.exists():
-        return []
-    rows: list[dict] = []
-    with path.open("r", encoding="utf-8") as handle:
-        for line in handle:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                rows.append(json.loads(line))
-            except json.JSONDecodeError:
-                continue
-    return rows
+def _raw_suffix(content_type: str) -> str:
+    content_type = content_type.lower()
+    if "pdf" in content_type:
+        return ".pdf"
+    if "json" in content_type:
+        return ".json"
+    if content_type.startswith("text/plain"):
+        return ".txt"
+    return ".html"
 
 
 def fetch_urls(
@@ -57,18 +54,13 @@ def fetch_urls(
     sources_path: Optional[Path] = None,
     since: Optional[str] = None,
 ) -> dict[str, int]:
-    sources_path = sources_path or Path("data/sources.json")
-    user_agent = "UseCaseIntelBot/0.1 (+https://github.com/vibewatch/usecase)"
-    delay = 1.0
-    if sources_path.exists():
-        config = json.loads(sources_path.read_text(encoding="utf-8"))
-        user_agent = config.get("user_agent", user_agent)
-        delay = config.get("default_delay_seconds", delay)
+    sources_path = sources_path or SOURCES_PATH
+    user_agent, delay = fetch_options(load_json(sources_path, {}))
 
-    client = PoliteClient(user_agent=user_agent, per_host_delay_seconds=delay, cache_dir=None)
+    client = FetchClient(user_agent=user_agent, per_host_delay_seconds=delay, cache_dir=None)
 
-    discovered = _load_jsonl(discovered_path)
-    manifest_entries = _load_jsonl(manifest_path)
+    discovered = load_jsonl(discovered_path)
+    manifest_entries = load_jsonl(manifest_path)
     already: dict[str, dict] = {entry["url"]: entry for entry in manifest_entries}
     raw_root.mkdir(parents=True, exist_ok=True)
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
@@ -104,24 +96,27 @@ def fetch_urls(
         for row in queue:
             url = row["url"]
             vendor = row["vendor"]
-            vendor_dir = raw_root / _slugify_vendor(vendor)
+            vendor_dir = raw_root / slugify(vendor)
             vendor_dir.mkdir(parents=True, exist_ok=True)
             now = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
             try:
                 result = client.fetch(url, use_cache=False)
-                html_path = vendor_dir / f"{result.sha256}.html"
-                if not html_path.exists():
-                    html_path.write_bytes(result.body)
+                raw_path = vendor_dir / f"{result.sha256}{_raw_suffix(result.content_type)}"
+                if not raw_path.exists():
+                    raw_path.write_bytes(result.body)
                 entry = {
                     "vendor": vendor,
                     "url": url,
-                    "html_path": str(html_path),
+                    "raw_path": str(raw_path),
                     "status": result.status,
                     "sha256": result.sha256,
                     "content_type": result.content_type,
                     "fetched_at": now,
                     "from_cache": result.from_cache,
+                    "final_url": result.final_url,
+                    "retrieval_source": result.retrieval_source,
+                    "profile": result.profile,
                     "error": None,
                 }
                 counts["ok"] += 1
@@ -130,7 +125,7 @@ def fetch_urls(
                 entry = {
                     "vendor": vendor,
                     "url": url,
-                    "html_path": None,
+                    "raw_path": None,
                     "status": 0,
                     "sha256": None,
                     "content_type": None,
@@ -148,9 +143,9 @@ def fetch_urls(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Fetch discovered URLs to disk.")
-    parser.add_argument("--discovered", type=Path, default=Path("data/discovered_urls.jsonl"))
-    parser.add_argument("--manifest", type=Path, default=Path("data/fetch_manifest.jsonl"))
-    parser.add_argument("--raw-root", type=Path, default=Path("data/raw_html"))
+    parser.add_argument("--discovered", type=Path, default=DISCOVERED_URLS_PATH)
+    parser.add_argument("--manifest", type=Path, default=FETCH_MANIFEST_PATH)
+    parser.add_argument("--raw-root", type=Path, default=RAW_CONTENT_ROOT)
     parser.add_argument("--vendor", type=str, default=None)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--refresh", action="store_true", help="Refetch URLs already in manifest")

@@ -7,21 +7,23 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "data:seed": "python3 -m pipeline.usecase_intel.seed data/case-studies.sample.json data/usecase_intel.sqlite",
-    "data:export": "python3 -m pipeline.usecase_intel.export data/usecase_intel.sqlite data/case-studies.generated.json",
+    "data:seed": "python3 -m pipeline.usecase_intel.seed",
+    "data:export": "python3 -m pipeline.usecase_intel.export",
     "data:discover": "python3 -m pipeline.usecase_intel.discover",
     "data:fetch": "python3 -m pipeline.usecase_intel.fetch",
+    "data:probe-fetch": "python3 -m pipeline.usecase_intel.probe",
     "data:extract": "python3 -m pipeline.usecase_intel.extract",
     "data:merge": "python3 -m pipeline.usecase_intel.merge_records --include-samples data/case-studies.sample.json",
-    "data:build": "npm run data:merge && python3 -m pipeline.usecase_intel.seed data/case-studies.merged.json data/usecase_intel.sqlite && npm run data:export"
+    "data:build": "npm run data:merge && npm run data:seed && npm run data:export"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "astro": "^5.7.12",
+    "@astrojs/check": "^0.9.2",
+    "astro": "^6.3.3",
     "typescript": "^5.8.3"
   },
-  "devDependencies": {
-    "@mozilla/readability": "^0.6.0",
-    "jsdom": "^29.1.1"
+  "overrides": {
+    "volar-service-yaml": "0.0.71",
+    "yaml-language-server": "1.23.0",
+    "yaml": "2.8.3"
   }
 }

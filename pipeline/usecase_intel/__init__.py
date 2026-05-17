@@ -1,1 +1,1 @@
-"""Extraction, validation, scoring, and storage helpers."""
+"""Customer use case intelligence pipeline."""

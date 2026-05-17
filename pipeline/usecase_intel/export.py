@@ -5,6 +5,7 @@ import json
 import sqlite3
 from pathlib import Path
 
+from .settings import GENERATED_CASE_STUDIES_PATH, SQLITE_PATH
 from .storage import MULTI_VALUE_FIELDS
 
 
@@ -29,8 +30,8 @@ def export_records(connection: sqlite3.Connection) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export case studies from SQLite to normalized JSON.")
-    parser.add_argument("input", type=Path, help="Path to SQLite database")
-    parser.add_argument("output", type=Path, help="Path to output JSON")
+    parser.add_argument("input", type=Path, nargs="?", default=SQLITE_PATH, help="Path to SQLite database")
+    parser.add_argument("output", type=Path, nargs="?", default=GENERATED_CASE_STUDIES_PATH, help="Path to output JSON")
     args = parser.parse_args()
 
     with sqlite3.connect(args.input) as connection:

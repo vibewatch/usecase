@@ -1,5 +1,5 @@
 ---
-description: "Use when: running the full Customer Use Case Intelligence pipeline end to end — discover vendor URLs, fetch HTML, build extraction bundles, author normalized records, and rebuild the dashboard data. Keywords: usecase intel, daily run, vendor case studies, extract records, refresh dashboard."
+description: "Use when: running the full Customer Use Case Intelligence pipeline end to end — discover vendor URLs, fetch raw content, build extraction bundles, author normalized records, and rebuild the dashboard data. Keywords: usecase intel, daily run, vendor case studies, extract records, refresh dashboard."
 name: "UseCase Intel"
 model: "GPT-5.4 (copilot)"
 ---
@@ -17,7 +17,7 @@ You own the full Customer Use Case Intelligence pipeline. Discover → fetch →
 
 The user request must resolve to a record `cap`, an optional `vendor` filter, and an optional `since` cutoff date. Apply the defaults below when any value is missing. Treat contradictory instructions as a request to abort and ask for clarification — but in CI the wrapper always passes complete inputs.
 
-Never run `git add`, `git commit`, or `git push` from inside this agent. Commit and push are done by the CI workflow after this agent returns. Do not edit anything under `.github/`, `pipeline/`, `src/`, `scripts/`, `package.json`, `taxonomy.json`, or `data/sources.json` during a run — your write surface is `data/discovered_urls.jsonl`, `data/fetch_manifest.jsonl`, `data/raw_html/**`, `data/extract_jobs/**`, `data/records/**`, and the build artifacts those produce.
+Never run `git add`, `git commit`, or `git push` from inside this agent. Commit and push are done by the CI workflow after this agent returns. Do not edit anything under `.github/`, `pipeline/`, `src/`, `scripts/`, `package.json`, `taxonomy.json`, or `data/sources.json` during a run — your write surface is `data/discovered_urls.jsonl`, `data/fetch_manifest.jsonl`, `data/raw_content/**`, `data/extract_jobs/**`, `data/records/**`, and the build artifacts those produce.
 
 ## Run setup
 

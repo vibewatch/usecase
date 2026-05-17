@@ -19,7 +19,6 @@ flowchart LR
   vendors[(Vendor sites<br/>sitemaps + HTML)]
   ext[(External readers<br/>r.jina.ai · web.archive.org)]
   pipeline[Python pipeline<br/>pipeline/usecase_intel/]
-  fetch[fetch-url skill<br/>.agents/skills/fetch-url/]
   agent((Agent / human author))
   records[(data/records/**/*.json<br/>tracked)]
   db[(SQLite<br/>data/usecase_intel.sqlite)]
@@ -28,10 +27,8 @@ flowchart LR
   user((Reader))
 
   vendors --> pipeline
-  vendors --> fetch
-  fetch --> ext
+  ext --> pipeline
   pipeline --> agent
-  fetch --> agent
   agent --> records
   records --> db
   db --> json
@@ -43,13 +40,13 @@ Three runtimes cooperate by writing files into `data/`:
 
 | Runtime | Where | What it does | Why this runtime |
 | ------- | ----- | ------------ | ---------------- |
-| **Python pipeline** (stdlib only) | `pipeline/usecase_intel/` | Sitemap discovery, polite HTTP fetch, HTML→text, prompt bundle assembly, SQLite seeding, JSON export | Boring, predictable, no extra dependencies; deterministic batch jobs |
-| **Node fetch-url skill** (curl-impersonate + jsdom + readability) | `.agents/skills/fetch-url/` | Anti-bot evasion fetch for hosts the stdlib client can't reach (AWS WAF, Snowflake SPA, etc.); Readability text extraction; reader / wayback fallback | curl-impersonate, jsdom, Mozilla Readability all live in the JS ecosystem |
+| **Python pipeline** | `pipeline/usecase_intel/` | Sitemap discovery, HTTP fetch, profile/reader/wayback fallback fetch, HTML→text, prompt bundle assembly, SQLite seeding, JSON export | One batch entry point with deterministic manifests and no manual fetch side path |
 | **Astro dashboard** | `src/` | Static-site build of one index + N detail pages over the dataset | File-based routing, zero client JS by default, builds in <2 s |
 
-Both fetchers ultimately land HTML on disk. The two are intentionally **not**
-merged: the Python pipeline owns batch / sitemap / manifest concerns, the
-fetch-url skill owns "this particular URL is hard to retrieve."
+`fetch.py` is the canonical batch entry point. `FetchClient` first uses the
+configured project `User-Agent`, then can retry per-host profile strategies and
+reader/wayback fallbacks while still writing the same raw HTML + manifest
+contract.
 
 ## 3. End-to-end data flow
 
@@ -59,7 +56,7 @@ A single record's journey from a vendor page to the dashboard:
 flowchart TD
   src[data/sources.json<br/>vendor → sitemap, index, regex filters]
   disc[data/discovered_urls.jsonl<br/>append-only, deduped]
-  raw[data/raw_html/&lcub;vendor&rcub;/&lcub;sha256&rcub;.html]
+  raw[data/raw_content/&lcub;vendor&rcub;/&lcub;sha256&rcub;.*]
   manifest[data/fetch_manifest.jsonl<br/>append-only]
   job[data/extract_jobs/&lcub;vendor&rcub;/&lcub;sha256&rcub;.json<br/>self-contained prompt bundle]
   rec[data/records/&lcub;vendor&rcub;/&lcub;slug&rcub;.json<br/>authored, tracked]
@@ -88,12 +85,12 @@ resumable — kill it mid-run, fix a bug, rerun.
 - **discover** isolates URL enumeration from fetching. A 415-URL Databricks
   sitemap is cheap to walk; fetching 415 pages is not. Keeping them separate
   lets us re-filter / re-cap candidates without re-fetching.
-- **fetch** is single-threaded with per-host delay and robots.txt awareness.
-  It writes raw HTML by SHA so identical bodies dedupe naturally on disk.
-- **clean → extract** turns HTML into a self-contained prompt bundle: source
-  URL, cleaned text, the taxonomy, and the extraction SKILL.md inlined. The
-  bundle is the **agent contract** — anyone (or any agent) can read it
-  without further context.
+- **fetch** is single-threaded with per-host delay and an always-on fallback
+  chain. It writes raw response bytes by SHA so identical bodies dedupe naturally on disk.
+- **clean/media → extract** turns fetched content into a self-contained prompt bundle:
+  source URL, cleaned text, article-scoped visual candidates with local assets,
+  the taxonomy, and the extraction SKILL.md inlined. The bundle is the **agent
+  contract** — anyone (or any agent) can read it without further context.
 - **records** are authored once per page and committed. They are the source
   of truth.
 - **merge → seed → export** is deterministic projection: take the authored
@@ -129,11 +126,15 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 
 | Module | Responsibility | Key invariants |
 | ------ | -------------- | -------------- |
-| [`http_client.py`](pipeline/usecase_intel/http_client.py) | `PoliteClient`: stdlib `urllib.request`, per-host rate limit, robots.txt, optional disk cache by URL SHA | Single-threaded; never bursts; sets `User-Agent` from `sources.json` |
+| [`settings.py`](pipeline/usecase_intel/settings.py) | Shared path and runtime defaults for command modules | One place for data paths, skill/taxonomy paths, user agent, delay, and host strategy config |
+| [`utils.py`](pipeline/usecase_intel/utils.py) | Small shared helpers: slugify, JSONL load, and JSON load/write | Keeps command modules thin and consistent |
+| [`fetch_client.py`](pipeline/usecase_intel/fetch_client.py) | `FetchClient`: stdlib `urllib.request`, per-host rate limit, optional disk cache by URL SHA, profile/reader/wayback fallback fetching | Single-threaded; never bursts; sets `User-Agent` from `sources.json`; fallbacks are always enabled |
 | [`discover.py`](pipeline/usecase_intel/discover.py) | Walk sitemap index → child sitemaps → urls. Walk vendor "index pages" for `<a href>` candidates. Apply include/exclude regexes. Cap with `--enough` early-exit. | Output is append-only JSONL; reruns dedupe against existing rows |
-| [`fetch.py`](pipeline/usecase_intel/fetch.py) | For each unfetched URL in `discovered_urls.jsonl`, fetch and write `raw_html/{vendor}/{sha256}.html` plus a `fetch_manifest.jsonl` line | Skip if URL already in manifest with `status == 200` unless `--refresh` |
-| [`clean.py`](pipeline/usecase_intel/clean.py) | `html_to_text(html) → (title, body)`. Drops script/style/nav/footer; prefers `<main>` / `<article>` content; emits markdown-ish text | Stdlib `HTMLParser` only; resilient to malformed HTML |
-| [`extract.py`](pipeline/usecase_intel/extract.py) | Read manifest, run `clean`, assemble prompt bundle `{vendor, source_url, sha256, title, html_path, prompt, created_at}` | Each bundle is self-sufficient: inlines SKILL.md + taxonomy.json + cleaned text |
+| [`fetch.py`](pipeline/usecase_intel/fetch.py) | For each unfetched URL in `discovered_urls.jsonl`, fetch and write `raw_content/{vendor}/{sha256}.*` plus a `fetch_manifest.jsonl` line | Skip if URL already in manifest with `status == 200` unless `--refresh`; records `retrieval_source` and `profile` for diagnostics |
+| [`clean.py`](pipeline/usecase_intel/clean.py) | `content_to_text(bytes) → (title, body, method)`. Uses BeautifulSoup for HTML main-content cleanup, pypdf for PDFs, and stdlib fallbacks for malformed HTML/plain text | One Python text extraction path for origin HTML, reader text, archived HTML, and PDFs |
+| [`media.py`](pipeline/usecase_intel/media.py) | `extract_related_images(bytes) → related_images[]` and `materialize_related_images(...)`. Discovers article `img`/`picture`/`source`, low-confidence CSS background images, inline SVG, and metadata images; attempts a source-diverse plan until it has up to the requested number of local `.assets/` files | Agents can inspect local `local_path` images instead of reparsing HTML or fetching remote assets by hand; failed downloads remain annotated with `asset_error` and do not consume the asset budget |
+| [`extract.py`](pipeline/usecase_intel/extract.py) | Read manifest, run `clean` + `media`, assemble prompt bundle `{vendor, source_url, sha256, title, raw_path, content_type, retrieval_source, profile, extraction_method, related_images, prompt, created_at}` | Each bundle is self-sufficient: inlines SKILL.md + taxonomy.json + cleaned text and carries local article visual assets for diagram extraction |
+| [`probe.py`](pipeline/usecase_intel/probe.py) | Probe origin profiles, reader, and wayback for hard URLs; optionally update the host strategy map | Uses the same public fetch attempt API as `FetchClient` |
 | [`models.py`](pipeline/usecase_intel/models.py) | `load_records(path) → list[dict]` with `normalize_record` validation | Required string fields must be non-empty strings; required list fields must be lists of strings |
 | [`scoring.py`](pipeline/usecase_intel/scoring.py) | `compute_maturity_score(record) → 0–6`, `compute_confidence_score(record) → 0–1` | Pure functions of field presence; deterministic |
 | [`storage.py`](pipeline/usecase_intel/storage.py) | `initialize_database`, `upsert_records`. Schema: `case_studies` (1 row per record) + `case_study_values` (KV table for multi-value fields keyed by `kind`) | All multi-value fields have a single `MULTI_VALUE_FIELDS` mapping; `raw_json` stores the canonical record |
@@ -162,7 +163,6 @@ dataset is inlined at build time, so every page is a static HTML file in
 | Skill | Role |
 | ----- | ---- |
 | [`case-study-extraction`](.agents/skills/case-study-extraction/SKILL.md) | The contract for step 4 (record authoring). Inlined into every `data/extract_jobs/**/*.json` bundle so the prompt is portable. |
-| [`fetch-url`](.agents/skills/fetch-url/SKILL.md) | curl-impersonate based fetcher with profile rotation, reader fallback (`r.jina.ai`), wayback fallback. Used by the agent (not the pipeline) when a host blocks the stdlib client. Per-host best-known strategies live in [`references/host-strategies.json`](.agents/skills/fetch-url/references/host-strategies.json). |
 
 ## 6. Key contracts
 
@@ -234,15 +234,17 @@ and simply hides the data-flow / integration sections when empty.
 ### `data/fetch_manifest.jsonl` (one line per attempt)
 
 ```json
-{"vendor":"Oracle","url":"…","html_path":"data/raw_html/oracle/<sha>.html",
+{"vendor":"Oracle","url":"…","final_url":"…","raw_path":"data/raw_content/oracle/<sha>.html",
  "status":200,"sha256":"…","content_type":"text/html; charset=utf-8",
+ "retrieval_source":"origin","profile":"desktop-chrome",
  "fetched_at":"2026-05-16T…","from_cache":false,"error":null}
 ```
 
-### `host-strategies.json` (fetch-url skill memory)
+### `host-strategies.json` (fetch fallback memory)
 
-Per-host best-known fetch strategy so future fetches skip the profile probe.
-See entries for `www.databricks.com` and `www.snowflake.com` for the two
+Per-host best-known fetch strategy so future Python fetches skip the profile probe.
+Stored at `pipeline/usecase_intel/config/host-strategies.json`. See entries
+for `www.databricks.com` and `www.snowflake.com` for the two
 patterns we use: **happy path** (`strategy: <profile>`, optional `note`) and
 **known SPA / known-blocker** (`strategy: null` with a `note` describing
 why).
@@ -262,14 +264,13 @@ soft error today (not yet enforced — see §9).
 | `data/case-studies.sample.json` | yes | Synthetic seeds; small, useful as fixtures |
 | `data/records/**/*.json` | yes | Authored records are the source of truth |
 | `data/discovered_urls.jsonl` | no | Easily regenerable; grows large |
-| `data/raw_html/` | no | Easily refetched; can be large |
+| `data/raw_content/` | no | Easily refetched; can be large |
 | `data/fetch_manifest.jsonl` | no | Per-machine fetch log |
 | `data/extract_jobs/` | no | Derived bundles |
 | `data/case-studies.merged.json` | no | Build artifact |
 | `data/case-studies.generated.json` | no | Build artifact (dashboard input) |
 | `data/usecase_intel.sqlite` | no | Build artifact |
-| `data/http_cache/` | no | Pipeline polite-client cache |
-| `.fetch-cache/` | no | fetch-url skill cache |
+| `data/http_cache/` | no | Pipeline fetch cache |
 
 Rule of thumb: anything that can be regenerated by running the pipeline is
 gitignored.
@@ -285,9 +286,6 @@ gitignored.
    `data/discovered_urls.jsonl` — adjust regexes until candidates look
    right.
 4. Run `npm run data:fetch -- --vendor "<name>"`.
-   - If many URLs 403 or return SPA shells, the vendor is anti-bot; switch
-     to the fetch-url skill for that batch (see
-     [`.agents/skills/fetch-url/SKILL.md`](.agents/skills/fetch-url/SKILL.md)).
 5. Run `npm run data:extract -- --vendor "<name>"`.
 6. For each bundle: open it, read the cleaned text, follow the
    [`case-study-extraction`](.agents/skills/case-study-extraction/SKILL.md)
@@ -313,11 +311,8 @@ gitignored.
 
 Things the current implementation does **not** do, knowingly:
 
-- **Pipeline does not use the fetch-url skill.** `pipeline/usecase_intel/fetch.py`
-  still uses the stdlib `PoliteClient`. This is why AWS coverage is only 4
-  records — AWS WAF blocks the stdlib UA. The skill is invoked manually by
-  the agent today. A future change can shell out to `node .agents/skills/fetch-url/scripts/fetch.mjs`
-  from `fetch.py` so both paths share `host-strategies.json` and `.fetch-cache/`.
+- **Generated ledgers are disposable.** If manifest or raw-content formats change,
+  rerun discovery/fetch/extract instead of preserving compatibility shims.
 - **No taxonomy validation at extraction time.** `models.py` checks field
   shape but not values. Free-form drift (e.g. `Cloud Native` vs
   `Cloud-Native`) silently leaks into the dashboard's facet selector and
@@ -351,13 +346,13 @@ usecase/
 │   ├── pages/index.astro · cases/[slug].astro
 │   └── styles/global.css
 ├── pipeline/usecase_intel/                Python pipeline (one module per stage)
-├── .agents/skills/{case-study-extraction,fetch-url}/   agent contracts
+├── .agents/skills/case-study-extraction/  extraction contract
 └── data/
     ├── sources.json                       vendor source config (tracked)
     ├── records/<vendor>/<slug>.json       authored records (tracked)
     ├── case-studies.sample.json           seeds (tracked)
     ├── discovered_urls.jsonl              build artifact
-    ├── raw_html/<vendor>/<sha>.html       build artifact
+    ├── raw_content/<vendor>/<sha>.*       build artifact
     ├── fetch_manifest.jsonl               build artifact
     ├── extract_jobs/<vendor>/<sha>.json   build artifact
     ├── case-studies.merged.json           build artifact

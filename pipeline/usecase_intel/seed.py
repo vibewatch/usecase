@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .models import load_records
 from .scoring import compute_confidence_score, compute_maturity_score
+from .settings import MERGED_CASE_STUDIES_PATH, SQLITE_PATH
 from .storage import initialize_database, upsert_records
 
 
@@ -23,8 +24,8 @@ def enrich_scores(records: list[dict]) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Seed normalized case studies into SQLite.")
-    parser.add_argument("input", type=Path, help="Path to normalized case study JSON")
-    parser.add_argument("output", type=Path, help="Path to SQLite database")
+    parser.add_argument("input", type=Path, nargs="?", default=MERGED_CASE_STUDIES_PATH, help="Path to normalized case study JSON")
+    parser.add_argument("output", type=Path, nargs="?", default=SQLITE_PATH, help="Path to SQLite database")
     args = parser.parse_args()
 
     records = enrich_scores(load_records(args.input))
