@@ -30,6 +30,7 @@ from .clean import content_to_text
 from .fetch_client import FetchClient
 from .media import extract_related_images, materialize_related_images
 from .settings import (
+    DEFAULT_TIMEOUT_SECONDS,
     DISCOVERED_URLS_PATH,
     EXTRACTION_SKILL_PATH,
     EXTRACT_JOBS_ROOT,
@@ -115,23 +116,39 @@ def extract_jobs(
     records_root: Optional[Path] = None,
     sources_path: Optional[Path] = None,
     image_assets_limit: int = 6,
+    image_timeout_seconds: float = 4.0,
+    image_min_score: int = 8,
     include_css_backgrounds: bool = True,
     image_client: Optional[object] = None,
     rebuild: bool = False,
 ) -> dict[str, int]:
     if image_assets_limit < 0:
         raise ValueError("image_assets_limit must be >= 0")
+    if image_timeout_seconds <= 0:
+        raise ValueError("image_timeout_seconds must be > 0")
+    if image_min_score < 1:
+        raise ValueError("image_min_score must be >= 1")
 
     skill_text = skill_path.read_text(encoding="utf-8")
     taxonomy_text = taxonomy_path.read_text(encoding="utf-8")
-    manifest = load_jsonl(manifest_path)
+    manifest_latest: dict[str, dict] = {}
+    for row in load_jsonl(manifest_path):
+        url = row.get("url")
+        if isinstance(url, str) and url:
+            manifest_latest[url] = row
+    manifest = list(manifest_latest.values())
 
     discovered_path = discovered_path or DISCOVERED_URLS_PATH
     records_root = records_root or RECORDS_ROOT
     sources_path = sources_path or SOURCES_PATH
     if image_assets_limit > 0 and image_client is None:
         user_agent, delay = fetch_options(load_json(sources_path, {}))
-        image_client = FetchClient(user_agent=user_agent, per_host_delay_seconds=delay, cache_dir=None)
+        image_client = FetchClient(
+            user_agent=user_agent,
+            per_host_delay_seconds=delay,
+            timeout_seconds=image_timeout_seconds,
+            cache_dir=None,
+        )
 
     url_to_lastmod: dict[str, Optional[str]] = {}
     for row in load_jsonl(discovered_path):
@@ -208,6 +225,7 @@ def extract_jobs(
             raw_body,
             content_type=str(row.get("content_type") or ""),
             source_url=str(row.get("final_url") or row["url"]),
+            min_score=image_min_score,
             include_embedded=image_assets_limit > 0,
             include_css_backgrounds=include_css_backgrounds,
         )
@@ -275,6 +293,18 @@ def main() -> None:
         help="Download up to this many related image candidates per bundle; 0 keeps URLs only.",
     )
     parser.add_argument(
+        "--image-timeout-seconds",
+        type=float,
+        default=min(4.0, DEFAULT_TIMEOUT_SECONDS),
+        help="Per-image download timeout in seconds.",
+    )
+    parser.add_argument(
+        "--image-min-score",
+        type=int,
+        default=8,
+        help="Minimum related-image score to keep; diagram-like candidates are always kept.",
+    )
+    parser.add_argument(
         "--no-css-background-images",
         action="store_true",
         help="Skip article CSS background-image candidates.",
@@ -297,6 +327,8 @@ def main() -> None:
         records_root=args.records_root,
         sources_path=args.sources,
         image_assets_limit=args.image_assets_limit,
+        image_timeout_seconds=args.image_timeout_seconds,
+        image_min_score=args.image_min_score,
         include_css_backgrounds=not args.no_css_background_images,
         rebuild=args.rebuild,
     )

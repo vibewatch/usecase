@@ -103,12 +103,20 @@ architecture image to Mermaid. Write outputs under data/diagrams/.
 text, captions, nearby context, dimensions, score, and `is_diagram_like`. By
 default it attempts a source-diverse set of candidates until it has up to six
 local assets beside the bundle under `data/extract_jobs/{vendor}/{sha}.assets/`;
-pass `--image-assets-limit 0` to keep URLs only. CSS `background-image` assets
-are included as low-confidence article imagery and can be disabled with
-`--no-css-background-images`. The agent reads local assets first, then visible
-labels, arrows, captions, SVG text, and nearby page context, and returns Mermaid
-plus evidence and uncertainty notes. Generated diagram outputs belong under
-`data/diagrams/` and are ignored by git.
+pass `--image-assets-limit 0` to keep URLs only. Asset downloads use a short
+timeout by default; tune it with `--image-timeout-seconds` for slower networks.
+Low-value candidates are filtered by score before local asset download; the
+default threshold is intentionally strict (`--image-min-score 8`) and can be
+lowered when you want a wider run.
+The score uses visible context plus image URL/file-name hints, so generic
+backgrounds, heroes, banners, thumbnails, social cards, and Open Graph images are
+filtered. Non-diagram images also need useful hints such as app, dashboard,
+screenshot, assistant, agent, GenAI, search, recommendation, or analytics.
+CSS `background-image` assets are included as low-confidence article imagery and
+can be disabled with `--no-css-background-images`. The agent reads local assets
+first, then visible labels, arrows, captions, SVG text, and nearby page context,
+and returns Mermaid plus evidence and uncertainty notes. Generated diagram
+outputs belong under `data/diagrams/` and are ignored by git.
 
 ## Repository shape
 

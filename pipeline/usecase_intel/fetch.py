@@ -102,6 +102,8 @@ def fetch_urls(
 
             try:
                 result = client.fetch(url, use_cache=False)
+                if not result.body:
+                    raise ValueError("empty response body")
                 raw_path = vendor_dir / f"{result.sha256}{_raw_suffix(result.content_type)}"
                 if not raw_path.exists():
                     raw_path.write_bytes(result.body)

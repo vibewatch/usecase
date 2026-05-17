@@ -6,7 +6,7 @@ import hashlib
 import re
 from pathlib import Path
 from typing import Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 
 try:  # Optional at import time; requirements.txt pins it for normal use.
     from bs4 import BeautifulSoup
@@ -32,8 +32,19 @@ IMAGE_SOURCE_ATTRS = (
 )
 IMAGE_EXTENSIONS = {".avif", ".gif", ".jpg", ".jpeg", ".png", ".svg", ".webp"}
 IMAGE_NOISE_RE = re.compile(
-    r"\b(logo|favicon|icon|sprite|avatar|profile|headshot|tracking|pixel|"
+    r"\b(customerlogo|logo|favicon|icon|sprite|avatar|profile|headshot|tracking|pixel|"
     r"spacer|loader|placeholder|badge|social|share|advertisement|ad-|ads-)\b",
+    re.IGNORECASE,
+)
+LOW_VALUE_IMAGE_HINT_RE = re.compile(
+    r"(^|[^a-z0-9])(bg|background|banner|card|cover|header|hero|og|open[-_\s]?graph|"
+    r"poster|social|still[-_\s]?image|thumb|thumbnail|twitter)([^a-z0-9]|$)",
+    re.IGNORECASE,
+)
+USEFUL_IMAGE_HINT_RE = re.compile(
+    r"\b(agent|ai[-_\s]?powered|analytics|app|application|assistant|console|copilot|"
+    r"dashboard|data[-_\s]?platform|gen[-_\s]?ai|interface|mobile[-_\s]?app|"
+    r"recommendation|screen|screenshot|search|ui)\b",
     re.IGNORECASE,
 )
 DIAGRAM_IMAGE_HINT_RE = re.compile(
@@ -197,7 +208,7 @@ def _score_image(
     width: Optional[int],
     height: Optional[int],
 ) -> tuple[int, bool]:
-    image_text = " ".join([url, alt, caption, _attrs_text(tag)])
+    image_text = " ".join([url, unquote(url), alt, caption, _attrs_text(tag)])
     diagram_like = bool(DIAGRAM_IMAGE_HINT_RE.search(image_text))
     score = 3
     if alt:
@@ -209,6 +220,8 @@ def _score_image(
         score += 4
     if diagram_like:
         score += 8
+    elif not USEFUL_IMAGE_HINT_RE.search(image_text):
+        score -= 5
     if width and width >= 320:
         score += 2
     if height and height >= 180:
@@ -217,6 +230,8 @@ def _score_image(
         score += 2
     if IMAGE_NOISE_RE.search(image_text) or NOISE_HINT_RE.search(image_text):
         score -= 10
+    if LOW_VALUE_IMAGE_HINT_RE.search(image_text):
+        score -= 8
     if (width and width <= 120) or (height and height <= 120):
         score -= 7
     return score, diagram_like
@@ -234,12 +249,16 @@ def _score_inline_svg(tag: object, caption: str, context: str) -> tuple[int, boo
         score += 5
     if diagram_like:
         score += 8
+    elif not USEFUL_IMAGE_HINT_RE.search(text):
+        score -= 5
     if width and width >= 320:
         score += 2
     if height and height >= 180:
         score += 2
     if IMAGE_NOISE_RE.search(text) or NOISE_HINT_RE.search(text):
         score -= 10
+    if LOW_VALUE_IMAGE_HINT_RE.search(text):
+        score -= 8
     if (width and width <= 120) or (height and height <= 120):
         score -= 7
     return score, diagram_like
@@ -300,6 +319,7 @@ def extract_related_images(
     content_type: str = "",
     source_url: str = "",
     max_images: int = 12,
+    min_score: int = 6,
     include_embedded: bool = False,
     include_css_backgrounds: bool = True,
 ) -> list[dict[str, object]]:
@@ -444,6 +464,11 @@ def extract_related_images(
         candidates.append(candidate)
         seen_urls.add(url)
 
+    candidates = [
+        candidate
+        for candidate in candidates
+        if candidate.get("is_diagram_like") or int(candidate.get("score", 0)) >= min_score
+    ]
     candidates.sort(
         key=lambda candidate: (
             bool(candidate.get("is_diagram_like")),
@@ -461,17 +486,25 @@ def _url_image_extension(url: str) -> str:
 
 def _asset_suffix(content_type: str, url: str, body: bytes) -> str:
     normalized = content_type.split(";", 1)[0].strip().lower()
-    if normalized in IMAGE_SUFFIX_BY_CONTENT_TYPE:
-        return IMAGE_SUFFIX_BY_CONTENT_TYPE[normalized]
-    extension = _url_image_extension(url)
-    if extension:
-        return extension
     body_signature = _body_image_suffix(body)
     if body_signature:
         return body_signature
     if _looks_like_svg(body):
         return ".svg"
+    if normalized in IMAGE_SUFFIX_BY_CONTENT_TYPE:
+        return IMAGE_SUFFIX_BY_CONTENT_TYPE[normalized]
+    extension = _url_image_extension(url)
+    if extension:
+        return extension
     return ".bin"
+
+
+def _asset_content_type(content_type: str, suffix: str) -> str:
+    normalized = content_type.split(";", 1)[0].strip().lower()
+    suffix_content_type = CONTENT_TYPE_BY_IMAGE_SUFFIX.get(suffix.lower())
+    if suffix_content_type and normalized != suffix_content_type:
+        return suffix_content_type
+    return content_type or suffix_content_type or "application/octet-stream"
 
 
 def _content_type_for_path(path: Path) -> str:
@@ -591,7 +624,8 @@ def _materialization_plan(images: list[dict[str, object]], max_assets: int) -> l
     for index in range(len(images)):
         add(index)
 
-    return plan
+    max_attempts = max(max_assets * 2, max_assets + 4)
+    return plan[:max_attempts]
 
 
 def materialize_related_images(
@@ -680,6 +714,7 @@ def materialize_related_images(
         if suffix == ".bin" and content_type.split(";", 1)[0].strip().lower().startswith("image/"):
             materialized[index] = {**_clean_candidate(image), "asset_error": f"unknown image type: {content_type}"}
             continue
+        asset_content_type = _asset_content_type(content_type, suffix)
         local_path = assets_dir / f"{source_digest}{suffix}"
         try:
             _write_asset(local_path, body)
@@ -689,7 +724,7 @@ def materialize_related_images(
         enriched = _finish_local_asset(
             image,
             body=body,
-            content_type=content_type,
+            content_type=asset_content_type,
             local_path=local_path,
             from_cache=False,
             final_url=str(getattr(result, "final_url", "") or ""),
