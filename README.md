@@ -110,8 +110,12 @@ default threshold is intentionally strict (`--image-min-score 8`) and can be
 lowered when you want a wider run.
 The score uses visible context plus image URL/file-name hints, so generic
 backgrounds, heroes, banners, thumbnails, social cards, and Open Graph images are
-filtered. Non-diagram images also need useful hints such as app, dashboard,
-screenshot, assistant, agent, GenAI, search, recommendation, or analytics.
+filtered. Diagram-like candidates are strongly retained when hints include terms
+such as architecture, workflow, topology, service map, dependency map, process
+flow, sequence diagram, block diagram, ERD, UML, BPMN, swimlane, tech stack,
+data lineage, or network topology. Non-diagram images also need useful hints
+such as app, dashboard, screenshot, assistant, agent, GenAI, search,
+recommendation, or analytics.
 CSS `background-image` assets are included as low-confidence article imagery and
 can be disabled with `--no-css-background-images`. The agent reads local assets
 first, then visible labels, arrows, captions, SVG text, and nearby page context,

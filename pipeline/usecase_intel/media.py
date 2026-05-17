@@ -49,8 +49,15 @@ USEFUL_IMAGE_HINT_RE = re.compile(
 )
 DIAGRAM_IMAGE_HINT_RE = re.compile(
     r"\b(architecture|architectural|diagram|workflow|flow|data[-_\s]?flow|"
-    r"pipeline|topology|reference[-_\s]?architecture|solution[-_\s]?overview|"
-    r"system[-_\s]?overview|components?|integration|deployment)\b",
+    r"flowchart|pipeline|topology|reference[-_\s]?architecture|"
+    r"solution[-_\s]?overview|system[-_\s]?overview|platform[-_\s]?overview|"
+    r"technical[-_\s]?architecture|cloud[-_\s]?architecture|data[-_\s]?architecture|"
+    r"logical[-_\s]?architecture|physical[-_\s]?architecture|solution[-_\s]?architecture|"
+    r"system[-_\s]?design|tech(?:nology)?[-_\s]?stack|service[-_\s]?map|"
+    r"dependency[-_\s]?map|process[-_\s]?(?:map|flow)|data[-_\s]?lineage|"
+    r"data[-_\s]?model|sequence[-_\s]?diagram|block[-_\s]?diagram|"
+    r"component[-_\s]?diagram|deployment[-_\s]?diagram|network[-_\s]?(?:diagram|topology|architecture)|"
+    r"entity[-_\s]?relationship|erd|uml|bpmn|swimlane|components?|integration|deployment)\b",
     re.IGNORECASE,
 )
 META_IMAGE_NAMES = {
