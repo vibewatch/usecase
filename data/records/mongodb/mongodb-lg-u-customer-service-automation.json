@@ -1,0 +1,66 @@
+{
+  "id": "mongodb-lg-u-customer-service-automation",
+  "slug": "mongodb-lg-u-customer-service-automation",
+  "vendor": "MongoDB",
+  "customer_name": "LG U+",
+  "industry": "Telecommunications",
+  "region": "South Korea",
+  "company_size": "Enterprise",
+  "business_problem": "LG U+ needed a scalable document-oriented foundation for its Agent Assist call-center system because relational databases could not efficiently manage the complex and unstructured data behind real-time support workflows.",
+  "solution_summary": "LG U+ built its Agent Assist contact-center solution on MongoDB Atlas and Atlas Vector Search to help thousands of service agents access the right information faster during live calls. The platform combines operational customer-service data with vectorized knowledge so the AI system can transcribe conversations, categorize intent, summarize context, and recommend answer guidelines in real time. By moving operational data off PostgreSQL and into Atlas, LG U+ eliminated redundant processes and gained a single environment for document and vector data. Atlas Vector Search gives the AI layer fast semantic retrieval, while the Atlas document model lets the engineering team adapt data structures quickly as the service evolves. The implementation moved from development to launch in four months, giving the call center a more responsive backend for high volumes while reducing delays that previously hurt agent productivity and customer experience.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores operational contact-center data and supports the fast document model Agent Assist depends on.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Vector Search",
+      "role": "Retrieves semantically relevant information in real time so Agent Assist can guide customer-service agents during live calls.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer-service interactions and operational records are stored in MongoDB Atlas, indexed with Atlas Vector Search for semantic retrieval, and then used by Agent Assist to transcribe calls, categorize intent, summarize context, and recommend answers back to live agents.",
+  "integration_points": [
+    "PostgreSQL"
+  ],
+  "technical_area": [
+    "Contact Center",
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "LG U+ improved resource efficiency by 30%, reduced average processing time per call by 7%, and launched a high-volume AI support service that performs reliably even during peak periods.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "LG U+ operates one of the largest customer service centers in Korea, with 4,000 agents handling 3.5 million calls per month.",
+    "Agent Assist improved resource efficiency by 30 percent.",
+    "“The service has enhanced efficiency by reducing processing time by 7 percent on average per call.”"
+  ],
+  "architecture_clues": [
+    "LG U+ launched Agent Assist within four months of implementing MongoDB Atlas.",
+    "MongoDB consolidates vector and operational data in a single system.",
+    "The platform identifies customer intent and suggests answer guidelines in real time.",
+    "The prior operational data environment was based on PostgreSQL."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/lgu",
+  "published_date": "2025-04-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Agent Assist addresses these challenges with real-time transcription, automatic categorization of customer inquiries, and intelligent contextual summaries.”",
+    "“Managing both vector and operational data in MongoDB opened a new world to our team.”",
+    "“Using MongoDB’s flexible document model to manage both vector and operational data has improved resource efficiency by 30 percent.”",
+    "“The service has enhanced efficiency by reducing processing time by 7 percent on average per call.”"
+  ]
+}

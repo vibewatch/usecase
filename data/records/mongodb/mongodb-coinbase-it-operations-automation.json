@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-coinbase-it-operations-automation",
+  "slug": "mongodb-coinbase-it-operations-automation",
+  "vendor": "MongoDB",
+  "customer_name": "Coinbase",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Coinbase needed database clusters that could absorb volatile crypto traffic spikes without long scaling delays, downtime, or degraded customer experience.",
+  "solution_summary": "Coinbase standardized its high-traffic operational data platform on MongoDB Atlas running on Amazon Web Services and used Atlas Data Federation for its warehousing pipeline while redesigning how large clusters scale. The team first identified the Atlas clusters most correlated with user traffic, then analyzed historical operational metrics and cryptocurrency price signals to predict how much capacity those clusters would need during surges. A machine learning model now forecasts volatility and triggers scale-ups 60 minutes before expected spikes. MongoDB and Coinbase also introduced parallel scaling so similar node types expand together instead of node by node, reducing time to peak performance while keeping application data available. The result is a more resilient, automatically scaled platform that supports fast-moving market demand without overprovisioning.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Data Federation"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs Coinbase's operational clusters and executes the predictive and parallel scaling workflow that keeps customer-facing services responsive during traffic spikes.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Data Federation",
+      "role": "Supports Coinbase's data warehousing pipeline alongside the operational Atlas estate.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Historical Atlas metrics and cryptocurrency price data feed Coinbase's machine learning model, which predicts demand and triggers Atlas cluster scale-ups 60 minutes before spikes; MongoDB then scales grouped node types in parallel so the application continues serving customers through volatility.",
+  "integration_points": [
+    "Amazon Web Services",
+    "cryptocurrency price data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Coinbase cut scaling time from upward of 70 minutes to 25 minutes, accelerated new cluster deployments, and improved resiliency so users no longer notice traffic-driven infrastructure changes.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "60% reduction in scaling time",
+    "3.25x reduction in cluster deployment time",
+    "“We’ve brought scaling times down from upward of 70 minutes to 25 minutes — less than half the time it used to take.”",
+    "The model automatically triggers the clusters to scale up 60 minutes prior to anticipated traffic spikes."
+  ],
+  "architecture_clues": [
+    "Coinbase operates roughly 700 database clusters.",
+    "The predictive model uses cryptocurrency price data to forecast volatility.",
+    "Parallel scaling groups similar node types instead of scaling node by node.",
+    "Coinbase is considering sharding to address future vertical scaling limits."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/coinbase",
+  "published_date": "2025-01-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“When we see big traffic spikes, we need to scale our clusters as quickly as possible.”",
+    "“We’ve brought scaling times down from upward of 70 minutes to 25 minutes — less than half the time it used to take.”",
+    "The model automatically triggers the clusters to scale up 60 minutes prior to anticipated traffic spikes.",
+    "This accelerated new cluster deployment times by up to 3.25 times."
+  ]
+}

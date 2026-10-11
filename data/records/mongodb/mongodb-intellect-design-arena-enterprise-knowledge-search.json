@@ -1,0 +1,71 @@
+{
+  "id": "mongodb-intellect-design-arena-enterprise-knowledge-search",
+  "slug": "mongodb-intellect-design-arena-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Intellect Design Arena",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Intellect Design Arena needed a governed retrieval architecture that could turn fragmented ESG data into trustworthy enterprise AI answers for highly regulated financial institutions.",
+  "solution_summary": "Intellect Design Arena built its Purple Fabric enterprise AI platform around MongoDB Atlas to operationalize governed AI for regulated finance use cases such as ESG analysis for a sovereign wealth fund. Source material arrives as PDFs, images, and public web documents rather than neat tabular datasets, so the platform had to preserve lineage and relevance while scaling beyond selective manual reviews. Purple Fabric separates data gathering from application and reasoning layers, then uses MongoDB Atlas as the always-available data foundation for a unified retrieval pipeline. Metadata filters are applied early to narrow large corpora before hybrid retrieval combines vector search, lexical search, and Reciprocal Rank Fusion reranking. The architecture evaluates retrieval, relevance, and answer quality as distinct stages, and routes the hardest remaining cases into human-in-the-loop review. This lets Intellect improve answer precision and governance without relying on model improvements alone.",
+  "products_used": [
+    "Purple Fabric",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "Purple Fabric",
+      "role": "Provides the governed enterprise AI platform that orchestrates retrieval, reasoning, and oversight for regulated-finance workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Acts as the stable data foundation for hybrid retrieval over ESG and enterprise knowledge sources.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "PDFs, images, and public web documents are ingested into Purple Fabric and stored on MongoDB Atlas; metadata filters narrow the corpus, hybrid lexical and vector retrieval with RRF ranks evidence, and low-confidence cases are escalated to human reviewers before answers are exposed to end users.",
+  "integration_points": [
+    "PDFs",
+    "images",
+    "public web documents"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Security and Compliance"
+  ],
+  "business_outcome": "The Purple Fabric architecture improved ESG answer accuracy, cut P95 latency roughly in half, and moved from implementation to production in six to eight weeks while maintaining governance for ambiguous queries.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "“Before we brought this platform together, they were able to do it only for a fraction; 2% of the companies they have invested in, on a very selective basis.”",
+    "An initial vector-only search achieved an accuracy rate of 71%.",
+    "With hybrid search and Reciprocal Rank Fusion (RRF), accuracy increased by 17%.",
+    "P95 latency was reduced by approximately half, and the solution was taken from implementation to production in approximately six to eight weeks."
+  ],
+  "architecture_clues": [
+    "The architecture separates data gathering from application and reasoning layers.",
+    "Hybrid retrieval combines metadata filtering, vector search, lexical search, and RRF reranking.",
+    "Human-in-the-loop review handles the remaining ambiguous queries.",
+    "Governance is enforced inside the retrieval pipeline before anything reaches the LLM."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/intellect-design-arena",
+  "published_date": "2026-09-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“For anyone who wants to productionize AI, focus more on architecture, focus more on engineering. Models will continue to get better, but that will not help you to move to production.”",
+    "“Governance cannot be an afterthought. You have to enforce it in the pipeline so that it’s taken care of before you expose anything to the LLM.”",
+    "With hybrid search and Reciprocal Rank Fusion (RRF), accuracy increased by 17%.",
+    "P95 latency was also reduced by approximately half."
+  ]
+}

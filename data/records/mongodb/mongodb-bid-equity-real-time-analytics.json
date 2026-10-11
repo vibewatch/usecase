@@ -1,0 +1,63 @@
+{
+  "id": "mongodb-bid-equity-real-time-analytics",
+  "slug": "mongodb-bid-equity-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "BID Equity",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "BID Equity needed to fix unstable performance and soaring infrastructure costs in the custom market-intelligence platform it uses to analyze technology adoption across B2B software markets.",
+  "solution_summary": "BID Equity worked with MongoDB to re-architect its market-intelligence platform around MongoDB Atlas and Atlas Search after growth exposed inefficiencies in its original design. The firm scans and catalogs technology usage across the web so internal analysts can make investment decisions from current market data, but the initial data model and query patterns drove both high latency and high infrastructure spend. A joint optimization effort redesigned the data model to match access patterns, replaced regex-heavy filtering with Atlas Search, and uncovered a massive index that had swollen to more than 1TB. By simplifying the indexed fields and applying indexing best practices, the team reduced that index to just 6GB while also improving query speed and stability. The result is an operational analytics platform that gives investors faster answers, better search quality, and far lower cost without changing the underlying business workflow.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores BID Equity's market-intelligence data and provides the operational base for the optimized analytics platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Replaces inefficient regex-based filtering with scalable search over technology-usage intelligence.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Web-scanned technology-usage data is stored in MongoDB Atlas, indexed with MongoDB Atlas Search for efficient filtering and retrieval, and surfaced to BID Equity analysts so they can evaluate software markets and investment opportunities with fresher, faster insights.",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "BID Equity gained 10x faster queries, cut costs by 40-50%, shrank a problematic index from over 1TB to 6GB, and made its market-intelligence platform stable enough for broader analytical use.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "BID Equity achieved 10x faster queries and 40-50% cost reduction.",
+    "An index that had grown to over 1 TB was reduced to just 6 GB, a 99% reduction in size."
+  ],
+  "architecture_clues": [
+    "The optimization effort centered on access-pattern-aware data modeling.",
+    "Atlas Search replaced regex-based filtering that had become a performance bottleneck.",
+    "MongoDB identified an oversized index as the main driver of infrastructure cost.",
+    "The project evolved from performance remediation into joint feature development as stability improved."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/bid-equity",
+  "published_date": "2026-01-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“I would have taken either the cost reduction or the speed, but I got both.”",
+    "“Another crucial step was the adoption of [Atlas Search] to replace inefficient, regex-based filtering.”",
+    "An index that had grown to over 1 TB in size was quickly reduced to just 6 GB.",
+    "BID Equity achieved 10x faster queries and 40-50% cost reduction."
+  ]
+}

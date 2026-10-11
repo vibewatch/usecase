@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-ceto-predictive-maintenance",
+  "slug": "mongodb-ceto-predictive-maintenance",
+  "vendor": "MongoDB",
+  "customer_name": "Ceto",
+  "industry": "Logistics",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Ceto needed a more scalable and reliable way to process high-frequency vessel sensor data for predictive maritime analytics after its previous platform could not keep up with fleet growth.",
+  "solution_summary": "Ceto rebuilt its maritime analytics platform around MongoDB Atlas and Time Series Collections so it could ingest high-frequency vessel telemetry and turn it into predictive maintenance insights at scale. Each vessel emits thousands of sensor signals at 50-100Hz, creating around 300-400MB of raw data per day and about 90,000 JSON documents containing 100 time-series measurements. Ceto configured Atlas clusters to handle that throughput, then used Time Series Collections to compress, store, and query readings efficiently while preserving a single operational platform. Real-time processing on top of those collections lets the company analyze fleet conditions as data arrives, helping it predict failures, lower fuel consumption, and reduce operational risk. The architecture also gives Ceto headroom to expand from a handful of vessels to a much larger connected fleet without rewriting its data model or accepting downtime.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Time Series Collections"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the scalable cluster layer that Ceto uses to ingest and process fleet telemetry continuously.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Time Series Collections",
+      "role": "Stores and compresses high-frequency vessel sensor readings for real-time predictive analytics.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Thousands of vessel sensors stream telemetry into MongoDB Atlas, where Time Series Collections compress and store the readings; real-time analytics then process those series to flag likely failures, support maintenance decisions, and feed operational insights back to maritime teams.",
+  "integration_points": [
+    "vessel sensors"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Ceto reduced storage needs from 300MB to 3MB per vessel per day, saved about $20,500 per vessel annually through predictive maintenance, and created a platform that can scale to much larger fleets.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Each vessel is equipped with thousands of sensors, each operating at a frequency of 50–100Hz, which translates to 300 to 400MB of raw data per vessel daily.",
+    "This results in approximately 90,000 JSON documents per day, each storing around 100 unique time-series measurements.",
+    "MongoDB’s Time Series Collections reduced data storage needs from 300MB to 3MB per vessel per day.",
+    "Predictive maintenance capabilities saved approximately $20,500 per vessel annually."
+  ],
+  "architecture_clues": [
+    "Ceto originally relied on InfluxDB before moving to MongoDB.",
+    "The initial Atlas setup was accomplished in just a few months.",
+    "The production system processes thousands of data points per second per vessel.",
+    "Ceto expects to grow toward supporting 1,000 vessels and 180 million documents per day."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ceto",
+  "published_date": "2024-08-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The existing data management system simply wasn’t capable of scaling with our rapid growth.”",
+    "“MongoDB enabled real-time data processing, allowing Ceto to achieve immediate analysis and actionable insights.”",
+    "“We’ve managed to maximize data accessibility and readability while minimizing storage size.”",
+    "MongoDB’s Time Series Collections reduced data storage needs from 300MB to 3MB per vessel per day."
+  ]
+}

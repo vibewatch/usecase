@@ -1,0 +1,78 @@
+{
+  "id": "mongodb-document360-enterprise-knowledge-search",
+  "slug": "mongodb-document360-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Document360",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Document360 needed its Eddy AI assistant to answer multi-part documentation questions accurately without breaking access controls or adding a separate vector database to keep in sync.",
+  "solution_summary": "Document360 kept its knowledge-base AI stack on MongoDB by pairing MongoDB Vector Search on Atlas with Atlas Search and Voyage AI instead of replicating data into a separate vector store. The platform already served as a single source of truth for enterprise documentation and relied on detailed content permissions baked into MongoDB. When the Eddy AI assistant began handling more complex multi-intent prompts, small wording changes frequently pulled the wrong context and undermined customer trust. Rather than duplicate documents and permissions elsewhere, Document360 stored vectors in Atlas beside the source content and used hybrid keyword plus semantic search to retrieve the right passages natively. Voyage AI powers the embedding side of the stack, while Atlas keeps access controls and search in one governed platform. This gives Eddy low-latency retrieval, more reliable answers, and a simpler operational model for enterprise documentation use cases.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Search",
+    "MongoDB Vector Search on Atlas",
+    "Voyage AI"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Document360's governed documentation corpus and the permissions model Eddy depends on.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Search",
+      "role": "Supplies keyword retrieval that Document360 combines with semantic matching for hybrid search.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Vector Search on Atlas",
+      "role": "Performs semantic retrieval over documentation embeddings for Eddy's AI responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voyage AI",
+      "role": "Generates the embeddings Document360 uses for semantic search.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Documentation content and permissions remain in MongoDB Atlas, Voyage AI generates embeddings for that content, Atlas Search and MongoDB Vector Search on Atlas run hybrid retrieval against the same governed corpus, and Eddy uses the retrieved passages to answer complex user questions with low latency.",
+  "integration_points": [
+    "Voyage AI"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Document360 raised baseline AI accuracy to 94%, reduced user dislikes by 30%, and achieved 2-4 millisecond retrieval times while keeping access controls and content synchronization simple.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The unified architecture boosted baseline response accuracy to 94%, reduced user dislikes by 30%, and ensured 2-4-millisecond return times.",
+    "“Using a separate vector database for AI use cases meant we had to replicate all the data and keep it in sync.”",
+    "“This resulted in inconsistent answers that eroded customer trust.”"
+  ],
+  "architecture_clues": [
+    "Eddy is Document360's AI assistant.",
+    "Hybrid retrieval combines keyword and semantic search natively in Atlas.",
+    "Document360 rejected external vector databases because permissions were already embedded in MongoDB.",
+    "The architecture preserves a single source of truth for operational and compliance reasons."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/kovai-ai",
+  "published_date": "2026-08-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Slight variations in how a user phrased a question also often led to entirely different contexts being retrieved.”",
+    "“This resulted in inconsistent answers that eroded customer trust.”",
+    "“Using a separate vector database for AI use cases meant we had to replicate all the data and keep it in sync.”",
+    "The unified architecture boosted baseline response accuracy to 94%, reduced user dislikes by 30%, and ensured 2-4-millisecond return times."
+  ]
+}

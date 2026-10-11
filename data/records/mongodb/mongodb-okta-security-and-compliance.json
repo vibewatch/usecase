@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-okta-security-and-compliance",
+  "slug": "mongodb-okta-security-and-compliance",
+  "vendor": "MongoDB",
+  "customer_name": "Okta",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Okta Inbox needed a more scalable and lower-overhead way to power natural-language application access requests without maintaining separate vector infrastructure or slowing down product iteration.",
+  "solution_summary": "To modernize Okta Inbox, Okta replaced a home-grown vector workflow that depended on custom machine learning models and a dedicated Kubernetes cluster with MongoDB Atlas and MongoDB Vector Search on Atlas. The product helps end users request access to applications in natural language, so the system has to understand phrases that describe the same tool in very different ways. Previously, embeddings and search logic were managed separately, which increased infrastructure cost and reduced room for experimentation. Okta moved embeddings into Atlas collections and used MongoDB Vector Search on Atlas to query them directly alongside application and ticketing data. This gave the engineering team a single operational data layer for structured records plus semantic retrieval, enabling automated app matching and ticket creation from chatbot requests. By removing extra infrastructure, the team could iterate faster while keeping the platform resilient as adoption grew.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Vector Search on Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Okta Inbox application data and embeddings in one resilient operational data layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Vector Search on Atlas",
+      "role": "Matches natural-language access requests to the correct applications and supports automated ticket routing.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User requests arrive through chatbots, embeddings and application metadata are stored together in MongoDB Atlas, MongoDB Vector Search on Atlas retrieves the best matching app from those embeddings, and Okta Inbox automatically raises the access ticket for downstream processing.",
+  "integration_points": [
+    "Kubernetes cluster",
+    "chatbots"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Okta simplified its identity-governance search stack, improved developer focus on product innovation, and is on track to reduce operating costs by 30% while preserving a strong customer experience.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "With more than 18,000 customers globally, Okta has developed integrations for more than 7,000 applications.",
+    "“It receives thousands of requests through our chatbots, and we no longer need to manually process thousands of text embeddings to resolve those queries.”",
+    "“We’re also on track to reduce operating costs by 30% compared to the self-hosted solution.”"
+  ],
+  "architecture_clues": [
+    "Okta previously managed embeddings on a dedicated Kubernetes cluster.",
+    "Embeddings are now stored directly in MongoDB Atlas collections.",
+    "The platform uses natural-language vector search to identify requested apps.",
+    "Okta Inbox automatically raises tickets after matching the right application."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/okta",
+  "published_date": "2024-05-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“MongoDB Vector Search on Atlas was the answer to our problems. It simplifies a lot of the work that goes into making Okta Inbox super user-friendly for customers.”",
+    "“It receives thousands of requests through our chatbots, and we no longer need to manually process thousands of text embeddings to resolve those queries.”",
+    "“We’re also on track to reduce operating costs by 30% compared to the self-hosted solution.”",
+    "“MongoDB Atlas provided one efficient data layer that simplified these operations.”"
+  ]
+}

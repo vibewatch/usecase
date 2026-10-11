@@ -1,0 +1,67 @@
+{
+  "id": "mongodb-syncly-real-time-analytics",
+  "slug": "mongodb-syncly-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "Syncly",
+  "industry": "Software / SaaS",
+  "region": "South Korea",
+  "company_size": "SMB",
+  "business_problem": "Syncly needed a more efficient way to run semantic analytics on voice-of-customer data as its user base and embedding volumes grew beyond what manual similarity calculations could support.",
+  "solution_summary": "Syncly built its voice-of-customer analytics service around MongoDB Atlas and Atlas Vector Search so it could analyze chats, calls, meetings, and other customer-feedback signals with semantic context instead of brittle keyword-only methods. The platform collects structured and unstructured feedback, computes embeddings, and uses Atlas Vector Search to cluster that data by topic and similarity for downstream insights. Before adopting Atlas Vector Search, the team loaded embeddings into backend servers and manually computed similarity, which increased database and server load as adoption grew. By moving vector management into MongoDB Atlas, Syncly unified document and vector data on one platform and automated the indexing and query logic that previously required custom code. This reduces resource consumption while giving the startup a more scalable foundation for global expansion, faster feature delivery, and AI-driven customer-experience insights.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Syncly's customer-feedback records and vector data on one platform for analysis and service delivery.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Vector Search",
+      "role": "Performs similarity search and clustering over embedding vectors so Syncly can analyze feedback semantically.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer feedback from chats, calls, meetings, and related channels is collected into MongoDB Atlas, embedded for semantic analysis, indexed with Atlas Vector Search, and then clustered and queried so Syncly can surface patterns and recommendations back to customer-facing teams.",
+  "integration_points": [
+    "chats",
+    "calls",
+    "meetings"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Syncly made similarity analytics more than 10x faster, reduced server and cloud-service pressure, and improved both service efficiency and customer insight delivery as it expanded internationally.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "“We are experiencing more than 10 times faster performance with Atlas Vector Search index compared to manual processing.”",
+    "“If we had to go through more than 10,000 similarity comparisons for a feedback analysis, we can now get the desired results with just one query by setting up a Vector Search index.”"
+  ],
+  "architecture_clues": [
+    "Atlas Vector Search is used for cluster analytics that group feedback by topic.",
+    "Syncly previously loaded embeddings into backend servers and computed similarity manually.",
+    "The startup expanded from Korean and U.S. markets toward broader global operations.",
+    "The unified Atlas platform reduced the need for higher-tier server instances."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/syncly",
+  "published_date": "2025-07-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Storing vector data in MongoDB Atlas allowed us to focus on developing the data collection and classification services that we had committed to.”",
+    "“We are experiencing more than 10 times faster performance with Atlas Vector Search index compared to manual processing.”",
+    "“Another key benefit of Atlas Vector Search is that it is built on MongoDB Atlas, which allows us to store and manage both document and vector data in a unified platform.”",
+    "Syncly uses AI to enable effective similarity analytics even in a mix of structured data and unstructured data such as images and videos."
+  ]
+}

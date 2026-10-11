@@ -1,0 +1,64 @@
+{
+  "id": "mongodb-american-tire-distributors-data-lake-data-warehouse-modernization",
+  "slug": "mongodb-american-tire-distributors-data-lake-data-warehouse-modernization",
+  "vendor": "MongoDB",
+  "customer_name": "American Tire Distributors",
+  "industry": "Automotive",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "ATD needed to unlock legacy data locked in silos and support event-driven microservices and hybrid-cloud integration without relying on relational databases that could not keep up with streaming workloads.",
+  "solution_summary": "American Tire Distributors built its Automated Transformation Onto Microservices (ATOM) platform on MongoDB Atlas and Google Cloud to modernize access to supply-chain and distribution data. ATOM is an event-driven data-access layer that moves information asynchronously from transactional systems into domain-oriented microservices and APIs, letting front-end applications and downstream services use current data without overloading write-heavy source systems. MongoDB Atlas provides the distributed document store at the center of this architecture, where transformed data from multiple sources is stored across 11 data domains and surfaced through more than 50 data-access services. Atlas also gives ATD rapid backup, restore, and scaling options for one-time bulk loads and high-volume streaming. This architecture turns formerly trapped on-premise data into a cloud-native operational layer capable of supporting real-time APIs, hybrid-cloud flows, and a much more responsive technology stack for the tire supply chain.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the distributed operational store at the heart of ATOM, supporting event-driven data sync and high-performance API access.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Transactions and events from legacy and operational systems move through ATOM's event-driven pipelines into MongoDB Atlas, where data is organized by domain and served back through microservices and APIs to front-end applications and downstream systems in near real time.",
+  "integration_points": [
+    "Google Cloud",
+    "Kafka topics",
+    "APIs"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Migration",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "ATD now streams millions of daily transactions through Atlas with millisecond response times, performs large bulk loads inside maintenance windows, and has a platform ready for hybrid-cloud supply-chain modernization.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "ATOM streams approximately 11 million real-time transactions per day.",
+    "ATD can process more than 50 million transactions in less than four hours.",
+    "The front end can receive data at a rate of 21,000 transactions per second.",
+    "ATOM retrieves data from more than 30 Kafka topics and writes to 12 MongoDB Atlas databases within 11 data domains."
+  ],
+  "architecture_clues": [
+    "ATOM is an event-driven architecture with pluggable microservices.",
+    "ATD runs 12 MongoDB Atlas clusters across dev, QA, performance, and production.",
+    "The migration from self-managed MongoDB on GKE to Atlas was enabled by backup/restore and in-flight replacement of components.",
+    "The architecture supports hybrid-cloud data movement from on-premises data centers to public cloud services."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/atd",
+  "published_date": "2024-04-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We have years’ worth of legacy data. Our challenge was, how can we unlock it to drive the business forward?”",
+    "“MongoDB Atlas delivers the event driven, distributed, and performant solution the team was seeking.”",
+    "“We are streaming approximately 11 million real-time transactions per day.”",
+    "“We can now quickly scale up for bulk one-time loads and process more than 50 million transactions in less than four hours.”"
+  ]
+}

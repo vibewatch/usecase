@@ -1,0 +1,90 @@
+{
+  "id": "mongodb-mercor-enterprise-knowledge-search",
+  "slug": "mongodb-mercor-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Mercor",
+  "industry": "Software / SaaS",
+  "region": "San Francisco Bay Area",
+  "company_size": "Mid-market",
+  "business_problem": "Mercor needed to replace a join-heavy recruiting architecture that made profiles slow to load and delayed newly interviewed candidates from appearing in search results for hours.",
+  "solution_summary": "Mercor unified its AI-native talent matching stack on MongoDB Atlas by collapsing profile data, semantic retrieval, and exact filtering into one search pipeline. Candidate information from resumes, professional profiles, social accounts, and AI-scored video interviews is denormalized into Atlas collections instead of being spread across 21 relational tables. MongoDB Vector Search on Atlas works with Voyage AI embeddings to find semantic matches between roles and candidates, while hard filters for criteria such as location or credential type are applied in the same query. Lucene-powered text search and internal ranking models remove false positives before results reach customers. Fireworks AI hosts the language models that power scoring and profile synthesis, and Apache Kafka drives change-data-capture updates so candidates become searchable as soon as new events arrive. The result is a single, scalable hiring data layer that supports rapid experimentation without operational sprawl.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Vector Search on Atlas",
+    "Voyage AI",
+    "Fireworks AI",
+    "Apache Kafka"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Mercor's denormalized candidate and job data as the unified operational data layer for search and ranking.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Vector Search on Atlas",
+      "role": "Executes semantic candidate-to-role matching while supporting exact filters in the same query.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voyage AI",
+      "role": "Generates the embeddings Mercor uses for specialized matching tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Fireworks AI",
+      "role": "Hosts the language models used for candidate scoring and profile synthesis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Apache Kafka",
+      "role": "Feeds event-driven updates into the search pipeline so candidate changes become searchable immediately.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Resumes, profiles, social data, and AI-scored interview outputs are denormalized into MongoDB Atlas, embedded with Voyage AI, indexed by MongoDB Vector Search on Atlas, filtered and reranked in one query, and refreshed through Apache Kafka events so newly updated candidates are immediately available to Mercor's clients.",
+  "integration_points": [
+    "Voyage AI",
+    "Fireworks AI",
+    "Apache Kafka",
+    "resumes",
+    "social accounts",
+    "AI-scored video interviews"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Mercor cut profile latency from about 13 seconds to milliseconds, improved internal search quality threefold, scaled its database from 100 GB to 2 TB, and reached faster fill rates on time-sensitive hiring requests.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "Mercor’s fragmented, join-heavy architecture produced 13-second profile load times and a 6-hour lag before new candidates became searchable.",
+    "Mercor reduced profile latency to milliseconds and improved internal search quality threefold.",
+    "The underlying database has grown from 100 GB to 2 TB as of May 2026.",
+    "Mercor reached a 100% fill rate on time-sensitive client requests as a direct result of this change."
+  ],
+  "architecture_clues": [
+    "Mercor replaced joins across as many as 21 tables with a denormalized collection model.",
+    "Hard filters such as location are applied in the same query as vector similarity.",
+    "The search pipeline combines vector search, Lucene-powered full-text search, and ranking algorithms.",
+    "Atlas clusters scaled from M30 to M200 with auto-scaling to absorb traffic spikes."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mercor",
+  "published_date": "2026-07-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“In the hiring space, location should be a hard filter. It should not be a signal.”",
+    "“We don’t have to manage two separate services, and we also got early access to Voyage AI releases through MongoDB.”",
+    "“If you’re getting a profile in milliseconds, you’ll be able to search more, you’ll be able to retrieve more, and you’ll be able to hire faster.”",
+    "Candidates are now searchable the moment they’re ready, rather than hours after the hiring window has opened."
+  ]
+}

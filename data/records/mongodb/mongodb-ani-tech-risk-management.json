@@ -1,0 +1,62 @@
+{
+  "id": "mongodb-ani-tech-risk-management",
+  "slug": "mongodb-ani-tech-risk-management",
+  "vendor": "MongoDB",
+  "customer_name": "ani.tech",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "ani.tech needed an AI-native data layer that could support autonomous financial-workflow agents after MySQL and rigid SaaS-era schemas became a bottleneck for experimentation and deployment.",
+  "solution_summary": "ani.tech rebuilt its platform on MongoDB Atlas running on Microsoft Azure so it could feed autonomous AI agents with flexible operational and analytical data. The company moved beyond a Django-and-MySQL SaaS model after realizing relational migrations and slow deployment cycles were a poor fit for agentic AI in wealth management. Atlas now acts as the primary operational data platform across a core application database and a data-warehouse-style environment, managing about 22.6 million documents in 202 collections. Agents store real-time chat histories and workflow state directly in MongoDB, while tool-calling agents query the same platform for financial insights, risk exposure, and long-range time-series data. Because MongoDB sits on top of clients’ existing CRM and operational systems, ani.tech can restructure legacy data into AI-friendly forms without forcing wholesale rip-and-replace modernization. The result is an Azure-based AI-native platform that lets the startup iterate quickly while automating complex advisory tasks.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides ani.tech's AI-native operational data layer for agent state, financial data, and long-range analytical workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Legacy CRM, compliance, and operational records are reshaped into MongoDB Atlas, where agents store chat history and workflow state, query financial and risk data in real time, and feed automated advisory workflows that return results to wealth-management teams and clients.",
+  "integration_points": [
+    "Microsoft Azure",
+    "CRM systems",
+    "operational systems"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "ani.tech compressed a 26-hour workflow to 10 minutes, automated 75% of an end-to-end advice workflow for a pilot customer, accelerated deployments to an hourly basis, and grew 5x on Atlas.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "MongoDB Atlas manages approximately 22.6 million documents across 202 collections.",
+    "ani.tech accelerated deployments to an hourly basis and compressed a 26-hour workflow to 10 minutes, driving 5x growth.",
+    "Its automated agents absorbed 75% of an end-to-end financial-advice workflow for pilot customer Octopus Money."
+  ],
+  "architecture_clues": [
+    "The production environment uses a scalable cluster architecture that expands for heavy ETL and analytics.",
+    "MongoDB Atlas continuously ingests long-range financial time-series datasets.",
+    "The startup uses MongoDB as a flexible layer on top of decades-old financial infrastructure.",
+    "Agents query the platform directly for risk exposure data and other financial insights."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ani-tech",
+  "published_date": "2026-06-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We want every element of our tech stack to be AI native, so we completely rebuilt it from the ground up. And MongoDB was one of the big changes we made.”",
+    "“The great thing about utilizing MongoDB and agentic AI is that you don’t have to worry about how your data is stored underneath.”",
+    "By migrating to MongoDB Atlas on Azure, fintech ani.tech compressed a 26-hour workflow to 10 minutes.",
+    "MongoDB Atlas manages approximately 22.6 million documents across 202 collections."
+  ]
+}

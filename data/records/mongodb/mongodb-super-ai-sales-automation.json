@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-super-ai-sales-automation",
+  "slug": "mongodb-super-ai-sales-automation",
+  "vendor": "MongoDB",
+  "customer_name": "Super AI",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Super AI needed to build a secure, hallucination-resistant RAG platform for a pharmaceutical client that could guide 15,000 field sales reps without exposing sensitive data or sacrificing response speed.",
+  "solution_summary": "Super AI built its proprietary Pharma Operating System on MongoDB Atlas and MongoDB Atlas Vector Search so structured application data, embeddings, and conversational memory could live on one platform. The system had to combine doctors’ private notes, clinical trial results, market feedback, territory data, and sales records into a conversational assistant that could answer field questions in real time while enforcing strict user-level security. By storing JSON application data, vector embeddings, conversation histories, and user preferences together in Atlas, Super AI avoided the fragmentation it would have introduced with a separate vector database. MongoDB Atlas Vector Search supports filtered RAG over the client's private corpus, while the broader Atlas document model acts as the unified memory store for agents. This lets Super AI ground sales guidance in the right evidence, preserve compliance controls, and deliver responsive answers from a lean engineering organization.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Pharma Operating System application data, conversation history, user preferences, and security-relevant metadata in one JSON-native platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Executes filtered semantic retrieval over private pharmaceutical content so responses remain grounded and secure.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Clinical notes, market feedback, sales records, user metadata, and conversation history are stored together in MongoDB Atlas; embeddings for that content are indexed with MongoDB Atlas Vector Search, filtered queries retrieve secure context for each user, and the assistant returns grounded sales guidance to field reps in real time.",
+  "integration_points": [
+    "Gemini",
+    "Claude"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Super AI gave its client a secure conversational sales assistant with sub-18ms latency and a 6% lift in sales conversions, while proving a 16-engineer startup could meet enterprise pharmaceutical requirements.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "The client needed to empower a 15,000-person sales team with intelligent, real-time guidance.",
+    "The client saw a 6% lift in sales conversions with sub-18ms latency.",
+    "Super AI scaled to enterprise securely with a 16-engineer team."
+  ],
+  "architecture_clues": [
+    "Super AI initially evaluated specialized vector databases such as Pinecone before consolidating on Atlas.",
+    "The platform uses Atlas as a unified memory database for conversations and user preferences.",
+    "Embeddings from models such as Gemini and Claude are stored directly in Atlas.",
+    "Security is enforced at the user level to protect sensitive pharmaceutical data."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/super-ai",
+  "published_date": "2026-03-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We tried Pinecone, but we wanted the JSON capabilities. Our entire app stack is built on JSON.”",
+    "“The database serves as a unified memory database for the AI agents.”",
+    "The client saw a 6% lift in sales conversions with sub-18ms latency.",
+    "The system had to be immune to model hallucination in a highly regulated pharmaceutical setting."
+  ]
+}

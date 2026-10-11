@@ -1,0 +1,92 @@
+{
+  "id": "mongodb-novo-nordisk-document-processing",
+  "slug": "mongodb-novo-nordisk-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "Novo Nordisk",
+  "industry": "Healthcare",
+  "region": "Denmark",
+  "company_size": "Enterprise",
+  "business_problem": "Novo Nordisk needed to reduce the 12-week, multi-team effort required to produce compliant clinical study reports without sacrificing quality or regulatory rigor.",
+  "solution_summary": "Novo Nordisk created the NovoScribe platform to automate Clinical Study Report production with a retrieval-augmented generation architecture built on MongoDB Atlas Vector Search, Amazon Bedrock, and LangChain. Statistical outputs from clinical trials, report templates, and supporting documentation are prepared as structured tables, figures, and vectorized content inside MongoDB Atlas. LangChain orchestrates multiple Bedrock-hosted foundation models, including Claude 3 and Titan, as well as the company's private ChatGPT instance, so teams can switch models without rewriting application code. Atlas Vector Search supplies the relevant template sections and report evidence back into the prompting flow, grounding generation in the right trial context. The system therefore replaces slow manual compilation, merging, and QA-heavy handoffs with a governed AI pipeline that drafts complete CSRs in minutes, while still allowing Novo Nordisk to compare model behavior and iterate quickly as requirements evolve.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search",
+    "Amazon Bedrock",
+    "LangChain",
+    "Claude 3",
+    "Titan"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores NovoScribe's trial outputs, report templates, and retrieval corpus for clinical study report generation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves relevant report templates and clinical evidence to ground CSR generation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Hosts the foundation models NovoScribe uses to generate and refine report content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "LangChain",
+      "role": "Orchestrates model switching and the RAG workflow without requiring application-code changes.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude 3",
+      "role": "Provides one of the foundation-model options Novo Nordisk uses for CSR generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Titan",
+      "role": "Provides an additional foundation-model option in the NovoScribe workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Clinical trial data is analyzed into tables and figures, templates and evidence are embedded in MongoDB Atlas, LangChain orchestrates Bedrock-hosted models such as Claude 3 and Titan, and MongoDB Atlas Vector Search feeds the right context back into the prompts so NovoScribe can assemble full clinical study reports in minutes.",
+  "integration_points": [
+    "Amazon Bedrock",
+    "LangChain",
+    "private ChatGPT instance"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "NovoScribe reduced CSR creation from 12 weeks to 10 minutes, improved output quality, reduced staffing requirements, and accelerated time-to-market for new treatments.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "CSR creation reduced from 12 weeks to 10 minutes",
+    "“We’ve reduced the time taken to create Clinical Study Reports from 12 weeks to 10 minutes, with higher quality outputs and a fraction of the team.”",
+    "“In terms of value, each day sooner a medicine gets to market can add around $15 million in revenue to the company.”"
+  ],
+  "architecture_clues": [
+    "NovoScribe was initiated in mid-2023.",
+    "The workflow uses retrieval-augmented generation over statistical outputs and report templates.",
+    "Novo Nordisk experiments with multiple embedding and generation models per report.",
+    "The platform also uses a private ChatGPT instance alongside Bedrock-hosted models."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/novo-nordisk",
+  "published_date": "2024-05-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“A CSR usually takes around 12 weeks to compile, involving a multidisciplinary team of statisticians, scientists, and technical authors.”",
+    "“With NovoScribe, we are the first in the industry to generate a complete Clinical Study Report in minutes rather than weeks.”",
+    "“We’ve reduced the time taken to create Clinical Study Reports from 12 weeks to 10 minutes, with higher quality outputs and a fraction of the team.”",
+    "NovoScribe uses the Claude 3 and Titan foundation models hosted by Amazon Bedrock, alongside the company’s own private instance of ChatGPT."
+  ]
+}

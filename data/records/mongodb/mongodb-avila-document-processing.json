@@ -1,0 +1,87 @@
+{
+  "id": "mongodb-avila-document-processing",
+  "slug": "mongodb-avila-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "Avila",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "Avila needed to transform fragmented grant documents and opportunity sources into a structured, searchable system that could help public-sector and nonprofit users find, understand, and draft grant applications faster.",
+  "solution_summary": "Avila built its grant-intelligence platform on MongoDB Atlas so it could combine structured grant databases, unstructured NOFO PDFs, and user-uploaded planning documents inside one flexible operational store. Atlas acts as the foundational document and file repository, while MongoDB Atlas Search handles lexical retrieval across aggregated grant data and MongoDB Atlas Vector Search provides the semantic matching needed for AI-assisted discovery and RAG. The platform continuously matches user priorities against new funding opportunities, extracts narrative structure, compliance requirements, and required forms from unstructured notices, and then uses OpenAI and Anthropic model calls to help generate proposal drafts. Because Atlas supports dynamic schema changes, Avila can onboard new grant sources and data shapes without slowing development. That lets the startup operate without a dedicated database team while still delivering an end-to-end workflow from search to application writing on a single data foundation.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search",
+    "MongoDB Atlas Vector Search",
+    "OpenAI",
+    "Anthropic"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores grant source data, user documents, and the operational records behind Avila's end-to-end platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Runs keyword retrieval across aggregated grant opportunities and related content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Provides semantic matching for grant discovery, NOFO processing, and RAG-based proposal support.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI",
+      "role": "Supplies model calls for AI-assisted research and proposal-writing workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Anthropic",
+      "role": "Supplies additional model calls for proposal-writing and retrieval-augmented generation workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Grant data from sources such as grants.gov and disparate state sites is stored in MongoDB Atlas, searched lexically with MongoDB Atlas Search and semantically with MongoDB Atlas Vector Search, then combined with user-uploaded planning documents so OpenAI and Anthropic model calls can draft NOFO summaries and proposal narratives.",
+  "integration_points": [
+    "grants.gov",
+    "OpenAI",
+    "Anthropic"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Avila reduced grant search and application time by 90%, indexed about 100,000 opportunities, sped development by 10x, and reached product-market fit with paying customers in about four months.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "90% reduction in grant search and application time",
+    "100,000 grant opportunities indexed",
+    "10x faster platform development",
+    "The platform achieved product-market fit and secured paying customers within about four months of implementation."
+  ],
+  "architecture_clues": [
+    "New opportunities are pushed to users weekly.",
+    "NOFO PDFs are converted into structured fields such as narrative requirements and compliance needs.",
+    "The MVP shipped in four weeks thanks to MongoDB's dynamic schema adaptation.",
+    "Avila runs without a dedicated database team."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/avila",
+  "published_date": "2025-08-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Avila uses AI and semantic search to automatically and intelligently match a user’s funding priorities with relevant grants.”",
+    "“Avila’s AI also simulates a seasoned grant writer to simplify NOFOs.”",
+    "Avila currently indexes around 100,000 grant opportunities across various sources.",
+    "It empowers organizations to find more opportunities and navigate the process 10 times faster."
+  ]
+}

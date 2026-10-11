@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-lendi-group-marketing-personalization",
+  "slug": "mongodb-lendi-group-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Lendi Group",
+  "industry": "Financial Services",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Lendi Group needed to replace a sprawling mix of relational and non-relational systems so it could create a compliant, real-time customer view for AI-native mortgage and property services.",
+  "solution_summary": "Lendi Group built a unified operational data layer on MongoDB Atlas and MongoDB Vector Search to support its shift toward becoming an AI-native property-finance business. After the Lendi-Aussie merger, the combined company inherited more than 500 deployable components plus fragmented PostgreSQL and non-relational stores that slowed feature delivery and made it hard to assemble a live picture of each customer. Atlas now acts as the document-first core of the new ODL, where property data, finance feeds, geospatial context, customer behavior, and workflow state can be modeled together without duplicating schemas across front-end and back-end systems. MongoDB Vector Search co-locates embeddings with transactional data for RAG-style experiences such as the Lendi Guardian home-loan companion, while the platform's flexible model helps the team maintain auditability and compliance. This architecture gives AI agents the current, governed context they need while reducing microservice sprawl and speeding product iteration.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the unified operational data layer for property, finance, customer, and workflow data across Lendi Group.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Keeps embeddings beside operational data so AI applications such as Lendi Guardian can run RAG-style retrieval without a separate vector database.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Property valuations, suburb trends, credit reports, Open Banking feeds, and customer interaction data are consolidated in MongoDB Atlas, vectorized where needed for retrieval, and surfaced through services such as Lendi Guardian so customers and AI agents can act on a current, governed view of each mortgage journey.",
+  "integration_points": [
+    "PostgreSQL",
+    "Open Banking feeds"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Lendi Group improved time to market for AI features by about 40%, launched the Lendi Guardian AI companion, and created the governed data foundation it needs to move from human-motion to agentic-motion operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Lendi Group manages a home loan book of more than AU$107 billion.",
+    "The group supports approximately 1,350 brokers and 215 retail stores, with a team of around 1,000 people.",
+    "It has already improved time to market for AI features by approximately 40%.",
+    "The combined organization had bloated to more than 500 deployable components."
+  ],
+  "architecture_clues": [
+    "The first launch on the new architecture was the Lendi Guardian mobile-first home and loan companion.",
+    "Lendi Group chose a document-first approach to standardize data contracts across domains.",
+    "MongoDB Vector Search was chosen to avoid introducing a separate vector database.",
+    "The platform needs immutable audit trails so the company can trace what humans, agents, and customers did."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/lendigroup",
+  "published_date": "2026-04-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“To build an architecture that could support our AI-native vision, we needed to reduce our microservices sprawl, reduce complexity, and look at consolidating core operational data into a unified data layer.”",
+    "“MongoDB Vector Search gave Lendi Group the ability to co-locate the vector embeddings directly alongside the transactional operational data.”",
+    "“A deciding factor in selecting MongoDB was its native support for the data types and workloads required by advanced AI applications.”",
+    "The company improved time to market for AI features by approximately 40%."
+  ]
+}

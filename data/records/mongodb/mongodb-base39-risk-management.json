@@ -1,0 +1,95 @@
+{
+  "id": "mongodb-base39-risk-management",
+  "slug": "mongodb-base39-risk-management",
+  "vendor": "MongoDB",
+  "customer_name": "Base39",
+  "industry": "Financial Services",
+  "region": "Sao Paulo, Brazil",
+  "company_size": "SMB",
+  "business_problem": "Base39 needed to replace slow, subjective credit analysis workflows that could take up to 10 days and required specialist intervention to adapt machine learning models to new data sources.",
+  "solution_summary": "Base39 rebuilt its credit analysis workflow on MongoDB Atlas running on Amazon Web Services and used MongoDB Atlas Vector Search as the feature and retrieval layer for agentic AI. Data from CRM systems, transactional records, and public databases is aggregated into Atlas, where flexible schemas let the team mix structured financial attributes with unstructured context. LangGraph orchestrates agents that call predictive machine learning models plus Amazon Bedrock-hosted Claude 3.7 Sonnet and Claude 3.5 Haiku models to recommend how data should be cleaned, transformed, and evaluated for loan risk. Atlas Vector Search enriches those LLM interactions with domain-specific context, supports real-time feature retrieval, and enables Chain-of-Thought reasoning over each application. Because the stack remained familiar to developers, Base39 shipped quickly while eliminating manual spreadsheet-driven analysis.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search",
+    "Amazon Bedrock",
+    "LangGraph",
+    "Claude 3.7 Sonnet",
+    "Claude 3.5 Haiku"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Serves as Base39's core operational platform and feature store for structured and unstructured credit data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves relevant vectors and domain context so agentic workflows and models can analyze loan applications accurately in real time.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Hosts the large language models Base39 uses inside its credit-analysis workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Orchestrates the agentic AI workflow that coordinates model calls and multi-step reasoning.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude 3.7 Sonnet",
+      "role": "Supports high-quality reasoning and generation for loan-risk analysis tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude 3.5 Haiku",
+      "role": "Handles fast, lower-latency model tasks inside Base39's credit workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "CRM records, transactional histories, and public-database signals are aggregated into MongoDB Atlas, embedded and indexed with MongoDB Atlas Vector Search, then passed through LangGraph-orchestrated Bedrock model calls so agents can score loans, run what-if analysis, and surface risk recommendations to analysts.",
+  "integration_points": [
+    "Amazon Web Services",
+    "CRM systems",
+    "transactional records",
+    "public databases"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Base39 deployed its AI-driven credit analysis platform in two weeks, cut loan-analysis costs by 96%, lowered infrastructure spend by 84%, and moved toward analyzing up to 10 loan applications per minute.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "This complex and highly manual process can take up to 10 days and can yield inaccurate and incomplete results.",
+    "With a mission to deliver a service that enables its customers to analyze and assess up to 10 loan applications in a minute, Base39 sought a solution that would accelerate the review process.",
+    "Base39 cut loan analysis costs by 96% and reduced infrastructure expenses by 84%.",
+    "The strategic partnership with MongoDB and AWS enabled Base39 to deploy a robust AI-driven solution in two weeks."
+  ],
+  "architecture_clues": [
+    "Atlas Vector Search is used as the backbone of Base39's feature store.",
+    "The workflow uses a Chain-of-Thought methodology for autonomous analysis.",
+    "MongoDB Atlas runs in a serverless deployment model on AWS.",
+    "The stack combines predictive ML scoring with LLM-based what-if evaluation."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/base39",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“MongoDB underpins the data layer, providing flexible schema support, vector search for LLM context, and a managed deployment model that aligns with Base39’s developer-first philosophy.”",
+    "“MongoDB Atlas serves as the backbone of Base39’s feature store, powering both structured and unstructured data analysis with MongoDB Atlas Vector Search.”",
+    "“The strategic partnership with MongoDB and AWS enabled Base39 to deploy a robust AI-driven solution in two weeks.”",
+    "Base39 cut loan analysis costs by 96% and reduced infrastructure expenses by 84%."
+  ]
+}

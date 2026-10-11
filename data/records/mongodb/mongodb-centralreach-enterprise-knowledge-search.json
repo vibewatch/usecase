@@ -1,0 +1,74 @@
+{
+  "id": "mongodb-centralreach-enterprise-knowledge-search",
+  "slug": "mongodb-centralreach-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "CentralReach",
+  "industry": "Healthcare",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "CentralReach needed a flexible clinical data platform that could unify billions of heterogeneous records, reduce administrative burden on autism-care teams, and support natural-language retrieval over patient information.",
+  "solution_summary": "CentralReach built its Care360 platform on MongoDB Atlas to unify clinical information for autism care delivery and make that data accessible through AI-assisted experiences. Assessments, clinical notes, treatment plans, session documentation, and related records are aggregated into the Atlas document model, which can absorb new data types and metadata as care workflows evolve. CentralReach then enriches those documents with natural-language-processing outputs and other AI-derived metadata so clinicians can query the record in natural language. MongoDB Atlas Vector Search provides the semantic retrieval layer, while LlamaIndex-powered ingestion and indexing pipelines plus gravity9 enrichment and Q&A workflows help structure unstructured content for scalable use. This creates a comprehensive, shared view of each patient that is available to clinicians, caregivers, and other members of the care team. The architecture reduces documentation friction today and gives CentralReach a foundation for future predictive and decision-support features.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search",
+    "LlamaIndex"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the unified Care360 clinical record and supports ongoing enrichment of healthcare data from many sources.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Enables natural-language semantic querying across patient and clinical information.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LlamaIndex",
+      "role": "Provides document-ingestion, parsing, extraction, and indexing pipelines that enhance the Atlas-based clinical data model.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Assessments, clinical notes, treatment plans, and session records are aggregated into MongoDB Atlas, enriched with NLP metadata through ingestion pipelines, indexed for semantic retrieval with MongoDB Atlas Vector Search, and then surfaced through Care360 so clinicians and caregivers can access the right patient context quickly.",
+  "integration_points": [
+    "LlamaIndex",
+    "gravity9"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "CentralReach improved clinician efficiency, reduced documentation-driven claim and continuity issues, and created a scalable Care360 foundation for future predictive analytics and AI decision support.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "CentralReach serves more than 200,000 professionals globally who support approximately 400,000 patients.",
+    "The platform manages more than 4 billion clinical data points overall, growing by 1B+ annually.",
+    "CentralReach processes approximately 62 million service appointments per year.",
+    "There are only 75,000 Board Certified Behavior Analysts in the U.S. despite growing demand."
+  ],
+  "architecture_clues": [
+    "Care360 aggregates assessments, clinical documentation, and session notes into a single patient view.",
+    "Metadata extracted from NLP and other AI techniques is added directly into the Atlas document model.",
+    "The architecture was optimized with help from the MongoDB AI Applications Program and partners.",
+    "CentralReach is exploring real-time predictive analytics and AI-driven decision support on top of the same foundation."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/centralreach",
+  "published_date": "2025-07-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“It quickly became apparent that using a document database like MongoDB was the best way to do it.”",
+    "“The MongoDB Atlas document model enables the flexibility to continually iterate and enrich the information we know.”",
+    "Care360 aggregates data from diverse sources, including assessments, clinical documentation, and session notes.",
+    "CentralReach seamlessly integrates 4 billion monthly data points into a unified interface for providers."
+  ]
+}

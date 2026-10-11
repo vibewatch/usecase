@@ -1,0 +1,82 @@
+{
+  "id": "mongodb-delivery-hero-marketing-personalization",
+  "slug": "mongodb-delivery-hero-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Delivery Hero",
+  "industry": "Retail",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Delivery Hero needed to replace stale, batch-generated substitute recommendations that hurt revenue and customer satisfaction whenever perishable grocery items went out of stock.",
+  "solution_summary": "Delivery Hero rebuilt its Item Replacement Tool around MongoDB Atlas on Google Cloud so product, customer, and embedding data could be queried in real time instead of once-a-day batch jobs. The first version depended on product data in Google BigQuery plus recommendations cached in Redis, which meant riders still saw outdated alternatives after inventory or customer preferences changed. After moving the product catalog to Atlas and adopting Atlas Search, the team used a multilingual sentence encoder built with Hugging Face tooling and run in Google Vertex AI to create product embeddings. As catalog records change, those vectors are continuously updated and indexed by MongoDB Vector Search on Atlas. When a rider finds an unavailable product, the picking service queries Atlas to combine semantic similarity, product filters, and customer preferences, then returns up to 20 replacement options to the customer in under a second.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Search",
+    "MongoDB Vector Search on Atlas",
+    "Google Vertex AI"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores synchronized product and customer data for Delivery Hero's real-time replacement workflow.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Search",
+      "role": "Supports lexical product search and helped simplify Delivery Hero's search stack before vector capabilities were added.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Vector Search on Atlas",
+      "role": "Finds semantically similar replacement items against live inventory and customer context in real time.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Vertex AI",
+      "role": "Runs the multilingual embedding model that generates vectors for product information.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Product catalog changes are embedded with a multilingual model in Google Vertex AI, persisted in MongoDB Atlas, and indexed by MongoDB Vector Search on Atlas; when a rider encounters an unavailable item, the picking service queries Atlas with customer preferences and inventory filters, then sends up to 20 replacement options back to the customer in under one second.",
+  "integration_points": [
+    "Google BigQuery",
+    "Redis",
+    "Hugging Face",
+    "Google Vertex AI"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Delivery Hero moved from stale 24-hour batch recommendations to sub-second live substitutions, protecting revenue and customer satisfaction while creating a globally scalable recommendation service.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Delivery Hero operates at global scale. With a product catalog offering more than 100 million items, it serves customers in over 70 countries across four continents.",
+    "The recommendations it generated were stale. This was because they were computed in batch runs once every 24 hours.",
+    "The picking service uses vector search to recommend up to 20 suitable replacement items.",
+    "The total roundtrip latency from query in the app to returning recommendations to the user cannot exceed more than one second."
+  ],
+  "architecture_clues": [
+    "The product catalog was migrated to MongoDB Atlas running in Google Cloud in 2021.",
+    "Embeddings are generated with a bidirectional multilingual sentence encoder model.",
+    "Atlas keeps embeddings, product data, and customer data fully synchronized on one platform.",
+    "The new tool is being piloted in the Middle East before global rollout."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/delivery-hero-vector-search",
+  "published_date": "2024-05-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We needed to move to an up-to-second real-time recommendations system, and that is what MongoDB Vector Search enabled us to do.”",
+    "“Within the MongoDB Atlas platform, we can store, index, and query vector embeddings right alongside our product and customer data, with everything fully synchronized.”",
+    "The picking service uses vector search to recommend up to 20 suitable replacement items.",
+    "The total roundtrip latency from query in the app to returning recommendations to the user cannot exceed more than one second."
+  ]
+}

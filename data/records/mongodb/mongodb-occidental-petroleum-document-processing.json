@@ -1,0 +1,82 @@
+{
+  "id": "mongodb-occidental-petroleum-document-processing",
+  "slug": "mongodb-occidental-petroleum-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "Occidental Petroleum",
+  "industry": "Energy",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Occidental Petroleum needed to avoid an expensive, lengthy manual review of 1.5 million lease documents and create a scalable way to classify and extract metadata from millions of PDFs.",
+  "solution_summary": "Occidental Petroleum built an automated document-review pipeline on MongoDB Atlas that combines event-driven cloud services, OCR, and large language models to process land-lease agreements at scale. Physical documents are scanned into the enterprise content management system as PDFs, automatically moved into Amazon S3, and then processed concurrently by AWS Lambda functions. Those functions call Microsoft Azure AI Document Intelligence to extract text and metadata through OCR so downstream classification models can assign each file to one of 140 categories and pull out dates or legal terms. MongoDB Atlas started as the linking layer between physical and digital records but quickly became the system state backbone as engineers switched to stateful documents to recover gracefully from edge cases such as very large PDFs. That change let the pipeline handle thousands of Atlas requests per second while keeping classification, metadata extraction, and retries on one resilient operational store.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Amazon S3",
+    "AWS Lambda",
+    "Microsoft Azure AI Document Intelligence"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Tracks document state, links physical and digital records, and holds pipeline progress for automated review.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores scanned PDF files before they are processed by the automated pipeline.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Processes incoming documents concurrently in the event-driven workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Azure AI Document Intelligence",
+      "role": "Performs OCR and metadata extraction on lease documents before classification.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Scanned PDFs move from Oxy's content-management system into Amazon S3, AWS Lambda functions invoke Microsoft Azure AI Document Intelligence for OCR and metadata extraction, classification logic categorizes files and extracts legal attributes, and MongoDB Atlas stores stateful processing records so failures can resume cleanly.",
+  "integration_points": [
+    "Amazon Web Services",
+    "Amazon S3",
+    "AWS Lambda",
+    "Microsoft Azure AI Document Intelligence"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Oxy saved more than $4 million and 12 months by automating review of 1.5 million documents, and its Atlas Vector Search proof of concept showed sub-200ms retrieval across over 100GB of text.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Oxy had planned to hire 30 contractors to manually review a batch of 1.5 million documents.",
+    "The automated system built using MongoDB Atlas saved Oxy $4 million and 12 months.",
+    "Atlas Vector Search achieved retrieval times of less than 200 milliseconds across more than 100 GB of text.",
+    "The company has accumulated more than 12 million land-lease agreements."
+  ],
+  "architecture_clues": [
+    "The pipeline classifies documents into 140 categories.",
+    "The event-driven design was updated to use stateful documents for failure recovery.",
+    "Engineers ramped from a few MongoDB requests to thousands per second without issue.",
+    "The implementation spans AWS serverless services plus Azure AI OCR."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/occidental-petroleum",
+  "published_date": "2024-11-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“What was amazing for us was that we were able to get something up and running in a matter of days.”",
+    "“We went from making a few requests to MongoDB to making thousands of requests a second to MongoDB, and it never really caused an issue.”",
+    "The automated system that the company built using MongoDB Atlas saved Oxy $4 million and 12 months.",
+    "Using MongoDB Atlas Vector Search, they ran a proof of concept that resulted in a retrieval time of less than 200 milliseconds."
+  ]
+}

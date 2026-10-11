@@ -1,0 +1,89 @@
+{
+  "id": "mongodb-squary-ai-document-processing",
+  "slug": "mongodb-squary-ai-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "Squary AI",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Squary AI needed to eliminate slow, outage-prone legal search infrastructure that combined MongoDB with OpenSearch and hurt document review speed, cost, and trust.",
+  "solution_summary": "Squary AI consolidated its legal-workflow platform onto MongoDB Atlas by moving text search and vector search off a separate OpenSearch deployment and into MongoDB Search and MongoDB Vector Search on Atlas. The platform stores case documents in Atlas, indexes existing collections directly without schema rewrites, and used a short dual-write period to validate the migration before cutover. MongoDB Search provides full-text relevance while MongoDB Vector Search supplies embedding-based retrieval for hybrid search. Those retrieval layers feed retrieval-augmented generation workflows that use Claude or Amazon Bedrock depending on client sensitivity. The platform also attaches citations to every generated claim so attorneys can verify outputs against page-level evidence inside very large document sets. By unifying JSON data, search, vectors, and observability on one platform, Squary AI replaced a fragile multi-system stack with a simpler architecture that scales proactively and keeps legal teams working.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Search",
+    "MongoDB Vector Search on Atlas",
+    "Claude",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Squary AI's legal data and now unifies the operational database, text search, and vector search on one platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Search",
+      "role": "Provides full-text similarity search across legal document collections for hybrid retrieval.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Vector Search on Atlas",
+      "role": "Retrieves semantically similar passages and supports citation-backed RAG over large legal document sets.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude",
+      "role": "Generates legal outputs from retrieved evidence for clients whose data can use that model path.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Provides an alternate LLM execution path for client data that requires that deployment model.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Legal documents live in MongoDB Atlas, where MongoDB Search and MongoDB Vector Search on Atlas index the same collections for hybrid retrieval; relevant passages are sent to Claude or Amazon Bedrock-backed generation, and the application returns source-linked answers with page-level citations attorneys can verify.",
+  "integration_points": [
+    "OpenSearch Service (Elasticsearch)",
+    "Amazon Bedrock",
+    "Claude"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Squary AI now handles 10x more data for less cost, returns search and generation results in single-digit seconds, has seen zero outages since migration, and cut document review time by up to 70%.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "“For OpenSearch, we were experiencing up to 15 seconds of query lag.”",
+    "Squary AI now handles 10 times the data for less cost, with single-digit query times, zero outages, and up to 70% faster document review.",
+    "“The migration was surprisingly fast; we adapted our code in a matter of days.”",
+    "At Quatrini Law Group, Squary AI analyzed more than 460,000 pages and saved over 400 attorney and paralegal hours."
+  ],
+  "architecture_clues": [
+    "The migration indexed existing MongoDB collections directly without schema rewrites.",
+    "A dual-write period was used to validate results before full migration.",
+    "MongoDB Compass simplified direct inspection of raw data.",
+    "Generated claims are returned with page-level citations to reduce hallucinations."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/squary-ai",
+  "published_date": "2026-09-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The migration was surprisingly fast; we adapted our code in a matter of days.”",
+    "“With MongoDB, we now handle 10 times our previous data volume for less money.”",
+    "“Search latency improved just as dramatically. Where OpenSearch query times had stretched up to 15 seconds, MongoDB now returns search and generation results consistently under 10 seconds.”",
+    "“Squary AI can attach a citation to every claim in a generated report.”"
+  ]
+}

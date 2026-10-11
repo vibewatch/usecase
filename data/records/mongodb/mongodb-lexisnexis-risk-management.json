@@ -1,0 +1,60 @@
+{
+  "id": "mongodb-lexisnexis-risk-management",
+  "slug": "mongodb-lexisnexis-risk-management",
+  "vendor": "MongoDB",
+  "customer_name": "LexisNexis Risk Solutions",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "LexisNexis needed an AI retrieval architecture that could preserve relationships and time context across fast-changing financial and commodities data, because standard RAG could not produce reliable answers for high-stakes decisions.",
+  "solution_summary": "LexisNexis Risk Solutions used MongoDB Atlas as the single store of truth for a time-aware reasoning platform built by its Maverick team. Instead of relying on standard RAG pipelines that treat facts as isolated text chunks, the team modeled nodes, relationships, vectors, and ontology as native MongoDB collections so the system could scale beyond the limits of out-of-the-box graph tooling. Every fact carries explicit start and end dates, allowing the database to pre-filter results into chronologically correct timelines before anything reaches the model. That architecture preserves ownership changes, temporal relationships, and other structural context that ordinary semantic search misses. Atlas therefore serves not only as persistent storage for the graph-shaped knowledge base, but also as the mechanism that grounds answers in history-aware evidence. By eliminating synchronization between separate graph, vector, and application layers, LexisNexis created a more accurate AI system for financial and commodities intelligence.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores nodes, relationships, vectors, and ontology collections as the single store of truth for time-aware reasoning.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Articles, commodities facts, nodes, relationships, vectors, and ontology data are stored as MongoDB collections with time bounds; queries filter those collections into chronologically valid timelines before grounded results are handed to downstream reasoning and answer-generation steps.",
+  "integration_points": [
+    "Rust"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "LexisNexis eliminated synchronization tax between disconnected AI stores, improved answer accuracy for time-sensitive market intelligence, and created a scalable platform that can reason over large, changing financial datasets.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "LexisNexis publishes 2,000 articles daily and tracks over 2,200 global commodities.",
+    "The enterprise tracks complex logistics such as 184,000 maritime voyages.",
+    "Rust ran 14 times faster than Python in the team's performance tests."
+  ],
+  "architecture_clues": [
+    "The team modeled nodes, relationships, vectors, and ontology as separate MongoDB collections.",
+    "Every fact is stored with strict start and end dates to preserve temporal truth.",
+    "The project was built by LexisNexis's three-person Maverick innovation unit.",
+    "The architecture was designed specifically to avoid RAG hallucinations caused by conflicting historical facts."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/lexisnexis",
+  "published_date": "2026-09-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Typical RAG implementation, at the end of the day, it's really just semantics. And the problem with semantics is, it doesn't understand the relationship of data.”",
+    "“We set out to say: can I make the nodes a collection? Can I make the relationships a collection? Can I make the vectors a collection? Can I have the ontology as a collection?”",
+    "“Rather than relying on the LLM to perform maths across conflicting dates, the database delivers a pre-filtered, chronologically accurate timeline.”",
+    "Rust ran 14 times faster than Python in their performance tests."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-leadtable-enterprise-knowledge-search",
+  "slug": "mongodb-leadtable-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "LeadTable",
+  "industry": "Software / SaaS",
+  "region": "Germany",
+  "company_size": "SMB",
+  "business_problem": "LeadTable needed to redesign its schema and search architecture after growth in lead volume and inconsistent funnel data caused performance failures for enterprise recruiting customers.",
+  "solution_summary": "LeadTable modernized its recruitment platform on MongoDB by rebuilding its schema around scalable indexing and search instead of trying to hide data inconsistency in the front end. The company captures candidate leads from providers such as Meta Lead Ads, Perspective, and Funnel Cockpit, each of which emits different field structures. As lead volumes surged, that flexibility turned into tech debt that made server-side pagination, statistics, and enterprise-scale search unreliable. Working with MongoDB Professional Services, LeadTable re-engineered the data model, standardized how funnel data becomes searchable, and moved to MongoDB Search on Atlas for broad lead and applicant retrieval. The new architecture can paginate large tables in under 200 milliseconds, keep around 5 million daily requests moving, and support international growth without the crashes that hit earlier production workloads. Atlas therefore became the governed search layer for a recruitment dashboard built around power users, compliance, and scale.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Search on Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Hosts LeadTable's rebuilt recruitment data model and serves as the operational data platform behind the dashboard.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Search on Atlas",
+      "role": "Provides fast search across leads and applicant data with the indexing and pagination performance needed for enterprise users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Lead data from providers such as Meta Lead Ads, Perspective, and Funnel Cockpit is normalized into MongoDB Atlas, indexed with MongoDB Search on Atlas, and then surfaced through the LeadTable dashboard with fast pagination, filtering, sorting, and aggregate statistics for recruiters.",
+  "integration_points": [
+    "Meta Lead Ads",
+    "Perspective",
+    "Funnel Cockpit",
+    "social media funnels"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "LeadTable achieved 95% faster global search, 70ms latency, 200ms pagination on 30,000+ lead tables, and enough headroom to handle around 5 million daily requests across 3.7 million leads.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "LeadTable used MongoDB Professional Services to rebuild its schema, achieving 200ms pagination and high-speed search across 30,000+ lead tables.",
+    "LeadTable achieved 95% faster search and 70ms latency.",
+    "The infrastructure now handles around 5 million requests per day and manages a total of 3.7 million leads."
+  ],
+  "architecture_clues": [
+    "A leading insurance customer pushed one deployment past 50,000 leads and triggered the redesign.",
+    "The team rebuilt the platform with TypeScript after recognizing the limits of the original JavaScript foundation.",
+    "MongoDB Professional Services embedded a consultant with the engineering team to guide indexing and schema design.",
+    "The redesign was driven by the need to make all lead fields searchable, sortable, and countable quickly."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/leadtable",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We had misunderstood indexing. MongoDB Professional Services not only helped us solve that, but made us understand how indexes work.”",
+    "“The most significant hurdle was the search everything functionality of leads and applicant data across multiple collections.”",
+    "LeadTable achieved 95% faster search and 70ms latency.",
+    "The infrastructure now seamlessly handles around 5 million requests per day."
+  ]
+}
