@@ -1,0 +1,76 @@
+{
+  "id": "langchain-klarna-customer-support-ai-assistant",
+  "slug": "langchain-klarna-customer-support-ai-assistant",
+  "vendor": "LangChain",
+  "customer_name": "Klarna",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Klarna needed a support system that could absorb escalating customer-service volume across global markets while handling payments, refunds, and escalations with enough precision and traceability to preserve response quality.",
+  "solution_summary": "Klarna evolved its flagship AI Assistant into a multi-agent support system built with LangGraph and refined through LangSmith. LangGraph gives the team a controllable architecture for routing requests and handling different support tasks, which helps the assistant branch by scenario instead of forcing every case through one path. Klarna also tailors prompts dynamically so responses stay context-aware while reducing latency and token cost. LangSmith adds the step-by-step traces and LLM-evaluation workflow the team needs to test critical support cases, understand why failures happen, and iterate on prompts before issues scale in production. Those learnings also shaped LangSmith features such as meta-prompting, which lets teams propose prompt changes and immediately observe how the optimized prompt affects answer quality. The result is a measured agent workflow, not just a generic chatbot.",
+  "products_used": [
+    "AI Assistant",
+    "LangGraph",
+    "LangSmith"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Assistant",
+      "role": "Handles customer payments, refunds, and escalation-related support tasks for Klarna users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Routes requests through a controllable multi-agent architecture with task-specific behaviors.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Provides traces, evaluations, and prompt-iteration tooling for production hardening.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A support request enters the AI Assistant, LangGraph routes it through the appropriate task path with scenario-specific prompts, the assistant resolves or escalates the case, and LangSmith records step-by-step behavior and evaluation results so the prompts and agent design can be refined.",
+  "integration_points": [
+    "payments",
+    "refunds",
+    "payment escalations"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Klarna cut resolution times, automated a large share of repetitive support work, and turned its AI assistant into a more reliable global support channel that frees specialists to focus on higher-value investigations.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "85 million active users",
+    "2.5 million daily transactions",
+    "2.5 million conversations to date",
+    "the work equivalent of 700 full-time staff",
+    "Reduced average customer query resolution time by 80%",
+    "Automated ~70% of repetitive support tasks"
+  ],
+  "architecture_clues": [
+    "Klarna uses a multi-agent architecture rather than a single monolithic prompt.",
+    "Context-aware prompt tailoring is used to cut both token cost and latency.",
+    "LangSmith traces were important for seeing step-by-step how the assistant behaved."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-klarna/",
+  "published_date": "2025-02-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With 2.5 million conversations to date",
+    "the work equivalent of 700 full-time staff",
+    "Reduced average customer query resolution time by 80%",
+    "Automated ~70% of repetitive support tasks",
+    "seeing step-by-step how their AI assistant behaved"
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "langchain-mufg-bank-sales-intelligence-rag",
+  "slug": "langchain-mufg-bank-sales-intelligence-rag",
+  "vendor": "LangChain",
+  "customer_name": "MUFG Bank",
+  "industry": "Financial Services",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "MUFG Bank’s FX and derivative sales teams spent too much time reading annual reports, market data, and financial disclosures by hand before they could create tailored presentations and recommendations for corporate clients.",
+  "solution_summary": "MUFG’s AI/ML team built a production RAG application that digests corporate data and turns it into sales-ready presentation material. In the research phase, the team used the Python version of LangChain with Streamlit to stand up chat and retrieval quickly, while the Retriever interface allowed different vector databases and search engines to be swapped and compared at low implementation cost. The system extracts key facts from long annual reports, market data, and disclosures, then uses fine-tuned prompting, retrieval, and few-shot guidance to surface the most relevant sections and generate structured recommendations. In production, MUFG moved to the TypeScript version of LangChain on Next.js, where Runnable Lambda dynamically changes content filters and indexes inside a custom RAG chain. That architecture turns research-heavy sales prep into a reusable knowledge workflow rather than a specialist-only manual process.",
+  "products_used": [
+    "Python version of LangChain",
+    "Streamlit",
+    "Retriever interface",
+    "TypeScript version of LangChain",
+    "Next.js",
+    "Runnable Lambda"
+  ],
+  "solution_components": [
+    {
+      "name": "Python version of LangChain",
+      "role": "Powered the early chat and RAG prototypes used for experimentation and feedback.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Streamlit",
+      "role": "Delivered the interactive prototype interface for early sales-team experiments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Retriever interface",
+      "role": "Lets MUFG swap retrieval back ends while validating search accuracy and cost.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "TypeScript version of LangChain",
+      "role": "Runs the production implementation of the custom RAG workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Next.js",
+      "role": "Hosts the sustainable and secure production application.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Runnable Lambda",
+      "role": "Changes content filters and target indexes dynamically inside the custom RAG chain.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Annual reports, market data, and disclosures are ingested into retrieval back ends chosen through the Retriever interface, LangChain extracts and summarizes the most relevant sections, few-shot prompting turns those insights into presentations and recommendations, and the production Next.js app serves the outputs to corporate sales teams.",
+  "integration_points": [
+    "10k reports",
+    "market data",
+    "financial disclosures",
+    "vector databases",
+    "search engines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "MUFG shortened research and presentation prep from hours to minutes, made sophisticated client intelligence available to far more salespeople, and increased the number of corporate clients receiving tailored recommendations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "100-200 pages",
+    "reduced from several hours to just 3-5 minutes",
+    "hundreds of sales professionals",
+    "10x increase in the number of corporate clients receiving tailored financial recommendations"
+  ],
+  "architecture_clues": [
+    "MUFG migrated from Python LangChain to the TypeScript version for production while keeping a similar interface.",
+    "The Retriever interface made it cheap to compare vector databases and search engines.",
+    "Runnable Lambda changes content filters and indexes on demand within the RAG chain."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-mufgbank/",
+  "published_date": "2025-02-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "10k reports, to market data, to financial disclosures",
+    "reduced from several hours to just 3-5 minutes",
+    "10x increase in the number of corporate clients receiving tailored financial recommendations",
+    "the Retriever interface, they were able to switch between several specific vector databases and search engines",
+    "Runnable Lambda allowed them to dynamically change the content filter and target index"
+  ]
+}

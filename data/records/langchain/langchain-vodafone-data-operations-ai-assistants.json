@@ -1,0 +1,102 @@
+{
+  "id": "langchain-vodafone-data-operations-ai-assistants",
+  "slug": "langchain-vodafone-data-operations-ai-assistants",
+  "vendor": "LangChain",
+  "customer_name": "Vodafone",
+  "industry": "Telecommunications",
+  "region": "Europe and Africa",
+  "company_size": "Enterprise",
+  "business_problem": "Vodafone needed to give data-center engineers faster access to performance metrics, inventory information, and technical documentation without forcing them to rely on custom dashboards, manual SQL, or slow document searches during incident response.",
+  "solution_summary": "Vodafone built two internal assistants on Google Cloud for engineering and operations teams across its data centers. Insight Engine uses LangGraph to route natural-language questions into an NL2SQL workflow that queries monitoring and inventory systems, then hands results to downstream chains that generate charts and other visualizations. Enigma uses LangChain document loaders, model abstractions, and a multi-vector DB to ingest HLDs, blueprints, RFPs, and SharePoint content into RAG pipelines so engineers can retrieve grounded answers, design details, and contacts. LangGraph coordinates the modular agents, query-processing steps, and API integrations, letting Vodafone expand the system with data collection, processing, and report-generation modules while benchmarking different LLMs for each use case.",
+  "products_used": [
+    "Google Cloud",
+    "Insight Engine",
+    "Enigma",
+    "LangChain",
+    "multi-vector DB",
+    "LangGraph",
+    "inventory DB"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Cloud",
+      "role": "Hosts the internal assistants that support data-center engineering and operations teams.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Insight Engine",
+      "role": "Answers natural-language questions about performance metrics and inventory data for engineers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Enigma",
+      "role": "Provides grounded retrieval over technical documents, designs, and organizational contacts.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangChain",
+      "role": "Supplies document-loading, model-integration, and RAG building blocks for the assistants.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "multi-vector DB",
+      "role": "Stores document representations and retrieval context used by Enigma.",
+      "layer": "Storage"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Interprets user intent and orchestrates the correct chain or multi-agent workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "inventory DB",
+      "role": "Stores inventory records that the Insight Engine queries and visualizes.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "An engineer submits a natural-language question, LangGraph classifies the intent, and either sends the request to Enigma for RAG over the multi-vector DB and SharePoint content or to Insight Engine for NL2SQL over monitoring and inventory systems before results are returned as summaries, tables, or charts.",
+  "integration_points": [
+    "data center monitoring systems",
+    "MS-Sharepoint",
+    "Knowledge Hub",
+    "HLD documents",
+    "Blueprints",
+    "Request for Proposals (RFPs)",
+    "OpenAI models",
+    "LLaMA 3",
+    "Google Gemini"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Vodafone reduced time-to-insight for infrastructure issues, gave engineers dynamic access to metrics and documentation without custom dashboards, and created a modular agent architecture that can expand to new domains and data sources.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The assistants are deployed on Google Cloud.",
+    "LangGraph sits after the user prompt to route requests into the correct chain.",
+    "Insight Engine can transform natural-language queries into SQL, NoSQL, and other structured requests.",
+    "Vodafone benchmarked multiple LLMs across the pipelines for different use cases."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-vodafone/",
+  "published_date": "2025-03-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "This assistant analyzes performance metrics by converting natural language queries into SQL",
+    "This assistant enables efficient access to thousands of technical documents and resources.",
+    "Through RAG pipelines, these are then converted into actionable insights",
+    "LangGraph is placed after the user prompt where it will understand the intent of the user query and orchestrate the request to the appropriate chain.",
+    "Reduction in time-to-insight for critical infrastructure issues."
+  ]
+}

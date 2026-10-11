@@ -1,0 +1,87 @@
+{
+  "id": "langchain-factory-sdlc-observability-feedback-loop",
+  "slug": "langchain-factory-sdlc-observability-feedback-loop",
+  "vendor": "LangChain",
+  "customer_name": "Factory",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Factory needed secure observability and a faster feedback loop for autonomous SDLC agents running inside enterprise environments with strict privacy controls, custom LLM tooling, and limited tolerance for opaque debugging workflows.",
+  "solution_summary": "Factory runs AI Droids that automate stages of the software development lifecycle and uses self-hosted LangSmith as the observability backbone inside tightly controlled customer environments. LangSmith traces are exported into AWS CloudWatch so engineers can correlate agent events with infrastructure logs and follow data through each step of a multi-stage LLM pipeline without building a proprietary logging stack. Feedback is attached directly to individual LLM calls through the Feedback API, then exported into datasets for analysis. Factory’s engineers use custom LangChain tooling to compare good and bad code-review comments, hypothesize why prompts failed, re-prompt the model, and improve accuracy. This closed-loop design lets the team keep enterprise data private while continuously tuning Code Droid and related Droids from production evidence rather than ad hoc manual review.",
+  "products_used": [
+    "Code Droid",
+    "Self-hosted LangSmith",
+    "AWS CloudWatch",
+    "Feedback API",
+    "LangChain tooling"
+  ],
+  "solution_components": [
+    {
+      "name": "Code Droid",
+      "role": "Automates complex software-development tasks and generates outputs that engineers review.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Self-hosted LangSmith",
+      "role": "Provides the observability and experiment infrastructure inside locked-down customer environments.",
+      "layer": "Governance"
+    },
+    {
+      "name": "AWS CloudWatch",
+      "role": "Stores exported traces alongside other operational logs for end-to-end debugging.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Feedback API",
+      "role": "Records positive and negative feedback at different workflow stages for downstream analysis.",
+      "layer": "Governance"
+    },
+    {
+      "name": "LangChain tooling",
+      "role": "Analyzes feedback patterns and helps engineers re-prompt models to improve performance.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Droids execute SDLC tasks, Self-hosted LangSmith records each LLM step and exports traces to AWS CloudWatch, engineers attach workflow feedback through the Feedback API, and custom LangChain tooling turns those labeled examples into prompt updates and new runs that can be evaluated again.",
+  "integration_points": [
+    "customer environments",
+    "AWS CloudWatch logs",
+    "LangSmith Feedback API"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Factory doubled iteration speed for prompt and agent improvement, reduced open-to-merge time and code churn for customers, and established a secure, enterprise-friendly observability stack for autonomous engineering workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2x their iteration speed",
+    "a ~20% reduction in open-to-merge time",
+    "a 3x reduction in code churn on code impacted by Droids in the first 90 days",
+    "over 550,000 hours of development time saved"
+  ],
+  "architecture_clues": [
+    "LangSmith is deployed inside customer environments where tight data controls would block most observability products.",
+    "Factory links LangSmith events and CloudWatch logs to keep a single source of truth for pipeline state.",
+    "Feedback is appended at multiple stages and exported to datasets for pattern analysis."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-factory",
+  "published_date": "2024-06-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Factory integrated LangSmith to export traces to AWS CloudWatch logs",
+    "With feedback available next to every LLM call",
+    "Factory was able to 2x their iteration speed.",
+    "a ~20% reduction in open-to-merge time",
+    "a 3x reduction in code churn on code impacted by Droids in the first 90 days"
+  ]
+}

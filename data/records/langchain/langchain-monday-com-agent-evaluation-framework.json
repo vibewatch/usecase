@@ -1,0 +1,95 @@
+{
+  "id": "langchain-monday-com-agent-evaluation-framework",
+  "slug": "langchain-monday-com-agent-evaluation-framework",
+  "vendor": "LangChain",
+  "customer_name": "monday.com",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "monday.com needed a reliable way to validate autonomous service agents before release because small prompt or tool-call changes could cascade into incorrect outcomes across IT, HR, and legal workflows.",
+  "solution_summary": "monday.com embedded evaluation into monday Service from the start instead of treating it as a final QA step. Its AI service workforce runs as a customizable LangGraph-based ReAct agent that uses company knowledge-base articles and tools to resolve service requests. For offline testing, the team built datasets of sanitized IT tickets and ran deterministic runtime, schema, persistence, and tool-sanity checks alongside OpenEvals, AgentEvals, and LangSmith quality evaluators through the LangSmith Vitest integration, which logs every CI run as an experiment. In production, LangSmith Multi-Turn Evaluator scores complete conversation threads after custom inactivity windows, while TypeScript-based judges are deployed through a GitOps-style CLI that syncs prompts, reconciles rules, and prunes stale evaluations from the platform.",
+  "products_used": [
+    "monday Service",
+    "AI service workforce",
+    "LangGraph",
+    "LangSmith",
+    "LangSmith Vitest integration",
+    "Multi-Turn Evaluator"
+  ],
+  "solution_components": [
+    {
+      "name": "monday Service",
+      "role": "Provides the enterprise service management platform where the AI workflows are delivered.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI service workforce",
+      "role": "Acts as the customizable set of role-based agents that handle service tickets for different departments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Runs the ReAct-style agent and coordinates reasoning steps, tools, and conversation state.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Captures experiments, traces, online monitoring, and deployment targets for the evaluation stack.",
+      "layer": "Governance"
+    },
+    {
+      "name": "LangSmith Vitest integration",
+      "role": "Turns CI test runs into LangSmith experiments and datasets for offline regression testing.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Multi-Turn Evaluator",
+      "role": "Scores complete production conversations for user satisfaction, tone, and resolution.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Sanitized ticket examples and production conversations flow through the LangGraph-based service agent, offline suites run in Vitest and log traces to LangSmith, and online threads are later scored by Multi-Turn Evaluator before prompts and rules are redeployed from TypeScript definitions through CI/CD.",
+  "integration_points": [
+    "IT help desk tickets",
+    "KB articles",
+    "application database",
+    "GitOps-style CI/CD deployment",
+    "LangSmith Prompt Registry"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "monday.com shortened the evaluation loop for customer-facing agents, increased test coverage to hundreds of examples in minutes, and added real-time production observability so AI quality regressions are caught before users see them.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "8.7x faster evaluation feedback loops (from 162 seconds to 18 seconds)",
+    "Comprehensive feedback over hundreds of examples in minutes",
+    "20 sanitized IT tickets in the published benchmark"
+  ],
+  "architecture_clues": [
+    "The first offline suite used ~30 sanitized resolved IT tickets from the internal help desk.",
+    "Parallel test files and concurrent LLM evaluations are combined to keep feedback loops short.",
+    "Production evaluation uses custom inactivity windows and sampling rates.",
+    "A custom yarn eval deploy command keeps LangSmith prompts and evaluation rules synchronized with the repository."
+  ],
+  "source_url": "https://blog.langchain.com/customers-monday/",
+  "published_date": "2026-02-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Many teams treat evaluation as a last-mile check, but we made it a Day 0 requirement.",
+    "8.7x faster evaluation feedback loops (from 162 seconds to 18 seconds).",
+    "AI service workforce is a customizable, LangGraph-based, ReAct agent",
+    "every CI run is automatically logged as a distinct experiment in the LangSmith platform",
+    "we built a custom CLI command, yarn eval deploy, that runs in our CI/CD pipeline"
+  ]
+}

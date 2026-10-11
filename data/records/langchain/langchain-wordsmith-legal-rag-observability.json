@@ -1,0 +1,87 @@
+{
+  "id": "langchain-wordsmith-legal-rag-observability",
+  "slug": "langchain-wordsmith-legal-rag-observability",
+  "vendor": "LangChain",
+  "customer_name": "Wordsmith",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Wordsmith needed to observe, evaluate, and continuously optimize increasingly complex legal-assistant workflows that spanned multiple data sources, model providers, and experiment branches without slowing development or losing production visibility.",
+  "solution_summary": "Wordsmith began with a configurable RAG pipeline for Slack and expanded into multi-stage inference chains over Slack messages, Zendesk tickets, pull requests, and legal documents. LangSmith became the control plane for this stack: hierarchical traces show what each nested step sends to and receives from the model, letting engineers debug bad intermediate behavior such as an invalid Dynamo query without trawling general logs. LangSmith datasets provide reproducible evaluation sets for RAG, agentic workloads, attribute extraction, and XML changeset targeting, so the team can compare models like Claude 3.5 and GPT-4o quickly and keep accuracy stable while pushing down cost and latency. Statsig experiment exposures are written into LangSmith tags, which makes online experiments queryable, exportable, and analyzable alongside development and production traces.",
+  "products_used": [
+    "Wordsmith",
+    "Slack",
+    "LangSmith",
+    "Statsig"
+  ],
+  "solution_components": [
+    {
+      "name": "Wordsmith",
+      "role": "Delivers the legal assistant that reviews documents, drafts emails, and answers knowledge questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Slack",
+      "role": "Acts as an early interaction surface and data source for Wordsmith’s configurable RAG pipeline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Provides tracing, datasets, filters, and experiment analysis across development and production.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Statsig",
+      "role": "Supplies experiment-exposure metadata that Wordsmith maps into LangSmith tags for analysis.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Messages and documents from Slack, Zendesk, pull requests, and legal files enter Wordsmith’s inference chains, LangSmith records each nested step and evaluates datasets against model or prompt changes, and Statsig experiment tags let the team export and compare production cohorts for downstream analysis.",
+  "integration_points": [
+    "Slack messages",
+    "Zendesk tickets",
+    "pull requests",
+    "legal documents",
+    "CloudWatch logs",
+    "OpenAI models",
+    "Anthropic models",
+    "Google models",
+    "Mistral models"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Wordsmith can compare new models in under an hour, debug production problems in seconds instead of minutes, and cut costs on some tasks by up to 10x while keeping legal-assistant quality grounded in repeatable evaluations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "up to 100 nested inferences",
+    "compare its performance to GPT-4o within an hour",
+    "reduced cost on particular tasks by up to 10x",
+    "reducing time to debug an inference from minutes to seconds"
+  ],
+  "architecture_clues": [
+    "Wordsmith organizes traces hierarchically to make deep inference chains inspectable.",
+    "LangSmith indexed queries are used to isolate production inference errors.",
+    "Experiment cohorts are exported through LangSmith tags after Statsig exposure data is attached."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-wordsmith/",
+  "published_date": "2024-07-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Wordsmith’s first feature was a configurable RAG pipeline for Slack.",
+    "These workflows can contain up to 100 nested inferences",
+    "compare its performance to GPT-4o within an hour",
+    "reduced cost on particular tasks by up to 10x",
+    "reducing time to debug an inference from minutes to seconds"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "langchain-c-h-robinson-email-order-automation",
+  "slug": "langchain-c-h-robinson-email-order-automation",
+  "vendor": "LangChain",
+  "customer_name": "C.H. Robinson",
+  "industry": "Logistics",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "C.H. Robinson needed to automate email-heavy shipment workflows because too many customers still submit routine requests through inconsistent emails and PDFs that force employees to spend hours triaging and manually keying orders.",
+  "solution_summary": "C.H. Robinson built proprietary AI agents to automate shipment transactions from quoting through pickup, delivery, and in-transit updates. The team started on LangChain for interoperability so they could combine messy customer instructions with order context while retaining the freedom to swap models. As classification between less-than-truckload and full truckload grew more complex, they moved into LangGraph, which made order state easier to understand, track, and update across multi-step workflows. LangGraph Studio then helped prototype and debug those agent interactions visually. The resulting system reads shipping-request emails, connects facts across the email body and attached PDFs, fills in missing information, and creates orders automatically. LangSmith traces the full order-entry process so subject-matter experts and developers can quantify errors, inspect prompts, and catch problems before rollout.",
+  "products_used": [
+    "proprietary AI tech",
+    "LangChain",
+    "LangGraph",
+    "LangGraph Studio",
+    "LangSmith"
+  ],
+  "solution_components": [
+    {
+      "name": "proprietary AI tech",
+      "role": "Reads shipping emails, extracts details, fetches missing information, and creates orders.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangChain",
+      "role": "Combines user instructions, order context, and interchangeable model integrations for the agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Tracks and updates order state across complex shipment-classification workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangGraph Studio",
+      "role": "Helps engineers prototype and debug complex agent interactions visually."
+    },
+    {
+      "name": "LangSmith",
+      "role": "Stitches traces through the order-entry flow so issues can be quantified and fixed quickly.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer emails and attached PDFs enter the proprietary AI workflow, LangChain combines the raw request with order context, LangGraph classifies shipment types and maintains order state while missing details are retrieved, and LangSmith records the end-to-end order-entry trace for review before deployment.",
+  "integration_points": [
+    "email",
+    "PDF attachments",
+    "price quote workflows",
+    "pickup scheduling",
+    "delivery scheduling",
+    "in-transit load checks"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Document Processing"
+  ],
+  "business_outcome": "C.H. Robinson automated thousands of daily orders, reduced manual backlog from shipment emails, and freed employees to focus on higher-value customer work while improving speed across the shipping lifecycle.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "37 million shipments a year",
+    "83,000 customers",
+    "15,000 emails a day",
+    "four hours for a person to get to a shipping request in an email queue",
+    "around seven minutes processing each email into an order",
+    "approximately 5,500 orders a day now automated",
+    "saving over 600 hours per day"
+  ],
+  "architecture_clues": [
+    "LangGraph was adopted when less-than-truckload versus full truckload classification became more complex.",
+    "Subject-matter experts use LangSmith traces to hand issues back to developers quickly.",
+    "Meta-prompting is used to improve how users provide instructions to the application."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-chrobinson/",
+  "published_date": "2025-03-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "15,000 emails a day",
+    "it would take as much as four hours for a person to get to a shipping request in an email queue",
+    "employees spent around seven minutes processing each email into an order",
+    "With approximately 5,500 orders a day now automated, C.H. Robinson is saving over 600 hours per day",
+    "LangSmith was their first line of defense in the testing process"
+  ]
+}

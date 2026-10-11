@@ -1,0 +1,108 @@
+{
+  "id": "langchain-rakuten-group-ai-for-business-platform",
+  "slug": "langchain-rakuten-group-ai-for-business-platform",
+  "vendor": "LangChain",
+  "customer_name": "Rakuten Group",
+  "industry": "Retail",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Rakuten wanted to augment both business clients and employees with AI products for market analysis, support, and knowledge work while keeping control over prompt quality, model experimentation, and enterprise data separation across a sprawling multi-business environment.",
+  "solution_summary": "Rakuten built a portfolio of AI products on LangChain and LangSmith rather than a single assistant. Rakuten AI for Business serves clients with AI Analyst for market intelligence and chart-backed research, AI Agent for self-serve marketplace support, and AI Librarian for real-time answers over merchant documentation. Internally, the team used LangChain’s OpenGPTs package to stand up an employee platform where teams can build chatbots over internal knowledge. LangChain supplied the reusable chains, agents, and interoperability Rakuten needed to iterate quickly without locking into one model vendor. As usage scaled, LangSmith Hub became the mechanism for distributing the best prompts across teams, while LangSmith Testing and Eval ran custom metrics across models and cognitive architectures inside Rakuten’s own environment with separate development and production access controls.",
+  "products_used": [
+    "Rakuten AI for Business",
+    "Rakuten AI Analyst",
+    "Rakuten AI Agent",
+    "Rakuten AI Librarian",
+    "LangChain",
+    "OpenGPTs",
+    "LangSmith Hub",
+    "LangSmith Testing and Eval"
+  ],
+  "solution_components": [
+    {
+      "name": "Rakuten AI for Business",
+      "role": "Acts as the umbrella platform for client-facing AI products.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Rakuten AI Analyst",
+      "role": "Provides market intelligence and data-backed business insights to clients.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Rakuten AI Agent",
+      "role": "Handles self-serve support questions related to marketplace listing and transactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Rakuten AI Librarian",
+      "role": "Answers end-customer and prospect questions over business documentation in real time.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangChain",
+      "role": "Provides reusable chain and agent patterns plus model interoperability for the applications.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OpenGPTs",
+      "role": "Powers the employee chatbot platform over internal documentation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangSmith Hub",
+      "role": "Distributes strong prompts and encourages prompt sharing across teams.",
+      "layer": "Governance"
+    },
+    {
+      "name": "LangSmith Testing and Eval",
+      "role": "Runs custom evaluations across models and architectures to measure results scientifically.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Business clients or employees interact with the relevant Rakuten AI product, LangChain chains and agents pull the right prompts and document context, and LangSmith Hub plus Testing and Eval feed better prompts and experiment results back into the stack while keeping development and production access separated inside Rakuten’s environment.",
+  "integration_points": [
+    "market analysis workflows",
+    "customer support workflows",
+    "internal documentation",
+    "merchant onboarding",
+    "development workflows",
+    "production workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "Rakuten stood up both customer-facing and employee-facing AI products quickly, created a repeatable enterprise prompt-and-eval process, and set the platform up to improve productivity across merchants, hotels, retailers, and internal teams.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "It only took three engineers one week to get the initial platform up and running.",
+    "intend to roll the product to 32k employees",
+    "improve productivity by 20%"
+  ],
+  "architecture_clues": [
+    "Rakuten keeps data inside its own environment and separates development access from production access.",
+    "The same LangChain foundation supports both customer-facing products and internal employee chatbots.",
+    "LangSmith is used to compare models, prompts, and cognitive architectures across teams."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-rakuten/",
+  "published_date": "2024-02-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "It only took three engineers one week to get the initial platform up and running.",
+    "intend to roll the product to 32k employees",
+    "By using LangSmith Hub, we could distribute the best prompts",
+    "By using LangSmith Testing and Eval with our custom evaluation metrics, we can run experiments on multiple approaches",
+    "improve productivity by 20%"
+  ]
+}

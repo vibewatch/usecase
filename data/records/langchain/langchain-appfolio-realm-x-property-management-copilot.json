@@ -1,0 +1,84 @@
+{
+  "id": "langchain-appfolio-realm-x-property-management-copilot",
+  "slug": "langchain-appfolio-realm-x-property-management-copilot",
+  "vendor": "LangChain",
+  "customer_name": "AppFolio",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "AppFolio needed a natural-language interface that could help property managers query portfolio state, execute bulk actions, and troubleshoot complex workflows while preserving low latency, observability, and prompt quality as the assistant grew more capable.",
+  "solution_summary": "AppFolio built Realm-X Assistant as an embedded generative-AI copilot for property managers and started on LangChain so model providers, tool calling, and structured outputs could be swapped without rewriting the app. As requests grew more complex, the team moved to LangGraph to reason before acting, aggregate output from multiple nodes, and run independent branches in parallel. Realm-X can determine relevant actions, compute fallbacks, and query help pages at the same time before returning suggestions or operational actions across residents, vendors, units, bills, and work orders. LangSmith adds production visibility through traces, feedback collection, error, cost, and latency charts, plus automatic and LLM-based evaluators that monitor system health and support dynamic few-shot prompting for higher-accuracy text-to-data workflows.",
+  "products_used": [
+    "Realm-X Assistant",
+    "LangChain",
+    "LangGraph",
+    "LangSmith"
+  ],
+  "solution_components": [
+    {
+      "name": "Realm-X Assistant",
+      "role": "Provides the conversational property-management copilot that users query and act through.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangChain",
+      "role": "Supplies the original model-agnostic framework for tool calling and structured outputs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Coordinates branched workflows, response aggregation, and parallel action selection.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Captures traces, feedback, evaluations, and production health metrics for the assistant.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A property manager asks Realm-X a question or requests an action, LangGraph fans the request into branches that identify relevant actions, compute fallbacks, and run help-page question answering, then the assistant aggregates the results and LangSmith records traces, feedback, latency, and evaluation signals for later refinement.",
+  "integration_points": [
+    "residents",
+    "vendors",
+    "units",
+    "bills",
+    "work orders",
+    "help pages",
+    "CI pull requests"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Realm-X users save meaningful time on day-to-day property-management work, AppFolio improved text-to-data accuracy, and the team gained a monitored agent workflow that can scale new actions and data models without losing visibility.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "saving over 10 hours a week",
+    "performance significantly increased from ~40% to ~80%"
+  ],
+  "architecture_clues": [
+    "LangGraph parallelizes independent code branches to reduce latency and code complexity.",
+    "Automatic triggers collect feedback when users submit actions drafted by Realm-X.",
+    "Automatic feedback is also generated from heuristic or LLM evaluators.",
+    "Eval results are tracked in CI and integrated into pull requests."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-appfolio/",
+  "published_date": "2024-12-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "saving over 10 hours a week",
+    "One major benefit of LangGraph has been its ability to run independent code branches in parallel.",
+    "tracking error rates, costs, and latency to keep everything on course",
+    "performance significantly increased from ~40% to ~80%.",
+    "Evals are run in CI, with results tracked and integrated into PRs."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "langchain-trellix-sidekick-log-parsing-automation",
+  "slug": "langchain-trellix-sidekick-log-parsing-automation",
+  "vendor": "LangChain",
+  "customer_name": "Trellix",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Trellix needed to reduce a backlog of cybersecurity integration and log-parsing requests that forced engineers to spend days deciphering syslog data, coding plugins, and coordinating with customers by hand.",
+  "solution_summary": "Trellix built Sidekick as an internal agentic platform for log parsing, parser generation, and integration development on top of LangGraph and LangSmith. The engineering team assembled several smaller subgraphs that use low-level LangGraph features such as Send API and subgraph calling to fan work out efficiently, then composed those building blocks into larger end-to-end graphs for parsing syslog formats and generating SaaS plugins. Human-in-the-loop controls let engineers pause, approve, rewind, or restart steps during development without rerunning everything. LangGraph Studio visualizes those workflows for both developers and business stakeholders, making the reasoning path easier to explain. LangSmith then compares agent architectures through datasets and experiments, tracks recursion and must-include rates, and exposes structured node inputs and outputs so production issues are easier to debug than in raw AWS logs.",
+  "products_used": [
+    "Sidekick",
+    "LangGraph",
+    "Send API",
+    "LangGraph Studio",
+    "LangSmith"
+  ],
+  "solution_components": [
+    {
+      "name": "Sidekick",
+      "role": "Automates log parsing, parser generation, and integration work for Trellix engineering teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Defines the modular agent workflows and composes subgraphs into larger parsing and integration graphs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Send API",
+      "role": "Enables map-reduce style fan-out and efficient coordination across the Sidekick subgraphs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangGraph Studio",
+      "role": "Visualizes the workflow so engineers and business stakeholders can inspect agent behavior.",
+      "layer": "Governance"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Runs experiments, tracks metrics, and provides trace-based debugging for Sidekick.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Syslog samples and API-documentation tasks enter Sidekick, LangGraph subgraphs fan parsing and generation work out through Send API and compose the results into larger workflows, humans can pause or rewind steps when needed, and LangSmith records experiments plus node-level traces to compare architectures and debug issues.",
+  "integration_points": [
+    "syslog data",
+    "3rd-party API documentation",
+    "AWS logs",
+    "external partners"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cybersecurity",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Trellix cut parsing and integration turnaround from days to minutes or afternoons, reduced backlog pressure on engineers, and improved customer and stakeholder confidence by making agent behavior measurable and explainable.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "40,000+ customers",
+    "2 to 3 days deciphering logs, coding integrations, and managing customer communications",
+    "reducing the time required for manual parsing from days to minutes.",
+    "multiple days, could now be written during the better part of an afternoon"
+  ],
+  "architecture_clues": [
+    "Sidekick uses subgraphs as reusable modules before composing them into larger graphs.",
+    "Human-in-the-loop controls allow pause, approval, rewind, and restart during testing.",
+    "LangSmith tracks recursion rate and must-include rate across app versions."
+  ],
+  "source_url": "https://blog.langchain.dev/customers-trellix/",
+  "published_date": "2025-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "2 to 3 days deciphering logs, coding integrations, and managing customer communications",
+    "reducing the time required for manual parsing from days to minutes.",
+    "plugins, traditionally being written during the course of multiple days, could now be written during the better part of an afternoon",
+    "LangGraph Studio played a crucial role in the development of Sidekick",
+    "monitored key metrics such as recursion rate"
+  ]
+}
