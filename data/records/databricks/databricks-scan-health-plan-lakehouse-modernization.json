@@ -1,0 +1,71 @@
+{
+  "id": "databricks-scan-health-plan-lakehouse-modernization",
+  "slug": "databricks-scan-health-plan-lakehouse-modernization",
+  "vendor": "Databricks",
+  "customer_name": "SCAN Health Plan",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "However, all of this became increasingly difficult to facilitate as the organization continued to scale their offerings and grow their member base, which came along with an ever-growing mix of structured, unstructured and semi-structured data from multiple systems of record.",
+  "solution_summary": "Despite it being a current obstacle, SCAN’s unstructured data (e.g., call center notes, medical charts, PDF medical documents) could ultimately serve as the major unlock for the organization as it expands into the clinical realm. One of the reasons why the not-for-profit Medicare Advantage plan was already developing a natural language processing (NLP) pipeline throughout the various peaks of the COVID-19 pandemic — and continues to do so — was to uncover member behavioral patterns and detect recurring themes in member service interactions. Unfortunately, the NLP model couldn’t reach the next level of development until data access and the pipeline were improved first.",
+  "products_used": [
+    "Unity Catalog",
+    "Delta Lake",
+    "Databricks SQL"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "SCAN Health Plan achieved measurable business impact on Databricks, including 3.6% Decrease in voluntary disenrollment for members targeted for earlier primary care physician reassignment; 4.59% Reduction in voluntary disenrollment during annual enrollment.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "3.6% Decrease in voluntary disenrollment for members targeted for earlier primary care physician reassignment",
+    "4.59% Reduction in voluntary disenrollment during annual enrollment"
+  ],
+  "architecture_clues": [
+    "Cloud: Azure",
+    "Key product: Unity Catalog",
+    "Key product: Delta Lake",
+    "Key product: Databricks SQL"
+  ],
+  "source_url": "https://www.databricks.com/customers/scan-health",
+  "published_date": "2024-03-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "3.6% Decrease in voluntary disenrollment for members targeted for earlier primary care physician reassignment",
+    "4.59% Reduction in voluntary disenrollment during annual enrollment",
+    "SCAN Health Plan is one of the nation’s largest not-for-profit Medicare Advantage health plans.",
+    "SCAN began to build out their data science efforts to help unify unstructured and structured data from sources including electronic medical records (EMR), claims submissions and member engagement data.",
+    "SCAN looked to Databricks to quickly extract valuable data insights to facilitate preventive healthcare."
+  ],
+  "solution_components": [
+    {
+      "name": "Unity Catalog",
+      "role": "Provides access control, governance, and lineage across SCAN Health Plan's shared data products and AI workloads.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores SCAN Health Plan's curated datasets for analytics, machine learning, and operational use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Serves dashboards, interactive analysis, and governed SQL workloads for business users at SCAN Health Plan.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Unstructured documents and reference data lands in Databricks and is transformed into curated datasets stored in Delta Lake under Unity Catalog governance before being served through Databricks SQL"
+}

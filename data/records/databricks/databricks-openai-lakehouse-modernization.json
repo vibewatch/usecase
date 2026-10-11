@@ -1,0 +1,91 @@
+{
+  "id": "databricks-openai-lakehouse-modernization",
+  "slug": "databricks-openai-lakehouse-modernization",
+  "vendor": "Databricks",
+  "customer_name": "OpenAI",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "OpenAI’s data platform powers one of the fastest-scaling products in tech history. ChatGPT, the OpenAI API, and the internal tools used by thousands of OpenAI employees require a foundation that can withstand sudden growth, run governed analytics across multiple business units, and operate across multiple clouds simultaneously.",
+  "solution_summary": "OpenAI’s data platform powers one of the fastest-scaling products in tech history. ChatGPT, the OpenAI API, and the internal tools used by thousands of OpenAI employees require a foundation that can withstand sudden growth, run governed analytics across multiple business units, and operate across multiple clouds simultaneously. That foundation has grown up around Databricks. Since 2024, OpenAI has leveraged Databricks in Azure and AWS, with usage data landing in Delta tables governed by Unity Catalog . Databricks Jobs and Data Warehouses transform that data through layered pipelines to serve product analytics, finance, security, and trust, and safety teams.",
+  "products_used": [
+    "Unity Catalog",
+    "Delta Lake",
+    "Databricks SQL",
+    "Genie",
+    "Databricks Jobs",
+    "Databricks Data Warehouses"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "OpenAI achieved measurable business impact on Databricks, including $400K/month Storage costs eliminated by marketing team; Since 2024, OpenAI has leveraged Databricks in Azure and AWS, with usage data landing in Delta tables governed by Unity Catalog ..",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "$400K/month Storage costs eliminated by marketing team",
+    "Since 2024, OpenAI has leveraged Databricks in Azure and AWS, with usage data landing in Delta tables governed by Unity Catalog ."
+  ],
+  "architecture_clues": [
+    "Cloud: AWS, Azure",
+    "Medallion architecture",
+    "Multi-cloud deployment",
+    "Real-time or streaming data processing",
+    "Key product: Unity Catalog",
+    "Key product: Delta Lake"
+  ],
+  "source_url": "https://www.databricks.com/customers/openai",
+  "published_date": "2026-07-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "$400K/month Storage costs eliminated by marketing team",
+    "Since 2024, OpenAI has leveraged Databricks in Azure and AWS, with usage data landing in Delta tables governed by Unity Catalog .",
+    "OpenAI’s data platform powers one of the fastest-scaling products in tech history.",
+    "OpenAI’s Security team uses Databricks to detect cybersecurity threats across high-volume infrastructure, cloud, and vendor audit logs.",
+    "Databricks also supports AI-assisted investigations: Codex agents can query governed security data through SQL APIs."
+  ],
+  "solution_components": [
+    {
+      "name": "Unity Catalog",
+      "role": "Provides access control, governance, and lineage across OpenAI's shared data products and AI workloads.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores OpenAI's curated datasets for analytics, machine learning, and operational use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Serves dashboards, interactive analysis, and governed SQL workloads for business users at OpenAI.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Genie",
+      "role": "Lets nontechnical teams at OpenAI query governed data in natural language.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Jobs",
+      "role": "Runs scheduled transformation jobs that publish datasets for downstream teams.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Databricks Data Warehouses",
+      "role": "Provides warehouse compute for cross-functional reporting and governed analytics.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Operational, customer, and transactional data lands in Databricks and is transformed through managed pipelines stored in Delta Lake under Unity Catalog governance before being served through Databricks SQL, Genie"
+}
