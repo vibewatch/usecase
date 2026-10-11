@@ -7,7 +7,7 @@ model: "GPT-5.4 (copilot)"
 <!--
   The CI workflow `.github/workflows/usecase.yml` passes `--model` and
   `--effort` to the Copilot CLI, which override the frontmatter `model:`
-  field. The dispatcher's choice (default `gpt-5.4` / `xhigh`) is
+  field. The dispatcher's choice (default `grok-4.7` / `high`) is
   authoritative.
 -->
 
@@ -23,7 +23,7 @@ Never run `git add`, `git commit`, or `git push` from inside this agent. Commit 
 
 Resolve these values before running any stage:
 
-- `cap`: max number of new records to author this run. Default `40`. Hard maximum `50`.
+- `cap`: max number of new records to author this run. Default `30`. Hard maximum `50`.
 - `vendor`: vendor display name as it appears in `data/sources.json` (e.g. `Google Cloud`, `Databricks`), or empty for all vendors.
 - `since`: `YYYY-MM-DD` cutoff for fetch's sitemap `lastmod` filter, or empty for no cutoff. URLs without a known `lastmod` are always kept.
 - `discoverLimit`: per-vendor cap on newly discovered URLs per run. Default `25`. Keeps each discover pass bounded; the next run picks up the next batch.

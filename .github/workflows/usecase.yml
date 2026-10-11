@@ -5,7 +5,7 @@
 # rebuild dashboard data. CI installs dependencies, invokes the agent,
 # rebuilds and commits any new records.
 #
-# Scheduled runs fire four times a day (00/06/12/18 UTC) with cap 40 to work
+# Scheduled runs fire four times a day (00/06/12/18 UTC) with cap 30 to work
 # through the triaged backlog (data/triage.jsonl keeps, best score first); once
 # the backlog is drained they only pick up newly published stories. The commit
 # each run pushes touches data/records/**, which triggers `pages.yml` to
@@ -48,12 +48,12 @@ on:
         description: "Copilot model to use (effort is derived automatically)"
         type: choice
         options:
+          - "grok-4.7"
+          - "gpt-6.1-sol"
+          - "gpt-6-sol"
           - "gpt-5.4"
-          - "gpt-5.5"
-          - "claude-opus-4.6"
-          - "claude-sonnet-4.6"
         required: false
-        default: "gpt-5.4"
+        default: "grok-4.7"
 
 permissions:
   contents: write
@@ -65,7 +65,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     defaults:
       run:
         shell: bash
@@ -132,11 +132,11 @@ jobs:
           RAW_MODEL: ${{ github.event.inputs.model }}
         run: |
           set -euo pipefail
-          CAP="${RAW_CAP:-40}"
+          CAP="${RAW_CAP:-30}"
           VENDOR="${RAW_VENDOR:-}"
           SINCE="${RAW_SINCE:-}"
           DISCOVER_LIMIT="${RAW_DISCOVER_LIMIT:-25}"
-          MODEL="${RAW_MODEL:-gpt-5.4}"
+          MODEL="${RAW_MODEL:-grok-4.7}"
 
           if ! [[ "$CAP" =~ ^([1-9]|[1-4][0-9]|50)$ ]]; then
             echo "Invalid cap '$CAP'; expected an integer from 1 to 50." >&2
@@ -159,12 +159,12 @@ jobs:
             fi
           fi
           case "$MODEL" in
+            grok-4.7)          EFFORT="high" ;;
+            gpt-6.1-sol)       EFFORT="high" ;;
+            gpt-6-sol)         EFFORT="high" ;;
             gpt-5.4)           EFFORT="xhigh" ;;
-            gpt-5.5)           EFFORT="xhigh" ;;
-            claude-opus-4.6)   EFFORT="high" ;;
-            claude-sonnet-4.6) EFFORT="high" ;;
             *)
-              echo "Invalid model '$MODEL'; allowed: gpt-5.4, gpt-5.5, claude-opus-4.6, claude-sonnet-4.6." >&2
+              echo "Invalid model '$MODEL'; allowed: grok-4.7, gpt-6.1-sol, gpt-6-sol, gpt-5.4." >&2
               exit 2
               ;;
           esac
