@@ -1,7 +1,200 @@
 {
-  "count": 3,
+  "count": 5,
   "end": "2026-10-11",
   "records": [
+    {
+      "architecture_clues": [
+        "Astra refactored the code so one frontend and backend could support many workflows in parallel, each with its own settings.",
+        "Every session's requests, data traces, and results were recorded in Command for later review.",
+        "The best policy let screenshots accumulate to 20 before trimming back to the most recent one.",
+        "The study compared four models, two history budgets (120,000 and 480,000 characters), and six caching and screenshot policies."
+      ],
+      "business_outcome": "Asana reduced browser-agent model cost and runtime enough to put a stronger model in front of customers, compressed engineering experimentation from months to about a week, and extended the same agentic approach into automated product testing.",
+      "business_problem": "Asana needed to cut the cost and latency of its StackAI browser agent so it could offer customers more capable models for browser-driven workflows without unsustainable operating expense.",
+      "collected_at": "2026-10-11T03:18:09+00:00",
+      "collected_week": "2026-W41",
+      "company_size": "Enterprise",
+      "confidence_score": 1.0,
+      "customer_name": "Asana",
+      "data_flow": "Browser tasks start in StackAI, where agents navigate websites and business applications. GPT-6.1 Sol receives instructions plus retained page text and screenshots; the optimized policy keeps more history cacheable and batches screenshot pruning. GPT-6 Astra in Codex ran the experiments that produced this policy, and Command stored the traces and outcomes before findings were shipped to production.",
+      "evidence_quotes": [
+        "Astra conducted the full study: history budgets of 120,000 and 480,000 characters and six caching and screenshot policies, each tested three times on each of the four models.",
+        "Cost used to limit which models we could offer customers for these workloads. By making the agent more efficient, we can give customers a better, faster model while lowering our operating costs.",
+        "Every session's requests, data traces and results were recorded in Command, Asana's software delivery platform, so the team could review the complete study afterward.",
+        "GPT-6 Astra discovered that the agent cached its fixed instructions and tool definitions, but not the growing history of page text and screenshots it gathered, so every request resent that history at full price.",
+        "With GPT-6 Astra in Codex running experiments, Asana optimized its browser agent's workflow on GPT-6.1 Sol to run 76x cheaper and 5x faster."
+      ],
+      "id": "openai-asana-browser-agent-optimization",
+      "industry": "Software / SaaS",
+      "integration_points": [
+        "Customer business applications automated through StackAI",
+        "Public demo catalog used for controlled experiments",
+        "Tickets and pull requests in Asana's software delivery workflow",
+        "Websites navigated by StackAI browser agents"
+      ],
+      "is_sample": false,
+      "maturity_score": 6,
+      "metrics": [
+        "$0.47 average estimated model cost with the optimized GPT-6.1 Sol workflow",
+        "144-run study",
+        "5x faster browser runs with the optimized GPT-6.1 Sol workflow",
+        "76x lower estimated model costs with the optimized GPT-6.1 Sol workflow",
+        "89% of the input came from cache at 5% of the uncached price",
+        "Answer-producing runs on GPT-6.1 Sol rose from 3 of 18 to all 18 with the larger history budget",
+        "Model B cost reduced from at least $36.21 to $1.24 per run, a reduction of 29x",
+        "On GPT-6.1 Sol alone, cost reduced 4x from $1.97 to $0.47 per run",
+        "One to two months by hand reduced to about a week with GPT-6 Astra in Codex"
+      ],
+      "outcome_category": [
+        "Cost Reduction",
+        "Customer Experience",
+        "Productivity Improvement",
+        "Speed to Market"
+      ],
+      "products_used": [
+        "Codex",
+        "Command",
+        "GPT-6 Astra",
+        "GPT-6.1 Sol",
+        "StackAI"
+      ],
+      "published_date": "2026-10-09",
+      "region": "North America",
+      "slug": "openai-asana-browser-agent-optimization",
+      "solution_components": [
+        {
+          "layer": "Serving",
+          "name": "StackAI",
+          "role": "Hosts the no-code browser agent that navigates websites, fills forms, and gathers information for customer workflows."
+        },
+        {
+          "layer": "Compute",
+          "name": "GPT-6 Astra",
+          "role": "Mapped the codebase, proposed fixes, and ran controlled optimization and testing experiments on the browser agent."
+        },
+        {
+          "layer": "Orchestration",
+          "name": "Codex",
+          "role": "Provided the agentic coding environment where Astra inspected the system, executed tests, and iterated on workflow changes."
+        },
+        {
+          "layer": "Compute",
+          "name": "GPT-6.1 Sol",
+          "role": "Runs the optimized production browser workflow after Asana selected the best caching and history policy."
+        },
+        {
+          "layer": "Governance",
+          "name": "Command",
+          "role": "Captured requests, traces, and results so the team could review findings and promote changes through tickets and pull requests."
+        }
+      ],
+      "solution_summary": "Asana used GPT-6 Astra in Codex to instrument and optimize the StackAI browser agent that automates work across business applications. Astra first mapped the codebase and request construction path, showing that fixed instructions and tool definitions were cached but the accumulating page text and screenshots were being resent on every call. Frank Hidalgo then used Astra to refactor the frontend and backend so many workflow configurations could run in parallel, and to execute a 144-run experiment across four models, two history budgets, and six caching and screenshot policies. Requests, traces, and results were captured in Command, Asana's software delivery platform, where the team reviewed findings, turned them into tickets and pull requests, and pushed the winning setup to production. The production browser workflow now runs on GPT-6.1 Sol with a larger history budget, extended history caching, and batched screenshot retention.",
+      "source_url": "https://openai.com/index/asana-browser-agent/",
+      "technical_area": [
+        "Application Modernization",
+        "DevOps",
+        "Generative AI / LLM"
+      ],
+      "use_case_category": [
+        "Application Refactoring",
+        "IT Operations Automation"
+      ],
+      "vendor": "OpenAI"
+    },
+    {
+      "architecture_clues": [
+        "Potentially destructive actions are still routed for human judgement.",
+        "Sophos Fusion is the AI-native cyber defense system behind the rollout and includes the MDR service.",
+        "Sophos enforces three customer control modes - Notify, Collaborate, and Authorise - for both human and agent actions.",
+        "The investigation agent gathers customer context, detections, indicators of compromise (IoCs), and relevant threat intelligence for each case.",
+        "The planning model uses a plan-execute-review loop to generate investigation steps and response summaries."
+      ],
+      "business_outcome": "Sophos shortened case response time from roughly 38 minutes to about 89 seconds for agent-assisted investigations, resolved over half of MDR cases end-to-end with AI, and delivered more consistent investigations while letting analysts focus on higher-judgement exceptions and decisions.",
+      "business_problem": "Sophos needed to investigate and respond to a growing volume of cyber threats faster, while scaling its expertise across every protected customer without matching growth in scarce analyst headcount.",
+      "collected_at": "2026-10-11T03:18:07+00:00",
+      "collected_week": "2026-W41",
+      "company_size": "Unknown",
+      "confidence_score": 1.0,
+      "customer_name": "Sophos",
+      "data_flow": "Telemetry from Sophos tools and 500+ third-party integrations flows into Sophos Fusion, where trillions of daily events are distilled into 1,000 to 2,000 MDR cases. A Daybreak investigation agent assembles customer context, detections, IoCs, and threat intelligence; an OpenAI planning model executes a plan-review loop and writes a response summary. Analysts or additional agents then act inside Notify, Collaborate, or Authorise boundaries before MDR closes or escalates the case.",
+      "evidence_quotes": [
+        "A planning model then creates a plan-execute-review loop: building an investigation plan, completing the steps and producing a summary with recommended response actions for analysts to review.",
+        "An investigation agent gathers the customer context, detections, indicators of compromise (IoCs) and relevant threat intelligence for each case.",
+        "At the centre of the work is Sophos Fusion, the Sophos AI-native cyber defense system that includes Sophos Managed Detection and Response (MDR).",
+        "It brings together sensor data from more than 500 third-party integrations alongside Sophos's own products.",
+        "The average response time for cases using those agents has fallen to about 89 seconds. About half of the cases we handle are now being automated by agents we developed using the Daybreak models."
+      ],
+      "id": "openai-sophos-mdr-investigation-automation",
+      "industry": "Software / SaaS",
+      "integration_points": [
+        "500+ third-party integrations",
+        "Customer environments monitored by MDR",
+        "Nine security operations centres",
+        "Sophos security products"
+      ],
+      "is_sample": false,
+      "maturity_score": 6,
+      "metrics": [
+        "52% of MDR cases resolved end-to-end by AI",
+        "89 seconds average response time for cases using AI agents",
+        "96% reduction in investigation time using OpenAI models",
+        "More than 500 third-party integrations",
+        "More than 625,000 organisations protected",
+        "Nine security operations centres",
+        "Previous average process time of around 38 minutes",
+        "Roughly 1,000 to 2,000 cases investigated",
+        "Trillions of events every day"
+      ],
+      "outcome_category": [
+        "Customer Experience",
+        "Productivity Improvement",
+        "Risk Reduction",
+        "Scalability"
+      ],
+      "products_used": [
+        "OpenAI Daybreak",
+        "OpenAI models",
+        "Sophos Fusion",
+        "Sophos Managed Detection and Response (MDR)"
+      ],
+      "published_date": "2026-10-09",
+      "region": "Global",
+      "slug": "openai-sophos-mdr-investigation-automation",
+      "solution_components": [
+        {
+          "layer": "Orchestration",
+          "name": "Sophos Fusion",
+          "role": "Aggregates telemetry from Sophos products and third-party integrations, distills events into cases, and anchors the AI-native defense workflow."
+        },
+        {
+          "layer": "Serving",
+          "name": "Sophos Managed Detection and Response (MDR)",
+          "role": "Provides the managed service where cases are investigated, reviewed, and acted on under customer-selected operating modes."
+        },
+        {
+          "layer": "Orchestration",
+          "name": "OpenAI Daybreak",
+          "role": "Provides the agent-building program Sophos used to create investigation and response agents for MDR cases."
+        },
+        {
+          "layer": "Compute",
+          "name": "OpenAI models",
+          "role": "Supply the frontier intelligence used for investigation planning, summarization, and partial response automation."
+        }
+      ],
+      "solution_summary": "Sophos deployed OpenAI Daybreak across Sophos Fusion, its AI-native cyber defense system and Managed Detection and Response service, to scale investigations without scaling analyst headcount. Sensor data from Sophos products and more than 500 third-party integrations feeds Fusion, where trillions of daily events are distilled into roughly 1,000 to 2,000 cases for nine security operations centres. Daybreak agents assemble customer context, detections, indicators of compromise, and relevant threat intelligence for each case, then a planning model runs a plan-execute-review loop that builds an investigation plan, executes the steps, and produces a response summary for analysts to review. Additional agents can perform parts of the response inside Sophos's Notify, Collaborate, and Authorise operating modes, so destructive actions remain under customer-approved human oversight while routine work is accelerated.",
+      "source_url": "https://openai.com/index/sophos/",
+      "technical_area": [
+        "AI and Machine Learning",
+        "Cybersecurity",
+        "Generative AI / LLM"
+      ],
+      "use_case_category": [
+        "IT Operations Automation",
+        "Security and Compliance"
+      ],
+      "vendor": "OpenAI"
+    },
     {
       "architecture_clues": [
         "AI Vector Search co-located with operational data—no separate vector store",

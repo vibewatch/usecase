@@ -1,0 +1,96 @@
+{
+  "id": "openai-asana-browser-agent-optimization",
+  "slug": "openai-asana-browser-agent-optimization",
+  "vendor": "OpenAI",
+  "customer_name": "Asana",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Asana needed to cut the cost and latency of its StackAI browser agent so it could offer customers more capable models for browser-driven workflows without unsustainable operating expense.",
+  "solution_summary": "Asana used GPT-6 Astra in Codex to instrument and optimize the StackAI browser agent that automates work across business applications. Astra first mapped the codebase and request construction path, showing that fixed instructions and tool definitions were cached but the accumulating page text and screenshots were being resent on every call. Frank Hidalgo then used Astra to refactor the frontend and backend so many workflow configurations could run in parallel, and to execute a 144-run experiment across four models, two history budgets, and six caching and screenshot policies. Requests, traces, and results were captured in Command, Asana's software delivery platform, where the team reviewed findings, turned them into tickets and pull requests, and pushed the winning setup to production. The production browser workflow now runs on GPT-6.1 Sol with a larger history budget, extended history caching, and batched screenshot retention.",
+  "products_used": [
+    "StackAI",
+    "GPT-6 Astra",
+    "Codex",
+    "GPT-6.1 Sol",
+    "Command"
+  ],
+  "solution_components": [
+    {
+      "name": "StackAI",
+      "role": "Hosts the no-code browser agent that navigates websites, fills forms, and gathers information for customer workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "role": "Mapped the codebase, proposed fixes, and ran controlled optimization and testing experiments on the browser agent.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Codex",
+      "role": "Provided the agentic coding environment where Astra inspected the system, executed tests, and iterated on workflow changes.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "role": "Runs the optimized production browser workflow after Asana selected the best caching and history policy.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Command",
+      "role": "Captured requests, traces, and results so the team could review findings and promote changes through tickets and pull requests.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Browser tasks start in StackAI, where agents navigate websites and business applications. GPT-6.1 Sol receives instructions plus retained page text and screenshots; the optimized policy keeps more history cacheable and batches screenshot pruning. GPT-6 Astra in Codex ran the experiments that produced this policy, and Command stored the traces and outcomes before findings were shipped to production.",
+  "integration_points": [
+    "Customer business applications automated through StackAI",
+    "Websites navigated by StackAI browser agents",
+    "Public demo catalog used for controlled experiments",
+    "Tickets and pull requests in Asana's software delivery workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Asana reduced browser-agent model cost and runtime enough to put a stronger model in front of customers, compressed engineering experimentation from months to about a week, and extended the same agentic approach into automated product testing.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "76x lower estimated model costs with the optimized GPT-6.1 Sol workflow",
+    "5x faster browser runs with the optimized GPT-6.1 Sol workflow",
+    "$0.47 average estimated model cost with the optimized GPT-6.1 Sol workflow",
+    "144-run study",
+    "One to two months by hand reduced to about a week with GPT-6 Astra in Codex",
+    "Model B cost reduced from at least $36.21 to $1.24 per run, a reduction of 29x",
+    "On GPT-6.1 Sol alone, cost reduced 4x from $1.97 to $0.47 per run",
+    "89% of the input came from cache at 5% of the uncached price",
+    "Answer-producing runs on GPT-6.1 Sol rose from 3 of 18 to all 18 with the larger history budget"
+  ],
+  "architecture_clues": [
+    "The study compared four models, two history budgets (120,000 and 480,000 characters), and six caching and screenshot policies.",
+    "The best policy let screenshots accumulate to 20 before trimming back to the most recent one.",
+    "Astra refactored the code so one frontend and backend could support many workflows in parallel, each with its own settings.",
+    "Every session's requests, data traces, and results were recorded in Command for later review."
+  ],
+  "source_url": "https://openai.com/index/asana-browser-agent/",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With GPT-6 Astra in Codex running experiments, Asana optimized its browser agent's workflow on GPT-6.1 Sol to run 76x cheaper and 5x faster.",
+    "GPT-6 Astra discovered that the agent cached its fixed instructions and tool definitions, but not the growing history of page text and screenshots it gathered, so every request resent that history at full price.",
+    "Astra conducted the full study: history budgets of 120,000 and 480,000 characters and six caching and screenshot policies, each tested three times on each of the four models.",
+    "Every session's requests, data traces and results were recorded in Command, Asana's software delivery platform, so the team could review the complete study afterward.",
+    "Cost used to limit which models we could offer customers for these workloads. By making the agent more efficient, we can give customers a better, faster model while lowering our operating costs."
+  ]
+}

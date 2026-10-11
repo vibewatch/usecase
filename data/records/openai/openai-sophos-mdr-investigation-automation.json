@@ -1,0 +1,91 @@
+{
+  "id": "openai-sophos-mdr-investigation-automation",
+  "slug": "openai-sophos-mdr-investigation-automation",
+  "vendor": "OpenAI",
+  "customer_name": "Sophos",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Sophos needed to investigate and respond to a growing volume of cyber threats faster, while scaling its expertise across every protected customer without matching growth in scarce analyst headcount.",
+  "solution_summary": "Sophos deployed OpenAI Daybreak across Sophos Fusion, its AI-native cyber defense system and Managed Detection and Response service, to scale investigations without scaling analyst headcount. Sensor data from Sophos products and more than 500 third-party integrations feeds Fusion, where trillions of daily events are distilled into roughly 1,000 to 2,000 cases for nine security operations centres. Daybreak agents assemble customer context, detections, indicators of compromise, and relevant threat intelligence for each case, then a planning model runs a plan-execute-review loop that builds an investigation plan, executes the steps, and produces a response summary for analysts to review. Additional agents can perform parts of the response inside Sophos's Notify, Collaborate, and Authorise operating modes, so destructive actions remain under customer-approved human oversight while routine work is accelerated.",
+  "products_used": [
+    "Sophos Fusion",
+    "Sophos Managed Detection and Response (MDR)",
+    "OpenAI Daybreak",
+    "OpenAI models"
+  ],
+  "solution_components": [
+    {
+      "name": "Sophos Fusion",
+      "role": "Aggregates telemetry from Sophos products and third-party integrations, distills events into cases, and anchors the AI-native defense workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Sophos Managed Detection and Response (MDR)",
+      "role": "Provides the managed service where cases are investigated, reviewed, and acted on under customer-selected operating modes.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI Daybreak",
+      "role": "Provides the agent-building program Sophos used to create investigation and response agents for MDR cases.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OpenAI models",
+      "role": "Supply the frontier intelligence used for investigation planning, summarization, and partial response automation.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Telemetry from Sophos tools and 500+ third-party integrations flows into Sophos Fusion, where trillions of daily events are distilled into 1,000 to 2,000 MDR cases. A Daybreak investigation agent assembles customer context, detections, IoCs, and threat intelligence; an OpenAI planning model executes a plan-review loop and writes a response summary. Analysts or additional agents then act inside Notify, Collaborate, or Authorise boundaries before MDR closes or escalates the case.",
+  "integration_points": [
+    "500+ third-party integrations",
+    "Sophos security products",
+    "Customer environments monitored by MDR",
+    "Nine security operations centres"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Sophos shortened case response time from roughly 38 minutes to about 89 seconds for agent-assisted investigations, resolved over half of MDR cases end-to-end with AI, and delivered more consistent investigations while letting analysts focus on higher-judgement exceptions and decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "89 seconds average response time for cases using AI agents",
+    "96% reduction in investigation time using OpenAI models",
+    "52% of MDR cases resolved end-to-end by AI",
+    "More than 625,000 organisations protected",
+    "More than 500 third-party integrations",
+    "Trillions of events every day",
+    "Roughly 1,000 to 2,000 cases investigated",
+    "Nine security operations centres",
+    "Previous average process time of around 38 minutes"
+  ],
+  "architecture_clues": [
+    "Sophos Fusion is the AI-native cyber defense system behind the rollout and includes the MDR service.",
+    "The investigation agent gathers customer context, detections, indicators of compromise (IoCs), and relevant threat intelligence for each case.",
+    "The planning model uses a plan-execute-review loop to generate investigation steps and response summaries.",
+    "Sophos enforces three customer control modes - Notify, Collaborate, and Authorise - for both human and agent actions.",
+    "Potentially destructive actions are still routed for human judgement."
+  ],
+  "source_url": "https://openai.com/index/sophos/",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "At the centre of the work is Sophos Fusion, the Sophos AI-native cyber defense system that includes Sophos Managed Detection and Response (MDR).",
+    "It brings together sensor data from more than 500 third-party integrations alongside Sophos's own products.",
+    "An investigation agent gathers the customer context, detections, indicators of compromise (IoCs) and relevant threat intelligence for each case.",
+    "A planning model then creates a plan-execute-review loop: building an investigation plan, completing the steps and producing a summary with recommended response actions for analysts to review.",
+    "The average response time for cases using those agents has fallen to about 89 seconds. About half of the cases we handle are now being automated by agents we developed using the Daybreak models."
+  ]
+}
