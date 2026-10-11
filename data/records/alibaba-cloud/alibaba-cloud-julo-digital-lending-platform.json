@@ -1,0 +1,92 @@
+{
+  "id": "alibaba-cloud-julo-digital-lending-platform",
+  "slug": "alibaba-cloud-julo-digital-lending-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "JULO",
+  "industry": "Financial Services",
+  "region": "Indonesia",
+  "company_size": "Enterprise",
+  "business_problem": "JULO needed a cost-effective and always-on cloud architecture for a regulated Indonesian fintech business that processes large volumes of data and cannot tolerate downtime while serving lending and payment products.",
+  "solution_summary": "JULO standardized its fintech infrastructure on a broad Alibaba Cloud footprint spanning compute, network, storage, database, container, and serverless services. Elastic Compute Service is the core runtime for production applications and internal services, while built-in snapshots and Auto Scaling reduce manual operations and let the platform respond to changing demand. Server Load Balancer acts as the entry point with failover and health checks that support the high-availability architecture required for OJK-aligned operations. The environment is extended with Container Service for Kubernetes (ACK) and Function Compute so JULO can mix containerized and serverless delivery models, while ApsaraDB RDS provides managed relational data services for the business. This architecture gives the lender a more robust and programmable base for core products such as Dana Tunai, Paylater, and Tagihan Online, while preserving budget discipline and preparing the company to add more security and big-data services as demand grows.",
+  "products_used": [
+    "Elastic Compute Service",
+    "Server Load Balancer",
+    "Auto Scaling",
+    "Container Service for Kubernetes (ACK)",
+    "Function Compute",
+    "ApsaraDB RDS"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Cybersecurity",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "JULO built a stronger and more reliable fintech platform that supports regulatory compliance, 24/7 service availability, and continued product growth in the Indonesian market.",
+  "outcome_category": [
+    "Compliance",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "IDR 11.32 trillion in total loans",
+    "1.55 million total borrowers",
+    "almost 650 thousand active borrowers"
+  ],
+  "architecture_clues": [
+    "SLB is used with failover and health checks for high availability",
+    "Snapshots and Auto Scaling reduce manual operations work",
+    "The stack spans compute, storage, database, container, serverless, KMS, and CDN capabilities",
+    "The architecture is aligned to OJK regulation requirements"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/julo",
+  "published_date": "2023-12-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"ECS (Elastic Compute Service) as the core of JULO services, they are utilized for core applications and other internal services.\"",
+    "\"On the edge, Server Load Balancer is crucial to provide High Availability architecture in JULO.\"",
+    "\"Currently, JULO has IDR 11.32 trillion in total loans since its establishment, 1.55 million total borrowers, and almost 650 thousand active borrowers.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Elastic Compute Service",
+      "role": "Runs core lending applications and internal services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Server Load Balancer",
+      "role": "Acts as the entry point and keeps applications highly available with health checks and failover.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Auto Scaling",
+      "role": "Adjusts compute capacity as demand changes and reduces manual O&M work.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Hosts containerized fintech workloads as part of the broader application platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Function Compute",
+      "role": "Adds serverless execution for supporting application functions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ApsaraDB RDS",
+      "role": "Provides managed relational database services for JULO's business applications.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer requests arrive through Server Load Balancer, execute on ECS, ACK, and Function Compute services, persist transactional state in ApsaraDB RDS, and scale automatically through snapshots and Auto Scaling as demand changes.",
+  "integration_points": [
+    "Dana Tunai",
+    "Paylater",
+    "Tagihan Online",
+    "Indonesian regulatory environment"
+  ]
+}

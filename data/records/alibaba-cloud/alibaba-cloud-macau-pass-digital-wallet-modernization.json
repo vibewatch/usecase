@@ -1,0 +1,104 @@
+{
+  "id": "alibaba-cloud-macau-pass-digital-wallet-modernization",
+  "slug": "alibaba-cloud-macau-pass-digital-wallet-modernization",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "MACAU Pass",
+  "industry": "Financial Services",
+  "region": "Macau (China)",
+  "company_size": "Enterprise",
+  "business_problem": "MACAU Pass needed to support rapid growth in e-wallet transactions and mCoin redemptions while lowering infrastructure costs, maintaining compliant cross-regional connectivity, and keeping payment services stable during promotional traffic spikes.",
+  "solution_summary": "MACAU Pass modernized the infrastructure behind its MPay Macau Wallet and mCoin loyalty services with a broad Alibaba Cloud stack spanning application delivery, databases, analytics, and secure connectivity. Server Load Balancer fronts the payment workload and spreads traffic across Elastic Compute Service instances, while ApsaraDB RDS and ApsaraDB for Redis handle transaction persistence and low-latency data access for the wallet and loyalty flows. Object Storage Service provides durable storage, and VPN Gateway secures links back to data centers in different regions so regulated payment operations remain connected and compliant. For analytics and operational improvement, MACAU Pass uses DataWorks and Quick BI to develop, manage, and analyze data from the payment platform. The result is a cloud architecture that can absorb promotion-driven surges, improve cost-effectiveness, and give the company a path to migrate more of the payment estate onto Alibaba Cloud with stronger security and business intelligence.",
+  "products_used": [
+    "Server Load Balancer",
+    "Elastic Compute Service",
+    "ApsaraDB RDS for MySQL",
+    "Object Storage Service",
+    "VPN Gateway",
+    "ApsaraDB for Redis",
+    "DataWorks",
+    "Quick BI"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Cybersecurity",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Security and Compliance"
+  ],
+  "business_outcome": "MACAU Pass improved the cost-effectiveness and resilience of its digital-wallet platform while gaining better analytics and a more scalable base for business expansion.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "improved cost-effectiveness by 25%"
+  ],
+  "architecture_clues": [
+    "Supports the MPay Macau Wallet and mCoin loyalty services",
+    "Uses VPN Gateway for secure cross-regional data-center connectivity",
+    "Quick BI is used for business intelligence analysis",
+    "Promotion periods drive sudden spikes in transaction volume"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/Mpay",
+  "published_date": "2023-10-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"MACAU Pass uses Alibaba Cloud technologies and products, such as Server Load Balancer (SLB) Elastic Compute Service (ECS) ApsaraDB RDS , and Object Storage Service (OSS).\"",
+    "\"MACAU Pass also uses VPN Gateway to ensure the security of network connections to its data centers across regions.\"",
+    "\"MACAU Pass has improved cost-effectiveness by 25% since cooperating with Alibaba Cloud.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Server Load Balancer",
+      "role": "Distributes incoming payment and loyalty traffic across the application stack.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Elastic Compute Service",
+      "role": "Runs the core wallet and mCoin application services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ApsaraDB RDS for MySQL",
+      "role": "Stores transactional payment data for the MPay service.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service",
+      "role": "Provides durable storage for platform data and supporting assets.",
+      "layer": "Storage"
+    },
+    {
+      "name": "VPN Gateway",
+      "role": "Secures network connectivity between Alibaba Cloud and MACAU Pass data centers across regions.",
+      "layer": "Governance"
+    },
+    {
+      "name": "ApsaraDB for Redis",
+      "role": "Supplies low-latency in-memory data services for the wallet platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "DataWorks",
+      "role": "Provides the data development and governance layer for operational analytics.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Quick BI",
+      "role": "Delivers business intelligence dashboards and analysis for the payment business.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Payment and mCoin requests pass through Server Load Balancer to Elastic Compute Service, persist in ApsaraDB RDS and Redis, replicate securely over VPN-linked environments, and feed DataWorks and Quick BI for business analysis and operational planning.",
+  "integration_points": [
+    "MPay Macau Wallet",
+    "mCoin loyalty platform",
+    "bank accounts",
+    "credit cards",
+    "data centers across regions"
+  ]
+}

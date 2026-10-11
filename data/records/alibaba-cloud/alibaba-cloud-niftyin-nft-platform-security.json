@@ -1,0 +1,86 @@
+{
+  "id": "alibaba-cloud-niftyin-nft-platform-security",
+  "slug": "alibaba-cloud-niftyin-nft-platform-security",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "NiftyIN",
+  "industry": "Software / SaaS",
+  "region": "Hong Kong (China)",
+  "company_size": "SMB",
+  "business_problem": "NiftyIN needed a secure and highly available cloud foundation for NFT and GameFi services, while coping with the valuation complexity of tokenized real-world assets and supporting rapid growth in users, partners, and digital-asset issuance.",
+  "solution_summary": "NiftyIN deployed its Web3 platform on a multi-zone Alibaba Cloud architecture so it could keep NFT and GameFi services stable while expanding across traditional art and gaming use cases. Elastic Compute Service runs the application workloads, and PolarDB provides the managed relational store behind the platform. Global Accelerator improves access for Internet-facing services, while Anti-DDoS and Web Application Firewall form a cloud-native security perimeter that protects the production environment from network- and application-layer threats without sacrificing user experience. The implementation is designed around multi-zone high availability, allowing the front end and back end to continue serving traffic even as load shifts. In practice, that gives NiftyIN a safer and more resilient operating model for connecting museums, galleries, collectors, and gamers to digital-asset workflows, while leaving room to add recommendation algorithms and AIGC tools on top of the same cloud estate.",
+  "products_used": [
+    "Elastic Compute Service",
+    "PolarDB",
+    "Global Accelerator",
+    "Anti-DDoS",
+    "Web Application Firewall (WAF)"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "NiftyIN improved security and availability for its digital-asset platform while supporting ecosystem growth and large-scale issuance of new assets.",
+  "outcome_category": [
+    "Scalability",
+    "Compliance",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 25 ecosystem partners",
+    "tens of thousands of users",
+    "over 150,000 new digital assets on the PlatON Network"
+  ],
+  "architecture_clues": [
+    "Multi-zone deployment is used for both front-end and back-end layers",
+    "Security coverage spans from DDoS protection to anti-bot controls at the application layer",
+    "Global Accelerator is used for Internet-facing performance",
+    "The platform also experiments with recommendation algorithms and AIGC tooling"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/niftyin",
+  "published_date": "2023-05-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"NiftyIN uses a multi-zone in one region high availability deployment.\"",
+    "\"Alibaba Cloud's Cloud Native Security Architecture is used to provide comprehensive protection from DDoS at the network layer to Anti-bot at the application layer.\"",
+    "\"Since its launch, NiftyIN has continuously iterated versions and introduced three different industry smart solutions, helping over 25 ecosystem partners and tens of thousands of users... generating over 150,000 new digital assets on the PlatON Network.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Elastic Compute Service",
+      "role": "Runs NiftyIN's Web3 application workloads in a multi-zone production environment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PolarDB",
+      "role": "Stores platform data behind the NFT and GameFi services.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Global Accelerator",
+      "role": "Improves the reliability and reach of NiftyIN's Internet-facing application traffic.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Anti-DDoS",
+      "role": "Defends the platform against network-layer attacks that could disrupt digital-asset services.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Web Application Firewall (WAF)",
+      "role": "Protects application endpoints while preserving platform stability for users.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "User traffic reaches the platform through Global Accelerator, is served by multi-zone ECS workloads, persists operational data in PolarDB, and is continuously protected by Anti-DDoS and WAF controls across the production environment.",
+  "integration_points": [
+    "museums",
+    "galleries",
+    "collectors",
+    "PlatON Network",
+    "GameFi users"
+  ]
+}

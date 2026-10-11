@@ -1,0 +1,80 @@
+{
+  "id": "alibaba-cloud-easyparcel-cloud-native-logistics-platform",
+  "slug": "alibaba-cloud-easyparcel-cloud-native-logistics-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "EasyParcel",
+  "industry": "Logistics",
+  "region": "Malaysia",
+  "company_size": "Enterprise",
+  "business_problem": "EasyParcel needed to remove database bottlenecks, improve customer satisfaction without losing cost competitiveness, and migrate a fast-growing parcel-booking platform from manual orchestration to a cloud-native design that could sustain peak demand.",
+  "solution_summary": "EasyParcel refactored its platform with Alibaba Cloud around containerization, serverless operations, and managed database services. The team moved away from manual scripts and adopted Container Service for Kubernetes (ACK) together with Serverless Kubernetes Service so application workloads could scale more cleanly as parcel traffic and user demand grew. PolarDB became the managed database layer that replaced the prior performance bottleneck, and Data Transmission Service supported the migration and synchronization work needed to move operational data without long service disruption. This new cloud-native architecture improves the company's ability to provide real-time tracking updates and responsive customer access to shipping services, while also helping the business optimize cost rather than simply add fixed capacity. Because the platform connects more than 60 delivery partners and serves over 1.5 million micro SMEs, the combination of elastic application runtime and modernized data services is central to EasyParcel's regional growth strategy.",
+  "products_used": [
+    "Container Service for Kubernetes (ACK)",
+    "Serverless Kubernetes Service",
+    "PolarDB",
+    "Data Transmission Service"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Cloud Native",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "EasyParcel improved platform performance, customer satisfaction, and cost-efficient scalability while strengthening real-time shipment-tracking capabilities.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "195+ international destinations",
+    "60+ worldwide delivery partners",
+    "more than 1,500,000 micro SMEs"
+  ],
+  "architecture_clues": [
+    "The team moved from manual scripts to Kubernetes and serverless operations",
+    "PolarDB was selected to address database performance bottlenecks",
+    "The platform emphasizes real-time tracking updates for customers",
+    "Regional expansion depends on cost-efficient scaling rather than fixed capacity"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/easyparcel",
+  "published_date": "2023-10-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Both teams worked closely in refactoring their design into containerization (K8S) Serverless , and managed databases (PolarDB) to optimize the cost while maintaining (or surpassing) the previous performance levels.\"",
+    "\"Alibaba Cloud's robust database solutions have substantially improved EasyParcel's ability to offer real-time tracking updates and efficient access to services for their customers.\"",
+    "\"Today, more than 1,500,000 micro SMEs across Malaysia, Singapore, Indonesia, and Thailand use EasyParcel.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Runs EasyParcel's containerized application workloads after the migration.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Serverless Kubernetes Service",
+      "role": "Adds elastic Kubernetes execution without manual node management.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PolarDB",
+      "role": "Provides the managed relational database layer that relieves prior performance bottlenecks.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Data Transmission Service",
+      "role": "Supports migration and synchronization of data into the new cloud environment.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Parcel-booking and delivery-partner events reach containerized services on ACK and Serverless Kubernetes, transactional data is persisted in PolarDB, and migration/synchronization flows are handled through Data Transmission Service to keep logistics operations current.",
+  "integration_points": [
+    "delivery partners",
+    "parcel-booking platform",
+    "real-time tracking services"
+  ]
+}

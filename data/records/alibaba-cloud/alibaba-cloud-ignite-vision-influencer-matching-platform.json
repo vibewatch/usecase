@@ -1,0 +1,87 @@
+{
+  "id": "alibaba-cloud-ignite-vision-influencer-matching-platform",
+  "slug": "alibaba-cloud-ignite-vision-influencer-matching-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Ignite Vision",
+  "industry": "Software / SaaS",
+  "region": "Hong Kong (China)",
+  "company_size": "Mid-market",
+  "business_problem": "Ignite Vision needed to analyze creator data at million-scale across multiple social platforms and languages, semantically match brands with the right influencers, and keep LLM token costs low enough for the platform to scale profitably.",
+  "solution_summary": "Ignite Vision built its influencer-matching engine on Alibaba Cloud around a shared data and semantic-understanding layer. PolarDB stores large creator profiles and historical content data, Object Storage Service keeps unstructured campaign briefs and supporting assets, and Elastic Compute Service supplies the elastic application runtime. Qwen provides the multilingual semantic reasoning that converts advertiser requirements and creator characteristics into comparable representations, while Auto Scaling adds capacity when query volumes spike. This arrangement turns a previously manual screening process into a faster retrieval and recommendation workflow: content and profile data are collected from platforms such as Instagram, Facebook, TikTok, and Rednote, normalized into the platform's data store, semantically encoded by Qwen, and surfaced back to marketing teams as searchable, explainable matches. Because Ignite Vision operates across Asian languages and markets, the combination of Qwen's Chinese-language coverage and Alibaba Cloud's cost profile is central to the design.",
+  "products_used": [
+    "Qwen",
+    "PolarDB",
+    "Elastic Compute Service",
+    "Auto Scaling",
+    "Object Storage Service"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Ignite Vision compressed creator screening from hours to minutes and built a more scalable, multilingual platform for matching brands to influencers across Asia.",
+  "outcome_category": [
+    "Speed to Market",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "6 offices across APAC",
+    "a creator screening process that once took hours of manual work into a matter of minutes"
+  ],
+  "architecture_clues": [
+    "Supports Instagram, Facebook, TikTok, and Rednote content analysis",
+    "Qwen is chosen for Chinese-language coverage across Asian markets",
+    "Object Storage Service stores unstructured campaign brief documents",
+    "Predictive analytics is planned as a next extension"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/ignitevision",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Managing and analyzing data from millions of KOLs across multiple social media platforms—including Instagram, Facebook, TikTok, and Rednote—required significant computational resources.\"",
+    "\"Qwen : The semantic understanding capabilities of Qwen help translate brand requirements and influencer characteristics into comparable semantic representations.\"",
+    "\"This unified data approach powers both semantic understanding and intelligent retrieval, allowing the Ignite Vision team to compress a creator screening process that once took hours of manual work into a matter of minutes.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Qwen",
+      "role": "Performs multilingual semantic understanding so the platform can compare briefs and influencer content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "PolarDB",
+      "role": "Stores creator profiles and historical content data at scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Elastic Compute Service",
+      "role": "Runs the application compute layer for matching and retrieval workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Auto Scaling",
+      "role": "Adds capacity when query volume and matching workloads spike.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Object Storage Service",
+      "role": "Stores unstructured campaign brief documents and supporting assets.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Creator content and brand briefs are gathered from multiple social platforms, stored in PolarDB and Object Storage Service, interpreted semantically by Qwen on ECS, and returned as searchable influencer matches with Auto Scaling maintaining performance during traffic spikes.",
+  "integration_points": [
+    "Instagram",
+    "Facebook",
+    "TikTok",
+    "Rednote",
+    "brands",
+    "influencers"
+  ]
+}

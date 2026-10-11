@@ -1,0 +1,94 @@
+{
+  "id": "alibaba-cloud-combo-web3-game-infrastructure",
+  "slug": "alibaba-cloud-combo-web3-game-infrastructure",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "COMBO",
+  "industry": "Software / SaaS",
+  "region": "Hong Kong (China)",
+  "company_size": "SMB",
+  "business_problem": "COMBO needed an infrastructure foundation that could keep a Web3 gaming network stable and low-latency under highly variable traffic while also meeting global compliance expectations and protecting developers and players.",
+  "solution_summary": "COMBO uses Alibaba Cloud as the infrastructure base for its game-focused layer-2 network and related developer services. Access to the Testnet is handled through NodeReal's high-performance RPC node service, which runs on Alibaba Cloud and virtualizes traditional RPC nodes so traffic can be balanced and scaled dynamically as gaming events drive sudden changes in usage. The underlying environment uses Alibaba Cloud networking, security, compute, and monitoring services to keep latency low and service availability high. Application Load Balancer and Elastic Compute Service provide the serving and compute fabric, ACK and Container Registry support containerized service delivery, and Managed Service for Grafana together with Simple Log Service gives the DevOps team observability into production behavior. Security is reinforced with Web Application Firewall and Alibaba Cloud best practices, while cross-regional database synchronization supports consistent access for players in multiple geographies. This architecture gives COMBO a resilient operational backbone for Web3 game developers.",
+  "products_used": [
+    "Application Load Balancer",
+    "Elastic Compute Service",
+    "Container Service for Kubernetes (ACK)",
+    "Container Registry (ACR)",
+    "Managed Service for Grafana",
+    "Simple Log Service",
+    "Web Application Firewall (WAF)"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Cybersecurity",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "COMBO gained a stable, highly available, and secure platform for low-latency Web3 gaming services and developer tooling.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "NodeReal virtualizes RPC nodes to absorb gaming traffic changes",
+    "Cross-regional database synchronization supports users in multiple regions",
+    "Grafana and Log Service are used for monitoring and analysis",
+    "Security controls are applied across the production environment"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/combo",
+  "published_date": "2023-08-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"COMBO accesses Testnet through the high-performance RPC node service of NodeReal.\"",
+    "\"NodeReal uses the automated monitoring, deployment, and update services built by Alibaba Cloud to ensure the stability and consistency of RPC services.\"",
+    "\"Services (such as Grafana Log Service ) provide the COMBO DevOps Team with rich monitoring and analysis capabilities.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Application Load Balancer",
+      "role": "Fronts COMBO services to keep network access highly available and low latency.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Elastic Compute Service",
+      "role": "Provides the compute layer for Web3 network and RPC workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Runs containerized services that support the COMBO platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Container Registry (ACR)",
+      "role": "Stores and manages container images used to deploy COMBO services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Managed Service for Grafana",
+      "role": "Surfaces production metrics and dashboards for the DevOps team.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Simple Log Service",
+      "role": "Collects log data used for operations and analysis.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Web Application Firewall (WAF)",
+      "role": "Protects COMBO's user-facing services against web-layer attacks.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Developer and player requests reach RPC and platform services through load-balanced endpoints, are processed on ECS and ACK-backed workloads, and are continuously monitored through Grafana and Log Service while WAF protects public-facing traffic.",
+  "integration_points": [
+    "NodeReal",
+    "COMBO Testnet",
+    "Web3 game developers",
+    "players"
+  ]
+}

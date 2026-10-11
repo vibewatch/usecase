@@ -1,0 +1,71 @@
+{
+  "id": "alibaba-cloud-lion-parcel-delivery-order-ocr",
+  "slug": "alibaba-cloud-lion-parcel-delivery-order-ocr",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Lion Parcel",
+  "industry": "Logistics",
+  "region": "Indonesia",
+  "company_size": "Enterprise",
+  "business_problem": "Lion Parcel needed to eliminate manual delivery-order transcription in finance, reduce document-entry errors, centralize document traceability, and convert growing volumes of paper logistics records into structured digital data for downstream financial reporting.",
+  "solution_summary": "Lion Parcel implemented an OCR-driven document-processing pipeline on Alibaba Cloud to automate Finance handling of Delivery Orders. A client application sends parcel-label and delivery-order images to Alibaba Cloud Model Studio, where Qwen-VL-Plus Model extracts printed and handwritten content and returns structured JSON fields. That output is then passed into a backend processing layer that validates, normalizes, deduplicates, and applies business rules before storing the result in a database and making it available to downstream Finance workflows. The design intentionally blends automation with human validation so staff can review uncertain fields while still eliminating most repetitive data-entry work. Because the company operates at logistics scale—covering 99% of Indonesia and more than 50 countries with thousands of couriers and fleets—the shift from spreadsheets and hardcopy files to AI-assisted extraction gives Lion Parcel a more scalable, traceable, and accurate finance-document process.",
+  "products_used": [
+    "Alibaba Cloud Model Studio",
+    "Qwen-VL-Plus Model"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Lion Parcel accelerated Delivery Order processing, improved finance-data accuracy, and created a centralized digital repository for a previously manual workflow.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "covers 99% of Indonesia",
+    "over 50 countries worldwide",
+    "7,000+ agents",
+    "15,000+ delivery couriers",
+    "3,000+ land fleets",
+    "350+ aircraft"
+  ],
+  "architecture_clues": [
+    "The OCR pipeline supports both printed and handwritten content",
+    "Backend processing validates and normalizes extracted fields before storage",
+    "The workflow includes user validation and duplicate detection",
+    "Results are exported into standardized finance-reporting formats"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/lion-parcel",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"API call script or client application sends parcel-label images to Alibaba Cloud Model Studio , where Qwen-VL-Plus Model performs OCR on printed and handwritten content, and returns extracted fields as structured JSON.\"",
+    "\"The parsed output is forwarded to the Backend Data Processing layer, which validates and normalises the fields, applying required rules.\"",
+    "\"Alibaba Cloud’s OCR solution powered by Qwen helped us accelerate Document Order processing in Finance. It’s improving accuracy while saving both time and operational costs.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Alibaba Cloud Model Studio",
+      "role": "Receives document images and invokes the OCR model used by the finance workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Qwen-VL-Plus Model",
+      "role": "Extracts structured fields from printed and handwritten delivery-order documents.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Parcel-label and delivery-order images are uploaded to Model Studio, Qwen-VL-Plus extracts JSON fields, backend services validate and normalize the output, and approved records are stored for downstream finance reporting.",
+  "integration_points": [
+    "Delivery Order documents",
+    "Finance team",
+    "Excel workflows",
+    "downstream finance systems"
+  ]
+}

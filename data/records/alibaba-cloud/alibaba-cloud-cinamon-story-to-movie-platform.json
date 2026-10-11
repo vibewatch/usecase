@@ -1,0 +1,116 @@
+{
+  "id": "alibaba-cloud-cinamon-story-to-movie-platform",
+  "slug": "alibaba-cloud-cinamon-story-to-movie-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "CINAMON",
+  "industry": "Software / SaaS",
+  "region": "South Korea",
+  "company_size": "SMB",
+  "business_problem": "CINAMON needed flexible, scalable, and cost-efficient compute for CINEV, its hybrid AI and 3D animation platform, so it could handle fluctuating production workloads and keep user wait times low.",
+  "solution_summary": "CINAMON built the CINEV animation-production platform on top of Alibaba Cloud's elastic compute and AI portfolio. The customer story highlights Elastic GPU Service as the fit for AI-intensive rendering and generation workloads, with Elastic Compute Service and Object Storage Service forming the broader application and content backbone behind the service. Supporting infrastructure such as Function Compute, Simple Log Service, NAT Gateway, Alibaba Cloud DNS, File Storage NAS, and Elastic IP Address gives the team the networking, storage, observability, and burst execution tools needed to run a real-time story-to-movie workflow without locking capacity to a fixed baseline. On top of that infrastructure, CINAMON plans deeper integration with Qwen LLM and Qwen Image Edit models so it can improve narrative-to-video transformation and choose the right model size for each generation task. The overall design focuses on keeping wait times low, matching compute spend to fluctuating project loads, and creating a production platform that can scale with AI-driven video demand.",
+  "products_used": [
+    "Elastic GPU Service",
+    "Elastic Compute Service",
+    "Object Storage Service",
+    "Function Compute",
+    "Simple Log Service",
+    "NAT Gateway",
+    "Alibaba Cloud DNS",
+    "File Storage NAS",
+    "Elastic IP Address",
+    "Qwen",
+    "Qwen Image Edit"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "CINAMON reduced user wait times, improved resource elasticity, and created a lower-cost foundation for AI-assisted animation and story-to-video production.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Compute requirements vary significantly depending on project load",
+    "The platform pairs AI generation with 3D animation workflows",
+    "Qwen LLM and Qwen Image Edit are planned as deeper integrations",
+    "Technical support responsiveness is treated as a key part of the operating model"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/cinamon",
+  "published_date": "2025-12-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"CINAMON leveraged Alibaba Cloud’s scalable computing infrastructure and Qwen AI models to power its hybrid AI and 3D animation platform, enabling creators to transform stories into videos with lower latency and optimized costs.\"",
+    "\"Alibaba Cloud’s elastic scaling allowed the team to instantly adjust computing intelligence capacity based on real-time demand.\"",
+    "\"Alibaba Cloud’s flexible computing resource allocation and competitive pricing policies have significantly reduced user wait times for CINEV.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Elastic GPU Service",
+      "role": "Provides the accelerated compute used for AI-intensive animation and generation workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Elastic Compute Service",
+      "role": "Runs the main application services behind the CINEV platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service",
+      "role": "Stores media assets and generated content used by the animation workflow.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Function Compute",
+      "role": "Adds elastic event-driven execution to support bursty platform tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Simple Log Service",
+      "role": "Collects operational logs and supports stability analysis.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NAT Gateway",
+      "role": "Manages network connectivity for services running inside the virtual cloud environment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Alibaba Cloud DNS",
+      "role": "Provides managed name resolution for public and internal service access.",
+      "layer": "Serving"
+    },
+    {
+      "name": "File Storage NAS",
+      "role": "Offers shared storage for ECS and related production workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Elastic IP Address",
+      "role": "Supplies routable public network addresses for service components.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Qwen",
+      "role": "Provides the LLM capabilities CINAMON plans to integrate into story-to-movie workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Qwen Image Edit",
+      "role": "Supports planned image-editing enhancements for richer AI video creation.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User story and media inputs are processed by application services on ECS, AI-intensive jobs run on Elastic GPU Service and Function Compute, assets are stored in Object Storage Service and NAS, and future Qwen-based generation stages enrich the resulting animated videos before delivery.",
+  "integration_points": [
+    "CINEV",
+    "story inputs",
+    "3D animation pipeline",
+    "Megazone partner support"
+  ]
+}

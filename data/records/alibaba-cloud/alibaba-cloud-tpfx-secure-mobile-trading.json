@@ -1,0 +1,106 @@
+{
+  "id": "alibaba-cloud-tpfx-secure-mobile-trading",
+  "slug": "alibaba-cloud-tpfx-secure-mobile-trading",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "TPFx",
+  "industry": "Financial Services",
+  "region": "Indonesia",
+  "company_size": "Mid-market",
+  "business_problem": "TPFx needed a next-generation mobile trading platform that could handle up to 150,000 connections per minute while preserving security, zero-downtime availability, and fast multi-zone access for regulated financial transactions.",
+  "solution_summary": "TPFx implemented a layered Alibaba Cloud architecture to launch a higher-scale mobile trading experience for Indonesian traders. Traffic enters through Application Load Balancer, while Auto Scaling expands capacity during peak trading windows and the application layer runs on Container Service for Kubernetes (ACK). A multi-layer security perimeter built from Anti-DDoS, Web Application Firewall, and Security Center protects the trading stack and supports regulatory expectations for sensitive transactions. State and high-speed access are supported by Tair for hot data and caching, while Object Storage Service and Simple Log Service provide durable storage and operational visibility for the trading environment. The deployment is anchored in Alibaba Cloud's Jakarta presence, giving TPFx local coverage for low-latency access while still supporting multi-zone resilience. Together the components let TPFx sustain rapid connection growth without sacrificing response time, security, or service continuity.",
+  "products_used": [
+    "Application Load Balancer",
+    "Auto Scaling",
+    "Container Service for Kubernetes (ACK)",
+    "Anti-DDoS",
+    "Web Application Firewall (WAF)",
+    "Security Center",
+    "Tair (Redis® OSS-Compatible)",
+    "Object Storage Service",
+    "Simple Log Service"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "TPFx raised the ceiling for concurrent trading traffic while delivering faster, secure, always-on mobile trading experiences for Southeast Asian users.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "150,000 connections per minute"
+  ],
+  "architecture_clues": [
+    "Designed for zero downtime during high trading volume",
+    "Anchored in Alibaba Cloud's Jakarta Region",
+    "Uses multi-layer security controls across network and application layers",
+    "Built for multi-zone access and fault tolerance"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/tpfx",
+  "published_date": "2025-10-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"TPFx needed to launch a next-generation mobile app capable of handling up to 150,000 connections per minute without compromising speed, security, or availability.\"",
+    "\"Alibaba Cloud’s Anti-DDoS, Web Application Firewall (WAF), and Security Center established a secure perimeter to protect against threats and ensure regulatory compliance.\"",
+    "\"The application layer leverages Alibaba Cloud Application Load Balancer (ALB) and Auto Scaling for high availability and fault tolerance.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Application Load Balancer",
+      "role": "Distributes mobile trading traffic and fronts the trading stack for high availability.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Auto Scaling",
+      "role": "Adds or removes capacity during high-volume trading periods to maintain response times.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Runs the containerized trading application layer that serves mobile users.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Anti-DDoS",
+      "role": "Protects the platform from volumetric attacks that could disrupt trading access.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Web Application Firewall (WAF)",
+      "role": "Filters malicious web traffic targeting sensitive trading endpoints.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Security Center",
+      "role": "Provides centralized threat detection and security governance for the environment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Tair (Redis® OSS-Compatible)",
+      "role": "Supplies high-speed in-memory data access for latency-sensitive trading workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service",
+      "role": "Stores persistent trading assets and supporting application data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Simple Log Service",
+      "role": "Collects logs for monitoring, troubleshooting, and compliance visibility.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Mobile trading requests enter through Application Load Balancer, scale across ACK application nodes via Auto Scaling, read or cache hot data in Tair, persist supporting data in Object Storage Service, and emit operational logs into Simple Log Service under Anti-DDoS, WAF, and Security Center controls.",
+  "integration_points": [
+    "mobile trading app",
+    "traders",
+    "regulated financial transactions"
+  ]
+}

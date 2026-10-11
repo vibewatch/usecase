@@ -1,0 +1,62 @@
+{
+  "id": "alibaba-cloud-atlasv-ai-fashion-video-generation",
+  "slug": "alibaba-cloud-atlasv-ai-fashion-video-generation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "AtlasV",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "SMB",
+  "business_problem": "AtlasV needed stronger AI image and video generation capabilities so its Collart platform could turn static fashion, portrait, and e-commerce assets into scalable commercial content without the time and cost of manual studio production.",
+  "solution_summary": "AtlasV integrated Alibaba Cloud's Wan 2.7 model family into Collart, its AI visual-creation platform for fashion, e-commerce, portrait, and social content. Users upload model images, clothing images, product photos, or full outfits and optionally supply a reference video that defines movement, camera rhythm, and atmosphere. Wan 2.7 then powers image-to-video generation for walking, turning, product showcases, outfit transitions, and camera push-ins, while the same model family also handles image-to-image generation, portrait restyling, background replacement, multi-shot video generation, audio-visual synchronization, and video editing. Alibaba Cloud Model Studio provides the integration surface that lets AtlasV plug those capabilities into user-facing workflows at scale. The architecture effectively converts static creative assets into production-ready visual sequences faster and with less manual overhead, allowing Collart to support brands, merchants, and creators that need repeatable visual production across campaigns and product catalogs.",
+  "products_used": [
+    "Wan 2.7",
+    "Alibaba Cloud Model Studio"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "AtlasV expanded Collart from static image generation into scalable, commercially usable fashion and portrait video creation workflows.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Reference videos guide motion, camera rhythm, and visual atmosphere",
+    "The workflow spans image-to-video, image-to-image, editing, and multi-shot generation",
+    "Users include brands, merchants, and creators building commercial content",
+    "The platform targets fashion, e-commerce, portrait, and social media scenarios"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/atlasv",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Collart integrates Alibaba's Wan 2.7 capabilities into its user-facing AI creation workflows.\"",
+    "\"Users upload model images, clothing images, product photos, or complete outfits, then select a reference video to guide motion, camera rhythm, and visual atmosphere.\"",
+    "\"Collart integrated Alibaba's Wan 2.7 to upgrade AI fashion video and portrait creation through image-to-image, image-to-video, video editing, multi-shot generation, and audio-visual synchronization capabilities.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Wan 2.7",
+      "role": "Generates and edits image and video content for fashion and portrait workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Alibaba Cloud Model Studio",
+      "role": "Provides the managed model-delivery layer that exposes Wan capabilities to the Collart application.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Users upload source images and optional reference videos into Collart, Model Studio invokes Wan 2.7 to create or edit visuals, and the generated images and short-form videos are returned to creators for e-commerce and social-media use.",
+  "integration_points": [
+    "model images",
+    "clothing images",
+    "product photos",
+    "reference videos",
+    "brands",
+    "e-commerce merchants"
+  ]
+}

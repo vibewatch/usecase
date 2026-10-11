@@ -1,0 +1,79 @@
+{
+  "id": "alibaba-cloud-zencreator-ai-content-generation-platform",
+  "slug": "alibaba-cloud-zencreator-ai-content-generation-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "ZenCreator",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "ZenCreator needed a production AI platform that could sustain more than one million image and video generations per month, reduce false positives in commercial creative, and keep cost per generation viable as usage scaled across creators and agencies.",
+  "solution_summary": "ZenCreator runs its image and video generation business on Alibaba Cloud Model Studio, making the Wan and Qwen model families the primary engines behind a high-volume creative application. All production traffic is routed through the Model Studio international endpoint in Singapore and integrated with the DashScope API and Python SDK. The platform uses Wan for video and image generation, Qwen for image generation and editing, and LoRA fine-tunes on Wan 2.7 to preserve consistent character identity across outputs. Requests are submitted asynchronously and then polled through the task API, allowing ZenCreator to absorb peaks in demand without blocking end-user workflows. This design is tuned for commercial creative use cases—social, advertising, e-commerce, lip sync, virtual try-on, and editing—where the company must balance visual quality with predictable operating costs. By combining Alibaba Cloud model APIs with its own orchestration layer, ZenCreator turned managed multimodal inference into a scalable production pipeline for more than 1.5 million creators and agencies.",
+  "products_used": [
+    "Alibaba Cloud Model Studio",
+    "Wan",
+    "Qwen",
+    "Wan 2.7"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "ZenCreator scaled to over one million monthly generations and more than 1.5 million registered users while keeping cost and quality aligned for commercial creative work.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "more than 1.5 million registered creators",
+    "Over 1 million generations per month",
+    "approximately 500,000 videos and 500,000 images"
+  ],
+  "architecture_clues": [
+    "All production traffic runs through the Model Studio international endpoint in Singapore",
+    "DashScope API and Python SDK are used for integration",
+    "Requests are submitted asynchronously and polled through the task API",
+    "Wan 2.7 LoRA fine-tunes preserve character consistency across generations"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/zencreator",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"All production traffic runs through the Model Studio international endpoint in Singapore, integrated via the DashScope API and Python SDK.\"",
+    "\"Generation requests are submitted asynchronously and polled through the Model Studio task API, enabling a single orchestration layer to absorb peak load without blocking.\"",
+    "\"Over 1 million generations per month running on Alibaba Cloud models — approximately 500,000 videos and 500,000 images.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Alibaba Cloud Model Studio",
+      "role": "Provides the managed API surface through which ZenCreator executes all production inference traffic.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Wan",
+      "role": "Powers core video and image generation workflows for commercial creative content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Qwen",
+      "role": "Handles image-generation and image-editing tasks within the platform.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Wan 2.7",
+      "role": "Supplies the fine-tunable multimodal model used for consistent character-aware generations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User prompts and assets are sent from the ZenCreator web app to Model Studio through DashScope, Wan and Qwen models generate or edit images and videos asynchronously, task results are polled back into the orchestration layer, and completed assets are returned to creators and agencies.",
+  "integration_points": [
+    "DashScope API",
+    "Python SDK",
+    "web application",
+    "public API",
+    "creative agencies"
+  ]
+}

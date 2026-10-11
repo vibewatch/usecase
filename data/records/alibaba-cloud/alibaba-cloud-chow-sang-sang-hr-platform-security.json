@@ -1,0 +1,109 @@
+{
+  "id": "alibaba-cloud-chow-sang-sang-hr-platform-security",
+  "slug": "alibaba-cloud-chow-sang-sang-hr-platform-security",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Chow Sang Sang",
+  "industry": "Retail",
+  "region": "Asia Pacific",
+  "company_size": "Enterprise",
+  "business_problem": "Chow Sang Sang needed a secure and reliable digital HR platform to support attendance, salary, welfare, and broader staff-management operations across a workforce of more than 10,000 employees and nearly one thousand stores.",
+  "solution_summary": "Chow Sang Sang assembled a broad Alibaba Cloud stack to run and secure its human-resource management environment across the Asia Pacific region. Container Service for Kubernetes (ACK) and Elastic Compute Service provide the main application runtime, while PolarDB, ApsaraDB RDS, and Object Storage Service cover the platform's structured and unstructured data needs for employee records and supporting documents. Log Service adds centralized observability, and multiple security services—including Web Application Firewall, Cloud Firewall, and Bastionhost—protect the environment and enforce access controls for sensitive staff data. The architecture is intended to deliver a stable, smooth digital experience to employees and administrators while also giving the retailer room to scale with its store footprint. Because the business operates at regional retail scale, the cloud deployment focuses on combining secure access, reliable processing, and strong data protection for a mission-critical back-office system rather than treating HR as a secondary workload.",
+  "products_used": [
+    "Container Service for Kubernetes (ACK)",
+    "Elastic Compute Service",
+    "PolarDB",
+    "Object Storage Service",
+    "ApsaraDB RDS",
+    "Log Service",
+    "Web Application Firewall (WAF)",
+    "Cloud Firewall",
+    "Bastionhost"
+  ],
+  "technical_area": [
+    "ERP / CRM",
+    "Cybersecurity",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Chow Sang Sang gained a stable and secure digital HR platform for regional retail operations and employee-management workflows.",
+  "outcome_category": [
+    "Compliance",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "over 10,000 employees",
+    "nearly one thousand stores"
+  ],
+  "architecture_clues": [
+    "The platform supports attendance, salary, and welfare workflows",
+    "Security controls include WAF, Cloud Firewall, and Bastionhost",
+    "The environment spans a large regional retail footprint",
+    "Log Service is used for operational visibility"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/chow-sang-sang",
+  "published_date": "2023-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"These products include Alibaba Cloud Kubernetes Container Service (ACK) Elastic Computing Service (ECS) PolarDB Object Storage Service (OSS) ApsaraDB RDS Log Service (SLS).\"",
+    "\"Chow Sang Sang also uses multiple security products such as, Web Application Firewall (WAF) Cloud Firewall Bastionhost.\"",
+    "\"Chow Sang Sang has over 10,000 employees and nearly one thousand stores in the Asia Pacific region.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Runs the containerized HR application services used by employees and administrators.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Elastic Compute Service",
+      "role": "Supplies the compute infrastructure beneath the HR platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PolarDB",
+      "role": "Provides a managed relational datastore for HR workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service",
+      "role": "Stores HR documents and other unstructured data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "ApsaraDB RDS",
+      "role": "Supports managed transactional database operations for the platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Log Service",
+      "role": "Captures operational logs needed to monitor the environment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Web Application Firewall (WAF)",
+      "role": "Protects public-facing HR endpoints against malicious traffic.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud Firewall",
+      "role": "Applies network-level traffic controls around the HR environment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Bastionhost",
+      "role": "Governs administrative access to sensitive HR systems.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Employee and HR-admin requests are served by ACK and ECS workloads, store employee records in PolarDB and RDS, keep supporting files in Object Storage Service, and send telemetry into Log Service while WAF, Cloud Firewall, and Bastionhost secure the environment.",
+  "integration_points": [
+    "attendance systems",
+    "salary workflows",
+    "welfare workflows",
+    "retail stores"
+  ]
+}

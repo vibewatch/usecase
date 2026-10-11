@@ -1,0 +1,67 @@
+{
+  "id": "alibaba-cloud-bridge-ai-sen-therapy-analytics",
+  "slug": "alibaba-cloud-bridge-ai-sen-therapy-analytics",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Bridge A.I.",
+  "industry": "Education",
+  "region": "Hong Kong (China)",
+  "company_size": "SMB",
+  "business_problem": "Bridge A.I. needed an affordable cloud-backed system for special education therapy that could collect multimodal student data, analyze it in near real time, and scale from central sites to schools, NGOs, medical groups, and hospitals without driving up storage and access costs.",
+  "solution_summary": "Bridge A.I. built an AI-assisted special-education platform on Alibaba Cloud to connect students, parents, teachers, and therapists around shared performance data. In each service location, tablets capture student performance and session video, wristbands collect physiological signals for emotion analysis, and environmental sensors contribute context such as temperature and CO2. Those streams move through fog nodes and an edge gateway into Alibaba Cloud, where a platform layer curates SEN educational big data and an application layer turns it into contextual recommendations for trainers and dynamically recommended content for learners. Alibaba Cloud Networking and Edge Node Service help the company move data with low latency while separating frequently accessed data from lower-cost backup tiers for later review and training. The design supports local servers at each site for collection and storage, while still giving Bridge A.I. a shared cloud intelligence layer that expands therapy access across schools, NGOs, hospitals, and new overseas deployments.",
+  "products_used": [
+    "Alibaba Cloud Networking",
+    "Edge Node Service"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Bridge A.I. expanded affordable SEN therapy services across Hong Kong and beyond, with 87% of students showing learning progression after using the AI-enhanced system.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "87% of students demonstrated learning progression after using our technology-enhanced AI system."
+  ],
+  "architecture_clues": [
+    "A local server is deployed in each service location for data collection and storage",
+    "Fog nodes and an edge gateway support contextual recommendations near the learner",
+    "Multiple device types feed the cloud, including tablets, wristbands, and environmental sensors",
+    "The platform is expanding into NGOs, schools, hospitals, and a Singapore deployment"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/bridge_ai",
+  "published_date": "2023-10-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our AI system provides trainers with different devices, including a tablet to monitor students’ performance data, a tablet to video record the session, a wristband to collect physiological data for emotion analysis, and an environmental sensor to collect data.\"",
+    "\"All data will transmit to the cloud via fog-nodes and edge-gateway , which allows real-time analytic and contextual recommendations in fog.\"",
+    "\"87% of students demonstrated learning progression after using our technology-enhanced AI system.\""
+  ],
+  "solution_components": [
+    {
+      "name": "Alibaba Cloud Networking",
+      "role": "Carries low-latency data traffic between local therapy sites, edge nodes, and cloud services.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Edge Node Service",
+      "role": "Provides the edge-compute layer that supports nearby processing and low-latency recommendations.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Session video, performance observations, physiological signals, and environmental readings are collected at each therapy site, transmitted through fog nodes and an edge gateway into the cloud platform, curated into SEN data, and turned into real-time recommendations plus individualized learning content.",
+  "integration_points": [
+    "tablets",
+    "wristbands",
+    "environmental sensors",
+    "schools",
+    "NGOs",
+    "hospitals"
+  ]
+}
