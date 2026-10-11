@@ -1,0 +1,67 @@
+{
+  "id": "oracle-serasa-experian-fraud-model-training",
+  "slug": "oracle-serasa-experian-fraud-model-training",
+  "vendor": "Oracle",
+  "customer_name": "Serasa Experian",
+  "industry": "Financial Services",
+  "region": "Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Serasa Experian needed more scalable GPU capacity for fraud-prevention AI so it could train modern machine learning models faster, increase the number of experiments it ran each day, and improve the response time of authentication and document-analysis products used in billions of commercial transactions.",
+  "solution_summary": "Serasa Experian expanded the fraud-prevention side of its multicloud stack onto Oracle Cloud Infrastructure so data scientists could access the latest NVIDIA GPU resources without the shortages it faced elsewhere. OCI bare metal instances, virtual machines, and OCI Data Science provide the compute and model-development environment for hyperparameter search and neural-network training across biometric and document-analysis workloads. The company uses that environment to run more than 1,000 training sessions per day, select the best fraud models, and then feed those models into authentication products that analyze identification photos and other risk signals in near real time. By concentrating model training on OCI's GPU clusters, Serasa Experian improved both experimentation throughput and the user-facing speed of antifraud services while keeping the deployment aligned with its broader multicloud operating model.",
+  "products_used": [
+    "Oracle Cloud Infrastructure (OCI)",
+    "OCI Data Science"
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Cloud Infrastructure (OCI)",
+      "role": "Provides GPU-backed compute, bare metal instances, and virtual machines for large-scale fraud-model training workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OCI Data Science",
+      "role": "Supports high-volume model training and hyperparameter experimentation for fraud detection and authentication models.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Biometric and document-analysis training data is processed on OCI GPU clusters through OCI Data Science, where Serasa Experian runs large hyperparameter searches and daily model training; the resulting models are then used by authentication and fraud-prevention products to score photos and queries in near real time.",
+  "integration_points": [
+    "multicloud environment",
+    "authentication products",
+    "document analysis systems",
+    "biometric workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "Serasa Experian dramatically expanded daily fraud-model training throughput and improved antifraud product performance, enabling faster document-query responses and sub-second ID-photo analysis while supporting fraud controls across billions of annual commercial transactions.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "More than 2.2 billion commercial transactions safeguarded annually",
+    "Over 1,000 training sessions performed per day",
+    "90% gain in document query response times",
+    "Identification document photo analysis takes less than a second"
+  ],
+  "architecture_clues": [
+    "GPU clusters run inside OCI as part of a broader multicloud architecture",
+    "Latest NVIDIA GPUs are used to address global GPU availability constraints",
+    "Hyperparameter search and model selection are executed in OCI Data Science"
+  ],
+  "source_url": "https://www.oracle.com/customers/serasa-experian/",
+  "published_date": "2024-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company’s fraud prevention unit taps biometrics and document analysis, combined with advanced AI techniques.",
+    "the company performed over 1,000 training sessions per day to obtain the best model",
+    "Adopting OCI GPUs also led to performance gains ... reducing query response times by 90% compared to the previous environment."
+  ]
+}

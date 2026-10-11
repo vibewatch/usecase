@@ -1,0 +1,86 @@
+{
+  "id": "oracle-city-of-lohja-document-chatbot",
+  "slug": "oracle-city-of-lohja-document-chatbot",
+  "vendor": "Oracle",
+  "customer_name": "City of Lohja",
+  "industry": "Public Sector",
+  "region": "Finland",
+  "company_size": "Public sector",
+  "business_problem": "As its internal document archive grew, the City of Lohja needed a better way for HR support and ICT helpdesk teams to retrieve current guidance than manual keyword search, which made it hard for employees to find accurate information quickly.",
+  "solution_summary": "The City of Lohja built an internal support chatbot on Oracle Autonomous AI Lakehouse and Oracle APEX to turn a growing municipal document archive into a searchable knowledge base. OCI Enterprise AI connects large language models to the source documents, extracts entities such as projects, decisions, and people, and stores those relationships in Oracle Autonomous AI Database with Oracle Graph. Oracle AI Vector Search complements the graph model with semantic retrieval so the chatbot can find relevant guidance even when users do not match the source wording. Oracle APEX provides the low-code application layer that exposes the combined graph-and-vector retrieval experience to city employees. This architecture gives support teams a governed RAG-style system that uses context and relationships, not only keywords, to answer internal HR and IT questions and reduce support workload.",
+  "products_used": [
+    "Oracle Autonomous AI Lakehouse",
+    "Oracle APEX",
+    "OCI Enterprise AI",
+    "Oracle Autonomous AI Database",
+    "Oracle Graph",
+    "Oracle AI Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Autonomous AI Lakehouse",
+      "role": "Hosts the centralized knowledge base built from the city's internal document archive.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Oracle APEX",
+      "role": "Provides the low-code application layer for the employee-facing chatbot.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OCI Enterprise AI",
+      "role": "Connects large language models to source documents and extracts entities and relationships from municipal content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Autonomous AI Database",
+      "role": "Stores the structured document graph and retrieval data used by the chatbot.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Oracle Graph",
+      "role": "Preserves contextual relationships between projects, decisions, people, and other entities from city documents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Oracle AI Vector Search",
+      "role": "Performs semantic similarity search so answers can be found by meaning rather than exact keywords.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Internal HR and IT documents are analyzed by OCI Enterprise AI, which extracts entities and relationships into Oracle Autonomous AI Database and Oracle Graph; Oracle AI Vector Search indexes the same content semantically; Oracle APEX exposes a chatbot that combines graph and vector retrieval to answer employee questions from the centralized knowledge base.",
+  "integration_points": [
+    "internal document archive",
+    "HR support services",
+    "ICT helpdesk support services",
+    "large language models"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The City of Lohja improved internal communication and information retrieval, built a chatbot that answers roughly 85% of support questions, and reduced the support workload by giving supervisors and employees faster access to up-to-date guidance.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Chatbot can answer approximately 85% of support questions"
+  ],
+  "architecture_clues": [
+    "Graph and vector retrieval are combined to go beyond basic RAG",
+    "Entities such as projects, decisions, and people are extracted from source documents",
+    "Low-code APEX frontend sits directly on the Oracle AI and database stack"
+  ],
+  "source_url": "https://www.oracle.com/customers/city-of-lohja/",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Oracle APEX ... can answer approximately 85% of support questions.",
+    "The solution also uses Oracle AI Vector Search to run semantic similarity searches that can find information by meaning even when keywords don’t match.",
+    "By combining graph and vector queries, the chatbot surfaces related insights that basic RAG can miss."
+  ]
+}

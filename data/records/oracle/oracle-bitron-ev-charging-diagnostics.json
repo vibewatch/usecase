@@ -1,0 +1,91 @@
+{
+  "id": "oracle-bitron-ev-charging-diagnostics",
+  "slug": "oracle-bitron-ev-charging-diagnostics",
+  "vendor": "Oracle",
+  "customer_name": "Bitron Electronics",
+  "industry": "Manufacturing",
+  "region": "Italy",
+  "company_size": "Enterprise",
+  "business_problem": "Bitron needed to unify fault tickets, technical manuals, telemetry, and production data spread across multiple platforms so operators could diagnose EV charging-station malfunctions faster, reduce downtime, and manage claims more effectively.",
+  "solution_summary": "Bitron built an AI-assisted support and analytics stack on Oracle Autonomous Data Warehouse with Oracle AI Vector Search, OCI Generative AI, and Oracle Analytics Cloud on Oracle Cloud Infrastructure. The platform centralizes structured and unstructured information from charging-station telemetry, historical service records, production-process data, and technical documentation into one searchable repository. Oracle AI Vector Search and retrieval-augmented generation let operators query the knowledge base conversationally by error code, while OCI Generative AI uses Cohere and Llama models to generate recommendations during production and field-service workflows. Oracle Analytics Cloud provides a dashboard layer over the same unified dataset so line operators and executives can access production process data quickly. This design gives Bitron one AI-enabled data platform for troubleshooting and manufacturing analytics instead of separate silos for support content and operational reporting.",
+  "products_used": [
+    "Oracle Autonomous Data Warehouse",
+    "Oracle AI Vector Search",
+    "OCI Generative AI",
+    "Oracle Analytics Cloud",
+    "Oracle Cloud Infrastructure (OCI)"
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Autonomous Data Warehouse",
+      "role": "Stores Bitron's centralized operational, historical, and documentation data for diagnostics and analytics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Oracle AI Vector Search",
+      "role": "Performs semantic retrieval across structured and unstructured support and engineering content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OCI Generative AI",
+      "role": "Applies large language models and RAG to analyze error codes and generate recommendations for operators.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Analytics Cloud",
+      "role": "Surfaces real-time production dashboards over the unified Bitron data set.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure (OCI)",
+      "role": "Hosts the underlying Oracle AI and database services used by the charging-station solution.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Telemetry, error codes, fault tickets, technical manuals, and production data are centralized in Oracle Autonomous Data Warehouse; Oracle AI Vector Search and OCI Generative AI retrieve relevant context and generate recommendations for operators; Oracle Analytics Cloud exposes the same data for real-time dashboarding and KPI analysis.",
+  "integration_points": [
+    "fault tickets",
+    "technical manuals",
+    "charging-station telemetry",
+    "production process data",
+    "Cohere Command R",
+    "Meta Llama LLMs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "Bitron answered most operator questions automatically, diagnosed charging-station issues 5X faster, reduced downtime and operating cost, and gave both field teams and executives quicker access to unified production and service data.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "More than 200 electric vehicle charging stations monitored",
+    "Chatbot answers 85% of operator questions",
+    "Issues diagnosed 5X faster than before",
+    "Tens of hours per month saved in manufacturing, monitoring, and maintenance",
+    "Production process data access time reduced by 90%, to about 1 minute"
+  ],
+  "architecture_clues": [
+    "RAG combines centralized historical data with technical documentation and telemetry",
+    "Cohere Command R and Meta Llama models are used through OCI Generative AI",
+    "The same Oracle data platform supports both conversational diagnostics and production dashboards"
+  ],
+  "source_url": "https://www.oracle.com/customers/bitron/",
+  "published_date": "2023-02-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The conversational chatbot assistant has improved the way Bitron manages malfunctions and claims, answering 85% of operator questions.",
+    "operators can query the assistant based on error codes and telemetry from the charging stations to diagnose issues 5X faster than before.",
+    "Oracle Analytics Cloud has helped Bitron reduce the time required to access all its production process data by 90%, to about 1 minute."
+  ]
+}
