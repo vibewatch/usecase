@@ -1,0 +1,114 @@
+{
+  "id": "aws-trust-bank",
+  "slug": "aws-trust-bank",
+  "vendor": "AWS",
+  "customer_name": "Trust Bank",
+  "industry": "Financial Services",
+  "region": "Singapore",
+  "company_size": "Enterprise",
+  "business_problem": "When Trust Bank launched in 2022, Singapore was arguably oversaturated with banking options, with 98 percent of the population having at least one bank account. Yet, Trust Bank reached more than 100,000 customers within 10 days of its launch.",
+  "solution_summary": "When Trust Bank launched in 2022, Singapore was arguably oversaturated with banking options, with 98 percent of the population having at least one bank account. Yet, Trust Bank reached more than 100,000 customers within 10 days of its launch. To deliver a compelling customer experience at scale, Trust Bank needed agile, reliable, and secure infrastructure. It chose Amazon Elastic Kubernetes Service (Amazon EKS), a managed Kubernetes service, to run its services. The bank runs nine Amazon EKS clusters and deploys all workloads across three Availability Zones to improve resilience. Moreover, it deploys applications with static stability so that it has enough capacity if a node or Availability Zone becomes unavailable.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon Elastic Kubernetes Service",
+    "AWS Graviton processors",
+    "Amazon Aurora",
+    "Amazon RDS for PostgreSQL",
+    "Amazon S3",
+    "Apache Kafka Connect",
+    "Amazon EMR"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Supports model training, tuning, deployment, or managed ML inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Elastic Kubernetes Service",
+      "role": "Runs containerized services and scales application workloads across clusters.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Graviton processors",
+      "role": "Improve price performance for compute and database workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Aurora",
+      "role": "Stores transactional data with higher throughput and availability.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon RDS for PostgreSQL",
+      "role": "Stores PostgreSQL workloads before migration or modernization.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores documents, media, telemetry, or training data durably at scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Apache Kafka Connect",
+      "role": "Moves streaming events into the storage layer for analytics and ML.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon EMR",
+      "role": "Runs large-scale data processing and model training workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Data flows from Apache Kafka Connect into Amazon Aurora, Amazon RDS for PostgreSQL, is processed by Amazon SageMaker, AWS Graviton processors, and is exchanged with Apache Kafka, Thought Machine.",
+  "integration_points": [
+    "Apache Kafka",
+    "Apache Kafka Connect",
+    "Thought Machine"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "3 minute onboarding experience; 87% lower cost of acquisition than traditional models, at $34; 10x increase in maximum number of database I/O operations per second",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "3 minute onboarding experience",
+    "87% lower cost of acquisition than traditional models, at $34",
+    "10x increase in maximum number of database I/O operations per second",
+    "67% reduction in maximum P99 latency for payment processing",
+    "98 percent",
+    "10 days",
+    "14 percent",
+    "less than 3 minutes",
+    "90 percent",
+    "10 times"
+  ],
+  "architecture_clues": [
+    "The bank runs nine Amazon EKS clusters and deploys all workloads across three Availability Zones to improve resilience.",
+    "Moreover, it deploys applications with static stability so that it has enough capacity if a node or Availability Zone becomes unavailable.",
+    "Amazon EKS cluster upgrades are managed using a blue/green deployment strategy to minimize downtime.",
+    "Meanwhile, core banking components from Thought Machine , an AWS Partner , are automatically scaled from 400 to 600 pods during daily peak hours.",
+    "The bank scales cluster nodes 10 times faster using Karpenter, an open-source high-performance Kubernetes cluster automatic scaler."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/trust-bank-case-study/",
+  "published_date": "2024-05-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "When Trust Bank launched in 2022, Singapore was arguably oversaturated with banking options, with 98 percent of the population having at least one bank account.",
+    "Yet, Trust Bank reached more than 100,000 customers within 10 days of its launch.",
+    "3 minute onboarding experience",
+    "87% lower cost of acquisition than traditional models, at $34"
+  ]
+}

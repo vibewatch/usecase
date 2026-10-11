@@ -1,0 +1,86 @@
+{
+  "id": "aws-snohomish-county-public-utility-district-snohomish-county-pud",
+  "slug": "aws-snohomish-county-public-utility-district-snohomish-county-pud",
+  "vendor": "AWS",
+  "customer_name": "Snohomish County Public Utility District",
+  "industry": "Energy",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Snohomish County Public Utility District (SnoPUD) provides power and water services to 875,000 residents in Snohomish County and Camano Island in Washington state. Through its Connect Up initiative, the public utility is modernizing its meter infrastructure, using technology to provide better customer services.",
+  "solution_summary": "Snohomish County Public Utility District (SnoPUD) provides power and water services to 875,000 residents in Snohomish County and Camano Island in Washington state. Through its Connect Up initiative, the public utility is modernizing its meter infrastructure, using technology to provide better customer services. The MDMS is a distributed system that uses Amazon Managed Streaming for Apache Kafka (Amazon MSK) to ingest and process streaming data in near real time. This data is then sent to various components of the MDMS, including compute on Amazon Elastic Compute Cloud (Amazon EC2), which provides secure and resizable compute capacity for virtually any workload. Because TRC can scale Amazon EC2 instances up or down based on demand, it can allocate resources efficiently and cost-effectively. Thus, using TRC’s MDMS, SnoPUD has the flexibility to scale as its AMI program grows.",
+  "products_used": [
+    "Amazon Elastic Compute Cloud",
+    "Amazon Managed Streaming for Apache Kafka",
+    "Amazon Redshift",
+    "Amazon CloudWatch"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Elastic Compute Cloud",
+      "role": "Provides scalable compute capacity for application services or AI workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Managed Streaming for Apache Kafka",
+      "role": "Ingests streaming events and meter or application data in near real time.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Serves as the analytics warehouse for curated business data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon CloudWatch",
+      "role": "Monitors infrastructure health and application performance.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "",
+  "integration_points": [
+    "Apache Kafka",
+    "Siemens' Gridscale X"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Migration",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "100% uptime with seamless failovers and zero impact on business operations; 160 million meter measurements handled daily; $83 million projected savings in meter reading–related costs over the system’s lifetime through reduced vehicle usage",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "100% uptime with seamless failovers and zero impact on business operations",
+    "160 million meter measurements handled daily",
+    "$83 million projected savings in meter reading–related costs over the system’s lifetime through reduced vehicle usage",
+    "160 million",
+    "100 percent",
+    "15 seconds"
+  ],
+  "architecture_clues": [
+    "By offloading maintenance of its MDMS to TRC, SnoPUD freed its staff for other value-added tasks, optimized costs, and increased uptime.",
+    "The MDMS is a distributed system that uses Amazon Managed Streaming for Apache Kafka (Amazon MSK) to ingest and process streaming data in near real time.",
+    "TRC also uses multiple AWS Regions for disaster recovery, which helps to build resiliency.",
+    "Amazon Redshift —a service to power data-driven decisions with the best price performance—to manage the data lake for its headend system, thereby modernizing its data workloads to",
+    "The MDMS manages 160 million meter data measurements, gathered daily for various use cases."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/snohomish-county-pud-case-study/",
+  "published_date": "2025-02-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "In 2021, SnoPUD decided to modernize its metering system and elected to upgrade to an advanced metering infrastructure (AMI).",
+    "The utility wanted to use the latest metering infrastructure and technology to better serve customer needs in the future, enhance service reliability and efficiency, integrate renewable energy, and increase energy conser",
+    "Snohomish County Public Utility District (SnoPUD) provides power and water services to 875,000 residents in Snohomish County and Camano Island in Washington state.",
+    "Through its Connect Up initiative, the public utility is modernizing its meter infrastructure, using technology to provide better customer services.",
+    "The MDMS is a distributed system that uses Amazon Managed Streaming for Apache Kafka (Amazon MSK) to ingest and process streaming data in near real time.",
+    "This data is then sent to various components of the MDMS, including compute on Amazon Elastic Compute Cloud (Amazon EC2), which provides secure and resizable compute capacity for virtually any workload."
+  ]
+}

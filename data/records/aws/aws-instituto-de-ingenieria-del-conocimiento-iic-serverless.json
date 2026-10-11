@@ -1,0 +1,96 @@
+{
+  "id": "aws-instituto-de-ingenieria-del-conocimiento-iic-serverless",
+  "slug": "aws-instituto-de-ingenieria-del-conocimiento-iic-serverless",
+  "vendor": "AWS",
+  "customer_name": "Instituto de Ingeniería del Conocimiento",
+  "industry": "Software / SaaS",
+  "region": "Spain",
+  "company_size": "Mid-market",
+  "business_problem": "For nearly 20 years, Instituto de Ingenieria del Conocimiento (IIC) has provided renewable energy prediction services to its clients. The research and development center specializes in artificial intelligence (AI) and other advanced technologies, helping energy companies better understand and optimize their operations.",
+  "solution_summary": "For nearly 20 years, Instituto de Ingenieria del Conocimiento (IIC) has provided renewable energy prediction services to its clients. The research and development center specializes in artificial intelligence (AI) and other advanced technologies, helping energy companies better understand and optimize their operations. Thanks to the redesign, IIC can now efficiently process diverse data sources through EA3. For effective communication within the architecture, IIC relies on Amazon Simple Notification Service (Amazon SNS), a fully managed Pub/Sub service for A2A and A2P messaging, and Amazon Simple Queue Service (Amazon SQS), a fully managed message queuing for microservices, distributed systems, and serverless applications. The company uses Amazon SNS to manage notifications and Amazon SQS to facilitate asynchronous data delivery, while AWS Lambda is used to run scalable data processing and AI inference.",
+  "products_used": [
+    "Amazon S3",
+    "AWS Glue",
+    "AWS Lambda",
+    "Amazon API Gateway",
+    "AWS Step Functions",
+    "Amazon SNS",
+    "Amazon SQS"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Stores documents, media, telemetry, or training data durably at scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Glue",
+      "role": "Prepares and moves data between operational sources and analytics or ML environments.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs event-driven application logic and serverless processing tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon API Gateway",
+      "role": "Exposes application and AI services through managed APIs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Step Functions",
+      "role": "Coordinates multi-step serverless workflows and automation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon SNS",
+      "role": "Publishes notifications between decoupled services.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon SQS",
+      "role": "Buffers asynchronous work between distributed services.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Data flows from AWS Glue, Amazon SNS into Amazon S3, is processed by AWS Lambda.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Migration",
+    "Application Modernization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "In the future, IIC plans to continually enhance EA3 for optimal agility and performance. It plans to add new features powered by AWS technologies and explore new use cases, such as incorporating new data sources and tailoring the tool for its clients’ specific needs. As it moves forward, IIC is committed to maintaining its position in the renewable energy sector, evolving EA3 to meet dynamic market demands.",
+  "outcome_category": [],
+  "metrics": [
+    "20 years",
+    "30 years",
+    "30 percent",
+    "90 percent",
+    "20 million"
+  ],
+  "architecture_clues": [
+    "To deliver AI predictions at scale, IIC completely redesigned its architecture by migrating to Amazon Web Services (AWS) and adopting an event-driven architecture (EDA) powered by",
+    "It chose to migrate its code to Python and implement an EDA, which relies on serverless functions to dynamically respond to near real-time events by activating specific, automated",
+    "The company could meet increased data processing demands and scale up resources by adopting a serverless operation model on AWS, particularly the automatic scaling feature of AWS L",
+    "For effective communication within the architecture, IIC relies on Amazon Simple Notification Service (Amazon SNS), a fully managed Pub/Sub service for A2A and A2P messaging, and A",
+    "To transform data, EA3 relies on serverless functions in AWS Lambda to carry out specific tasks and scale the architecture as needed."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/iic-serverless-case-study/",
+  "published_date": "2024-04-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Based in Spain, IIC has over 30 years of experience in big data analysis, machine learning, and natural language processing.",
+    "In 2021, the company confronted a critical challenge that affected its ability to deliver AI predictions at scale.",
+    "For nearly 20 years, Instituto de Ingenieria del Conocimiento (IIC) has provided renewable energy prediction services to its clients.",
+    "The research and development center specializes in artificial intelligence (AI) and other advanced technologies, helping energy companies better understand and optimize their operations.",
+    "Thanks to the redesign, IIC can now efficiently process diverse data sources through EA3.",
+    "For effective communication within the architecture, IIC relies on Amazon Simple Notification Service (Amazon SNS), a fully managed Pub/Sub service for A2A and A2P messaging, and Amazon Simple Queue Service (Amazon SQS),"
+  ]
+}
