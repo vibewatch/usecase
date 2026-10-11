@@ -1,0 +1,80 @@
+{
+  "id": "aws-deputy-redshift-workforce-analytics",
+  "slug": "aws-deputy-redshift-workforce-analytics",
+  "vendor": "AWS",
+  "customer_name": "Deputy",
+  "industry": "Software / SaaS",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Deputy needed a better way to support multi-tenant workforce analytics and enterprise reporting because customer data was spread across siloed databases, which made reporting slow, governance difficult, and advanced analytics hard to monetize.",
+  "solution_summary": "Deputy uses Amazon Redshift and Amazon S3 to support multi-tenant workforce analytics and enterprise reporting. The implementation replaced a legacy state where customer data was spread across siloed databases, which made reporting slow, governance difficult, and advanced analytics hard to monetize. Attendance and scheduling events and tenant application data move through production data pipelines and land in Amazon Redshift and Amazon S3, giving teams one trusted data foundation. Central governance keeps access, lineage, and compliance consistent across downstream teams. Amazon OpenSearch Service operationalizes models, agents, and analytics that deliver customer analytics reports and self-service dashboards.",
+  "products_used": [
+    "Amazon Redshift",
+    "Amazon S3",
+    "Amazon OpenSearch Service",
+    "Amazon Aurora"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Deputy improved multi-tenant workforce analytics and enterprise reporting with measurable results including faster report generation times from up to 10 minutes, down to 6 seconds, 99% boosted query speed and latency, and 30% enhanced performance for largest customers, while giving teams a faster path from governed data to production decisions.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "faster report generation times from up to 10 minutes, down to 6 seconds",
+    "99% boosted query speed and latency",
+    "30% enhanced performance for largest customers",
+    "Amazon S3"
+  ],
+  "architecture_clues": [
+    "faster report generation times from up to 10 minutes, down to 6 seconds",
+    "99% boosted query speed and latency"
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/deputy-2024/",
+  "published_date": "2024-09-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    ", added several serverless cluster endpoints as",
+    "Deputy offers Enterprise-Grade Data Analytics and Increases Reporting Responsiveness by 99% Using Amazon Redshift",
+    "faster report generation times from up to 10 minutes, down to 6 seconds",
+    ", the global people platform for hourly work, helps businesses automate complex shift work scheduling and attendance tracking. It supports over 355,000 workplaces and 1.4 million shift workers across more than 100 countr"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Redshift",
+      "role": "Amazon Redshift serves warehouse queries and reporting workloads on consolidated operational data for multi-tenant workforce analytics and enterprise reporting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Amazon S3 stores raw and curated data used by analytics and model pipelines behind multi-tenant workforce analytics and enterprise reporting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon OpenSearch Service",
+      "role": "Amazon OpenSearch Service supports indexed search and analytics over data that powers multi-tenant workforce analytics and enterprise reporting.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Aurora",
+      "role": "Amazon Aurora provides relational application data that feeds multi-tenant workforce analytics and enterprise reporting.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Attendance and scheduling events and tenant application data land on a shared platform, pipeline services clean and standardize them, governance controls enforce trusted access, and AI or analytics services deliver customer analytics reports and self-service dashboards.",
+  "integration_points": [
+    "Amazon OpenSearch Service",
+    "Amazon Aurora",
+    "Amazon S3"
+  ]
+}

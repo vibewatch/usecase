@@ -1,0 +1,107 @@
+{
+  "id": "databricks-codametrix-medical-coding-automation",
+  "slug": "databricks-codametrix-medical-coding-automation",
+  "vendor": "Databricks",
+  "customer_name": "CodaMetrix",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "CodaMetrix needed a better way to support autonomous medical coding from clinical documentation through billing submission because poor observability, fragmented tooling, and strict PHI governance requirements made it hard to scale coding models without denials and compliance risk.",
+  "solution_summary": "CodaMetrix uses Databricks Data + AI Platform to support autonomous medical coding from clinical documentation through billing submission. The implementation replaced a legacy state where poor observability, fragmented tooling, and strict PHI governance requirements made it hard to scale coding models without denials and compliance risk. Clinical documentation and patient encounters move through Lakeflow Jobs and Spark Declarative Pipelines and land in Delta Lake, giving teams one trusted data foundation. Central governance keeps access, lineage, and compliance consistent across downstream teams. Databricks SQL, MLflow, and Model Serving operationalize models, agents, and analytics that deliver billable code predictions and claims-ready coding decisions.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Delta Lake",
+    "Lakeflow Jobs",
+    "Spark Declarative Pipelines",
+    "Structured Streaming",
+    "Databricks SQL",
+    "MLflow",
+    "Model Serving"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "CodaMetrix improved autonomous medical coding from clinical documentation through billing submission with measurable results including Automating 100K+ medical codes for faster reimbursement, 30% reduction in aws compute costs, and 40% improvement in operational efficiency, while giving teams a faster path from governed data to production decisions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Compliance",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Automating 100K+ medical codes for faster reimbursement",
+    "30% reduction in aws compute costs",
+    "40% improvement in operational efficiency",
+    "60% decrease in coding denials"
+  ],
+  "architecture_clues": [
+    "Delta Lake provides the shared storage layer for curated lakehouse datasets.",
+    "Automated ingestion and transformation pipelines keep source data synchronized for downstream analytics and AI.",
+    "Operational AI workflows are deployed directly beside governed data and analytics assets.",
+    "Automating 100K+ medical codes for faster reimbursement",
+    "30% reduction in aws compute costs"
+  ],
+  "source_url": "https://www.databricks.com/customers/codametrix",
+  "published_date": "2025-12-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Databricks is our single trust store for saving all these messages in a HIPAA-certified, safe and secure manner,",
+    "We’re responsible for handling PHI, which requires being able to conduct thorough audits and report incidents. When we were using other platforms, it was very difficult to keep track of who was doing what,",
+    "When you don’t work from standardized patient records, it’s a very noisy problem,",
+    "Databricks dashboards have shown to be a significant improvement. We’re now powering internal dashboards with materialized views, which can be streaming in nature or scheduled through SDP pipelines."
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Databricks Data + AI Platform unifies engineering, analytics, governance, and AI workloads for autonomous medical coding from clinical documentation through billing submission.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Delta Lake stores curated clinical documentation and patient encounters so every team works from one trusted data foundation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Lakeflow Jobs schedules ingestion and transformation of clinical documentation and patient encounters into reusable datasets.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Spark Declarative Pipelines",
+      "role": "Spark Declarative Pipelines standardizes clinical documentation and patient encounters into production-grade tables and features.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Structured Streaming",
+      "role": "Structured Streaming keeps clinical documentation and patient encounters available with low latency for downstream decisions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Databricks SQL serves curated dashboards and ad hoc analysis to billable code predictions and claims-ready coding decisions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MLflow",
+      "role": "MLflow tracks experiments, versions, and release workflows for models that support autonomous medical coding from clinical documentation through billing submission.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Model Serving",
+      "role": "Model Serving exposes real-time predictions and AI outputs to billable code predictions and claims-ready coding decisions.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Clinical documentation and patient encounters land on a shared platform, pipeline services clean and standardize them, governance controls enforce trusted access, and AI, model-serving, and analytics services deliver billable code predictions and claims-ready coding decisions.",
+  "integration_points": [
+    "Epic electronic health records",
+    "payer billing systems",
+    "clinical documentation streams"
+  ]
+}

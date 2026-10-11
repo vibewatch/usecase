@@ -1,0 +1,94 @@
+{
+  "id": "databricks-digital-turbine-mobile-ad-analytics",
+  "slug": "databricks-digital-turbine-mobile-ad-analytics",
+  "vendor": "Databricks",
+  "customer_name": "Digital Turbine",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Digital Turbine needed a better way to support adtech data lake modernization and mobile advertising analytics because multiple ETL-based warehouses were expensive to maintain and still could not deliver data fast enough in the formats needed by data science and BI teams.",
+  "solution_summary": "Digital Turbine uses Databricks Data + AI Platform to support adtech data lake modernization and mobile advertising analytics. The implementation replaced a legacy state where multiple ETL-based warehouses were expensive to maintain and still could not deliver data fast enough in the formats needed by data science and BI teams. Mobile device and ad data and etl warehouse feeds move through Lakeflow Jobs and Structured Streaming and land in Delta Lake, giving teams one trusted data foundation. Unity Catalog governs access, lineage, and compliance across sensitive datasets. Databricks SQL operationalizes models, agents, and analytics that deliver advertiser and publisher analytics and data science datasets.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Delta Lake",
+    "Lakeflow Jobs",
+    "Structured Streaming",
+    "Databricks SQL",
+    "Unity Catalog"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "System Migration"
+  ],
+  "business_outcome": "Digital Turbine improved adtech data lake modernization and mobile advertising analytics with measurable results including 10s of $1,000s, 10–20% monthly savings on hosting and other costs, and 20% less time spent debugging issues between data systems, while giving teams a faster path from governed data to production decisions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "10s of $1,000s",
+    "10–20% monthly savings on hosting and other costs",
+    "20% less time spent debugging issues between data systems"
+  ],
+  "architecture_clues": [
+    "Centralized governance, lineage, and access controls are enforced through Unity Catalog.",
+    "Delta Lake provides the shared storage layer for curated lakehouse datasets.",
+    "Automated ingestion and transformation pipelines keep source data synchronized for downstream analytics and AI.",
+    "10s of $1,000s",
+    "10–20% monthly savings on hosting and other costs"
+  ],
+  "source_url": "https://www.databricks.com/customers/digital-turbine",
+  "published_date": "2025-03-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "When you have to manage multiple technologies to get a data pipeline to work, it puts tremendous strain on a data team,",
+    "Our vision was to build a data lake where we could scale up our business without increasing our costs,",
+    "We chose Google Cloud because we wanted a cloud partner that would help us interface with Databricks through a variety of data tools.",
+    "Our data scientists can use BigQuery in the Databricks environment — and tie that data out to any data in Databricks,"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Databricks Data + AI Platform unifies engineering, analytics, governance, and AI workloads for adtech data lake modernization and mobile advertising analytics.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Delta Lake stores curated mobile device and ad data and ETL warehouse feeds so every team works from one trusted data foundation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Lakeflow Jobs schedules ingestion and transformation of mobile device and ad data and ETL warehouse feeds into reusable datasets.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Structured Streaming",
+      "role": "Structured Streaming keeps mobile device and ad data and ETL warehouse feeds available with low latency for downstream decisions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Databricks SQL serves curated dashboards and ad hoc analysis to advertiser and publisher analytics and data science datasets.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Unity Catalog applies centralized access controls, lineage, and auditability across sensitive datasets.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Mobile device and ad data and etl warehouse feeds land on a shared platform, pipeline services clean and standardize them, governance controls enforce trusted access, and AI or analytics services deliver advertiser and publisher analytics and data science datasets.",
+  "integration_points": [
+    "Google BigQuery",
+    "Vertex AI",
+    "mobile publisher data"
+  ]
+}
