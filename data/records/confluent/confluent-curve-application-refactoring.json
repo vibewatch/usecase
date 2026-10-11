@@ -1,0 +1,93 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-curve-application-refactoring",
+  "slug": "confluent-curve-application-refactoring",
+  "customer_name": "Curve",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Curve needed to replace a fragile RabbitMQ-based monolith and slow batch analytics so it could scale payments, credit, and data products without constant re-engineering or queue maintenance.",
+  "solution_summary": "Curve reworked its financial platform around Confluent Cloud on AWS so product, credit, payment, and data teams could consume shared event streams instead of relying on one-off queues and batch jobs. The new architecture replaces a single-point-of-failure RabbitMQ backbone with durable streaming topics, replayable logs, and elastic storage. Connectors such as PostgresCdcSource and KinesisSource bring operational data into the platform, while Lambda and S3 sinks and BigQuery pipelines make the same events available to downstream services and analytics. Schema Registry keeps those events compatible as topics evolve. Because the platform can replay messages, compact entity topics, and expose historical data to new services, teams can launch new capabilities faster and build a more decentralized data mesh without splitting old and new processing logic into separate paths.",
+  "products_used": [
+    "Confluent Cloud",
+    "PostgresCdcSource",
+    "KinesisSource",
+    "Schema Registry",
+    "BigQuery",
+    "Lambda",
+    "S3"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Provides Curve's event backbone and durable log for payments, product, credit, and data workloads."
+    },
+    {
+      "name": "PostgresCdcSource",
+      "role": "Streams database changes into Curve's event platform for downstream processing.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "KinesisSource",
+      "role": "Ingests upstream event streams into Confluent for cross-team reuse.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Maintains event compatibility and data quality as topics evolve.",
+      "layer": "Governance"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores streamed analytical data for downstream joins and reporting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lambda",
+      "role": "Consumes streamed events in downstream serverless processing paths.",
+      "layer": "Compute"
+    },
+    {
+      "name": "S3",
+      "role": "Acts as a downstream storage sink for streamed data.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational changes flow into Confluent Cloud through CDC and Kinesis sources, are consumed by product and payment services in real time, and are also delivered into BigQuery, Lambda, and S3 so the same event streams support analytics, replay, and downstream feature development.",
+  "integration_points": [
+    "AWS",
+    "BigQuery"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Curve improved scalability and data availability, reduced development and support work around analytics topics, gave more teams direct access to event data, and created a stronger foundation for new financial products.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The new architecture replaced a single RabbitMQ instance that had become a single point of failure.",
+    "Replayable logs, entity topics, and compaction make historical and live processing use the same pipeline.",
+    "BigQuery connectors automatically create and maintain analytical tables as topics evolve."
+  ],
+  "source_url": "https://www.confluent.io/customers/curve/",
+  "published_date": "2024-03-03",
+  "evidence_quotes": [
+    "With only one instance of RabbitMQ, it created a single point of failure.",
+    "The data team needed to build and run one airflow job per database to extract the data and then write it to BigQuery.",
+    "Confluent Cloud on AWS, with dedicated clusters on a private network.",
+    "Various connectors such as PostgresCdcSource and KinesisSource flow the data from the sources to Lambda and S3 sinks."
+  ]
+}

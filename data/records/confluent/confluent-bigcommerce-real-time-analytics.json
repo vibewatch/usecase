@@ -1,0 +1,94 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-bigcommerce-real-time-analytics",
+  "slug": "confluent-bigcommerce-real-time-analytics",
+  "customer_name": "BigCommerce",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "BigCommerce needed to stop spending engineering time on self-managed Kafka and slow batch analytics so it could deliver reliable, real-time merchant insights at retail scale.",
+  "solution_summary": "BigCommerce used Confluent Cloud to replace a growing self-managed Kafka footprint with a staged managed-streaming architecture on Google Cloud. The team first mirrored production data to both OSS Kafka and Confluent to prove latency and cutover safety, then switched once both systems were synchronized. After cutover, they used Confluent Metrics API to feed a unified Google Cloud monitoring dashboard for consumer and sink lag, and moved insight and data lake workloads into Google BigQuery with Confluent Sink Connector and Google Cloud Storage Sink Connector. This let BigCommerce stream order, cart, and page-view events at scale, expose live data to merchants and downstream systems, and design new asynchronous services without spending engineering time on cluster upgrades, overprovisioning, or dozens of batch MapReduce jobs.",
+  "products_used": [
+    "Confluent Cloud",
+    "Confluent Metrics API",
+    "Confluent Sink Connector",
+    "Google BigQuery",
+    "Google Cloud Storage Sink Connector"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Acts as the managed streaming backbone for order, cart, page-view, and analytics events."
+    },
+    {
+      "name": "Confluent Metrics API",
+      "role": "Feeds consumer and sink lag into the Google Cloud monitoring dashboard.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Confluent Sink Connector",
+      "role": "Loads streaming insight and data lake workloads into BigQuery.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Google BigQuery",
+      "role": "Stores migrated analytics and data lake workloads for reporting and downstream use.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud Storage Sink Connector",
+      "role": "Publishes real-time data into cloud storage so merchants can combine it with their own ecosystems.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Order, cart, and page-view events were mirrored from OSS Kafka to Confluent Cloud during migration, monitored through the Metrics API on Google Cloud, and then delivered into BigQuery and cloud-storage sinks so internal teams and merchants could work with near-real-time analytics.",
+  "integration_points": [
+    "Google Cloud",
+    "Google BigQuery",
+    "Google Analytics"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "BigCommerce removed a large Kafka operations burden, eliminated analytics latency for merchants, migrated 1.6 billion daily events with no disruption, and gave product teams a scalable foundation for faster feature delivery.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "1.6 billion events per day",
+    "22 broker nodes",
+    "five ZooKeeper nodes",
+    "20 hours a week",
+    "eight hours",
+    "30+ MapReduce jobs",
+    "15 TB of storage data",
+    "zero downtime",
+    "zero data loss",
+    "10-15%"
+  ],
+  "architecture_clues": [
+    "Migration ran in phases with production data sent to both OSS Kafka and Confluent before cutover.",
+    "The lag dashboard combined consumer lag and sink connector lag in Google Cloud monitoring.",
+    "Merchants can combine exported streaming data with external systems for a 360-degree view."
+  ],
+  "source_url": "https://www.confluent.io/customers/bigcommerce/",
+  "published_date": "2023-10-01",
+  "evidence_quotes": [
+    "This required over 20 hours a week dedicated to maintaining and managing Kafka infrastructure.",
+    "Commerce had an ETL, batch-based system for analytics and insights, resulting in a wait time of eight hours before merchants could get their analytics reports.",
+    "In five months, Commerce had migrated 1.6 billion events per day, 22 broker nodes, three clusters, and 15 TB of storage data to Confluent Cloud.",
+    "They experienced zero downtime, zero data loss, and zero disruption to the merchant experience."
+  ]
+}

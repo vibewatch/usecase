@@ -1,0 +1,70 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-sencrop-real-time-analytics",
+  "slug": "confluent-sencrop-real-time-analytics",
+  "customer_name": "Sencrop",
+  "industry": "unknown",
+  "region": "Europe",
+  "company_size": "SMB",
+  "business_problem": "Sencrop needed a richer, easier-to-run streaming platform so a small engineering team could process IoT and forecast data in real time for farmers without self-managing Kafka incidents.",
+  "solution_summary": "Sencrop adopted Confluent Cloud as a serverless-style streaming backbone for its agricultural weather platform as data volume, source diversity, and processing needs grew. The company combines sensor readings from more than 35,000 field IoT weather stations with around 20 partner forecast models, then decouples ingestion, processing, and storage so each stage can scale independently. Apache Flink performs stream processing on top of data flowing through a Confluent cluster hosted around AWS, and the resulting streams land in a Databricks data lake for statistical analysis and machine learning training. This architecture gives Sencrop timely, field-level data for disease and pest risk decisions, spray scheduling, and anomaly detection on device health, while keeping the operational burden low enough for a small startup team to focus on processing logic instead of cluster management.",
+  "products_used": [
+    "Confluent Cloud",
+    "Apache Flink",
+    "Databricks"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Provides the managed streaming backbone for IoT and forecast data across the Sencrop platform."
+    },
+    {
+      "name": "Apache Flink",
+      "role": "Processes weather and device streams in real time before downstream analytics and storage.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks",
+      "role": "Stores streamed outputs in a data lake for statistical analysis and machine learning training.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Weather-station telemetry and partner forecast feeds stream through Confluent Cloud, are processed with Apache Flink, and land in Databricks for analysis and machine learning, with the resulting insights returned to farmers as field-level operational guidance.",
+  "integration_points": [
+    "partner forecast models",
+    "IoT weather stations"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Sencrop gave farmers more accurate field-level weather guidance, reduced operational burden on its engineering team, and built a stronger foundation for anomaly detection and real-time agronomic decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "35,000 Internet of Things (IoT) weather stations",
+    "around 20 different forecast models"
+  ],
+  "architecture_clues": [
+    "The architecture separates ingestion, processing, and storage so each stage can evolve independently.",
+    "Flink runs stream processing while Databricks supports statistical analysis and ML model training.",
+    "Confluent Cloud is used as a plug-and-play, low-maintenance backbone for a small engineering team."
+  ],
+  "source_url": "https://www.confluent.io/customers/sencrop/",
+  "published_date": "2024-08-16",
+  "evidence_quotes": [
+    "With a network of over 35,000 Internet of Things (IoT) weather stations across Europe, farmers have access to real-time data on rainfall, temperature, humidity, and wind.",
+    "Sencrop uses Apache Flink for stream processing, hosted on Amazon Web Services (AWS), and data flowing through a Confluent cluster.",
+    "This data pipeline also outputs data to a Databricks data lake to fuel statistical analysis and ML model training.",
+    "With the recent addition of machine learning (ML) models, IT is better equipped to identify anomalies such as device issues."
+  ]
+}

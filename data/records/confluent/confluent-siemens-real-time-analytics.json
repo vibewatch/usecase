@@ -1,0 +1,75 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-siemens-real-time-analytics",
+  "slug": "confluent-siemens-real-time-analytics",
+  "customer_name": "Siemens",
+  "industry": "Manufacturing",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens needed to replace isolated Kafka clusters and disconnected factory data flows so teams could share information globally without carrying the cost and complexity of dedicated infrastructure per department.",
+  "solution_summary": "Siemens standardized on Confluent as a centralized streaming backbone for its global data and AI strategy. Instead of giving each department its own underutilized Kafka cluster, the team created a shared platform and a Topic as a Service model so internal customers can request streams without owning infrastructure. Connectors move data between factory applications, ERP and inventory systems, data warehouses, and AI or machine learning platforms, which unifies operational and analytical estates and removes the cost of maintaining separate clusters. Siemens then reuses the backbone for concrete manufacturing flows such as factory logistics and quality inspection, where machine parameters and test results are streamed from SQL systems to a central validation point and sent back out after verification. The model makes plant data reusable across departments while staying lightweight enough for pilots and production workloads alike.",
+  "products_used": [
+    "Confluent",
+    "Connectors",
+    "Apache Kafka"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent",
+      "role": "Provides the centralized data streaming backbone for Siemens' unified data strategy."
+    },
+    {
+      "name": "Connectors",
+      "role": "Move data between factory applications, ERP systems, inventory systems, warehouses, and AI or ML platforms.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Apache Kafka",
+      "role": "Provides the topic abstraction internal customers consume through Siemens' Topic as a Service model."
+    }
+  ],
+  "data_flow": "Operational data from factory applications, ERP systems, inventory systems, and SQL-based quality tooling is streamed through Confluent, routed into warehouses and AI or ML platforms, and in some cases sent back to production processes after centralized validation.",
+  "integration_points": [
+    "ERP systems",
+    "inventory management systems",
+    "data warehouses",
+    "AI/ML platforms",
+    "SQL databases"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Siemens gave more teams access to real-time operational data, improved factory logistics and quality inspection workflows, and supported global scale with a platform that can handle large message volumes while staying resource efficient.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2 million produced messages",
+    "8 million consumed messages daily",
+    "up to 19 million messages",
+    "3% of cluster load",
+    "200+ countries"
+  ],
+  "architecture_clues": [
+    "Topic as a Service abstracts Kafka operations away from internal customers.",
+    "Factory logistics uses a modular microservices architecture on top of the shared streaming platform.",
+    "Quality inspection streams parameters and test results from SQL databases into a centralized validation loop."
+  ],
+  "source_url": "https://www.confluent.io/customers/siemens/",
+  "published_date": "2025-09-19",
+  "evidence_quotes": [
+    "Using Connectors, the data is now able to flow efficiently between Siemens' global network of applications, ERP's and inventory management systems to the data warehouses, and AI/ML platforms.",
+    "Topic as a Service lets our internal customers simply order the number of topics they need for each project.",
+    "The results were transformative: in-time delivery of materials, no manual reordering needed, and a fully automated push-based supply chain.",
+    "Siemens' platform handles an average of 2 million produced messages and 8 million consumed messages daily, with peaks of up to 19 million messages."
+  ]
+}

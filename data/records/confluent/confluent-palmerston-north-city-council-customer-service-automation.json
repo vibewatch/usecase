@@ -1,0 +1,76 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-palmerston-north-city-council-customer-service-automation",
+  "slug": "confluent-palmerston-north-city-council-customer-service-automation",
+  "customer_name": "Palmerston North City Council",
+  "industry": "Public Sector",
+  "region": "New Zealand",
+  "company_size": "Public sector",
+  "business_problem": "Palmerston North City Council needed to break data out of spreadsheets and siloed on-premises systems so citizen services, regulatory workflows, and AI initiatives could run on trusted real-time information instead of slow manual handoffs.",
+  "solution_summary": "Palmerston North City Council deployed Confluent Cloud as the backbone of a shift-left, event-sourced data architecture for civic operations. Every piece of data - whether it arrives from IoT devices, APIs, supplier files, finance systems, or regulatory applications - now flows through the managed streaming platform first, where governance and reuse are applied at the source. Kafka topics hold the history of data products, which the council then syncs into relational, NoSQL, time-series, and lake environments as needed. On top of that base, PNCC created reusable Property 360 datasets, real-time AI-assisted invoice processing, human-in-the-loop AI agents for resource-consent workflows, and smart-city monitoring that streams insights from hundreds of cameras and sensors. The architecture lets departments share one governed source of truth, shortens response times for citizen issues, and provides auditable orchestration for automation without handing final decisions to AI.",
+  "products_used": [
+    "Confluent Cloud",
+    "Schema Registry"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Acts as PNCC's central streaming backbone for operational, regulatory, and smart-city data."
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Supports governed, reusable data products that can be trusted across departments and AI-assisted workflows.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "IoT devices, APIs, supplier files, financial systems, and regulatory applications publish events into Confluent Cloud, where PNCC governs and reuses them as data products for search, citizen-service workflows, AI-assisted invoice processing, and smart-city monitoring across downstream stores and services.",
+  "integration_points": [
+    "IoT devices",
+    "APIs",
+    "file uploads",
+    "data lakes",
+    "AI platforms",
+    "third parties",
+    "regulators"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "IoT",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "PNCC cut service response times from hours to minutes, sped up delivery of new digital services, reduced manual work in finance and regulatory processes, and created a more auditable foundation for smart-city and AI-assisted operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "minutes instead of hours",
+    "around 25 manual steps",
+    "up to 15 of these steps",
+    "over 200 cameras and sensors",
+    "once a quarter to just a couple of sprints"
+  ],
+  "architecture_clues": [
+    "PNCC uses an event-sourced model with Kafka topics kept as the source of truth for data products.",
+    "The architecture fans governed data into relational, NoSQL, time-series, and lake storage systems.",
+    "AI agents orchestrate resource-consent steps via Kafka topics while keeping humans in the loop for final decisions."
+  ],
+  "source_url": "https://www.confluent.io/customers/pncc/",
+  "published_date": "2025-08-21",
+  "evidence_quotes": [
+    "Every piece of data - whether from IoT devices, APIs, or file uploads - flows through Confluent Cloud for processing and distribution in real time.",
+    "PNCC can process citizen service requests in minutes instead of hours.",
+    "Resource consent applications involve around 25 manual steps.",
+    "PNCC is piloting the automation of up to 15 of these steps with AI agents that run continuously, while keeping humans in the loop for all decisions."
+  ]
+}

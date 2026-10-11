@@ -1,0 +1,71 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-kredivo-risk-management",
+  "slug": "confluent-kredivo-risk-management",
+  "customer_name": "Kredivo",
+  "industry": "Financial Services",
+  "region": "Southeast Asia",
+  "company_size": "Mid-market",
+  "business_problem": "Kredivo needed a more centralized, lower-latency streaming platform so it could scale credit and analytics pipelines, detect fraud and production issues faster, and avoid building a dedicated infrastructure team just to run Kafka.",
+  "solution_summary": "Kredivo adopted Confluent Cloud as the streaming layer inside its microservice-based financial platform so it could centralize data movement without overhauling its cloud strategy. The company streams customer and loan-application data through the managed backbone, migrated from AWS to GCP, and uses a sink connector to land databases in BigQuery for analytics and warehouse use cases. That same real-time foundation powers creditworthiness decisions, fraud and payment-error alerts, and marketing campaign dashboards that depend on fresher data than the company's previous setup could provide. Because Confluent productized the Kafka and connector model Kredivo wanted, the team gained easier monitoring, better security and disaster recovery options, and a much faster way to spin up new pipelines for finance, marketing, and risk teams without staffing a dedicated operations group.",
+  "products_used": [
+    "Confluent Cloud",
+    "sink connector",
+    "Google BigQuery"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Runs the centralized streaming platform for customer, loan, and analytics data across Kredivo's microservice architecture."
+    },
+    {
+      "name": "sink connector",
+      "role": "Streams Kredivo's databases into BigQuery after the move from AWS to GCP.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Google BigQuery",
+      "role": "Stores analytics and data warehouse workloads fed by streaming databases.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer and loan-application data stream through Confluent Cloud, flow through a sink connector into BigQuery for warehouse analytics, and then support fraud and payment alerts, campaign tracking, and data subscriptions used by marketing, finance, and risk teams.",
+  "integration_points": [
+    "Google BigQuery",
+    "AWS",
+    "GCP"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Kredivo lowered streaming infrastructure cost, accelerated pipeline development, improved fraud and production issue detection, and made real-time data easier for marketing, finance, and risk teams to consume.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "40% reduction in cost for data streaming infrastructure"
+  ],
+  "architecture_clues": [
+    "Confluent helped Kredivo move from AWS to GCP without redesigning the overall cloud strategy.",
+    "Streaming tables drive real-time alerts for fraud and payment anomalies.",
+    "The platform also powers marketing dashboards and campaign performance tracking."
+  ],
+  "source_url": "https://www.confluent.io/customers/kredivo/",
+  "published_date": "2024-09-20",
+  "evidence_quotes": [
+    "Being cloud agnostic, they were able to make the change from AWS to GCP, streaming all their databases into BigQuery through the sink connector.",
+    "Faster detection for fraud and production issues after using Confluent.",
+    "Confluent is speeding up processes, enabling faster development time, reduced maintenance and accelerated product delivery.",
+    "With Confluent, Kredivo has reduced their cost for data streaming infrastructure for its analytics and data warehouse use cases by 40%."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-getir-application-refactoring",
+  "slug": "confluent-getir-application-refactoring",
+  "customer_name": "Getir",
+  "industry": "Retail",
+  "region": "Turkey",
+  "company_size": "Enterprise",
+  "business_problem": "Getir needed to replace a distributed monolith, synchronous service calls, and stale ETL-fed machine learning data so rapid-commerce teams could scale checkout, discovery, and logistics without cascade failures.",
+  "solution_summary": "Getir rebuilt key commerce flows on Confluent Cloud to replace a tightly coupled distributed monolith with asynchronous event-driven microservices. Domain events now coordinate payments, inventory, notifications, and warehouse logistics without hard dependencies, which removes cascade failures during peak traffic. The platform also ingests real-time price and stock updates so discovery services can read localized, consistent data instead of making synchronous calls on every request. As the architecture matured, Getir adopted Confluent's Flink-based stream processing to filter events by warehouse, handle late events, deduplicate records, and route only relevant data to each operation. The same streaming backbone now feeds downstream AI and LLM models with fresher order, basket, and discovery events while freeing teams from cluster maintenance, connector glue, and other undifferentiated streaming operations.",
+  "products_used": [
+    "Confluent Cloud",
+    "Apache Flink"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Provides the centralized event backbone that coordinates order lifecycle, pricing, inventory, and logistics services."
+    },
+    {
+      "name": "Apache Flink",
+      "role": "Filters, deduplicates, and routes high-volume event streams so each operation only receives the data it needs.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Order, pricing, inventory, and basket events stream into Confluent Cloud, trigger downstream payments, notifications, and warehouse processes asynchronously, and are filtered and deduplicated with Flink before being consumed by discovery services and downstream AI or LLM models.",
+  "integration_points": [
+    "inventory services",
+    "pricing services",
+    "machine learning models",
+    "LLM models"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Getir delivered faster app experiences, lower database cost, fewer production incidents, and faster development cycles while giving more business units a reusable event-driven pattern for rapid-commerce systems.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "40 million people",
+    "approximately 60% faster",
+    "roughly 70%",
+    "approximately 60%",
+    "50%"
+  ],
+  "architecture_clues": [
+    "The Market Demand team decoupled order systems by replacing synchronous HTTP dependencies with domain events.",
+    "Discovery services read local, consistent inventory and pricing views instead of making remote calls on every request.",
+    "Flink handles topic-level filtering, late event handling, and deduplication across warehouse operations."
+  ],
+  "source_url": "https://www.confluent.io/customers/getir/",
+  "published_date": "2025-12-17",
+  "evidence_quotes": [
+    "We grew very fast, and that speed meant we built a distributed monolith, tight coupling, unclear ownership, and data that was not fresh.",
+    "Homepage, discovery, and checkout pages are now approximately 60% faster.",
+    "By eliminating batch ETL jobs against primary databases and reducing redundant processing, Getir cut database costs by roughly 70% within the first year.",
+    "Tech crisis incidents decreased by approximately 60% as the asynchronous architecture eliminated cascade failures during peak traffic."
+  ]
+}

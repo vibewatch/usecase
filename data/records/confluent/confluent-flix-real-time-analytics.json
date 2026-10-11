@@ -1,0 +1,93 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-flix-real-time-analytics",
+  "slug": "confluent-flix-real-time-analytics",
+  "customer_name": "Flix",
+  "industry": "Logistics",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Flix needed to stop spending engineering time on self-hosted Kafka so it could move travel data in real time, reduce latency into analytical stores, and accelerate product delivery for booking, fraud, and arrival use cases.",
+  "solution_summary": "Flix moved its travel data platform to Confluent Cloud on AWS to modernize a self-hosted Kafka estate that had become too expensive and operationally heavy for a fast-growing travel business. The migration was executed in phases with Cluster Linking so existing systems could stay live while teams gradually moved over without downtime. Once in place, the platform used Flink for stream processing and managed connectors to push real-time data into Snowflake and Amazon S3, reducing downstream latency from batch-style 8 to 12 hour windows to near real time. Those governed streams support fraud detection, seat availability, ticket booking, arrival predictions, and a growing data mesh used by more than 50 internal teams. The same backbone also feeds AI-driven pricing and capacity systems that evaluate hundreds of millions of seat combinations and help Flix expand into new geographies faster.",
+  "products_used": [
+    "Confluent Cloud",
+    "Cluster Linking",
+    "Flink",
+    "Snowflake",
+    "Amazon S3"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Runs Flix's managed streaming backbone for travel, fraud, and booking data."
+    },
+    {
+      "name": "Cluster Linking",
+      "role": "Connected existing Kafka systems to Confluent Cloud during the zero-downtime migration.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Flink",
+      "role": "Processes streams for governed, real-time travel and analytical use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Receives real-time data exports for analytical workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Acts as a downstream storage target for near-real-time streaming data.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational travel events stream into Confluent Cloud, Cluster Linking keeps migration paths live, Flink processes governed streams, and managed outputs deliver the resulting data into Snowflake and Amazon S3 where teams use it for fraud detection, seat availability, arrival predictions, and pricing workflows.",
+  "integration_points": [
+    "AWS",
+    "Snowflake"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Fraud Detection"
+  ],
+  "business_outcome": "Flix delivered features faster, cut service desk demand and Kafka operating cost, improved booking and travel experiences for passengers, and created a stronger base for self-service data products and global expansion.",
+  "outcome_category": [
+    "Speed to Market",
+    "Customer Experience",
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "4-6x faster",
+    "4-6 months down to just one month",
+    "60% of engineering time",
+    "80%",
+    "10-15% cost reduction",
+    "8-12 hours",
+    "542 million seat combinations daily",
+    "0.9 million rides per day",
+    "47 million seats each day",
+    "99.99% uptime SLA"
+  ],
+  "architecture_clues": [
+    "Cluster Linking enabled a phased zero-downtime migration from self-hosted Kafka.",
+    "Managed connectors stream data into Snowflake and Amazon S3 for a broader data mesh.",
+    "The platform underpins AI-driven pricing, seat availability, fraud detection, and arrival prediction use cases."
+  ],
+  "source_url": "https://www.confluent.io/customers/flix/",
+  "published_date": "2025-07-22",
+  "evidence_quotes": [
+    "Using Cluster Linking, they connected their existing systems to Confluent Cloud and created a phased plan to move teams over gradually with clear guidelines in place to support a smooth transition.",
+    "Reducing delays from 8-12 hours to near real time.",
+    "Flix now delivers new features four to six times faster - from 4-6 months down to just one month.",
+    "Our service desk requests have gone down by 80% since we moved to Confluent."
+  ]
+}
