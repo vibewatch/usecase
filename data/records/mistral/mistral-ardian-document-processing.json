@@ -1,0 +1,75 @@
+{
+  "id": "mistral-ardian-document-processing",
+  "slug": "mistral-ardian-document-processing",
+  "vendor": "Mistral",
+  "customer_name": "Ardian",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Ardian needed to analyze large volumes of confidential due diligence material faster, but its teams were overwhelmed by scattered internal documents, NDA constraints, and traditional machine-learning approaches that did not handle unstructured text well enough for deal work.",
+  "solution_summary": "Ardian built GAIA as an internal generative AI platform to help investment teams work through due diligence material faster without relaxing confidentiality controls. Teams manually upload market reports, investment memoranda, legal files, and other internal documents into the platform, which then lets users query them in natural language, summarize them, and collaborate through persistent folders. GAIA was developed with Artefact and uses a model-agnostic stack so Ardian can select among models for different tasks; Mistral models are highlighted for French-language documents and summarization. The architecture pairs document interaction and optional web search with strict security and data governance, plus manual upload steps that preserve oversight for NDA-bound information. That combination turned unstructured-text analysis into a production workflow for investment professionals and created a foundation for broader reasoning-based risk analysis across private-equity deal reviews.",
+  "products_used": [
+    "GAIA",
+    "Mistral models"
+  ],
+  "solution_components": [
+    {
+      "name": "GAIA",
+      "role": "Provides Ardian's internal platform for document upload, collaboration, and natural-language analysis.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Mistral models",
+      "role": "Handle summarization and document analysis tasks, especially for French-language materials.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Users manually upload internal due diligence files, market reports, and investment memoranda into GAIA; the platform routes natural-language queries and summarization tasks to selected models including Mistral, combines those answers with optional web search and shared folders, and returns first-pass analysis to investment teams under governed access controls.",
+  "integration_points": [
+    "market reports",
+    "due diligence reports",
+    "investment memoranda",
+    "legal filings",
+    "web search",
+    "team collaboration folders"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Ardian launched GAIA into full production within one year, exceeded adoption expectations with more than 500 weekly active users, processed over 18,000 documents and more than 280,000 requests, and gave teams clearer information for faster and more thorough deal analysis.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2X increase in weekly active users",
+    "2X growth in documents processed",
+    "200K+ AI-powered queries generated",
+    "over 500 weekly active users",
+    "18,000+ documents since inception",
+    "more than 280,000 user requests"
+  ],
+  "architecture_clues": [
+    "GAIA is model-agnostic rather than tied to a single vendor model.",
+    "Mistral models are called out as especially efficient for French documents and summarization tasks.",
+    "Manual document uploads are kept as an extra layer of human oversight."
+  ],
+  "source_url": "https://mistral.ai/customers/ardian/",
+  "published_date": "2025-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Ardian partnered with Artefact and Mistral to develop GAIA, an internal Generative AI platform\"",
+    "\"We needed model flexibility-so we added Mistral models, which turned out to be very efficient, especially with French documents and summarization tasks\"",
+    "\"The technical architecture prioritizes security and compliance, with manual document uploads providing an additional layer of human oversight\"",
+    "\"The platform has processed 18,000+ documents since inception and generated more than 280,000 user requests\"",
+    "\"It allows extra room for higher value-added tasks\""
+  ]
+}

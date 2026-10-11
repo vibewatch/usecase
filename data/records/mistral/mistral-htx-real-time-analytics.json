@@ -1,0 +1,83 @@
+{
+  "id": "mistral-htx-real-time-analytics",
+  "slug": "mistral-htx-real-time-analytics",
+  "vendor": "Mistral",
+  "customer_name": "HTX",
+  "industry": "Public Sector",
+  "region": "Singapore",
+  "company_size": "Public sector",
+  "business_problem": "HTX needed AI that understood Singapore's public-safety context, could be trained on sensitive data inside a secure environment, and would remain under government control rather than depending on generic off-the-shelf models or externally hosted services.",
+  "solution_summary": "HTX partnered with Mistral to build a sovereign public-safety AI stack instead of buying a hosted AI service. Mistral supplied the training and operational tooling-AI Forge for proprietary-data model training and AI Studio for operationalizing models-while HTX combined that with its NGINE infrastructure, product teams, and in-house engineers. The result is a locally controlled ecosystem that trains and deploys Phoenix family models, including the 123B-parameter Phoenix-VL 1.5 Medium, on HTX-owned infrastructure for Singapore-specific public-safety use cases. Proprietary data and evaluation frameworks stay inside an air-gapped environment with no web search, so domain knowledge has to be embedded into model weights before deployment. Those models are then used for mission workflows such as summarizing incident intelligence, classifying documents, providing chatbot assistance, and supporting cybersecurity response, creating a repeatable pipeline from frontier R&D to operational products.",
+  "products_used": [
+    "NGINE",
+    "AI Forge",
+    "AI Studio",
+    "Phoenix-VL 1.5 Medium"
+  ],
+  "solution_components": [
+    {
+      "name": "NGINE",
+      "role": "Hosts HTX's enterprise-grade on-prem AI infrastructure for deployed public-safety models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Forge",
+      "role": "Trains custom models on HTX's proprietary data inside the sovereign environment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Studio",
+      "role": "Operationalizes foundation models and standardizes how HTX evaluates and ships AI products.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Phoenix-VL 1.5 Medium",
+      "role": "Provides the multimodal, multilingual model capability used for Singapore-context public-safety tasks.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "HTX trains Singapore-context models on proprietary data in AI Forge, operationalizes them through AI Studio, deploys them on NGINE, and then uses those models to ingest incident reports, social media, sensor feeds, and documents for decision support, chatbot assistance, and workflow automation.",
+  "integration_points": [
+    "Police",
+    "Prisons",
+    "Immigration Checkpoints Authority",
+    "incident reports",
+    "social media",
+    "sensor feeds"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Document Processing",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "The partnership accelerated HTX's development of locally controlled AI, enhanced productivity for public-safety officers, delivered top-tier benchmark performance for Phoenix models on HTX infrastructure, and created a reusable platform that is already extending into robotics, video analytics, fire safety, and cybersecurity.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "123B-parameter natively multimodal and multilingual foundation model"
+  ],
+  "architecture_clues": [
+    "HTX deploys the models on air-gapped infrastructure with no access to web search.",
+    "Phoenix Small and Medium models are pre-trained on Mistral AI foundations and refined on HTX proprietary data.",
+    "The collaboration is expanding into robotics, video analytics, fire safety systems, and cybersecurity."
+  ],
+  "source_url": "https://mistral.ai/customers/htx/",
+  "published_date": "2026-05-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"It needed to deploy those models on air gapped infrastructure with no access to web search\"",
+    "\"AI Forge for model training on proprietary data, and AI Studio for AI operationalization and foundational models\"",
+    "\"Phoenix-VL 1.5 Medium, a 123B-parameter natively multimodal and multilingual foundation model for Singapore context\"",
+    "\"Intelligent decision support lets officers ingest and summarize real-time intelligence, such as incident reports, social media, and sensor feeds\"",
+    "\"Automated workflows handle document classification and chatbot assistance, cutting administrative load and returning time to frontline staff.\""
+  ]
+}

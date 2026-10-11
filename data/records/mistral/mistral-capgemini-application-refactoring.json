@@ -1,0 +1,69 @@
+{
+  "id": "mistral-capgemini-application-refactoring",
+  "slug": "mistral-capgemini-application-refactoring",
+  "vendor": "Mistral",
+  "customer_name": "Capgemini",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Capgemini needed a coding assistant that developers on regulated client projects would actually adopt, but public-cloud AI services conflicted with sovereignty rules and earlier open-source assistants were too inaccurate for daily use across modern and legacy codebases.",
+  "solution_summary": "Capgemini built RAISE for Private Software Engineering, also known internally as SovBox, as a self-hosted software engineering assistant for regulated client work in aerospace, defense, and the public sector. The deployment kept existing IDE and CI/CD integrations in place while replacing the underlying model with Mistral's Codestral, so teams did not need to re-platform their development environments. Developers use the assistant for code completion and chatbot-style help across modern stacks and legacy languages such as ADA, C, and C++, with deployment methodology and coaching wrapped around the rollout to improve adoption. By keeping the service private and sovereignty-compliant, Capgemini could support projects that could not use public-cloud AI while still improving coding accuracy, workflow continuity, and delivery speed.",
+  "products_used": [
+    "RAISE for Private Software Engineering",
+    "Codestral"
+  ],
+  "solution_components": [
+    {
+      "name": "RAISE for Private Software Engineering",
+      "role": "Provides Capgemini's internal private software engineering assistant for regulated client projects.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Codestral",
+      "role": "Supplies the code-completion and chat model Capgemini runs inside the assistant.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Developers invoke the private assistant from existing IDE and CI/CD workflows, the self-hosted platform routes coding and chat requests to Codestral, and the responses return inside the same tools without moving regulated client code into a public-cloud service.",
+  "integration_points": [
+    "IDE workflows",
+    "CI/CD integrations",
+    "regulated client development environments",
+    "legacy application codebases in ADA, C, and C++"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Capgemini raised developer adoption from 30 percent to 100 percent, improved code-completion accuracy from about 50 percent to 90 percent, and delivered productivity improvements across more than 50 client projects while meeting sovereignty requirements for regulated sectors.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "100% developer adoption rate across all client projects",
+    "90% code completion accuracy vs. 50% with previous solutions",
+    "50+ client projects reporting productivity improvements in less than 6 months"
+  ],
+  "architecture_clues": [
+    "The switch to Codestral required no changes to the existing infrastructure.",
+    "The assistant supports legacy languages including ADA, C, and C++ for applications dating back to the 1980s.",
+    "Capgemini says it is expanding to Codestral Embed and Devstral for RAG and CI/CD use cases."
+  ],
+  "source_url": "https://mistral.ai/customers/capgemini/",
+  "published_date": "2025-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"While generative AI's power is typically delivered through cloud-based solutions, these would not comply with all contexts in terms of sovereignty requirements.\"",
+    "\"Capgemini's transformation came when they transitioned from their previous open-source LLM to Mistral's Codestral in their self-hosted coding assistant solution.\"",
+    "\"The switch required no changes to their existing infrastructure-they simply replaced the underlying model while maintaining other IDE and CI/CD integrations.\"",
+    "\"Accuracy jumped from 50% to 90%\"",
+    "\"Developer adoption jumped from 30% to 100%, with all approximately 50 client projects reporting productivity savings.\""
+  ]
+}

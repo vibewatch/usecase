@@ -1,0 +1,88 @@
+{
+  "id": "mistral-sap-customer-service-automation",
+  "slug": "mistral-sap-customer-service-automation",
+  "vendor": "Mistral",
+  "customer_name": "SAP",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "SAP needed to reduce repetitive support demand, break down knowledge silos, and automate business processes for regulated, multilingual customers without sacrificing European data localization or trust in AI-generated answers.",
+  "solution_summary": "SAP built a reusable enterprise AI framework on top of Mistral Large to support multilingual knowledge work and agentic business processes while keeping data hosted on SAP operated infrastructure in Europe. In the first deployment at Swiss Federal Railways, the team implemented a chatbot that uses retrieval-augmented generation to pull answers from FAQs, training materials, recordings, and screenshots, then applies glossary-based query rewriting so abbreviations such as \"SO\" are expanded before retrieval. When the bot cannot answer, human-in-the-loop escalation captures expert responses and feeds them back into the knowledge base. The service is surfaced inside SAP Build Work Zone and Microsoft Teams, and the same hosted framework is being extended to autonomous agents such as SAP's Accounting Accruals agent that reads SAP system data and policy documents to prepare draft journal entries.",
+  "products_used": [
+    "Mistral Large",
+    "SAP operated infrastructure",
+    "SAP Build Work Zone",
+    "Microsoft Teams"
+  ],
+  "solution_components": [
+    {
+      "name": "Mistral Large",
+      "role": "Provides the multilingual language understanding and response generation layer for SAP's chatbot and agent workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "SAP operated infrastructure",
+      "role": "Hosts the models locally so SAP can keep data residency and sovereignty controls in place.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SAP Build Work Zone",
+      "role": "Embeds the support assistant into employees' existing portal workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Teams",
+      "role": "Provides a collaboration entry point for the multilingual support experience.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "FAQs, training materials, recordings, and screenshots feed a RAG knowledge base; employee questions arrive through SAP Build Work Zone or Microsoft Teams, glossary rewriting expands domain abbreviations before Mistral Large retrieves and answers, and unresolved cases are escalated to experts whose responses are written back into the knowledge base.",
+  "integration_points": [
+    "FAQs",
+    "training materials",
+    "recordings",
+    "screenshots",
+    "SAP systems",
+    "accounting policy documents",
+    "SAP Build Work Zone",
+    "Microsoft Teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "SAP's Mistral-powered framework cut repetitive support demand at SBB, scaled from a 1,000-user pilot to 30,000 employees, continuously expanded its knowledge base through expert feedback, and established a reusable path toward autonomous finance and procurement workflows for regulated industries.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "100% European, locally hosted AI, maintained in SAP-operated infrastructure.",
+    "80% reduction in repetitive support queries.",
+    "Multilingual: several languages supported natively including German, French, and Italian.",
+    "From 1,000 pilot users expanding to 30,000 employees"
+  ],
+  "architecture_clues": [
+    "Glossary-based query rewriting expands abbreviations such as SO to sales order before retrieval.",
+    "Human-in-the-loop escalation captures expert answers and adds them back to the knowledge base.",
+    "The Accounting Accruals agent reads SAP systems and accounting policy documents to prepare draft journal entries."
+  ],
+  "source_url": "https://mistral.ai/customers/sap/",
+  "published_date": "2025-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"80% reduction in repetitive support queries.\"",
+    "\"The chatbot employs sophisticated retrieval-augmented generation (RAG) to draw from multiple knowledge sources including FAQs, training materials, and unstructured content like recordings and screenshots.\"",
+    "\"The solution integrates directly into employees' existing workflows through SAP's Build Work Zone portal and Microsoft Teams\"",
+    "\"when the AI cannot resolve a query, expert responses are automatically captured and added to the knowledge base\"",
+    "\"The AI reads data from SAP systems and interprets accounting policy documents using Mistral's language understanding capabilities.\""
+  ]
+}
