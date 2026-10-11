@@ -1,410 +1,783 @@
 ---
+import BarList from "../components/BarList.astro";
+import CaseCard from "../components/CaseCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
-  averageConfidence,
   buildMatrix,
+  countValues,
   flattenValues,
   formatDate,
-  formatPercent,
-  isParseableDate,
-  maturityDistribution,
+  headlineMetric,
+  sortByRecency,
   topValues,
   uniqueSorted,
 } from "../lib/analytics";
 import { caseStudies } from "../lib/caseStudies";
+import { caseHref, href } from "../lib/paths";
+import type { CardRecord, WeekGroup } from "../lib/weeks";
+import { groupByWeek, toCardRecord, UNDATED_WEEK, weekShortLabel } from "../lib/weeks";
+import { vendorStyle } from "../lib/vendors";
+
+// Insights describe the real market signal; synthetic seed rows only count
+// when nothing has been extracted yet.
+const realRecords = caseStudies.filter((record) => !record.is_sample);
+const signal = realRecords.length > 0 ? realRecords : caseStudies;
+const sampleCount = caseStudies.length - realRecords.length;
 
 const vendors = uniqueSorted(caseStudies.map((record) => record.vendor));
 const industries = uniqueSorted(caseStudies.map((record) => record.industry));
 const technicalAreas = uniqueSorted(flattenValues(caseStudies, (record) => record.technical_area));
 const useCases = uniqueSorted(flattenValues(caseStudies, (record) => record.use_case_category));
-const topUseCases = topValues(flattenValues(caseStudies, (record) => record.use_case_category), 8);
-const topProducts = topValues(flattenValues(caseStudies, (record) => record.products_used), 8);
-const outcomeMix = topValues(flattenValues(caseStudies, (record) => record.outcome_category), 8);
-const maturityMix = maturityDistribution(caseStudies);
-const industryMatrix = buildMatrix(
-  caseStudies,
-  industries,
-  useCases.slice(0, 8),
+
+const vendorCounts = countValues(signal.map((record) => record.vendor));
+const industryCounts = countValues(signal.map((record) => record.industry));
+const topUseCases = topValues(flattenValues(signal, (record) => record.use_case_category), 8);
+const topProducts = topValues(flattenValues(signal, (record) => record.products_used), 8);
+const topOutcomes = topValues(flattenValues(signal, (record) => record.outcome_category), 8);
+
+// Weekly partitions: render up to INITIAL_RECORDS cards inline (newest weeks
+// first) and lazy-load the rest from per-week shards. A week cut part-way is
+// rendered partially; its shard fills in the remainder (`skip`).
+const INITIAL_RECORDS = 24;
+const groups = groupByWeek(caseStudies);
+const initialGroups: WeekGroup[] = [];
+const deferredWeeks: Array<{ week: string; label: string; count: number; skip: number; url: string }> = [];
+let initialCount = 0;
+for (const group of groups) {
+  const budget = INITIAL_RECORDS - initialCount;
+  const url = href(`/data/weeks/${group.week}.json`);
+  if (budget <= 0) {
+    deferredWeeks.push({ week: group.week, label: group.label, count: group.records.length, skip: 0, url });
+    continue;
+  }
+  const shown = group.records.slice(0, budget);
+  initialGroups.push({ ...group, records: shown });
+  initialCount += shown.length;
+  if (shown.length < group.records.length) {
+    deferredWeeks.push({
+      week: group.week,
+      label: group.label,
+      count: group.records.length - shown.length,
+      skip: shown.length,
+      url,
+    });
+  }
+}
+const weekTotals = new Map(groups.map((group) => [group.week, group.records.length]));
+const datedGroups = groups.filter((group) => group.week !== UNDATED_WEEK);
+const latestWeek = datedGroups[0];
+const lastCollected = caseStudies
+  .map((record) => record.collected_at ?? "")
+  .filter(Boolean)
+  .sort()
+  .at(-1);
+
+// Collection cadence: real records per week, oldest → newest, last 12 weeks.
+const cadence = datedGroups
+  .slice(0, 12)
+  .reverse()
+  .map((group) => ({
+    week: group.week,
+    label: weekShortLabel(group.week),
+    count: group.records.filter((record) => !record.is_sample).length,
+  }));
+const cadenceMax = cadence.reduce((highest, entry) => Math.max(highest, entry.count), 1);
+
+// Industry × use-case heatmap over the top use cases (sequential blue ramp).
+const heatColumns = topUseCases.map((entry) => entry.label);
+const heatRows = buildMatrix(
+  signal,
+  industryCounts.map((entry) => entry.label),
+  heatColumns,
   (record) => [record.industry],
   (record) => record.use_case_category,
+).filter((row) => row.total > 0);
+const heatMax = heatRows.reduce(
+  (highest, row) => Math.max(highest, ...row.cells.map((cell) => cell.count)),
+  1,
 );
-const vendorMatrix = buildMatrix(
-  caseStudies,
-  vendors,
-  useCases.slice(0, 8),
-  (record) => [record.vendor],
-  (record) => record.use_case_category,
-);
-const maxUseCaseCount = topUseCases.reduce((max, entry) => Math.max(max, entry.count), 1);
-const maxProductCount = topProducts.reduce((max, entry) => Math.max(max, entry.count), 1);
-const latestUpdate = caseStudies
-  .map((record) => record.published_date)
-  .filter(isParseableDate)
-  .sort((left, right) => right.localeCompare(left))[0];
-const avgConfidence = averageConfidence(caseStudies);
+const HEAT_RAMP = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95"];
+function heatStep(count: number): number {
+  if (count <= 0) return -1;
+  if (heatMax <= 1) return 0;
+  return Math.round(((count - 1) / (heatMax - 1)) * (HEAT_RAMP.length - 1));
+}
+
+const latestStories = sortByRecency(realRecords.length > 0 ? realRecords : caseStudies).slice(0, 4);
+const quickUseCases = topUseCases.slice(0, 5);
+
+const BLANK_CARD: CardRecord = {
+  slug: "",
+  url: "#",
+  vendor: "",
+  vendorMark: "",
+  vendorColor: "#64748b",
+  customer: "",
+  industry: "",
+  region: "",
+  useCases: [],
+  areas: [],
+  products: [],
+  problem: "",
+  metric: "",
+  published: "",
+  maturity: 0,
+  sample: false,
+  week: "",
+  search: "",
+};
+
+const pipelineSteps = [
+  { title: "Discover", text: "Walk vendor sitemaps and story indexes for new customer-story URLs, newest first." },
+  { title: "Fetch", text: "Mirror each page with per-host strategies, retries and reader/archive fallbacks." },
+  { title: "Extract", text: "An agent turns each page into a strict record: problem, architecture, products, outcomes, evidence." },
+  { title: "Publish", text: "Records are partitioned by collection week, committed to GitHub and deployed to this site." },
+];
 ---
 
-<BaseLayout title="Use Case Intelligence">
+<BaseLayout title="Use Case Intelligence — real-world cloud & AI customer stories">
   <main>
-    <section class="hero-band">
-      <div class="container hero-band__inner">
-        <span class="badge badge--yellow">Customer Use Case Intelligence</span>
-        <h1 class="hero-display">Vendor case studies, normalized into market signals.</h1>
-        <p class="hero-subtitle">
-          Track where vendors show repeatable customer value across industries, technologies, products, and outcomes — all in one structured dataset.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn--primary" href="#records">Browse the dataset</a>
-          <a class="btn btn--secondary" href="#matrix">See the coverage matrix</a>
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="pill pill--live"><span class="pill__dot" aria-hidden="true"></span>Live · refreshed daily from {vendors.length} vendors</span>
+          <h1 class="hero__title">
+            Real-world cloud &amp; AI use cases, <span class="text-gradient">decoded.</span>
+          </h1>
+          <p class="hero__lead">
+            Customer stories from {vendors.slice(0, 5).join(", ")} and more — collected every day and normalized
+            into problems, architectures, products and measurable outcomes you can compare side by side.
+          </p>
+
+          <form class="hero-search" action={href("/")} method="get" role="search" data-hero-search>
+            <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8.5 3a5.5 5.5 0 014.38 8.83l3.65 3.64a.75.75 0 01-1.06 1.06l-3.64-3.65A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg>
+            <label class="sr-only" for="hero-q">Search use cases</label>
+            <input id="hero-q" name="q" type="search" placeholder="Search customers, products, problems…" autocomplete="off" />
+            <button class="btn btn--primary" type="submit">Search</button>
+          </form>
+
+          <div class="hero__quick">
+            <span>Popular:</span>
+            {quickUseCases.map((entry) => (
+              <a class="chip chip--glass" href={`?usecase=${encodeURIComponent(entry.label)}#explore`} data-apply-filter="usecase" data-filter-value={entry.label}>{entry.label}</a>
+            ))}
+          </div>
         </div>
 
-        <div class="stat-row" id="sample">
-          <div class="stat">
-            <span class="stat__value">{caseStudies.length}</span>
-            <span class="stat__label">Records</span>
-            <span class="stat__caption">Normalized case studies in the dataset</span>
+        <aside class="latest-panel" aria-label="Latest stories">
+          <div class="latest-panel__head">
+            <span>Latest arrivals</span>
+            {lastCollected && <span class="latest-panel__stamp">Updated {formatDate(lastCollected.slice(0, 10))}</span>}
           </div>
-          <div class="stat">
-            <span class="stat__value">{vendors.length}</span>
-            <span class="stat__label">Vendors</span>
-            <span class="stat__caption">Tracked providers</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">{formatPercent(avgConfidence)}</span>
-            <span class="stat__label">Avg. confidence</span>
-            <span class="stat__caption">Field completeness across rows</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">{latestUpdate ? formatDate(latestUpdate) : "n/a"}</span>
-            <span class="stat__label">Latest story</span>
-            <span class="stat__caption">Most recent publication date</span>
-          </div>
-        </div>
+          <ul class="latest-list">
+            {latestStories.map((record) => {
+              const style = vendorStyle(record.vendor);
+              return (
+                <li>
+                  <a class="latest-item" href={caseHref(record.slug)}>
+                    <span class="vendor-tag__mark vendor-tag__mark--lg" style={`--vendor: ${style.color}`}>{style.mark}</span>
+                    <span class="latest-item__body">
+                      <span class="latest-item__title">{record.customer_name}</span>
+                      <span class="latest-item__meta">{record.vendor} · {record.use_case_category[0] ?? record.industry}</span>
+                      {headlineMetric(record) && <span class="latest-item__metric">{headlineMetric(record)}</span>}
+                    </span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </aside>
       </div>
-    </section>
 
-    <section class="section section--tight">
       <div class="container">
-        <div class="section__head">
-          <div>
-            <p class="eyebrow">Highlights</p>
-            <h2 class="section__title">What this dataset already shows.</h2>
+        <dl class="kpi-row">
+          <div class="kpi">
+            <dt>Customer stories</dt>
+            <dd>{realRecords.length || caseStudies.length}</dd>
           </div>
-          <p class="section__subtitle">Four pastel snapshots — top use cases, products, outcomes, and maturity — from the current dataset.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card feature-card--yellow">
-            <span class="feature-card__label">Top use case</span>
-            <strong class="feature-card__value">{topUseCases[0]?.label ?? "—"}</strong>
-            <span class="feature-card__caption">Cited in {topUseCases[0]?.count ?? 0} records.</span>
-          </article>
-          <article class="feature-card feature-card--coral">
-            <span class="feature-card__label">Most cited product</span>
-            <strong class="feature-card__value">{topProducts[0]?.label ?? "—"}</strong>
-            <span class="feature-card__caption">{topProducts[0]?.count ?? 0} appearances across the dataset.</span>
-          </article>
-          <article class="feature-card feature-card--teal">
-            <span class="feature-card__label">Outcome leader</span>
-            <strong class="feature-card__value">{outcomeMix[0]?.label ?? "—"}</strong>
-            <span class="feature-card__caption">{outcomeMix[0]?.count ?? 0} customer wins claim this outcome.</span>
-          </article>
-          <article class="feature-card feature-card--rose">
-            <span class="feature-card__label">Maturity lean</span>
-            <strong class="feature-card__value">{maturityMix[0]?.label ?? "—"}</strong>
-            <span class="feature-card__caption">{maturityMix[0] ? formatPercent(maturityMix[0].share) : "0%"} of stories sit at this stage.</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section__head">
-          <div>
-            <p class="eyebrow">Hotspots</p>
-            <h2 class="section__title">Top use case categories</h2>
+          <div class="kpi">
+            <dt>Vendors tracked</dt>
+            <dd>{vendors.length}</dd>
           </div>
-          <p class="section__subtitle">Where vendors are publishing the most repeatable customer wins.</p>
-        </div>
-        <div class="feature-grid" style="grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);">
-          <article class="surface-card">
-            <div class="surface-card__head">
-              <h3 class="surface-card__title">Frequency by use case</h3>
-              <span class="badge badge--neutral">{topUseCases.length} categories</span>
-            </div>
-            <div class="bar-list">
-              {topUseCases.map((entry) => (
-                <div class="bar-row">
-                  <div class="bar-row__label">
-                    <span>{entry.label}</span>
-                    <span class="bar-row__count">{entry.count}</span>
-                  </div>
-                  <div class="bar-track" aria-hidden="true">
-                    <span class="bar-track__fill" style={`width: ${(entry.count / maxUseCaseCount) * 100}%`}></span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article class="surface-card">
-            <div class="surface-card__head">
-              <h3 class="surface-card__title">Most cited products</h3>
-              <span class="badge badge--purple">Ranked</span>
-            </div>
-            <div class="rank-list">
-              {topProducts.map((entry, index) => (
-                <div class="rank-row">
-                  <span class="rank-row__index">{String(index + 1).padStart(2, "0")}</span>
-                  <div class="rank-row__body">
-                    <span class="rank-row__label">{entry.label}</span>
-                    <div class="bar-track" aria-hidden="true">
-                      <span class="bar-track__fill" style={`width: ${(entry.count / maxProductCount) * 100}%`}></span>
-                    </div>
-                  </div>
-                  <em class="rank-row__count">{entry.count}</em>
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section__head">
-          <div>
-            <p class="eyebrow">Texture</p>
-            <h2 class="section__title">Outcomes &amp; solution maturity</h2>
+          <div class="kpi">
+            <dt>Industries</dt>
+            <dd>{industries.length}</dd>
           </div>
-          <p class="section__subtitle">How vendors talk about value, and how mature the deployments actually are.</p>
-        </div>
-        <div class="feature-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
-          <article class="surface-card">
-            <div class="surface-card__head">
-              <h3 class="surface-card__title">Business value mix</h3>
-              <span class="badge badge--coral">Outcomes</span>
-            </div>
-            <div class="chip-cloud">
-              {outcomeMix.map((entry) => (
-                <span class="chip">{entry.label}<span class="chip__count">·{entry.count}</span></span>
-              ))}
-            </div>
-          </article>
+          <div class="kpi">
+            <dt>In latest weekly batch</dt>
+            <dd>{latestWeek ? latestWeek.records.length : 0}</dd>
+          </div>
+          <div class="kpi">
+            <dt>Weekly archives</dt>
+            <dd>{datedGroups.length}</dd>
+          </div>
+        </dl>
 
-          <article class="surface-card">
-            <div class="surface-card__head">
-              <h3 class="surface-card__title">Solution maturity</h3>
-              <span class="badge badge--teal">Quality</span>
-            </div>
-            <div class="maturity-stack">
-              {maturityMix.map((entry) => (
-                <div class="maturity-row">
+        <ul class="vendor-strip" aria-label="Stories per vendor">
+          {vendorCounts.map((entry) => {
+            const style = vendorStyle(entry.label);
+            return (
+              <li>
+                <a class="vendor-strip__item" href={`?vendor=${encodeURIComponent(entry.label)}#explore`} data-apply-filter="vendor" data-filter-value={entry.label}>
+                  <span class="vendor-tag__mark" style={`--vendor: ${style.color}`}>{style.mark}</span>
                   <span>{entry.label}</span>
-                  <strong class="maturity-row__share">{formatPercent(entry.share)}</strong>
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
+                  <span class="vendor-strip__count">{entry.count}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
 
-    <section class="section" id="matrix">
+    <section class="section" id="explore">
       <div class="container">
         <div class="section__head">
           <div>
-            <p class="eyebrow">Coverage</p>
-            <h2 class="section__title">Where each vendor and industry shows up.</h2>
+            <p class="eyebrow">Explorer</p>
+            <h2 class="section__title">Browse use cases, week by week</h2>
           </div>
-          <p class="section__subtitle">Two cross-tabs over the top eight use cases. Yellow cells mark live coverage.</p>
+          <p class="section__subtitle">
+            Newest collections first. Older weeks load on demand from per-week data shards, so the page stays fast as the archive grows.
+          </p>
         </div>
 
-        <div class="feature-grid" style="grid-template-columns: 1fr; gap: var(--space-xl);">
-          <article class="surface-card">
-            <div class="surface-card__head">
-              <h3 class="surface-card__title">Industry × use case</h3>
-              <span class="badge badge--neutral">{industries.length} industries</span>
-            </div>
-            <div class="matrix-scroll">
-              <table class="matrix-table">
-                <thead>
-                  <tr>
-                    <th>Industry</th>
-                    {useCases.slice(0, 8).map((useCase) => <th>{useCase}</th>)}
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {industryMatrix.map((row) => (
-                    <tr>
-                      <th>{row.label}</th>
-                      {row.cells.map((cell) => <td class={cell.count > 0 ? "is-active" : ""}>{cell.count || ""}</td>)}
-                      <td>{row.total}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </article>
-
-          <article class="surface-card">
-            <div class="surface-card__head">
-              <h3 class="surface-card__title">Vendor × use case</h3>
-              <span class="badge badge--neutral">{vendors.length} vendors</span>
-            </div>
-            <div class="matrix-scroll">
-              <table class="matrix-table">
-                <thead>
-                  <tr>
-                    <th>Vendor</th>
-                    {useCases.slice(0, 8).map((useCase) => <th>{useCase}</th>)}
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {vendorMatrix.map((row) => (
-                    <tr>
-                      <th>{row.label}</th>
-                      {row.cells.map((cell) => <td class={cell.count > 0 ? "is-active" : ""}>{cell.count || ""}</td>)}
-                      <td>{row.total}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </article>
+        <div class="toolbar" role="group" aria-label="Filters">
+          <div class="toolbar__search">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8.5 3a5.5 5.5 0 014.38 8.83l3.65 3.64a.75.75 0 01-1.06 1.06l-3.64-3.65A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg>
+            <label class="sr-only" for="explore-q">Search</label>
+            <input id="explore-q" type="search" placeholder="Search customer, product, problem…" data-filter="q" autocomplete="off" />
+          </div>
+          <label class="select">
+            <span class="sr-only">Vendor</span>
+            <select data-filter="vendor">
+              <option value="">All vendors</option>
+              {vendors.map((vendor) => <option value={vendor}>{vendor}</option>)}
+            </select>
+          </label>
+          <label class="select">
+            <span class="sr-only">Industry</span>
+            <select data-filter="industry">
+              <option value="">All industries</option>
+              {industries.map((industry) => <option value={industry}>{industry}</option>)}
+            </select>
+          </label>
+          <label class="select">
+            <span class="sr-only">Use case</span>
+            <select data-filter="usecase">
+              <option value="">All use cases</option>
+              {useCases.map((useCase) => <option value={useCase}>{useCase}</option>)}
+            </select>
+          </label>
+          <label class="select">
+            <span class="sr-only">Technical area</span>
+            <select data-filter="area">
+              <option value="">All tech areas</option>
+              {technicalAreas.map((area) => <option value={area}>{area}</option>)}
+            </select>
+          </label>
+          <label class="select">
+            <span class="sr-only">Collection week</span>
+            <select data-filter="week">
+              <option value="">All weeks</option>
+              {groups.map((group) => <option value={group.week}>{group.week === UNDATED_WEEK ? "Reference set" : `Week of ${weekShortLabel(group.week)}`}</option>)}
+            </select>
+          </label>
         </div>
+
+        <div class="results-bar">
+          <p class="results-bar__count" aria-live="polite">
+            <strong data-visible-count>{initialCount}</strong> <span data-count-suffix>of {caseStudies.length} use cases shown</span>
+          </p>
+          <button class="btn btn--ghost btn--small" type="button" data-clear-filters hidden>Clear filters</button>
+        </div>
+
+        <div class="week-stack" data-week-stack>
+          {initialGroups.map((group) => (
+            <section class="week-group" data-week-group data-week={group.week}>
+              <header class="week-group__head">
+                <h3>{group.week === UNDATED_WEEK ? "Reference set" : `Week of ${group.label}`}</h3>
+                <span class="week-group__count">{weekTotals.get(group.week)} {weekTotals.get(group.week) === 1 ? "use case" : "use cases"}</span>
+              </header>
+              <div class="card-grid">
+                {group.records.map((record) => <CaseCard card={toCardRecord(record)} />)}
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <div class="empty-state" data-empty-state hidden>
+          <strong>No use cases match these filters.</strong>
+          <span>Try a broader search or clear the filters.</span>
+        </div>
+
+        <div class="load-more">
+          <button class="btn btn--secondary" type="button" data-load-more hidden={deferredWeeks.length === 0}>
+            Load earlier weeks
+          </button>
+          <p class="load-more__status" data-load-status aria-live="polite">
+            {deferredWeeks.length > 0
+              ? `${deferredWeeks.reduce((sum, week) => sum + week.count, 0)} more use cases in ${deferredWeeks.length} earlier ${deferredWeeks.length === 1 ? "week" : "weeks"}`
+              : "You're viewing the full archive."}
+          </p>
+        </div>
+        {sampleCount > 0 && (
+          <p class="footnote">{sampleCount} synthetic sample {sampleCount === 1 ? "record is" : "records are"} kept in the reference set for development and marked “Sample”. They are excluded from insights.</p>
+        )}
+
+        <template data-card-template><CaseCard card={BLANK_CARD} /></template>
+        <script is:inline type="application/json" data-deferred-weeks set:html={JSON.stringify(deferredWeeks).replace(/</g, "\\u003c")}></script>
       </div>
     </section>
 
-    <section class="section" id="records">
+    <section class="section section--tinted" id="insights">
       <div class="container">
         <div class="section__head">
           <div>
-            <p class="eyebrow">Records</p>
-            <h2 class="section__title">Case study browser</h2>
+            <p class="eyebrow">Insights</p>
+            <h2 class="section__title">Where vendors prove customer value</h2>
           </div>
-          <span class="record-count"><span data-visible-count>{caseStudies.length}</span> visible</span>
+          <p class="section__subtitle">
+            Aggregated across {signal.length} extracted stories. Click any bar to filter the explorer.
+          </p>
         </div>
 
-        <article class="surface-card">
-          <div class="filters" aria-label="Record filters">
-            <input class="filter-search" data-search type="search" placeholder="Search customer, product, problem…" />
-            <label class="filter-control">
-              <span class="filter-control__label">Vendor</span>
-              <select data-vendor>
-                <option value="">All</option>
-                {vendors.map((vendor) => <option value={vendor}>{vendor}</option>)}
-              </select>
-            </label>
-            <label class="filter-control">
-              <span class="filter-control__label">Industry</span>
-              <select data-industry>
-                <option value="">All</option>
-                {industries.map((industry) => <option value={industry}>{industry}</option>)}
-              </select>
-            </label>
-            <label class="filter-control">
-              <span class="filter-control__label">Tech area</span>
-              <select data-area>
-                <option value="">All</option>
-                {technicalAreas.map((area) => <option value={area}>{area}</option>)}
-              </select>
-            </label>
-          </div>
+        <div class="insight-grid">
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Top use-case categories</h3>
+              <span class="panel__meta">stories per category</span>
+            </header>
+            <BarList items={topUseCases} noun="stories" filterKey="usecase" />
+          </article>
 
-          <div class="record-table-wrap">
-            <table class="record-table">
-              <thead>
-                <tr>
-                  <th>Customer</th>
-                  <th>Vendor</th>
-                  <th>Industry</th>
-                  <th>Use case</th>
-                  <th>Products</th>
-                  <th>Maturity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {caseStudies.map((record) => (
-                  <tr
-                    data-case-row
-                    data-vendor={record.vendor}
-                    data-industry={record.industry}
-                    data-area={record.technical_area.join("|")}
-                    data-search-text={`${record.customer_name} ${record.vendor} ${record.industry} ${record.business_problem} ${record.solution_summary} ${record.products_used.join(" ")} ${record.use_case_category.join(" ")}`.toLowerCase()}
-                  >
-                    <th>
-                      <a href={`/cases/${record.slug}/`}>{record.customer_name}</a>
-                      <span>{formatDate(record.published_date)}</span>
-                    </th>
-                    <td>{record.vendor}</td>
-                    <td>{record.industry}</td>
-                    <td>{record.use_case_category.slice(0, 2).join(", ")}</td>
-                    <td>{record.products_used.slice(0, 3).join(", ")}</td>
-                    <td><span class="score-pill">{record.maturity_score}/6</span></td>
-                  </tr>
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Stories by vendor</h3>
+              <span class="panel__meta">stories per vendor</span>
+            </header>
+            <BarList items={vendorCounts.slice(0, 8)} noun="stories" filterKey="vendor" />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Most-cited products</h3>
+              <span class="panel__meta">mentions across stories</span>
+            </header>
+            <BarList items={topProducts} noun="mentions" filterKey="q" />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Business outcomes claimed</h3>
+              <span class="panel__meta">stories per outcome</span>
+            </header>
+            <BarList items={topOutcomes} noun="stories" />
+          </article>
+
+          {cadence.length > 1 && (
+            <article class="panel panel--wide">
+              <header class="panel__head">
+                <h3>Collection cadence</h3>
+                <span class="panel__meta">new stories per collection week</span>
+              </header>
+              <div class="columns" role="img" aria-label={`New stories per week, latest week ${cadence.at(-1)?.count ?? 0}`}>
+                {cadence.map((entry, index) => (
+                  <div class="columns__col" tabindex="0" data-tip={`Week of ${entry.label}: ${entry.count} new ${entry.count === 1 ? "story" : "stories"}`}>
+                    <span class="columns__bar" style={`height: ${Math.max(2, (entry.count / cadenceMax) * 100)}%`}>
+                      <span class="columns__value">{index === cadence.length - 1 || entry.count === cadenceMax ? entry.count : ""}</span>
+                    </span>
+                    <span class="columns__label">{entry.label}</span>
+                  </div>
                 ))}
-              </tbody>
-            </table>
-          </div>
-        </article>
+              </div>
+              <table class="sr-only">
+                <caption>New stories per collection week</caption>
+                <thead><tr><th>Week of</th><th>Stories</th></tr></thead>
+                <tbody>{cadence.map((entry) => <tr><td>{entry.label}</td><td>{entry.count}</td></tr>)}</tbody>
+              </table>
+            </article>
+          )}
+
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <h3>Industry × use case coverage</h3>
+              <div class="heat-legend" aria-hidden="true">
+                <span>1</span>
+                {HEAT_RAMP.map((color) => <span class="heat-legend__swatch" style={`background: ${color}`}></span>)}
+                <span>{heatMax}</span>
+                <span class="heat-legend__caption">stories</span>
+              </div>
+            </header>
+            <div class="heatmap-scroll">
+              <table class="heatmap">
+                <thead>
+                  <tr>
+                    <th scope="col">Industry</th>
+                    {heatColumns.map((column) => <th scope="col"><span>{column}</span></th>)}
+                    <th scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {heatRows.map((row) => (
+                    <tr>
+                      <th scope="row">{row.label}</th>
+                      {row.cells.map((cell) => {
+                        const step = heatStep(cell.count);
+                        return (
+                          <td
+                            class:list={["heatmap__cell", { "is-empty": step < 0, "is-dark": step >= 3 }]}
+                            style={step >= 0 ? `background: ${HEAT_RAMP[step]}` : undefined}
+                            tabindex={step >= 0 ? 0 : undefined}
+                            data-tip={step >= 0 ? `${row.label} × ${cell.label}: ${cell.count} ${cell.count === 1 ? "story" : "stories"}` : undefined}
+                          >
+                            {cell.count || ""}
+                          </td>
+                        );
+                      })}
+                      <td class="heatmap__total">{row.total}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="container" id="cta">
-      <div class="cta-banner">
-        <h2 class="cta-banner__title">Plug in your vendor sources next.</h2>
-        <p class="cta-banner__subtitle">Add another vendor source, rerun the pipeline, and the dashboard picks up the new records on next build. Same schema, same dashboard, larger intelligence surface.</p>
-        <div class="hero-actions">
-          <a class="btn btn--on-dark" href="https://github.com/vibewatch/usecase" target="_blank" rel="noreferrer">Read the pipeline docs</a>
-          <a class="btn btn--yellow" href="https://github.com/vibewatch/usecase/issues" target="_blank" rel="noreferrer">Open an issue</a>
+    <section class="section" id="pipeline">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">How it works</p>
+            <h2 class="section__title">A daily, fully automated collection loop</h2>
+          </div>
+          <p class="section__subtitle">
+            A scheduled GitHub Actions workflow runs every morning (06:00 UTC). New records land in git as weekly partitions and this site redeploys automatically.
+          </p>
+        </div>
+        <ol class="steps">
+          {pipelineSteps.map((step, index) => (
+            <li class="step">
+              <span class="step__index">{String(index + 1).padStart(2, "0")}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="cta">
+          <div>
+            <h2 class="cta__title">Every record is open data.</h2>
+            <p class="cta__text">Browse the weekly archive in the repository, pull the per-week JSON shards, or add a vendor source and let the daily run pick it up.</p>
+          </div>
+          <div class="cta__actions">
+            <a class="btn btn--primary" href="https://github.com/vibewatch/usecase/tree/main/data/weekly" target="_blank" rel="noreferrer">Weekly archive</a>
+            <a class="btn btn--glass" href={href("/data/weeks/index.json")}>JSON shards</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <script>
-    const searchInput = document.querySelector("[data-search]");
-    const vendorSelect = document.querySelector("[data-vendor]");
-    const industrySelect = document.querySelector("[data-industry]");
-    const areaSelect = document.querySelector("[data-area]");
-    const visibleCount = document.querySelector("[data-visible-count]");
-    const rows = Array.from(document.querySelectorAll("[data-case-row]"));
+    interface CardRecord {
+      slug: string;
+      url: string;
+      vendor: string;
+      vendorMark: string;
+      vendorColor: string;
+      customer: string;
+      industry: string;
+      region: string;
+      useCases: string[];
+      areas: string[];
+      products: string[];
+      problem: string;
+      metric: string;
+      published: string;
+      maturity: number;
+      sample: boolean;
+      week: string;
+      search: string;
+    }
+    interface DeferredWeek {
+      week: string;
+      label: string;
+      count: number;
+      skip: number;
+      url: string;
+    }
+    interface WeekShard {
+      week: string;
+      label: string;
+      records: CardRecord[];
+    }
 
-    function valueOf(element: Element | null) {
-      return element instanceof HTMLInputElement || element instanceof HTMLSelectElement ? element.value : "";
+    const FILTER_KEYS = ["q", "vendor", "industry", "usecase", "area", "week"] as const;
+    type FilterKey = (typeof FILTER_KEYS)[number];
+    const LOAD_BATCH = 24;
+
+    const stack = document.querySelector<HTMLElement>("[data-week-stack]");
+    const template = document.querySelector<HTMLTemplateElement>("[data-card-template]");
+    const loadMore = document.querySelector<HTMLButtonElement>("[data-load-more]");
+    const loadStatus = document.querySelector<HTMLElement>("[data-load-status]");
+    const visibleCount = document.querySelector<HTMLElement>("[data-visible-count]");
+    const countSuffix = document.querySelector<HTMLElement>("[data-count-suffix]");
+    const emptyState = document.querySelector<HTMLElement>("[data-empty-state]");
+    const clearButton = document.querySelector<HTMLButtonElement>("[data-clear-filters]");
+    const controls = new Map<FilterKey, HTMLInputElement | HTMLSelectElement>();
+    for (const key of FILTER_KEYS) {
+      const control = document.querySelector<HTMLInputElement | HTMLSelectElement>(`[data-filter="${key}"]`);
+      if (control) controls.set(key, control);
+    }
+    const deferred: DeferredWeek[] = JSON.parse(
+      document.querySelector("[data-deferred-weeks]")?.textContent || "[]",
+    );
+    const total = deferred.reduce((sum, week) => sum + week.count, 0) + document.querySelectorAll("[data-case-card]").length;
+
+    function slot(root: Element, name: string): HTMLElement {
+      return root.querySelector<HTMLElement>(`[data-slot="${name}"]`)!;
+    }
+
+    function buildCard(card: CardRecord): HTMLAnchorElement | null {
+      const prototype = template?.content.firstElementChild;
+      if (!prototype) return null;
+      const node = prototype.cloneNode(true) as HTMLAnchorElement;
+      node.href = card.url;
+      node.dataset.vendor = card.vendor;
+      node.dataset.industry = card.industry;
+      node.dataset.areas = card.areas.join("|");
+      node.dataset.usecases = card.useCases.join("|");
+      node.dataset.week = card.week;
+      node.dataset.search = card.search;
+      const mark = slot(node, "mark");
+      mark.textContent = card.vendorMark;
+      mark.style.setProperty("--vendor", card.vendorColor);
+      slot(node, "vendor").textContent = card.vendor;
+      slot(node, "sample").hidden = !card.sample;
+      slot(node, "published").textContent = card.published;
+      slot(node, "customer").textContent = card.customer;
+      slot(node, "industry").textContent = card.industry;
+      slot(node, "region").textContent = card.region;
+      slot(node, "problem").textContent = card.problem;
+      const metric = slot(node, "metric");
+      metric.textContent = card.metric;
+      metric.hidden = !card.metric;
+      slot(node, "usecases").replaceChildren(
+        ...card.useCases.slice(0, 2).map((useCase) => {
+          const tag = document.createElement("span");
+          tag.className = "tag";
+          tag.textContent = useCase;
+          return tag;
+        }),
+      );
+      slot(node, "products").textContent = card.products.join(" · ");
+      const maturity = slot(node, "maturity");
+      maturity.title = `Maturity ${card.maturity}/6`;
+      maturity.setAttribute("aria-label", `Maturity ${card.maturity} of 6`);
+      maturity.querySelectorAll(".maturity__dot").forEach((dot, index) => {
+        dot.classList.toggle("is-on", index < card.maturity);
+      });
+      return node;
+    }
+
+    function buildGroup(shard: WeekShard): HTMLElement {
+      const section = document.createElement("section");
+      section.className = "week-group";
+      section.dataset.weekGroup = "";
+      section.dataset.week = shard.week;
+      const head = document.createElement("header");
+      head.className = "week-group__head";
+      const title = document.createElement("h3");
+      title.textContent = shard.week === "undated" ? "Reference set" : `Week of ${shard.label}`;
+      const count = document.createElement("span");
+      count.className = "week-group__count";
+      count.textContent = `${shard.records.length} ${shard.records.length === 1 ? "use case" : "use cases"}`;
+      head.append(title, count);
+      const grid = document.createElement("div");
+      grid.className = "card-grid";
+      for (const record of shard.records) {
+        const card = buildCard(record);
+        if (card) grid.append(card);
+      }
+      section.append(head, grid);
+      return section;
+    }
+
+    let loading: Promise<void> | null = null;
+
+    async function loadWeeks(minimumRecords: number): Promise<void> {
+      if (loading) return loading;
+      loading = (async () => {
+        if (loadMore) loadMore.disabled = true;
+        if (loadStatus) loadStatus.textContent = "Loading earlier weeks…";
+        try {
+          let loaded = 0;
+          while (deferred.length > 0 && loaded < minimumRecords) {
+            const next = deferred[0];
+            if (!next) break;
+            const response = await fetch(next.url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const shard = (await response.json()) as WeekShard;
+            const records = shard.records.slice(next.skip);
+            const existing = stack?.querySelector<HTMLElement>(`[data-week-group][data-week="${CSS.escape(shard.week)}"] .card-grid`);
+            if (existing) {
+              for (const record of records) {
+                const card = buildCard(record);
+                if (card) existing.append(card);
+              }
+            } else {
+              stack?.append(buildGroup(shard));
+            }
+            deferred.shift();
+            loaded += records.length;
+          }
+        } catch (error) {
+          if (loadStatus) loadStatus.textContent = "Couldn't load earlier weeks. Please retry.";
+          throw error;
+        } finally {
+          if (loadMore) {
+            loadMore.disabled = false;
+            loadMore.hidden = deferred.length === 0;
+          }
+          loading = null;
+        }
+        updateLoadStatus();
+      })();
+      return loading;
+    }
+
+    function updateLoadStatus() {
+      if (!loadStatus) return;
+      const remaining = deferred.reduce((sum, week) => sum + week.count, 0);
+      loadStatus.textContent =
+        deferred.length === 0
+          ? "You're viewing the full archive."
+          : `${remaining} more use cases in ${deferred.length} earlier ${deferred.length === 1 ? "week" : "weeks"}`;
+    }
+
+    function currentFilters(): Record<FilterKey, string> {
+      const values = {} as Record<FilterKey, string>;
+      for (const key of FILTER_KEYS) values[key] = controls.get(key)?.value.trim() ?? "";
+      return values;
+    }
+
+    function hasActiveFilters(filters: Record<FilterKey, string>): boolean {
+      return FILTER_KEYS.some((key) => filters[key] !== "");
+    }
+
+    function syncUrl(filters: Record<FilterKey, string>) {
+      const params = new URLSearchParams();
+      for (const key of FILTER_KEYS) if (filters[key]) params.set(key, filters[key]);
+      const query = params.toString();
+      history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}${location.hash}`);
     }
 
     function applyFilters() {
-      const query = valueOf(searchInput).trim().toLowerCase();
-      const vendor = valueOf(vendorSelect);
-      const industry = valueOf(industrySelect);
-      const area = valueOf(areaSelect);
+      const filters = currentFilters();
+      const query = filters.q.toLowerCase();
       let shown = 0;
-
-      rows.forEach((row) => {
-        if (!(row instanceof HTMLElement)) return;
-        const searchText = row.dataset.searchText ?? "";
-        const areas = row.dataset.area ?? "";
-        const matches =
-          (!query || searchText.includes(query)) &&
-          (!vendor || row.dataset.vendor === vendor) &&
-          (!industry || row.dataset.industry === industry) &&
-          (!area || areas.split("|").includes(area));
-
-        row.hidden = !matches;
-        if (matches) shown += 1;
+      document.querySelectorAll<HTMLElement>("[data-week-group]").forEach((group) => {
+        let groupShown = 0;
+        group.querySelectorAll<HTMLElement>("[data-case-card]").forEach((card) => {
+          const data = card.dataset;
+          const matches =
+            (!query || (data.search ?? "").includes(query)) &&
+            (!filters.vendor || data.vendor === filters.vendor) &&
+            (!filters.industry || data.industry === filters.industry) &&
+            (!filters.usecase || (data.usecases ?? "").split("|").includes(filters.usecase)) &&
+            (!filters.area || (data.areas ?? "").split("|").includes(filters.area)) &&
+            (!filters.week || data.week === filters.week);
+          card.hidden = !matches;
+          if (matches) groupShown += 1;
+        });
+        group.hidden = groupShown === 0;
+        shown += groupShown;
       });
 
+      const active = hasActiveFilters(filters);
       if (visibleCount) visibleCount.textContent = String(shown);
+      if (countSuffix) countSuffix.textContent = active ? `matching of ${total} use cases` : `of ${total} use cases shown`;
+      if (emptyState) emptyState.hidden = shown > 0;
+      if (clearButton) clearButton.hidden = !active;
+      syncUrl(filters);
     }
 
-    [searchInput, vendorSelect, industrySelect, areaSelect].forEach((control) => {
-      control?.addEventListener("input", applyFilters);
-      control?.addEventListener("change", applyFilters);
+    async function refresh() {
+      // Filtering needs the whole archive: pull every remaining shard first.
+      if (hasActiveFilters(currentFilters()) && deferred.length > 0) {
+        try {
+          await loadWeeks(Number.POSITIVE_INFINITY);
+        } catch {
+          // Filter whatever is already loaded.
+        }
+      }
+      applyFilters();
+    }
+
+    let debounce: number | undefined;
+    controls.forEach((control, key) => {
+      control.addEventListener(key === "q" ? "input" : "change", () => {
+        window.clearTimeout(debounce);
+        debounce = window.setTimeout(refresh, key === "q" ? 180 : 0);
+      });
     });
+
+    clearButton?.addEventListener("click", () => {
+      controls.forEach((control) => {
+        control.value = "";
+      });
+      applyFilters();
+    });
+
+    loadMore?.addEventListener("click", async () => {
+      try {
+        await loadWeeks(LOAD_BATCH);
+      } catch {
+        return;
+      }
+      applyFilters();
+    });
+
+    function setFilter(key: string, value: string) {
+      const control = controls.get(key as FilterKey);
+      if (!control) return;
+      controls.forEach((other, otherKey) => {
+        if (otherKey !== key) other.value = "";
+      });
+      control.value = value;
+      void refresh();
+    }
+
+    document.addEventListener("click", (event) => {
+      const link = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-apply-filter]") : null;
+      if (!link) return;
+      event.preventDefault();
+      setFilter(link.dataset.applyFilter ?? "", link.dataset.filterValue ?? "");
+      document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.querySelector<HTMLFormElement>("[data-hero-search]")?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const input = (event.currentTarget as HTMLFormElement).querySelector("input");
+      setFilter("q", input?.value.trim() ?? "");
+      document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Deep links: ?vendor=Databricks&q=lakehouse#explore
+    const params = new URLSearchParams(location.search);
+    let hasParams = false;
+    for (const key of FILTER_KEYS) {
+      const value = params.get(key);
+      const control = controls.get(key);
+      if (value && control) {
+        control.value = value;
+        hasParams = true;
+      }
+    }
+    if (hasParams) void refresh();
   </script>
 </BaseLayout>

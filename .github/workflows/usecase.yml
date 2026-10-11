@@ -5,6 +5,10 @@
 # rebuild dashboard data. CI installs dependencies, invokes the agent,
 # rebuilds and commits any new records.
 #
+# Runs daily at 06:00 UTC with the default inputs below. The commit it pushes
+# touches data/records/**, which triggers `pages.yml` to redeploy the
+# GitHub Pages dashboard.
+#
 # Required secrets / setup:
 # - COPILOT_PAT — PAT for a Copilot-licensed account; passed to the Copilot CLI.
 # - USECASE_PAT — PAT with repo write access for checkout/push so downstream
@@ -14,8 +18,8 @@
 name: UseCase Intel — discover, extract, and publish records
 
 on:
-  # schedule: # Disable by default; opt in once secrets are configured.
-  #   - cron: "0 6 * * *"
+  schedule:
+    - cron: "0 6 * * *"
   workflow_dispatch:
     inputs:
       cap:
@@ -204,7 +208,7 @@ jobs:
           git config user.email "usecase-intel-bot@users.noreply.github.com"
           git fetch origin "${{ github.ref_name }}"
           git rebase --autostash "origin/${{ github.ref_name }}"
-          git add data/records data/discovered_urls.jsonl data/fetch_manifest.jsonl
+          git add data/records data/weekly data/discovered_urls.jsonl data/fetch_manifest.jsonl
           if git diff --cached --quiet; then
             echo "No new records this run."
             exit 0

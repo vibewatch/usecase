@@ -1,0 +1,46 @@
+---
+import type { CardRecord } from "../lib/weeks";
+
+type Props = {
+  card: CardRecord;
+};
+
+// Every slot is always rendered (empty ones are `hidden`) so this component can
+// also serve as the <template> the explorer clones for lazily loaded weeks.
+const { card } = Astro.props;
+const dots = [0, 1, 2, 3, 4, 5];
+---
+
+<a
+  class="case-card"
+  href={card.url}
+  data-case-card
+  data-vendor={card.vendor}
+  data-industry={card.industry}
+  data-areas={card.areas.join("|")}
+  data-usecases={card.useCases.join("|")}
+  data-week={card.week}
+  data-search={card.search}
+>
+  <span class="case-card__top">
+    <span class="vendor-tag">
+      <span class="vendor-tag__mark" data-slot="mark" style={`--vendor: ${card.vendorColor}`}>{card.vendorMark}</span>
+      <span data-slot="vendor">{card.vendor}</span>
+    </span>
+    <span class="tag tag--sample" data-slot="sample" hidden={!card.sample}>Sample</span>
+    <span class="case-card__date" data-slot="published">{card.published}</span>
+  </span>
+  <span class="case-card__title" data-slot="customer">{card.customer}</span>
+  <span class="case-card__meta"><span data-slot="industry">{card.industry}</span> · <span data-slot="region">{card.region}</span></span>
+  <span class="case-card__problem" data-slot="problem">{card.problem}</span>
+  <span class="case-card__metric" data-slot="metric" hidden={!card.metric}>{card.metric}</span>
+  <span class="case-card__tags" data-slot="usecases">
+    {card.useCases.slice(0, 2).map((useCase) => <span class="tag">{useCase}</span>)}
+  </span>
+  <span class="case-card__foot">
+    <span class="case-card__products" data-slot="products">{card.products.join(" · ")}</span>
+    <span class="maturity" data-slot="maturity" title={`Maturity ${card.maturity}/6`} aria-label={`Maturity ${card.maturity} of 6`}>
+      {dots.map((index) => <span class:list={["maturity__dot", { "is-on": index < card.maturity }]}></span>)}
+    </span>
+  </span>
+</a>

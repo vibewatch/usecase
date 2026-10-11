@@ -30,6 +30,10 @@ export interface CaseStudyRecord {
   maturity_score: number;
   evidence_quotes: string[];
   is_sample?: boolean;
+  /** ISO timestamp of first collection (set by `npm run data:partition`). */
+  collected_at?: string | null;
+  /** ISO week (`2026-W41`) or `undated`; matches the data/weekly/ partition. */
+  collected_week?: string;
 }
 
 export interface CountItem {

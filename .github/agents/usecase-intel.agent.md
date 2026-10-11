@@ -17,7 +17,7 @@ You own the full Customer Use Case Intelligence pipeline. Discover → fetch →
 
 The user request must resolve to a record `cap`, an optional `vendor` filter, and an optional `since` cutoff date. Apply the defaults below when any value is missing. Treat contradictory instructions as a request to abort and ask for clarification — but in CI the wrapper always passes complete inputs.
 
-Never run `git add`, `git commit`, or `git push` from inside this agent. Commit and push are done by the CI workflow after this agent returns. Do not edit anything under `.github/`, `pipeline/`, `src/`, `scripts/`, `package.json`, `taxonomy.json`, or `data/sources.json` during a run — your write surface is `data/discovered_urls.jsonl`, `data/fetch_manifest.jsonl`, `data/raw_content/**`, `data/extract_jobs/**`, `data/records/**`, and the build artifacts those produce.
+Never run `git add`, `git commit`, or `git push` from inside this agent. Commit and push are done by the CI workflow after this agent returns. Do not edit anything under `.github/`, `pipeline/`, `src/`, `scripts/`, `package.json`, `taxonomy.json`, or `data/sources.json` during a run — your write surface is `data/discovered_urls.jsonl`, `data/fetch_manifest.jsonl`, `data/raw_content/**`, `data/extract_jobs/**`, `data/records/**`, `data/weekly/**`, and the build artifacts those produce.
 
 ## Run setup
 
@@ -64,6 +64,7 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
    - `npm run data:merge` (folds `data/records/**/*.json` + samples into `data/case-studies.merged.json`; bad records are skipped with a warning printed to stderr — capture and surface any such warnings in your summary)
    - `python3 -m pipeline.usecase_intel.seed data/case-studies.merged.json data/usecase_intel.sqlite`
    - `python3 -m pipeline.usecase_intel.export data/usecase_intel.sqlite data/case-studies.generated.json`
+   - `npm run data:partition` (assigns each record to the ISO week it was first collected and rewrites `data/weekly/**`; existing assignments are preserved)
    - `npm run build` (runs `astro check && astro build` — must finish with `0 errors, 0 warnings, 0 hints`)
 
    If `npm run build` reports errors that point at a specific record (e.g. a malformed `data/records/*/foo.json` propagated through to the dashboard), identify the offending file, delete it from `data/records/`, redo this entire step 5 once. If the second attempt still fails, abort and include the error output in your summary. Do not delete files under `data/records/` that the build did not flag.

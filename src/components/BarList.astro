@@ -1,0 +1,43 @@
+---
+import type { CountItem } from "../lib/types";
+
+type Props = {
+  items: CountItem[];
+  /** Noun for the tooltip, e.g. "stories". */
+  noun: string;
+  /** When set, each row links into the explorer with this filter applied. */
+  filterKey?: "vendor" | "industry" | "usecase" | "area" | "q";
+};
+
+// Single-series ranked bars: one color for every bar (no value ramp on
+// nominal categories), values direct-labeled, tooltip as enhancement only.
+const { items, noun, filterKey } = Astro.props;
+const max = items.reduce((highest, item) => Math.max(highest, item.count), 1);
+const width = (count: number) => `width: ${Math.max(2, (count / max) * 100)}%`;
+---
+
+<ol class="bar-list">
+  {items.map((item) => (
+    <li>
+      {filterKey ? (
+        <a
+          class="bar-row bar-row--link"
+          href={`?${filterKey}=${encodeURIComponent(item.label)}#explore`}
+          data-apply-filter={filterKey}
+          data-filter-value={item.label}
+          data-tip={`${item.label}: ${item.count} ${noun} — click to explore`}
+        >
+          <span class="bar-row__label">{item.label}</span>
+          <span class="bar-row__value">{item.count}</span>
+          <span class="bar-row__track" aria-hidden="true"><span class="bar-row__fill" style={width(item.count)}></span></span>
+        </a>
+      ) : (
+        <span class="bar-row" tabindex="0" data-tip={`${item.label}: ${item.count} ${noun}`}>
+          <span class="bar-row__label">{item.label}</span>
+          <span class="bar-row__value">{item.count}</span>
+          <span class="bar-row__track" aria-hidden="true"><span class="bar-row__fill" style={width(item.count)}></span></span>
+        </span>
+      )}
+    </li>
+  ))}
+</ol>

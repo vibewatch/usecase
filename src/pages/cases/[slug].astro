@@ -1,4 +1,5 @@
 ---
+import CaseCard from "../../components/CaseCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { caseStudies } from "../../lib/caseStudies";
 import {
@@ -6,10 +7,15 @@ import {
   formatPercent,
   groupComponentsByLayer,
   hasSolutionComponents,
+  isParseableDate,
   maturityLabel,
+  relatedRecords,
   solutionComponents,
 } from "../../lib/analytics";
+import { href } from "../../lib/paths";
 import type { CaseStudyRecord } from "../../lib/types";
+import { vendorStyle } from "../../lib/vendors";
+import { toCardRecord, weekLabel } from "../../lib/weeks";
 import taxonomy from "../../../taxonomy.json";
 
 type Props = {
@@ -22,141 +28,208 @@ export function getStaticPaths() {
 
 const { record } = Astro.props as Props;
 
+const vendor = vendorStyle(record.vendor);
 const layerOrder: string[] = (taxonomy as { component_layers?: string[] }).component_layers ?? [];
 const components = solutionComponents(record);
-const componentsByLayer = hasSolutionComponents(record)
-  ? groupComponentsByLayer(components, layerOrder)
-  : [];
+const componentsByLayer = hasSolutionComponents(record) ? groupComponentsByLayer(components, layerOrder) : [];
 const integrationPoints = record.integration_points ?? [];
 const dataFlow = record.data_flow?.trim() ?? "";
+const metrics = record.metrics.slice(0, 4);
+const related = relatedRecords(record, caseStudies, 3);
+const published = isParseableDate(record.published_date) ? formatDate(record.published_date) : "Not stated";
+const collected =
+  record.collected_week && record.collected_week !== "undated" ? `Week of ${weekLabel(record.collected_week)}` : "Reference set";
+const dots = [0, 1, 2, 3, 4, 5];
 ---
 
-<BaseLayout title={`${record.customer_name} | Use Case Intelligence`}>
-  <main class="container detail-shell">
-    <a class="back-link" href="/">← Back to dashboard</a>
-
+<BaseLayout
+  title={`${record.customer_name} × ${record.vendor} — ${record.use_case_category[0] ?? "Use case"} | Use Case Intelligence`}
+  description={record.business_problem.slice(0, 160)}
+>
+  <main>
     <section class="detail-hero">
-      <div class="detail-hero__main">
-        <div class="detail-hero__chips">
-          <span class="badge badge--yellow">{record.vendor}</span>
-          <span class="badge badge--purple">{record.industry}</span>
-          <span class="badge badge--neutral">{record.region}</span>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container detail-hero__inner">
+        <div class="detail-hero__copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href={href("/")}>Dashboard</a>
+            <span aria-hidden="true">/</span>
+            <a href={href(`/?vendor=${encodeURIComponent(record.vendor)}#explore`)}>{record.vendor}</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{record.customer_name}</span>
+          </nav>
+          <div class="detail-hero__chips">
+            <span class="vendor-tag vendor-tag--glass">
+              <span class="vendor-tag__mark" style={`--vendor: ${vendor.color}`}>{vendor.mark}</span>
+              {record.vendor}
+            </span>
+            <span class="chip chip--glass">{record.industry}</span>
+            <span class="chip chip--glass">{record.region}</span>
+            {record.is_sample && <span class="chip chip--warn">Synthetic sample</span>}
+          </div>
+          <h1 class="detail-hero__title">{record.customer_name}</h1>
+          {record.use_case_category.length > 0 && (
+            <p class="detail-hero__usecase text-gradient">{record.use_case_category.join(" · ")}</p>
+          )}
+          <p class="detail-hero__lead">{record.business_problem}</p>
+          <div class="detail-hero__actions">
+            <a class="btn btn--primary" href={record.source_url} target="_blank" rel="noreferrer">
+              Read the original story
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M5 3h8v8h-1.5V5.56l-7.47 7.47-1.06-1.06L10.44 4.5H5z"/></svg>
+            </a>
+            <a class="btn btn--glass" href={href("/#explore")}>Back to explorer</a>
+          </div>
         </div>
-        <h1 class="detail-hero__title">{record.customer_name}</h1>
-        <p class="detail-hero__problem">{record.business_problem}</p>
+
+        <aside class="score-card" aria-label="Quality scores">
+          <span class="score-card__label">Solution maturity</span>
+          <strong class="score-card__value">{record.maturity_score}<span>/6</span></strong>
+          <span class="maturity maturity--lg" aria-hidden="true">
+            {dots.map((index) => <span class:list={["maturity__dot", { "is-on": index < record.maturity_score }]}></span>)}
+          </span>
+          <span class="score-card__pill">{maturityLabel(record.maturity_score)}</span>
+          <dl class="score-card__facts">
+            <div><dt>Confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
+            <div><dt>Published</dt><dd>{published}</dd></div>
+            <div><dt>Collected</dt><dd>{collected}</dd></div>
+          </dl>
+        </aside>
       </div>
-      <aside class="detail-score">
-        <span class="detail-score__label">Maturity score</span>
-        <strong class="detail-score__value">{record.maturity_score}<span style="font-size: 0.4em; color: var(--color-on-dark-muted);">/6</span></strong>
-        <span class="detail-score__pill">{maturityLabel(record.maturity_score)}</span>
-        <span class="detail-score__caption">Confidence {formatPercent(record.confidence_score)} · Published {formatDate(record.published_date)}</span>
-      </aside>
     </section>
 
-    <section class="solution-grid" aria-label="Solution overview">
-      <article class="surface-card solution-summary-card">
-        <h2>Solution summary</h2>
-        <p>{record.solution_summary}</p>
-        {dataFlow && (
-          <div class="solution-subsection">
-            <h3>Data flow</h3>
-            <p>{dataFlow}</p>
+    {metrics.length > 0 && (
+      <section class="container metric-strip" aria-label="Key metrics">
+        {metrics.map((metric) => (
+          <div class="metric-tile">
+            <span class="metric-tile__icon" aria-hidden="true">↗</span>
+            <span>{metric}</span>
           </div>
-        )}
-      </article>
-      <article class="surface-card">
-        <h2>Outcome</h2>
-        <p>{record.business_outcome}</p>
-        {integrationPoints.length > 0 && (
-          <div class="solution-subsection">
-            <h3>Integration points</h3>
-            <ul class="tag-list">
-              {integrationPoints.map((point) => <li>{point}</li>)}
+        ))}
+      </section>
+    )}
+
+    <div class="container detail-layout">
+      <div class="detail-main">
+        <article class="panel prose-panel">
+          <h2>Solution</h2>
+          <p>{record.solution_summary}</p>
+          {dataFlow && (
+            <>
+              <h3>Data flow</h3>
+              <p>{dataFlow}</p>
+            </>
+          )}
+        </article>
+
+        <article class="panel">
+          <header class="panel__head">
+            <h2>Solution architecture</h2>
+            <span class="panel__meta">
+              {hasSolutionComponents(record)
+                ? `${components.length} components · ${componentsByLayer.length} ${componentsByLayer.length === 1 ? "layer" : "layers"}`
+                : `${record.products_used.length} products mentioned`}
+            </span>
+          </header>
+          {hasSolutionComponents(record) ? (
+            <ol class="arch-stack">
+              {componentsByLayer.map(({ layer, items }) => (
+                <li class="arch-layer">
+                  <span class="arch-layer__label">{layer}</span>
+                  <ul class="arch-layer__items">
+                    {items.map((item) => (
+                      <li class="arch-component">
+                        <strong>{item.name}</strong>
+                        <span>{item.role}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <ul class="tag-cloud">
+              {record.products_used.map((product) => <li class="tag tag--lg">{product}</li>)}
             </ul>
-          </div>
+          )}
+        </article>
+
+        {record.architecture_clues.length > 0 && (
+          <article class="panel">
+            <header class="panel__head"><h2>Architecture clues</h2></header>
+            <ul class="check-list">
+              {record.architecture_clues.map((clue) => <li>{clue}</li>)}
+            </ul>
+          </article>
         )}
-      </article>
-    </section>
 
-    <section class="surface-card components-card" aria-label="Solution components">
-      <div class="components-card__header">
-        <h2>Solution components</h2>
-        <span class="components-card__meta">
-          {hasSolutionComponents(record)
-            ? `${components.length} components across ${componentsByLayer.length} layer${componentsByLayer.length === 1 ? "" : "s"}`
-            : `${record.products_used.length} products mentioned (no layer breakdown yet)`}
-        </span>
-      </div>
-      {hasSolutionComponents(record) ? (
-        <div class="components-layers">
-          {componentsByLayer.map(({ layer, items }) => (
-            <div class="components-layer">
-              <span class="components-layer__label">{layer}</span>
-              <ul class="components-list">
-                {items.map((item) => (
-                  <li class="components-list__item">
-                    <span class="components-list__name">{item.name}</span>
-                    <span class="components-list__role">{item.role}</span>
-                  </li>
-                ))}
-              </ul>
+        {record.evidence_quotes.length > 0 && (
+          <article class="panel">
+            <header class="panel__head"><h2>Evidence from the source</h2></header>
+            <div class="quotes">
+              {record.evidence_quotes.map((quote) => <blockquote class="quote">{quote}</blockquote>)}
             </div>
-          ))}
-        </div>
-      ) : (
-        <ul class="tag-list">
-          {record.products_used.map((product) => <li>{product}</li>)}
-        </ul>
-      )}
-    </section>
-
-    <section class="detail-grid" aria-label="Categories">
-      <article class="surface-card">
-        <h2>Categories</h2>
-        <ul class="tag-list">
-          {[...record.technical_area, ...record.use_case_category].map((category) => <li>{category}</li>)}
-        </ul>
-      </article>
-      <article class="surface-card">
-        <h2>Architecture clues</h2>
-        <ul>
-          {record.architecture_clues.map((clue) => <li>{clue}</li>)}
-        </ul>
-      </article>
-    </section>
-
-    <section class="evidence-grid" aria-label="Evidence and quality">
-      <article class="surface-card">
-        <h2>Metrics</h2>
-        <ul>
-          {record.metrics.map((metric) => <li>{metric}</li>)}
-        </ul>
-      </article>
-      <article class="surface-card">
-        <h2>Evidence quotes</h2>
-        <ul class="quote-list">
-          {record.evidence_quotes.map((quote) => <li>“{quote}”</li>)}
-        </ul>
-      </article>
-      <article class="surface-card">
-        <h2>Traceability</h2>
-        <dl class="trace-list">
-          <div><dt>Published</dt><dd>{formatDate(record.published_date)}</dd></div>
-          <div><dt>Region</dt><dd>{record.region}</dd></div>
-          <div><dt>Company size</dt><dd>{record.company_size}</dd></div>
-          <div><dt>Confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
-        </dl>
-        <a class="btn btn--primary btn--small" href={record.source_url} target="_blank" rel="noreferrer">Open source record</a>
-      </article>
-    </section>
-
-    <section class="cta-banner">
-      <h2 class="cta-banner__title">More from {record.vendor}?</h2>
-      <p class="cta-banner__subtitle">Browse the full dataset to compare this story against other deployments in the same vendor or industry slice.</p>
-      <div class="hero-actions">
-        <a class="btn btn--on-dark" href="/#records">Open the dataset</a>
-        <a class="btn btn--yellow" href="/#matrix">Coverage matrix</a>
+          </article>
+        )}
       </div>
-    </section>
+
+      <aside class="detail-side">
+        <article class="panel panel--accent">
+          <h2>Business outcome</h2>
+          <p>{record.business_outcome}</p>
+          {record.outcome_category.length > 0 && (
+            <ul class="tag-cloud">
+              {record.outcome_category.map((outcome) => <li class="tag tag--accent">{outcome}</li>)}
+            </ul>
+          )}
+        </article>
+
+        <article class="panel">
+          <h2>At a glance</h2>
+          <dl class="facts">
+            <div><dt>Customer</dt><dd>{record.customer_name}</dd></div>
+            <div><dt>Industry</dt><dd>{record.industry}</dd></div>
+            <div><dt>Region</dt><dd>{record.region}</dd></div>
+            <div><dt>Company size</dt><dd>{record.company_size}</dd></div>
+          </dl>
+          <h3>Technical areas</h3>
+          <ul class="tag-cloud">
+            {record.technical_area.map((area) => (
+              <li><a class="tag tag--link" href={href(`/?area=${encodeURIComponent(area)}#explore`)}>{area}</a></li>
+            ))}
+          </ul>
+          <h3>Products</h3>
+          <ul class="tag-cloud">
+            {record.products_used.map((product) => <li class="tag">{product}</li>)}
+          </ul>
+          {integrationPoints.length > 0 && (
+            <>
+              <h3>Integration points</h3>
+              <ul class="tag-cloud">
+                {integrationPoints.map((point) => <li class="tag">{point}</li>)}
+              </ul>
+            </>
+          )}
+          <a class="btn btn--secondary btn--block" href={record.source_url} target="_blank" rel="noreferrer">Open source page</a>
+        </article>
+      </aside>
+    </div>
+
+    {related.length > 0 && (
+      <section class="section section--tinted">
+        <div class="container">
+          <div class="section__head">
+            <div>
+              <p class="eyebrow">Related</p>
+              <h2 class="section__title">Similar use cases</h2>
+            </div>
+            <a class="btn btn--ghost btn--small" href={href(`/?usecase=${encodeURIComponent(record.use_case_category[0] ?? "")}#explore`)}>See all like this</a>
+          </div>
+          <div class="card-grid">
+            {related.map((item) => <CaseCard card={toCardRecord(item)} />)}
+          </div>
+        </div>
+      </section>
+    )}
   </main>
 </BaseLayout>

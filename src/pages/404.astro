@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { href } from "../lib/paths";
+---
+
+<BaseLayout title="Page not found | Use Case Intelligence">
+  <main class="not-found">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container not-found__inner">
+      <p class="eyebrow eyebrow--light">404</p>
+      <h1 class="hero__title">This use case <span class="text-gradient">wandered off.</span></h1>
+      <p class="hero__lead">The page may have moved when the archive was refreshed.</p>
+      <a class="btn btn--primary" href={href("/#explore")}>Browse all use cases</a>
+    </div>
+  </main>
+</BaseLayout>

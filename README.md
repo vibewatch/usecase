@@ -61,11 +61,49 @@ npm run data:fetch      # fetch raw content → data/raw_content/, append data/f
 npm run data:probe-fetch -- <url>  # probe/update Python fetch strategies for a hard host
 npm run data:extract    # build prompt bundles in data/extract_jobs/{vendor}/
 npm run data:merge      # fold data/records/**/*.json + samples → data/case-studies.merged.json
-npm run data:build      # merge → seed SQLite → export data/case-studies.generated.json
+npm run data:partition  # assign records to collection weeks → data/weekly/** (+ stamp generated JSON)
+npm run data:build      # merge → seed SQLite → export → partition
 ```
 
 The dashboard imports `data/case-studies.generated.json`, so any rerun of
 `npm run data:build` is picked up by the next `npm run dev` / `build`.
+
+## Automation & publishing
+
+- **Daily collection** — [`.github/workflows/usecase.yml`](.github/workflows/usecase.yml)
+  runs every day at 06:00 UTC (and on demand via *Run workflow*). It invokes
+  the `UseCase Intel` agent (discover → fetch → extract → author up to `cap`
+  records), rebuilds the data, validates the site build, and commits
+  `data/records/**`, `data/weekly/**` and the URL/fetch ledgers. Requires the
+  `COPILOT_PAT` and `USECASE_PAT` repository secrets.
+- **GitHub Pages** — [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
+  rebuilds and deploys the dashboard on every push to `main` that touches
+  records or site code, which includes the daily collection commit. One-time
+  setup: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
+  The site is served at `https://genisisiq.com/usecase/` (the organization's
+  Pages custom domain); links are
+  base-path aware (`src/lib/paths.ts`), and `SITE_URL` / `BASE_PATH` are
+  supplied by `actions/configure-pages`.
+
+## Weekly storage
+
+`npm run data:partition` writes the dataset into week-sized files that are
+committed to the repository:
+
+```
+data/weekly/index.json            newest-first list of weeks + counts
+data/weekly/2026/2026-W41.json    full records first collected that ISO week
+data/weekly/undated.json          synthetic samples (no collection date)
+```
+
+A record's week is its earliest successful fetch in `data/fetch_manifest.jsonl`
+(or the build date for brand-new records) and never changes afterwards — the
+committed weekly files are the ledger. The site mirrors this layout as slim,
+per-week JSON shards at `/data/weeks/<week>.json` (manifest:
+`/data/weeks/index.json`). The explorer renders the newest weeks inline and
+fetches older shards on demand ("Load earlier weeks", or automatically when a
+filter needs the whole archive), so page weight stays flat as the archive
+grows.
 
 ## Adding records
 
@@ -124,22 +162,30 @@ outputs belong under `data/diagrams/` and are ignored by git.
 
 ## Repository shape
 
-- `src/pages/index.astro` — dashboard (top use cases, products, outcomes,
-  maturity, vendor × use-case and industry × use-case coverage matrices,
-  filterable record table).
-- `src/pages/cases/[slug].astro` — per-record detail page.
+- `src/pages/index.astro` — dashboard: hero with latest arrivals, week-by-week
+  use case explorer (search + vendor / industry / use case / tech area / week
+  filters, lazy-loaded weekly shards), insight charts and the industry ×
+  use-case heatmap.
+- `src/pages/cases/[slug].astro` — per-record detail page (metrics, layered
+  solution architecture, evidence, related use cases).
+- `src/pages/data/weeks/` — static JSON endpoints for the weekly shards.
+- `src/components/` — `CaseCard` (also the client-side card template) and
+  `BarList`.
 - `src/lib/` — `caseStudies.ts` data import, `analytics.ts` aggregations,
-  `types.ts` schema.
+  `weeks.ts` week grouping + card projection, `paths.ts` base-path-aware
+  links, `vendors.ts` vendor marks, `types.ts` schema.
 - `taxonomy.json` — canonical vocabulary for vendors / industries / technical
   areas / use cases / outcomes.
 - `pipeline/usecase_intel/` — `discover`, `fetch`, `probe`, `clean`, `media`,
-  `extract`, `merge_records`, `seed`, `scoring`, `export`, plus `fetch_client`,
+  `extract`, `merge_records`, `seed`, `scoring`, `export`, `partition`, plus `fetch_client`,
   `settings`, `utils`, and `config/host-strategies.json`.
 - `requirements.txt` — Python extraction dependencies (`beautifulsoup4`,
   `pypdf`) used by the fetch/extract pipeline.
 - `data/sources.json` — vendor source config (sitemaps, index pages, regex
   filters).
 - `data/records/{vendor_slug}/{slug}.json` — authored records (tracked).
+- `data/weekly/` — weekly partitions of the dataset (tracked; see
+  [Weekly storage](#weekly-storage)).
 - `data/case-studies.sample.json` — synthetic seed records (`is_sample: true`).
 - `data/case-studies.generated.json` — built artifact consumed by the
   dashboard (gitignored).
@@ -148,5 +194,6 @@ outputs belong under `data/diagrams/` and are ignored by git.
   record-authoring contract; URL fetching now lives in Python.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — system architecture: data flow,
   component boundaries, schemas, extension recipes, known design debt.
-- `DESIGN.md` — external design-system reference (Miro) used to inform the
-  dashboard styling.
+- `DESIGN.md` — external design-system reference (Miro) that informed the
+  original dashboard styling. The current UI uses its own night/gradient theme
+  defined in `src/styles/global.css`.

@@ -134,6 +134,51 @@ export function componentLayerCounts(records: CaseStudyRecord[]): CountItem[] {
   return countValues(layers);
 }
 
+/** Sort key that puts records with an unknown publish date last. */
+export function recencyKey(record: CaseStudyRecord): string {
+  return isParseableDate(record.published_date) ? record.published_date : "";
+}
+
+export function sortByRecency(records: CaseStudyRecord[]): CaseStudyRecord[] {
+  return [...records].sort(
+    (left, right) =>
+      recencyKey(right).localeCompare(recencyKey(left)) ||
+      left.customer_name.localeCompare(right.customer_name),
+  );
+}
+
+/** Records most similar to `record`: shared use case, then vendor, then industry. */
+export function relatedRecords(
+  record: CaseStudyRecord,
+  records: CaseStudyRecord[],
+  limit = 3,
+): CaseStudyRecord[] {
+  const useCases = new Set(record.use_case_category);
+  return records
+    .filter((candidate) => candidate.slug !== record.slug)
+    .map((candidate) => ({
+      candidate,
+      score:
+        candidate.use_case_category.filter((value) => useCases.has(value)).length * 3 +
+        (candidate.vendor === record.vendor ? 2 : 0) +
+        (candidate.industry === record.industry ? 2 : 0) +
+        (candidate.is_sample ? -5 : 0),
+    }))
+    .filter((entry) => entry.score > 0)
+    .sort(
+      (left, right) =>
+        right.score - left.score ||
+        recencyKey(right.candidate).localeCompare(recencyKey(left.candidate)),
+    )
+    .slice(0, limit)
+    .map((entry) => entry.candidate);
+}
+
+/** Headline metric for a card: prefer one that contains a number. */
+export function headlineMetric(record: CaseStudyRecord): string {
+  return record.metrics.find((metric) => /\d/.test(metric)) ?? record.metrics[0] ?? "";
+}
+
 export function integrationPointCounts(records: CaseStudyRecord[]): CountItem[] {
   return countValues(records.flatMap((record) => record.integration_points ?? []));
 }

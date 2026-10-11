@@ -63,7 +63,8 @@ flowchart TD
   merged[data/case-studies.merged.json<br/>built]
   db[(data/usecase_intel.sqlite<br/>built)]
   gen[data/case-studies.generated.json<br/>built, consumed by Astro]
-  dash[dist/index.html + dist/cases/&lcub;slug&rcub;/]
+  weekly[data/weekly/&lcub;year&rcub;/&lcub;YYYY-Www&rcub;.json<br/>tracked, week ledger]
+  dash[dist/index.html + dist/cases/&lcub;slug&rcub;/ + dist/data/weeks/*.json]
 
   src -- discover.py --> disc
   disc -- fetch.py --> raw
@@ -73,6 +74,8 @@ flowchart TD
   rec -- merge_records.py --> merged
   merged -- seed.py + scoring.py + storage.py --> db
   db -- export.py --> gen
+  gen -- partition.py --> weekly
+  manifest -. first fetch date .-> weekly
   gen -- astro build --> dash
 ```
 
@@ -96,6 +99,12 @@ resumable — kill it mid-run, fix a bug, rerun.
 - **merge → seed → export** is deterministic projection: take the authored
   records, fold in samples, normalize, score, store, dump back as a single
   JSON for the dashboard.
+- **partition** assigns each record to the ISO week it was first collected
+  (earliest successful fetch, else build date), writes committed weekly files
+  under `data/weekly/`, and stamps `collected_at` / `collected_week` onto the
+  generated JSON. Existing assignments are read back from the weekly files, so
+  a record never changes week. The site publishes one slim JSON shard per week
+  and lazy-loads older weeks.
 
 ## 4. Agent-in-the-loop design (the unusual part)
 
