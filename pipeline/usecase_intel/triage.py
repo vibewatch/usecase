@@ -27,8 +27,10 @@ import hashlib
 import json
 import re
 import sys
+import threading
 import time
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -147,27 +149,39 @@ def parse_date_value(value: str) -> Optional[str]:
 
 
 def detect_published_date(raw_html: str, text: str) -> Optional[str]:
-    """Best-effort publish date: structured metadata first, then a dateline near the top."""
+    """Best-effort publish date: structured metadata, a date standing alone in the
+    first lines (e.g. Microsoft's "January 19, 2024" above the title), then a
+    keyword dateline ("Published May 2024") near the top."""
     meta = [parse_date_value(value) for value in META_DATE_RE.findall(raw_html) + TIME_TAG_RE.findall(raw_html)]
     meta = [value for value in meta if value and "2000" <= value[:4] <= "2100"]
     if meta:
         return min(meta)
+    for line in [line.strip() for line in text.splitlines() if line.strip()][:5]:
+        if len(line) <= 24 and _is_whole_date(line) and (value := parse_date_value(line)):
+            return value
     match = DATELINE_RE.search(text[:2000])
     return parse_date_value(match[1]) if match else None
 
 
+def _is_whole_date(line: str) -> bool:
+    return any(
+        pattern.fullmatch(line.rstrip("."))
+        for pattern in (ISO_DATE_RE, US_DATE_RE, MONTH_DAY_YEAR_RE, DAY_MONTH_YEAR_RE)
+    )
+
+
+_archive_lock = threading.Lock()
 _last_wayback_call = 0.0
-# True when the latest wayback_first_capture() returned None because the archive
-# was unreachable (as opposed to the page never having been archived).
-_last_lookup_failed = False
+ARCHIVE_MIN_INTERVAL = 0.4  # seconds between request starts, across worker threads
 
 
 def _archive_json(url: str, timeout: float) -> Any:
     global _last_wayback_call
-    wait = 1.0 - (time.monotonic() - _last_wayback_call)
-    if wait > 0:
-        time.sleep(wait)
-    _last_wayback_call = time.monotonic()
+    with _archive_lock:
+        wait = ARCHIVE_MIN_INTERVAL - (time.monotonic() - _last_wayback_call)
+        if wait > 0:
+            time.sleep(wait)
+        _last_wayback_call = time.monotonic()
     with urlopen(Request(url, headers={"User-Agent": "UseCaseIntelBot/0.1"}), timeout=timeout) as response:
         return json.loads(response.read() or b"null")
 
@@ -176,18 +190,17 @@ def _stamp_to_iso(stamp: str) -> Optional[str]:
     return _iso(int(stamp[:4]), int(stamp[4:6]), int(stamp[6:8])) if len(stamp) >= 8 and stamp[:8].isdigit() else None
 
 
-def wayback_first_capture(url: str, timeout: float = 30.0, attempts: int = 3) -> Optional[str]:
+def wayback_lookup(url: str, timeout: float = 30.0, attempts: int = 3) -> tuple[Optional[str], bool]:
     """Date the Internet Archive first saw `url` (an upper bound on its publish date).
 
-    Uses the availability API (closest snapshot to 2000-01-01, i.e. the earliest)
-    and falls back to the CDX API; retries with backoff because both are flaky.
-    Returns None when the page was never archived or the archive is unreachable;
-    `_last_lookup_failed` tells the two apart.
+    Returns `(date, failed)`: `date` is None when the page was never archived
+    (`failed=False`) or the archive was unreachable (`failed=True`). Uses the CDX
+    API (oldest capture first; fast and definitive) and falls back to the
+    availability API, retrying with backoff because both are flaky.
     """
-    global _last_lookup_failed
     queries = [
-        "https://archive.org/wayback/available?" + urlencode({"url": url, "timestamp": "20000101"}),
         f"{WAYBACK_CDX}?" + urlencode({"url": url, "output": "json", "fl": "timestamp", "limit": 1, "filter": "statuscode:200"}),
+        "https://archive.org/wayback/available?" + urlencode({"url": url, "timestamp": "20000101"}),
     ]
     last_error: Optional[Exception] = None
     for attempt in range(attempts):
@@ -197,18 +210,20 @@ def wayback_first_capture(url: str, timeout: float = 30.0, attempts: int = 3) ->
             except Exception as exc:  # noqa: BLE001 - archive outages must not stop triage
                 last_error = exc
                 continue
-            if index == 0:
+            if index == 1:
                 snapshot = ((payload or {}).get("archived_snapshots") or {}).get("closest") or {}
                 if snapshot.get("timestamp"):
-                    _last_lookup_failed = False
-                    return _stamp_to_iso(str(snapshot["timestamp"]))
+                    return _stamp_to_iso(str(snapshot["timestamp"])), False
             elif isinstance(payload, list):
-                _last_lookup_failed = False
-                return _stamp_to_iso(str(payload[1][0])) if len(payload) >= 2 and payload[1] else None
+                # CDX rows are sorted oldest first; [] means never archived.
+                return (_stamp_to_iso(str(payload[1][0])) if len(payload) >= 2 and payload[1] else None), False
         time.sleep(2 ** attempt)
     print(f"  wayback lookup failed {url}: {last_error}", file=sys.stderr)
-    _last_lookup_failed = True
-    return None
+    return None, True
+
+
+def wayback_first_capture(url: str, timeout: float = 30.0, attempts: int = 3) -> Optional[str]:
+    return wayback_lookup(url, timeout, attempts)[0]
 
 
 def _fingerprint(text: str) -> str:
@@ -434,6 +449,11 @@ def triage(
             for row in latest.values():
                 url, vendor = row["url"], row.get("vendor", "")
                 if row.get("status") != 200 or not row.get("raw_path"):
+                    # Removed stories (404/410) are dropped so fetch stops retrying them.
+                    if re.search(r"HTTP Error (404|410)", str(row.get("error") or "")) and wanted(url, vendor):
+                        emit({"url": url, "vendor": vendor, "stage": "post", "decision": "drop",
+                              "reasons": ["gone_404"], "score": None, "published_date": None, "title": None,
+                              "words": None, "fingerprint": None, "decided_at": _now()})
                     continue
                 previous = decisions.get(url)
                 if previous and previous.get("decision") == "drop" and previous["stage"] == "pre" and not rejudge:
@@ -514,33 +534,40 @@ def enrich_dates(
     print(f"Dating {len(pending)} undated kept page(s) via the Internet Archive", file=sys.stderr, flush=True)
 
     failures = 0
-    with output_path.open("a", encoding="utf-8") as out:
-        for row in pending:
+    workers = 3
+    with output_path.open("a", encoding="utf-8") as out, ThreadPoolExecutor(max_workers=workers) as pool:
+        for start in range(0, len(pending), workers * 2):
             if failures >= max_consecutive_failures:
                 print("  archive unreachable; stopping (re-run --stage dates later)", file=sys.stderr, flush=True)
-                counts["deferred"] = len(pending) - counts["dated"] - counts["never_archived"]
+                counts["deferred"] = len(pending) - start
                 break
-            first_seen = wayback_first_capture(row["url"], timeout=15.0, attempts=2)
-            if first_seen is None and _last_lookup_failed:
-                failures += 1
-                continue
-            failures = 0
-            updated = {**row, "date_checked": True, "decided_at": _now()}
-            if first_seen:
-                counts["dated"] += 1
-                updated["published_date"] = first_seen
-                updated["published_source"] = "wayback_first_capture"
-                if first_seen < criteria.since:
-                    updated["decision"] = "drop"
-                    updated["reasons"] = [f"published_before_{criteria.since}"]
-                    counts["drop"] += 1
+            batch = pending[start : start + workers * 2]
+            lookups = pool.map(lambda row: wayback_lookup(row["url"], timeout=15.0, attempts=2), batch)
+            for row, (first_seen, failed) in zip(batch, lookups):
+                if failed:
+                    failures += 1
+                    counts["failed"] += 1
+                    continue
+                failures = 0
+                updated = {**row, "date_checked": True, "decided_at": _now()}
+                if first_seen:
+                    counts["dated"] += 1
+                    updated["published_date"] = first_seen
+                    updated["published_source"] = "wayback_first_capture"
+                    if first_seen < criteria.since:
+                        updated["decision"] = "drop"
+                        updated["reasons"] = [f"published_before_{criteria.since}"]
+                        counts["drop"] += 1
+                    else:
+                        bonus = float(weights["recency_by_year"].get(first_seen[:4], 0)) + float(weights["unknown_date_penalty"])
+                        updated["score"] = round(float(row.get("score") or 0) + bonus, 2)
                 else:
-                    bonus = float(weights["recency_by_year"].get(first_seen[:4], 0)) + float(weights["unknown_date_penalty"])
-                    updated["score"] = round(float(row.get("score") or 0) + bonus, 2)
-            else:
-                counts["never_archived"] += 1  # likely new: keep as-is
-            out.write(json.dumps(updated, ensure_ascii=False) + "\n")
-            out.flush()
+                    counts["never_archived"] += 1  # likely new: keep as-is
+                out.write(json.dumps(updated, ensure_ascii=False) + "\n")
+                out.flush()
+            done = min(start + workers * 2, len(pending))
+            if done % 60 < workers * 2:
+                print(f"  dated {done}/{len(pending)} (dropped {counts['drop']})", file=sys.stderr, flush=True)
     return counts
 
 

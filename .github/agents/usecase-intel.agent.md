@@ -23,7 +23,7 @@ Never run `git add`, `git commit`, or `git push` from inside this agent. Commit 
 
 Resolve these values before running any stage:
 
-- `cap`: max number of new records to author this run. Default `5`. Hard maximum `10`.
+- `cap`: max number of new records to author this run. Default `40`. Hard maximum `50`.
 - `vendor`: vendor display name as it appears in `data/sources.json` (e.g. `Google Cloud`, `Databricks`), or empty for all vendors.
 - `since`: `YYYY-MM-DD` cutoff for fetch's sitemap `lastmod` filter, or empty for no cutoff. URLs without a known `lastmod` are always kept.
 - `discoverLimit`: per-vendor cap on newly discovered URLs per run. Default `25`. Keeps each discover pass bounded; the next run picks up the next batch.
@@ -49,7 +49,8 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
    - The `cap * 4` budget gives some headroom so a few 404s or triage drops don't starve record authoring.
 
 4. **Triage (post-fetch)** — `python3 -m pipeline.usecase_intel.triage --stage post [vendorFlag]`
-   - Judges each fetched page on content (publish date ≥ cutoff, length, English, AI & data topic, duplicates, redirects) and scores the survivors. Criteria live in `pipeline/usecase_intel/config/triage.json`.
+   - Judges each fetched page on content (publish date ≥ cutoff, length, English, AI & data topic, duplicates, redirects, removed pages) and scores the survivors. Criteria live in `pipeline/usecase_intel/config/triage.json`.
+   - Then date undated survivors via the Internet Archive, bounded so the run stays short: `python3 -m pipeline.usecase_intel.triage --stage dates --limit 50 [vendorFlag]`. Archive outages stop it early; that is fine — the next run continues.
 
 5. **Extract** — `python3 -m pipeline.usecase_intel.extract --limit <cap> [vendorFlag]`
    - Only bundles pages triage kept, highest score first; re-fetches a page if its raw file is missing.

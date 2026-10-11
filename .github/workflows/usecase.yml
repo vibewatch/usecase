@@ -1,13 +1,15 @@
 # Scheduled / on-demand UseCase Intel run.
 #
 # This workflow is a thin CI wrapper. The `UseCase Intel` agent owns the
-# end-to-end pipeline: discover → fetch → extract → author records →
+# end-to-end pipeline: discover → triage → fetch → triage → extract → author records →
 # rebuild dashboard data. CI installs dependencies, invokes the agent,
 # rebuilds and commits any new records.
 #
-# Runs daily at 06:00 UTC with the default inputs below. The commit it pushes
-# touches data/records/**, which triggers `pages.yml` to redeploy the
-# GitHub Pages dashboard.
+# Scheduled runs fire four times a day (00/06/12/18 UTC) with cap 40 to work
+# through the triaged backlog (data/triage.jsonl keeps, best score first); once
+# the backlog is drained they only pick up newly published stories. The commit
+# each run pushes touches data/records/**, which triggers `pages.yml` to
+# redeploy the GitHub Pages dashboard.
 #
 # Required secrets / setup:
 # - COPILOT_PAT — PAT for a Copilot-licensed account; passed to the Copilot CLI.
@@ -19,11 +21,11 @@ name: UseCase Intel — discover, extract, and publish records
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 0,6,12,18 * * *"
   workflow_dispatch:
     inputs:
       cap:
-        description: "Max new records per run (1-10)"
+        description: "Max new records per run (1-50)"
         type: string
         required: false
         default: "5"
@@ -130,14 +132,14 @@ jobs:
           RAW_MODEL: ${{ github.event.inputs.model }}
         run: |
           set -euo pipefail
-          CAP="${RAW_CAP:-5}"
+          CAP="${RAW_CAP:-40}"
           VENDOR="${RAW_VENDOR:-}"
           SINCE="${RAW_SINCE:-}"
           DISCOVER_LIMIT="${RAW_DISCOVER_LIMIT:-25}"
           MODEL="${RAW_MODEL:-gpt-5.4}"
 
-          if ! [[ "$CAP" =~ ^([1-9]|10)$ ]]; then
-            echo "Invalid cap '$CAP'; expected an integer from 1 to 10." >&2
+          if ! [[ "$CAP" =~ ^([1-9]|[1-4][0-9]|50)$ ]]; then
+            echo "Invalid cap '$CAP'; expected an integer from 1 to 50." >&2
             exit 2
           fi
           if ! [[ "$DISCOVER_LIMIT" =~ ^([1-9][0-9]?|1[0-9]{2}|200)$ ]]; then

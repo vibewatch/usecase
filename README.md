@@ -107,8 +107,9 @@ highest-score first. Every decision and its reasons is in `data/triage.jsonl`
 
 ## Automation & publishing
 
-- **Daily collection** — [`.github/workflows/usecase.yml`](.github/workflows/usecase.yml)
-  runs every day at 06:00 UTC (and on demand via *Run workflow*). It invokes
+- **Collection** — [`.github/workflows/usecase.yml`](.github/workflows/usecase.yml)
+  runs four times a day (00/06/12/18 UTC, cap 40 records per run) and on
+  demand via *Run workflow*. It invokes
   the `UseCase Intel` agent (discover → triage → fetch → triage → extract →
   author up to `cap` records), rebuilds the data, validates the site build,
   and commits `data/records/**`, `data/weekly/**`, `data/triage.jsonl` and the
