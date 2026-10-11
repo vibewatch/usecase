@@ -1,0 +1,70 @@
+{
+  "id": "openai-braintrust-codex-preview-branches",
+  "slug": "openai-braintrust-codex-preview-branches",
+  "vendor": "OpenAI",
+  "customer_name": "Braintrust",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Braintrust wanted to respond to customer feature requests faster and run more engineering experiments, but slower coding tools and backlog-driven workflows made it costly to turn feedback into working prototypes in real time.",
+  "solution_summary": "Braintrust uses Codex with GPT-5.5 as an agentic coding workflow around its observability and eval platform for AI products. Engineers paste live customer feature requests into Codex, point it at the relevant repository, and ask it to generate preview branches they can show back to customers in minutes instead of parking the request in backlog for later prioritization. For harder problems, the team writes a failing test, provisions a sandbox environment, and lets Codex run autonomously in that controlled workspace until it proposes a fix. This combines customer input, tests, and the existing codebase with a fast terminal-native model that can iterate without slowing down, so engineers can ideate with customers in real time, try more experiments, and move more quickly from request to working software.",
+  "products_used": [
+    "Codex",
+    "GPT-5.5"
+  ],
+  "solution_components": [
+    {
+      "name": "Codex",
+      "role": "Provides the coding environment where engineers turn customer requests into preview branches and run autonomous code experiments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-5.5",
+      "role": "Generates and iterates on code changes quickly enough for real-time customer ideation and sandboxed problem solving.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer feature requests are pasted into Codex alongside Braintrust's codebase context. For debugging or new ideas, engineers add a test and a sandbox environment, then GPT-5.5 iterates on code until Codex can produce a preview branch. The resulting branch is shown back to customers immediately, tightening the feedback loop before work enters the longer-term roadmap.",
+  "integration_points": [
+    "Customer feature requests from live conversations",
+    "Braintrust codebase",
+    "Test suite",
+    "Sandbox environment",
+    "Preview branches shown back to customers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Braintrust shortened the loop from customer request to working preview from backlog timeframes to minutes, moved half of the team onto Codex within a month, and expanded the number of autonomous engineering experiments it can run in controlled environments.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "50% of the Braintrust team moved to Codex in one month",
+    "Customer feature requests can be turned into preview branches in minutes"
+  ],
+  "architecture_clues": [
+    "Customer requests are copied directly into Codex for implementation",
+    "Engineers write a test that demonstrates the problem before autonomous runs",
+    "Codex operates inside a sandbox environment for controlled experimentation",
+    "Preview branches are used to show working ideas back to customers in real time"
+  ],
+  "source_url": "https://openai.com/index/braintrust/",
+  "published_date": "2026-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"With Codex, its engineers can now take customer feature requests and create preview branches to show working ideas to customers in minutes.\"",
+    "\"In one month, half of the Braintrust team moved to Codex.\"",
+    "\"Codex unlocked our ability to try out customer feature requests in real time.\"",
+    "\"With Codex, I've shifted to writing a test that demonstrates a problem, creating a sandbox environment, and then letting Codex run in that environment.\""
+  ]
+}

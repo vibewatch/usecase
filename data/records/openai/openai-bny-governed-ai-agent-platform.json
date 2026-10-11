@@ -1,0 +1,83 @@
+{
+  "id": "openai-bny-governed-ai-agent-platform",
+  "slug": "openai-bny-governed-ai-agent-platform",
+  "vendor": "OpenAI",
+  "customer_name": "BNY",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "BNY wanted to scale generative AI across a systemically important financial institution without treating it as a side experiment, so it needed a governed way for employees to build agents, use frontier models, and access sensitive workflows while preserving trust, oversight, and policy controls.",
+  "solution_summary": "BNY built a centralized AI operating model around its AI Hub and Eliza, an internal AI deployment and education platform where prompting, agent development, model selection, sharing, permissions, and oversight happen inside one governed environment. Employees complete mandatory training before receiving access, then build agents against approved OpenAI capabilities under review from a data use review board, an AI release board, and the Enterprise AI Council. Eliza first supported private agent creation, then expanded to controlled sharing and advanced \"digital employees\" that can handle tasks such as payment instruction validation and code security enhancement. A select group also uses ChatGPT Enterprise with deep research to reason across internal and external data for legal analysis, risk modeling, scenario planning, and client preparation, with an orchestrator layer designed to connect outputs into downstream client workflows.",
+  "products_used": [
+    "Eliza",
+    "ChatGPT Enterprise",
+    "deep research"
+  ],
+  "solution_components": [
+    {
+      "name": "Eliza",
+      "role": "Serves as BNY's internal platform where employees prompt models, build agents, select tools, and share approved workflows inside a governed environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ChatGPT Enterprise",
+      "role": "Gives select teams secure access to OpenAI capabilities for higher-stakes legal, risk, and client-preparation work.",
+      "layer": "Serving"
+    },
+    {
+      "name": "deep research",
+      "role": "Runs multi-step reasoning across internal and external data to support novel legal questions, scenario planning, and strategic analysis.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Employees complete responsible-AI training, then use Eliza to prompt models, build agents, and share approved workflows under embedded permissions and oversight. For higher-complexity work, select users invoke ChatGPT Enterprise and deep research across internal and external data, and Eliza's orchestrator layer can pass those outputs into downstream client and operational workflows while governance boards review high-impact cases.",
+  "integration_points": [
+    "Internal bank data",
+    "External data sources",
+    "Client systems",
+    "Payment instruction validation workflows",
+    "Code security enhancement workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation",
+    "Security and Compliance"
+  ],
+  "business_outcome": "BNY turned generative AI into a governed enterprise platform with more than 125 live use cases, 20,000 employees actively building agents, faster legal review, and training coverage across nearly the entire workforce while keeping permissions, telemetry, and policy oversight embedded in the system.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "20,000 employees actively building AI agents",
+    "75% reduction in legal review time",
+    "More than 125 live use cases",
+    "99% of the workforce trained on Gen AI",
+    "46% increase in the number of agents people were building",
+    "3,000+ annual vendor agreements each year"
+  ],
+  "architecture_clues": [
+    "Centralized AI Hub paired with the Eliza deployment and education platform",
+    "Data use review board, AI release board, and Enterprise AI Council provide layered oversight",
+    "All prompting, agent development, model selection, and sharing stay inside a governed environment",
+    "Agents created by certain teams and roles can be shared with up to ten colleagues",
+    "Advanced digital employees handle tasks such as payment instruction validation and code security enhancements"
+  ],
+  "source_url": "https://openai.com/index/bny/",
+  "published_date": "2025-12-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our mantra is 'AI for everyone, everywhere, and in everything.'\"",
+    "\"That platform now supports over 125 live use cases, with 20,000 employees actively building agents.\"",
+    "\"Within Eliza, all prompting, agent development, model selection, and sharing happens inside a governed environment.\"",
+    "\"The company now has 99% of its workforce trained on Gen AI.\"",
+    "\"Contract Review Assistant: Reduces legal review time by 75%, from four hours to one, across 3,000+ annual vendor agreements each year.\""
+  ]
+}

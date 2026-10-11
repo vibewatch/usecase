@@ -1,0 +1,95 @@
+{
+  "id": "openai-booking-com-travel-personalization",
+  "slug": "openai-booking-com-travel-personalization",
+  "vendor": "OpenAI",
+  "customer_name": "Booking.com",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Booking.com needed a better way to understand traveler intent during early trip discovery, because rule-based search and hundreds of fixed filters worked only when customers already knew what they wanted and did not handle nuanced, conversational travel requests well.",
+  "solution_summary": "Booking.com integrated OpenAI's GPT models into its existing marketplace APIs and data systems to make travel discovery conversational rather than filter-led. The first implementation, AI Trip Planner, translated natural-language prompts into structured travel parameters such as destinations, dates, and availability, then combined proprietary property, pricing, and cancellation data with unstructured inputs like reviews and listing descriptions to generate destination ideas and itineraries. The same foundation expanded into Smart Filters powered by GPT-4o mini, Property Q&A grounded in user-generated content and property descriptions, AI Review Summaries that condense large review sets, and Help Me Reply for partner messaging. Because the models were wired into existing APIs and infrastructure, Booking.com could hack, prototype, and launch the first trip-planning experience in 10 weeks while continuing to iterate on deeper personalization and support automation.",
+  "products_used": [
+    "AI Trip Planner",
+    "GPT models",
+    "GPT-4o mini",
+    "Property Q&A",
+    "Help Me Reply"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Trip Planner",
+      "role": "Handles open-ended destination discovery and itinerary building from conversational traveler prompts.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT models",
+      "role": "Interpret natural-language intent and generate itinerary, discovery, and recommendation outputs from Booking.com's data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Powers Smart Filters and related natural-language understanding tasks for search refinement and review analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Property Q&A",
+      "role": "Answers property-specific traveler questions using user-generated content and property descriptions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Help Me Reply",
+      "role": "Generates automated partner replies and templates for common guest communications.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Traveler prompts enter AI Trip Planner, where GPT models map conversational intent to structured fields such as dates, locations, and availability. The models then combine Booking.com's proprietary pricing and inventory data with reviews, images, listing details, and property descriptions to generate itineraries, filtered search results, property answers, review summaries, and partner replies through the relevant Booking.com experience.",
+  "integration_points": [
+    "Booking.com's proprietary property data",
+    "Pricing and availability data",
+    "Cancellation policies",
+    "User reviews",
+    "Images",
+    "Listing details",
+    "Property descriptions",
+    "Partner guest messaging workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Booking.com turned travel planning into a more conversational, personalized experience, shipped its first AI Trip Planner in 10 weeks, and used the same OpenAI-backed foundation to improve search refinement, property answers, review digestion, and partner response workflows.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "The first prototype was launched in just 10 weeks",
+    "Booking.com had been using machine learning for over a decade",
+    "The platform offered hundreds of filters",
+    "Booking.com data covers the last 20 years"
+  ],
+  "architecture_clues": [
+    "OpenAI models were integrated through Booking.com's existing APIs and data infrastructure",
+    "The AI Trip Planner combines structured data with unstructured reviews and descriptions",
+    "Smart Filters uses GPT-4o mini to interpret natural-language search intent",
+    "Property Q&A is fine-tuned on user-generated content and property descriptions",
+    "AI Review Summaries condense large review sets into key themes"
+  ],
+  "source_url": "https://openai.com/index/booking-com/",
+  "published_date": "2026-10-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The team integrated OpenAI's GPT models with Booking.com's proprietary data on properties, pricing, and availability.\"",
+    "\"The first prototype, capable of destination discovery and itinerary building, was launched in just 10 weeks.\"",
+    "\"We'd spent years fine-tuning our structured data, like pricing, availability, cancellation policies. But now we could layer in unstructured data, like user reviews, natural language descriptions, and generate curated suggestions based on both.\"",
+    "\"Uses GPT-4o mini to understand natural language prompts like 'sunset views' or 'great gym'.\"",
+    "\"OpenAI's models were integrated through Booking.com's existing APIs and data infrastructure, allowing teams to rapidly test and iterate on new features.\""
+  ]
+}

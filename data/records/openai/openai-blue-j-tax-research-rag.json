@@ -1,0 +1,74 @@
+{
+  "id": "openai-blue-j-tax-research-rag",
+  "slug": "openai-blue-j-tax-research-rag",
+  "vendor": "OpenAI",
+  "customer_name": "Blue J",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "SMB",
+  "business_problem": "Blue J needed to help tax professionals answer complex questions in a regulated domain where research traditionally requires hours, days, or weeks of reading across statutes, rulings, case law, and commentary, and even small mistakes can trigger audits or costly downstream consequences.",
+  "solution_summary": "Blue J built a tax-research engine on a Retrieval-Augmented Generation (RAG) system that pairs GPT-4.1 with a proprietary library of millions of curated documents, including authoritative primary sources and expert commentary such as Tax Notes. When a user asks a question, the platform retrieves the relevant statutes, regulations, rulings, case law, and commentary, then uses GPT-4.1 to synthesize a cited answer designed to read like guidance from a trusted colleague. Blue J wrapped that flow in a feedback and evaluation loop: every answer can be disputed through a disagree button, GPT-4.1 clusters issue types and likely root causes across thousands of feedback points, and a benchmark suite of 350+ prompts across U.S., Canadian, and U.K. tax law gates model updates. This closed-loop architecture let the company launch quickly, update answers within hours of major legislation, and scale trusted tax research across multiple countries.",
+  "products_used": [
+    "Retrieval-Augmented Generation (RAG) system",
+    "GPT-4.1"
+  ],
+  "solution_components": [
+    {
+      "name": "Retrieval-Augmented Generation (RAG) system",
+      "role": "Retrieves the relevant tax authorities and commentary from Blue J's curated document library before answer generation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Synthesizes cited answers, follows domain-specific instructions, and triages user feedback to improve the product.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A tax professional submits a question, the RAG system retrieves the matching primary sources and commentary from Blue J's curated library, and GPT-4.1 synthesizes a cited answer. If the user flags an issue through the disagree button, GPT-4.1 categorizes the feedback, clusters related problems, and helps the product and tax research teams tune retrieval and prompts before updated answers are pushed back to production.",
+  "integration_points": [
+    "Blue J's proprietary library of millions of curated documents",
+    "Authoritative primary sources",
+    "Tax Notes commentary",
+    "Customer feedback via the disagree button"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Risk Management"
+  ],
+  "business_outcome": "Blue J expanded its tax research product across the U.S., Canada, and the U.K., scaled to more than 3,000 firms, saved users 2.7 hours per week, and drove the disagree rate below 1 in 700 answers while keeping pace with major tax-law changes within hours.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2.7 hours saved per user weekly",
+    "Fewer than 1 in 700 answers disputed",
+    "More than 70% of users log in weekly",
+    "Benchmark suite of over 350 prompts",
+    "Launched the first product just six months after ChatGPT's debut",
+    "Scaled to three countries and more than 3,000 firms"
+  ],
+  "architecture_clues": [
+    "RAG architecture combines GPT-4.1 with a proprietary library of millions of curated documents",
+    "Every answer includes a disagree button for structured feedback capture",
+    "GPT-4.1 analyzes feedback points by issue type, tax topic, and likely root cause",
+    "Model releases are tested against 350+ prompts spanning U.S., Canadian, and U.K. tax law",
+    "Users saw updated answers within hours of a major 2025 U.S. tax bill being signed"
+  ],
+  "source_url": "https://openai.com/index/blue-j/",
+  "published_date": "2025-08-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Blue J's tax research solution is built using a Retrieval-Augmented Generation (RAG) system, combining GPT-4.1 with a proprietary library of millions of curated documents, including authoritative primary sources and expert commentary from sources like Tax Notes.\"",
+    "\"Today, more than 70% of users log in weekly, with a disagree rate of fewer than 1 in 700 responses.\"",
+    "\"More than 70% of users log in weekly, saving 2.7 hours per user per week on research and client communication.\"",
+    "\"GPT-4.1 powers this triage layer, analyzing thousands of feedback points, clustering related issues, and helping Blue J's product and tax research teams focus their efforts where they'll have the biggest impact.\"",
+    "\"Within hours of the bill being signed, users were seeing updated answers in production.\""
+  ]
+}
