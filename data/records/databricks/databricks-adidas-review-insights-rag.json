@@ -1,0 +1,91 @@
+{
+  "id": "databricks-adidas-review-insights-rag",
+  "slug": "databricks-adidas-review-insights-rag",
+  "vendor": "Databricks",
+  "customer_name": "adidas",
+  "industry": "Consumer Goods",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "adidas needed a more scalable review-analysis stack because its legacy chatbot was not built for GenAI or RAG, response times were high, and nontechnical users could not easily explore customer sentiment.",
+  "solution_summary": "adidas uses Databricks AI Search, Databricks BGE Large, Databricks Model Serving, and Unity Catalog to support RAG-based product review analysis and insight generation. adidas needed a more scalable review-analysis stack because its legacy chatbot was not built for GenAI or RAG, response times were high, and nontechnical users could not easily explore customer sentiment. In practice, the implementation stores or organizes core datasets in Databricks AI Search, governs access and lineage with Unity Catalog, runs transformation or AI logic on Databricks BGE Large, and delivers outputs through Databricks Model Serving. Documents, notes, and knowledge assets are consolidated into Databricks AI Search; Databricks BGE Large applies analytics or model logic; results are surfaced through Databricks Model Serving. The case study reports Driving product innovation through customer feedback 30–40% efficiency gains, Analysts transformed over 2 million customer reviews into actionable insights,...",
+  "products_used": [
+    "Databricks AI Search",
+    "Databricks BGE Large",
+    "Databricks Model Serving",
+    "Unity Catalog",
+    "MLflow",
+    "Claude Haiku"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "adidas reported Driving product innovation through customer feedback 30–40% efficiency gains, Analysts transformed over 2 million customer reviews into actionable insights, and 91.67% cost savings, improving RAG-based product review analysis and insight generation with measurable gains in productivity improvement, cost reduction, customer experience, and speed to market.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Driving product innovation through customer feedback 30–40% efficiency gains",
+    "Analysts transformed over 2 million customer reviews into actionable insights",
+    "91.67% cost savings",
+    "Adopting more efficient LLMs vastly improved analysis and response time 60% latency reduction",
+    "30–40% efficiency gains",
+    "60% latency reduction"
+  ],
+  "architecture_clues": [
+    "Centralized governance and lineage are enforced through Unity Catalog.",
+    "Analysts transformed over 2 million customer reviews into actionable insights"
+  ],
+  "source_url": "https://www.databricks.com/customers/adidas",
+  "published_date": "2025-07-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The GenAI infrastructure we built is already enabling use cases beyond product reviews,” Rahul said. “Teams are now exploring applications in customer service, knowledge management and other feedback channels.”",
+    "Driving product innovation through customer feedback 30–40% efficiency gains",
+    "Analysts transformed over 2 million customer reviews into actionable insights",
+    "91.67% cost savings",
+    "Adopting more efficient LLMs vastly improved analysis and response time 60% latency reduction"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks AI Search",
+      "role": "Indexes domain content for retrieval-augmented answers and grounded responses",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks BGE Large",
+      "role": "Provides the language or embedding model used for reasoning, retrieval, or response generation",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks Model Serving",
+      "role": "Hosts production inference endpoints that return summaries, predictions, or recommendations",
+      "layer": "Serving"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Enforces access controls, lineage, and governance across the data and models used in this workflow",
+      "layer": "Governance"
+    },
+    {
+      "name": "MLflow",
+      "role": "Tracks experiments and model lifecycle management for the deployed ai workloads",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Haiku",
+      "role": "Provides the language or embedding model used for reasoning, retrieval, or response generation",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Documents, notes, and knowledge assets are consolidated into Databricks AI Search; Databricks BGE Large applies analytics or model logic; results are surfaced through Databricks Model Serving."
+}

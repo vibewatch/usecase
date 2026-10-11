@@ -1,0 +1,90 @@
+{
+  "id": "aws-doordash-genai-contact-center",
+  "slug": "aws-doordash-genai-contact-center",
+  "vendor": "AWS",
+  "customer_name": "DoorDash",
+  "industry": "Logistics",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "DoorDash needed to handle hundreds of thousands of support calls with faster, lower-latency self-service for Dashers while keeping answers grounded, safe, and accurate.",
+  "solution_summary": "DoorDash uses Amazon Connect Customer, Amazon Lex, Amazon Bedrock, and Anthropic's Claude 3 Haiku in Amazon Bedrock to support generative AI contact center self-service. DoorDash needed to handle hundreds of thousands of support calls with faster, lower-latency self-service for Dashers while keeping answers grounded, safe, and accurate. In practice, the implementation runs transformation or AI logic on Amazon Bedrock, and delivers outputs through Amazon Connect Customer. Tickets, conversation history, knowledge articles, and operational context are consolidated into a governed cloud data layer; Amazon Bedrock applies analytics or model logic; results are surfaced through Amazon Connect Customer. The case study reports increase in testing capacity 50x, response latency with Anthropic's Claude 3 Haiku, and 2.5 seconds or less, showing measurable improvement after the rollout.",
+  "products_used": [
+    "Amazon Connect Customer",
+    "Amazon Lex",
+    "Amazon Bedrock",
+    "Anthropic's Claude 3 Haiku in Amazon Bedrock",
+    "Knowledge Bases for Amazon Bedrock",
+    "Amazon SageMaker"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "DoorDash reported increase in testing capacity 50x, response latency with Anthropic's Claude 3 Haiku, and 2.5 seconds or less, improving generative AI contact center self-service with measurable gains in productivity improvement, customer experience, speed to market, and scalability.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "increase in testing capacity 50x",
+    "response latency with Anthropic's Claude 3 Haiku",
+    "2.5 seconds or less",
+    "of calls per day fielded by generative AI solution 100Ks",
+    "reduction in generative AI application development time using Amazon Bedrock 50%",
+    "50x"
+  ],
+  "architecture_clues": [
+    "2.5 seconds or less"
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/doordash-bedrock-case-study/",
+  "published_date": "2024-05-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "increase in testing capacity 50x",
+    "response latency with Anthropic's Claude 3 Haiku",
+    "2.5 seconds or less",
+    "of calls per day fielded by generative AI solution 100Ks",
+    "reduction in generative AI application development time using Amazon Bedrock 50%"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Connect Customer",
+      "role": "Runs the voice or contact-center workflow that end users interact with directly",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Lex",
+      "role": "Handles conversational intent routing inside the self-service voice experience",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Provides managed foundation models and prompt workflows for the application",
+      "layer": "Compute"
+    },
+    {
+      "name": "Anthropic's Claude 3 Haiku in Amazon Bedrock",
+      "role": "Provides managed foundation models and prompt workflows for the application",
+      "layer": "Compute"
+    },
+    {
+      "name": "Knowledge Bases for Amazon Bedrock",
+      "role": "Provides managed foundation models and prompt workflows for the application",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Supports model development, tuning, evaluation, or managed generative ai inference",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Tickets, conversation history, knowledge articles, and operational context are consolidated into a governed cloud data layer; Amazon Bedrock applies analytics or model logic; results are surfaced through Amazon Connect Customer."
+}

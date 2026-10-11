@@ -1,0 +1,76 @@
+{
+  "id": "databricks-ahold-delhaize-self-service-data-platform",
+  "slug": "databricks-ahold-delhaize-self-service-data-platform",
+  "vendor": "Databricks",
+  "customer_name": "Ahold Delhaize",
+  "industry": "Retail",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Ahold Delhaize needed to let many engineering teams build data and AI pipelines independently because older deployment and cluster patterns were too slow and expensive at group scale.",
+  "solution_summary": "Ahold Delhaize uses Databricks Data + AI Platform, Lakeflow Jobs, Auto Loader, and Delta Lake to support self-service lakehouse platform for retail data and AI. Ahold Delhaize needed to let many engineering teams build data and AI pipelines independently because older deployment and cluster patterns were too slow and expensive at group scale. In practice, the implementation ingests source data through Auto Loader, stores or organizes core datasets in Delta Lake, coordinates repeatable workflows with Lakeflow Jobs, and runs transformation or AI logic on Databricks Data + AI Platform. Legacy operational and analytics data are consolidated into Delta Lake; pipeline execution is coordinated with Lakeflow Jobs; Databricks Data + AI Platform applies analytics or model logic. The case study reports Lakeflow Jobs helps data teams scale and reduce costs 50%, with cluster reuse 4.5x, and 50%, showing measurable improvement after the rollout.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Lakeflow Jobs",
+    "Auto Loader",
+    "Delta Lake"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "DevOps",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Ahold Delhaize reported Lakeflow Jobs helps data teams scale and reduce costs 50%, with cluster reuse 4.5x, and 50%, improving self-service lakehouse platform for retail data and AI with measurable gains in cost reduction, productivity improvement, and scalability.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Lakeflow Jobs helps data teams scale and reduce costs 50%",
+    "with cluster reuse 4.5x",
+    "50%",
+    "4.5x"
+  ],
+  "architecture_clues": [
+    "Uses a medallion-style data layering pattern to separate raw, cleaned, and refined data.",
+    "The platform is designed for near-real-time or streaming analysis rather than batch-only reporting."
+  ],
+  "source_url": "https://www.databricks.com/customers/ahold-delhaize",
+  "published_date": "2023-05-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Lakeflow Jobs helps data teams scale and reduce costs 50%",
+    "with cluster reuse 4.5x",
+    "50%",
+    "4.5x",
+    "Lakeflow Jobs helps data teams scale and reduce costs"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Unifies engineering, analytics, and ai processing on one governed platform",
+      "layer": "Compute"
+    },
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Orchestrates batch and streaming pipelines that keep the solution current",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Auto Loader",
+      "role": "Ingests or streams operational data into the analytics and ai environment",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables used for analytics and machine learning",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Legacy operational and analytics data are consolidated into Delta Lake; pipeline execution is coordinated with Lakeflow Jobs; Databricks Data + AI Platform applies analytics or model logic."
+}

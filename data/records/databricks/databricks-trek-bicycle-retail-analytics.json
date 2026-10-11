@@ -1,0 +1,80 @@
+{
+  "id": "databricks-trek-bicycle-retail-analytics",
+  "slug": "databricks-trek-bicycle-retail-analytics",
+  "vendor": "Databricks",
+  "customer_name": "Trek Bicycle",
+  "industry": "Consumer Goods",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Trek Bicycle needed a more scalable analytics stack because its data warehouse took too long to process global retail data and made ERP replication increasingly expensive.",
+  "solution_summary": "Trek Bicycle uses Databricks Data + AI Platform, Delta Lake, Databricks SQL, and Qlik to support near-real-time retail and ERP analytics. Trek Bicycle needed a more scalable analytics stack because its data warehouse took too long to process global retail data and made ERP replication increasingly expensive. In practice, the implementation ingests source data through Qlik, stores or organizes core datasets in Delta Lake, runs transformation or AI logic on Databricks Data + AI Platform, and delivers outputs through Databricks SQL. Streaming operational telemetry and business events are consolidated into Delta Lake; Databricks Data + AI Platform applies analytics or model logic; results are surfaced through Databricks SQL. The case study reports Global bicycle leader accelerates retail analytics 80-90%, Acceleration in runtime of retail analytics solution globally 3x, and Increase in daily data refreshes on Databricks 1 week, showing measurable improvement after the rollout.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Delta Lake",
+    "Databricks SQL",
+    "Qlik"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Trek Bicycle reported Global bicycle leader accelerates retail analytics 80-90%, Acceleration in runtime of retail analytics solution globally 3x, and Increase in daily data refreshes on Databricks 1 week, improving near-real-time retail and ERP analytics with measurable gains in productivity improvement, customer experience, scalability, and cost reduction.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Global bicycle leader accelerates retail analytics 80-90%",
+    "Acceleration in runtime of retail analytics solution globally 3x",
+    "Increase in daily data refreshes on Databricks 1 week",
+    "80-90%",
+    "3x",
+    "1 week"
+  ],
+  "architecture_clues": [
+    "Uses a medallion-style data layering pattern to separate raw, cleaned, and refined data.",
+    "Uses serverless or elastic compute so capacity can scale up and down with workload demand.",
+    "The platform is designed for near-real-time or streaming analysis rather than batch-only reporting."
+  ],
+  "source_url": "https://www.databricks.com/customers/trek-bicycle",
+  "published_date": "2024-01-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Global bicycle leader accelerates retail analytics 80-90%",
+    "Acceleration in runtime of retail analytics solution globally 3x",
+    "Increase in daily data refreshes on Databricks 1 week",
+    "80-90%",
+    "3x"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Unifies engineering, analytics, and ai processing on one governed platform",
+      "layer": "Compute"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables used for analytics and machine learning",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Serves dashboards, reporting, and business-facing analytics on top of governed data",
+      "layer": "Serving"
+    },
+    {
+      "name": "Qlik",
+      "role": "Replicates source erp data into the analytics platform for downstream use",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Streaming operational telemetry and business events are consolidated into Delta Lake; Databricks Data + AI Platform applies analytics or model logic; results are surfaced through Databricks SQL."
+}
