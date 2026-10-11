@@ -90,6 +90,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
+          # Latest branch head, not the triggering commit: a run queued behind
+          # another must see that run's records, or it repeats the same work.
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
           token: ${{ secrets.USECASE_PAT }}
 
@@ -208,16 +211,39 @@ jobs:
           set -euo pipefail
           git config user.name "usecase-intel-bot"
           git config user.email "usecase-intel-bot@users.noreply.github.com"
-          git fetch origin "${{ github.ref_name }}"
-          git rebase --autostash "origin/${{ github.ref_name }}"
-          git add data/records data/weekly data/triage.jsonl data/discovered_urls.jsonl data/fetch_manifest.jsonl
+          BRANCH="${{ github.ref_name }}"
+          LEDGERS="data/triage.jsonl data/discovered_urls.jsonl data/fetch_manifest.jsonl"
+          git add data/records data/weekly $LEDGERS
           if git diff --cached --quiet; then
             echo "No new records this run."
             exit 0
           fi
-          STAMP="$(date -u +%F)"
-          git commit -m "chore(data): usecase intel run $STAMP"
-          git push origin HEAD:${{ github.ref_name }}
+          git commit -q -m "chore(data): usecase intel run $(date -u +%F)"
+
+          # Another run may have pushed meanwhile. Rebase onto it: the JSONL
+          # ledgers merge line-by-line (.gitattributes merge=union); for any
+          # other overlap (a story both runs extracted) the pushed version wins.
+          # Weekly files are then regenerated from the merged records.
+          for attempt in 1 2 3 4 5; do
+            git reset -q --hard HEAD   # drop rebuilt artifacts; all results are committed
+            git fetch -q origin "$BRANCH"
+            if ! git rebase -q -X ours "origin/$BRANCH"; then
+              echo "Rebase conflict; aborting this attempt." >&2
+              git rebase --abort
+              exit 1
+            fi
+            npm run --silent data:build >/dev/null
+            git add data/weekly
+            git diff --cached --quiet || git commit -q --amend --no-edit
+            if git push -q origin "HEAD:$BRANCH"; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push rejected (another run landed); retrying." >&2
+            sleep $((attempt * 10))
+          done
+          echo "Could not push after 5 attempts." >&2
+          exit 1
 
       - name: Collect new data/records files
         if: failure()

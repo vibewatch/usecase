@@ -1,0 +1,5 @@
+# Append-only JSONL ledgers: concurrent collection runs each append lines, so
+# merges keep both sides' lines instead of conflicting.
+data/triage.jsonl merge=union
+data/discovered_urls.jsonl merge=union
+data/fetch_manifest.jsonl merge=union
