@@ -1,0 +1,76 @@
+{
+  "id": "mongodb-workleap-enterprise-knowledge-search",
+  "slug": "mongodb-workleap-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Workleap",
+  "industry": "Software / SaaS",
+  "region": "Canada",
+  "company_size": "Mid-market",
+  "business_problem": "Workleap wanted to embed generative AI across its HR and talent-management suite without stitching together separate third-party tools for vector search, full-text search, filtering, and cross-product data retrieval.",
+  "solution_summary": "Workleap extended its HR and talent-management suite with Workleap AI by layering MongoDB Atlas Search and MongoDB Vector Search onto the Atlas data platform it already used as its system of record. Product data from surveys, feedback, performance reviews, documents, calendars, audio recordings, and other connected business systems stays in Atlas, where hybrid search combines lexical matching and semantic retrieval to supply context for AI assistants and analytics. The same retrieval layer lets managers ask natural-language questions across multiple Workleap products, generate performance-review digests, search connected apps, and analyze employee-engagement trends without manually stitching together several datasets. Because storage, vector search, and text search live on one platform, Workleap built its proof of concept in days and moved to production quickly while avoiding a patchwork of third-party vector, filtering, and search tools.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search",
+    "MongoDB Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational data behind Workleap's HR products and AI experiences.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides relevance-based text retrieval across surveys, documents, and connected product data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Adds semantic retrieval so Workleap AI can understand meaning across varied employee and product content.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Survey responses, feedback, performance-review data, documents, calendar information, and audio recordings remain in MongoDB Atlas, where Atlas Search and MongoDB Vector Search retrieve the most relevant context and feed Workleap AI features that answer questions, summarize data, and recommend actions to managers.",
+  "integration_points": [
+    "connected apps and business systems",
+    "calendar information",
+    "audio recordings",
+    "Officevibe"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Workleap shipped a proof of concept in a few days, brought Workleap AI to production quickly, improved data retrieval and analysis for managers, and removed manual review work from performance reviews and engagement analysis across a customer base of more than 20,000 companies.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Workleap is trusted by over 20,000 companies.",
+    "Workleap launched a proof of concept of Workleap AI in just a few days.",
+    "The company migrated to Atlas as its foundational database in 2014."
+  ],
+  "architecture_clues": [
+    "Workleap AI uses hybrid search that combines exact-text and semantic retrieval.",
+    "The system retrieves context from documents, calendars, audio recordings, and multiple Workleap products.",
+    "Managers receive AI-generated digests and recommendations based on both qualitative and quantitative survey data.",
+    "Atlas already housed the core data, which allowed the AI layer to be added without a new data stack."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/workleap",
+  "published_date": "2025-08-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Workleap built an AI-powered talent management platform in a short timeframe using the hybrid search capabilities of MongoDB Atlas.\"",
+    "\"Workleap launched a proof of concept of Workleap AI in just a few days.\"",
+    "\"It provides vector embeddings to the data pipelines for its enhanced data retrieval of documents, calendar information, audio recordings, and more using MongoDB Atlas Vector Search.\"",
+    "\"With Workleap AI, the manager can just click on the report and have a full digest of what’s going on with their team.\""
+  ]
+}

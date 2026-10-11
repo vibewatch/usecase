@@ -1,0 +1,75 @@
+{
+  "id": "mongodb-conde-nast-marketing-personalization",
+  "slug": "mongodb-conde-nast-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Condé Nast",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Condé Nast needed a recommendation engine that could help millions of readers across more than 70 websites find relevant content without the latency, cost, and operational complexity of maintaining separate Elasticsearch pipelines for different asset classes.",
+  "solution_summary": "Condé Nast consolidated the content assets behind more than 70 websites on MongoDB Atlas so it could rebuild its recommendation engine without maintaining separate Elasticsearch pipelines for each content type. Articles, images, audio, and video are stored centrally, then processed through Voyage AI embedding models to create vectors that are loaded into MongoDB Atlas Vector Search. The recommendation service queries those embeddings directly from Atlas to run image-based and similarity search for 'read more' experiences, while the same managed platform absorbs around 1,500 recommendation queries per second and 500 search queries per second. By moving storage and vector retrieval onto one data platform, the team eliminated brittle external pipelines, reduced operational complexity, and created a stable base for future hybrid search and cross-asset AI experimentation.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search",
+    "Voyage AI"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Condé Nast's cross-brand content corpus and supports the managed recommendation infrastructure.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Serves vector-based recommendation and similarity queries over millions of content embeddings.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voyage AI",
+      "role": "Provides the embedding models Condé Nast uses to generate high-quality vectors for recommendation search.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Content from more than 70 Condé Nast websites is centralized in MongoDB Atlas, transformed into embeddings with Voyage AI, stored in MongoDB Atlas Vector Search, and queried by recommendation services that return related content to readers through search and 'read more' experiences.",
+  "integration_points": [
+    "70+ Condé Nast websites",
+    "Voyage AI embedding models"
+  ],
+  "technical_area": [
+    "Media and Content",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Condé Nast reduced recommendation latency by 90%, cut operational costs by 65%, raised click-through rates to 35%, and gave engineers a stable platform they can reuse for hybrid search and other AI-driven content experiences.",
+  "outcome_category": [
+    "Customer Experience",
+    "Cost Reduction",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "Condé Nast operates more than 70 websites.",
+    "The system stores approximately 2 million vectors with a goal to vectorize all content.",
+    "MongoDB Atlas Vector Search handles 1,500 queries per second for recommendations and 500 queries per second for search.",
+    "The solution reduced latency by 90% and cut operational costs by 65%.",
+    "Click-through rates across Condé Nast's websites rose to 35%."
+  ],
+  "architecture_clues": [
+    "The content corpus spans text, audio, video, and image assets.",
+    "The prior architecture used three separate Elasticsearch recommendation pipelines.",
+    "MongoDB now processes vectors directly instead of sending data to an external pipeline.",
+    "The new platform is being extended toward hybrid search across all content types."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/conde-nast",
+  "published_date": "2026-02-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We already had storage on MongoDB, and it made sense to simply use MongoDB to process vectors instead of sending the data to an external pipeline.\"",
+    "\"The resulting embeddings—approximately 2 million vectors, with a future goal to vectorize all content—were then stored in MongoDB Atlas Vector Search.\"",
+    "\"For Condé Nast, Vector Search handles 1,500 queries per second for recommendations and 500 queries per second for search.\"",
+    "\"Per early measurements, the MongoDB solution reduced latency by 90% and cut operational costs by 65%.\""
+  ]
+}

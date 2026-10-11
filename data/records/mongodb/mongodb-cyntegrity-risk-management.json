@@ -1,0 +1,78 @@
+{
+  "id": "mongodb-cyntegrity-risk-management",
+  "slug": "mongodb-cyntegrity-risk-management",
+  "vendor": "MongoDB",
+  "customer_name": "Cyntegrity",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Mid-market",
+  "business_problem": "Cyntegrity needed a secure, globally available, cloud database that could combine clinical-trial data from multiple systems of record, preserve longitudinal context, satisfy data residency rules, and surface fraud and schedule risks quickly enough to improve trial quality and compliance.",
+  "solution_summary": "Cyntegrity runs its MyRBQM portal on MongoDB Atlas on Microsoft Azure so pharmaceutical sponsors and regulators can analyze global clinical-trial data in one secure, always-on environment. Clinical trial records from multiple source systems are stored as flexible documents with role-based access, multi-tenancy, and timestamped audit trails, while MongoDB Time Series Collections preserve longitudinal measurements so the platform can compare changes over time, predict study duration, and flag duplicate or anomalous submissions. Atlas's managed multi-cluster setup and backup integration give the company cloud resilience across regions, and real-time updates allow multiple researchers to collaborate without version-control issues or peak-time latency. This architecture also supports machine-learning workloads that detect fraud, estimate timelines, and surface compliance issues fast enough for sponsors and regulators to intervene before studies fail or budgets drift.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Time Series Collections",
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Hosts the MyRBQM portal as a managed multi-tenant database for clinical-trial analytics and collaboration.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Time Series Collections",
+      "role": "Preserves time-stamped clinical observations so users can run longitudinal analysis and detect anomalies over time.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Provides the cloud environment Cyntegrity uses for resilient, region-aware Atlas deployments.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Clinical-trial records from customer systems flow into MongoDB Atlas on Azure, where timestamped observations are stored in time series collections, analyzed for anomalies and duplicate outcomes, and exposed in real time to researchers, sponsors, and regulators through the MyRBQM portal.",
+  "integration_points": [
+    "customer systems of record",
+    "FDA",
+    "European Medicines Agency (EMA)",
+    "backup solution"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Cyntegrity achieved 10x faster performance and 99.99% availability, reduced the maintenance burden from a projected 20 people to one, helped clients detect fraud and quality issues before studies failed, and used machine learning to forecast trial durations with near-two-week accuracy.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "The portal targets load times of no more than 1.5 seconds and MongoDB performed 10 times faster than competing products during testing.",
+    "MyRBQM has 99.99% availability.",
+    "Cyntegrity estimates it needs just one individual to maintain its infrastructure instead of 20 people for an SQL database.",
+    "MongoDB flagged 99% duplication between outcomes from two medical centers in one failed study.",
+    "A machine-learning estimate for one customer's biggest clinical trial proved accurate down to two weeks."
+  ],
+  "architecture_clues": [
+    "The platform uses multi-tenancy, role-based access, and timestamped audit trails for sensitive clinical data.",
+    "MongoDB Atlas runs in a multi-cluster setup on Microsoft Azure with backup integration for resilience.",
+    "Time series collections preserve each data point with original context for longitudinal studies.",
+    "Multiple users collaborate on the portal simultaneously with real-time data updates and no version-control issues."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/cyntegrity",
+  "published_date": "2024-11-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Cyntegrity uses MongoDB Atlas on Azure for fast, scalable, and secure trial data management, enabling real-time insights, fraud detection, and accurate trial forecasting.\"",
+    "\"To support longitudinal studies, MongoDB Time Series Collections ensure that every time-stamped customer data point is preserved with its original context.\"",
+    "\"When they analyzed why it failed, MongoDB flagged 99% duplication between the outcomes from two medical centers.\"",
+    "\"Its portal has 99.99% availability and is so reliable that the company broadcasts its system status live on the website.\""
+  ]
+}

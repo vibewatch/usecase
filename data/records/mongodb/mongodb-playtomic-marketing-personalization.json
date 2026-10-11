@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-playtomic-marketing-personalization",
+  "slug": "mongodb-playtomic-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Playtomic",
+  "industry": "Software / SaaS",
+  "region": "Spain",
+  "company_size": "Mid-market",
+  "business_problem": "Playtomic needed to escape rigid relational schemas, manual infrastructure scaling, and a separate search system that were slowing feature delivery and making it harder to support a fast-growing global community of sports players and clubs.",
+  "solution_summary": "Playtomic moved from a rigid relational database and separate search stack to MongoDB Atlas so it could scale a global sports community and club-management platform without manual infrastructure firefighting. Core data for player profiles, club operations, matchmaking, memberships, and search now runs on a managed Atlas cluster, where Atlas Search provides integrated retrieval instead of a separate search system. MongoDB's flexible document model lets the team iterate on features such as open matches, automated court assignment, pricing, and player levelling without risky schema migrations, while Atlas monitoring shows which queries or subsystems are consuming CPU and memory so engineers can optimize or scale quickly. Atlas also supports one-click cluster growth and global read replicas, letting Playtomic keep latency in the 100-200ms range, absorb traffic spikes on the same cluster, and prepare for expansion into regions such as the United States and Australia.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational data behind Playtomic's player, club, booking, and matchmaking workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides integrated search and natural-language retrieval inside the same cluster as the core application data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Player, club, booking, and membership data is stored in MongoDB Atlas, searched through MongoDB Atlas Search, and returned to users and club workflows for open-match recommendations, court assignments, and fast discovery across Playtomic's global community.",
+  "integration_points": [
+    "club management tools",
+    "social matching workflows",
+    "global read replicas"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Application Refactoring"
+  ],
+  "business_outcome": "MongoDB helped Playtomic scale from a local Spanish startup to a platform with over 14 million users, keep core latencies between 100 and 200 milliseconds, handle sudden traffic spikes on a single cluster, and prepare the business for expansion into new markets.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Playtomic has over 14 million users, of which 1.8 million are regularly active.",
+    "The platform operates in nearly 70 countries.",
+    "Core data flows typically target support latencies between 100 and 200 milliseconds."
+  ],
+  "architecture_clues": [
+    "Playtomic runs its entire core system on a single main Atlas cluster.",
+    "Atlas monitoring is used to identify which queries or infrastructure segments are causing CPU or memory pressure.",
+    "Global read replicas are part of the expansion plan for geographically dispersed users.",
+    "The previous architecture required a separate search system alongside the main database."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/playtomic",
+  "published_date": "2026-03-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We typically aim for support latencies between 100 and 200 milliseconds for our core data flows.\"",
+    "\"MongoDB Atlas Search can handle any load you throw at it, even queries that aren’t very well optimized.\"",
+    "\"Having everything in the same cluster allows us to cushion all kinds of shocks.\"",
+    "\"The adoption of MongoDB Atlas has played a critical role in supporting Playtomic’s growth from a local Spanish startup to a global platform with over 14 million users.\""
+  ]
+}

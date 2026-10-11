@@ -1,0 +1,79 @@
+{
+  "id": "mongodb-tenali-ai-sales-automation",
+  "slug": "mongodb-tenali-ai-sales-automation",
+  "vendor": "MongoDB",
+  "customer_name": "Tenali AI",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Tenali AI needed to help enterprise sellers answer deeply technical questions during live calls in under one second by searching Slack, PDFs, CRM data, and prior meeting content without the latency and synchronization overhead of a fragmented AI stack.",
+  "solution_summary": "Tenali AI built a real-time retrieval-augmented generation stack on MongoDB Atlas so sales reps can get technical answers while a live call is still in progress. A native desktop app captures call audio and transcripts, then Voyage AI's voyage-4-large embedding model converts the conversation and enterprise knowledge sources into semantic vectors. MongoDB Atlas acts as the system of record for operational data plus rich multimodal metadata from Slack threads, PDFs, CRM data, past meeting transcripts, internal docs, and even video slides. MongoDB Vector Search retrieves the most relevant passage, thread, or slide in milliseconds and returns grounded context to the application, eliminating ETL hops between an operational store and a separate vector database. Because the same Atlas platform holds tenant data, vector indexes, and action context, Tenali can also trigger follow-on workflows such as updating Salesforce or preparing follow-up notes without adding more infrastructure.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Vector Search",
+    "Voyage AI"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Tenali AI's operational data, multimodal knowledge assets, and tenant context in one managed platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Retrieves the most relevant passages, threads, and slides fast enough to support live in-call answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voyage AI",
+      "role": "Generates the embeddings Tenali AI uses to semantically match call context and knowledge-base content.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Live call audio is captured and transcribed in Tenali AI's desktop app, embedded with Voyage AI, matched against vectors and metadata stored in MongoDB Atlas, and the retrieved context is returned to the seller as an in-call answer with optional follow-on actions against connected CRM and collaboration systems.",
+  "integration_points": [
+    "Salesforce",
+    "HubSpot",
+    "Slack",
+    "past meeting transcripts",
+    "internal documentation",
+    "PDFs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Tenali AI now delivers expert answers in under one second, reduced retrieval latency from 300ms to 100ms across P50, P95, and P99, increased live in-call usage of answers by over 40%, and saves dozens of DevOps hours each month while helping sellers preserve buyer momentum.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Tenali AI reduced retrieval latency by 67%, from 300ms to 100ms across P50, P95, and P99.",
+    "After switching embedding models, sales reps actively using Tenali's answers on live calls increased by over 40%.",
+    "Tenali AI was inspired by the loss of a $2 million enterprise deal when a seller could not answer a live technical question.",
+    "Using a fully managed service saves the team dozens of hours of DevOps work every month."
+  ],
+  "architecture_clues": [
+    "The platform uses a native desktop app for live audio capture and transcription.",
+    "MongoDB Atlas is the source of truth for multimodal metadata alongside vector embeddings.",
+    "MongoDB Vector Search can return specific slides from videos or specific Slack threads, not just plain text snippets.",
+    "Tenali AI uses one data platform for both operational data and vector search to avoid ETL synchronization delays."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/tenali-ai",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Tenali AI built a real-time RAG stack using MongoDB Atlas and Voyage AI to provide instant, multimodal retrieval from a unified data platform.\"",
+    "\"By using the voyage-4-large model, Tenali AI reduced retrieval latency from 300ms to 100ms and lower across P50, P95, and even P99.\"",
+    "\"By using a single data platform for both operational data and vector search, Tenali AI eliminated the need to manage complex Extract, Transform, Load (ETL) pipelines.\"",
+    "\"The flexibility of the MongoDB document model also allows Tenali AI to connect directly to a team's actual data sources—Salesforce, HubSpot, Slack, past meeting transcripts, and internal documentation.\""
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "mongodb-esg-data-solutions-real-time-analytics",
+  "slug": "mongodb-esg-data-solutions-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "ESG Data & Solutions",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Mid-market",
+  "business_problem": "ESG Data & Solutions needed a flexible, secure data platform that could ingest huge volumes of ESG documents and feeds, replace relational and separate vector databases, reduce manual review cycles that took days per company, and satisfy multi-region regulatory requirements for financial-sector clients.",
+  "solution_summary": "ESG Data & Solutions built its ESGSure research platform on MongoDB to manage the constantly changing mix of ESG reports, filings, news, questionnaires, videos, PDFs, and API feeds used by investors and banks. The company first broke away from rigid relational systems with MongoDB Community Edition, then moved the SaaS platform to MongoDB Atlas on AWS so it could scale elastically across regions and client deployment models. Atlas stores diverse operational records and time-stamped ESG data, while MongoDB Atlas Vector Search retrieves relevant passages and datasets for hybrid text and vector queries that feed LLM workflows such as Anthropic's Claude. Dedicated search nodes and direct vectorization inside MongoDB remove the ETL burden of separate vector databases, and Atlas's multi-cloud, client-specific cluster options help ESGDS satisfy GDPR and other regulated-environment requirements while keeping data near real time.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search",
+    "Anthropic Claude"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Hosts ESGSure's operational data, time-stamped ESG records, and elastic multi-region SaaS deployments.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Runs hybrid retrieval over vectorized ESG content to support investor-facing AI workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Anthropic Claude",
+      "role": "Consumes the retrieved ESG context to generate AI-driven insights for users of the platform.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Annual reports, filings, news, questionnaires, sanctions lists, PDFs, videos, and API data flow into MongoDB Atlas, where ESGSure stores and vectorizes the records; MongoDB Atlas Vector Search retrieves relevant datasets and passages, which are then passed to LLM workflows such as Anthropic Claude to generate investor-ready insights.",
+  "integration_points": [
+    "annual reports and corporate filings",
+    "news articles",
+    "client-specific questionnaires",
+    "APIs",
+    "AWS"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "ESGDS nearly doubled data-ingestion capacity, cut manual ESG data review from two to three days per company to minutes, vectorized nearly 400,000 papers within a year, and created a platform that can expand across regions while meeting strict security and compliance demands.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Compliance"
+  ],
+  "metrics": [
+    "ESGSure collects data points from over 20,000 companies and investors.",
+    "Within a year, ESGDS was able to vectorize nearly 400,000 papers on the ESGSure platform.",
+    "ESGSure has reduced manual data review time for ESG data sets from multiple days to minutes.",
+    "ESGDS delivers nearly twice the volume of ESG datasets as traditional manual workflows.",
+    "MongoDB's vector capabilities can return sub-second results for every search prompt."
+  ],
+  "architecture_clues": [
+    "The platform moved from PostgreSQL and Pinecone to MongoDB-backed operational and vector workloads.",
+    "MongoDB time-series capabilities are used to eliminate stale data in ESG workflows.",
+    "Dedicated search nodes are used to preserve retrieval performance under heavy bulk-processing loads.",
+    "Clients can run the platform on preferred cloud providers or on-premises to satisfy regulated-environment requirements."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/esgds",
+  "published_date": "2026-03-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our platform needs to process massive, diverse, and unstructured data sets, so we can then use a combination of large language models (LLMs), real-time data, and vector search capabilities to deliver AI-driven granular, personalized, and actionable insights for investors.\"",
+    "\"With MongoDB’s built-in vector search, ESGDS doesn’t need any bolt-on vector databases, and can perform hybrid queries that combine vector and text search.\"",
+    "\"ESGSure has reduced manual data review time for ESG data sets from multiple days to minutes.\"",
+    "\"When it comes to our growth and geographic expansion, MongoDB’s multi-cloud and multi-region capabilities have been key.\""
+  ]
+}

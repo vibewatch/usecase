@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-swisscom-enterprise-knowledge-search",
+  "slug": "mongodb-swisscom-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Swisscom",
+  "industry": "Telecommunications",
+  "region": "Switzerland",
+  "company_size": "Enterprise",
+  "business_problem": "Swisscom needed to help banking users search and summarize a fast-growing library of more than 3,500 industry documents with better speed, relevance, and trust than general-purpose online AI tools could provide.",
+  "solution_summary": "Swisscom built a retrieval-augmented generation service for e.foresight, its banking-industry think tank, by putting the entire document library on MongoDB Atlas and using MongoDB Vector Search to ground LLM responses. Reports, live-event recordings, graphics, and external studies are stored in Atlas as the single secure repository, then vectorized so the application can retrieve relevant segments and feed domain-specific context into large language models. The team went from first contact with MongoDB on February 6 to a working subset prototype by February 15, then production in early May after joint testing with ZHAW and internal operations handoff. Because the data stays in Switzerland and every answer can point back to cited source material, Swisscom can serve banks with faster, more accurate summaries while meeting the trust and sensitivity requirements of the financial sector.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores e.foresight's banking research corpus and operational data in one secure repository.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Retrieves the most relevant document segments to ground AI-generated responses for banking users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Reports, event recordings, graphics, and external studies are stored in MongoDB Atlas, converted into embeddings, searched with MongoDB Vector Search, and the retrieved context is passed to LLMs so e.foresight users receive condensed, source-linked answers instead of manual document lists.",
+  "integration_points": [
+    "e.foresight document library",
+    "ZHAW",
+    "bank subscriber workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Swisscom stood up the first solution with about six days of development effort, moved from concept to prototype in days, improved the speed and relevance of banking-content searches and summaries, and created a reusable pattern for additional Swiss AI Platform services.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "e.foresight has over 3,500 documents in its library, with more being added each day.",
+    "The service is used by 30 of Switzerland's leading banks.",
+    "Swisscom reached out to MongoDB on February 6, 2024 and had a prototype built by February 15.",
+    "Total development effort for the first solution was around six days."
+  ],
+  "architecture_clues": [
+    "The application stores all content in MongoDB Atlas and retrieves relevant segments for RAG workflows.",
+    "All generated answers include links back to source material.",
+    "Users can uptick answers to improve future retrieval quality.",
+    "Swisscom emphasizes that sensitive banking data is held only in Switzerland."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/swisscom",
+  "published_date": "2025-02-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"e.foresight has over 3,500 documents about trends in the banking industry in its library, with more being added each day.\"",
+    "\"Swisscom can then convert the unstructured data into vector embeddings and use MongoDB Vector Search on Atlas to find segments of relevant context to feed the LLMs.\"",
+    "\"Total development effort for the first solution was around six days.\"",
+    "\"With this project we’ve proved we can create something powerful using data held only in Switzerland.\""
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "mongodb-beni-marketing-personalization",
+  "slug": "mongodb-beni-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Beni",
+  "industry": "Retail",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Beni needed to search and rank more than 300 million one-of-one resale listings refreshed by over a million items per day, but its split Milvus and MongoDB architecture created brittle ETL synchronization, expensive operations, and slow schema evolution.",
+  "solution_summary": "Beni replaced a split architecture built around Milvus and a separate catalog database with a unified MongoDB deployment that holds vector embeddings, product attributes, and user engagement signals in one place. Listings from resale marketplaces such as eBay, Poshmark, and Depop are continuously ingested into MongoDB Atlas, enriched with generated embeddings, and combined with popularity and behavioral data so the company can run hybrid search across more than 300 million one-of-one items. MongoDB Search and MongoDB Vector Search let Beni mix reverse-image and text retrieval with ranking logic based on relevance and shopper activity, while Atlas sharding distributes the growing catalog across smaller, more cost-effective instances. Keeping the ETL pipeline inside one data platform also lets the team add new attributes such as style or boldness without rebuilding an external vector store from scratch.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Search",
+    "MongoDB Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Beni's resale catalog, engagement data, and vector-bearing product records in one scalable operational platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Search",
+      "role": "Supports fast catalog search and relevance-based filtering across a constantly changing inventory.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Enables reverse-image, image-plus-text, and hybrid semantic retrieval over resale listings.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Listings from marketplaces such as eBay, Poshmark, and Depop are ingested into MongoDB Atlas, enriched with embeddings and attributes, combined with user engagement data, and queried through MongoDB Search and MongoDB Vector Search so Beni can return personalized resale results in its extension, app, and website.",
+  "integration_points": [
+    "eBay",
+    "Poshmark",
+    "Depop"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Beni improved image-search clickthrough by up to 43%, increased query-search clickthrough by 30%, translated higher engagement into roughly 30-40% more total sales, and cut monthly infrastructure costs by 20% while scaling an endlessly growing catalog.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Beni manages over 300 million listings that refresh by more than a million items daily.",
+    "MongoDB delivered a 20% reduction in monthly infrastructure costs.",
+    "Beni saw up to a 43% improvement in image search clickthrough rate (CTR).",
+    "Beni saw a 30% improvement in query search clickthrough rate and around a 30-40% increase in total sales.",
+    "In the past two years Beni has diverted over $5 million in gross merchandise value to the resale market."
+  ],
+  "architecture_clues": [
+    "Beni uses sharding to distribute a 300 million-plus catalog across smaller, more cost-effective instances.",
+    "The company ranks results with both semantic relevance and popularity signals stored in the same platform.",
+    "MongoDB allows Beni to add new catalog attributes such as style or boldness without rebuilding the full vector store.",
+    "The old dual-store ETL pipeline was eliminated by consolidating vector embeddings and catalog data into one database."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/beni",
+  "published_date": "2026-03-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Beni manages a massive, fragmented, and easily searchable catalog of over 300 million listings that refreshes by more than a million items daily.\"",
+    "\"By unifying its database environment with MongoDB, Beni was able to consolidate its vector embeddings, product catalog, and user engagement data.\"",
+    "\"With MongoDB's text, vector, and hybrid search capabilities, we’re able to pull products from our catalog that are both semantically relevant and also highly popular based on other user engagement data.\"",
+    "\"We’ve seen up to a 43% improvement in our image search clickthrough rate (CTR), and a 30% improvement in our query research clickthrough rate.\""
+  ]
+}

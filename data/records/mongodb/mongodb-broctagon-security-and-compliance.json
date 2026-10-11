@@ -1,0 +1,79 @@
+{
+  "id": "mongodb-broctagon-security-and-compliance",
+  "slug": "mongodb-broctagon-security-and-compliance",
+  "vendor": "MongoDB",
+  "customer_name": "Broctagon",
+  "industry": "Financial Services",
+  "region": "Singapore",
+  "company_size": "Mid-market",
+  "business_problem": "Broctagon needed to replace a mix of relational databases, open-source stores, and ArangoDB that was slowing innovation, struggling with rising brokerage workloads, and making it hard to scale a compliant CRM and prop-trading platform globally.",
+  "solution_summary": "Broctagon moved AXIS, its FX CRM and prop-trading platform, onto MongoDB Atlas on AWS to replace a mix of relational stores and ArangoDB that could not keep up with global brokerage growth. Atlas now holds live operational data for onboarding, client and referral management, funds handling, and analytics, while Atlas Online Archive automatically tiers historic trading data and Atlas Data Federation lets users query archived and live records together. The flexible document model lets each brokerage adapt eKYC and compliance workflows to local rules, and integrations with providers such as Sumsub and Shufti Pro support global identity verification. Because MongoDB can evolve schema and scale without heavy operational work, Broctagon also used the same platform to launch a plug-and-play prop-trading module in three months and to support fast provisioning for new brokerages.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Online Archive",
+    "Atlas Data Federation"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs AXIS as the primary operational database for CRM, trading, analytics, and onboarding workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Online Archive",
+      "role": "Automatically tiers large volumes of historical trading data out of the live database without losing query access.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Data Federation",
+      "role": "Lets brokers query archived and live trade records together with a single query for reporting and risk analysis.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Trading, CRM, commission, and onboarding data lands in MongoDB Atlas, older records are tiered into Atlas Online Archive, and Atlas Data Federation joins archive and live collections so brokers can run unified reporting, history lookups, and compliance workflows across the full dataset.",
+  "integration_points": [
+    "Amazon Web Services",
+    "Sumsub",
+    "Shufti Pro",
+    "trading platforms"
+  ],
+  "technical_area": [
+    "ERP / CRM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Broctagon cut provisioning time for new brokerages from three days to 24 hours, grew its user base by 300% in a year, supported more than 1.5 million traders, and delivered reports up to 10 times faster while maintaining global compliance flexibility.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "AXIS powers over 150 brokerages and serves more than a million users worldwide.",
+    "The platform processes over 35 million trade records annually and manages 250 million real-time commission payments each quarter.",
+    "AXIS handles spikes in user interactions of up to 1500% during peak trading hours.",
+    "Atlas Online Archive enabled Broctagon to archive vast data volumes in just 10 minutes.",
+    "Brokers can search 400 million archived documents and 300 million live documents with a single query.",
+    "Provisioning time fell from three days to 24 hours, helping drive 300% growth in the user base within a year."
+  ],
+  "architecture_clues": [
+    "Broctagon runs AXIS on MongoDB Atlas on AWS.",
+    "The flexible schema model supports brokerage-specific eKYC requirements and evolving commission structures.",
+    "AXIS integrates with Sumsub and Shufti Pro for identity verification.",
+    "The prop-trading module was built on MongoDB in just three months."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/broctagon",
+  "published_date": "2024-09-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"In 2019, Broctagon implemented MongoDB Atlas on AWS, providing the scalability and flexibility to innovate rapidly while enhancing the AXIS broker experience at a lower cost.\"",
+    "\"Using Atlas Data Federation, brokers can easily search 400 million documents in the archive and 300 million in the live database with a single query.\"",
+    "\"The company can now provision AXIS to new brokerages in just 24 hours, compared to the three days it took with its previous SQL database.\"",
+    "\"MongoDB Profiler, we identified and reduced a 50-second query to just two seconds.\""
+  ]
+}

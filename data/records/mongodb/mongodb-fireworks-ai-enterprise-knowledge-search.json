@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-fireworks-ai-enterprise-knowledge-search",
+  "slug": "mongodb-fireworks-ai-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Fireworks AI",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Fireworks AI needed a vector database that could supply grounded enterprise context to generative AI models, reduce hallucinations, support customer-controlled deployments, and avoid forcing sensitive data into disconnected third-party vector systems.",
+  "solution_summary": "Fireworks AI uses MongoDB Atlas as the vector database foundation alongside its inference platform so enterprise customers can add grounded retrieval to generative AI deployments without moving sensitive data into separate systems. Document collections and other enterprise content are ingested into Atlas, embedded and indexed for MongoDB Atlas Vector Search, and then retrieved at query time to supply context to Fireworks AI-hosted or self-deployed models. This architecture supports core workloads such as conversational RAG, semantic classification, image-to-structured-data extraction, and alert intelligence while preserving data sovereignty because deployments can run inside customer environments. By pairing Atlas's native vector retrieval with Fireworks AI's high-throughput model-serving stack, the company offers a faster, lower-latency, and lower-cost path to enterprise-ready AI applications than disconnected inference and data layers.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores enterprise data collections and operational context for Fireworks AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves the relevant enterprise context that grounds Fireworks AI model responses and downstream AI workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Enterprise documents and other customer data are ingested into MongoDB Atlas, indexed for vector search, retrieved at query time through MongoDB Atlas Vector Search, and supplied as context to Fireworks AI models running through hosted APIs or inside customer-controlled deployment environments.",
+  "integration_points": [
+    "hosted APIs",
+    "customer-controlled deployment environments",
+    "enterprise document collections"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Using MongoDB Atlas with Fireworks AI improves model output quality, reduces latency, lowers cost, and gives enterprise customers a practical way to deploy secure RAG, classification, and extraction workloads while keeping data in their own environments when necessary.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Fireworks AI curates, optimizes, and deploys over 40 different AI models.",
+    "The platform can process 66 billion tokens daily.",
+    "Fireworks AI achieves four times faster inference speed and eight times higher throughput and scale than competing platforms."
+  ],
+  "architecture_clues": [
+    "MongoDB Atlas is used as the vector database in Fireworks AI's enterprise AI stack.",
+    "The architecture supports self-hosted deployments so no data leaves the customer's premises.",
+    "MongoDB's vector retrieval is used for RAG, classification, image-to-structured-data extraction, and alert intelligence.",
+    "The partnership runs through the MongoDB AI Applications Program (MAAP)."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/fireworks-ai",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"By partnering with MongoDB Atlas, an operational database with native vector search capabilities, Fireworks AI addresses one of AI adoption’s toughest challenges.\"",
+    "\"This collaboration enables the secure integration of enterprise data with AI models, facilitating retrieval-augmented generation (RAG) while maintaining data sovereignty.\"",
+    "\"MongoDB Atlas supports context retrieval from enterprise data, reducing LLM hallucinations while maintaining performance.\"",
+    "\"Fireworks AI can process 66 billion tokens daily while achieving four times faster inference speed and eight times higher throughput and scale than competing platforms.\""
+  ]
+}

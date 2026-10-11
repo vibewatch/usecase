@@ -1,0 +1,78 @@
+{
+  "id": "mongodb-igt-solutions-enterprise-knowledge-search",
+  "slug": "mongodb-igt-solutions-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "IGT Solutions",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "IGT Solutions needed to replace manual, error-prone workflows and a split relational-plus-vector architecture with a flexible platform that could store large volumes of operational and vector data, support multiple AI services across clouds, and shorten time to market for new client solutions.",
+  "solution_summary": "IGT Solutions standardized many of its AI offerings on MongoDB Atlas so it could combine operational and vector data for travel, hospitality, procurement, recruitment, and other outsourced-service workloads. In the initial project that convinced the team, Atlas stored about 50 gigabytes of data and processed an average of 7 million tickets a day, while MongoDB Atlas Vector Search let the company build intelligent applications over structured and unstructured content without a separate vector store. Running on Azure with Python back-end services, MongoDB also collects operational logs and supports reporting, alerting, compliance, and multi-LLM integrations inside one multi-cloud platform. That common data layer powers solutions such as Procurement.AI and Recruitment.AI, where LLM workflows analyze thousands of resumés, answer finance queries, and schedule interviews, while developers can change schemas and add new AI services with minimal code changes.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search",
+    "Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores operational and application data for IGT's growing portfolio of AI solutions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Adds vector retrieval so IGT can build intelligent applications over documents and other unstructured content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure",
+      "role": "Provides the cloud environment IGT uses with Python back-end services for many GenAI workloads.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Operational records, tickets, documents, logs, and resumés are stored in MongoDB Atlas, retrieved through MongoDB Atlas Vector Search, and fed into LLM-driven applications on Azure and Python back ends for search, query answering, reporting, and automated workflow execution.",
+  "integration_points": [
+    "Azure",
+    "Python",
+    "multiple LLMs",
+    "embedding models"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "MongoDB helped IGT Solutions raise productivity by 20%, improve time to market by 25%, cut finance-query response times by 90% for one client, and scale AI-assisted recruitment workflows that have already handled around 45,000 resumés.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "IGT Solutions operates 30 delivery centers and provides end-to-end platforms for over 25,000 users.",
+    "The pilot project handled 50 gigabytes of data and analyzed an average of 7 million tickets a day.",
+    "MongoDB-led improvements produced a 20% rise in productivity and a 25% improvement in time to market.",
+    "Procurement.AI led to a 90% reduction in response times for finance queries at one client.",
+    "Recruitment.AI has handled around 45,000 resumés."
+  ],
+  "architecture_clues": [
+    "IGT uses MongoDB Atlas Vector Search to combine vector and operational data on one platform.",
+    "Operational logs, reporting, alerting, compliance, and AI retrieval run from the same MongoDB-backed stack.",
+    "The company highlights Azure and Python as the back-end environment for GenAI workloads.",
+    "Multi-cloud support lets clients move between providers without changing the core MongoDB pattern."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/igt-solutions",
+  "published_date": "2024-09-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The pilot project went on to handle 50 gigabytes of data and analyze an average of 7 million tickets a day.\"",
+    "\"Having an operational database and a vector database on a single platform was another important consideration. MongoDB Atlas Vector Search makes service integration much easier.\"",
+    "\"Reduced development and system administration times enabled by MongoDB have led to a 20% rise in productivity and a 25% improvement in time to market.\"",
+    "\"Procurement.AI led to a 90% reduction in response times for finance queries at one client.\""
+  ]
+}

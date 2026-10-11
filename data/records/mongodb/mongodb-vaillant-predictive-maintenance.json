@@ -1,0 +1,71 @@
+{
+  "id": "mongodb-vaillant-predictive-maintenance",
+  "slug": "mongodb-vaillant-predictive-maintenance",
+  "vendor": "MongoDB",
+  "customer_name": "Vaillant",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Vaillant needed to handle exploding IoT telemetry from connected HVAC devices because its Azure CosmosDB environment required constant manual scaling, suffered repeated crashes and slow queries, and blocked predictive maintenance and API-driven service innovation.",
+  "solution_summary": "Vaillant migrated its connected-HVAC platform from Azure CosmosDB to MongoDB Atlas on Microsoft Azure after explosive device growth made manual scaling, slow queries, and nightly outages routine. IoT telemetry from tens of thousands of internet-connected devices now lands in Atlas as a single, auditable operational store, where the aggregation framework and secondary indexes support real-time analytics for monitoring and predictive-maintenance workflows. Atlas's managed scaling removed write-limit headaches, and the migration itself took about 90 minutes after the team redesigned the schema. Vaillant also keeps some analytics at the edge to reduce network traffic, exposes device data through APIs for partners and engineers, and uses Atlas security features such as VNet peering-only mode to protect sensitive operational data. The platform now underpins services such as serviceASSIST and future guided-repair experiences for field technicians.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores and scales Vaillant's IoT telemetry, APIs, and analytics workloads for connected HVAC products.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Hosts the Atlas deployment Vaillant uses for its cloud-based connected-device platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Sensor state changes from connected HVAC devices stream into MongoDB Atlas on Azure, where aggregation and indexing support real-time monitoring and predictive-maintenance analysis, while selected analytics stay at the edge to reduce network traffic and service data is exposed through APIs and technician applications.",
+  "integration_points": [
+    "device APIs",
+    "edge devices",
+    "serviceASSIST mobile app"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "After moving to MongoDB Atlas, Vaillant eliminated downtime, cut database size by more than 99%, increased API throughput by 250%, and created a platform that supports remote troubleshooting, real-time analysis, and more efficient field service for connected HVAC systems.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Vaillant had 70,000 devices generating 600,000 transactions per second.",
+    "Today, the platform stores over 1.9 billion records.",
+    "MongoDB Atlas decreased database size by over 99%.",
+    "MongoDB Atlas increased API throughput by 250 percent.",
+    "The migration took 90 minutes with no downtime."
+  ],
+  "architecture_clues": [
+    "The solution runs MongoDB Atlas on Microsoft Azure.",
+    "Intelligent edge processing is used so not all data must be sent to the cloud.",
+    "VNet peering-only mode is used to protect sensitive device data.",
+    "Vaillant plans to extend the platform through serviceASSIST and guided repair workflows for field engineers."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/vaillant",
+  "published_date": "2024-04-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We had 70,000 devices generating 600,000 transactions per second.\"",
+    "\"Today, we have over 1.9 billion records and there has been no downtime at all, and our customers immediately noticed the performance improvements.\"",
+    "\"With MongoDB Atlas, powerful secondary indexing, and the aggregation framework, the team has decreased its database size by over 99% all the while increasing the throughput of its API by 250 percent.\"",
+    "\"MongoDB Atlas’ VNet peering-only mode ensures that data is kept secure and access is limited.\""
+  ]
+}
