@@ -1,0 +1,96 @@
+{
+  "id": "aws-vivotek-security-and-compliance",
+  "slug": "aws-vivotek-security-and-compliance",
+  "vendor": "AWS",
+  "customer_name": "VIVOTEK",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "VIVOTEK needed to launch a secure, scalable cloud surveillance platform quickly without spending time building custom camera-to-cloud infrastructure or diverting engineering effort away from new AI-powered features.",
+  "solution_summary": "VIVOTEK launched its VORTEX video-surveillance-as-a-service platform on AWS to avoid building bespoke camera-to-cloud infrastructure and to speed delivery of a global, scalable surveillance offering. Security cameras connect through AWS IoT Core, which handles cloud onboarding and messaging from field devices. Application workloads then run on Amazon EC2 and Amazon EKS, while Amazon RDS and Amazon DynamoDB persist platform data and Amazon S3 stores cloud content. Amazon SNS supports notifications across the service. This multi-tier architecture let VIVOTEK bring full-stack web and mobile applications to market in 12 months while offloading infrastructure complexity to managed AWS services. With operations simplified, engineering could focus most of its effort on innovation and on advancing the AI-powered capabilities of the VORTEX surveillance platform.",
+  "products_used": [
+    "AWS IoT Core",
+    "Amazon EC2",
+    "Amazon EKS",
+    "Amazon RDS",
+    "Amazon DynamoDB",
+    "Amazon S3",
+    "Amazon SNS"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS IoT Core",
+      "role": "Connects security cameras to the cloud and removes the need for VIVOTEK to build its own camera-connection layer.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides compute capacity for VORTEX application workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized parts of the surveillance platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon RDS",
+      "role": "Stores relational platform data for the VORTEX service.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores scalable application data for the surveillance platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores cloud content associated with the surveillance solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon SNS",
+      "role": "Handles notifications across the VORTEX service.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Security cameras connect through AWS IoT Core into the VORTEX cloud platform, where application services run on Amazon EC2 and Amazon EKS, state is persisted in Amazon RDS and Amazon DynamoDB, cloud content is stored in Amazon S3, and notifications are distributed through Amazon SNS.",
+  "integration_points": [
+    "security cameras",
+    "web apps",
+    "mobile apps"
+  ],
+  "technical_area": [
+    "IoT",
+    "Cloud Native",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "VIVOTEK launched VORTEX in 12 months, saved a year of development time by using AWS IoT Core, and shifted more than 80 percent of engineering resources toward innovation instead of infrastructure management.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "12 months",
+    "saved a year in the development process",
+    "80%+ of resources dedicated to innovation"
+  ],
+  "architecture_clues": [
+    "Supports a hybrid video surveillance-as-a-service model.",
+    "Runs full-stack web and mobile applications alongside camera connectivity.",
+    "Explicitly uses managed IoT services to avoid custom cloud-connection design work."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/case-study-vivotek/",
+  "published_date": "2024-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "VORTEX used AWS services, including AWS IoT Core, to successfully launch VORTEX in 12 months.",
+    "We saved a year in the development process by using AWS IoT Core for the launch of VORTEX.",
+    "More than 80 percent of our resources can go towards driving innovation because managing our infrastructure on AWS is so simple."
+  ]
+}

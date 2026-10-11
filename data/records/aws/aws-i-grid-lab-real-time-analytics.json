@@ -1,0 +1,87 @@
+{
+  "id": "aws-i-grid-lab-real-time-analytics",
+  "slug": "aws-i-grid-lab-real-time-analytics",
+  "vendor": "AWS",
+  "customer_name": "i GRID LAB",
+  "industry": "Energy",
+  "region": "Japan",
+  "company_size": "Unknown",
+  "business_problem": "i GRID LAB needed to collect and analyze renewable-energy, demand, battery, and EV data quickly enough to predict surplus power and automate device control, while proving the concept fast in a rapidly changing energy market.",
+  "solution_summary": "i GRID LAB built the R.E.A.L. New Energy Platform on AWS to predict and control surplus renewable power using IoT data and AI. Distributed Energy Resource data—including solar generation, demand, storage-battery status, and EV charging and discharging—is collected from edge devices with AWS IoT Greengrass and stored in the cloud for high-speed time-series processing with Amazon Timestream. AI functions migrated onto Amazon SageMaker then combine that operational data with external inputs such as electricity market prices to forecast excess solar generation, determine optimal EV charging and discharging timing, and create automated control scenarios. The result is a serverless-oriented platform that can move from proof of concept to commercialization quickly while supporting regional power-circulation use cases, logistics decarbonization, and broader green-transformation programs.",
+  "products_used": [
+    "AWS IoT Greengrass",
+    "Amazon Timestream",
+    "Amazon SageMaker",
+    "AWS IoT Core"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS IoT Greengrass",
+      "role": "Collects data from edge devices connected to energy assets and facilities.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Timestream",
+      "role": "Processes and stores large volumes of time-series energy data at high speed.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Runs the AI functions used for surplus-power prediction and automatic control decisions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS IoT Core",
+      "role": "Supports the cloud-side IoT connectivity and messaging environment referenced by the case-study service list.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Solar, demand, battery, and EV telemetry is collected from edge devices through AWS IoT Greengrass into the cloud, processed as time-series data in Amazon Timestream, combined with external information such as electricity market prices in SageMaker-based AI models, and then used to generate automatic control scenarios for distributed energy resources.",
+  "integration_points": [
+    "Distributed Energy Resources (DER)",
+    "VPP Japan",
+    "solar facilities",
+    "EV charging and discharging",
+    "electricity market prices",
+    "general households"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning",
+    "Industry Cloud",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "i GRID LAB built the proof of concept in 6 months, published first results 1 month later, expanded to around 500 solar facilities and about 100,000 households, and created a commercial platform to support regional green power circulation and future GX cities.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "6 months",
+    "1 month",
+    "around 500 solar facilities",
+    "approximately 100,000 households",
+    "10 GX cities with 100 percent renewable energy using this platform"
+  ],
+  "architecture_clues": [
+    "Uses a serverless framework to shorten coding and documentation time.",
+    "Commercialized the platform in June 2022 after proof-of-concept and expansion phases.",
+    "Supports last-mile logistics decarbonization as a second-step use case."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/igrid-case-study/",
+  "published_date": "2023-12-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The R.E.A.L. New Energy Platform ... collects information on things such as solar power generation volume and power, demand, storage batteries, and EV charging/discharging status, and the data is stored in the cloud.",
+    "The company adopted AWS IoT Greengrass for the data collection from edge devices and Amazon Timestream for high-speed processing of large amounts of time series data.",
+    "Additionally, they migrated AI functions ... to Amazon SageMaker.",
+    "A platform for the proof of concept was built in just 6 months from the start of the project.",
+    "they collected and analyzed electricity usage and other data from approximately 100,000 households."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "aws-canva-it-operations-automation",
+  "slug": "aws-canva-it-operations-automation",
+  "vendor": "AWS",
+  "customer_name": "Canva",
+  "industry": "Software / SaaS",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Canva needed to keep compute spending under control while supporting highly variable demand from 160 million monthly active users and preserving reliable performance for different user tiers and workload types.",
+  "solution_summary": "Canva built a compute-optimization strategy on AWS so it could scale design, video, and streaming workloads cost-effectively at very large scale. Core workloads run on Amazon EC2, with containerized video and streaming services deployed on Amazon ECS and automatically scaled according to demand. Canva combines Amazon EC2 Spot Instances, Reserved Instances, On-Demand Instances, Savings Plans, and AWS Compute Optimizer guidance to match workload criticality and user tier with the right pricing model. Free-user projects can run on more opportunistic capacity, while higher-priority workloads retain fallback and reserved capacity for reliability. This makes cost management part of the platform architecture itself, giving engineers visibility into where money is spent and freeing resources for new product development rather than unchecked infrastructure growth.",
+  "products_used": [
+    "Amazon EC2",
+    "Amazon ECS",
+    "Amazon EC2 Spot Instances",
+    "Amazon EC2 Reserved Instances",
+    "AWS Compute Optimizer"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EC2",
+      "role": "Provides the compute backbone for Canva's large-scale platform workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon ECS",
+      "role": "Runs containerized video and streaming workloads with automatic scaling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 Spot Instances",
+      "role": "Supplies discounted capacity for cost-sensitive workloads and free-tier user projects.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 Reserved Instances",
+      "role": "Provides fallback and committed capacity for higher-priority workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Compute Optimizer",
+      "role": "Helps Canva analyze and right-size compute usage for cost efficiency.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Canva routes different workload tiers onto Amazon EC2 capacity pools, runs containerized video and streaming jobs on Amazon ECS, and applies pricing-model decisions such as Spot or reserved capacity based on workload criticality and demand patterns.",
+  "integration_points": [
+    "video workloads",
+    "streaming workloads",
+    "Canva Free projects",
+    "Canva Pro projects"
+  ],
+  "technical_area": [
+    "Cost Optimization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Canva reduced compute costs by 46 percent in less than 2 years while supporting more than 160 million monthly active users, handling up to 200 designs per second, and giving engineering teams more headroom to build new customer features.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "160 million monthly active users",
+    "15 billion designs across 190 countries",
+    "up to 200 designs per second",
+    "reduce compute costs by 46 percent in less than 2 years"
+  ],
+  "architecture_clues": [
+    "Combines multiple Amazon EC2 purchase models as part of application architecture.",
+    "Uses container cluster auto scaling for Amazon ECS workloads.",
+    "Maps pricing strategy to workload criticality and customer tier."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/canva-cost-optimization-case-study/",
+  "published_date": "2023-12-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Canva’s infrastructure team identified and implemented a combination of AWS purchase models to reduce compute costs by 46 percent in less than 2 years.",
+    "Canva makes professional-quality design accessible for more than 160 million monthly active users who have created 15 billion designs across 190 countries.",
+    "To meet compute needs that fluctuate up to 200 designs per second, Canva uses Amazon Elastic Compute Cloud (Amazon EC2).",
+    "Canva runs its video and streaming functions as containerized workloads on Amazon Elastic Container Service (Amazon ECS).",
+    "All told, Canva has reduced compute costs by 46 percent through a finely tuned combination of purchase options on AWS."
+  ]
+}

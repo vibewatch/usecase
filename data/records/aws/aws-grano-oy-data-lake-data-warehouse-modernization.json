@@ -1,0 +1,65 @@
+{
+  "id": "aws-grano-oy-data-lake-data-warehouse-modernization",
+  "slug": "aws-grano-oy-data-lake-data-warehouse-modernization",
+  "vendor": "AWS",
+  "customer_name": "Grano Oy",
+  "industry": "Manufacturing",
+  "region": "Finland",
+  "company_size": "Unknown",
+  "business_problem": "Grano Oy needed to replace siloed on-premises data tools with a centralized analytics environment so it could create defined metrics, consistent reporting, and better visibility for sales, manufacturing, and sustainability teams.",
+  "solution_summary": "Grano Oy built a cloud data management environment on AWS to replace fragmented on-premises analytics tooling and give business teams a shared reporting foundation. Data from source systems is first loaded into Amazon S3 as a staging layer, then transformed and joined in Amazon Redshift, where Grano creates data models and purpose-specific data marts for sales, manufacturing, sustainability, and other internal reporting needs. This architecture centralizes previously siloed data, enforces defined metrics and reporting models, and makes detailed drill-down analysis available to teams that previously lacked a dedicated warehouse or governance strategy. With the AWS-built hub, Grano can forecast sales earlier, investigate root causes of events, support complex sustainability reporting, and lay the groundwork for a broader AI and machine-learning-enabled central data hub.",
+  "products_used": [
+    "Amazon S3",
+    "Amazon Redshift"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Acts as the staging layer where Grano loads data from source systems.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Transforms, joins, models, and organizes data into marts for Grano's reporting use cases.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Data from Grano's source systems is loaded into Amazon S3 as a staging layer, transformed and joined in Amazon Redshift, organized into data models and marts, and then consumed in internal sales, manufacturing, and sustainability reports and dashboards.",
+  "integration_points": [
+    "on-premises source systems",
+    "sales reporting",
+    "manufacturing dashboards",
+    "sustainability reporting"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Grano improved access to insights, streamlined reporting, enabled earlier sales forecasting and root-cause analysis, increased proactive behavior across the sales organization, and created a central repository that simplifies complex sustainability reporting and future AI initiatives.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Uses Amazon S3 as a staging layer and Amazon Redshift for transformation, models, and data marts.",
+    "Supports internal reporting for sales, sustainability, and manufacturing operations.",
+    "Plans to evolve into a centralized data hub for collaboration, ML, and AI services."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/grano-case-study/",
+  "published_date": "2023-12-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Its valuable data was siloed across multiple on-premises systems, which made it difficult to unlock unified insights.",
+    "We didn’t have a dedicated data warehouse or central solution. At the same time, we didn’t have a clear governance or data strategy.",
+    "Grano Oy adopted Amazon Simple Storage Service (Amazon S3) ... as the staging layer where it loads data from source systems.",
+    "To modify and join this data, Grano Oy relies on Amazon Redshift.",
+    "Because we can drill down to the details of sales events, we can track what is happening and implement forecasting.",
+    "Our central data repository will facilitate the reporting process and help us meet our sustainability targets."
+  ]
+}

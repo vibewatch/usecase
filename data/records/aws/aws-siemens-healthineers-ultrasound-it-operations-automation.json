@@ -1,0 +1,81 @@
+{
+  "id": "aws-siemens-healthineers-ultrasound-it-operations-automation",
+  "slug": "aws-siemens-healthineers-ultrasound-it-operations-automation",
+  "vendor": "AWS",
+  "customer_name": "Siemens Healthineers Ultrasound",
+  "industry": "Healthcare",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens Healthineers Ultrasound needed to register connected ultrasound devices faster and improve remote support for a large global fleet without relying on slow, manual, multi-team registration and service processes.",
+  "solution_summary": "Siemens Healthineers Ultrasound expanded its Kinectus Remote Service platform on AWS to connect and manage large fleets of ultrasound devices more efficiently. Thousands of devices securely connect through AWS IoT services, with AWS IoT Core serving as the cloud connectivity layer for registration and remote access. The team pairs this with AWS Systems Manager for device-management workflows, Amazon S3 for cloud-side data handling, Amazon Chime for remote collaboration, and Amazon Q Business to improve support knowledge access. By shifting device onboarding and service operations onto a cloud-connected architecture, Siemens Healthineers shortened registration workflows from hours to minutes and created a platform that makes remote service, device management, and customer support more scalable across a global installed base.",
+  "products_used": [
+    "AWS IoT Core",
+    "AWS Systems Manager",
+    "Amazon S3",
+    "Amazon Chime",
+    "Amazon Q Business"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS IoT Core",
+      "role": "Connects ultrasound devices securely to the cloud for registration and remote-service workflows.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AWS Systems Manager",
+      "role": "Supports remote device-management operations once devices are connected.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores cloud-side data used by the remote-service platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Chime",
+      "role": "Supports collaboration experiences used in remote service and support workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Q Business",
+      "role": "Improves support knowledge access for service teams working with connected devices.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Ultrasound devices connect through AWS IoT Core into the Kinectus Remote Service environment, where device workflows are managed with AWS Systems Manager, cloud data is handled in Amazon S3, and support teams use Amazon Chime and Amazon Q Business to resolve issues and assist customers remotely.",
+  "integration_points": [
+    "Kinectus Remote Service",
+    "ultrasound devices"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Siemens Healthineers Ultrasound reduced new-device registration from up to 2 hours to 5 minutes, extended remote management to thousands of registered devices, and improved customer support by combining connected-device operations with cloud-based support tooling.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "5 minutes instead of 2 hours to register new devices",
+    "1000s of registered devices managed remotely"
+  ],
+  "architecture_clues": [
+    "Built on the existing Kinectus Remote Service connectivity platform.",
+    "Combines IoT connectivity with support knowledge and collaboration tools.",
+    "Targets a large fleet of globally distributed medical devices."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/siemens-healthineers-ultrasound/",
+  "published_date": "2024-01-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company’s Ultrasound team depends on its remote connectivity solution, called Kinectus Remote Service, to securely link thousands of these Internet of Things (IoT) devices to the cloud.",
+    "After Kinectus was running on Amazon Web Services (AWS), Siemens Healthineers Ultrasound expanded its new remote capabilities by enhancing customer support and streamlining device management using AWS and artificial intelligence (AI).",
+    "On AWS, Siemens Healthineers Ultrasound accelerated the process of registering new devices to the cloud from as long as 2 hours to only 5 minutes."
+  ]
+}

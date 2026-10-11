@@ -1,0 +1,73 @@
+{
+  "id": "aws-salesforce-it-operations-automation",
+  "slug": "aws-salesforce-it-operations-automation",
+  "vendor": "AWS",
+  "customer_name": "Salesforce",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Salesforce needed its observability platform to scale far beyond the limits of on-premises data centers so it could onboard more internal services, improve availability, and reduce the operational burden of growing telemetry infrastructure.",
+  "solution_summary": "Salesforce migrated its internal observability platform from on-premises data centers to AWS to remove capacity bottlenecks and support company growth. Using AWS MAP for acceleration, the team redesigned the platform around fully managed services including Amazon RDS and Amazon EKS so it could scale telemetry ingestion, alert evaluation, dashboarding, and querying without waiting on first-party hardware. The platform now ingests around two billion metrics per minute and more than 1 PB of logs, evaluates nearly 250,000 alerts every minute, and serves more than 20,000 dashboards in near real time. Managed cloud infrastructure also reduces operational toil because many underlying database and platform issues are absorbed by AWS services, allowing engineering teams to add capacity in a day and spend more time improving architecture and product innovation.",
+  "products_used": [
+    "Amazon RDS",
+    "Amazon EKS"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon RDS",
+      "role": "Handles managed database responsibilities inside the migrated observability platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized observability workloads at the scale Salesforce requires.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Telemetry metrics and logs from Salesforce services are ingested into the AWS-based observability platform, where Amazon EKS-hosted workloads and supporting managed data services power alerting, dashboards, and near-real-time queries for internal engineers.",
+  "integration_points": [
+    "Salesforce internal services",
+    "observability dashboards",
+    "alerting workflows"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "System Migration"
+  ],
+  "business_outcome": "By 2022 Salesforce had migrated over 95 percent of the observability platform to AWS, scaled to around two billion metrics per minute and more than 1 PB of logs, reached 99.99 percent availability for alerting, added capacity in 1 day instead of days or weeks, and freed 10–15 percent of team time for innovation.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "migrated over 95 percent of the services on the observability platform to AWS",
+    "around two billion metrics every minute and more than 1 PB of logs",
+    "nearly 250,000 alerts every minute",
+    "over 20,000 dashboards",
+    "99.99 percent availability for alerting use cases",
+    "10–15 percent of time for the team to focus on innovation"
+  ],
+  "architecture_clues": [
+    "Migration was accelerated using AWS MAP.",
+    "Platform can now add capacity in 1 day to support growth.",
+    "Uses managed services to reduce direct intervention from Salesforce teams."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/salesforce-observability-platform-case-study/",
+  "published_date": "2023-11-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By 2022, Salesforce had migrated over 95 percent of the services on the observability platform to AWS.",
+    "On AWS, the observability platform ingests around two billion metrics every minute and more than 1 PB of logs.",
+    "The platform has achieved 99.99 percent availability for alerting use cases and over 99.9 percent availability for dashboarding and one-time querying.",
+    "Salesforce Monitoring Cloud can now add capacity in 1 day to support its growing needs.",
+    "freed up 10–15 percent of time for the team to focus on innovation"
+  ]
+}

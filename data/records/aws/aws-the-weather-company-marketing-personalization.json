@@ -1,0 +1,69 @@
+{
+  "id": "aws-the-weather-company-marketing-personalization",
+  "slug": "aws-the-weather-company-marketing-personalization",
+  "vendor": "AWS",
+  "customer_name": "The Weather Company",
+  "industry": "Media and Entertainment",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "The Weather Company needed a privacy-preserving way to combine its first-party audience data with partner data so it could generate richer advertising insights and new commercial offerings without waiting months for engineering-heavy ETL work.",
+  "solution_summary": "The Weather Company used AWS Clean Rooms with partner Lotame to analyze first-party audience data without sharing or copying the underlying datasets. Mobile-app audience data already stored in Amazon S3 could be combined with Lotame collaboration data inside a controlled clean-room environment, where product and business teams could run SQL analyses directly instead of waiting for custom ETL work. The Weather Company used the setup to evaluate campaign performance for a travel customer, compare audience segments such as low- versus high-frequency travelers, and enrich marketing analytics while retaining privacy controls and output constraints. This architecture turns S3-based first-party data into faster, privacy-forward collaboration by using AWS Clean Rooms as the secure serving layer for joint analysis and new data products.",
+  "products_used": [
+    "AWS Clean Rooms",
+    "Amazon S3"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Stores The Weather Company's first-party mobile data in a data lake.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Clean Rooms",
+      "role": "Provides the privacy-preserving collaboration environment for joint SQL analysis with Lotame.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "The Weather Company's first-party mobile data is stored in Amazon S3, combined with Lotame collaboration data inside AWS Clean Rooms, analyzed through SQL queries under output controls, and turned into audience and campaign insights for vertical customers such as travel advertisers.",
+  "integration_points": [
+    "Lotame",
+    "The Weather Channel",
+    "travel vertical customer",
+    "APIs for customer applications and business processes"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The Weather Company reduced time to gather insights from months to days, improved query efficiency, strengthened privacy protections, and created a foundation for new commercial data-collaboration products across additional customer verticals.",
+  "outcome_category": [
+    "Speed to Market",
+    "Customer Experience",
+    "Compliance",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "98% reduction in time to gather insights",
+    "7x faster using clean rooms than legacy ETL alternative",
+    "Its digital properties reach more than 360 million people monthly"
+  ],
+  "architecture_clues": [
+    "Business users can run basic SQL queries directly in the clean room.",
+    "Output constraints are used to manage segment granularity and privacy.",
+    "AWS Clean Rooms is treated as foundational technology for future commercial products."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/the-weather-company-case-study/",
+  "published_date": "2024-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using AWS Clean Rooms, the companies were able to collaborate on collective data without requiring engineering resources nor compromising privacy.",
+    "As its mobile data was already in Amazon Simple Storage Service (Amazon S3) data lake, The Weather Company and Lotame partnered with AWS Clean Rooms.",
+    "As a product manager, I can now go into AWS Clean Rooms, do a couple of very basic SQL queries, and get insights within two days.",
+    "Using Lotame and AWS Clean Rooms, we can glean insights for customers and get new products to market quickly."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "aws-olx-security-and-compliance",
+  "slug": "aws-olx-security-and-compliance",
+  "vendor": "AWS",
+  "customer_name": "OLX",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "OLX needed to protect its hosted customer identity and access management platform from bot attacks without degrading login and registration experience for legitimate users across millions of monthly customers and multiple classifieds brands.",
+  "solution_summary": "OLX hardened its hosted customer identity and access management environment on AWS by adding AWS WAF Bot Control to screen malicious traffic before it could disrupt login and registration journeys. User requests first pass through Amazon CloudFront, where OLX and AWS implemented domain masking so browsers would not misclassify the Bot Control SDK, and then through AWS WAF rules that distinguish legitimate users from automated attacks. Amazon Cognito remains the customer-identity backbone, while supporting AWS services such as Lambda, Fargate, ECS, and Shield protect and scale the broader platform. The implementation let OLX move from audit mode to effective blocking during live attack events, freeing infrastructure for real users and reducing SMS and compute waste without compromising user experience.",
+  "products_used": [
+    "AWS WAF Bot Control",
+    "Amazon CloudFront",
+    "Amazon Cognito",
+    "AWS Shield Advanced"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS WAF Bot Control",
+      "role": "Detects and blocks malicious bot traffic targeting OLX's identity platform.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Amazon CloudFront",
+      "role": "Delivers the bot-control SDK path and supports domain masking to preserve browser compatibility.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Cognito",
+      "role": "Provides the hosted customer identity and access management capabilities being protected.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Shield Advanced",
+      "role": "Adds higher-level protection around the customer-facing identity environment.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer login and registration traffic reaches OLX through Amazon CloudFront, is inspected by AWS WAF Bot Control before reaching the Amazon Cognito-based identity flow, and malicious requests are blocked so only legitimate users consume downstream infrastructure.",
+  "integration_points": [
+    "hosted customer identity and access management solution",
+    "login and registration flows"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "OLX deployed the solution in 2 weeks, protected 13 classifieds platforms serving 11 million monthly users, rejected 250,000 false requests during an attack event, and reduced wasted infrastructure and SMS costs while preserving user experience.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "11 million customers monthly",
+    "13 classifieds platforms",
+    "2-week implementation",
+    "2.1 million requests and rejected 250,000 false requests",
+    "2 million requests and rejects around 13,000"
+  ],
+  "architecture_clues": [
+    "Used domain masking in CloudFront so browsers would not block the Bot Control SDK as advertising.",
+    "Initially ran in audit mode before switching to block mode during live attack events.",
+    "Balances security enforcement with registration and login usability."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/olx-waf-case-study/",
+  "published_date": "2025-03-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "OLX’s hCIAM serves 11 million customers monthly across 13 classifieds platforms in Europe and Asia.",
+    "OLX worked together with the AWS WAF team to implement domain masking for the SDK using capabilities in Amazon CloudFront.",
+    "The initial implementation took 2 weeks.",
+    "the company processed 2.1 million requests and rejected 250,000 false requests."
+  ]
+}

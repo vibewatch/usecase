@@ -1,0 +1,76 @@
+{
+  "id": "aws-altr-security-and-compliance",
+  "slug": "aws-altr-security-and-compliance",
+  "vendor": "AWS",
+  "customer_name": "ALTR",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "ALTR needed to help customers unlock cloud data securely across regions while keeping governance and observability strong and avoiding the cost growth that often comes with global expansion.",
+  "solution_summary": "ALTR built its automated data access and security platform on AWS and then shifted the solution to a serverless architecture so it could expand globally without a matching rise in infrastructure cost. Amazon API Gateway provides the managed API front door for the service, AWS Lambda runs event-driven application logic and security workflows, and Amazon Neptune stores metadata that ALTR uses to make governance decisions quickly. The platform monitors customer data environments so users can create access policies, classify data, run observability analyses, and protect sensitive information with tokenization, while Snowflake acts as a connected warehouse in the broader solution. Because the design is serverless, ALTR can concentrate on software and policy controls rather than patching virtual servers, making it easier to add regions, streamline security checks, and offer highly available service at competitive pricing.",
+  "products_used": [
+    "Amazon API Gateway",
+    "AWS Lambda",
+    "Amazon Neptune"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon API Gateway",
+      "role": "Provides the scalable API layer for ALTR's automated data-security service.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs event-driven security, notification, and lifecycle checks in the serverless platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Neptune",
+      "role": "Stores metadata used to make governance decisions quickly inside the platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer cloud-data activity is monitored by ALTR's service, policy and security requests enter through Amazon API Gateway, AWS Lambda processes events and enforcement logic, and metadata in Amazon Neptune is used to evaluate governance decisions and observability outcomes.",
+  "integration_points": [
+    "Snowflake",
+    "data access policies",
+    "tokenization",
+    "observability analyses"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "ALTR more than doubled its annual recurring revenue and customer count, grew Snowflake-based annual recurring revenue by more than 472 percent, expanded into new regions, and increased AWS production expenses by only 2.4 percent while keeping the service scalable and highly available.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Cost Reduction",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "Over 2x growth",
+    "customer count grew by more than 2 times",
+    "AWS production expenses only increased by 2.4 percent",
+    "Snowflake-based annual recurring revenue also grew by more than 472 percent"
+  ],
+  "architecture_clues": [
+    "Uses serverless technologies specifically to expand into more regions affordably.",
+    "Neptune is used for fast metadata access in governance decisions.",
+    "Security checks are driven by notifications and events rather than VM patching workflows."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/altr-case-study/",
+  "published_date": "2024-01-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "ALTR’s automated data access and security solution, built on Amazon Web Services (AWS), helps companies unlock the value of their data while maintaining compliance, security, and governance.",
+    "ALTR’s serverless infrastructure is powered by AWS services such as Amazon API Gateway, AWS Lambda ... It also uses Amazon Neptune ... to quickly access metadata and use it to make governance decisions.",
+    "Our business has doubled over the past year, and our AWS production expenses only increased by 2.4 percent.",
+    "ALTR expanded its solution to new regions without compromising price or performance."
+  ]
+}

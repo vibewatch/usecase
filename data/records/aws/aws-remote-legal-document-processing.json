@@ -1,0 +1,81 @@
+{
+  "id": "aws-remote-legal-document-processing",
+  "slug": "aws-remote-legal-document-processing",
+  "vendor": "AWS",
+  "customer_name": "Remote Legal",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Remote Legal needed a reliable and cost-efficient way to run remote depositions, deliver accurate real-time transcription, and keep legal proceedings stable enough that sessions could start and finish on the platform without costly failures.",
+  "solution_summary": "Remote Legal built its remote deposition platform on AWS using ASP.NET Core SignalR containers on AWS Fargate and an Application Load Balancer to support near-real-time courtroom-style collaboration over the web. Deposition session state and application data are stored in Amazon RDS, while audio from live sessions is sent to Amazon Transcribe to generate accurate text with seamless integration into the rest of the stack. The team manages the entire environment as infrastructure as code, which lets it recreate identical testing, proof-of-concept, or disaster-recovery environments in new regions quickly. This combination gives Remote Legal a scalable legal-technology platform that can support live depositions, simplify transcription, and keep reliability high without managing servers.",
+  "products_used": [
+    "AWS Fargate",
+    "Application Load Balancer",
+    "Amazon RDS",
+    "Amazon Transcribe"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Fargate",
+      "role": "Runs the containerized ASP.NET Core SignalR application without server management.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Application Load Balancer",
+      "role": "Routes deposition traffic to the application based on request content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon RDS",
+      "role": "Stores Remote Legal's application and deposition data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Transcribe",
+      "role": "Converts live deposition speech to text as part of the platform workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Deposition participants connect through the web application running on AWS Fargate behind an Application Load Balancer, deposition data is stored in Amazon RDS, and live speech is sent to Amazon Transcribe so the platform can return accurate text during proceedings.",
+  "integration_points": [
+    "ASP.NET Core SignalR",
+    "regional disaster-recovery environments"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Remote Legal built the solution in 10 months, migrated to Amazon Transcribe in 1 week, virtually removed transcription errors, achieved a 98 percent deposition success rate, and cut testing and demo costs by 85 percent through automation on AWS.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "85% cost savings",
+    "98% success rate",
+    "1 week migration to Amazon Transcribe",
+    "10 months to build a remote deposition solution"
+  ],
+  "architecture_clues": [
+    "Runs ASP.NET Core SignalR on Linux for cost and performance.",
+    "Entire architecture is managed as infrastructure as code.",
+    "Can recreate identical environments in new regions for disaster recovery."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/remote-legal-case-study/",
+  "published_date": "2024-01-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Remote Legal built its solution in 10 months using ASP.NET Core SignalR for near-real-time web functionality in addition to managed services on AWS.",
+    "Remote Legal used AWS Fargate ... and Application Load Balancer.",
+    "The Remote Legal team chose Amazon Transcribe ... to replace its previous transcription service.",
+    "In 1 week, the team completed the migration ... and virtually removed transcription errors.",
+    "the solution reached a 98 percent success rate",
+    "This reduced Remote Legal’s costs by 85 percent compared with the cost of the production environment."
+  ]
+}

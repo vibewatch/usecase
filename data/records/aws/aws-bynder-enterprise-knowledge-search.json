@@ -1,0 +1,87 @@
+{
+  "id": "aws-bynder-enterprise-knowledge-search",
+  "slug": "aws-bynder-enterprise-knowledge-search",
+  "vendor": "AWS",
+  "customer_name": "Bynder",
+  "industry": "Software / SaaS",
+  "region": "Netherlands",
+  "company_size": "Unknown",
+  "business_problem": "Bynder needed to keep its digital asset management platform performant as customer media volumes grew rapidly, while reducing unpredictable storage costs, improving content findability, and speeding the secure onboarding of large asset collections.",
+  "solution_summary": "Bynder runs its digital asset management platform on AWS and uses Amazon S3 as the system of record for customer media assets. As data grew rapidly, it added Amazon S3 Intelligent-Tiering so uploaded assets could remain in S3 while storage tiers adjusted automatically with changing access patterns, reducing cost without manual analysis or performance tradeoffs. Bynder tags S3 buckets and tracks product-level spend with AWS Cost Explorer, then reinvests savings in other innovation work. The platform also invokes Amazon Rekognition to scan newly uploaded images and apply keyword tags that make assets easier to find, and it uses AWS Transfer Family to ingest customer uploads securely into S3 before importing them into the DAM. The result is a scalable cloud content platform that combines cost optimization, faster onboarding, and better asset discovery.",
+  "products_used": [
+    "Amazon S3",
+    "Amazon S3 Intelligent-Tiering",
+    "AWS Cost Explorer",
+    "Amazon Rekognition",
+    "AWS Transfer Family"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Stores the digital assets that power Bynder's DAM platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3 Intelligent-Tiering",
+      "role": "Automatically optimizes storage tier placement for assets as access patterns change.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Cost Explorer",
+      "role": "Gives Bynder cost visibility across tagged S3 buckets and product offerings.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Amazon Rekognition",
+      "role": "Automatically scans uploaded images and applies keyword tags to improve asset discovery.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Transfer Family",
+      "role": "Securely transfers customer assets into Amazon S3 for onboarding into the DAM.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Customers upload assets through AWS Transfer Family into Amazon S3, where Amazon S3 Intelligent-Tiering optimizes storage placement; uploaded images can be analyzed by Amazon Rekognition for automated tags, and the assets are then exposed through Bynder's DAM for search, retrieval, and content operations.",
+  "integration_points": [
+    "Bynder DAM platform",
+    "client asset uploads"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Media and Content",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Bynder stores more than 175 million assets totaling 18 PB on S3 Intelligent-Tiering, reduced storage costs by 65 percent, improved asset findability with automated image tagging, and sped client onboarding by using AWS Transfer Family for secure uploads.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "storage cost savings for 18 PB of data 65%",
+    "digital assets stored 175M+",
+    "nearly 4,000 customers",
+    "1.7 million users globally"
+  ],
+  "architecture_clues": [
+    "Uses tagged Amazon S3 buckets to track product-level storage costs.",
+    "Automated tags from Amazon Rekognition appear in the asset detail screen.",
+    "Imports assets uploaded into S3 securely through AWS Transfer Family."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/bynder-amazon-s3-case-study/",
+  "published_date": "2024-02-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Now, 18 PB of Bynder’s customer data—equating to more than 175 million assets—is stored using S3 Intelligent-Tiering, which has led to a storage cost savings of 65 percent.",
+    "Instead of having to manually review the access pattern of assets, S3 Intelligent-Tiering does it for us automatically.",
+    "Bynder adopted AWS Cost Explorer... The company allocates tags to each Amazon S3 bucket so that it can carefully track costs and adjust as needed.",
+    "When a client uploads an image, Bynder can initiate a feature that sends that data to Amazon Rekognition automatically for scanning and application of relevant keyword tags.",
+    "Using AWS Transfer Family, clients can upload their assets securely to an Amazon S3 bucket within AWS, and we then import those assets into the Bynder DAM."
+  ]
+}

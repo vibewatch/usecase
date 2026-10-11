@@ -1,0 +1,105 @@
+{
+  "id": "aws-the-mill-adventure-marketing-personalization",
+  "slug": "aws-the-mill-adventure-marketing-personalization",
+  "vendor": "AWS",
+  "customer_name": "The Mill Adventure",
+  "industry": "Media and Entertainment",
+  "region": "Malta",
+  "company_size": "Unknown",
+  "business_problem": "The Mill Adventure needed to help iGaming customers enter regulated markets quickly, personalize player experiences, and monitor safety and compliance while coping with very large volumes of player-generated data.",
+  "solution_summary": "The Mill Adventure built a serverless B2B iGaming platform on AWS to combine compliance, operations, personalization, and analytics in one environment. AWS Lambda and Amazon DynamoDB form the event-driven core of the platform, while Amazon Kinesis Data Streams publishes changes so other components can react to user and operational events. Customer and gameplay data is stored in Amazon S3, queried with Amazon Athena, surfaced through Amazon QuickSight for business intelligence, and used by Amazon Personalize to tailor player experiences. AWS CloudFormation supports rapid updates and controlled rollout of compliance features across jurisdictions. This architecture lets The Mill Adventure adapt to regulatory changes quickly, onboard clients in weeks instead of months, and give operators the data and personalization tools needed to grow responsibly.",
+  "products_used": [
+    "AWS Lambda",
+    "Amazon DynamoDB",
+    "Amazon Kinesis Data Streams",
+    "Amazon S3",
+    "Amazon Athena",
+    "Amazon QuickSight",
+    "Amazon Personalize",
+    "AWS CloudFormation"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Lambda",
+      "role": "Runs the serverless application logic that powers the iGaming platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores operational platform data for the core iGaming environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Kinesis Data Streams",
+      "role": "Publishes platform changes so other components can react in near real time.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores data used for analytics, compliance, and platform operations.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Athena",
+      "role": "Queries platform data for analytics use cases.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon QuickSight",
+      "role": "Provides business intelligence and dashboards to platform users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Personalize",
+      "role": "Tailors the player experience using platform data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS CloudFormation",
+      "role": "Supports rapid rollout and iteration of infrastructure and compliance changes.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Player and operational events are processed by AWS Lambda and stored in Amazon DynamoDB, changes are published through Amazon Kinesis Data Streams, analytical data is stored in Amazon S3 and queried with Amazon Athena and Amazon QuickSight, and Amazon Personalize uses the data to tailor player experiences.",
+  "integration_points": [
+    "player verification",
+    "central registries",
+    "white-label iGaming licenses"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Risk Management"
+  ],
+  "business_outcome": "The Mill Adventure can onboard customers in less than 6 weeks, is on track to double its customer base in 1 year, released over 10,000 product updates in 3 years, and gives operators a scalable compliant platform for personalization and player-safety controls.",
+  "outcome_category": [
+    "Speed to Market",
+    "Customer Experience",
+    "Scalability",
+    "Compliance"
+  ],
+  "metrics": [
+    "onboard customers in less than 6 weeks",
+    "double its customer base in 1 year",
+    "over 10,000 product updates released in just 3 years"
+  ],
+  "architecture_clues": [
+    "Implements regulatory features for player verification, authentication, registry checks, and activity limits.",
+    "Supports white-label operation using The Mill Adventure licenses.",
+    "Maintains concurrent offsite backups and PCI DSS-aligned security posture."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/the-mill-adventure/",
+  "published_date": "2023-05-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using AWS, the company built a serverless, business-to-business iGaming platform that can deliver a personalized and responsible experience for players.",
+    "AWS services such as AWS Lambda and Amazon DynamoDB form the foundation of The Mill Adventure’s iGaming platform.",
+    "The Mill Adventure also uses Amazon Kinesis Data Streams to publish all changes which other components can react to.",
+    "We can onboard customers in less than 6 weeks.",
+    "Innovation happens quickly at the company with over 10,000 product updates released in just 3 years."
+  ]
+}

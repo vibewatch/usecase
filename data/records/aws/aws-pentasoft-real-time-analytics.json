@@ -1,0 +1,89 @@
+{
+  "id": "aws-pentasoft-real-time-analytics",
+  "slug": "aws-pentasoft-real-time-analytics",
+  "vendor": "AWS",
+  "customer_name": "Pentasoft",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Pentasoft needed an affordable, scalable way to offer near-real-time industrial and oil-and-gas monitoring to SMB customers that could not justify building their own IoT infrastructure, while keeping onboarding simple and application latency low.",
+  "solution_summary": "Pentasoft built its Neuron and Akron industrial IoT platforms as fully serverless, event-driven SaaS applications on AWS so small and midsize customers can deploy monitoring without managing infrastructure. Physical sensors and petrol-station devices connect through AWS IoT Core, which securely ingests telemetry from industrial equipment, dispensers, tanks, terminals, and price boards. Pentasoft models and organizes industrial data in AWS IoT SiteWise for Neuron, stores high-performance near-real-time device and pricing data in Amazon DynamoDB for Akron, and uses AWS IoT TwinMaker to create digital twins of customer environments. Customer data is surfaced through Amazon QuickSight dashboards so end users can analyze telemetry, competition pricing, and other KPIs in minutes. This architecture lets Pentasoft provision new accounts quickly, scale automatically with demand, and deliver pay-as-you-go IoT analytics with strong availability and low latency.",
+  "products_used": [
+    "AWS IoT Core",
+    "AWS IoT SiteWise",
+    "AWS IoT TwinMaker",
+    "Amazon DynamoDB",
+    "Amazon QuickSight"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS IoT Core",
+      "role": "Securely connects customer sensors and field devices to Pentasoft's cloud platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AWS IoT SiteWise",
+      "role": "Models, collects, and organizes industrial telemetry for the Neuron monitoring solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS IoT TwinMaker",
+      "role": "Supports the digital-twin experiences Pentasoft offers for industrial environments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores high-performance near-real-time operational and pricing data for Akron.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon QuickSight",
+      "role": "Presents dashboards and analytics that customers use to extract insights from telemetry and pricing data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Industrial sensors and petrol-station devices send telemetry through AWS IoT Core; Neuron data is modeled in AWS IoT SiteWise, Akron data is stored in Amazon DynamoDB, digital-twin views are built with AWS IoT TwinMaker, and customer insights are delivered through Amazon QuickSight dashboards.",
+  "integration_points": [
+    "physical industrial sensors",
+    "petrol-station devices",
+    "central repository of Spain fuel prices"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Pentasoft serves API requests in under 1 second, delivers 99.999 percent availability, helps customers save an average of 23 percent, onboards and provisions new customer accounts in minutes, and uses serverless scaling to keep IoT monitoring affordable for SMBs.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "saves an average of 23 percent of costs for customers",
+    "serves API requests in under 1 second",
+    "maintains 99.999 percent availability",
+    "It only takes a few minutes for Pentasoft to onboard and provision new customer accounts"
+  ],
+  "architecture_clues": [
+    "Uses fully serverless technology, event-driven architecture, and a collection of microservices.",
+    "Supports digital twins for industrial environments with AWS IoT TwinMaker.",
+    "Provides geolocated near-real-time competition prices for petrol stations in Spain."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/pentasoft/",
+  "published_date": "2024-02-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Customers can seamlessly connect their physical sensors to Neuron, which securely ingests data and efficiently uploads it to the cloud.",
+    "Pentasoft sets up this data ingestion using AWS IoT Core.",
+    "To model and store the data, Pentasoft uses AWS IoT SiteWise.",
+    "Pentasoft powers this feature using AWS IoT TwinMaker.",
+    "Pentasoft integrates Amazon QuickSight.",
+    "saves an average of 23 percent of costs for customers, serves API requests in under 1 second, maintains 99.999 percent availability"
+  ]
+}

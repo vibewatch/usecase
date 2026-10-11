@@ -1,0 +1,100 @@
+{
+  "id": "aws-jcb-system-migration",
+  "slug": "aws-jcb-system-migration",
+  "vendor": "AWS",
+  "customer_name": "JCB",
+  "industry": "Financial Services",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "JCB needed to modernize long-running on-premises business systems so it could improve agility, reduce infrastructure and operating costs, shorten API delivery times, and create a shared data platform for new financial-services initiatives.",
+  "solution_summary": "JCB is building common infrastructure and data infrastructure on AWS as part of a long-running migration of business systems from on premises. Transaction and operational systems are being standardized across Amazon Aurora and Amazon DynamoDB, secured with AWS WAF and AWS PrivateLink, and connected through a growing API layer. In parallel, data from those systems is consolidated in Amazon S3, cataloged with AWS Glue, and queried with Amazon Athena to create a shared data platform that supports business initiatives and faster service integration. Using AWS Cloud Adoption Framework guidance and PCI DSS-aligned controls, JCB has been able to reduce infrastructure lead times, expand the number of linked systems, and create a more agile foundation for financial-services innovation at scale.",
+  "products_used": [
+    "Amazon Aurora",
+    "Amazon DynamoDB",
+    "AWS WAF",
+    "Amazon S3",
+    "AWS Glue",
+    "Amazon Athena",
+    "AWS PrivateLink"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Aurora",
+      "role": "Supports standardized relational workloads in JCB's common AWS infrastructure.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Handles scalable NoSQL application data in migrated business systems.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS WAF",
+      "role": "Protects customer-facing and API-facing traffic in the new platform.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores data for JCB's shared data infrastructure.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Glue",
+      "role": "Catalogs and prepares data inside the common data platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Athena",
+      "role": "Queries data in the shared platform for analytics and business use.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS PrivateLink",
+      "role": "Provides private connectivity between services in the migrated environment."
+    }
+  ],
+  "data_flow": "Business-system data from migrated applications is stored on the common AWS platform, consolidated in Amazon S3, prepared with AWS Glue, queried with Amazon Athena, and exposed to linked systems and APIs while operational traffic is protected by AWS WAF and private connectivity patterns.",
+  "integration_points": [
+    "business systems",
+    "API infrastructure",
+    "data infrastructure"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "JCB expects to cut infrastructure costs by about 30 percent, reduced API infrastructure delivery from 6 months to 3 months, grew linked APIs to more than 100, and had 54 systems running on AWS as of March 2023 on the way to migrating 80 systems and expanding data from 32 TB toward 120 TB.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "30 percent reduction in operation and other infrastructure costs",
+    "54 systems running on AWS",
+    "80 systems scheduled for migration to AWS",
+    "3-month development period for system integration",
+    "more than 100 APIs",
+    "32 TB of data ... expand the data to around 120 TB by 2027"
+  ],
+  "architecture_clues": [
+    "Built around both common infrastructure and common data infrastructure.",
+    "Guided by AWS Cloud Adoption Framework and PCI DSS-aligned controls.",
+    "Migration expands linked APIs and shared analytics in parallel."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/jcb-case-study/",
+  "published_date": "2024-01-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "the company is migrating business systems that have been operating on premises since 2017 to Amazon Web Services (AWS).",
+    "the company has begun implementing business initiatives based on common infrastructure and data infrastructure.",
+    "building an API infrastructure has been reduced to 3 months for JCB.",
+    "the number of APIs ... increased to more than 100 at the end of 2022.",
+    "approximately 32 TB of data have been stored in the data infrastructure ... around 120 TB by 2027."
+  ]
+}

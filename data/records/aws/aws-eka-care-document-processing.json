@@ -1,0 +1,71 @@
+{
+  "id": "aws-eka-care-document-processing",
+  "slug": "aws-eka-care-document-processing",
+  "vendor": "AWS",
+  "customer_name": "Eka Care",
+  "industry": "Healthcare",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "Eka Care needed to reduce the clinical time lost to administrative work, structure large volumes of unstructured medical data, and preserve compliance while scaling digital healthcare services for doctors and patients across India.",
+  "solution_summary": "Eka Care built AI-driven healthcare workflows on AWS to turn unstructured clinical interactions into usable patient context for doctors and patients. Its Eka Doc, DocAssist, and Voice2RX experiences use Amazon Bedrock to power generative-AI features that support decision-making and automation, while Amazon Transcribe converts doctor-patient conversations into structured notes for prescriptions and follow-up care. These capabilities sit alongside Eka Care's personal health record application so patient data, prescriptions, and administrative workflows can be handled through a single digital experience. By combining transcription, generative AI, and real-time analytics on patient information, the platform helps doctors move faster inside high-volume practices while maintaining HIPAA-aligned and India DPDP-aligned handling of sensitive health data. The result is more time with patients and broader access to digital health records and care support.",
+  "products_used": [
+    "Amazon Bedrock",
+    "Amazon Transcribe"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Powers generative-AI features in Eka Doc, DocAssist, and Voice2RX.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Transcribe",
+      "role": "Converts doctor-patient conversations into structured notes for prescriptions and follow-up care.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Doctor-patient conversations are captured and transcribed by Amazon Transcribe, then Amazon Bedrock-based applications use the resulting medical context to generate structured notes, support clinical decisions, and surface patient insights inside Eka Care's doctor and personal-health-record workflows.",
+  "integration_points": [
+    "Eka Doc",
+    "DocAssist",
+    "Voice2RX",
+    "Personal Health Record (PHR) app"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Eka Care gives doctors more time with patients, improves access to personal health data for patients, and creates a scalable path to better health outcomes for millions across India by automating documentation and real-time insight generation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 100 patients a day",
+    "just 3 minutes per patient",
+    "millions across India",
+    "over a billion people"
+  ],
+  "architecture_clues": [
+    "Uses HIPAA-compliant AWS services and aligns with India's DPDP Act guidelines.",
+    "Voice2RX links speech transcription directly to structured clinical notes and prescriptions.",
+    "Platform targets chronic diseases such as diabetes and hypertension."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/generative-ai-ekacare/",
+  "published_date": "2024-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "doctors often manage over 100 patients a day",
+    "administrative burdens further reduced patient interaction to just 3 minutes per patient",
+    "The company developed new solutions such as Eka Doc, DocAssist and Voice2RX ... using Amazon Bedrock",
+    "Eka Care also deployed Amazon Transcribe ... to enhance its Voice2RX tool.",
+    "Using the generative AI tools we have built, we have been able to give doctors more time with their patients."
+  ]
+}

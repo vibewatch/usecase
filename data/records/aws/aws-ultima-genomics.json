@@ -1,0 +1,73 @@
+{
+  "id": "aws-ultima-genomics",
+  "slug": "aws-ultima-genomics",
+  "vendor": "AWS",
+  "customer_name": "Ultima Genomics",
+  "industry": "Healthcare",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "Ultima Genomics needed large-scale, cost-efficient compute for a sequencing platform whose basecalling and analysis pipeline depends on computer vision, deep learning, and repeated parallel experimentation to drive lower-cost genomics.",
+  "solution_summary": "Ultima Genomics uses AWS to accelerate the computational side of high-throughput DNA sequencing and pursue its goal of the $100 genome. Its UG 100 platform depends on a basecalling pipeline that processes camera-generated signals, applies computer-vision and deep-learning algorithms, and then performs downstream alignment and sorting to derive nucleotide sequences. Amazon EC2 G5 instances provide GPU-backed environments so scientists can spin up multiple experiments in parallel, while Amazon S3 and AWS HealthOmics help store and manage the large genomic datasets and workflows involved. This cloud-based setup lets researchers test algorithm changes without waiting for scarce fixed infrastructure, scale to hundreds of terabytes of processing and storage, and support advanced applications such as liquid biopsies and more diverse genomic databases.",
+  "products_used": [
+    "Amazon EC2 G5 Instances",
+    "Amazon S3",
+    "AWS HealthOmics"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EC2 G5 Instances",
+      "role": "Provide GPU-backed compute for basecalling experiments and genomics algorithm development.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores the large genomic datasets processed by Ultima's platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS HealthOmics",
+      "role": "Supports genomics workflow and data management at scale.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Raw signals from Ultima's sequencing cameras are processed through GPU-backed basecalling and deep-learning workflows on Amazon EC2, resulting genomic data is stored on Amazon S3, and larger omics workflows are managed with AWS HealthOmics.",
+  "integration_points": [
+    "sequencing camera tool",
+    "drug-development customers",
+    "liquid biopsy workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Ultima launched a sequencing platform targeting the $100 genome, uses AWS to process and store hundreds of terabytes of data, supports genomic use cases such as liquid biopsies, and can run parallel experiments that improve scale, cost, and accuracy.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "$100 genome",
+    "100s of TBs of data processed and stored",
+    "10–20 hours",
+    "three to four times less than other solutions",
+    "10 times more sequencing"
+  ],
+  "architecture_clues": [
+    "Basecalling pipeline chains computer vision, deep learning, alignment, and sorting.",
+    "Scientists can launch multiple GPU experiments in parallel on demand.",
+    "Platform is designed for large genomics use cases such as liquid biopsies."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/ultima-case-study/",
+  "published_date": "2024-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "the UG 100, based on a new ultra-high-throughput sequencing architecture that reduces the cost per genome to $100.",
+    "The pipeline processes signals from a camera tool, applies computer vision and deep learning algorithms, and then uses further algorithms for alignment and sorting.",
+    "Ultima can spin up multiple test instances on Amazon EC2 to run experiments in parallel.",
+    "Several customers are using the machine to develop advanced diagnostic tests called liquid biopsies.",
+    "its technology provides unique advantages for liquid biopsies and also costs three to four times less than other solutions."
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "aws-jumio-fraud-detection",
+  "slug": "aws-jumio-fraud-detection",
+  "vendor": "AWS",
+  "customer_name": "Jumio",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "Jumio needed to verify online identities accurately across thousands of document types and jurisdictions while detecting fraud, deepfakes, and screen attacks that are becoming more advanced as AI capabilities spread.",
+  "solution_summary": "Jumio uses AWS to operate a global identity-verification platform that must distinguish legitimate users from fraud, deepfakes, and screen attacks across many document types and jurisdictions. Amazon SageMaker supports the machine-learning lifecycle for more than 50 models involved in Jumio’s verification pipeline, while Amazon Rekognition provides image-analysis capabilities used in secure, frictionless identity checks. Submitted identity documents and biometric evidence are evaluated through these AI and ML services so Jumio can assess liveness, detect manipulation, and return verification results that support customer onboarding, age checks, and other regulated transactions. Running the stack on AWS gives Jumio a scalable foundation for global data-sovereignty requirements and helps the company continuously adapt its fraud controls as generative AI makes attacks more sophisticated.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon Rekognition"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Supports the more than 50 machine-learning models Jumio uses in its identity-verification pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Rekognition",
+      "role": "Provides image-analysis capabilities used in Jumio's identity verification experience.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Identity documents and user imagery are submitted into Jumio's verification workflow, analyzed by Amazon Rekognition and the ML models managed on Amazon SageMaker, and returned as identity-verification and anti-fraud decisions for customer transactions.",
+  "integration_points": [
+    "online bank accounts",
+    "healthcare portals",
+    "gambling sites"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "Jumio supports identity verification for more than 5,000 ID types across over 200 countries and territories and uses over 50 ML models to keep verification friction low for legitimate users while improving fraud defenses against deepfakes and other attacks.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 50 ML models involved in the IDV process",
+    "over 5,000 ID types",
+    "over 200 countries and territories"
+  ],
+  "architecture_clues": [
+    "Supports data sovereignty compliance across more than 200 geographies.",
+    "Combines liveness detection and anti-deepfake checks in the identity workflow.",
+    "Designed for regulated digital onboarding and transaction scenarios."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/jumio-case-study/",
+  "published_date": "2024-02-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Learn how Jumio is using Amazon SageMaker and Amazon Rekognition to deliver a seamless and secure identity verification experience.",
+    "We have over 50 ML models involved in the IDV process, determining whether the people on-screen are live humans or some type of deepfake or screen attack.",
+    "In total, we work with over 5,000 ID types in over 200 countries and territories.",
+    "Our goal is to deliver solutions that convert as many legitimate customers as possible while identifying as much fraud as possible."
+  ]
+}

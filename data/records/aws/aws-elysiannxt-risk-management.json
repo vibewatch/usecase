@@ -1,0 +1,74 @@
+{
+  "id": "aws-elysiannxt-risk-management",
+  "slug": "aws-elysiannxt-risk-management",
+  "vendor": "AWS",
+  "customer_name": "ElysianNxt",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "ElysianNxt needed to replace overnight batch-style risk analysis with a cloud platform that could run large numbers of what-if analyses and regulatory stress tests quickly, while giving customers full lineage and preparing for generative AI–assisted interpretation of risk results.",
+  "solution_summary": "ElysianNxt built its .NXT risk platform as a cloud-native SaaS architecture on AWS so financial-services customers can run complex risk simulations without overnight batch processing or deep technical setup. The platform runs distributed microservices on Amazon EKS, while Amazon MSK carries near-real-time messages and data between services to support what-if analyses, stress tests, and compliance calculations. This lets customers trace full data lineage from source to result and scale simulations elastically, including IFRS 9 workloads that dropped from 24 hours to less than 1 hour. ElysianNxt is also integrating Amazon Bedrock into the platform to turn results into text-based insights and configurations and to automate data-quality checks. The combination gives customers faster risk analysis today while laying a generative AI foundation inside the same SaaS environment.",
+  "products_used": [
+    "Amazon EKS",
+    "Amazon MSK",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EKS",
+      "role": "Runs the distributed microservices that power ElysianNxt's risk-analysis SaaS platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon MSK",
+      "role": "Streams near-real-time data and messages between risk-analysis services."
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Powers the in-platform assistant that converts risk results into insights and configurations and automates data-quality checks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Risk and compliance data moves through distributed microservices on Amazon EKS, is exchanged between services through Amazon MSK for near-real-time processing, and is then surfaced to customers as simulations, stress-test outputs, and emerging Amazon Bedrock-driven text insights and data-quality checks.",
+  "integration_points": [
+    "regulatory compliance data",
+    "IFRS 9 calculations",
+    "AWS Marketplace"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Customers can run multiple simulations within minutes, one customer reduced IFRS 9 calculation time from 24 hours to less than 1 hour, and ElysianNxt implemented its Amazon Bedrock assistant to testing in 3 months while maintaining scalable SaaS delivery on AWS.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Compliance"
+  ],
+  "metrics": [
+    "from 24 hours to less than 1 hour",
+    "run multiple simulations within a few minutes",
+    "implemented to the point of testing in 3 months"
+  ],
+  "architecture_clues": [
+    "Uses a distributed microservices architecture for flexibility and scalability.",
+    "Provides full lineage from source to calculation results.",
+    "Solution is distributed through AWS Marketplace and backed by an ISV Accelerate relationship."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/elysiannxt/",
+  "published_date": "2024-12-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "ElysianNxt runs its microservices on Amazon Elastic Kubernetes Service (Amazon EKS).",
+    "To handle near real-time data processing and communication between services, ElysianNxt uses Amazon Managed Streaming for Apache Kafka (Amazon MSK).",
+    "one customer reduced the total calculation time for regulatory compliance data, in this case IFRS 9, from 24 hours to less than 1 hour.",
+    "customers can run multiple simulations within a few minutes.",
+    "ElysianNxt is using Amazon Bedrock ... which it implemented to the point of testing in 3 months."
+  ]
+}

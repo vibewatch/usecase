@@ -1,0 +1,60 @@
+{
+  "id": "aws-legal-general-document-processing",
+  "slug": "aws-legal-general-document-processing",
+  "vendor": "AWS",
+  "customer_name": "Legal & General",
+  "industry": "Financial Services",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "Legal & General's UK retail retirements division needed to process thousands of pension documents quickly and accurately for more than 5 million customers while meeting regulatory SLA requirements and reducing the manual effort of a legacy scanning process.",
+  "solution_summary": "L&G’s UK retail retirements division replaced a legacy document-scanning system with an AWS-based, AI-enabled document ingestion pipeline for pension paperwork. Paper forms arriving from more than 5 million workplace pension members are digitized and processed through a robust, elastic, event-driven architecture that uses Amazon Textract and other AWS AI services to extract and route information quickly and accurately while maintaining service-level compliance. The cloud design scales concurrency independently of staffing, so the operation can process thousands of paper documents each day and handle surges without the fixed limits of the old process. By moving pension-document intake and downstream handling to AWS, the division improved turnaround time, made the workflow more scalable and cost-effective, and freed staff from manual processing so they could be redeployed to higher-value work.",
+  "products_used": [
+    "Amazon Textract"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Textract",
+      "role": "Extracts information from pension documents as part of L&G's AI-enabled ingestion workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Paper pension documents are digitized and processed through an event-driven AWS workflow that uses Amazon Textract to extract information before routing the data into downstream retirement-operations processes.",
+  "integration_points": [
+    "legacy scanning solution",
+    "UK retail retirements division workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Legal & General can process 1,000 documents concurrently in 30 minutes, improved compliance with regulatory SLAs, made the workflow more scalable and cost-effective, and redeployed five employees to higher-value work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "5.2 million workplace pension members",
+    "more than 1 million paper documents per year",
+    "process 1,000 documents concurrently in 30 minutes",
+    "redeploy five employees"
+  ],
+  "architecture_clues": [
+    "Built as a robust, elastic, and event-driven architecture.",
+    "Designed to scale independently of the number of people handling documents.",
+    "Targets pension-document SLAs in a regulated financial-services operation."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/legal-general",
+  "published_date": "2024-08-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "L&G’s UK RRD migrated from its legacy scanning solution to AWS, using artificial intelligence (AI)–powered services.",
+    "Using AWS, we now have a much more robust, elastic, and event-driven architecture.",
+    "Using AWS, L&G can now process 1,000 documents concurrently in 30 minutes.",
+    "the division has been able to redeploy five employees, improving business productivity."
+  ]
+}

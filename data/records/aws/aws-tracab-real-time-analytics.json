@@ -1,0 +1,90 @@
+{
+  "id": "aws-tracab-real-time-analytics",
+  "slug": "aws-tracab-real-time-analytics",
+  "vendor": "AWS",
+  "customer_name": "TRACAB",
+  "industry": "Media and Entertainment",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "TRACAB needed more scalable compute and lower-latency data delivery for computer-vision sports tracking as its features became more complex and its on-premises arena-based setup limited deployment speed and accuracy.",
+  "solution_summary": "TRACAB migrated its sports-tracking platform from on-premises arena servers to AWS so it could scale computer-vision processing and deliver richer match insights in near real time. Video and tracking data from multiple cameras is sent to AWS, where deep-learning models run on Amazon EC2 G4, G5, and G6 GPU instances to identify players, the ball, and new skeleton-tracking signals. Low-latency state and event access is supported by Amazon ElastiCache for Redis and Amazon DynamoDB, letting downstream consumers such as broadcast teams, referees, coaches, and fans use the data quickly. The cloud architecture also let TRACAB automate work that once required two onsite operators, support a remote operator model, and continuously deploy new features such as semi-automated offside technology and virtual cameras across nearly 200 stadiums.",
+  "products_used": [
+    "Amazon EC2 G4 Instances",
+    "Amazon EC2 G5 Instances",
+    "Amazon EC2 G6 Instances",
+    "Amazon ElastiCache for Redis",
+    "Amazon DynamoDB"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EC2 G4 Instances",
+      "role": "Provide GPU-backed compute for TRACAB's computer-vision workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 G5 Instances",
+      "role": "Extend high-performance GPU capacity for more advanced tracking models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 G6 Instances",
+      "role": "Support newer GPU-intensive processing for enhanced sports tracking features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon ElastiCache for Redis",
+      "role": "Provides low-latency access to tracking and event data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores tracking data in a serverless database for low-latency access.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Multi-camera match video and tracking data is streamed to AWS, processed by deep-learning models on GPU-backed Amazon EC2 instances, stored for low-latency access in Amazon DynamoDB and Amazon ElastiCache for Redis, and then delivered as near-real-time insights to broadcasters, officials, coaches, players, and fans.",
+  "integration_points": [
+    "multiple cameras",
+    "media broadcast teams",
+    "referees",
+    "players",
+    "coaches",
+    "fans"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "TRACAB increased collected data to more than 255 million data points per match, achieved average latency of 0.85 seconds, reduced manual work by shifting from two onsite operators to one remote operator, and expanded to nearly 200 stadiums running more than 2,000 matches per year.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "over 255 million data points per match",
+    "average latency of 0.85 seconds",
+    "nearly 200 stadiums",
+    "more than 2,000 matches per year"
+  ],
+  "architecture_clues": [
+    "Started streaming video directly to AWS in 2022.",
+    "Added near real-time skeleton tracking in 2023.",
+    "New use cases include semi-automated offside technology and virtual cameras."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/tracab",
+  "published_date": "2024-09-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By sending tracking data to the cloud, TRACAB could use AI powered by advanced deep learning models on AWS to perform the task with a single remote operator.",
+    "TRACAB next enhanced its solution in 2023 with near real-time skeleton tracking.",
+    "TRACAB can collect more than 255 million data points per match while achieving an average latency of 0.85 seconds.",
+    "TRACAB has rolled out its solution to nearly 200 stadiums, which collectively run more than 2,000 matches per year."
+  ]
+}

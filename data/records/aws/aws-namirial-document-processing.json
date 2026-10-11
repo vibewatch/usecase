@@ -1,0 +1,61 @@
+{
+  "id": "aws-namirial-document-processing",
+  "slug": "aws-namirial-document-processing",
+  "vendor": "AWS",
+  "customer_name": "Namirial",
+  "industry": "Software / SaaS",
+  "region": "Europe",
+  "company_size": "Unknown",
+  "business_problem": "Namirial wanted to add generative AI to its digital-signing workflows without taking on the complexity of building, training, and maintaining its own AI models, while still preserving GDPR compliance and customer-data privacy.",
+  "solution_summary": "Namirial added generative AI to its eSignAnywhere platform by building document summarization and question-answering capabilities on Amazon Bedrock rather than training and operating its own models. Contract content from eSignAnywhere is sent to Bedrock, which powers a summarization feature for documents awaiting signature and an Intelligent Assistant that answers user questions about document content in near real time. Because Bedrock exposes multiple foundation models behind consistent APIs, Namirial could prototype quickly, compare models with minimal code changes, and move features into preview within weeks. The deployment stays within the AWS Europe (Ireland) Region and avoids using customer data for model training or fine-tuning, helping the company meet GDPR obligations while improving signing speed, comprehension, and engineering productivity.",
+  "products_used": [
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Runs the foundation models that power Namirial's contract summarization and document question-answering features.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Documents in eSignAnywhere are sent to Amazon Bedrock, which generates summaries for contracts awaiting signature and answers near-real-time questions about document content before returning the results to end users inside the signing workflow.",
+  "integration_points": [
+    "eSignAnywhere"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Namirial built its first prototype in around 24 hours, launched the new features in preview within weeks, improved user understanding and signing speed, and saw more than 130 engineers adopt generative AI tools with a reported 35 percent productivity boost.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "built the first prototype in around 24 hours",
+    "launched the new features in preview to test users within weeks",
+    "Over 130 Namirial engineers now use generative AI tools",
+    "35 percent productivity boost"
+  ],
+  "architecture_clues": [
+    "Runs workloads and stores data in the AWS Europe (Ireland) Region.",
+    "Avoids using customer data to train or fine-tune models.",
+    "Uses consistent Bedrock APIs to test different models with little or no changes."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/namirial",
+  "published_date": "2024-10-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Namirial developed two generative AI features for eSignAnywhere: Summarization... and Intelligent Assistant...",
+    "Namirial adopted foundation models through Amazon Bedrock to power these capabilities.",
+    "Namirial built the first prototype in around 24 hours and launched the new features in preview to test users within weeks.",
+    "It helps us test different models with little or no changes to the APIs.",
+    "The company also avoids using customer data to train or fine-tune its models, which keeps sensitive information private and secure.",
+    "Over 130 Namirial engineers now use generative AI tools, and they have seen a 35 percent productivity boost."
+  ]
+}
