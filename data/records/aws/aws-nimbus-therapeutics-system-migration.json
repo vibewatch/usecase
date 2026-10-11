@@ -1,0 +1,73 @@
+{
+  "id": "aws-nimbus-therapeutics-system-migration",
+  "slug": "aws-nimbus-therapeutics-system-migration",
+  "vendor": "AWS",
+  "customer_name": "Nimbus Therapeutics",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Modern ML offers a complementary approach to predicting costly experimental outcomes and biasing molecular design toward more drug-like properties by learning historic experimental trends, which are published in scientific literature, patent applications, and proprietary datasets. “It’s expensive and time-consuming to synthesize and test compounds,” says Dan Price, vice president of Computational Chemistry and Struct",
+  "solution_summary": "With established expertise in computational chemistry and machine learning (ML), Nimbus Therapeutics (Nimbus) sought to further accelerate its drug discovery engine by automating the operational aspects of ML (MLOps). Minimizing manual intervention in model training and deployment would help its scientists to focus on Nimbus’s core mission: the design of breakthrough medicines. Learn how computational chemists at Nimbus Therapeutics built an agile and effective ML pipeline using Amazon SageMaker. Nimbus turned to Amazon Web Services (AWS) to use Amazon SageMaker , which lets organizations build, train, and deploy ML models for any use case with fully managed infrastructure, tools, and workflows. To orchestrate communication with LiveDesign, the team used Amazon API Gateway , a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. Amazon API Gateway used the serverless",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon API Gateway",
+    "AWS Lambda"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Runs core compute or model execution for the cloud migration workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon API Gateway",
+      "role": "Provides the delivery or user-facing interface for the cloud migration workload.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs core compute or model execution for the cloud migration workload.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "processing runs on Amazon SageMaker, AWS Lambda; and outputs are exposed through Amazon API Gateway for the cloud migration workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Migration",
+    "Cloud Native",
+    "DevOps",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Application Refactoring",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Nimbus has successfully automated a suite of ML models to predict different aspects of drug exposure and safety, which are actively influencing design across all discovery projects. The predictions provided through LiveDesign democratize the technology across all Nimbus scientists, regardless of discipline or technical background. However, the infrastructure isn’t specific to LiveDesign.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "To orchestrate communication with LiveDesign, the team used Amazon API Gateway , a fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.",
+    "Amazon API Gateway used the serverless functionality of AWS Lambda , which lets organizations run code without thinking about servers or clusters, to provide near real-time inference from Amazon SageMaker endpoints.",
+    "Working with their own IT team and with AWS specialists, Nimbus scientists built on this foundation by automating the pilot with Amazon SageMaker Pipelines , a serverless workflow orchestration service purpose built for MLOps automation.",
+    "Nimbus turned to Amazon Web Services (AWS) to use Amazon SageMaker , which lets organizations build, train, and deploy ML models for any use case with fully managed infrastructure, tools, and workflows."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/nimbus-therapeutics/",
+  "published_date": "2024-12-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Modern ML offers a complementary approach to predicting costly experimental outcomes and biasing molecular design toward more drug-like properties by learning historic experimental trends, which are published in scientific literature, patent applications, and proprietary datasets. “It’s expensive and time-consuming to synthesize and test compounds,” says Dan Price, vice president of Computational Chemistry and Struct",
+    "The team at Nimbus imagined an automated pipeline that would regularly curate data from a variety of sources and retrain and redeploy ML models.",
+    "The pipeline would provide near real-time predictions through Schrödinger’s LiveDesign, an application where new molecular designs are captured and evaluated.",
+    "Many data sources in the pharmaceutical domain are small, inherently heterogenous, and missing key structured metadata.",
+    "Nimbus considered it critical to codify domain-expert rules for metadata extraction and criteria for inclusion and exclusion to sustainably deliver performant models.",
+    "The team needed to quickly demonstrate whether the available data, combined with its curation and modeling strategies, could meaningfully impact programs and warrant a larger investment in time and resources."
+  ]
+}

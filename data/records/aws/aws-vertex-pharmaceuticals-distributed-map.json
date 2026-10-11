@@ -1,0 +1,111 @@
+{
+  "id": "aws-vertex-pharmaceuticals-distributed-map",
+  "slug": "aws-vertex-pharmaceuticals-distributed-map",
+  "vendor": "AWS",
+  "customer_name": "Vertex Pharmaceuticals",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "After designing an experiment, they manually trained the base ML model about what they hoped to identify from the images, labeling each area of interest by hand. In the legacy system architecture, all scientists shared a single pool of compute resources.",
+  "solution_summary": "Vertex Pharmaceuticals (Vertex) is a global biotechnology company that invests in scientific innovation to create transformative medicines for people with serious diseases. To aid scientific research, scientists use image segmentation, a technique that parses pictures into discrete groups of pixels and uses machine learning (ML) to identify areas of interest. Using AWS Step Functions, Vertex accelerated performance by 11 times because workflows now take minutes instead of hours. “Initially, some of our scientists questioned if the system was working, because it was going so fast compared with the old one,” says Iturralde. Using AWS Step Functions Distributed Map for large-scale parallel data processing, Vertex has accelerated experiment image analysis by 11 times while reducing costs by 90 percent, helping scientists iterate on their research more quickly in their search for transformative therapeutics. Using the scalability of AWS Step",
+  "products_used": [
+    "AWS Step Functions",
+    "AWS Step Functions Distributed Map",
+    "AWS Fargate",
+    "Amazon API Gateway",
+    "Amazon S3",
+    "AWS Lambda",
+    "Amazon CloudWatch"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Step Functions",
+      "role": "Coordinates the image segmentation workflow and automation steps across services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Step Functions Distributed Map",
+      "role": "Coordinates the image segmentation workflow and automation steps across services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Fargate",
+      "role": "Runs core compute or model execution for the image segmentation workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon API Gateway",
+      "role": "Provides the delivery or user-facing interface for the image segmentation workload.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores application, analytics, or workflow state for the image segmentation solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs core compute or model execution for the image segmentation workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon CloudWatch",
+      "role": "Adds monitoring, governance, or operational controls around the image segmentation deployment.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "workflow control is handled by AWS Step Functions, AWS Step Functions Distributed Map; processing runs on AWS Fargate, AWS Lambda; results and state are stored in Amazon S3; and outputs are exposed through Amazon API Gateway for the image segmentation workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Native",
+    "Cybersecurity",
+    "ERP / CRM",
+    "IoT",
+    "DevOps",
+    "Cost Optimization",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Application Refactoring",
+    "Security and Compliance",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Vertex has identified other areas where it can apply its learnings from AWS Step Functions Distributed Map. For example, during the analysis of a large library of scientific compounds, one unit of work spawns parallel units that need to be aggregated. “Using AWS Step Functions, we can tackle our scientists’ issues,” says Iturralde. “We’re here to accelerate research and help bring safe, effective medicines to patients quickly.” Using AWS Step Functions, we greatly improved the robustness and reliability of our image segmentation solution. Karthik Ghantasala Director of Cloud Architecture and Strategy, Vertex Pharmaceuticals",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "11x accelerated image segmentation",
+    "90% cost reduction",
+    "Reducing Processing Time by 11x and Cost by 90% Using AWS Step Functions at Vertex Pharmaceuticals",
+    "Using AWS Step Functions Distributed Map for large-scale parallel data processing, Vertex has accelerated experiment image analysis by 11 times while reducing costs by 90 percent, helping scientists iterate on their research more quickly in their search for transformative therapeutics.",
+    "Using AWS Step Functions, Vertex accelerated performance by 11 times because workflows now take minutes instead of hours. “Initially, some of our scientists questioned if the system was working, because it was going so fast compared with the old one,” says Iturralde.",
+    "Using the scalability of AWS Step Functions Distributed Map and AWS Lambda, dozens of scientists can work simultaneously and the system runs across multiple AWS Availability Zones . “Using AWS Step Functions, we greatly improved the robustness and reliability of our image segmentation solution,” says Karthik Ghantasala, director of cloud architecture and strategy at Vertex. “Our scientists analyze their experiments quickly and cost effectively.” Because the serverless system runs only when it’s in use, Vertex has cut compute costs by 90 percent."
+  ],
+  "architecture_clues": [
+    "Scientists interact with a web application running on AWS Fargate , a serverless, pay-as-you-go compute engine that lets engineers focus on building applications without managing servers.",
+    "Using AWS serverless technologies, the subsequent batch of images now process automatically.",
+    "The automated process begins with a call to Amazon API Gateway, a fully managed service that makes it simple for developers to create, publish, maintain, monitor, and secure APIs at nearly any scale.",
+    "The AWS Step Functions workflow uses the input from Amazon API Gateway to determine which images to process and which parameters to pass back to the ML model.",
+    "Using AWS Step Functions Distributed Map, the system processes all the images in parallel."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/vertex-pharmaceuticals-distributed-map/",
+  "published_date": "2024-10-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "After designing an experiment, they manually trained the base ML model about what they hoped to identify from the images, labeling each area of interest by hand.",
+    "In the legacy system architecture, all scientists shared a single pool of compute resources.",
+    "Scientists interact with a web application running on AWS Fargate , a serverless, pay-as-you-go compute engine that lets engineers focus on building applications without managing servers.",
+    "Using the web application, scientists fine-tune the parameters of the ML model that segments the image and test the model on individual images.",
+    "Using AWS serverless technologies, the subsequent batch of images now process automatically.",
+    "The automated process begins with a call to Amazon API Gateway, a fully managed service that makes it simple for developers to create, publish, maintain, monitor, and secure APIs at nearly any scale."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "aws-cybergrx-step-functions",
+  "slug": "aws-cybergrx-step-functions",
+  "vendor": "AWS",
+  "customer_name": "CyberGRX",
+  "industry": "unknown",
+  "region": "Denver",
+  "company_size": "Unknown",
+  "business_problem": "The legacy ML modeling solution for CyberGRX took 8 days to complete predictive modeling for all the companies in its database — 150,000 at the time. Four engineers were required to monitor and manage it, which added costs to an already compute-intensive solution.",
+  "solution_summary": "CyberGRX, a third-party risk management provider, wanted to improve its machine learning (ML) modeling, which processes data from hundreds of thousands of companies on a quarterly basis. Modeling the predictive analysis using its legacy solution took up to 8 days and required four engineers to oversee the process. In 2022, AWS launched AWS Step Functions Distributed Map , a high-concurrency mode for the map state capable of running 10,000 parallel workflow processes. The company can now scale its use of AWS Lambda — a serverless, event-driven compute service used to run code for virtually any type of application or backend service without provisioning or managing servers — in the background for 10,000 concurrent processes. CyberGRX saves 90 percent on compute costs by using AWS Step Functions Distributed Map. Using AWS Step Functions Distributed Map, the company can run ML modeling for 260,000 businesses in 1 hour. CyberGRX’s legacy solution",
+  "products_used": [
+    "AWS Step Functions Distributed Map",
+    "AWS Step Functions",
+    "Amazon S3",
+    "AWS Lambda"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Step Functions Distributed Map",
+      "role": "Coordinates the security analytics workflow and automation steps across services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Step Functions",
+      "role": "Coordinates the security analytics workflow and automation steps across services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores application, analytics, or workflow state for the security analytics solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs core compute or model execution for the security analytics workload.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "workflow control is handled by AWS Step Functions Distributed Map, AWS Step Functions; processing runs on AWS Lambda; results and state are stored in Amazon S3 for the security analytics workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Native",
+    "Cybersecurity",
+    "Media and Content",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Application Refactoring",
+    "Security and Compliance",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "As CyberGRX continues to iterate on and improve its solution using AWS, it provides a better experience for its customers. The company can provide data more quickly for customer use and plans to fully automate the process in the future with reduced delay. CyberGRX has taken risk assessment turnaround time for customers from 1 year or more to within 1 month, and it wants to use AWS to further reduce that to less than 1 week. “Using AWS, we have gone from a solution that was slow and expensive to one that’s lean, nimble, and incredibly fast,” says Burton. “Using AWS has been a great learning journey, a great experience, and a great accelerator to our business.” Using AWS has been a great learning journey, a great experience, and a great accelerator to our business.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Scales to 10,000 concurrent processes 90% reduction in compute costs",
+    "Improved staff productivity 1 hour runtime compared to 8 days",
+    "Modeling the predictive analysis using its legacy solution took up to 8 days and required four engineers to oversee the process.",
+    "CyberGRX reduced the runtime of its solution from 8 days to 1 hour for its quarterly modeling, improved staff productivity, and reduced its hardware costs by 90 percent.",
+    "CyberGRX’s legacy solution prior to using AWS Step Functions took 8 days for predictive ML modeling of data from 150,000 businesses.",
+    "Using AWS Step Functions Distributed Map, the company can run ML modeling for 260,000 businesses in 1 hour."
+  ],
+  "architecture_clues": [
+    "In 2022, AWS launched AWS Step Functions Distributed Map , a high-concurrency mode for the map state capable of running 10,000 parallel workflow processes.",
+    "The company can now scale its use of AWS Lambda — a serverless, event-driven compute service used to run code for virtually any type of application or backend service without provisioning or managing servers — in the background for 10,000 concurrent processes.",
+    "In the future, the company will be able to take advantage of the ability to split its data and run two distributed maps simultaneously, using the 20,000 parallel compute capacity of AWS Lambda."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/cybergrx-step-functions-case-study/",
+  "published_date": "2023-09-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The legacy ML modeling solution for CyberGRX took 8 days to complete predictive modeling for all the companies in its database — 150,000 at the time.",
+    "Four engineers were required to monitor and manage it, which added costs to an already compute-intensive solution.",
+    "In 2022, AWS launched AWS Step Functions Distributed Map , a high-concurrency mode for the map state capable of running 10,000 parallel workflow processes.",
+    "CyberGRX immediately began using this new feature of AWS Step Functions to improve upon the first iteration of its solution. “AWS Step Functions Distributed Map was the exact solution that we needed to make our solution fly,” says Burton. “It has the ability to understand the size of data that you’re putting into it, and then you can make runtime decisions based on that.” With the new solution, the company can place its data in Amazon Simple Storage Service (Amazon S3) — object storage built to retrieve virtually any amount of data from anywhere — and AWS Step Functions Distributed Map parses the data and distributes it correctly.",
+    "CyberGRX can make scalability decisions at runtime to balance its horizontal scalability, a further optimization of this solution.",
+    "The company can now scale its use of AWS Lambda — a serverless, event-driven compute service used to run code for virtually any type of application or backend service without provisioning or managing servers — in the background for 10,000 concurrent processes."
+  ]
+}

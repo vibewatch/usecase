@@ -1,0 +1,105 @@
+{
+  "id": "aws-tc-energy-marketing-personalization",
+  "slug": "aws-tc-energy-marketing-personalization",
+  "vendor": "AWS",
+  "customer_name": "TC Energy",
+  "industry": "Energy",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "The sheer scale of its operations creates an urgent need for data insights. At the same time, TC Energy’s commitment to responsible stewardship challenged employees to minimize the disturbances that work crews can cause for local communities when it is necessary to take multiple trips to pipeline locations.",
+  "solution_summary": "With 60,000 miles of pipeline in Mexico, Canada, and the United States, TC Energy invests heavily in operations and reliability to accommodate constantly changing demand and regulations. The company wanted to create a centralized data repository known as a data lake to improve the management of its US natural gas infrastructure by consolidating information from over 70 data sources. Then, TC Energy processes data using a pair of solutions: Amazon EventBridge , a serverless event bus, and AWS Glue. Finally, TC Energy uses AWS Glue, Amazon EventBridge, and AWS Step Functions , a visual workflow service, to transform the data. The web front end is backed by AWS Lambda , a serverless, event-driven compute service, as well as Amazon DynamoDB , a fast, flexible NoSQL database service for single-digit millisecond performance at virtually any scale. The company selected Amazon API Gateway —a fully managed service that makes it simple for developers to",
+  "products_used": [
+    "Amazon Athena",
+    "Amazon S3",
+    "AWS Glue",
+    "AWS Step Functions",
+    "AWS Lambda",
+    "Amazon DynamoDB",
+    "Amazon API Gateway"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Athena",
+      "role": "Runs core compute or model execution for the recommendation and personalization workload."
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores application, analytics, or workflow state for the recommendation and personalization solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Glue",
+      "role": "Ingests or moves data and events into the recommendation and personalization pipeline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AWS Step Functions",
+      "role": "Coordinates the recommendation and personalization workflow and automation steps across services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs core compute or model execution for the recommendation and personalization workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores application, analytics, or workflow state for the recommendation and personalization solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon API Gateway",
+      "role": "Provides the delivery or user-facing interface for the recommendation and personalization workload.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Data or events enter through AWS Glue; workflow control is handled by AWS Step Functions; processing runs on AWS Lambda; results and state are stored in Amazon S3, Amazon DynamoDB; and outputs are exposed through Amazon API Gateway for the recommendation and personalization workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Migration",
+    "Cloud Native",
+    "Cybersecurity",
+    "ERP / CRM",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Data Lake / Data Warehouse Modernization",
+    "Application Refactoring",
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Achieving Holistic Business Success Using AWS Services The results of the early stages of O360 implementation look promising for TC Energy’s future growth plans. “Using AWS serverless services, we achieved better scale and performance with reduced costs,” Bowen says. More than a third of the company’s data sources were added to the new data lake within the first 8 months, and the company now has a solid data foundation for future enhancements. Additionally, as more data sources are ingested, a use case may evolve to focus on identifying emission reduction opportunities in pursuit of TC Energy’s sustainability goals.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "The team followed an interactive approach to achieve results quickly. “By consolidating data on AWS and bundling pipeline work, we conservatively estimate that we’ll save $1.6 million annually,” says Irfan Ali, director of pipeline integrity data engineering at the US Natural Gas Pipelines business unit of TC Energy.",
+    "More than a third of the company’s data sources were added to the new data lake within the first 8 months, and the company now has a solid data foundation for future enhancements."
+  ],
+  "architecture_clues": [
+    "Then, TC Energy processes data using a pair of solutions: Amazon EventBridge , a serverless event bus, and AWS Glue.",
+    "Finally, TC Energy uses AWS Glue, Amazon EventBridge, and AWS Step Functions , a visual workflow service, to transform the data.",
+    "The web front end is backed by AWS Lambda , a serverless, event-driven compute service, as well as Amazon DynamoDB , a fast, flexible NoSQL database service for single-digit millisecond performance at virtually any scale.",
+    "The company selected Amazon API Gateway —a fully managed service that makes it simple for developers to create, publish, maintain, monitor, and secure APIs at virtually any scale—to create and maintain secure APIs for the interactive offering. “Using these AWS services, we’ve created a solution that makes it simple for users to see the data, drill into it, and work together to get value for the business,” says Bowen.",
+    "Architecture Diagram 100 Achieving Holistic Business Success Using AWS Services The results of the early stages of O360 implementation look promising for TC Energy’s future growth plans. “Using AWS serverless services, we achieved better scale and performance with reduced costs,” Bowen says."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/tc-energy-case-study/",
+  "published_date": "2023-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The sheer scale of its operations creates an urgent need for data insights.",
+    "At the same time, TC Energy’s commitment to responsible stewardship challenged employees to minimize the disturbances that work crews can cause for local communities when it is necessary to take multiple trips to pipeline locations.",
+    "Building a Data Foundation for Decades of Innovation Using Amazon Athena The complexity of TC Energy’s O360 implementation necessitated an incremental approach that used a fleet of AWS services.",
+    "First, the data is ingested and sent to Amazon Simple Storage Service (Amazon S3), an object storage service offering industry-leading scalability, data availability, security, and performance.",
+    "Then, TC Energy processes data using a pair of solutions: Amazon EventBridge , a serverless event bus, and AWS Glue.",
+    "Pariveda used the Modern Data Enterprise Framework to transform and enhance the data, which is then queried using Amazon Athena."
+  ]
+}

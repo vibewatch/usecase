@@ -1,0 +1,86 @@
+{
+  "id": "aws-bio-rad-laboratories-bio-rad",
+  "slug": "aws-bio-rad-laboratories-bio-rad",
+  "vendor": "AWS",
+  "customer_name": "Bio-Rad Laboratories",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Additionally, the team needed Internet of Things (IoT) capabilities to facilitate the automatic and programmatic upload of data—including high-volume instrument data and low-volume system telemetry data—to a centralized hub in the cloud. The solution had to adhere to high levels of security mandated by HIPAA and other privacy regulations. “It was essential to centralize data collection in the cloud securely from all",
+  "solution_summary": "The data is securely stored in Amazon Simple Storage Service (Amazon S3), an object storage service offering industry-leading scalability, data availability, security, and performance. Next, the data flows through an automated pipeline of ML models for data processing using Amazon SageMaker Notebooks , fully managed notebooks for exploring data and building ML models. If we had to manage this independently, it would entail substantial effort to support the cloud deployment.” AWS IoT Greengrass is also used to reduce potential errors in the deployment of ML models, such as inadvertently uploading the wrong model. It has a small footprint, and we know the incoming data is safe.” The incoming data undergoes minimal transformation using AWS Glue , a serverless data integration service that makes it easier to discover, prepare, move, and integrate data from multiple sources for analytics and ML. Because AWS IoT Greengrass and Amazon SageMaker were",
+  "products_used": [
+    "AWS IoT Greengrass",
+    "AWS Glue",
+    "Amazon SageMaker",
+    "Amazon S3"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS IoT Greengrass",
+      "role": "Ingests or moves data and events into the compliance review pipeline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AWS Glue",
+      "role": "Ingests or moves data and events into the compliance review pipeline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Runs core compute or model execution for the compliance review workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores application, analytics, or workflow state for the compliance review solution.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Data or events enter through AWS IoT Greengrass, AWS Glue; processing runs on Amazon SageMaker; results and state are stored in Amazon S3 for the compliance review workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Native",
+    "Cybersecurity",
+    "IoT",
+    "DevOps",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Risk Management",
+    "Marketing Personalization",
+    "Application Refactoring",
+    "Security and Compliance",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Bio-Rad is pushing forward and bringing a paradigm shift in the industry while upholding the utmost standards of security and compliance. “In the realm of a connected world, we embrace the transformative potential of AWS,” says Jasmina. “Scaling up independently can be time consuming, but using AWS, we can scale up efficiently and effectively.”",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "A single ML model might analyze up to 50 GB of data, making it impractical to run on a data scientist’s laptop."
+  ],
+  "architecture_clues": [
+    "It has a small footprint, and we know the incoming data is safe.” The incoming data undergoes minimal transformation using AWS Glue , a serverless data integration service that makes it easier to discover, prepare, move, and integrate data from multiple sources for analytics and ML."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/bio-rad-case-study/",
+  "published_date": "2023-09-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Additionally, the team needed Internet of Things (IoT) capabilities to facilitate the automatic and programmatic upload of data—including high-volume instrument data and low-volume system telemetry data—to a centralized hub in the cloud.",
+    "The solution had to adhere to high levels of security mandated by HIPAA and other privacy regulations. “It was essential to centralize data collection in the cloud securely from all",
+    "Using a range of AWS services, Bio-Rad has built a cutting-edge solution for secure and seamless transfer of instrument data to the cloud.",
+    "Built on the foundation of AWS IoT Greengrass, the robust and scalable infrastructure deftly manages the upload of high-volume data, without inadvertently affecting the functionality of Bio-Rad’s edge devices. “The solution virtually guarantees data security so that no data is lost during the transfer, even if there’s a connectivity drop in the lab,” says Jasmina. “AWS IoT Greengrass has been a true blessing to us.",
+    "It has a small footprint, and we know the incoming data is safe.” The incoming data undergoes minimal transformation using AWS Glue , a serverless data integration service that makes it easier to discover, prepare, move, and integrate data from multiple sources for analytics and ML.",
+    "Next, the data flows through an automated pipeline of ML models for data processing using Amazon SageMaker Notebooks , fully managed notebooks for exploring data and building ML models."
+  ]
+}

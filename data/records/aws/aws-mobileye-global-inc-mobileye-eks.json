@@ -1,0 +1,73 @@
+{
+  "id": "aws-mobileye-global-inc-mobileye-eks",
+  "slug": "aws-mobileye-global-inc-mobileye-eks",
+  "vendor": "AWS",
+  "customer_name": "Mobileye Global Inc.",
+  "industry": "Automotive",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Mobileye’s engineering teams will benefit from each application running in an isolated environment. “It will dramatically reduce our debugging times,” says Ofer Eliassaf, senior director of REM at Mobileye. “The approach helps us avoid situations where one Spark application interferes with another, freeing up our engineers to solve complex problems.” Mobileye decided to migrate its workloads to Apache Spark on Kubern",
+  "solution_summary": "Autonomous-driving technology company Mobileye Global Inc. (Mobileye) was looking to empower its Road Experience Management (REM) team with a powerful compute solution that could scale to the demand of its high-definition mapping while providing its engineering teams with configuration flexibility. The team’s goal was to build a scalable stack that would support the company’s time to market by delivering the advanced capabilities of Kubernetes, including resource isolation and dynamic configuration. In February 2023, Mobileye began migrating to Amazon EKS, testing the performance of small-scale workloads. In addition to increased visibility, the team has benefited from more reliable infrastructure performance as a result of deploying Amazon EKS across multiple AWS Regions. Having built its environments on Amazon Web Services (AWS), the REM team migrated its workloads to Amazon Elastic Kubernetes Service (Amazon EKS), a managed Kubernetes",
+  "products_used": [
+    "Amazon EKS",
+    "Amazon EC2",
+    "Amazon EC2 Spot Instances"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EKS",
+      "role": "Runs core compute or model execution for the core application workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Runs core compute or model execution for the core application workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 Spot Instances",
+      "role": "Runs core compute or model execution for the core application workload.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "processing runs on Amazon EKS, Amazon EC2, Amazon EC2 Spot Instances for the core application workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Migration",
+    "Cloud Native",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "The Mobileye REM team rolled out its new architecture to production in November 2023. In addition to increased visibility, the team has benefited from more reliable infrastructure performance as a result of deploying Amazon EKS across multiple AWS Regions. Further, the REM team estimates that it has cut its developer overhead in half by choosing to collaborate with the AWS team on this project. “If we’d had to complete a project like this on our own, we would’ve had to double our DevOps team,” says Eliassaf. “Using Amazon EKS, we can deploy Kubernetes elegantly and cost effectively with fewer engineers.” Kubernetes is very complex software, and using Amazon EKS makes it simpler to install and work with Kubernetes than I had imagined possible.” Ofer Eliassaf Senior Director, Road Experience Management at Mobileye Global Inc.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Minimizes time spent debugging software 50% reduction in developer overhead, freeing engineers to innovate",
+    "Scalable—Provides scalable, flexible resource use Supports open-source solutions",
+    "For example, the company runs the majority of its workloads using Amazon EC2 Spot Instances , which businesses can use to take advantage of unused Amazon EC2 capacity in the AWS Cloud at up to a 90 percent discount compared with Amazon EC2 On-Demand prices.",
+    "Using Amazon EKS, Mobileye scaled to run more than 400,000 virtual CPUs concurrently on thousands of Amazon EC2 instances across two clusters. “We can automatically scale much better using more diverse instances,” says Lifshitz. “We can also run less critical jobs on Spot Instances and diminish instances in 10 minutes after we’re finished using them.” With greater flexibility to configure containers, the REM team can also boost productivity. “Using Amazon EKS, we can change the way our developers work,” says Eliassaf. “We can provide them with a better experience, which will improve their performance and our time to market."
+  ],
+  "architecture_clues": [
+    "In addition to increased visibility, the team has benefited from more reliable infrastructure performance as a result of deploying Amazon EKS across multiple AWS Regions."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/mobileye-eks-case-study/",
+  "published_date": "2023-11-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Mobileye’s engineering teams will benefit from each application running in an isolated environment. “It will dramatically reduce our debugging times,” says Ofer Eliassaf, senior director of REM at Mobileye. “The approach helps us avoid situations where one Spark application interferes with another, freeing up our engineers to solve complex problems.” Mobileye decided to migrate its workloads to Apache Spark on Kubern",
+    "In February 2023, Mobileye began migrating to Amazon EKS, testing the performance of small-scale workloads.",
+    "For its machine learning and data workloads, the REM team shortened its development time by using Data on EKS (DoEKS), an open-source project aimed at streamlining and accelerating the process of building, deploying, and scaling data workloads on Amazon EKS.",
+    "Mobileye also engaged the AWS team for technical support with scaling. “With the support of the AWS team, we adapted configurations that worked best for our existing environment,” says Lifshitz.",
+    "Mobileye also used DoEKS Blueprints , which incorporate guidance and tools to support the challenges and requirements of data-intensive workloads on Kubernetes.",
+    "The REM team used DoEKS Blueprints to configure Kubernetes to deploy Apache Spark solution to run with the Spark operator."
+  ]
+}

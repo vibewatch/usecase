@@ -1,0 +1,77 @@
+{
+  "id": "aws-daiso-industries-daiso",
+  "slug": "aws-daiso-industries-daiso",
+  "vendor": "AWS",
+  "customer_name": "Daiso Industries",
+  "industry": "Retail",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "The company, which sells 76,000 products in nearly 6,000 stores, decided to migrate to the cloud in 2013 to improve its efficiency in system development and chose to build its ordering system on AWS. Then, in 2018, Daiso built a centralized POS data processing system using AWS Lambda and other tools to process merchandise sales data from each store.The new centralized POS data processing system helps the company to s",
+  "solution_summary": "Daiso Industries (Daiso) is a Japan-based company that operates the Daiso 100-yen store. The company decided to migrate to the cloud in 2013 and has adopted Amazon Web Services (AWS). Key Outcomes in operating costs for BI tools Nearly 16 million yen saved of Amazon QuickSight 200 user base managed by the centralized POS data processing system 76,000 items Therefore, the company adopted Amazon QuickSight which was launched for the Tokyo region in 2018. “The key factor was the significant increase in the retention period of store inventory data from 1 day to 2 years. With increase of access to the company’s BI tool, Daiso plans to migrate the tool’s backend from Amazon Athena to Amazon Redshift because Amazon Redshift is more cost-effective. The store management division visualizes sales trends by store brand, the usage ratio of electronic payments, and so on.”Going forward, Daiso anticipates expanding Amazon QuickSight to stores across Japan",
+  "products_used": [
+    "Amazon QuickSight",
+    "Amazon Athena",
+    "Amazon Redshift"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon QuickSight",
+      "role": "Provides the delivery or user-facing interface for the payments processing workload.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Athena",
+      "role": "Runs core compute or model execution for the payments processing workload."
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Stores application, analytics, or workflow state for the payments processing solution.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "results and state are stored in Amazon Redshift; and outputs are exposed through Amazon QuickSight for the payments processing workload.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Migration",
+    "Cloud Native",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Marketing Personalization",
+    "Data Lake / Data Warehouse Modernization",
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "As of December 2022, Amazon QuickSight is available to nearly all employees. “According to the most recent survey, almost all the employees are actively using the system,” says Kanzaki. “In addition to the main user groups of the system—such as management, the merchandise department, and the store development division—the logistics department is trying to optimize the supply chain while visualizing the inventory status of domestic and overseas warehouses in conjunction with the warehouse management system. The store management division visualizes sales trends by store brand, the usage ratio of electronic payments, and so on.”Going forward, Daiso anticipates expanding Amazon QuickSight to stores across Japan and supporting store managers’ decision-making according to store characteristics in order to democratize data use for all employees and drive data-driven management. With increase of access to the company’s BI tool, Daiso plans to migrate the tool’s backend from Amazon Athena to Amazon Redshift because Amazon Redshift is more cost-effective.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Therefore, the company adopted Amazon QuickSight which was launched for the Tokyo region in 2018. “The key factor was the significant increase in the retention period of store inventory data from 1 day to 2 years.",
+    "Reader licenses are not charged if not used.”The first Amazon QuickSight implementation was completed in 2 months and started with 35 buyers in the merchandise department at Daiso headquarters.",
+    "The running cost of the BI tool was reduced by more than 1.3 million yen per month, or nearly 16 million yen per year, including server configuration fees.In 2020, the information systems department decided to build a departmental dashboard with the goal of having everyone at headquarters use the data. “The idea was that visualizing data in the form of a dashboard for our employees would encourage use of Amazon QuickSight,” says Takaya Kanzaki.",
+    "Key Outcomes in operating costs for BI tools Nearly 16 million yen saved of Amazon QuickSight 200 user base managed by the centralized POS data processing system 76,000 items"
+  ],
+  "architecture_clues": [
+    "The next step of Daiso’s serverless initiative was using a business intelligence (BI) tool for data visualization.",
+    "In 2018, it built a serverless centralized point-of-sale (POS) data processing system and introduced new tools for data analysis."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/daiso-case-study/",
+  "published_date": "2024-03-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company, which sells 76,000 products in nearly 6,000 stores, decided to migrate to the cloud in 2013 to improve its efficiency in system development and chose to build its ordering system on AWS.",
+    "Then, in 2018, Daiso built a centralized POS data processing system using AWS Lambda and other tools to process merchandise sales data from each store.The new centralized POS data processing system helps the company to s",
+    "The next step of Daiso’s serverless initiative was using a business intelligence (BI) tool for data visualization.",
+    "The company’s previous tool couldn’t retain the data in the database for the necessary length of time for analysis.",
+    "Therefore, the company adopted Amazon QuickSight which was launched for the Tokyo region in 2018. “The key factor was the significant increase in the retention period of store inventory data from 1 day to 2 years.",
+    "This long-term data retention helps us to see trends in sales, sales volume, store inventory, and warehouse inventory on an item-by-item basis,” says Takaya Kanzaki, manager of the system planning section, information systems department, corporate planning division of Daiso. “Another attractive feature was the per-session pay-as-you-go billing system."
+  ]
+}

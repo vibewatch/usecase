@@ -1,0 +1,76 @@
+{
+  "id": "aws-virtuix-data-lake-data-warehouse-modernization",
+  "slug": "aws-virtuix-data-lake-data-warehouse-modernization",
+  "vendor": "AWS",
+  "customer_name": "Virtuix",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "The Virtuix team chose AWS primarily for its scalability; it needed a cloud service provider that could grow alongside the company. Using a variety of Amazon Web Services (AWS) solutions, Virtuix built a scalable backend infrastructure and moved its product from beta testing to full production. “This will be the first complete, full-body VR entertainment system for the home—not just a headset, but a headset and tread",
+  "solution_summary": "You may have experienced virtual reality (VR) before—now imagine truly walking around in a digital world. Virtuix Inc. (Virtuix) makes a more immersive, at-home VR experience possible with its innovative omnidirectional treadmill, the Omni. To make sure that players can connect to multiplayer games all around the world, Virtuix uses Amazon GameLift , which deploys and manages dedicated game servers hosted in the cloud, on premises, or through hybrid deployments. In particular, it will incorporate data analytics using Amazon Redshift —which uses SQL to analyze structured and semistructured data across data warehouses, operational databases, and data lakes—to build business intelligence and better understand its players. In fact, Virtuix achieved 99 percent uptime with zero crashes during beta testing of the Omni One. “As we start to scale up, we’re going to rely on Amazon EC2 and Amazon EKS to meet demand,” says Jerry Bogedain, director of",
+  "products_used": [
+    "Amazon GameLift",
+    "Amazon EC2",
+    "Amazon EKS",
+    "Amazon Redshift"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon GameLift",
+      "role": "Provides the delivery or user-facing interface for the data platform workload.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Runs core compute or model execution for the data platform workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs core compute or model execution for the data platform workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Stores application, analytics, or workflow state for the data platform solution.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "processing runs on Amazon EC2, Amazon EKS; results and state are stored in Amazon Redshift; and outputs are exposed through Amazon GameLift for the data platform workload.",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Native",
+    "Media and Content",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Using AWS, Virtuix brought its innovative product from idea to reality. With beta units of the Omni One already shipped out, the company plans to release the solution to the general market in Q2 2024, ramping up production while maintaining its focus on quality and software development. Virtuix is targeting 50 percent gross margin after launch.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "In fact, Virtuix achieved 99 percent uptime with zero crashes during beta testing of the Omni One. “As we start to scale up, we’re going to rely on Amazon EC2 and Amazon EKS to meet demand,” says Jerry Bogedain, director of software at Virtuix.",
+    "In fact, DevOps only accounts for 20–30 hours of work per month at Virtuix.",
+    "Virtuix is targeting 50 percent gross margin after launch."
+  ],
+  "architecture_clues": [],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/virtuix-case-study/",
+  "published_date": "2024-03-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Virtuix team chose AWS primarily for its scalability; it needed a cloud service provider that could grow alongside the company.",
+    "Using a variety of Amazon Web Services (AWS) solutions, Virtuix built a scalable backend infrastructure and moved its product from beta testing to full production. “This will be the first complete, full-body VR entertainment system for the home—not just a headset, but a headset and tread",
+    "Virtuix doesn’t only manufacture innovative VR hardware; it has also created multiple VR games optimized for the Omni.",
+    "To make sure that players can connect to multiplayer games all around the world, Virtuix uses Amazon GameLift , which deploys and manages dedicated game servers hosted in the cloud, on premises, or through hybrid deployments.",
+    "Using Amazon GameLift, Virtuix gained a low-latency solution with the flexibility to scale up and down as needed. “The Omni really comes to life when you use it with other people,” says Cameron Slayter, creative director at Virtuix. “As the Omnis are shipped to different locations, we can spin up a server anywhere to keep the latency low for all our players.” Virtuix uses multiple AWS services to keep its backend development running smoothly.",
+    "Primarily, its infrastructure is built on Amazon Elastic Compute Cloud (Amazon EC2), which offers secure and resizable compute capacity for virtually any workload."
+  ]
+}

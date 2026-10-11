@@ -1,0 +1,81 @@
+{
+  "id": "aws-inmotion-inovasi-teknologi-customer-service-automation",
+  "slug": "aws-inmotion-inovasi-teknologi-customer-service-automation",
+  "vendor": "AWS",
+  "customer_name": "InMotion Inovasi Teknologi",
+  "industry": "Education",
+  "region": "Jakarta",
+  "company_size": "Public sector",
+  "business_problem": "Chief executive officer Sonny Hastomo, who co-developed the 3Dolphins solutions, says, “We wanted to offload script files from virtual server instances to lower our cloud costs as well as boost the performance of our applications.” In addition, the business sought to increase application scalability.",
+  "solution_summary": "InMotion Inovasi Teknologi is an Indonesian-based technology company that builds software solutions for customer engagement across digital channels. As part of its continued development, the company migrated around 1,000 scripts from Amazon EC2 to Amazon CloudFront , leveraging Amazon S3 to distribute static content. By migrating the scripts to Amazon CloudFront, InMotion decreased its Amazon EC2 costs by 10 percent. By leveraging Amazon CloudFront, our Service SRM web dashboard responds 30 percent faster and our chatbot processes queries in less than three seconds. Amazon CloudFront ensures scripts are continuously processed without any issues, improving reliability.” InMotion also integrated Amazon CloudFront with Amazon Simple Storage Service (Amazon S3), where it stores static assets such as imagery for web dashboards and chatbot interfaces. Amazon CloudFront’s caching service also reduces the number of requests served by the Amazon EC2",
+  "products_used": [
+    "Amazon EC2",
+    "Amazon CloudFront",
+    "Amazon S3",
+    "Amazon EKS"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EC2",
+      "role": "Runs core compute or model execution for the chatbot analytics workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon CloudFront",
+      "role": "Provides the delivery or user-facing interface for the chatbot analytics workload.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores application, analytics, or workflow state for the chatbot analytics solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs core compute or model execution for the chatbot analytics workload.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "processing runs on Amazon EC2, Amazon EKS; results and state are stored in Amazon S3; and outputs are exposed through Amazon CloudFront for the chatbot analytics workload.",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Cloud Migration",
+    "Cloud Native",
+    "ERP / CRM",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "System Migration",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Thanks to the speed and scalability of Amazon CloudFront, InMotion is helping large enterprises communicate with millions of customers in Bahasa Indonesia in a timelier manner. Today, around 50 of InMotion’s customers are using the 3Dolphins SRM suite to distribute over 15 million messages a day in Bahasa Indonesia as part of their customer engagement programs. Delivering messages on this scale in Bahasa Indonesia has given InMotion a significant advantage over competitors who also offer localized engagement tools.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "As a result of the migration, the company reduced server costs by 10 percent and improved application performance by 30 percent.",
+    "By migrating the scripts to Amazon CloudFront, InMotion decreased its Amazon EC2 costs by 10 percent.",
+    "Amazon CloudFront’s caching service also reduces the number of requests served by the Amazon EC2 instances and lowers latency, improving application performance. “By leveraging Amazon CloudFront, our Service SRM web dashboard responds 30 percent faster and our chatbot answers queries in less than three seconds,” says Hastomo.",
+    "Today, around 50 of InMotion’s customers are using the 3Dolphins SRM suite to distribute over 15 million messages a day in Bahasa Indonesia as part of their customer engagement programs.",
+    "Hastomo estimates that 3Dolphins can handle workloads that are 1.5 times larger than those of its competitors. “This has helped us to secure business with Indonesian enterprises,” he explains. “We’re able to support a business that has 60 million customers and receives around 3 million website visitors each month.” Following its success with Amazon CloudFront, InMotion plans to continue developing its AWS architecture.",
+    "By leveraging Amazon CloudFront, our Service SRM web dashboard responds 30 percent faster and our chatbot processes queries in less than three seconds."
+  ],
+  "architecture_clues": [],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/inmotion-inovasi-teknologi-case-study/",
+  "published_date": "2023-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Chief executive officer Sonny Hastomo, who co-developed the 3Dolphins solutions, says, “We wanted to offload script files from virtual server instances to lower our cloud costs as well as boost the performance of our applications.” In addition, the business sought to increase application scalability.",
+    "InMotion’s founders engaged with the company’s AWS account team, who proposed offloading the scripts which facilitated client-server communication into . “Our AWS team was proactive as always, listening to our objectives and providing the right solutions,” Hastomo says.",
+    "The company moved approximately 1,000 scripts for its 3Dolphins applications and chatbot service from Amazon EC2 instances to Amazon CloudFront, going live in two weeks.",
+    "InMotion also integrated Amazon CloudFront with Amazon Simple Storage Service (Amazon S3), where it stores static assets such as imagery for web dashboards and chatbot interfaces.",
+    "Amazon CloudFront distributes the static content, caching the images at edge locations to reduce load time and protecting resources by checking content requests against access control lists.",
+    "By migrating the scripts to Amazon CloudFront, InMotion decreased its Amazon EC2 costs by 10 percent."
+  ]
+}

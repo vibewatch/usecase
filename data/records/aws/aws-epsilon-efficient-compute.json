@@ -1,0 +1,108 @@
+{
+  "id": "aws-epsilon-efficient-compute",
+  "slug": "aws-epsilon-efficient-compute",
+  "vendor": "AWS",
+  "customer_name": "Epsilon",
+  "industry": "Public Sector",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "This amounts to tens of millions of transactions per day for a typical large client.” The scale of Epsilon’s operations not only required significant compute resources but also made it challenging to optimize cost and performance. In 2010, the company began to migrate away from its exclusively on-premises infrastructure to the cloud, and adopted various Amazon EC2 instances to manage its growing workload demands.",
+  "solution_summary": "To create campaigns that resonate, advertisers need access to high-quality data. Without the help of specialists, accessing timely and relevant information can be a challenge. Epsilon was able to migrate one of its largest data processing jobs to AWS Graviton-based Amazon EC2 Spot Instances, reducing the scan time by nearly 20 percent. “Since we started this journey, most of our data engineering processing, which we run on Spark, is now on AWS,” says Gairik Chakraborty, vice president of database technology at Epsilon. “From an analytics, data engineering, and data processing perspective, around 50–60 percent of our workloads have already been moved to AWS Graviton processors.” Throughout this journey, Epsilon continually optimized its AWS usage. For example, the majority of Epsilon’s functions on AWS Lambda , a serverless, event-driven compute service, are powered by AWS Graviton processors. The company first targeted AWS managed services such",
+  "products_used": [
+    "AWS Graviton",
+    "Amazon EC2",
+    "Amazon EC2 Spot Instances",
+    "Amazon ElastiCache",
+    "AWS Lambda",
+    "Amazon RDS",
+    "Amazon EKS"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Graviton",
+      "role": "Runs core compute or model execution for the security analytics workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Runs core compute or model execution for the security analytics workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 Spot Instances",
+      "role": "Runs core compute or model execution for the security analytics workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon ElastiCache",
+      "role": "Stores application, analytics, or workflow state for the security analytics solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs core compute or model execution for the security analytics workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon RDS",
+      "role": "Stores application, analytics, or workflow state for the security analytics solution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs core compute or model execution for the security analytics workload.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "processing runs on AWS Graviton, Amazon EC2, Amazon EC2 Spot Instances, AWS Lambda, Amazon EKS; results and state are stored in Amazon ElastiCache, Amazon RDS for the security analytics workload.",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Cloud Migration",
+    "Cloud Native",
+    "Cybersecurity",
+    "Media and Content",
+    "DevOps",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Marketing Personalization",
+    "System Migration",
+    "Application Refactoring",
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "On AWS, Epsilon has achieved significant cost and performance efficiencies, which translates into enhanced services for its clients. Thanks to the success of this project, the company continues to use AWS Graviton-based instances for suitable workloads within their organization. For example, the majority of Epsilon’s functions on AWS Lambda , a serverless, event-driven compute service, are powered by AWS Graviton processors.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "15%–20% reduction in runtime with AWS Graviton-based Amazon EC2 instances",
+    "15% average cost reduction with Graviton-based instances",
+    "20% reduction in scan time for large data processing jobs",
+    "It first categorized the workloads that could tolerate potential interruptions without affecting overall service and moved them to Amazon EC2 Spot Instances , which are available at up to 90 percent discount compared to On-Demand pricing.",
+    "Epsilon was able to migrate one of its largest data processing jobs to AWS Graviton-based Amazon EC2 Spot Instances, reducing the scan time by nearly 20 percent. “Since we started this journey, most of our data engineering processing, which we run on Spark, is now on AWS,” says Gairik Chakraborty, vice president of database technology at Epsilon. “From an analytics, data engineering, and data processing perspective, around 50–60 percent of our workloads have already been moved to AWS Graviton processors.” Throughout this journey, Epsilon continually optimized its AWS usage.",
+    "These optimizations resulted in an average 15 percent cost reduction using AWS Graviton-based instances, as well as improved performance. “We have seen a 15–20 percent reduction in runtime and a 5–10 percent reduction in CPU usage using AWS Graviton-based instances,” says Chakraborty."
+  ],
+  "architecture_clues": [
+    "The company first targeted AWS managed services such as Amazon ElastiCache —a serverless, Redis- and Memcached-compatible caching service—because they were the simplest to transition.",
+    "For example, the majority of Epsilon’s functions on AWS Lambda , a serverless, event-driven compute service, are powered by AWS Graviton processors."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/epsilon-efficient-compute-case-study/",
+  "published_date": "2024-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "This amounts to tens of millions of transactions per day for a typical large client.” The scale of Epsilon’s operations not only required significant compute resources but also made it challenging to optimize cost and performance.",
+    "In 2010, the company began to migrate away from its exclusively on-premises infrastructure to the cloud, and adopted various Amazon EC2 instances to manage its growing workload demands.",
+    "To identify areas for optimization, Epsilon conducted an in-depth assessment of its existing workloads.",
+    "It first categorized the workloads that could tolerate potential interruptions without affecting overall service and moved them to Amazon EC2 Spot Instances , which are available at up to 90 percent discount compared to On-Demand pricing.",
+    "Because Amazon EC2 Spot Instances have a 2-minute warning before interruptions, the company determined that they were an optimal choice for fault-tolerant and stateless workloads.",
+    "The strategic use of Amazon EC2 Spot Instances helped Epsilon achieve significant cost savings while maintaining operational flexibility."
+  ]
+}
