@@ -1,0 +1,81 @@
+{
+  "id": "databricks-coop-enterprise-knowledge-search",
+  "slug": "databricks-coop-enterprise-knowledge-search",
+  "vendor": "Databricks",
+  "customer_name": "Coop",
+  "industry": "Retail",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Coop is a retailer with a unique mission: as a cooperative owned by over 4 million members, its goal isn't just profit, but feeding value back to its owners while prioritizing sustainability. To remain competitive during times of high inflation and shifting consumer habits, Coop needed to make data accessible to everyone, not just technical teams.",
+  "solution_summary": "Coop is a retailer with a unique mission: as a cooperative owned by over 4 million members, its goal isn't just profit, but feeding value back to its owners while prioritizing sustainability. To remain competitive during times of high inflation and shifting consumer habits, Coop needed to make data accessible to everyone, not just technical teams. By leveraging the Databricks Data + AI Platform, Coop transformed an internal hackathon idea into \"AskCap\", an AI-powered assistant that allows employees to query enterprise data via Microsoft Teams using natural language. Turning a hackathon project into a trusted business tool required a robust engine. AskCap acts as a \"meta layer\" built on top of the Databricks Data + AI Platform, utilizing Databricks Genie for its native natural language capabilities. The bot is integrated directly into Microsoft Teams, meeting users where they already work.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Unity Catalog",
+    "Genie",
+    "Microsoft Teams",
+    "Delta Lake"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, and access controls across shared data assets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Genie",
+      "role": "Lets business users ask natural-language questions over governed enterprise data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Teams",
+      "role": "Acts as the conversational delivery channel for the data assistant experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables used for reliable downstream analytics and AI workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational, customer, and transactional data lands in Databricks, is transformed in Delta Lake tables under Unity Catalog governance, and is served to downstream users and applications through Genie, Microsoft Teams.",
+  "integration_points": [
+    "Microsoft Teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Reported outcomes include 30% Retention rate among internal users interacting with AskCap.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [
+    "30% Retention rate among internal users interacting with AskCap"
+  ],
+  "architecture_clues": [
+    "Runs on Azure.",
+    "Uses Unity Catalog for centralized governance and access control.",
+    "Natural-language analytics is exposed through Genie."
+  ],
+  "source_url": "https://www.databricks.com/customers/coop",
+  "published_date": "2026-02-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "30% Retention rate among internal users interacting with AskCap",
+    "Coop is a retailer with a unique mission: as a cooperative owned by over 4 million members, its goal isn't just profit, but feeding value back to its owners while prioritizing sustainability.",
+    "To remain competitive during times of high inflation and shifting consumer habits, Coop needed to make data accessible to everyone, not just technical teams.",
+    "By leveraging the Databricks Data + AI Platform, Coop transformed an internal hackathon idea into \"AskCap\", an AI-powered assistant that allows employees to query enterprise data via Microsoft Teams using natural language.",
+    "The journey to democratizing data didn't start with a top-down mandate; it started at Coop's annual internal hackathon."
+  ]
+}

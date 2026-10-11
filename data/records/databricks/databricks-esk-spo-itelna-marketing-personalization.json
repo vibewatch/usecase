@@ -1,0 +1,69 @@
+{
+  "id": "databricks-esk-spo-itelna-marketing-personalization",
+  "slug": "databricks-esk-spo-itelna-marketing-personalization",
+  "vendor": "Databricks",
+  "customer_name": "Česká spořitelna",
+  "industry": "Financial Services",
+  "region": "Czech Republic",
+  "company_size": "Enterprise",
+  "business_problem": "With the increasing complexity of financial products and a more demanding client base in the modern era, the organization was facing a challenge. Manually analyzing each client’s transaction history to decipher their current requirements, life circumstances and preferences became untenable.",
+  "solution_summary": "To streamline customer service and boost customer engagement, Česká Spořitelna, part of Erste Group, recognizes the importance of empowering branch advisors with personalized conversation starters that cater to individual client needs and interests. As a leading financial institution with roots going back to 1819, the bank has continually emphasized the centrality of the client-advisor relationship. With the increasing complexity of financial products and a more demanding client base in the modern era, the organization was facing a challenge. Access to data was scattered among multiple teams using different tools (Oracle DB, Cloudera, Kafka), with no efficient way to leverage all data sources simultaneously. Manually analyzing each client’s transaction history to decipher their current requirements, life circumstances and preferences became untenable.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Unity Catalog",
+    "Lakeflow Jobs",
+    "Lakeflow"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, and access controls across shared data assets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Schedules and orchestrates recurring data pipelines and production jobs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Lakeflow",
+      "role": "Coordinates ingestion and transformation workflows across the lakehouse.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer, product, and engagement data lands in Databricks, is transformed in the lakehouse under Unity Catalog governance, with pipelines coordinated through Databricks orchestration and transformation services.",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Reported outcomes include ≈32% Of branch advisors clicked on their personalized tips; 1,000 New personal client meetings from personalized tips within the first three months.",
+  "outcome_category": [],
+  "metrics": [
+    "≈32% Of branch advisors clicked on their personalized tips",
+    "1,000 New personal client meetings from personalized tips within the first three months"
+  ],
+  "architecture_clues": [
+    "Runs on Azure.",
+    "Uses Unity Catalog for centralized governance and access control."
+  ],
+  "source_url": "https://www.databricks.com/customers/ceska-sporitelna",
+  "published_date": "2023-09-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "≈32% Of branch advisors clicked on their personalized tips",
+    "1,000 New personal client meetings from personalized tips within the first three months",
+    "To streamline customer service and boost customer engagement, Česká Spořitelna, part of Erste Group, recognizes the importance of empowering branch advisors with personalized conversation starters that cater to individual client needs and interests.",
+    "As a leading financial institution with roots going back to 1819, the bank has continually emphasized the centrality of the client-advisor relationship.",
+    "With the increasing complexity of financial products and a more demanding client base in the modern era, the organization was facing a challenge."
+  ]
+}
