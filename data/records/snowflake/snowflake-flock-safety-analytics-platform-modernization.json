@@ -1,0 +1,68 @@
+{
+  "id": "snowflake-flock-safety-analytics-platform-modernization",
+  "slug": "snowflake-flock-safety-analytics-platform-modernization",
+  "vendor": "Snowflake",
+  "customer_name": "Flock Safety",
+  "industry": "Software / SaaS",
+  "region": "Atlanta, Georgia",
+  "company_size": "Enterprise",
+  "business_problem": "modernize an analytics platform whose Amazon Redshift warehouse had become a bottleneck because tool integrations lagged, metadata could not flow downstream into BI platforms, and administration consumed too much engineering effort for a lean team supporting nearly 1,000 internal users.",
+  "solution_summary": "Flock Safety migrated roughly 200 TB of production analytics data from Amazon Redshift to Snowflake in about four months, running ingestion pipelines, transformations, infrastructure work, and BI integrations in parallel rather than as a long serial cutover. Snowflake became the company's central analytics platform, with the team reorganizing its environment into logical layers aligned to the dbt project so governance is simpler and analysts can navigate the platform more easily. AI-generated migration scripts, SQL conversion, and Python validation tooling were used to verify migrated data at scale, while metadata now flows downstream into BI tools more cleanly than on Redshift. Snowflake's compute model lowered warehouse operating costs, shortened core analytics runs, and created a governed foundation the team can extend into conversational analytics, operational data products, and broader AI initiatives for nearly 1,000 users.",
+  "products_used": [
+    "Snowflake"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the centralized analytics platform that stores migrated data, runs transformed workloads, and underpins governed downstream analytics and AI initiatives.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Data was migrated from Amazon Redshift into Snowflake, where ingestion pipelines, transformed tables, and logical layers aligned to Flock Safety's dbt project were built in parallel. AI-generated SQL conversion and Python validation tooling checked the migrated data, and metadata plus curated datasets now flow from Snowflake into downstream BI tools and analytics experiences that support nearly 1,000 users.",
+  "integration_points": [
+    "Amazon Redshift",
+    "dbt project",
+    "downstream BI tools"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "System Migration"
+  ],
+  "business_outcome": "Flock Safety cut monthly warehouse operating costs by 50 to 60%, accelerated core analytics workloads 4x from two to three hours down to 30 to 45 minutes, and freed its data platform team to focus on AI, governance, and operational data products for nearly 1,000 business users.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "50 to 60% reduction in monthly data warehouse operating costs",
+    "200 TB migrated from Amazon Redshift to Snowflake",
+    "4x faster analytics workloads",
+    "reducing runtimes from two to three hours to 30 to 45 minutes",
+    "nearly 1,000 business users"
+  ],
+  "architecture_clues": [
+    "A four-person project team migrated roughly 200 TB of production data in approximately four months.",
+    "Snowflake was reorganized into logical layers aligned with the company's dbt project.",
+    "Metadata now flows downstream into BI tools more cleanly than on Redshift.",
+    "The team used AI-generated migration scripts and Python validation tooling to verify warehouse data at scale.",
+    "Governance plans include classifying and tagging sensitive data directly within the platform."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/flock-safety/",
+  "published_date": "2026-07-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "a four-person project team migrated roughly 200 terabytes of production data from Amazon Redshift to Snowflake in just four months",
+    "Flock Safety reduced monthly warehouse costs by 50 to 60% through more efficient compute utilization",
+    "The Analytics Data Platform team accelerated analytics workloads by 4x, reducing runtimes from two to three hours to 30 to 45 minutes",
+    "The team reorganized its Snowflake environment into logical layers that more closely aligned with its dbt project",
+    "Metadata now flows seamlessly into downstream BI tools",
+    "We can classify and tag sensitive data more consistently"
+  ]
+}
