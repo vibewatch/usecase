@@ -1,0 +1,86 @@
+{
+  "id": "ibm-flowpay-risk-management",
+  "slug": "ibm-flowpay-risk-management",
+  "vendor": "IBM",
+  "customer_name": "Flowpay",
+  "industry": "Financial Services",
+  "region": "Czech Republic",
+  "company_size": "SMB",
+  "business_problem": "Flowpay needed to speed expansion into new countries and improve lending efficiency because metadata generation for PSD2 transaction categorization and underwriting report preparation were manual, slow, and difficult to scale across markets.",
+  "solution_summary": "Through IBM Client Engineering and the Fintechx program, Flowpay built two generative-AI-assisted workflows on IBM watsonx.ai to accelerate both market entry and underwriting. The first uses large language models plus internet search results to assemble an initial metadata dataset for each new country, helping Flowpay categorize PSD2 transaction data from prospective customers faster as it enters new markets. The second uses raw PSD2 bank-account transactions and calculated data points to generate a plain-language underwriting summary that describes an applicant’s financial health and lending risk, giving human underwriters a faster starting point. Both workflows were piloted with seven users over four weeks and run within an IBM Cloud-based data environment using supporting services such as object storage, Watson Studio, and PostgreSQL. Because the outputs are intended to be refined and exposed through APIs, Flowpay turned generative AI into a reusable part of its cross-market risk and operations stack rather than a one-off proof of concept.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Cloud",
+    "IBM Cloud Object Storage",
+    "IBM Watson Studio",
+    "IBM Cloud Databases for PostgreSQL"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs the large language model workflows that generate market metadata and underwriting summaries.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the pilot environment and related services for Flowpay’s AI-assisted processes.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud Object Storage",
+      "role": "Stores the data used to assemble metadata and underwriting assets during the AI workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Watson Studio",
+      "role": "Supports the collaborative development and testing of the AI-assisted process flows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Databases for PostgreSQL",
+      "role": "Persists the structured application and metadata information used by the lending workflows.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Public web information and PSD2 transaction data flow into watsonx.ai-powered processes, one generates market metadata for new-country onboarding and the other produces underwriting summaries from bank transactions and calculated features, and the resulting outputs are refined for API delivery inside Flowpay’s lending platform.",
+  "integration_points": [
+    "PSD2 transaction data",
+    "internet-based search results",
+    "API calls"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Flowpay reduced the time needed to research and launch into new markets, cut recurring metadata cleanup work, and sped up underwriting so its small team can expand internationally with less manual effort.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "100% time savings for new market research and metadata creation",
+    "~50% time savings per country for metadata error correction, monthly",
+    "~20% speed increase in loan approval process by under-writer",
+    "pilot built and tested by seven users over four weeks"
+  ],
+  "architecture_clues": [
+    "One workflow generates metadata for new-country onboarding and another generates underwriting reports from PSD2 transactions.",
+    "Flowpay plans to expose the underwriting report through API calls inside its main product.",
+    "The system was first piloted before market rollouts such as Slovakia."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/flowpay-watsonx",
+  "published_date": "2024-04-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Both processes rely on IBM watsonx.ai”",
+    "“100% time savings for new market research and metadata creation”",
+    "“The first solution uses large language models (LLMs) to generate completely new content, and to process internet-based search results.”",
+    "“The second solution is designed to significantly speed up Flowpay‘s underwriting process.”",
+    "“~20% speed increase in loan approval process by under-writer”"
+  ]
+}

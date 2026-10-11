@@ -1,0 +1,69 @@
+{
+  "id": "ibm-dsm-firmenich-animal-nutrition-health-risk-management",
+  "slug": "ibm-dsm-firmenich-animal-nutrition-health-risk-management",
+  "vendor": "IBM",
+  "customer_name": "dsm-firmenich Animal Nutrition & Health",
+  "industry": "Consumer Goods",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "dsm-firmenich needed a more proactive way to identify and predict mycotoxin contamination in feed crops because contamination threatens food safety, animal health, regulatory compliance, and agricultural economics across a large global customer base.",
+  "solution_summary": "Researchers at dsm-firmenich Animal Nutrition & Health used IBM Environmental Intelligence Suite to build a predictive mycotoxin-risk service that combines global weather, geospatial, crop, fungal, and occurrence data. The system analyzes hourly weather observations and forecasts extending up to eight months across 61,000 locations, then feeds those conditions into algorithms that account for crop growth stages, fungal life cycles, mycotoxin biochemistry, and historical occurrence data to estimate contamination risk in wheat, corn, soybeans, and other crops. dsm-firmenich also feeds survey and detection-service data back into the models so the forecasts can be refined and tied to recommended mitigation strategies such as earlier testing, altered harvest timing, fungicides, binders, or enzymatic biotransformation. Because the model can produce both regional and farm-specific forecasts, the company turned environmental intelligence into a field-level risk-management workflow that helps partners decide where to monitor more closely and how to reduce loss before contaminated feed enters the supply chain.",
+  "products_used": [
+    "IBM Environmental Intelligence Suite",
+    "Mycotoxin prediction"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Environmental Intelligence Suite",
+      "role": "Supplies global weather, forecast, API, analytics, and geospatial inputs for the mycotoxin prediction models.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Mycotoxin prediction",
+      "role": "Represents the dsm-firmenich predictive service that turns weather and occurrence data into actionable contamination-risk forecasts.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Hourly weather observations and long-range forecasts from Environmental Intelligence Suite are combined with crop, fungal, and historical mycotoxin occurrence data, scored by prediction algorithms, and returned as regional or farm-level risk forecasts that guide testing, harvesting, and mitigation decisions.",
+  "integration_points": [
+    "dsm-firmenich World Mycotoxin Survey",
+    "weather APIs",
+    "geospatial analytics"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "The service helps feed producers and growers spot contamination risk earlier, target monitoring and mitigation more precisely, reduce crop loss and chemical overuse, and protect food and feed quality with more trustworthy forecasts.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "25% of the world’s crops affected by mycotoxins",
+    "about 1 billion metric tons of food and food products lost each year",
+    "61,000 locations around the globe feed the prediction model",
+    "weather data forecasts of up to 8 months",
+    "support to reduce crop losses by a significant amount, saving the agricultural industry millions of euros per year"
+  ],
+  "architecture_clues": [
+    "The prediction model combines crop stage, fungal lifecycle, mycotoxin biochemistry, occurrence data, and weather inputs.",
+    "Farm-level predictions are tailored using local factors such as soil tillage, previous crops, and development timing.",
+    "Survey results feed back into the model to refine predictions and mitigation guidance."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/dsm-firmenich-anh",
+  "published_date": "2024-08-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The firm turned to IBM Environmental Intelligence Suite for reliable weather data”",
+    "“The mycotoxin prediction models make use of actual hourly weather data—as well as accurate weather forecasts for up to 8 months—from 61,000 different points around the globe”",
+    "“These tools now enable real-time mycotoxin contamination prediction and prevention.”",
+    "“The FAO estimates that mycotoxins impact 25% of the world’s crops annually, resulting in the loss of approximately 1 billion metric tons of food and food products each year”",
+    "“with accurate and location-specific forecasts, farmers and growers can reduce crop losses by a significant amount”"
+  ]
+}

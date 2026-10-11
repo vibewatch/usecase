@@ -1,0 +1,119 @@
+{
+  "id": "ibm-ibm-sterling-order-management-it-operations-automation",
+  "slug": "ibm-ibm-sterling-order-management-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM Sterling Order Management team",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "The IBM Sterling OMS SaaS team had to maintain near-perfect uptime and performance for retailers during events like Black Friday while operating a highly distributed microservices estate with hundreds of integrations, tens of thousands of containers, and massive order and API volumes.",
+  "solution_summary": "IBM migrated Sterling OMS from a competing monitoring tool to IBM Instana so the service could observe and optimize its multitenant retail workload end to end. The SaaS platform itself runs real-time order and inventory management across more than 400 customizable environments on IBM Cloud Kubernetes Service, backed by IBM Db2, NoSQL stores, Cassandra, MongoDB, Elastic Search, IBM MQ, Kafka, Istio service mesh, and an Apache Spark/Iceberg lakehouse used for AI workloads. Instana collects telemetry across those components so the team can see every touchpoint and integration in real time, identify issues proactively, and protect the 99.9999% uptime commitment. During holiday peaks, Sterling’s AI engine uses live demand and inventory signals to optimize order sourcing while Instana absorbs nearly a million spans per second, giving the team the operational visibility needed to keep fulfillment systems stable at retail scale.",
+  "products_used": [
+    "IBM Sterling Order Management",
+    "IBM Instana Observability",
+    "IBM Cloud Kubernetes Service",
+    "IBM Db2",
+    "IBM MQ",
+    "Kafka",
+    "Istio Service Mesh",
+    "Apache Spark",
+    "Iceberg Data Lakehouse"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Sterling Order Management",
+      "role": "Runs the multi-tenant SaaS order and inventory workflows used by retail customers during peak commerce periods.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Instana Observability",
+      "role": "Provides real-time observability across integrations, microservices, and infrastructure so the team can detect and resolve issues quickly.",
+      "layer": "Governance"
+    },
+    {
+      "name": "IBM Cloud Kubernetes Service",
+      "role": "Hosts the large Kubernetes estate that scales OMS microservices horizontally and vertically.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Db2",
+      "role": "Stores part of the order-management data powering the SaaS application.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM MQ",
+      "role": "Handles messaging within the OMS transaction environment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Kafka",
+      "role": "Streams event data across the distributed OMS platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Istio Service Mesh",
+      "role": "Manages service networking across the large microservices environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Apache Spark",
+      "role": "Supports AI workloads tied to order and inventory optimization.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Iceberg Data Lakehouse",
+      "role": "Provides the lakehouse foundation used by AI workloads in the OMS stack.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Retail orders, inventory events, and API traffic enter Sterling OMS through its Kubernetes-hosted microservices and messaging layers, persistent data lands in Db2 and related stores, Spark and the lakehouse support optimization workloads, and Instana continuously ingests telemetry so the team can see performance and resolve issues across the whole fulfillment path.",
+  "integration_points": [
+    "retailer integrations",
+    "inventory systems",
+    "call center services"
+  ],
+  "technical_area": [
+    "DevOps",
+    "Cloud Native",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Instana helped the OMS team get through the 2024 holiday peak without major incidents, sustain huge order and API loads, and support better client retention and support metrics while Sterling’s AI engine optimized millions of order decisions for retailers.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "99.9999% uptime SLA",
+    "20+ IBM Cloud Kubernetes Service clusters",
+    "900+ worker nodes",
+    "60,000 active containers",
+    "42M order lines in one week",
+    "20B API calls in one week",
+    "1M spans per second",
+    "over 62,000 transactions per second",
+    "order volumes surged by nearly 4.5 times their normal rates",
+    "25 million order lines optimized by the Sterling OMS AI engine"
+  ],
+  "architecture_clues": [
+    "The platform supports over 400 customizable environments with multi-tenant microservices.",
+    "The stack combines Db2, NoSQL, Cassandra, MongoDB, Elastic Search, IBM MQ, Kafka, Istio, Spark, and an Iceberg lakehouse.",
+    "Instana migration was completed before the 2024 holiday season to prepare for retail peak."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/sterling-oms-instana",
+  "published_date": "2024-05-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The OMS SaaS product suite supports over 400 customizable environments”",
+    "“20+ IBM Cloud Kubernetes Service clusters, 900+ worker nodes, 60,000 active containers”",
+    "“At its busiest, the platform processed more than 62,000 transactions per second, resulting in close to 1 million spans per second ingested by Instana.”",
+    "“During the 2024 holiday surge, 25 million order lines were optimized by the Sterling OMS AI engine.”",
+    "“Since the start of the migration in summer 2023, Instana has played a key role in our success by enabling rapid issue resolution and reducing Mean Time to Resolution (MTTR)”"
+  ]
+}

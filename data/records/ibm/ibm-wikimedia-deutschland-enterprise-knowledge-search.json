@@ -1,0 +1,67 @@
+{
+  "id": "ibm-wikimedia-deutschland-enterprise-knowledge-search",
+  "slug": "ibm-wikimedia-deutschland-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Wikimedia Deutschland",
+  "industry": "Public Sector",
+  "region": "Germany",
+  "company_size": "Mid-market",
+  "business_problem": "Wikimedia Deutschland needed to make Wikidata’s massive, multilingual knowledge graph usable for modern generative AI applications because the existing access pattern depended on specialized query languages and complex retrieval workflows that limited natural-language exploration.",
+  "solution_summary": "Wikimedia Deutschland introduced a semantic retrieval architecture built on IBM DataStax Astra DB inside IBM watsonx.data so generative AI systems can search Wikidata with vector techniques instead of handcrafted queries. The design stores and retrieves embeddings across the large graph of entities and relationships that underpin Wikidata, allowing large language models to identify relevant facts and context quickly across languages and topics. By combining vector search with Wikidata’s existing structured graph, the platform gives developers and researchers a natural-language entry point into one of the world’s largest open knowledge repositories while preserving the precision that comes from the underlying linked data. The team is using this architecture as a base for expanding language coverage, scaling to larger datasets, and improving how AI systems discover, navigate, and interpret open knowledge, turning Wikidata into a more practical foundation for downstream generative AI tools rather than just a reference dataset for specialists.",
+  "products_used": [
+    "IBM DataStax Astra DB",
+    "IBM watsonx.data"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM DataStax Astra DB",
+      "role": "Provides the vector database foundation that lets LLMs retrieve relevant entities and relationships from Wikidata semantically.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Hosts the AI-ready data architecture that combines vector search with Wikidata’s structured knowledge.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Natural-language prompts are translated into semantic retrieval against embeddings stored in Astra DB within watsonx.data, relevant Wikidata entities and relationships are surfaced from the knowledge graph, and that context is returned to downstream generative AI applications and researchers for multilingual exploration.",
+  "integration_points": [
+    "Wikidata",
+    "Wikipedia"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Wikimedia Deutschland created a faster, simpler way for AI systems and developers to explore open knowledge, making Wikidata more accessible for semantic search and future multilingual generative AI use cases.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "30x faster query performance",
+    "90% reduction in build time",
+    "over 111,000 members",
+    "180 employees"
+  ],
+  "architecture_clues": [
+    "The design shifts access from specialized query languages to vector search and semantic retrieval.",
+    "The team plans to add more languages and larger datasets to the same architecture.",
+    "The solution combines vector search with the precision of Wikidata’s structured knowledge graph."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/wikimedia-deutschland",
+  "published_date": "2026-08-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Built on IBM DataStax Astra DB within IBM watsonx.data, the architecture enables large language models to quickly identify relevant entities and relationships across Wikidata’s massive knowledge graph.”",
+    "“Instead of writing complex queries, users can explore information through natural language prompts”",
+    "“30x faster query performance”",
+    "“90% reduction in build time”",
+    "“The new approach allows developers and generative AI systems to retrieve relevant knowledge more easily”"
+  ]
+}

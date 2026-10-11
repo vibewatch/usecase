@@ -1,0 +1,76 @@
+{
+  "id": "ibm-ibm-cio-organization-it-operations-automation",
+  "slug": "ibm-ibm-cio-organization-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM CIO Organization",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM’s CIO Organization needed to help new and early-tenure professionals manage IBM Z environments more independently because the mainframe skill curve was steep and subject matter experts were spending too much time answering routine questions, handling incidents, and guiding patching work.",
+  "solution_summary": "IBM CIO deployed watsonx Assistant for Z as an on-premises generative AI and automation layer for mainframe operations. Running on an existing Red Hat OpenShift cluster, the assistant uses curated IBM Z knowledge and retrieval-augmented generation to answer product and operational questions, helping newer staff get digestible guidance without waiting for senior experts. The team also prioritized incident analysis and Db2 patching as early use cases: watsonx Assistant for Z can ingest incidents from a third-party workflow automation platform, suggest actions based on documentation and similar past events, and interact with Ansible-based automation plus change-management workflows to open, route, and close patching requests. This turns the assistant from a Q&A bot into an orchestration surface for routine mainframe operations. Because the CIO organization iterated with the product team during rollout, the deployment also improved the product itself while giving IBM a reusable pattern for bridging mainframe skills gaps with grounded AI plus operational automation.",
+  "products_used": [
+    "IBM watsonx Assistant for Z",
+    "Red Hat OpenShift",
+    "Ansible"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant for Z",
+      "role": "Delivers curated answers and automation orchestration for IBM Z operations, incident handling, and patching.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Red Hat OpenShift",
+      "role": "Hosts the assistant on-premises inside the CIO’s existing infrastructure.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Ansible",
+      "role": "Executes the automation retrieved by the assistant for patching and other mainframe operations tasks.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "User questions and incidents enter watsonx Assistant for Z, RAG grounds responses in curated IBM Z content, incidents are enriched with historical and workflow-platform context, and the assistant can trigger Ansible-backed automations and change requests before reporting status back to the operations user.",
+  "integration_points": [
+    "third-party workflow automation platform",
+    "Db2 dashboard",
+    "IBM Z product documentation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The CIO Organization shortened onboarding, sped incident resolution and Db2 patching, and gave hundreds of users a more confident way to operate IBM Z without as much reliance on scarce experts.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "300+ users are using watsonx Assistant for Z",
+    "8% reduction in learning time for new and early-tenure professionals",
+    "10% faster incident resolution",
+    "50% decrease in time to patch Db2 systems",
+    "3 of 35 use cases prioritized for initial adoption"
+  ],
+  "architecture_clues": [
+    "The assistant was deployed on-premises on an existing OpenShift cluster.",
+    "RAG is used specifically to reduce hallucination risk by responding only from ingested content.",
+    "Automation is triggered through third-party workflow tooling and Ansible integrations."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/watsonx-assistant-for-z",
+  "published_date": "2024-11-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“deployed watsonx Assistant for Z on-premises on an existing Red Hat OpenShift cluster.”",
+    "“The model used by IBM watsonx Assistant for Z addresses a common cause of potential hallucinations by leveraging Retrieval Augmented Generation (RAG) architecture”",
+    "“300+ users are using watsonx Assistant for Z”",
+    "“10% faster resolution of incidents”",
+    "“50% decrease in time to patch Db2 systems”"
+  ]
+}

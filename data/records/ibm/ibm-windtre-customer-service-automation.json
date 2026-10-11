@@ -1,0 +1,88 @@
+{
+  "id": "ibm-windtre-customer-service-automation",
+  "slug": "ibm-windtre-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "WINDTRE",
+  "industry": "Telecommunications",
+  "region": "Italy",
+  "company_size": "Enterprise",
+  "business_problem": "WINDTRE needed to automate and accelerate claims handling for telecom service issues because high report volumes, stateful operational complexity, and repetitive service-desk tasks were slowing response times and consuming staff effort.",
+  "solution_summary": "WINDTRE and IBM built an “Intelligent Automation” platform on IBM Cloud to analyze, enrich, route, and resolve service complaints with minimal human effort. IBM Consulting designed and manages the solution, using watsonx Assistant to classify incoming reports, Watson Knowledge Studio to build domain-specific annotators, and Watson Natural Language Understanding to extract relevant facts from unstructured ticket text. Once the AI layer completes the analysis, the ticket is enriched with information pulled from WINDTRE’s internal systems and passed to robotic process automation components—a dispatcher that queues work and performer robots that execute the resolution actions. Because the RPA runs on cloud virtual machines, WINDTRE can scale multiple robots in parallel while dashboards continuously track volume, performance, and benefits. The result is a claims-management workflow that blends NLP, AI classification, ticket enrichment, and RPA so the service desk can focus on higher-value problems while routine issues are resolved or routed automatically.",
+  "products_used": [
+    "IBM Cloud",
+    "IBM Consulting",
+    "IBM watsonx Assistant",
+    "IBM Watson Knowledge Studio",
+    "IBM Watson Natural Language Understanding"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the virtual machines and cloud services used to scale the intelligent automation stack securely.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Consulting",
+      "role": "Designed, developed, and manages the end-to-end claims automation solution for WINDTRE.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Classifies complaint reports and initiates the automated claims workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Knowledge Studio",
+      "role": "Creates the machine-learning and rules-based annotators used to train the solution on WINDTRE’s domain topics.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Natural Language Understanding",
+      "role": "Extracts relevant information from complaint text so tickets can be enriched and routed accurately.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer reports are classified by watsonx Assistant, enriched with information from WINDTRE systems using Knowledge Studio and NLU outputs, then passed to dispatcher and performer robots on IBM Cloud so issues are resolved, partially resolved, or routed to the right team automatically.",
+  "integration_points": [
+    "WINDTRE information systems",
+    "robotic process automation queue",
+    "dashboard and reporting systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "WINDTRE automated a large portion of complaints handling, dramatically improved response time, reduced repetitive desk work, and created a foundation for expanding AI and analytics into infrastructure-incident management.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 200,000 reports handled in an automated manner",
+    "10X faster response time",
+    "10,000+ reports handled per month with AI and automation",
+    "40%–60% of reports are non-service desk related"
+  ],
+  "architecture_clues": [
+    "The RPA layer has a dispatcher component and performer robots.",
+    "Robotics run on virtual machines in the cloud for secure scale-out.",
+    "Dedicated dashboards continuously monitor performance, volume, and expected benefits."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/windtre",
+  "published_date": "2024-04-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The agreement between the two companies ... is based on the combination of AI services available on IBM Cloud and automation systems.”",
+    "“The watsonx Assistant product classifies reports”",
+    "“Watson Knowledge Studio creates machine-learning and rules-based annotators”",
+    "“The response time is 10 times faster than before”",
+    "“over 10,000 reports per month ... are handled”"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "ibm-happiest-minds-enterprise-knowledge-search",
+  "slug": "ibm-happiest-minds-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Happiest Minds Technologies Limited",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Happiest Minds wanted users of its Digital Content Monetization platform to find and act on information buried in large unstructured repositories more quickly, because keyword-based search only returned matching paragraphs and limited decision speed and customer value.",
+  "solution_summary": "Happiest Minds worked with IBM on a proof of concept that loaded unstructured repository data into IBM watsonx.ai on IBM Cloud so the company could replace exact-match lookup with AI-assisted retrieval and summarization. In the DCM platform, watsonx.ai is used to search across large collections of content, identify the most relevant passages through retrieval-augmented generation, and then summarize and rephrase the results for end users interacting through chat. That approach lets the platform turn a broad document search problem into a pointed-answer experience, which is important for a product with more than 50 catalog features and multiple downstream dashboards and business charts. The same RAG pattern also speeds internal content curation, because relevant material is surfaced faster and can be repackaged into insight views without the manual hunting and rewriting that previously slowed teams down. The solution is still being tuned through internal and beta testing, but it already gives Happiest Minds a repeatable architecture for conversational access to its content estate.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Drives the RAG-based search, answer generation, and summarization workflows across the content repositories.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the watsonx.ai environment used to serve the DCM platform’s AI-assisted search experience.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Unstructured content from the DCM platform is loaded into watsonx.ai on IBM Cloud, relevant documents are retrieved through RAG, the selected passages are summarized and rephrased for chat interactions, and the curated outputs feed dashboards, charts, and decision support inside the platform.",
+  "integration_points": [
+    "Digital Content Monetization Platform",
+    "chat interfaces",
+    "content repositories",
+    "dashboards and business charts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Happiest Minds increased productivity, reduced the time needed to create business charts, and gave customers a faster, more accurate way to retrieve content insights through natural-language interaction.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "30% productivity increase",
+    "50+ features in the catalog",
+    "reduced the time required to create business charts by 15 hours per feature per month"
+  ],
+  "architecture_clues": [
+    "The proof of concept loaded unstructured data into a Prompt Lab in watsonx.ai.",
+    "RAG components identify relevant documents before LLM summarization.",
+    "The company plans more internal and beta testing before broader production release."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/happiest-minds-watsonx",
+  "published_date": "2024-04-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“IBM ran a proof of concept (POC) with Happiest Minds for two months and loaded its unstructured data into a Prompt Lab in the IBM watsonx.ai AI studio.”",
+    "“With watsonx.ai on IBM Cloud, Happiest Minds was able to get pointed data responses from the content repositories.”",
+    "“Key components of retrieval-augmented generation (RAG) were used to identify relevant documents”",
+    "“reduced the time required to create business charts by 15 hours per feature per month”",
+    "“The solution’s enhanced search capabilities have delivered a massive productivity increase of 30%.”"
+  ]
+}

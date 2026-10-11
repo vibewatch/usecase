@@ -1,0 +1,71 @@
+{
+  "id": "ibm-natwest-customer-service-automation",
+  "slug": "ibm-natwest-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "NatWest Group",
+  "industry": "Financial Services",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "NatWest wanted to evolve its long-running digital assistant beyond basic FAQ handling so customers could receive more nuanced, personalized banking answers through digital channels without sacrificing trust, accuracy, or empathy in financially sensitive conversations.",
+  "solution_summary": "NatWest and IBM upgraded the bank’s existing Cora assistant into Cora+, a multichannel customer-support platform that uses IBM watsonx Assistant on IBM Cloud and a retrieval-augmented generation architecture to answer banking questions directly in chat. Rather than simply linking customers to static content, the platform securely accesses information from multiple internal sources spanning products, services, and banking information, then generates more complete answers across the website, mobile app, and social channels. IBM Client Engineering partnered with NatWest’s business and technology teams to prove the approach first and then move it into production, while governance guardrails were added to keep responses transparent, accurate, and trustworthy. The same platform also summarizes conversations and surfaces customer context for bank agents, so the solution improves both digital self-service and assisted-service handoffs rather than treating them as separate systems.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Powers Cora+ as the conversational layer that interprets customer questions and delivers AI-generated answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the Cora+ platform so NatWest can deliver secure multichannel customer support at scale.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer questions arrive through NatWest’s website, mobile app, or social channels, Cora+ retrieves relevant banking information from multiple sources, watsonx Assistant generates a direct response in chat, and the system can also summarize the interaction for human agents who need to continue the conversation.",
+  "integration_points": [
+    "website",
+    "mobile app",
+    "social media platforms",
+    "products data",
+    "services data",
+    "banking information"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "NatWest used Cora+ to deliver more contextual digital service, lift satisfaction materially on some question types, and improve agent handoffs while serving a customer base that already relies heavily on digital banking.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "nearly 11 million customer inquiries addressed in the past year",
+    "~150% boost in satisfaction for some answers",
+    "94% of customers use digital banking",
+    "more than 19 million people, families and businesses served"
+  ],
+  "architecture_clues": [
+    "Cora+ uses retrieval-augmented generation to answer in chat rather than just linking users to content.",
+    "NatWest and IBM added governance guardrails focused on transparency, trust, and accuracy.",
+    "The platform also summarizes conversations to support human agents."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/natwest",
+  "published_date": "2024-10-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“this support channel successfully addressed nearly 11 million customer inquiries”",
+    "“Powered by IBM watsonx Assistant and built on IBM Cloud, Cora+ delivers sophisticated, human-like interactions to customers across NatWest’s website, mobile app and social media platforms.”",
+    "“using retrieval-augmented-generation (RAG) technology, Cora+ can take the natural language questions posed by users and proactively answer them within the chat”",
+    "“up to 150% improvement in satisfaction with some of the questions we’re answering.”",
+    "“Cora+ also improves the bank agent experience by summarising conversations and providing clear insights into customer needs and previous interactions.”"
+  ]
+}

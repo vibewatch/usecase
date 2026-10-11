@@ -1,0 +1,71 @@
+{
+  "id": "ibm-ibm-cio-organization-customer-service-automation",
+  "slug": "ibm-ibm-cio-organization-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM CIO Organization",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM needed to reduce the wait time and manual workload created by roughly 785,000 annual internal IT support tickets without forcing employees or help-desk staff to spend time on repetitive issues such as password resets, device setup, or VPN troubleshooting.",
+  "solution_summary": "IBM CIO built AskIT as a conversation-based self-service support layer for employees using IBM watsonx Assistant, then trained it with knowledge drawn from more than 300,000 historical support tickets, internal support articles, and recurring issue patterns. The assistant handles natural-language requests for common IT tasks, retrieves the best-fit resolutions, and drives direct ticket creation when a self-service answer is not enough. IBM deployed the service globally across more than 40 languages for more than 280,000 employees, with always-on availability so users can resolve issues without waiting for phone or chat queues. The team is now extending the same flow with IBM watsonx.ai so large language models can fill intent gaps when watsonx Assistant is uncertain, improving coverage while keeping the core support workflow inside IBM’s internal IT operations.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Runs the AskIT virtual agent that interprets employee questions, retrieves answers, and automates common IT support tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Adds large language model support to cover questions that fall outside the assistant’s confident intent matches.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Employees submit natural-language IT questions to AskIT, watsonx Assistant matches those requests against patterns learned from ticket history and internal support content, and the system returns self-service guidance or creates the next support action; watsonx.ai is being added to answer gaps when intent confidence is low.",
+  "integration_points": [
+    "internal IT support articles",
+    "IT support ticketing workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Within four months, AskIT had already been used by more than 133,000 IBM employees, resolved more than 75% of submitted queries itself, reduced waits for chat and phone help, and let human advisors focus on higher-touch and more complex issues.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "785,000 IT support tickets each year",
+    "80% of IBM’s top IT issues can be addressed with AskIT",
+    "75% of tickets successfully handled by AskIT",
+    "over 133,000 IBM employees used the tool at least once in four months",
+    "more than 200 common support topics in more than 40 languages",
+    "available to more than 280,000 IBM employees globally"
+  ],
+  "architecture_clues": [
+    "AskIT was designed from analysis of more than 300,000 support tickets.",
+    "The assistant operates globally with 24x7 availability.",
+    "Language auto-detection was added after launch to support multilingual interactions."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/cio-watsonx-askit",
+  "published_date": "2024-07-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Presently, the team receives around 785,000 IT support tickets each year.”",
+    "“Based on the knowledge gained from analyzing over 300,000 support tickets, AskIT uses the AI and natural language processing (NLP) capabilities of watsonx Assistant.”",
+    "“AskIT is trained on 80% of the IT issues the company faces most frequently.”",
+    "“It covers more than 200 common support topics in more than 40 languages and is available to more than 280,000 IBM employees globally.”",
+    "“Of the queries that were submitted, over 75% were resolved by the new assistant itself.”"
+  ]
+}

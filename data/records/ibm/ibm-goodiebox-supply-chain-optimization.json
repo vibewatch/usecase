@@ -1,0 +1,93 @@
+{
+  "id": "ibm-goodiebox-supply-chain-optimization",
+  "slug": "ibm-goodiebox-supply-chain-optimization",
+  "vendor": "IBM",
+  "customer_name": "Goodiebox",
+  "industry": "Retail",
+  "region": "Denmark",
+  "company_size": "Mid-market",
+  "business_problem": "Goodiebox had to plan monthly subscription boxes across thousands of customers, many brands, changing trends, stock levels, and expiry dates, but spreadsheet-heavy planning could not scale without creating waste, slow decisions, and error-prone logistics work.",
+  "solution_summary": "Goodiebox worked with IBM Business Partner Integrator and IBM Client Engineering to replace spreadsheet-driven box planning with an optimization and analytics workflow built on IBM Decision Optimization CPLEX, IBM Watson Studio Heritage, IBM Watson Machine Learning, and IBM Cloud services. After a business-framing exercise and MVP, the team created a data model that ingests stock data, expiry dates, and business rules, recommends product combinations for each monthly box, shows planners how changes affect inventory, and reserves items for current or future boxes. The solution combines optimization logic with what-if analysis so Goodiebox can balance creative merchandising decisions against waste reduction, inventory constraints, and downstream ecommerce performance. IBM Cloud services and supporting storage/data tooling give the team a scalable environment for iterating on the model with real-world data, which lets Goodiebox make better monthly decisions while retaining flexibility to tune the experience by country, segment, and purchase behavior.",
+  "products_used": [
+    "IBM Decision Optimization CPLEX",
+    "IBM Watson Studio Heritage",
+    "IBM Watson Machine Learning",
+    "IBM Cloud",
+    "IBM Cloud Object Storage",
+    "IBM Cloud Pak for Data"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Decision Optimization CPLEX",
+      "role": "Runs the optimization model that recommends product mixes while balancing inventory, expiry dates, and business rules.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Studio Heritage",
+      "role": "Supports the data-modeling work used to build and refine the monthly planning solution.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Machine Learning",
+      "role": "Helps operationalize the model and improve outputs as real-world data is added.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Provides the cloud environment for the optimization workflow and associated user experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud Object Storage",
+      "role": "Stores the data assets used to run box-planning and inventory scenarios.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Cloud Pak for Data",
+      "role": "Supports the broader analytics and data-management foundation behind the planning solution.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Inventory, expiry-date, and business-rule data flow into the optimization model, CPLEX and supporting Watson components generate candidate box mixes and scenario analyses, planners adjust the recommendations through the interface, and the resulting selections reserve inventory for current and future subscription boxes.",
+  "integration_points": [
+    "inventory data",
+    "expiry-date data",
+    "webshop purchase behavior"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Goodiebox cut per-box cost, reduced waste and manual effort, and accelerated monthly planning so teams could spend more time on creative curation while making better inventory and assortment decisions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "10% cost saved on each monthly box",
+    "5x faster planning",
+    "costs of between 5% to 10% per box",
+    "data model has become 20 times faster",
+    "serving thousands of people in 13 countries"
+  ],
+  "architecture_clues": [
+    "The project began with a business framing session and an MVP before the data model was tuned with real-world data.",
+    "Planners can run what-if scenarios and see how choices affect inventory.",
+    "The system reserves items for current or future boxes after planners edit selections."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/goodiebox",
+  "published_date": "2024-04-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The solution utilizes several IBM Decision Optimization CPLEX components, combined with IBM Watson Studio Heritage, IBM Watson Machine Learning, and IBM Cloud.”",
+    "“Using stock data and expiration dates, the system suggests possible product mixes for the boxes”",
+    "“The process is now less manual and it is around five times faster to plan our boxes every month”",
+    "“We saved costs of between 5% to 10% per box.”",
+    "“With the solution in place, Goodiebox is using what-if scenario capabilities to make better business decisions.”"
+  ]
+}

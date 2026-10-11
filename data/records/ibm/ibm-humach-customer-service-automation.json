@@ -1,0 +1,85 @@
+{
+  "id": "ibm-humach-customer-service-automation",
+  "slug": "ibm-humach-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "Humach",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "Humach wanted to evolve its contact-center offering so digital assistants and human agents could work together more effectively, because rising customer expectations required faster, more contextual resolutions without losing the empathy and escalation paths that live agents provide.",
+  "solution_summary": "Humach partnered with Innovative Solutions, IBM, and AWS to upgrade its mAI Pilot platform with a conversational language module built on IBM watsonx Assistant and the Tailwinds GenAI service. The solution uses watsonx Assistant’s interface and APIs to detect customer intent, manage flow control across operators and teams, and keep human and digital channels aligned instead of separated. Running on AWS, the stack also includes Deepgram speech-to-text and text-to-speech, NVIDIA GPU-backed processing, and Weaviate indexing so the assistant can retrieve and respond against large historical and live datasets quickly. This design lets Humach support omnichannel service with both automation and live-agent handoff, improving speed without removing people from the experience. By combining IBM tooling with cloud infrastructure and retrieval components, Humach created a scalable support architecture that reduces routine load, keeps interactions context aware, and gives agents more time for the high-value moments where human judgment matters most.",
+  "products_used": [
+    "Tailwinds",
+    "IBM watsonx Assistant",
+    "Amazon Web Services",
+    "Deepgram",
+    "Weaviate"
+  ],
+  "solution_components": [
+    {
+      "name": "Tailwinds",
+      "role": "Provides the GenAI service layer that powers Humach’s conversational language module framework.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Handles intent understanding and system-flow management across digital assistants, operators, and teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Web Services",
+      "role": "Hosts the AI-enhanced customer engagement platform and its supporting infrastructure.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Deepgram",
+      "role": "Adds speech-to-text and text-to-speech functions for voice-enabled customer interactions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Weaviate",
+      "role": "Indexes large datasets so the assistant can resolve customer queries quickly with relevant context.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer queries arrive through Humach’s support channels, watsonx Assistant and Tailwinds identify intent and orchestrate routing, Deepgram converts voice interactions when needed, Weaviate retrieves context from historical and current data, and the system either resolves the issue automatically or hands it to live agents with the right context.",
+  "integration_points": [
+    "contact-center channels",
+    "historical and current datasets",
+    "live agents"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Humach improved automation efficiency and overall customer satisfaction while creating a more scalable human-plus-AI contact-center model that can handle peaks without sacrificing service quality.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "20% increase in call automation efficiency",
+    "18% increase in overall customer satisfaction"
+  ],
+  "architecture_clues": [
+    "The solution runs on AWS and uses NVIDIA GPU-equipped servers.",
+    "Deepgram provides STT/TTS while Weaviate supports fast retrieval from large datasets.",
+    "The platform is designed to keep humans in the loop for critical customer interactions."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/humach",
+  "published_date": "2024-11-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Together, they crafted a comprehensive conversational language module (CLM) framework powered by Innovative Solution’s GenAI service Tailwinds and IBM watsonx Assistant on Amazon Web Services”",
+    "“The Weaviate indexing engines ... enable swift query resolution from vast datasets.”",
+    "“It led to an 18% increase in overall customer satisfaction and a 20% increase in call automation efficiency.”",
+    "“The automated routing systems intelligently streamline incoming traffic.”",
+    "“Humach ensured enhanced data processing speeds, improved accuracy rates, and heightened cybersecurity compliance levels”"
+  ]
+}

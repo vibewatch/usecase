@@ -1,0 +1,87 @@
+{
+  "id": "ibm-serre-chevalier-customer-service-automation",
+  "slug": "ibm-serre-chevalier-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "Serre Chevalier",
+  "industry": "Media and Entertainment",
+  "region": "France",
+  "company_size": "Mid-market",
+  "business_problem": "Serre Chevalier needed a smarter way to answer multilingual, context-dependent visitor questions about ski-pass selection and trip planning because its earlier assistant could not keep pace with growing resort complexity and seasonal support demand.",
+  "solution_summary": "Serre Chevalier worked with IBM, Next Decision, and IBM Client Engineering to replace its older digital assistant with an agentic support experience built on IBM watsonx Orchestrate and IBM Cloud. The system is structured as cooperating agents that interpret visitor intent, retrieve the most relevant resort knowledge, and invoke supporting tools such as Python-based utilities to answer questions about ski passes, trip planning, and operational details in real time. As the deployment matured, the resort added IBM watsonx.governance for monitoring and visibility and IBM watsonx.ai for recurring data-gathering work such as daily web scraping that feeds operational workflows. Because the AI is embedded directly into the website, visitors get guided help without changing channels, while service teams spend less time on routine inquiries and can focus on the more complex issues that still require human intervention. The same orchestration model is now expanding into snow operations, HR workflows, and predictive equipment dashboards.",
+  "products_used": [
+    "IBM watsonx Orchestrate",
+    "IBM Cloud",
+    "IBM Client Engineering",
+    "IBM watsonx.governance",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Coordinates the resort’s agentic AI workflows for visitor support and emerging operational use cases.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the visitor-facing AI experience so it can scale during busy planning and travel periods.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Client Engineering",
+      "role": "Helped align objectives, workflows, and data inputs so the agentic experience could be launched quickly.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.governance",
+      "role": "Improves visibility and monitoring across the resort’s multi-LLM setup and operations dashboards.",
+      "layer": "Governance"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Automates recurring data-gathering tasks such as daily web scraping that feed operational workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Visitor questions arrive through the Serre Chevalier website, watsonx Orchestrate routes them to agents that retrieve resort knowledge and process live inputs, responses are returned in near real time, and supporting watsonx.ai automation and governance feed the operational dashboards and future expansion areas such as snow monitoring and equipment management.",
+  "integration_points": [
+    "Serre Chevalier website",
+    "Python-based utilities",
+    "operations dashboards"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The new AI agent reduced response latency, improved complaint resolution, handled large volumes of visitor conversations, and created a platform the resort can extend into operational workflows beyond customer care.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "1500+ conversations handled in the first month",
+    "94% of customer complaints resolved in under 48 hours",
+    "1 second response latency, down from 6–8 seconds",
+    "went live in approximately two and a half weeks"
+  ],
+  "architecture_clues": [
+    "The solution is built as a coordinated set of agents rather than a traditional chatbot.",
+    "watsonx.ai is used for daily web-scraping routines that feed operational workflows.",
+    "Future prototypes include artificial-snow monitoring, HR process automation, and predictive-maintenance dashboards."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/serre-chevalier",
+  "published_date": "2026-04-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“the teams aligned early on the objectives, workflows, and data inputs the system would need to coordinate.”",
+    "“The AI experience itself is built as a coordinated set of agents rather than a traditional chatbot.”",
+    "“The resort now uses IBM watsonx.governance to give marketing and operations teams clearer visibility through improved dashboards and multi-LLM monitoring.”",
+    "“Since the start of the winter season, the AI agent has handled more than 1,500 customer conversations”",
+    "“reducing response latency from 6–8 seconds to about 1 second”"
+  ]
+}

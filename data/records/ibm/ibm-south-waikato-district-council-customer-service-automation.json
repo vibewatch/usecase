@@ -1,0 +1,70 @@
+{
+  "id": "ibm-south-waikato-district-council-customer-service-automation",
+  "slug": "ibm-south-waikato-district-council-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "South Waikato District Council",
+  "industry": "Public Sector",
+  "region": "New Zealand",
+  "company_size": "Public sector",
+  "business_problem": "South Waikato District Council needed a better way for citizens and employees to find information hidden across siloed public-service repositories because its first attempt at a virtual assistant lacked the technical accuracy needed for production use.",
+  "solution_summary": "IBM helped South Waikato District Council rebuild its virtual assistant as a three-layer conversational search system using IBM watsonx.ai, watsonx Assistant, and IBM Watson Discovery. Watson Discovery handles deep retrieval across archival and hard-to-access documents, watsonx Assistant provides the interaction layer, and watsonx.ai augments that assistant with more advanced reasoning so answers are not limited to simple FAQ matching. The experience also exposes document URLs with results so users can see where the information came from, which was important for transparency in a public-sector setting. By combining generative AI with enterprise retrieval, the council created a single entry point for information that had previously required hours or days of manual searching across disconnected stores. The strong proof-of-concept accuracy gave SWDC enough confidence to commit fully to production, with the expectation that employee effort can move away from repetitive question answering and into higher-value community work.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Adds generative intelligence that improves how the assistant answers council questions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the user-facing conversational interface for the council’s virtual assistant.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Retrieves the correct subset of information from archival and hard-to-access council documents.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "A citizen or employee asks a natural-language question, watsonx Assistant routes it through watsonx.ai for improved reasoning, Watson Discovery searches across council repositories to locate the supporting documents, and the assistant returns the answer along with source URLs for transparency.",
+  "integration_points": [
+    "archival documents",
+    "council data repositories"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "SWDC dramatically improved answer accuracy, gained a production-ready public information assistant, and expects to reduce the amount of staff time spent on routine question handling.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "91.5% accuracy rate validated across 300 test questions"
+  ],
+  "architecture_clues": [
+    "The solution returns document URLs to show users the supporting source.",
+    "The council first tried to build the assistant alone before IBM reworked the stack for production accuracy.",
+    "The proof of concept was accurate enough that SWDC decided to fund the production rollout."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/south-waikato-district-council",
+  "published_date": "2024-04-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The new virtual assistant combines the capabilities of IBM watsonx.ai, IBM watsonx Assistant and IBM Watson Discovery.”",
+    "“Watson Discovery provides data discovery capabilities, enabling the solution to dig deep into archival and difficult to access documents”",
+    "“91.5% accuracy rate validated across 300 test questions”",
+    "“Integrates results with document URLs to facilitate easy access for users seeking additional details”",
+    "“The council expects to reduce the time employees spend answering questions”"
+  ]
+}

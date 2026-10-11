@@ -1,0 +1,64 @@
+{
+  "id": "ibm-tokio-marine-nichido-anshin-life-customer-feedback-analytics",
+  "slug": "ibm-tokio-marine-nichido-anshin-life-customer-feedback-analytics",
+  "vendor": "IBM",
+  "customer_name": "Tokio Marine & Nichido Anshin Life Insurance",
+  "industry": "Financial Services",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Anshin Life wanted to use customer feedback to improve operations and service quality, but manually reading and classifying up to 18,000 unstructured feedback entries each year was slow, inconsistent, and difficult to scale with traditional machine-learning approaches.",
+  "solution_summary": "Anshin Life co-created a feedback-classification and analysis workflow with IBM Client Engineering using IBM watsonx.ai as the core reasoning layer. Customer comments from calls, online channels, and surveys are ingested into a generative AI process that first classifies them against roughly 40 insurance-industry codes and then extracts company-defined keywords and clusters so teams can analyze patterns hidden inside unstructured text. The design combines watsonx.ai natural-language processing with retrieval-augmented generation so the insurer can update information and launch new products without repeated fine-tuning, which reduces maintenance effort while preserving classification quality. Business and IT teams worked together in weekly agile cycles, using an “application owner system” to move from proof of concept to production quickly. This makes the solution more than a tagging tool: it is now part of Anshin Life’s voice-of-customer operating model, helping the insurer surface trends, improve hypotheses, and expand generative AI into other departments.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Client Engineering"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs the generative classification, keyword extraction, and clustering workflows for customer feedback analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Client Engineering",
+      "role": "Co-created the solution with Anshin Life and helped move it from proof of concept to production through agile iterations.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer feedback from phone, online, and survey channels is fed into watsonx.ai, classified into industry codes, enriched with extracted keywords and clusters, and then returned to business teams as structured insight for operations, service quality, and policy planning.",
+  "integration_points": [
+    "telephone feedback",
+    "online feedback",
+    "surveys"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Anshin Life significantly reduced the time needed to review and classify feedback, standardized judgments across reviewers, and uncovered previously hidden customer trends that it can now use to improve operations and future service decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "up to 18,000 customer feedback entries annually",
+    "approximately 75% reduction in processing time, from 7-8 minutes to 2-3 minutes",
+    "500 hours of work per year reduced"
+  ],
+  "architecture_clues": [
+    "The first phase classified feedback into approximately 40 industry-wide codes.",
+    "The second phase extracted keywords as hashtags and applied cluster analysis.",
+    "System prompts and RAG avoided the need for fine-tuning when new products or information were introduced."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/tmr-anshin-watsonx-ai",
+  "published_date": "2025-12-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The company receives up to 18,000 customer feedback entries annually”",
+    "“Processing time for reading and categorizing each customer feedback entry was reduced by approximately 75%, from 7-8 minutes to 2-3 minutes.”",
+    "“customer feedback from phone calls and other sources was captured by generative AI and classified into approximately 40 industry-wide codes.”",
+    "“the combination of watsonx.ai’s natural language processing technology and Retrieval Augmented Generation (RAG) technology achieved both high accuracy and flexibility.”",
+    "“System prompts and RAG eliminated the need for fine tuning when launching new products and updating information.”"
+  ]
+}

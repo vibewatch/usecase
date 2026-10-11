@@ -1,0 +1,68 @@
+{
+  "id": "ibm-national-agency-for-education-document-processing",
+  "slug": "ibm-national-agency-for-education-document-processing",
+  "vendor": "IBM",
+  "customer_name": "National Agency for Education, Lithuania",
+  "industry": "Education",
+  "region": "Lithuania",
+  "company_size": "Public sector",
+  "business_problem": "Lithuania’s National Agency for Education needed to extract, standardize, and compare information from thousands of mixed-format school management reports because manual extraction took hours per report and made nationwide evidence-based education planning impractical.",
+  "solution_summary": "The National Agency for Education worked with IBM Business Partner S2P to build an AI-enriched document-ingestion and analytics pipeline on IBM watsonx.ai and IBM Cognos Analytics. Each year the agency receives around 3,000 school management reports, averaging about ten pages and combining structured and unstructured content across many file formats. S2P designed a process that first extracts and transforms the raw report content into a vector database, then uses watsonx.ai to score each report against 14 client-defined key performance criteria on a zero-to-three scale. Once that information is structured, it is blended with other data from the national Education Management System, which itself aggregates information from more than 40 registers. IBM Cognos Analytics then turns the combined dataset into executive dashboards so agency leaders can compare schools, municipalities, and national trends. The outcome is a document-to-policy workflow that replaces manual extraction with repeatable AI-assisted analysis and gives education leaders a longitudinal, data-driven view of school performance.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Cognos Analytics"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Processes extracted school-report information, evaluates it against policy criteria, and scores each KPI.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cognos Analytics",
+      "role": "Transforms the structured, scored education data into dashboards for NAE executives.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Mixed-format school reports are ingested and transformed into a vector database, watsonx.ai evaluates the content against 14 KPIs, the resulting scores are combined with structured data from the Education Management System’s 40-plus registers, and Cognos dashboards present the full picture to agency leaders.",
+  "integration_points": [
+    "vector database",
+    "national Education Management System",
+    "40 different registers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "NAE eliminated almost all manual extraction work, gave leaders a much faster way to compare schools and municipalities, and created a data foundation for longer-term education policy and performance analysis.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "3,000+ reports ingested annually",
+    "14 key criteria tracked by AI solution",
+    "99% reduction in manual labor",
+    "each report is 10 pages long on average"
+  ],
+  "architecture_clues": [
+    "The pipeline first loads transformed raw data into a vector database before watsonx.ai scoring.",
+    "The scoring model uses a zero-to-three scale across 14 KPIs.",
+    "The analytics layer blends school reports with other national education data from more than 40 registers."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/nae",
+  "published_date": "2026-01-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Every year, around 3,000 new reports are submitted”",
+    "“Working with IBM Business Partner S2P, the NAE chose IBM watsonx.ai and IBM Cognos Analytics”",
+    "“Initially, the raw data is extracted, transformed and inserted into a vector database.”",
+    "“Then, the AI evaluates the information and delivers a figure for each KPI on a scale of zero to three”",
+    "“99% reduction in manual labor”"
+  ]
+}

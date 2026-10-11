@@ -1,0 +1,101 @@
+{
+  "id": "ibm-ibm-hr-customer-service-automation",
+  "slug": "ibm-ibm-hr-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM HR",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM HR needed to replace fragmented, multi-channel support and repetitive manual work with a single service experience that could answer policy questions, execute transactions, and route complex cases consistently across a global workforce.",
+  "solution_summary": "IBM evolved AskHR from a virtual assistant into an agentic HR support layer powered by IBM watsonx Orchestrate and deep enterprise-system integration. The service exposes more than 7,000 policy pages and automates more than 80 HR tasks through a conversational interface that classifies employee prompts with compliant large language models, routes them to the right HR domain, and either triggers a backend task or returns an AI-generated answer in the user’s preferred language. Behind the scenes, AskHR connects to systems such as Workday, SAP, Concur, and SAP SuccessFactors so employees can retrieve payslips, submit vacation requests, obtain verification letters, or receive personalized payroll and policy guidance, while managers can initiate transfers or organizational updates. The two-tier operating model keeps routine work with AI and escalates only complex needs to human advisors, giving IBM a hybrid digital-labor pattern for HR service at global scale.",
+  "products_used": [
+    "AskHR agents",
+    "IBM watsonx Orchestrate",
+    "Workday",
+    "SAP",
+    "Concur",
+    "SAP SuccessFactors"
+  ],
+  "solution_components": [
+    {
+      "name": "AskHR agents",
+      "role": "Provide the employee-facing conversational experience and execute automated HR tasks across domains.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Adds generative AI and agentic automation so AskHR can classify prompts, route work, and trigger HR workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Workday",
+      "role": "Supplies enterprise HR data and workflows that AskHR uses for employee support.",
+      "layer": "Storage"
+    },
+    {
+      "name": "SAP",
+      "role": "Supports backend HR and payroll process integrations used by AskHR.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Concur",
+      "role": "Provides travel-related workflow context and transactions for AskHR automations.",
+      "layer": "Storage"
+    },
+    {
+      "name": "SAP SuccessFactors",
+      "role": "Enables manager workflows such as employee transfers and organizational updates inside AskHR.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "An employee or manager submits an HR question in natural language, watsonx Orchestrate classifies it and routes it to the relevant HR domain, AskHR generates a compliant response or triggers a workflow in Workday, SAP, Concur, or SuccessFactors, and only the more complex requests move to human advisors.",
+  "integration_points": [
+    "Workday",
+    "SAP",
+    "Concur",
+    "SAP SuccessFactors"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "AskHR reduced HR operating cost, cut support tickets sharply, achieved high containment and manager adoption, and shifted the HR operating model toward hybrid automation without removing human support for complex needs.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "7,000 policy pages are accessible",
+    ">1M HR-related transactions processed in 2024",
+    "55.1 K pieces of user feedback collected in 2024",
+    "more than 80 HR tasks automated",
+    "over 2.1 million employee conversations annually",
+    "99% adoption among managers",
+    "40% reduction in the HR team’s operational costs over the past four years",
+    "94% containment rate of common questions",
+    "75% reduction in support tickets raised since 2016",
+    "more than 11.5 million employee interactions in 2024 alone"
+  ],
+  "architecture_clues": [
+    "AskHR runs as a two-tier support model with AI for routine work and human advisors for complex cases.",
+    "Large language models classify prompts into domains such as Benefits, Payroll, and Career and Skills.",
+    "The service has been refined continuously for more than six years before the 2025 watsonx Orchestrate upgrade."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-askhr",
+  "published_date": "2025-08-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Over the past six years, IBM has continuously refined their internal virtual agent, AskHR, to automate more than 80 HR tasks and handle over 2.1 million employee conversations annually.”",
+    "“the team integrated IBM watsonx Orchestrate to enhance AskHR’s gen AI and agentic automation capabilities.”",
+    "“Behind the scenes, complex HR processes are streamlined through deep integration with enterprise systems such as Workday, SAP and Concur.”",
+    "“The adoption of AskHR has reached 99% among managers.”",
+    "“The AI agent helped contribute to a 40% reduction in the HR team’s operational costs over the past four years.”"
+  ]
+}

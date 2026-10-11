@@ -1,0 +1,61 @@
+{
+  "id": "ibm-oco-global-company-data-classification",
+  "slug": "ibm-oco-global-company-data-classification",
+  "vendor": "IBM",
+  "customer_name": "OCO Global",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Mid-market",
+  "business_problem": "OCO Global needed to enrich and reclassify a rapidly expanded dataset of company information for supplier selection, due diligence, and prospecting, but manually reviewing 13 million new rows would have taken roughly four years and an earlier OpenAI-based approach was still too slow.",
+  "solution_summary": "Working with Prolifics and IBM Client Engineering, OCO Global built a right-sized generative AI classification pipeline on IBM watsonx.ai instead of relying on a larger, slower API workflow. The team starts by selecting and cleaning subsets of company data, then passes those rows through watsonx.ai so a smaller third-party reasoning model can review industry assignments, suggest additional categories, and return structured results for downstream processing. IBM and Prolifics tuned the approach around latency, accuracy, and cost, ultimately cutting round-trip performance to about 0.1 seconds per row. OCO Global is using the implementation as an MVP platform that it can iteratively refine over a year-long classification program and reuse for adjacent workloads such as internal file classification and market-signal analysis, giving the business a reusable gen-AI foundation rather than a one-off script.",
+  "products_used": [
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs the row-level reasoning and classification workflow that enriches company records at much lower latency than the earlier API approach.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "OCO Global selects and cleans batches of company records, sends each row through watsonx.ai for industry reasoning and category suggestions, and then processes the returned classifications back into its company-information dataset for supplier, due-diligence, and prospecting use cases.",
+  "integration_points": [
+    "external data provider"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The watsonx.ai workflow reduced processing from years to weeks, delivered much faster row-by-row enrichment than the earlier API design, and created a reusable platform OCO Global can extend to other internal classification and signal-detection use cases.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "13 million new rows of data",
+    "50 times faster than the alternative solution under consideration",
+    "round-trip performance of 0.1s per row",
+    "250,000 records processed in 4 hours",
+    "estimated 2 days using the previous approach",
+    "from 2 years to a couple of weeks"
+  ],
+  "architecture_clues": [
+    "The team chose a relatively small third-party model on watsonx.ai to balance reasoning quality, performance, and cost.",
+    "The current implementation is an MVP used on data subsets with iterative prompt and process refinement.",
+    "The platform is intended to support future workloads such as internal file classification and market-signal analysis."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/oco-global",
+  "published_date": "2025-01-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“there were 13 million new rows of data”",
+    "“Using the OpenAI API produced good results ... [but] we were still looking at 2 years of solid processing time.”",
+    "“IBM Client Engineering and technical specialists worked with Prolifics to design a solution based on the IBM watsonx.ai AI studio that offers round-trip performance of 0.1s per row—50 times faster than the previous approach.”",
+    "“for 250,000 records, it takes 4 hours to select and clean data, pass it through watsonx.ai for classification and process the results.”",
+    "“Today, we have a working platform for building gen-AI-based solutions.”"
+  ]
+}

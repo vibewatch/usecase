@@ -1,0 +1,107 @@
+{
+  "id": "ibm-ibm-creative-content-ai-content-production",
+  "slug": "ibm-ibm-creative-content-ai-content-production",
+  "vendor": "IBM",
+  "customer_name": "IBM Creative and Content team",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM’s marketing teams needed a faster, more standardized way to create brand-compliant assets at scale because content drafting, research, editing, and template preparation were consuming too much of marketers’ time and reducing capacity for strategy and major market moments.",
+  "solution_summary": "IBM built Creative Assistant as a purpose-built generative AI platform for marketing content production rather than a generic chat tool. A user prompt triggers microservices, APIs, and task-oriented agents that use retrieval-augmented generation with Elasticsearch to combine user-supplied context with trusted IBM sources such as IBM.com, product documentation, brand guidelines, RedBooks, Seismic, and competitive research. After reranking selects the most relevant evidence, an LLM hosted on IBM watsonx.ai—often Granite, but not always—generates content in prebuilt templates for emails, blog posts, client stories, presentations, and product pages. Indexed data is refreshed through automated storage and retrieval workflows using IBM Cloud Object Storage, Elasticsearch, Milvus, and watsonx.data, while Instana observes the next-generation chat experience. This gives marketers a governed content-production stack that accelerates drafting, standardizes brand voice, and democratizes access to product knowledge without removing writers and editors from review and refinement.",
+  "products_used": [
+    "Creative Assistant",
+    "IBM watsonx.ai",
+    "IBM Granite",
+    "IBM Cloud Object Storage",
+    "IBM Cloud Databases for Elasticsearch",
+    "Milvus",
+    "IBM watsonx.data",
+    "IBM Instana Observability"
+  ],
+  "solution_components": [
+    {
+      "name": "Creative Assistant",
+      "role": "Serves as the marketer-facing interface for generating brand-aligned draft content across many asset formats.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Hosts the large language models and generation logic used to produce tailored marketing content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Provides one of the enterprise-grade foundation model options used for creative generation tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Object Storage",
+      "role": "Stores and helps refresh the trusted data sources that feed the retrieval layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Cloud Databases for Elasticsearch",
+      "role": "Supports vector-based retrieval and search across public and private marketing knowledge sources.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Milvus",
+      "role": "Acts as part of the vector search layer used to ground generation in relevant content.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Hosts vector-store components that help the assistant query trusted content efficiently.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Instana Observability",
+      "role": "Monitors the newer agent-driven chat experience in production.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A marketer submits a prompt, Creative Assistant enriches it with trusted IBM content retrieved from Elasticsearch, Milvus, and watsonx.data-backed stores, watsonx.ai and Granite generate a templated draft, and the resulting asset moves to writers and editors for brand-compliant review and refinement.",
+  "integration_points": [
+    "IBM.com",
+    "product documentation",
+    "brand guidelines",
+    "IBM RedBooks",
+    "Seismic",
+    "competitive research"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Creative Assistant accelerated content production, improved consistency, reduced drafting time for high-volume programs like client stories, and freed marketing teams to focus more on strategy and higher-impact creative work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "1010+ active users onboarded",
+    "7000+ drafts generated across 10+ asset formats",
+    "~50% faster review-ready client story drafts",
+    "2400+ client story drafts and versions generated",
+    "client story one-pagers reduced from roughly an hour to about 12 minutes",
+    "about an 80% efficiency boost"
+  ],
+  "architecture_clues": [
+    "The system uses RAG with Elasticsearch plus a reranking service before generation.",
+    "Trusted data sources are periodically indexed into Elasticsearch and Milvus via Cloud Object Storage and watsonx.data.",
+    "The next-generation version adds agent-driven chat, Instana monitoring, and style-guide review capabilities."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-creative-assistant",
+  "published_date": "2026-03-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The system uses retrieval augmented generation (RAG) with Elasticsearch”",
+    "“The enriched input was passed to a large language model (LLM) trained and hosted on IBM watsonx.ai”",
+    "“IBM Granite foundation models are commonly used”",
+    "“the tool onboarded over 1010 active users who generated over 7000 drafts of assets across 10 different content formats.”",
+    "“review-ready client story drafts ... can now be completed in just about five days, down from the previous 10-day timeline”"
+  ]
+}

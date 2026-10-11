@@ -1,0 +1,93 @@
+{
+  "id": "ibm-ibm-software-support-customer-service-automation",
+  "slug": "ibm-ibm-software-support-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM Software Support organization",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM Software Support needed to keep thousands of globally distributed engineers focused on high-value technical issues while still handling hundreds of thousands of cases, log analyses, and repetitive follow-up tasks across a large software portfolio.",
+  "solution_summary": "IBM Software Support built a layered support-automation architecture on watsonx technologies to deflect routine work, accelerate diagnostics, and orchestrate follow-up tasks. Ask SW Support uses retrieval-augmented generation with watsonx.ai and large language models to answer low-complexity cases from IBM documentation and technotes after a single client interaction. Analyze SW Support combines hybrid classification and LLM reasoning to inspect log-heavy cases and create anomalous windows that help engineers troubleshoot faster across the company’s most active products. Automate SW Support extends the workflow by using watsonx Orchestrate and watsonx.ai to handle repetitive steps such as case follow-ups, updates, closures, and cross-team collaboration. Together these components turn IBM’s support knowledge base and case telemetry into a digital labor system that routes simple issues to AI, compresses investigative work on complex cases, and frees specialists to focus on the problems where human expertise adds the most value.",
+  "products_used": [
+    "Ask SW Support",
+    "Analyze SW Support",
+    "Automate SW Support",
+    "IBM watsonx.ai",
+    "watsonx Orchestrate"
+  ],
+  "solution_components": [
+    {
+      "name": "Ask SW Support",
+      "role": "Uses RAG and LLMs to answer low-complexity support questions from IBM technical content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Analyze SW Support",
+      "role": "Applies anomaly detection and LLM-assisted diagnostics to speed up troubleshooting on log-heavy cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Automate SW Support",
+      "role": "Automates repetitive case management tasks such as follow-ups, updates, closures, and collaboration handoffs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the generative AI studio and LLM capabilities behind the support workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "watsonx Orchestrate",
+      "role": "Coordinates the cross-team and case-lifecycle automations used by support engineers.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "A client issue is matched against IBM documentation and technotes through Ask SW Support, tougher cases flow through Analyze SW Support for anomaly detection on logs and datasets, and Automate SW Support uses watsonx Orchestrate to push updates, follow-ups, and closures back through the support workflow so engineers focus on exceptions.",
+  "integration_points": [
+    "IBM product documentation",
+    "IBM technotes",
+    "support case logs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "IBM Software Support reduced repetitive effort, accelerated diagnostic work, and created large projected time savings across routine, complex, and follow-up support activities, helping engineers deliver faster and more consistent support experiences.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "370,000 low-complexity cases handled annually",
+    "10 minutes of time saved per case",
+    "approximately 17,000 annual hours saved",
+    "76 products enabled for Analyze SW Support",
+    "240,000 cases involving log files annually",
+    "31 minutes average time saving per case",
+    "124,000 projected annual hours saved",
+    "2,800 support engineers worldwide",
+    "56,000 projected monthly hours saved"
+  ],
+  "architecture_clues": [
+    "Ask SW Support is explicitly described as a RAG solution built with LLMs and watsonx.ai.",
+    "Analyze SW Support uses a hybrid classification and LLM system.",
+    "Automate SW Support was first launched across 14 use cases to 100 engineers before scaling globally."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-software-support",
+  "published_date": "2025-02-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Ask SW Support is a RAG solution (Retrieval Augmented Generation) that leverages the power of Large Language Models (LLMs) and watsonx.ai.”",
+    "“Analyze SW Support brings the power of anomaly detection to the diagnostic process.”",
+    "“Automate SW Support, built on watsonx Orchestrate and watsonx.ai, can help streamline repetitive tasks such as case follow-ups, updates, closures and cross-team collaboration.”",
+    "“With an estimated 370,000 low-complexity cases handled annually ... approximately 17,000 hours”",
+    "“Now deployed to 2,800 support engineers worldwide, we project a potential monthly savings of 56,000 hours”"
+  ]
+}

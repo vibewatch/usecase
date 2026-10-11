@@ -1,0 +1,78 @@
+{
+  "id": "ibm-customs-committee-of-the-republic-of-uzbekistan-document-processing",
+  "slug": "ibm-customs-committee-of-the-republic-of-uzbekistan-document-processing",
+  "vendor": "IBM",
+  "customer_name": "Customs Committee of the Republic of Uzbekistan",
+  "industry": "Public Sector",
+  "region": "Uzbekistan",
+  "company_size": "Public sector",
+  "business_problem": "The Customs Committee of Uzbekistan needed to process growing volumes of customs declarations that contained complex free-text goods descriptions, but manual review slowed clearance, introduced classification risk, and limited the agency’s ability to identify compliance issues efficiently.",
+  "solution_summary": "IBM Expert Labs and IBM Client Engineering worked with the Customs Committee of Uzbekistan to turn customs declaration handling into an API-driven AI workflow built for scale. Using IBM Enterprise Design Thinking, the teams defined priority use cases and then built an MVP on IBM watsonx.ai with IBM watsonx.data as the data layer for efficient access across distributed sources. The solution uses a Llama 3.3 large language model to extract structured information from declaration text, classify products automatically, and feed those outputs back into the country’s already digital customs environment through an interface that employees can adopt quickly. By pairing generative AI with scalable data access, the Committee created a foundation for predictive classification, transport-cost calculation, and future customs-control use cases without rebuilding the wider clearance infrastructure. IBM’s hands-on delivery also kept the project aligned to operational and compliance objectives, not just technical experimentation.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx.data",
+    "Llama 3.3"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Hosts the generative AI and machine learning workflow that extracts and classifies declaration data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Provides scalable data access for AI workloads running across distributed customs information sources.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Llama 3.3",
+      "role": "Acts as the large language model that extracts structured information from declaration text and classifies products.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Declaration text enters the AI-powered API, Llama 3.3 on watsonx.ai extracts structured fields and classifies goods, watsonx.data supports access to the underlying data sources, and the results flow back into the existing digital customs system so declarations can be cleared, re-registered, and reviewed for compliance in seconds rather than hours.",
+  "integration_points": [
+    "existing digital customs infrastructure"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "The AI-API cut declaration processing from hours to seconds, automated tens of thousands of declarations, improved compliance and revenue collection, and gave Uzbekistan a scalable public-sector example of AI-driven customs modernization.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "From 2–3 hours to seconds of reduced processing time",
+    "80,000 declarations processed automatically",
+    "USD 246K additional revenue collected",
+    "more than 80,000 declarations worth USD 5 billion were completed without the participation of employees",
+    "Classified 44,000 commodity items from 93 Customs Codes",
+    "Determined 12 main additional classifications",
+    "Re-registered 80 customs declarations covering 975 items"
+  ],
+  "architecture_clues": [
+    "The solution was developed as an MVP designed to scale into future AI customs use cases.",
+    "The AI layer integrates with the existing fully digital customs infrastructure through an API.",
+    "Predictive classification and transport-cost calculation modules are already in industrial operation."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/state-customs-of-uzbekistan",
+  "published_date": "2025-12-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Using the IBM watsonx.ai AI studio, the teams jointly developed an MVP with advanced generative AI and machine learning technologies.”",
+    "“the solution integrates the IBM watsonx.data data store”",
+    "“The solution is built on a powerful API that uses Llama 3.3 large language model (LLM) to extract structured data from text fields and accurately classify products.”",
+    "“reducing the previous 2–3 hours of processing time to just a few seconds.”",
+    "“In 2024 alone, more than 80,000 declarations worth USD 5 billion were completed without the participation of employees.”"
+  ]
+}

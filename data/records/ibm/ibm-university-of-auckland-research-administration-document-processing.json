@@ -1,0 +1,75 @@
+{
+  "id": "ibm-university-of-auckland-research-administration-document-processing",
+  "slug": "ibm-university-of-auckland-research-administration-document-processing",
+  "vendor": "IBM",
+  "customer_name": "The University of Auckland",
+  "industry": "Education",
+  "region": "New Zealand",
+  "company_size": "Public sector",
+  "business_problem": "University of Auckland researchers were spending too much time navigating grant, ethics, and export-control requirements because funding applications and compliance reviews involved multiple forms, committees, and rules that delayed research work.",
+  "solution_summary": "The University of Auckland worked with IBM to frame research administration as an agentic AI problem, then used a hackathon with Master of AI students to prototype solutions on IBM watsonx.ai and IBM watsonx Assistant. IBM and the university supplied use cases from the Research and Innovation Office, along with evaluation criteria, mentorship, and technical support so student teams could build agents that review grant applications, ethics applications, and export permit submissions. The prototypes use publicly available guidance and few-shot prompting to produce context-aware feedback aligned to reviewer expectations, helping route applications to the right committee and detect known errors before human review. After the hackathon, the university and IBM continued collaborating on enterprise versions of the solution hosted on IBM Cloud, turning the event from a one-off exercise into a low-cost, scalable research-administration platform for ongoing use.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant",
+    "IBM Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs the agentic reasoning used to review applications, route submissions, and provide context-aware feedback.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Supports the conversational agent experience built around research-administration workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the emerging enterprise solution so the university can operate it as a low-cost, scalable on-demand service.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Research application materials and guidance documents are fed into watsonx.ai-powered agents, which use few-shot prompting to review content, flag known issues, and route submissions to the correct committee; the resulting feedback and workflows are then served through enterprise solutions hosted on IBM Cloud.",
+  "integration_points": [
+    "publicly available funding and compliance documents",
+    "Research and Innovation Office workflows",
+    "grant applications",
+    "ethics applications",
+    "export control permits"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "The hackathon proved that agentic AI can reduce research-administration effort, with high routing accuracy and error detection, and it led directly to continued IBM-university work on production-grade tools for researchers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "95% success rate in routing test applications to the correct committee",
+    "85% accuracy in detecting known error types in sample applications",
+    "serving over 40,000 students"
+  ],
+  "architecture_clues": [
+    "The prototypes were built with few-shot prompting against publicly available guidance documents.",
+    "IBM and the university continued the work after the hackathon as enterprise solutions on IBM Cloud.",
+    "The source frames the solutions as secure, scalable agentic AI for research administration."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/university-of-auckland-hackathon",
+  "published_date": "2025-09-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Using IBM watsonx.ai, competing student teams set out to create innovative, AI-powered agents to streamline the application and review processes for grant applications, ethics applications and export control permits.”",
+    "“By employing data from publicly available documents and using few-shot prompting to align with reviewer expectations”",
+    "“the AI agent routed 95% of them to the correct committee and detected 85% of known errors”",
+    "“Hosted on IBM Cloud, the solutions using IBM watsonx operate at a low cost, which makes them scalable and on-demand tools for the University.”",
+    "“The proof-of-concept solutions developed by the students demonstrated the value and feasibility of agentic AI solutions for research administration”"
+  ]
+}

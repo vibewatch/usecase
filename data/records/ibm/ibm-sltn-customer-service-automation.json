@@ -1,0 +1,91 @@
+{
+  "id": "ibm-sltn-customer-service-automation",
+  "slug": "ibm-sltn-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "SLTN",
+  "industry": "Software / SaaS",
+  "region": "Netherlands",
+  "company_size": "Mid-market",
+  "business_problem": "SLTN’s five-person HR team was overwhelmed by a steady volume of basic and sensitive employee questions, and employees sometimes waited two to three days for HR answers that should have been available instantly.",
+  "solution_summary": "SLTN built Sophie, an AI-powered HR chatbot, on IBM watsonx so employees could receive personalized HR support without exposing sensitive employee data. The team started with watsonx.ai and watsonx Assistant to create a proof of concept that answered questions about employment conditions, then connected the bot to the core HR system so it could return employee-specific answers such as remaining vacation days and also submit transactions like vacation requests. Sophie was rolled out company-wide through Microsoft Teams and Active Directory, which gave the assistant context about the user while IBM watsonx.governance supplied the privacy and governance controls SLTN considered essential for responsible use. Beyond self-service support, the assistant’s analytics help HR see which policies or workflows need improvement, creating a feedback loop between employee questions and better people management. The result is a 24x7 HR channel that handles routine work in the background so human HR staff can spend more time on the personal, high-empathy issues where they matter most.",
+  "products_used": [
+    "Sophie",
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant",
+    "IBM watsonx.governance",
+    "Microsoft Teams",
+    "Active Directory"
+  ],
+  "solution_components": [
+    {
+      "name": "Sophie",
+      "role": "Acts as the employee-facing HR chatbot that answers questions and triggers routine HR actions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Supplies the large language model capabilities that help the chatbot answer HR questions intelligently.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the conversational interface and workflow handling for the HR support experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.governance",
+      "role": "Provides privacy and governance controls for sensitive employee information and expanding AI usage.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Microsoft Teams",
+      "role": "Delivers Sophie in the collaboration channel employees already use day to day.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Active Directory",
+      "role": "Provides identity context so Sophie can deliver personalized, context-aware responses.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Employees ask HR questions in Teams, Sophie uses watsonx Assistant and watsonx.ai to interpret them, queries the HR system and identity context through Active Directory, returns a personalized answer or transaction result, and logs query patterns that HR can use to improve training and policies.",
+  "integration_points": [
+    "core HR system",
+    "Microsoft Teams",
+    "Active Directory"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "SLTN gave employees instant, privacy-aware HR answers and actions, reduced pressure on its HR team, and created a governed AI showcase it can also use to demonstrate value to clients.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 600 employees",
+    "two-to-three-day response times at busy periods before automation"
+  ],
+  "architecture_clues": [
+    "The chatbot integrates directly with the HR system for personalized answers and transaction execution.",
+    "Microsoft Teams and Active Directory provide context-aware delivery and identity linkage.",
+    "watsonx.governance is used to preserve privacy as the AI program expands."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/sltn",
+  "published_date": "2025-03-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“the productivity and satisfaction of employees are sometimes impacted due to the two-to-three-day response times”",
+    "“using IBM watsonx.ai AI studio and IBM watsonx Assistant to develop Sophie”",
+    "“the chatbot’s large language model (LLM) was trained to answer questions based on SLTN’s employment conditions.”",
+    "“By integrating with Microsoft Teams and Active Directory, the chatbot delivers personalized, context-aware responses”",
+    "“IBM watsonx.governance gives us the tools to maintain data privacy”"
+  ]
+}
