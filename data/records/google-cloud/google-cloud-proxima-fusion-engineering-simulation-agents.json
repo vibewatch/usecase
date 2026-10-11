@@ -1,0 +1,99 @@
+{
+  "id": "google-cloud-proxima-fusion-engineering-simulation-agents",
+  "slug": "google-cloud-proxima-fusion-engineering-simulation-agents",
+  "vendor": "Google Cloud",
+  "customer_name": "Proxima Fusion",
+  "industry": "Energy",
+  "region": "Germany",
+  "company_size": "Mid-market",
+  "business_problem": "To optimize these designs without building highly expensive physical prototypes, Proxima Fusion relies heavily on specialized simulations. However, running these simulations was previously a lengthy process, with individual simulations taking hours or even days to execute.",
+  "solution_summary": "Proxima Fusion uses Gemini Enterprise Agent Platform to build engineering agents, accelerating the path to clean fusion energy. To optimize these designs without building highly expensive physical prototypes, Proxima Fusion relies heavily on specialized simulations. However, running these simulations was previously a lengthy process, with individual simulations taking hours or even days to execute. While the company already used extensive automation around its simulations, it needed a way to multiply the number of simulations a user could orchestrate. Interpreting the data and relaunching simulations also required a considerable amount of expert input from the Proxima Fusion team, which slowed its cycle speeds down.",
+  "products_used": [
+    "Cloud Run",
+    "Pub/Sub",
+    "Compute Engine",
+    "Gemini Enterprise Agent Platform",
+    "Gemini",
+    "Cloud SQL",
+    "Cloud Storage"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "Runs serverless application services and APIs with automatic scaling for bursty workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "Moves high-volume events and API traffic between services so the workflow stays decoupled and resilient.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Compute Engine",
+      "role": "Runs serverless or virtualized application services with elastic scale for production AI workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Coordinates multi-agent workflows, tool calling, and governed automation across the application.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers natural-language reasoning, summarization, generation, or assistance inside the workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores transactional state and application data for the operational workflow at low latency.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores large files, lake data, or static assets that feed downstream analytics and applications.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Automates complex physics simulations to run around the clock; Frees engineering experts to refine core hardware designs; Verifies autonomous tool actions with dedicated review agent; Uncovers data gaps to continuously improve historical dataset.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Proxima Fusion which aims to put fusion electricity on the grid by the 2030s, with its own working power plant.",
+    "To achieve this, Proxima Fusion is designing and building stellarators, which use complex magnetic coils to trap plasma heated to 100 million degrees Celsius.",
+    "To optimize these designs without building highly expensive physical prototypes, Proxima Fusion relies heavily on specialized simulations. However, running these simulations was previously a lengthy process, with individual simulations taking hours or even days to execute. While the company already used extensive automation around its simulations, it needed a way to multiply the number of simulations a user could orchestrate. Interpreting the data and relaunching simulations also required a considerable amount of expert input from the Proxima Fusion team, which slowed its cycle speeds down.",
+    "To bring AlphaClaw to life, Proxima Fusion engineers worked side by side with Google technical specialists over a four-week project. Operating as a single team, they ran daily standups to align their goals and held a dedicated hackathon at the Google Munich office. Today, the resulting agent operates natively right where the engineering team works—inside their Slack workspace—enabling physicists to instantly run and analyze simulations.",
+    "Proxima Fusion acts as a responsive gateway, processing the message in under a second. To manage the heavy computational workloads that complex physics models require,",
+    "Because the agent operates directly on internal engineering systems, monitoring for safety and security issues, like leaking intellectual property or compromising data, is essential. Proxima Fusion used Gemini to build a secondary, independent reviewer agent on the platform. This model acts as a built-in safeguard, inspecting every command the agent intends to execute. If an action looks unfamiliar or attempts to alter a critical database, the reviewer agent pauses the run and messages a human engineer in Slack for explicit approval, ensuring researchers maintain complete control over the design loop."
+  ],
+  "architecture_clues": [
+    "Proxima Fusion uses Gemini Enterprise Agent Platform to build engineering agents, accelerating the path to clean fusion energy.",
+    "with Gemini agents",
+    "To bring AlphaClaw to life, Proxima Fusion engineers worked side by side with Google technical specialists over a four-week project. Operating as a single team, they ran daily standups to align their goals and held a dedicated hackathon at",
+    "We found Gemini models highly capable at navigating technical code frameworks and executing complicated developer steps. They reason through our parameters accurately, which means our engineers can let the agent manage long-running simulati",
+    "When a researcher types a natural language request into Slack to initiate a simulation,",
+    "Cloud Run"
+  ],
+  "source_url": "https://cloud.google.com/customers/proximafusion",
+  "published_date": "2026-07-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Automates complex physics simulations to run around the clock",
+    "Frees engineering experts to refine core hardware designs",
+    "Verifies autonomous tool actions with dedicated review agent",
+    "Uncovers data gaps to continuously improve historical dataset",
+    "Proxima Fusion uses Gemini Enterprise Agent Platform to build engineering agents, accelerating the path to clean fusion energy.",
+    "Proxima Fusion which aims to put fusion electricity on the grid by the 2030s, with its own working power plant."
+  ]
+}

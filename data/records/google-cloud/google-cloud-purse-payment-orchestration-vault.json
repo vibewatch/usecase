@@ -1,0 +1,94 @@
+{
+  "id": "google-cloud-purse-payment-orchestration-vault",
+  "slug": "google-cloud-purse-payment-orchestration-vault",
+  "vendor": "Google Cloud",
+  "customer_name": "Purse",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "Mid-market",
+  "business_problem": "Delivered enterprise-grade security without compromising on availability or low-latency performance The platform integrates seamlessly with no custom development required: merchants simply configure their business rules and priorities, while Purse orchestrates the mechanics behind the scenes.",
+  "solution_summary": "Delivered enterprise-grade security without compromising on availability or low-latency performance Purse leverages Google Cloud’s infrastructure, encryption, and network isolation services to deliver an independent payment card vault that frees merchants from payment processor lock-in. From day one, Purse chose Google Cloud for its high-performance, resilient, and secure infrastructure. \"We needed an environment capable of handling massive traffic surges, such as Black Friday peaks, while meeting the stringent security standards unique to online payments,\" notes Samuel Delplace. \"The challenge was far greater than simply spinning up a credit card database,\" recalls Delplace.",
+  "products_used": [
+    "Cloud Run",
+    "Cloud Key Management Service (Cloud KMS)",
+    "Private Service Connect",
+    "Secure Web Proxy",
+    "Cloud Load Balancing",
+    "Memorystore for Valkey"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "Runs serverless application services and APIs with automatic scaling for bursty workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Key Management Service (Cloud KMS)",
+      "role": "Protects sensitive payment and application secrets with managed encryption keys.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Private Service Connect",
+      "role": "Provides private connectivity between internal services and protected endpoints."
+    },
+    {
+      "name": "Secure Web Proxy",
+      "role": "Controls and secures outbound connectivity from the production environment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud Load Balancing",
+      "role": "Routes highly variable enterprise campaign traffic into the ML platform.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Memorystore for Valkey",
+      "role": "Caches session and routing state for low-latency application decisions.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "",
+  "integration_points": [],
+  "technical_area": [
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Risk Management"
+  ],
+  "business_outcome": "Built a PCI-DSS certified vault in three months leveraging Google Cloud managed services and security building blocks; Gave merchants greater flexibility to switch providers and optimize transaction routing.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Delivered enterprise-grade security without compromising on availability or low-latency performance",
+    "In ecommerce, the entire customer journey hinges on the checkout experience. An awkward interface, a missing payment method, a declined card—the slightest friction can instantly cause a lost sale. Founded in 2021 within Association Familiale Mulliez (Decathlon, Auchan, Leroy Merlin, Boulanger),",
+    "Purse's formula? A platform connected to over 100 payment providers and methods that centralizes and orchestrates every transaction flow. \"Where direct integration with a single processor locks a merchant into a closed ecosystem—with all the drawbacks that entails in terms of downtime, price hikes, or lower acceptance rates—we are rewriting the rules of payment through orchestration,\" explains Samuel Delplace, Head of Infrastructure and Security at Purse. \"Based on the purchasing context—basket contents, geography, device, and risk profile—our platform dynamically presents the most relevant payment options with the smoothest user experience.\"",
+    "In practice, Purse tailors payment methods to each specific purchase: installment plans or bank transfers for high-value carts, digital wallets on mobile, and saved cards for recurring everyday purchases. Once the shopper clicks \"Pay,\" smart routing directs the transaction through the optimal path based on processing cost, fraud risk, and partner uptime. If a transaction fails, smart cascading immediately reroutes it to an alternative rail. Purse operates deep within the payment processing chain—where dozens of players interact across heterogeneous protocols—to detect errors instantly and find the path that succeeds.",
+    "From day one, Purse chose Google Cloud for its high-performance, resilient, and secure infrastructure. \"We needed an environment capable of handling massive traffic surges, such as Black Friday peaks, while meeting the stringent security standards unique to online payments,\" notes Samuel Delplace.",
+    "\"The challenge was far greater than simply spinning up a credit card database,\" recalls Delplace. \"We had to fulfill more than 500 individual controls and requirements, implement multiple encryption layers, manage keys with extreme precision, and enforce strict separation of duties to technically prevent any single person from accessing cardholder data. The richness of the Google Cloud ecosystem and its suite of PCI-DSS-compliant services were critical game-changers: while some companies take over two years to build a card vault, we did it in just three months.\""
+  ],
+  "architecture_clues": [
+    "Delivered enterprise-grade security without compromising on availability or low-latency performance",
+    "Purse designed a serverless architecture running on Cloud Run, where every microservice is strictly isolated and all communication is granularly controlled. Private Service Connect establishes private connections exclusively between authori",
+    "Upstream, Cloudflare inspects and filters inbound traffic before routing it to Vault services using mutual TLS (mTLS), encrypting data in transit and authenticating system identities prior to connection. Cloud Load Balancing then distribute",
+    "During transaction processing, Memorystore for Valkey loads required payment data into low-latency in-memory storage, which is automatically flushed the moment the transaction settles.",
+    "\"By adopting this high-security architecture, we did far more than check a compliance box: we built a vault that safeguards mission-critical data without adding latency or compromising the checkout flow. Achieving this so rapidly was made p",
+    "Cloud Run"
+  ],
+  "source_url": "https://cloud.google.com/customers/purse",
+  "published_date": "2026-09-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Built a PCI-DSS certified vault in three months leveraging Google Cloud managed services and security building blocks",
+    "Gave merchants greater flexibility to switch providers and optimize transaction routing",
+    "In ecommerce, the entire customer journey hinges on the checkout experience. An awkward interface, a missing payment method, a declined card—the slightest friction can instantly cause a lost sale. Founded in 2021 within Association Familial",
+    "Purse's formula? A platform connected to over 100 payment providers and methods that centralizes and orchestrates every transaction flow. \"Where direct integration with a single processor locks a merchant into a closed ecosystem—with all th",
+    "In practice, Purse tailors payment methods to each specific purchase: installment plans or bank transfers for high-value carts, digital wallets on mobile, and saved cards for recurring everyday purchases. Once the shopper clicks \"Pay,\" smar",
+    "From day one, Purse chose Google Cloud for its high-performance, resilient, and secure infrastructure. \"We needed an environment capable of handling massive traffic surges, such as Black Friday peaks, while meeting the stringent security st"
+  ]
+}

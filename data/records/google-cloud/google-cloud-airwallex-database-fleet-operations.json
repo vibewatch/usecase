@@ -1,0 +1,64 @@
+{
+  "id": "google-cloud-airwallex-database-fleet-operations",
+  "slug": "google-cloud-airwallex-database-fleet-operations",
+  "vendor": "Google Cloud",
+  "customer_name": "Airwallex",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Airwallex exists to simplify global finance, managing high-frequency transactions across markets like the US, EU, Australia, and Singapore. To support this scale, the company utilizes a globally distributed microservices architecture where each domain is assigned a dedicated database to ensure fault isolation and security.",
+  "solution_summary": "Airwallex manages 5,000+ databases with four DBAs using Cloud SQL to ensure 99.99% uptime for global payments. Airwallex exists to simplify global finance, managing high-frequency transactions across markets like the US, EU, Australia, and Singapore. To support this scale, the company utilizes a globally distributed microservices architecture where each domain is assigned a dedicated database to ensure fault isolation and security. While this model supports rapid growth, it resulted in a massive fleet of more than 5,000 databases. Managing such a vast fleet presented significant challenges in identifying performance bottlenecks like slow queries across thousands of instances. Airwallex needed an operating model that could keep pace with rapid global expansion. Google Cloud’s global footprint means we can spin up isolated, enterprise-grade databases in new regions in minutes.",
+  "products_used": [
+    "Cloud SQL Enterprise Plus",
+    "Database Center"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud SQL Enterprise Plus",
+      "role": "Stores transactional state and application data for the operational workflow at low latency.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Database Center",
+      "role": "Provides fleet-wide visibility into database health, performance, and maintenance operations.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "",
+  "integration_points": [],
+  "technical_area": [
+    "Cloud Native",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Managed 5,000+ databases with only four DBAs using Terraform automation Maintained a 99.99% uptime SLA for global payments while spinning new regions; Integrated AI database agents as virtual DBAs to slash mean time to resolution (MTTR); Unified fleet health and security across thousands of database instances.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Managed 5,000+ databases with only four DBAs using Terraform automation Maintained a 99.99% uptime SLA for global payments while spinning new regions"
+  ],
+  "architecture_clues": [
+    "Google Cloud’s global footprint means we can spin up isolated, enterprise-grade databases in new regions in minutes. Cloud SQL Enterprise Plus gives us near-zero downtime for planned maintenance and scaling and we can maintain a 99.99% avai",
+    "Because of this, the company chose Cloud SQL Enterprise Plus edition for PostgreSQL because this operating model can keep up with global expansion. Google Cloud’s global footprint means Airwallex can spin up isolated, enterprise-grade datab",
+    "To manage their massive database life cycle at scale, Airwallex leverages infrastructure as code with Terraform, benefiting from Cloud SQL's robust Terraform support. Once created, every Cloud SQL instance automatically shows up in the Data",
+    "Instead of fragmented logs, Database Center offers a single pane of glass to monitor fleet health across thousands of databases. Query Insights and System Insights now help the team spot performance issues early, allowing them to optimize r",
+    "Database Center"
+  ],
+  "source_url": "https://cloud.google.com/customers/airwallex-cloudsql",
+  "published_date": "2026-09-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Managed 5,000+ databases with only four DBAs using Terraform automation Maintained a 99.99% uptime SLA for global payments while spinning new regions",
+    "Integrated AI database agents as virtual DBAs to slash mean time to resolution (MTTR)",
+    "Unified fleet health and security across thousands of database instances",
+    "Airwallex manages 5,000+ databases with four DBAs using Cloud SQL to ensure 99.99% uptime for global payments.",
+    "Airwallex exists to simplify global finance, managing high-frequency transactions across markets like the US, EU, Australia, and Singapore. To support this scale, the company utilizes a globally distributed microservices architecture where",
+    "Google Cloud’s global footprint means we can spin up isolated, enterprise-grade databases in new regions in minutes. Cloud SQL Enterprise Plus gives us near-zero downtime for planned maintenance and scaling and we can maintain a 99.99% avai"
+  ]
+}
