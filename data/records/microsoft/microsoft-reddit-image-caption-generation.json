@@ -1,0 +1,56 @@
+{
+  "id": "microsoft-reddit-image-caption-generation",
+  "slug": "microsoft-reddit-image-caption-generation",
+  "vendor": "Microsoft",
+  "customer_name": "Reddit",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Reddit needed to generate high-quality alt text for millions of existing images and hundreds of thousands of daily uploads so it could improve accessibility and search discoverability.",
+  "solution_summary": "Reddit evaluated several AI captioning services because manual image description was infeasible at the scale of its platform. The company needed a vision model that could caption many image types accurately, process uploads quickly, and fit directly into its existing image pipeline so captions could be added as alt text for accessibility and SEO without standing up a custom machine-learning team or workflow. Key components include Azure Cognitive Service for Vision generates image captions that Reddit turns into alt text for accessibility and search indexing. Reddit made image content more accessible, saw a significant increase in SEO traffic, and shipped the project faster by using an out-of-the-box service instead of building and operating its own captioning stack.",
+  "products_used": [
+    "Azure Cognitive Service for Vision"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure Cognitive Service for Vision",
+      "role": "generates image captions that Reddit turns into alt text for accessibility and search indexing",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Images already on Reddit and new user uploads are sent through Azure Cognitive Service for Vision, which generates descriptive captions that Reddit stores as alt text. Those captions are then consumed by screen readers for accessibility and by search engines for better discovery of image content.",
+  "integration_points": [
+    "Reddit image upload pipeline",
+    "screen readers",
+    "search engines"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Reddit made image content more accessible, saw a significant increase in SEO traffic, and shipped the project faster by using an out-of-the-box service instead of building and operating its own captioning stack.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "millions of existing images on the platform",
+    "hundreds of thousands more uploaded each day",
+    "it would have taken at least twice as long to develop"
+  ],
+  "architecture_clues": [
+    "Microsoft manually increased the service rate limit to accommodate Reddit's volume.",
+    "Responsible AI and compliance checks were part of onboarding."
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/1634664504427056612-reddit-media-and-entertainment-azure-cognitive-service-for-vision",
+  "published_date": "2023-05-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Reddit moved forward with Azure Cognitive Service for Vision to support the automatic generation of captions for millions of images.",
+    "Microsoft was very responsive ... such as manually increasing our rate limit to accommodate the volume of images we have.",
+    "Since adding captions as alt text, Reddit has seen a significant increase in SEO traffic to their images."
+  ]
+}

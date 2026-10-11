@@ -1,0 +1,61 @@
+{
+  "id": "microsoft-loyal-patient-data-security",
+  "slug": "microsoft-loyal-patient-data-security",
+  "vendor": "Microsoft",
+  "customer_name": "Loyal",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "Loyal needed to protect sensitive patient data against cyberattacks and insider exposure while meeting healthcare regulatory requirements without slowing development or data engineering.",
+  "solution_summary": "Loyal built its patient-engagement platform around Azure SQL Database and Always Encrypted with secure enclaves so it could keep sensitive healthcare data protected even when privileged users or administrators might otherwise have access to the database environment. The company wanted a design that strengthened HIPAA-aligned protections but still let engineering teams work productively, run useful queries, and ship secure services without rebuilding the application stack. Key components include Azure SQL Database stores the patient and application data on which Loyal's platform depends; Always Encrypted with secure enclaves keeps sensitive columns encrypted while still allowing protected operations on the data inside a trusted execution environment. Loyal says the design exceeds HIPAA-oriented security expectations, unlocks services it could not confidently offer before, reduces friction for developers, and delivers lower latency with much better performance on large volumes of data.",
+  "products_used": [
+    "Azure SQL Database",
+    "Always Encrypted with secure enclaves"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure SQL Database",
+      "role": "stores the patient and application data on which Loyal's platform depends",
+      "layer": "Storage"
+    },
+    {
+      "name": "Always Encrypted with secure enclaves",
+      "role": "keeps sensitive columns encrypted while still allowing protected operations on the data inside a trusted execution environment",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Sensitive data is encrypted before it reaches Azure SQL Database, processed inside secure enclaves when Loyal needs to run protected database operations, and only decrypted for authorized users or services with the right key access, so application teams can call data safely without exposing patient information in plain text.",
+  "integration_points": [
+    "Patient API service"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Loyal says the design exceeds HIPAA-oriented security expectations, unlocks services it could not confidently offer before, reduces friction for developers, and delivers lower latency with much better performance on large volumes of data.",
+  "outcome_category": [
+    "Compliance",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "lower latency and an order of magnitude better performance on much larger volumes of data"
+  ],
+  "architecture_clues": [
+    "The column encryption key is stored outside of the database.",
+    "Secure enclaves provide hardware-backed isolation for protected operations.",
+    "Loyal is evaluating software-based VBS enclaves for future flexibility."
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/1635968706412485429-loyal-partner-professional-services-azure-sql-database",
+  "published_date": "2023-05-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By deploying Always Encrypted with secure enclaves in Microsoft Azure SQL Database, Loyal exceeds the regulatory requirements for data protection in HIPAA.",
+    "We can now interact with data without exposing patient information in plain text.",
+    "Implementing Always Encrypted with secure enclaves was a no-brainer for us because we get lower latency and an order of magnitude better performance on much larger volumes of data."
+  ]
+}
