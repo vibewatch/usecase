@@ -3,856 +3,103 @@
   "end": "2026-10-11",
   "records": [
     {
-      "architecture_clues": [
-        "Every answer includes a disagree button for structured feedback capture",
-        "GPT-4.1 analyzes feedback points by issue type, tax topic, and likely root cause",
-        "Model releases are tested against 350+ prompts spanning U.S., Canadian, and U.K. tax law",
-        "RAG architecture combines GPT-4.1 with a proprietary library of millions of curated documents",
-        "Users saw updated answers within hours of a major 2025 U.S. tax bill being signed"
-      ],
-      "business_outcome": "Blue J expanded its tax research product across the U.S., Canada, and the U.K., scaled to more than 3,000 firms, saved users 2.7 hours per week, and drove the disagree rate below 1 in 700 answers while keeping pace with major tax-law changes within hours.",
-      "business_problem": "Blue J needed to help tax professionals answer complex questions in a regulated domain where research traditionally requires hours, days, or weeks of reading across statutes, rulings, case law, and commentary, and even small mistakes can trigger audits or costly downstream consequences.",
       "collected_at": "2026-10-11T03:18:30+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "SMB",
-      "confidence_score": 1.0,
       "customer_name": "Blue J",
-      "data_flow": "A tax professional submits a question, the RAG system retrieves the matching primary sources and commentary from Blue J's curated library, and GPT-4.1 synthesizes a cited answer. If the user flags an issue through the disagree button, GPT-4.1 categorizes the feedback, clusters related problems, and helps the product and tax research teams tune retrieval and prompts before updated answers are pushed back to production.",
-      "evidence_quotes": [
-        "\"Blue J's tax research solution is built using a Retrieval-Augmented Generation (RAG) system, combining GPT-4.1 with a proprietary library of millions of curated documents, including authoritative primary sources and expert commentary from sources like Tax Notes.\"",
-        "\"GPT-4.1 powers this triage layer, analyzing thousands of feedback points, clustering related issues, and helping Blue J's product and tax research teams focus their efforts where they'll have the biggest impact.\"",
-        "\"More than 70% of users log in weekly, saving 2.7 hours per user per week on research and client communication.\"",
-        "\"Today, more than 70% of users log in weekly, with a disagree rate of fewer than 1 in 700 responses.\"",
-        "\"Within hours of the bill being signed, users were seeing updated answers in production.\""
-      ],
       "id": "openai-blue-j-tax-research-rag",
-      "industry": "Software / SaaS",
-      "integration_points": [
-        "Authoritative primary sources",
-        "Blue J's proprietary library of millions of curated documents",
-        "Customer feedback via the disagree button",
-        "Tax Notes commentary"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "2.7 hours saved per user weekly",
-        "Benchmark suite of over 350 prompts",
-        "Fewer than 1 in 700 answers disputed",
-        "Launched the first product just six months after ChatGPT's debut",
-        "More than 70% of users log in weekly",
-        "Scaled to three countries and more than 3,000 firms"
-      ],
-      "outcome_category": [
-        "Productivity Improvement",
-        "Risk Reduction",
-        "Speed to Market"
-      ],
-      "products_used": [
-        "GPT-4.1",
-        "Retrieval-Augmented Generation (RAG) system"
-      ],
       "published_date": "2025-08-21",
-      "region": "North America",
+      "record": "data/records/openai/openai-blue-j-tax-research-rag.json",
       "slug": "openai-blue-j-tax-research-rag",
-      "solution_components": [
-        {
-          "layer": "Orchestration",
-          "name": "Retrieval-Augmented Generation (RAG) system",
-          "role": "Retrieves the relevant tax authorities and commentary from Blue J's curated document library before answer generation."
-        },
-        {
-          "layer": "Compute",
-          "name": "GPT-4.1",
-          "role": "Synthesizes cited answers, follows domain-specific instructions, and triages user feedback to improve the product."
-        }
-      ],
-      "solution_summary": "Blue J built a tax-research engine on a Retrieval-Augmented Generation (RAG) system that pairs GPT-4.1 with a proprietary library of millions of curated documents, including authoritative primary sources and expert commentary such as Tax Notes. When a user asks a question, the platform retrieves the relevant statutes, regulations, rulings, case law, and commentary, then uses GPT-4.1 to synthesize a cited answer designed to read like guidance from a trusted colleague. Blue J wrapped that flow in a feedback and evaluation loop: every answer can be disputed through a disagree button, GPT-4.1 clusters issue types and likely root causes across thousands of feedback points, and a benchmark suite of 350+ prompts across U.S., Canadian, and U.K. tax law gates model updates. This closed-loop architecture let the company launch quickly, update answers within hours of major legislation, and scale trusted tax research across multiple countries.",
       "source_url": "https://openai.com/index/blue-j/",
-      "technical_area": [
-        "AI and Machine Learning",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "Enterprise Knowledge Search",
-        "Risk Management"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "Advanced digital employees handle tasks such as payment instruction validation and code security enhancements",
-        "Agents created by certain teams and roles can be shared with up to ten colleagues",
-        "All prompting, agent development, model selection, and sharing stay inside a governed environment",
-        "Centralized AI Hub paired with the Eliza deployment and education platform",
-        "Data use review board, AI release board, and Enterprise AI Council provide layered oversight"
-      ],
-      "business_outcome": "BNY turned generative AI into a governed enterprise platform with more than 125 live use cases, 20,000 employees actively building agents, faster legal review, and training coverage across nearly the entire workforce while keeping permissions, telemetry, and policy oversight embedded in the system.",
-      "business_problem": "BNY wanted to scale generative AI across a systemically important financial institution without treating it as a side experiment, so it needed a governed way for employees to build agents, use frontier models, and access sensitive workflows while preserving trust, oversight, and policy controls.",
       "collected_at": "2026-10-11T03:18:27+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "BNY",
-      "data_flow": "Employees complete responsible-AI training, then use Eliza to prompt models, build agents, and share approved workflows under embedded permissions and oversight. For higher-complexity work, select users invoke ChatGPT Enterprise and deep research across internal and external data, and Eliza's orchestrator layer can pass those outputs into downstream client and operational workflows while governance boards review high-impact cases.",
-      "evidence_quotes": [
-        "\"Contract Review Assistant: Reduces legal review time by 75%, from four hours to one, across 3,000+ annual vendor agreements each year.\"",
-        "\"Our mantra is 'AI for everyone, everywhere, and in everything.'\"",
-        "\"That platform now supports over 125 live use cases, with 20,000 employees actively building agents.\"",
-        "\"The company now has 99% of its workforce trained on Gen AI.\"",
-        "\"Within Eliza, all prompting, agent development, model selection, and sharing happens inside a governed environment.\""
-      ],
       "id": "openai-bny-governed-ai-agent-platform",
-      "industry": "Financial Services",
-      "integration_points": [
-        "Client systems",
-        "Code security enhancement workflows",
-        "External data sources",
-        "Internal bank data",
-        "Payment instruction validation workflows"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "20,000 employees actively building AI agents",
-        "3,000+ annual vendor agreements each year",
-        "46% increase in the number of agents people were building",
-        "75% reduction in legal review time",
-        "99% of the workforce trained on Gen AI",
-        "More than 125 live use cases"
-      ],
-      "outcome_category": [
-        "Compliance",
-        "Productivity Improvement",
-        "Risk Reduction",
-        "Scalability"
-      ],
-      "products_used": [
-        "ChatGPT Enterprise",
-        "Eliza",
-        "deep research"
-      ],
       "published_date": "2025-12-12",
-      "region": "Global",
+      "record": "data/records/openai/openai-bny-governed-ai-agent-platform.json",
       "slug": "openai-bny-governed-ai-agent-platform",
-      "solution_components": [
-        {
-          "layer": "Orchestration",
-          "name": "Eliza",
-          "role": "Serves as BNY's internal platform where employees prompt models, build agents, select tools, and share approved workflows inside a governed environment."
-        },
-        {
-          "layer": "Serving",
-          "name": "ChatGPT Enterprise",
-          "role": "Gives select teams secure access to OpenAI capabilities for higher-stakes legal, risk, and client-preparation work."
-        },
-        {
-          "layer": "Compute",
-          "name": "deep research",
-          "role": "Runs multi-step reasoning across internal and external data to support novel legal questions, scenario planning, and strategic analysis."
-        }
-      ],
-      "solution_summary": "BNY built a centralized AI operating model around its AI Hub and Eliza, an internal AI deployment and education platform where prompting, agent development, model selection, sharing, permissions, and oversight happen inside one governed environment. Employees complete mandatory training before receiving access, then build agents against approved OpenAI capabilities under review from a data use review board, an AI release board, and the Enterprise AI Council. Eliza first supported private agent creation, then expanded to controlled sharing and advanced \"digital employees\" that can handle tasks such as payment instruction validation and code security enhancement. A select group also uses ChatGPT Enterprise with deep research to reason across internal and external data for legal analysis, risk modeling, scenario planning, and client preparation, with an orchestrator layer designed to connect outputs into downstream client workflows.",
       "source_url": "https://openai.com/index/bny/",
-      "technical_area": [
-        "AI and Machine Learning",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "Enterprise Knowledge Search",
-        "IT Operations Automation",
-        "Security and Compliance"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "AI Review Summaries condense large review sets into key themes",
-        "OpenAI models were integrated through Booking.com's existing APIs and data infrastructure",
-        "Property Q&A is fine-tuned on user-generated content and property descriptions",
-        "Smart Filters uses GPT-4o mini to interpret natural-language search intent",
-        "The AI Trip Planner combines structured data with unstructured reviews and descriptions"
-      ],
-      "business_outcome": "Booking.com turned travel planning into a more conversational, personalized experience, shipped its first AI Trip Planner in 10 weeks, and used the same OpenAI-backed foundation to improve search refinement, property answers, review digestion, and partner response workflows.",
-      "business_problem": "Booking.com needed a better way to understand traveler intent during early trip discovery, because rule-based search and hundreds of fixed filters worked only when customers already knew what they wanted and did not handle nuanced, conversational travel requests well.",
       "collected_at": "2026-10-11T03:18:21+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Booking.com",
-      "data_flow": "Traveler prompts enter AI Trip Planner, where GPT models map conversational intent to structured fields such as dates, locations, and availability. The models then combine Booking.com's proprietary pricing and inventory data with reviews, images, listing details, and property descriptions to generate itineraries, filtered search results, property answers, review summaries, and partner replies through the relevant Booking.com experience.",
-      "evidence_quotes": [
-        "\"OpenAI's models were integrated through Booking.com's existing APIs and data infrastructure, allowing teams to rapidly test and iterate on new features.\"",
-        "\"The first prototype, capable of destination discovery and itinerary building, was launched in just 10 weeks.\"",
-        "\"The team integrated OpenAI's GPT models with Booking.com's proprietary data on properties, pricing, and availability.\"",
-        "\"Uses GPT-4o mini to understand natural language prompts like 'sunset views' or 'great gym'.\"",
-        "\"We'd spent years fine-tuning our structured data, like pricing, availability, cancellation policies. But now we could layer in unstructured data, like user reviews, natural language descriptions, and generate curated suggestions based on both.\""
-      ],
       "id": "openai-booking-com-travel-personalization",
-      "industry": "Software / SaaS",
-      "integration_points": [
-        "Booking.com's proprietary property data",
-        "Cancellation policies",
-        "Images",
-        "Listing details",
-        "Partner guest messaging workflows",
-        "Pricing and availability data",
-        "Property descriptions",
-        "User reviews"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "Booking.com data covers the last 20 years",
-        "Booking.com had been using machine learning for over a decade",
-        "The first prototype was launched in just 10 weeks",
-        "The platform offered hundreds of filters"
-      ],
-      "outcome_category": [
-        "Customer Experience",
-        "Productivity Improvement",
-        "Speed to Market"
-      ],
-      "products_used": [
-        "AI Trip Planner",
-        "GPT models",
-        "GPT-4o mini",
-        "Help Me Reply",
-        "Property Q&A"
-      ],
       "published_date": "2026-10-10",
-      "region": "Global",
+      "record": "data/records/openai/openai-booking-com-travel-personalization.json",
       "slug": "openai-booking-com-travel-personalization",
-      "solution_components": [
-        {
-          "layer": "Serving",
-          "name": "AI Trip Planner",
-          "role": "Handles open-ended destination discovery and itinerary building from conversational traveler prompts."
-        },
-        {
-          "layer": "Compute",
-          "name": "GPT models",
-          "role": "Interpret natural-language intent and generate itinerary, discovery, and recommendation outputs from Booking.com's data."
-        },
-        {
-          "layer": "Compute",
-          "name": "GPT-4o mini",
-          "role": "Powers Smart Filters and related natural-language understanding tasks for search refinement and review analysis."
-        },
-        {
-          "layer": "Serving",
-          "name": "Property Q&A",
-          "role": "Answers property-specific traveler questions using user-generated content and property descriptions."
-        },
-        {
-          "layer": "Serving",
-          "name": "Help Me Reply",
-          "role": "Generates automated partner replies and templates for common guest communications."
-        }
-      ],
-      "solution_summary": "Booking.com integrated OpenAI's GPT models into its existing marketplace APIs and data systems to make travel discovery conversational rather than filter-led. The first implementation, AI Trip Planner, translated natural-language prompts into structured travel parameters such as destinations, dates, and availability, then combined proprietary property, pricing, and cancellation data with unstructured inputs like reviews and listing descriptions to generate destination ideas and itineraries. The same foundation expanded into Smart Filters powered by GPT-4o mini, Property Q&A grounded in user-generated content and property descriptions, AI Review Summaries that condense large review sets, and Help Me Reply for partner messaging. Because the models were wired into existing APIs and infrastructure, Booking.com could hack, prototype, and launch the first trip-planning experience in 10 weeks while continuing to iterate on deeper personalization and support automation.",
       "source_url": "https://openai.com/index/booking-com/",
-      "technical_area": [
-        "AI and Machine Learning",
-        "Data Analytics",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "Customer Service Automation",
-        "Marketing Personalization"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "Governance structures were built alongside the technology",
-        "Invoice intake, routing, and responses automated in supply chain operations",
-        "Shared enterprise AI layer instead of one-off tools",
-        "Surgical scheduling uses clinical notes and estimated patient acuity",
-        "Tools that once required extended development cycles can now be deployed in days"
-      ],
-      "business_outcome": "Boston Children's embedded AI into daily operations and clinical discovery, capturing about 60,000 hours of time savings, redeploying more than $7 million of labor, and helping diagnose more than 40 rare conditions while enabling more than one-third of employees to use AI in their daily work.",
-      "business_problem": "Boston Children's needed to reduce the administrative burden of supply-chain, billing, and scheduling work while also helping clinicians reason through rare-disease cases where fragmented genetic data, incomplete clinical histories, and overwhelming medical literature made diagnosis too slow for humans alone.",
       "collected_at": "2026-10-11T03:18:19+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Boston Children's Hospital",
-      "data_flow": "Operational data such as invoices, clinical notes, and scheduling context flows through the enterprise AI layer into the secure internal ChatGPT environment, where automations route supply-chain work and improve operating-room planning. For rare-disease cases, genetic data, phenotypic information, and global medical literature are brought together in the co-pilot geneticist so clinicians can synthesize evidence and produce diagnosis support more quickly.",
-      "evidence_quotes": [
-        "\"Across more than 50 automations, Boston Children's has captured about 60,000 hours in time savings, which is equivalent to more than $7 million in redeployed labor.\"",
-        "\"As a result of this work, more than 40 diagnoses have been made to date that were previously thought impossible.\"",
-        "\"The hospital developed what it describes as a 'co-pilot geneticist,' designed to integrate genetic data, phenotypic information and global medical literature.\"",
-        "\"The hospital shifted to building what Brownstein calls an enterprise AI layer: a secure internal ChatGPT environment used across research, clinical, and administrative teams.\"",
-        "\"Today, more than one-third of employees use AI as part of their daily work.\""
-      ],
       "id": "openai-boston-childrens-hospital-ai-diagnosis-operations",
-      "industry": "Healthcare",
-      "integration_points": [
-        "Clinical notes",
-        "Genetic data",
-        "Global medical literature",
-        "Phenotypic information",
-        "Supply chain invoice intake",
-        "Surgical scheduling workflows"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "About 60,000 hours in time savings",
-        "Across more than 50 automations",
-        "Close to 1 million outpatient visits each year",
-        "Equivalent to more than $7 million in redeployed labor",
-        "More than 40 diagnoses have been made to date",
-        "More than one-third of employees use AI as part of their daily work"
-      ],
-      "outcome_category": [
-        "Cost Reduction",
-        "Customer Experience",
-        "Productivity Improvement"
-      ],
-      "products_used": [
-        "co-pilot geneticist",
-        "enterprise AI layer",
-        "secure internal ChatGPT environment"
-      ],
       "published_date": "2026-10-10",
-      "region": "United States",
+      "record": "data/records/openai/openai-boston-childrens-hospital-ai-diagnosis-operations.json",
       "slug": "openai-boston-childrens-hospital-ai-diagnosis-operations",
-      "solution_components": [
-        {
-          "layer": "Serving",
-          "name": "secure internal ChatGPT environment",
-          "role": "Provides a shared, governed workspace where clinical, research, and administrative teams use AI with internal data and workflow context."
-        },
-        {
-          "layer": "Orchestration",
-          "name": "enterprise AI layer",
-          "role": "Acts as the hospital's common foundation for deploying new AI workflows quickly with safety, monitoring, and evaluation built in."
-        },
-        {
-          "layer": "Compute",
-          "name": "co-pilot geneticist",
-          "role": "Combines genetic data, phenotypic information, and medical literature to support rare-disease diagnosis and discovery."
-        }
-      ],
-      "solution_summary": "Boston Children's built what it calls an enterprise AI layer around a secure internal ChatGPT environment that spans research, clinical, and administrative teams. The hospital created a shared foundation where teams work with internal data, synthesize medical literature, and launch new capabilities under shared governance and monitoring. On the operational side, AI manages invoice intake, routing, and responses in supply chain and analyzes clinical notes plus estimated patient acuity to improve surgical scheduling and operating-room allocation. For clinical discovery, the hospital's \"co-pilot geneticist\" combines genetic data, phenotypic information, and global medical literature so physicians can reason through rare-disease cases that had previously gone unresolved. The platform lets use cases that once required long development cycles reach production in days while supporting care delivery, research, and administration at enterprise scale.",
       "source_url": "https://openai.com/index/boston-childrens-hospital/",
-      "technical_area": [
-        "AI and Machine Learning",
-        "Data Analytics",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "Document Processing",
-        "Enterprise Knowledge Search",
-        "IT Operations Automation"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "Codex operates inside a sandbox environment for controlled experimentation",
-        "Customer requests are copied directly into Codex for implementation",
-        "Engineers write a test that demonstrates the problem before autonomous runs",
-        "Preview branches are used to show working ideas back to customers in real time"
-      ],
-      "business_outcome": "Braintrust shortened the loop from customer request to working preview from backlog timeframes to minutes, moved half of the team onto Codex within a month, and expanded the number of autonomous engineering experiments it can run in controlled environments.",
-      "business_problem": "Braintrust wanted to respond to customer feature requests faster and run more engineering experiments, but slower coding tools and backlog-driven workflows made it costly to turn feedback into working prototypes in real time.",
       "collected_at": "2026-10-11T03:18:12+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Braintrust",
-      "data_flow": "Customer feature requests are pasted into Codex alongside Braintrust's codebase context. For debugging or new ideas, engineers add a test and a sandbox environment, then GPT-5.5 iterates on code until Codex can produce a preview branch. The resulting branch is shown back to customers immediately, tightening the feedback loop before work enters the longer-term roadmap.",
-      "evidence_quotes": [
-        "\"Codex unlocked our ability to try out customer feature requests in real time.\"",
-        "\"In one month, half of the Braintrust team moved to Codex.\"",
-        "\"With Codex, I've shifted to writing a test that demonstrates a problem, creating a sandbox environment, and then letting Codex run in that environment.\"",
-        "\"With Codex, its engineers can now take customer feature requests and create preview branches to show working ideas to customers in minutes.\""
-      ],
       "id": "openai-braintrust-codex-preview-branches",
-      "industry": "Software / SaaS",
-      "integration_points": [
-        "Braintrust codebase",
-        "Customer feature requests from live conversations",
-        "Preview branches shown back to customers",
-        "Sandbox environment",
-        "Test suite"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "50% of the Braintrust team moved to Codex in one month",
-        "Customer feature requests can be turned into preview branches in minutes"
-      ],
-      "outcome_category": [
-        "Customer Experience",
-        "Productivity Improvement",
-        "Speed to Market"
-      ],
-      "products_used": [
-        "Codex",
-        "GPT-5.5"
-      ],
       "published_date": "2026-05-29",
-      "region": "North America",
+      "record": "data/records/openai/openai-braintrust-codex-preview-branches.json",
       "slug": "openai-braintrust-codex-preview-branches",
-      "solution_components": [
-        {
-          "layer": "Orchestration",
-          "name": "Codex",
-          "role": "Provides the coding environment where engineers turn customer requests into preview branches and run autonomous code experiments."
-        },
-        {
-          "layer": "Compute",
-          "name": "GPT-5.5",
-          "role": "Generates and iterates on code changes quickly enough for real-time customer ideation and sandboxed problem solving."
-        }
-      ],
-      "solution_summary": "Braintrust uses Codex with GPT-5.5 as an agentic coding workflow around its observability and eval platform for AI products. Engineers paste live customer feature requests into Codex, point it at the relevant repository, and ask it to generate preview branches they can show back to customers in minutes instead of parking the request in backlog for later prioritization. For harder problems, the team writes a failing test, provisions a sandbox environment, and lets Codex run autonomously in that controlled workspace until it proposes a fix. This combines customer input, tests, and the existing codebase with a fast terminal-native model that can iterate without slowing down, so engineers can ideate with customers in real time, try more experiments, and move more quickly from request to working software.",
       "source_url": "https://openai.com/index/braintrust/",
-      "technical_area": [
-        "Application Modernization",
-        "DevOps",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "Application Refactoring",
-        "IT Operations Automation"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "Astra refactored the code so one frontend and backend could support many workflows in parallel, each with its own settings.",
-        "Every session's requests, data traces, and results were recorded in Command for later review.",
-        "The best policy let screenshots accumulate to 20 before trimming back to the most recent one.",
-        "The study compared four models, two history budgets (120,000 and 480,000 characters), and six caching and screenshot policies."
-      ],
-      "business_outcome": "Asana reduced browser-agent model cost and runtime enough to put a stronger model in front of customers, compressed engineering experimentation from months to about a week, and extended the same agentic approach into automated product testing.",
-      "business_problem": "Asana needed to cut the cost and latency of its StackAI browser agent so it could offer customers more capable models for browser-driven workflows without unsustainable operating expense.",
       "collected_at": "2026-10-11T03:18:09+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Asana",
-      "data_flow": "Browser tasks start in StackAI, where agents navigate websites and business applications. GPT-6.1 Sol receives instructions plus retained page text and screenshots; the optimized policy keeps more history cacheable and batches screenshot pruning. GPT-6 Astra in Codex ran the experiments that produced this policy, and Command stored the traces and outcomes before findings were shipped to production.",
-      "evidence_quotes": [
-        "Astra conducted the full study: history budgets of 120,000 and 480,000 characters and six caching and screenshot policies, each tested three times on each of the four models.",
-        "Cost used to limit which models we could offer customers for these workloads. By making the agent more efficient, we can give customers a better, faster model while lowering our operating costs.",
-        "Every session's requests, data traces and results were recorded in Command, Asana's software delivery platform, so the team could review the complete study afterward.",
-        "GPT-6 Astra discovered that the agent cached its fixed instructions and tool definitions, but not the growing history of page text and screenshots it gathered, so every request resent that history at full price.",
-        "With GPT-6 Astra in Codex running experiments, Asana optimized its browser agent's workflow on GPT-6.1 Sol to run 76x cheaper and 5x faster."
-      ],
       "id": "openai-asana-browser-agent-optimization",
-      "industry": "Software / SaaS",
-      "integration_points": [
-        "Customer business applications automated through StackAI",
-        "Public demo catalog used for controlled experiments",
-        "Tickets and pull requests in Asana's software delivery workflow",
-        "Websites navigated by StackAI browser agents"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "$0.47 average estimated model cost with the optimized GPT-6.1 Sol workflow",
-        "144-run study",
-        "5x faster browser runs with the optimized GPT-6.1 Sol workflow",
-        "76x lower estimated model costs with the optimized GPT-6.1 Sol workflow",
-        "89% of the input came from cache at 5% of the uncached price",
-        "Answer-producing runs on GPT-6.1 Sol rose from 3 of 18 to all 18 with the larger history budget",
-        "Model B cost reduced from at least $36.21 to $1.24 per run, a reduction of 29x",
-        "On GPT-6.1 Sol alone, cost reduced 4x from $1.97 to $0.47 per run",
-        "One to two months by hand reduced to about a week with GPT-6 Astra in Codex"
-      ],
-      "outcome_category": [
-        "Cost Reduction",
-        "Customer Experience",
-        "Productivity Improvement",
-        "Speed to Market"
-      ],
-      "products_used": [
-        "Codex",
-        "Command",
-        "GPT-6 Astra",
-        "GPT-6.1 Sol",
-        "StackAI"
-      ],
       "published_date": "2026-10-09",
-      "region": "North America",
+      "record": "data/records/openai/openai-asana-browser-agent-optimization.json",
       "slug": "openai-asana-browser-agent-optimization",
-      "solution_components": [
-        {
-          "layer": "Serving",
-          "name": "StackAI",
-          "role": "Hosts the no-code browser agent that navigates websites, fills forms, and gathers information for customer workflows."
-        },
-        {
-          "layer": "Compute",
-          "name": "GPT-6 Astra",
-          "role": "Mapped the codebase, proposed fixes, and ran controlled optimization and testing experiments on the browser agent."
-        },
-        {
-          "layer": "Orchestration",
-          "name": "Codex",
-          "role": "Provided the agentic coding environment where Astra inspected the system, executed tests, and iterated on workflow changes."
-        },
-        {
-          "layer": "Compute",
-          "name": "GPT-6.1 Sol",
-          "role": "Runs the optimized production browser workflow after Asana selected the best caching and history policy."
-        },
-        {
-          "layer": "Governance",
-          "name": "Command",
-          "role": "Captured requests, traces, and results so the team could review findings and promote changes through tickets and pull requests."
-        }
-      ],
-      "solution_summary": "Asana used GPT-6 Astra in Codex to instrument and optimize the StackAI browser agent that automates work across business applications. Astra first mapped the codebase and request construction path, showing that fixed instructions and tool definitions were cached but the accumulating page text and screenshots were being resent on every call. Frank Hidalgo then used Astra to refactor the frontend and backend so many workflow configurations could run in parallel, and to execute a 144-run experiment across four models, two history budgets, and six caching and screenshot policies. Requests, traces, and results were captured in Command, Asana's software delivery platform, where the team reviewed findings, turned them into tickets and pull requests, and pushed the winning setup to production. The production browser workflow now runs on GPT-6.1 Sol with a larger history budget, extended history caching, and batched screenshot retention.",
       "source_url": "https://openai.com/index/asana-browser-agent/",
-      "technical_area": [
-        "Application Modernization",
-        "DevOps",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "Application Refactoring",
-        "IT Operations Automation"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "Potentially destructive actions are still routed for human judgement.",
-        "Sophos Fusion is the AI-native cyber defense system behind the rollout and includes the MDR service.",
-        "Sophos enforces three customer control modes - Notify, Collaborate, and Authorise - for both human and agent actions.",
-        "The investigation agent gathers customer context, detections, indicators of compromise (IoCs), and relevant threat intelligence for each case.",
-        "The planning model uses a plan-execute-review loop to generate investigation steps and response summaries."
-      ],
-      "business_outcome": "Sophos shortened case response time from roughly 38 minutes to about 89 seconds for agent-assisted investigations, resolved over half of MDR cases end-to-end with AI, and delivered more consistent investigations while letting analysts focus on higher-judgement exceptions and decisions.",
-      "business_problem": "Sophos needed to investigate and respond to a growing volume of cyber threats faster, while scaling its expertise across every protected customer without matching growth in scarce analyst headcount.",
       "collected_at": "2026-10-11T03:18:07+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Unknown",
-      "confidence_score": 1.0,
       "customer_name": "Sophos",
-      "data_flow": "Telemetry from Sophos tools and 500+ third-party integrations flows into Sophos Fusion, where trillions of daily events are distilled into 1,000 to 2,000 MDR cases. A Daybreak investigation agent assembles customer context, detections, IoCs, and threat intelligence; an OpenAI planning model executes a plan-review loop and writes a response summary. Analysts or additional agents then act inside Notify, Collaborate, or Authorise boundaries before MDR closes or escalates the case.",
-      "evidence_quotes": [
-        "A planning model then creates a plan-execute-review loop: building an investigation plan, completing the steps and producing a summary with recommended response actions for analysts to review.",
-        "An investigation agent gathers the customer context, detections, indicators of compromise (IoCs) and relevant threat intelligence for each case.",
-        "At the centre of the work is Sophos Fusion, the Sophos AI-native cyber defense system that includes Sophos Managed Detection and Response (MDR).",
-        "It brings together sensor data from more than 500 third-party integrations alongside Sophos's own products.",
-        "The average response time for cases using those agents has fallen to about 89 seconds. About half of the cases we handle are now being automated by agents we developed using the Daybreak models."
-      ],
       "id": "openai-sophos-mdr-investigation-automation",
-      "industry": "Software / SaaS",
-      "integration_points": [
-        "500+ third-party integrations",
-        "Customer environments monitored by MDR",
-        "Nine security operations centres",
-        "Sophos security products"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "52% of MDR cases resolved end-to-end by AI",
-        "89 seconds average response time for cases using AI agents",
-        "96% reduction in investigation time using OpenAI models",
-        "More than 500 third-party integrations",
-        "More than 625,000 organisations protected",
-        "Nine security operations centres",
-        "Previous average process time of around 38 minutes",
-        "Roughly 1,000 to 2,000 cases investigated",
-        "Trillions of events every day"
-      ],
-      "outcome_category": [
-        "Customer Experience",
-        "Productivity Improvement",
-        "Risk Reduction",
-        "Scalability"
-      ],
-      "products_used": [
-        "OpenAI Daybreak",
-        "OpenAI models",
-        "Sophos Fusion",
-        "Sophos Managed Detection and Response (MDR)"
-      ],
       "published_date": "2026-10-09",
-      "region": "Global",
+      "record": "data/records/openai/openai-sophos-mdr-investigation-automation.json",
       "slug": "openai-sophos-mdr-investigation-automation",
-      "solution_components": [
-        {
-          "layer": "Orchestration",
-          "name": "Sophos Fusion",
-          "role": "Aggregates telemetry from Sophos products and third-party integrations, distills events into cases, and anchors the AI-native defense workflow."
-        },
-        {
-          "layer": "Serving",
-          "name": "Sophos Managed Detection and Response (MDR)",
-          "role": "Provides the managed service where cases are investigated, reviewed, and acted on under customer-selected operating modes."
-        },
-        {
-          "layer": "Orchestration",
-          "name": "OpenAI Daybreak",
-          "role": "Provides the agent-building program Sophos used to create investigation and response agents for MDR cases."
-        },
-        {
-          "layer": "Compute",
-          "name": "OpenAI models",
-          "role": "Supply the frontier intelligence used for investigation planning, summarization, and partial response automation."
-        }
-      ],
-      "solution_summary": "Sophos deployed OpenAI Daybreak across Sophos Fusion, its AI-native cyber defense system and Managed Detection and Response service, to scale investigations without scaling analyst headcount. Sensor data from Sophos products and more than 500 third-party integrations feeds Fusion, where trillions of daily events are distilled into roughly 1,000 to 2,000 cases for nine security operations centres. Daybreak agents assemble customer context, detections, indicators of compromise, and relevant threat intelligence for each case, then a planning model runs a plan-execute-review loop that builds an investigation plan, executes the steps, and produces a response summary for analysts to review. Additional agents can perform parts of the response inside Sophos's Notify, Collaborate, and Authorise operating modes, so destructive actions remain under customer-approved human oversight while routine work is accelerated.",
       "source_url": "https://openai.com/index/sophos/",
-      "technical_area": [
-        "AI and Machine Learning",
-        "Cybersecurity",
-        "Generative AI / LLM"
-      ],
-      "use_case_category": [
-        "IT Operations Automation",
-        "Security and Compliance"
-      ],
       "vendor": "OpenAI"
     },
     {
-      "architecture_clues": [
-        "AI Vector Search co-located with operational data—no separate vector store",
-        "Chatbot for both customers and internal customer-care agents",
-        "OCI Generative AI for chatbot LLM",
-        "Oracle Autonomous AI Database as unified data platform"
-      ],
-      "business_outcome": "Uniti deflected billing-related call-center load with a 24/7 chatbot, reduced manual data correlation by agents, and delivered self-service answers grounded in Uniti's authoritative billing data via AI Vector Search.",
-      "business_problem": "Uniti's customer-care team was answering more than 10,000 monthly billing-related inquiries by manually correlating data across multiple billing, CRM, and operations systems—a high-cost, latency-prone workflow that limited 24/7 self-service for enterprise telecom customers.",
       "collected_at": "2026-10-11T01:33:20+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Uniti Group",
-      "evidence_quotes": [
-        "The chatbot grounds every answer in Uniti's authoritative billing, CRM, and operational data.",
-        "Uniti uses Oracle Autonomous AI Database with AI Vector Search and OCI Generative AI to provide 24/7 self-service answers to more than 10,000 monthly billing-related customer inquiries."
-      ],
       "id": "oracle-uniti-autonomous-ai-database-genai",
-      "industry": "Telecommunications",
-      "integration_points": [
-        "CRM systems",
-        "agent support platforms",
-        "billing data sources",
-        "billing systems",
-        "customer support channels",
-        "operational systems"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "10,000+ monthly billing-related customer inquiries handled",
-        "24/7 chatbot availability"
-      ],
-      "outcome_category": [
-        "Cost Reduction",
-        "Customer Experience",
-        "Productivity Improvement"
-      ],
-      "products_used": [
-        "OCI Generative AI",
-        "Oracle AI Vector Search",
-        "Oracle Autonomous AI Database"
-      ],
       "published_date": "unknown",
-      "region": "United States",
+      "record": "data/records/oracle/oracle-uniti-autonomous-ai-database-genai.json",
       "slug": "oracle-uniti-autonomous-ai-database-genai",
-      "solution_components": [
-        {
-          "layer": "Storage",
-          "name": "Oracle Autonomous AI Database",
-          "role": "Unified data platform consolidating billing, CRM, and operational data; hosts AI Vector Search indexes for semantic FAQ and documentation search."
-        },
-        {
-          "layer": "Serving",
-          "name": "Oracle AI Vector Search",
-          "role": "Semantic search engine for FAQ, billing policies, and documentation; embedded in Autonomous Database; enables AI chatbot to ground answers in authoritative data."
-        },
-        {
-          "layer": "Serving",
-          "name": "OCI Generative AI",
-          "role": "Large language model service powering chatbot conversational reasoning and natural language understanding; delivers 24/7 self-service support."
-        }
-      ],
-      "solution_summary": "Uniti Group, a telecommunications company managing 10K+ monthly billing-related customer inquiries, consolidated billing, CRM, and operational data into Oracle Autonomous AI Database and deployed a 24/7 generative-AI chatbot powered by OCI Generative AI and Oracle AI Vector Search to deflect call-center load. The chatbot answers customer and agent queries in natural language, grounding every response in authoritative billing data via vector search indexes, reducing manual data correlation by agents and enabling self-service billing support.",
       "source_url": "https://www.oracle.com/customers/uniti-group/",
-      "technical_area": [
-        "AI / Machine Learning",
-        "Data Platform",
-        "Generative AI"
-      ],
-      "use_case_category": [
-        "Customer Service Automation",
-        "Generative AI Chat / Assistant",
-        "Knowledge Retrieval"
-      ],
       "vendor": "Oracle"
     },
     {
-      "architecture_clues": [
-        "Backed by Oracle Database on OCI",
-        "OCI Kubernetes Engine for hosting containerized services",
-        "Oracle APEX as standard low-code platform"
-      ],
-      "business_outcome": "NRI delivered 11+ applications on Oracle APEX with ~65% less development effort than traditional custom-code projects, accelerating internal IT and client-engagement delivery.",
-      "business_problem": "Nomura Research Institute, a leading Japanese systems-integration and consulting firm, needed a way for its consultants and developers to build internal and customer-facing data applications quickly without long, custom-coded development cycles, while keeping data and applications close to its existing Oracle Database estate.",
       "collected_at": "2026-10-11T01:33:20+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Nomura Research Institute (NRI)",
-      "evidence_quotes": [
-        "NRI delivered more than 11 applications on Oracle APEX, reducing development effort by approximately 65%.",
-        "Nomura Research Institute (NRI) standardized on Oracle APEX to deliver internal and client-facing applications quickly on Oracle Cloud Infrastructure."
-      ],
       "id": "oracle-nri-apex-low-code",
-      "industry": "Software / SaaS",
-      "integration_points": [
-        "NRI consulting engagements",
-        "client-facing application portals",
-        "existing Oracle Database estate",
-        "internal IT systems",
-        "microservice architectures"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "11+ applications built on Oracle APEX",
-        "~65% reduction in development effort vs traditional development"
-      ],
-      "outcome_category": [
-        "Cost Reduction",
-        "Productivity Improvement",
-        "Scalability"
-      ],
-      "products_used": [
-        "OCI Kubernetes Engine",
-        "Oracle APEX",
-        "Oracle Database"
-      ],
       "published_date": "unknown",
-      "region": "Asia Pacific",
+      "record": "data/records/oracle/oracle-nri-apex-low-code.json",
       "slug": "oracle-nri-apex-low-code",
-      "solution_components": [
-        {
-          "layer": "Serving",
-          "name": "Oracle APEX",
-          "role": "Low-code rapid application development platform enabling NRI consultants to build internal and client-facing data applications 65% faster than custom development."
-        },
-        {
-          "layer": "Storage",
-          "name": "Oracle Database",
-          "role": "Backing data store for all 11+ APEX applications; maintains consistency with NRI's existing Oracle Database estate."
-        },
-        {
-          "layer": "Compute",
-          "name": "OCI Kubernetes Engine",
-          "role": "Container orchestration for hosting containerized APEX services and microservices."
-        }
-      ],
-      "solution_summary": "Nomura Research Institute (NRI), a leading Japanese systems-integration and consulting firm, standardized on Oracle APEX as its rapid application development platform on Oracle Cloud Infrastructure to accelerate internal IT and client-facing application delivery. By leveraging Oracle Database and OCI Kubernetes Engine, NRI delivered 11+ applications using APEX with approximately 65% reduction in development effort compared to traditional custom-code development, enabling consultants to focus on business logic rather than infrastructure.",
       "source_url": "https://www.oracle.com/customers/nri/",
-      "technical_area": [
-        "Application Modernization",
-        "Cloud Native",
-        "Data Platform"
-      ],
-      "use_case_category": [
-        "Application Refactoring",
-        "IT Operations Automation",
-        "Knowledge Retrieval"
-      ],
       "vendor": "Oracle"
     },
     {
-      "architecture_clues": [
-        "Runs on Oracle Cloud Infrastructure",
-        "Single Oracle Fusion Cloud suite for ERP, EPM, and HCM"
-      ],
-      "business_outcome": "Baylor replaced 17–18 systems with one Oracle cloud platform, cut new-hire onboarding from 26 steps to 6–7, reduced payroll runs per cycle from 11 to 2, and gained the financial visibility needed to scale a $37M online-education business while pursuing research-university status.",
-      "business_problem": "Baylor University was operating 17–18 disparate finance, HR, and planning systems with manual processes—new-hire onboarding required up to 26 separate steps and payroll was run 11 times per pay cycle. The university also needed scalable systems to support a fast-growing online education business approaching $37M in revenue and a research-university growth strategy.",
       "collected_at": "2026-10-11T01:33:20+00:00",
-      "collected_week": "2026-W41",
-      "company_size": "Enterprise",
-      "confidence_score": 1.0,
       "customer_name": "Baylor University",
-      "data_flow": "Finance, HR, and planning data from 17–18 legacy systems flows into Oracle Fusion Cloud ERP, HCM, and EPM; onboarding and payroll workflows process transformed data; integration provides single source of truth.",
-      "evidence_quotes": [
-        "Baylor University replaced 17 to 18 disparate finance, HR, and planning systems with Oracle Fusion Cloud ERP, EPM, and HCM.",
-        "Baylor's online-education business has grown to $37 million in revenue.",
-        "New-hire onboarding now takes 6 or 7 steps instead of 26, and payroll runs were reduced from 11 to 2 per cycle."
-      ],
       "id": "oracle-baylor-fusion-cloud-erp-hcm",
-      "industry": "Education",
-      "integration_points": [
-        "17–18 legacy finance/HR/planning systems",
-        "new student and employee workflows",
-        "online education business operations",
-        "payroll processing",
-        "research administration"
-      ],
-      "is_sample": false,
-      "maturity_score": 6,
-      "metrics": [
-        "$37M online education revenue supported",
-        "17–18 disparate systems consolidated into 1",
-        "Hiring steps reduced from 26 to 6–7",
-        "Payroll runs per cycle reduced from 11 to 2"
-      ],
-      "outcome_category": [
-        "Cost Reduction",
-        "Productivity Improvement",
-        "Scalability"
-      ],
-      "products_used": [
-        "Oracle Cloud Infrastructure",
-        "Oracle Fusion Cloud EPM",
-        "Oracle Fusion Cloud ERP",
-        "Oracle Fusion Cloud HCM"
-      ],
       "published_date": "unknown",
-      "region": "United States",
+      "record": "data/records/oracle/oracle-baylor-fusion-cloud-erp-hcm.json",
       "slug": "oracle-baylor-fusion-cloud-erp-hcm",
-      "solution_components": [
-        {
-          "layer": "Storage",
-          "name": "Oracle Fusion Cloud ERP",
-          "role": "Consolidates financial data from legacy systems; manages accounts payable, receivable, and general ledger."
-        },
-        {
-          "layer": "Serving",
-          "name": "Oracle Fusion Cloud EPM",
-          "role": "Provides enterprise planning and budgeting across finance and research operations."
-        },
-        {
-          "layer": "Storage",
-          "name": "Oracle Fusion Cloud HCM",
-          "role": "Centralizes HR data, automates new-hire onboarding, manages payroll, and benefits administration for university workforce."
-        },
-        {
-          "layer": "Compute",
-          "name": "Oracle Cloud Infrastructure",
-          "role": "Provides cloud hosting, scalability, and infrastructure for the unified Fusion Cloud suite."
-        }
-      ],
-      "solution_summary": "Baylor University consolidated finance, planning, and HR data from 17–18 disparate legacy systems onto a unified Oracle Fusion Cloud suite (ERP, EPM, and HCM) hosted on Oracle Cloud Infrastructure. The integration redesigned hiring onboarding from 26 manual steps to 6–7 automated steps, reduced payroll cycle runs from 11 to 2, and provided the financial visibility and scalability needed to support rapid growth in online education ($37M revenue) and pursue research-university expansion.",
       "source_url": "https://www.oracle.com/customers/baylor-university/",
-      "technical_area": [
-        "Application Modernization",
-        "Cloud Migration",
-        "ERP / CRM"
-      ],
-      "use_case_category": [
-        "Application Refactoring",
-        "IT Operations Automation",
-        "System Migration"
-      ],
       "vendor": "Oracle"
     }
   ],

@@ -64,11 +64,16 @@ flowchart TD
   db[(data/usecase_intel.sqlite<br/>built)]
   gen[data/case-studies.generated.json<br/>built, consumed by Astro]
   weekly[data/weekly/&lcub;year&rcub;/&lcub;YYYY-Www&rcub;.json<br/>tracked, week ledger]
-  dash[dist/index.html + dist/cases/&lcub;slug&rcub;/ + dist/data/weeks/*.json]
+  dash[dist/index.html + dist/cases/&lcub;slug&rcub;/ + browse/hub pages]
+  triage[data/triage.jsonl<br/>tracked, keep/drop + score]
+  pf[dist/pagefind/<br/>chunked search index]
 
   src -- discover.py --> disc
-  disc -- fetch.py --> raw
+  disc -- triage.py pre --> triage
+  disc -- fetch.py skips drops --> raw
   fetch.py --> manifest
+  raw -- triage.py post + dates --> triage
+  triage -- keep, by score --> job
   raw -- extract.py + clean.py --> job
   job -- "agent reads & authors" --> rec
   rec -- merge_records.py --> merged
@@ -77,6 +82,7 @@ flowchart TD
   gen -- partition.py --> weekly
   manifest -. first fetch date .-> weekly
   gen -- astro build --> dash
+  dash -- pagefind --> pf
 ```
 
 Every arrow is **idempotent**: rerunning a step skips inputs already
@@ -99,12 +105,21 @@ resumable — kill it mid-run, fix a bug, rerun.
 - **merge → seed → export** is deterministic projection: take the authored
   records, fold in samples, normalize, score, store, dump back as a single
   JSON for the dashboard.
+- **triage** filters before the only expensive step. `pre` drops URLs whose
+  discovery date predates the cutoff; `post` judges fetched text (publish
+  date, length, language, topic, duplicates, redirects) and scores survivors;
+  `dates` asks the Internet Archive when undated survivors first appeared;
+  the extractor itself can reject non-stories (`--stage reject`). Criteria
+  live in `config/triage.json`; decisions are an append-only ledger.
 - **partition** assigns each record to the ISO week it was first collected
   (earliest successful fetch, else build date), writes committed weekly files
-  under `data/weekly/`, and stamps `collected_at` / `collected_week` onto the
-  generated JSON. Existing assignments are read back from the weekly files, so
-  a record never changes week. The site publishes one slim JSON shard per week
-  and lazy-loads older weeks.
+  under `data/weekly/` (references, not copies), and stamps `collected_at` /
+  `collected_week` onto the generated JSON. Existing assignments are read back
+  from the weekly files, so a record never changes week.
+- **search** — after `astro build`, Pagefind indexes every case page
+  (`data-pagefind-body`) with filter values, card metadata and sort keys.
+  `/explore/` queries it in the browser, loading only the chunks a query
+  needs; `/browse/` and the facet hubs are static paginated fallbacks.
 
 ## 4. Agent-in-the-loop design (the unusual part)
 

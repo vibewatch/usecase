@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable, Optional
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin
 from xml.etree import ElementTree
 
 from .fetch_client import FetchClient
@@ -135,6 +135,66 @@ def _walk_sitemap(
     return matched
 
 
+def _walk_aws_directory(
+    client: FetchClient,
+    api: dict,
+    *,
+    include_patterns: list[re.Pattern[str]],
+    exclude_patterns: list[re.Pattern[str]],
+    since: Optional[str] = None,
+    enough: Optional[int] = None,
+) -> list[tuple[str, Optional[str], Optional[str]]]:
+    """Page through an aws.amazon.com directory API (newest first).
+
+    Returns `[(url, sort_date_yyyy_mm_dd | None, headline | None), ...]`. Stops at
+    the first item older than `since`, since results are sorted by date desc.
+    """
+    size = int(api.get("page_size", 50))
+    matched: list[tuple[str, Optional[str], Optional[str]]] = []
+    seen: set[str] = set()
+    page = 0
+    while True:
+        params = {
+            "item.directoryId": api["directory_id"],
+            "sort_by": "item.additionalFields.sortDate",
+            "sort_order": "desc",
+            "size": size,
+            "page": page,
+        }
+        if api.get("locale"):
+            params["item.locale"] = api["locale"]
+        url = f"{api['url']}?{urlencode(params)}"
+        print(f"  api page {page} {url}", file=sys.stderr, flush=True)
+        try:
+            payload = json.loads(client.fetch(url, use_cache=False).body)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  api fetch failed: {url} -> {exc}", file=sys.stderr, flush=True)
+            break
+        items = payload.get("items") or []
+        if not items:
+            break
+        for entry in items:
+            fields = (entry.get("item") or {}).get("additionalFields") or {}
+            link = str(fields.get("headlineUrl") or "").split("?")[0].split("#")[0]
+            sort_date = str(fields.get("sortDate") or "")[:10] or None
+            if since and sort_date and sort_date < since:
+                print(f"  api walk: reached {sort_date} < {since}, stopping", file=sys.stderr, flush=True)
+                return matched
+            if not link or link in seen:
+                continue
+            seen.add(link)
+            if include_patterns and not any(p.search(link) for p in include_patterns):
+                continue
+            if any(p.search(link) for p in exclude_patterns):
+                continue
+            matched.append((link, sort_date, fields.get("headline")))
+            if enough is not None and len(matched) >= enough:
+                return matched
+        page += 1
+    print(f"  api walk done: {page} page(s), {len(matched)} matches", file=sys.stderr, flush=True)
+    return matched
+
+
 def _extract_index_links(client: FetchClient, index_url: str) -> list[str]:
     print(f"  index {index_url}", file=sys.stderr, flush=True)
     try:
@@ -190,6 +250,7 @@ def discover(
     use_sitemaps: bool = True,
     use_index_pages: bool = True,
     max_sitemaps: int = 20,
+    since: Optional[str] = None,
 ) -> dict[str, int]:
     config = load_json(sources_path, {})
     if not isinstance(config, dict):
@@ -216,6 +277,22 @@ def discover(
             exclude = [re.compile(p) for p in source.get("exclude_patterns", [])]
 
             filtered_sitemap: list[tuple[str, Optional[str]]] = []
+            titles: dict[str, str] = {}
+            for api in source.get("apis", []):
+                if api.get("type") != "aws-directory":
+                    print(f"  unknown api type: {api.get('type')}", file=sys.stderr, flush=True)
+                    continue
+                for url, lastmod, title in _walk_aws_directory(
+                    client,
+                    api,
+                    include_patterns=include,
+                    exclude_patterns=exclude,
+                    since=since,
+                    enough=limit_per_vendor,
+                ):
+                    filtered_sitemap.append((url, lastmod))
+                    if title:
+                        titles[url] = title
             if use_sitemaps:
                 for sitemap in source.get("sitemaps", []):
                     filtered_sitemap.extend(
@@ -251,6 +328,10 @@ def discover(
             # Newest first so a --limit cap keeps recent URLs over stale ones.
             combined.sort(key=lambda item: (item[2] is not None, item[2] or ""), reverse=True)
 
+            if since:
+                # Known-stale URLs never enter the queue; unknown dates are judged after fetch.
+                combined = [item for item in combined if not item[2] or item[2] >= since]
+
             if limit_per_vendor is not None:
                 combined = combined[:limit_per_vendor]
 
@@ -264,6 +345,7 @@ def discover(
                             "discovered_at": now,
                             "source": source_kind,
                             "lastmod": lastmod,
+                            **({"title": titles[url]} if url in titles else {}),
                         },
                         ensure_ascii=False,
                     )
@@ -286,6 +368,12 @@ def main() -> None:
     parser.add_argument("--vendor", type=str, default=None, help="Restrict to one vendor name")
     parser.add_argument("--limit-per-vendor", type=int, default=None)
     parser.add_argument("--max-sitemaps", type=int, default=20, help="Cap on sitemap fetches per source")
+    parser.add_argument(
+        "--since",
+        type=str,
+        default=None,
+        help="Skip URLs whose sitemap/API date is older than this (YYYY-MM-DD); unknown dates are kept",
+    )
     parser.add_argument("--skip-sitemaps", action="store_true", help="Use index pages only")
     parser.add_argument("--skip-index", action="store_true", help="Use sitemaps only")
     parser.add_argument(
@@ -305,6 +393,7 @@ def main() -> None:
         use_sitemaps=not args.skip_sitemaps,
         use_index_pages=not args.skip_index,
         max_sitemaps=args.max_sitemaps,
+        since=args.since,
     )
     total = sum(counts.values())
     print(f"Discovered {total} new urls across {len(counts)} vendors -> {args.output}")

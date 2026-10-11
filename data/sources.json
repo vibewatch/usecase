@@ -4,8 +4,15 @@
   "sources": [
     {
       "vendor": "AWS",
-      "sitemaps": [
-        "https://aws.amazon.com/api/dirs/items/search?item.directoryId=case-studies&sort_by=item.additionalFields.sortDate&sort_order=desc&size=50"
+      "sitemaps": [],
+      "apis": [
+        {
+          "type": "aws-directory",
+          "url": "https://aws.amazon.com/api/dirs/items/search",
+          "directory_id": "customer-references",
+          "locale": "en_US",
+          "page_size": 50
+        }
       ],
       "index_pages": [
         "https://aws.amazon.com/solutions/case-studies/"
@@ -21,12 +28,14 @@
         "filter=",
         "#",
         "\\?"
-      ]
+      ],
+      "lastmod_is_published": true
     },
     {
       "vendor": "Google Cloud",
       "sitemaps": [
-        "https://cloud.google.com/sitemap.xml"
+        "https://cloud.google.com/sitemapindex.xml",
+        "https://cloud.google.com/cgc/sitemapindex.xml"
       ],
       "index_pages": [
         "https://cloud.google.com/customers"
@@ -43,7 +52,7 @@
     {
       "vendor": "Microsoft",
       "sitemaps": [
-        "https://www.microsoft.com/en-us/sitemap.xml"
+        "https://www.microsoft.com/sitemaps/customers/sitemap_en.xml"
       ],
       "index_pages": [
         "https://www.microsoft.com/en-us/customers"
@@ -144,12 +153,13 @@
         "playlist",
         "#",
         "\\?"
-      ]
+      ],
+      "always_on_topic": true
     },
     {
       "vendor": "OpenAI",
       "sitemaps": [
-        "https://openai.com/sitemap.xml"
+        "https://openai.com/sitemap.xml/page/"
       ],
       "index_pages": [],
       "url_patterns": [
@@ -162,7 +172,8 @@
         "/policies/",
         "#",
         "\\?"
-      ]
+      ],
+      "always_on_topic": true
     },
     {
       "vendor": "Anthropic",
@@ -178,7 +189,8 @@
         "/customers/?$",
         "#",
         "\\?"
-      ]
+      ],
+      "always_on_topic": true
     }
   ]
 }

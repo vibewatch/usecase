@@ -13,8 +13,8 @@ import {
   uniqueSorted,
 } from "../lib/analytics";
 import { caseStudies } from "../lib/caseStudies";
+import { facetHref, sortNewest } from "../lib/facets";
 import { caseHref, href } from "../lib/paths";
-import type { CardRecord, WeekGroup } from "../lib/weeks";
 import { groupByWeek, toCardRecord, UNDATED_WEEK, weekShortLabel } from "../lib/weeks";
 import { vendorStyle } from "../lib/vendors";
 
@@ -26,8 +26,6 @@ const sampleCount = caseStudies.length - realRecords.length;
 
 const vendors = uniqueSorted(caseStudies.map((record) => record.vendor));
 const industries = uniqueSorted(caseStudies.map((record) => record.industry));
-const technicalAreas = uniqueSorted(flattenValues(caseStudies, (record) => record.technical_area));
-const useCases = uniqueSorted(flattenValues(caseStudies, (record) => record.use_case_category));
 
 const vendorCounts = countValues(signal.map((record) => record.vendor));
 const industryCounts = countValues(signal.map((record) => record.industry));
@@ -35,35 +33,8 @@ const topUseCases = topValues(flattenValues(signal, (record) => record.use_case_
 const topProducts = topValues(flattenValues(signal, (record) => record.products_used), 8);
 const topOutcomes = topValues(flattenValues(signal, (record) => record.outcome_category), 8);
 
-// Weekly partitions: render up to INITIAL_RECORDS cards inline (newest weeks
-// first) and lazy-load the rest from per-week shards. A week cut part-way is
-// rendered partially; its shard fills in the remainder (`skip`).
-const INITIAL_RECORDS = 24;
+// Weekly collection batches (data/weekly), used for the cadence chart and KPIs.
 const groups = groupByWeek(caseStudies);
-const initialGroups: WeekGroup[] = [];
-const deferredWeeks: Array<{ week: string; label: string; count: number; skip: number; url: string }> = [];
-let initialCount = 0;
-for (const group of groups) {
-  const budget = INITIAL_RECORDS - initialCount;
-  const url = href(`/data/weeks/${group.week}.json`);
-  if (budget <= 0) {
-    deferredWeeks.push({ week: group.week, label: group.label, count: group.records.length, skip: 0, url });
-    continue;
-  }
-  const shown = group.records.slice(0, budget);
-  initialGroups.push({ ...group, records: shown });
-  initialCount += shown.length;
-  if (shown.length < group.records.length) {
-    deferredWeeks.push({
-      week: group.week,
-      label: group.label,
-      count: group.records.length - shown.length,
-      skip: shown.length,
-      url,
-    });
-  }
-}
-const weekTotals = new Map(groups.map((group) => [group.week, group.records.length]));
 const datedGroups = groups.filter((group) => group.week !== UNDATED_WEEK);
 const latestWeek = datedGroups[0];
 const lastCollected = caseStudies
@@ -104,28 +75,9 @@ function heatStep(count: number): number {
 }
 
 const latestStories = sortByRecency(realRecords.length > 0 ? realRecords : caseStudies).slice(0, 4);
+const latestGrid = sortNewest(realRecords.length > 0 ? realRecords : caseStudies).slice(0, 12);
 const quickUseCases = topUseCases.slice(0, 5);
-
-const BLANK_CARD: CardRecord = {
-  slug: "",
-  url: "#",
-  vendor: "",
-  vendorMark: "",
-  vendorColor: "#64748b",
-  customer: "",
-  industry: "",
-  region: "",
-  useCases: [],
-  areas: [],
-  products: [],
-  problem: "",
-  metric: "",
-  published: "",
-  maturity: 0,
-  sample: false,
-  week: "",
-  search: "",
-};
+const explore = (param: string, value: string) => href(`/explore/?${param}=${encodeURIComponent(value)}`);
 
 const methodSteps = [
   { title: "Track", text: "New customer stories are picked up from leading cloud and AI vendors every day, newest first." },
@@ -151,7 +103,7 @@ const methodSteps = [
             into problems, architectures, products and measurable outcomes you can compare side by side.
           </p>
 
-          <form class="hero-search" action={href("/")} method="get" role="search" data-hero-search>
+          <form class="hero-search" action={href("/explore/")} method="get" role="search">
             <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8.5 3a5.5 5.5 0 014.38 8.83l3.65 3.64a.75.75 0 01-1.06 1.06l-3.64-3.65A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg>
             <label class="sr-only" for="hero-q">Search use cases</label>
             <input id="hero-q" name="q" type="search" placeholder="Search customers, products, problems…" autocomplete="off" />
@@ -161,7 +113,7 @@ const methodSteps = [
           <div class="hero__quick">
             <span>Popular:</span>
             {quickUseCases.map((entry) => (
-              <a class="chip chip--glass" href={`?usecase=${encodeURIComponent(entry.label)}#explore`} data-apply-filter="usecase" data-filter-value={entry.label}>{entry.label}</a>
+              <a class="chip chip--glass" href={facetHref("use-cases", entry.label)}>{entry.label}</a>
             ))}
           </div>
         </div>
@@ -220,7 +172,7 @@ const methodSteps = [
             const style = vendorStyle(entry.label);
             return (
               <li>
-                <a class="vendor-strip__item" href={`?vendor=${encodeURIComponent(entry.label)}#explore`} data-apply-filter="vendor" data-filter-value={entry.label}>
+                <a class="vendor-strip__item" href={facetHref("vendors", entry.label)}>
                   <span class="vendor-tag__mark" style={`--vendor: ${style.color}`}>{style.mark}</span>
                   <span>{entry.label}</span>
                   <span class="vendor-strip__count">{entry.count}</span>
@@ -232,103 +184,31 @@ const methodSteps = [
       </div>
     </section>
 
-    <section class="section" id="explore">
+    <section class="section" id="latest">
       <div class="container">
         <div class="section__head">
           <div>
-            <p class="eyebrow">Explorer</p>
-            <h2 class="section__title">Browse use cases, week by week</h2>
+            <p class="eyebrow">Latest</p>
+            <h2 class="section__title">Newest customer use cases</h2>
           </div>
-          <p class="section__subtitle">
-            Newest additions first. Earlier weeks load as you browse.
-          </p>
-        </div>
-
-        <div class="toolbar" role="group" aria-label="Filters">
-          <div class="toolbar__search">
-            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8.5 3a5.5 5.5 0 014.38 8.83l3.65 3.64a.75.75 0 01-1.06 1.06l-3.64-3.65A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg>
-            <label class="sr-only" for="explore-q">Search</label>
-            <input id="explore-q" type="search" placeholder="Search customer, product, problem…" data-filter="q" autocomplete="off" />
+          <div class="section__actions">
+            <a class="btn btn--secondary" href={href("/browse/")}>Browse all {caseStudies.length.toLocaleString("en")}</a>
+            <a class="btn btn--primary" href={href("/explore/")}>Search &amp; filter</a>
           </div>
-          <label class="select">
-            <span class="sr-only">Vendor</span>
-            <select data-filter="vendor">
-              <option value="">All vendors</option>
-              {vendors.map((vendor) => <option value={vendor}>{vendor}</option>)}
-            </select>
-          </label>
-          <label class="select">
-            <span class="sr-only">Industry</span>
-            <select data-filter="industry">
-              <option value="">All industries</option>
-              {industries.map((industry) => <option value={industry}>{industry}</option>)}
-            </select>
-          </label>
-          <label class="select">
-            <span class="sr-only">Use case</span>
-            <select data-filter="usecase">
-              <option value="">All use cases</option>
-              {useCases.map((useCase) => <option value={useCase}>{useCase}</option>)}
-            </select>
-          </label>
-          <label class="select">
-            <span class="sr-only">Technical area</span>
-            <select data-filter="area">
-              <option value="">All tech areas</option>
-              {technicalAreas.map((area) => <option value={area}>{area}</option>)}
-            </select>
-          </label>
-          <label class="select">
-            <span class="sr-only">Collection week</span>
-            <select data-filter="week">
-              <option value="">All weeks</option>
-              {groups.map((group) => <option value={group.week}>{group.week === UNDATED_WEEK ? "Reference set" : `Week of ${weekShortLabel(group.week)}`}</option>)}
-            </select>
-          </label>
         </div>
 
-        <div class="results-bar">
-          <p class="results-bar__count" aria-live="polite">
-            <strong data-visible-count>{initialCount}</strong> <span data-count-suffix>of {caseStudies.length} use cases shown</span>
-          </p>
-          <button class="btn btn--ghost btn--small" type="button" data-clear-filters hidden>Clear filters</button>
+        <div class="card-grid">
+          {latestGrid.map((record) => <CaseCard card={toCardRecord(record)} />)}
         </div>
-
-        <div class="week-stack" data-week-stack>
-          {initialGroups.map((group) => (
-            <section class="week-group" data-week-group data-week={group.week}>
-              <header class="week-group__head">
-                <h3>{group.week === UNDATED_WEEK ? "Reference set" : `Week of ${group.label}`}</h3>
-                <span class="week-group__count">{weekTotals.get(group.week)} {weekTotals.get(group.week) === 1 ? "use case" : "use cases"}</span>
-              </header>
-              <div class="card-grid">
-                {group.records.map((record) => <CaseCard card={toCardRecord(record)} />)}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <div class="empty-state" data-empty-state hidden>
-          <strong>No use cases match these filters.</strong>
-          <span>Try a broader search or clear the filters.</span>
-        </div>
-
-        <div class="load-more">
-          <button class="btn btn--secondary" type="button" data-load-more hidden={deferredWeeks.length === 0}>
-            Load earlier weeks
-          </button>
-          <p class="load-more__status" data-load-status aria-live="polite">
-            {deferredWeeks.length > 0
-              ? `${deferredWeeks.reduce((sum, week) => sum + week.count, 0)} more use cases in ${deferredWeeks.length} earlier ${deferredWeeks.length === 1 ? "week" : "weeks"}`
-              : "You're viewing the full archive."}
-          </p>
+        <div class="browse-links">
+          <span>Browse by</span>
+          <a class="chip" href={href("/vendors/")}>Vendor</a>
+          <a class="chip" href={href("/industries/")}>Industry</a>
+          <a class="chip" href={href("/use-cases/")}>Use case</a>
         </div>
         {sampleCount > 0 && (
           <p class="footnote">{sampleCount} illustrative sample {sampleCount === 1 ? "profile is" : "profiles are"} marked “Sample” and excluded from insights.</p>
         )}
-
-        <template data-card-template><CaseCard card={BLANK_CARD} /></template>
-        <script is:inline type="application/json" data-deferred-weeks set:html={JSON.stringify(deferredWeeks).replace(/</g, "\\u003c")}></script>
       </div>
     </section>
 
@@ -350,7 +230,7 @@ const methodSteps = [
               <h3>Top use-case categories</h3>
               <span class="panel__meta">stories per category</span>
             </header>
-            <BarList items={topUseCases} noun="stories" filterKey="usecase" />
+            <BarList items={topUseCases} noun="stories" linkTo={(label) => explore("usecase", label)} />
           </article>
 
           <article class="panel">
@@ -358,7 +238,7 @@ const methodSteps = [
               <h3>Stories by vendor</h3>
               <span class="panel__meta">stories per vendor</span>
             </header>
-            <BarList items={vendorCounts.slice(0, 8)} noun="stories" filterKey="vendor" />
+            <BarList items={vendorCounts.slice(0, 8)} noun="stories" linkTo={(label) => explore("vendor", label)} />
           </article>
 
           <article class="panel">
@@ -366,7 +246,7 @@ const methodSteps = [
               <h3>Most-cited products</h3>
               <span class="panel__meta">mentions across stories</span>
             </header>
-            <BarList items={topProducts} noun="mentions" filterKey="q" />
+            <BarList items={topProducts} noun="mentions" linkTo={(label) => explore("q", label)} />
           </article>
 
           <article class="panel">
@@ -482,302 +362,4 @@ const methodSteps = [
     </section>
   </main>
 
-  <script>
-    interface CardRecord {
-      slug: string;
-      url: string;
-      vendor: string;
-      vendorMark: string;
-      vendorColor: string;
-      customer: string;
-      industry: string;
-      region: string;
-      useCases: string[];
-      areas: string[];
-      products: string[];
-      problem: string;
-      metric: string;
-      published: string;
-      maturity: number;
-      sample: boolean;
-      week: string;
-      search: string;
-    }
-    interface DeferredWeek {
-      week: string;
-      label: string;
-      count: number;
-      skip: number;
-      url: string;
-    }
-    interface WeekShard {
-      week: string;
-      label: string;
-      records: CardRecord[];
-    }
-
-    const FILTER_KEYS = ["q", "vendor", "industry", "usecase", "area", "week"] as const;
-    type FilterKey = (typeof FILTER_KEYS)[number];
-    const LOAD_BATCH = 24;
-
-    const stack = document.querySelector<HTMLElement>("[data-week-stack]");
-    const template = document.querySelector<HTMLTemplateElement>("[data-card-template]");
-    const loadMore = document.querySelector<HTMLButtonElement>("[data-load-more]");
-    const loadStatus = document.querySelector<HTMLElement>("[data-load-status]");
-    const visibleCount = document.querySelector<HTMLElement>("[data-visible-count]");
-    const countSuffix = document.querySelector<HTMLElement>("[data-count-suffix]");
-    const emptyState = document.querySelector<HTMLElement>("[data-empty-state]");
-    const clearButton = document.querySelector<HTMLButtonElement>("[data-clear-filters]");
-    const controls = new Map<FilterKey, HTMLInputElement | HTMLSelectElement>();
-    for (const key of FILTER_KEYS) {
-      const control = document.querySelector<HTMLInputElement | HTMLSelectElement>(`[data-filter="${key}"]`);
-      if (control) controls.set(key, control);
-    }
-    const deferred: DeferredWeek[] = JSON.parse(
-      document.querySelector("[data-deferred-weeks]")?.textContent || "[]",
-    );
-    const total = deferred.reduce((sum, week) => sum + week.count, 0) + document.querySelectorAll("[data-case-card]").length;
-
-    function slot(root: Element, name: string): HTMLElement {
-      return root.querySelector<HTMLElement>(`[data-slot="${name}"]`)!;
-    }
-
-    function buildCard(card: CardRecord): HTMLAnchorElement | null {
-      const prototype = template?.content.firstElementChild;
-      if (!prototype) return null;
-      const node = prototype.cloneNode(true) as HTMLAnchorElement;
-      node.href = card.url;
-      node.dataset.vendor = card.vendor;
-      node.dataset.industry = card.industry;
-      node.dataset.areas = card.areas.join("|");
-      node.dataset.usecases = card.useCases.join("|");
-      node.dataset.week = card.week;
-      node.dataset.search = card.search;
-      const mark = slot(node, "mark");
-      mark.textContent = card.vendorMark;
-      mark.style.setProperty("--vendor", card.vendorColor);
-      slot(node, "vendor").textContent = card.vendor;
-      slot(node, "sample").hidden = !card.sample;
-      slot(node, "published").textContent = card.published;
-      slot(node, "customer").textContent = card.customer;
-      slot(node, "industry").textContent = card.industry;
-      slot(node, "region").textContent = card.region;
-      slot(node, "problem").textContent = card.problem;
-      const metric = slot(node, "metric");
-      metric.textContent = card.metric;
-      metric.hidden = !card.metric;
-      slot(node, "usecases").replaceChildren(
-        ...card.useCases.slice(0, 2).map((useCase) => {
-          const tag = document.createElement("span");
-          tag.className = "tag";
-          tag.textContent = useCase;
-          return tag;
-        }),
-      );
-      slot(node, "products").textContent = card.products.join(" · ");
-      const maturity = slot(node, "maturity");
-      maturity.title = `Maturity ${card.maturity}/6`;
-      maturity.setAttribute("aria-label", `Maturity ${card.maturity} of 6`);
-      maturity.querySelectorAll(".maturity__dot").forEach((dot, index) => {
-        dot.classList.toggle("is-on", index < card.maturity);
-      });
-      return node;
-    }
-
-    function buildGroup(shard: WeekShard): HTMLElement {
-      const section = document.createElement("section");
-      section.className = "week-group";
-      section.dataset.weekGroup = "";
-      section.dataset.week = shard.week;
-      const head = document.createElement("header");
-      head.className = "week-group__head";
-      const title = document.createElement("h3");
-      title.textContent = shard.week === "undated" ? "Reference set" : `Week of ${shard.label}`;
-      const count = document.createElement("span");
-      count.className = "week-group__count";
-      count.textContent = `${shard.records.length} ${shard.records.length === 1 ? "use case" : "use cases"}`;
-      head.append(title, count);
-      const grid = document.createElement("div");
-      grid.className = "card-grid";
-      for (const record of shard.records) {
-        const card = buildCard(record);
-        if (card) grid.append(card);
-      }
-      section.append(head, grid);
-      return section;
-    }
-
-    let loading: Promise<void> | null = null;
-
-    async function loadWeeks(minimumRecords: number): Promise<void> {
-      if (loading) return loading;
-      loading = (async () => {
-        if (loadMore) loadMore.disabled = true;
-        if (loadStatus) loadStatus.textContent = "Loading earlier weeks…";
-        try {
-          let loaded = 0;
-          while (deferred.length > 0 && loaded < minimumRecords) {
-            const next = deferred[0];
-            if (!next) break;
-            const response = await fetch(next.url);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const shard = (await response.json()) as WeekShard;
-            const records = shard.records.slice(next.skip);
-            const existing = stack?.querySelector<HTMLElement>(`[data-week-group][data-week="${CSS.escape(shard.week)}"] .card-grid`);
-            if (existing) {
-              for (const record of records) {
-                const card = buildCard(record);
-                if (card) existing.append(card);
-              }
-            } else {
-              stack?.append(buildGroup(shard));
-            }
-            deferred.shift();
-            loaded += records.length;
-          }
-        } catch (error) {
-          if (loadStatus) loadStatus.textContent = "Couldn't load earlier weeks. Please retry.";
-          throw error;
-        } finally {
-          if (loadMore) {
-            loadMore.disabled = false;
-            loadMore.hidden = deferred.length === 0;
-          }
-          loading = null;
-        }
-        updateLoadStatus();
-      })();
-      return loading;
-    }
-
-    function updateLoadStatus() {
-      if (!loadStatus) return;
-      const remaining = deferred.reduce((sum, week) => sum + week.count, 0);
-      loadStatus.textContent =
-        deferred.length === 0
-          ? "You're viewing the full archive."
-          : `${remaining} more use cases in ${deferred.length} earlier ${deferred.length === 1 ? "week" : "weeks"}`;
-    }
-
-    function currentFilters(): Record<FilterKey, string> {
-      const values = {} as Record<FilterKey, string>;
-      for (const key of FILTER_KEYS) values[key] = controls.get(key)?.value.trim() ?? "";
-      return values;
-    }
-
-    function hasActiveFilters(filters: Record<FilterKey, string>): boolean {
-      return FILTER_KEYS.some((key) => filters[key] !== "");
-    }
-
-    function syncUrl(filters: Record<FilterKey, string>) {
-      const params = new URLSearchParams();
-      for (const key of FILTER_KEYS) if (filters[key]) params.set(key, filters[key]);
-      const query = params.toString();
-      history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}${location.hash}`);
-    }
-
-    function applyFilters() {
-      const filters = currentFilters();
-      const query = filters.q.toLowerCase();
-      let shown = 0;
-      document.querySelectorAll<HTMLElement>("[data-week-group]").forEach((group) => {
-        let groupShown = 0;
-        group.querySelectorAll<HTMLElement>("[data-case-card]").forEach((card) => {
-          const data = card.dataset;
-          const matches =
-            (!query || (data.search ?? "").includes(query)) &&
-            (!filters.vendor || data.vendor === filters.vendor) &&
-            (!filters.industry || data.industry === filters.industry) &&
-            (!filters.usecase || (data.usecases ?? "").split("|").includes(filters.usecase)) &&
-            (!filters.area || (data.areas ?? "").split("|").includes(filters.area)) &&
-            (!filters.week || data.week === filters.week);
-          card.hidden = !matches;
-          if (matches) groupShown += 1;
-        });
-        group.hidden = groupShown === 0;
-        shown += groupShown;
-      });
-
-      const active = hasActiveFilters(filters);
-      if (visibleCount) visibleCount.textContent = String(shown);
-      if (countSuffix) countSuffix.textContent = active ? `matching of ${total} use cases` : `of ${total} use cases shown`;
-      if (emptyState) emptyState.hidden = shown > 0;
-      if (clearButton) clearButton.hidden = !active;
-      syncUrl(filters);
-    }
-
-    async function refresh() {
-      // Filtering needs the whole archive: pull every remaining shard first.
-      if (hasActiveFilters(currentFilters()) && deferred.length > 0) {
-        try {
-          await loadWeeks(Number.POSITIVE_INFINITY);
-        } catch {
-          // Filter whatever is already loaded.
-        }
-      }
-      applyFilters();
-    }
-
-    let debounce: number | undefined;
-    controls.forEach((control, key) => {
-      control.addEventListener(key === "q" ? "input" : "change", () => {
-        window.clearTimeout(debounce);
-        debounce = window.setTimeout(refresh, key === "q" ? 180 : 0);
-      });
-    });
-
-    clearButton?.addEventListener("click", () => {
-      controls.forEach((control) => {
-        control.value = "";
-      });
-      applyFilters();
-    });
-
-    loadMore?.addEventListener("click", async () => {
-      try {
-        await loadWeeks(LOAD_BATCH);
-      } catch {
-        return;
-      }
-      applyFilters();
-    });
-
-    function setFilter(key: string, value: string) {
-      const control = controls.get(key as FilterKey);
-      if (!control) return;
-      controls.forEach((other, otherKey) => {
-        if (otherKey !== key) other.value = "";
-      });
-      control.value = value;
-      void refresh();
-    }
-
-    document.addEventListener("click", (event) => {
-      const link = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-apply-filter]") : null;
-      if (!link) return;
-      event.preventDefault();
-      setFilter(link.dataset.applyFilter ?? "", link.dataset.filterValue ?? "");
-      document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
-    });
-
-    document.querySelector<HTMLFormElement>("[data-hero-search]")?.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const input = (event.currentTarget as HTMLFormElement).querySelector("input");
-      setFilter("q", input?.value.trim() ?? "");
-      document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
-    });
-
-    // Deep links: ?vendor=Databricks&q=lakehouse#explore
-    const params = new URLSearchParams(location.search);
-    let hasParams = false;
-    for (const key of FILTER_KEYS) {
-      const value = params.get(key);
-      const control = controls.get(key);
-      if (value && control) {
-        control.value = value;
-        hasParams = true;
-      }
-    }
-    if (hasParams) void refresh();
-  </script>
 </BaseLayout>

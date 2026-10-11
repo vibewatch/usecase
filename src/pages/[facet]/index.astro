@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { caseStudies } from "../../lib/caseStudies";
+import { FACETS, facetGroups, facetHref, type FacetKind } from "../../lib/facets";
+
+export const getStaticPaths = (() =>
+  (Object.keys(FACETS) as FacetKind[]).map((facet) => ({ params: { facet } }))) satisfies GetStaticPaths;
+
+const facet = Astro.params.facet as FacetKind;
+const { plural } = FACETS[facet];
+const groups = facetGroups(facet, caseStudies);
+const max = groups.reduce((highest, group) => Math.max(highest, group.records.length), 1);
+---
+
+<BaseLayout title={`${plural} | Use Case Intelligence`} description={`Customer use cases grouped by ${plural.toLowerCase()}.`}>
+  <main>
+    <section class="page-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <p class="eyebrow eyebrow--light">Browse by {FACETS[facet].label.toLowerCase()}</p>
+        <h1 class="page-hero__title">{plural}</h1>
+        <p class="hero__lead">{groups.length} {plural.toLowerCase()} across {caseStudies.length.toLocaleString("en")} use cases.</p>
+      </div>
+    </section>
+    <section class="section section--compact">
+      <div class="container">
+        <ul class="hub-grid">
+          {groups.map((group) => (
+            <li>
+              <a class="hub-card" href={facetHref(facet, group.value)}>
+                <span class="hub-card__name">{group.value}</span>
+                <span class="hub-card__count">{group.records.length.toLocaleString("en")} use cases</span>
+                <span class="hub-card__bar" aria-hidden="true"><span style={`width: ${Math.max(3, (group.records.length / max) * 100)}%`}></span></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

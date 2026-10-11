@@ -22,6 +22,8 @@ GENERATED_CASE_STUDIES_PATH = Path("data/case-studies.generated.json")
 SQLITE_PATH = Path("data/usecase_intel.sqlite")
 SAMPLE_CASE_STUDIES_PATH = Path("data/case-studies.sample.json")
 WEEKLY_ROOT = Path("data/weekly")
+TRIAGE_PATH = Path("data/triage.jsonl")
+TRIAGE_CONFIG_PATH = REPO_ROOT / "pipeline/usecase_intel/config/triage.json"
 
 TAXONOMY_PATH = Path("taxonomy.json")
 EXTRACTION_SKILL_PATH = Path(".agents/skills/case-study-extraction/SKILL.md")

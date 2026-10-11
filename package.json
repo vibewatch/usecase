@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && pagefind --site dist",
     "preview": "astro preview",
     "data:seed": "python3 -m pipeline.usecase_intel.seed",
     "data:export": "python3 -m pipeline.usecase_intel.export",
     "data:discover": "python3 -m pipeline.usecase_intel.discover",
     "data:fetch": "python3 -m pipeline.usecase_intel.fetch",
+    "data:triage": "python3 -m pipeline.usecase_intel.triage --stage pre && python3 -m pipeline.usecase_intel.triage --stage post && python3 -m pipeline.usecase_intel.triage --stage dates && python3 -m pipeline.usecase_intel.triage --stage summary",
     "data:probe-fetch": "python3 -m pipeline.usecase_intel.probe",
     "data:extract": "python3 -m pipeline.usecase_intel.extract",
     "data:merge": "python3 -m pipeline.usecase_intel.merge_records --include-samples data/case-studies.sample.json",
@@ -26,5 +27,8 @@
     "volar-service-yaml": "0.0.71",
     "yaml-language-server": "1.23.0",
     "yaml": "2.8.3"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
   }
 }

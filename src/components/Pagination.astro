@@ -1,0 +1,53 @@
+---
+type Props = {
+  currentPage: number;
+  lastPage: number;
+  /** Builds the URL for a page number (1-based). */
+  pageUrl: (page: number) => string;
+};
+
+// Numbered pagination with a window around the current page:
+// 1 … 4 5 [6] 7 8 … 20
+const { currentPage, lastPage, pageUrl } = Astro.props;
+const windowSize = 2;
+const pages: Array<number | "gap"> = [];
+for (let page = 1; page <= lastPage; page += 1) {
+  if (page === 1 || page === lastPage || Math.abs(page - currentPage) <= windowSize) {
+    pages.push(page);
+  } else if (pages.at(-1) !== "gap") {
+    pages.push("gap");
+  }
+}
+---
+
+{lastPage > 1 && (
+  <nav class="pagination" aria-label="Pagination">
+    {currentPage > 1 ? (
+      <a class="pagination__step" href={pageUrl(currentPage - 1)} rel="prev">← Previous</a>
+    ) : (
+      <span class="pagination__step is-disabled" aria-hidden="true">← Previous</span>
+    )}
+    <ol class="pagination__pages">
+      {pages.map((page) =>
+        page === "gap" ? (
+          <li class="pagination__gap" aria-hidden="true">…</li>
+        ) : (
+          <li>
+            <a
+              class:list={["pagination__page", { "is-current": page === currentPage }]}
+              href={pageUrl(page)}
+              aria-current={page === currentPage ? "page" : undefined}
+            >
+              {page}
+            </a>
+          </li>
+        ),
+      )}
+    </ol>
+    {currentPage < lastPage ? (
+      <a class="pagination__step" href={pageUrl(currentPage + 1)} rel="next">Next →</a>
+    ) : (
+      <span class="pagination__step is-disabled" aria-hidden="true">Next →</span>
+    )}
+  </nav>
+)}

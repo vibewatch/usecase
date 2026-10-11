@@ -1,0 +1,405 @@
+---
+import CaseCard from "../components/CaseCard.astro";
+import Pagination from "../components/Pagination.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { countValues, flattenValues } from "../lib/analytics";
+import { caseStudies } from "../lib/caseStudies";
+import { PAGE_SIZE, publishedYear, sortNewest } from "../lib/facets";
+import { href } from "../lib/paths";
+import { toCardRecord, type CardRecord } from "../lib/weeks";
+
+// Facet groups mirror the data-pagefind-filter names set on each case page.
+const facetGroups = [
+  { key: "vendor", label: "Vendor", items: countValues(caseStudies.map((record) => record.vendor)) },
+  { key: "industry", label: "Industry", items: countValues(caseStudies.map((record) => record.industry)) },
+  { key: "usecase", label: "Use case", items: countValues(flattenValues(caseStudies, (record) => record.use_case_category)) },
+  { key: "area", label: "Technical area", items: countValues(flattenValues(caseStudies, (record) => record.technical_area)) },
+  { key: "outcome", label: "Outcome", items: countValues(flattenValues(caseStudies, (record) => record.outcome_category)) },
+  {
+    key: "year",
+    label: "Published",
+    items: countValues(caseStudies.map(publishedYear)).sort((left, right) => right.label.localeCompare(left.label)),
+  },
+];
+const VISIBLE_VALUES = 8;
+const newest = sortNewest(caseStudies);
+const lastPage = Math.max(1, Math.ceil(newest.length / PAGE_SIZE));
+
+const BLANK_CARD: CardRecord = {
+  slug: "", url: "#", vendor: "", vendorMark: "", vendorColor: "#64748b", customer: "", industry: "", region: "",
+  useCases: [], areas: [], products: [], problem: "", metric: "", published: "", maturity: 0, sample: false, week: "", search: "",
+};
+---
+
+<BaseLayout title="Explore use cases | Use Case Intelligence" description={`Search and filter ${caseStudies.length} real-world cloud and AI customer use cases by vendor, industry, use case, technology and outcome.`}>
+  <main>
+    <section class="page-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <p class="eyebrow eyebrow--light">Explore</p>
+        <h1 class="page-hero__title">Search {caseStudies.length.toLocaleString("en")} customer use cases</h1>
+        <form class="hero-search" action={href("/explore/")} method="get" role="search" data-search-form>
+          <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8.5 3a5.5 5.5 0 014.38 8.83l3.65 3.64a.75.75 0 01-1.06 1.06l-3.64-3.65A5.5 5.5 0 118.5 3zm0 1.5a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          <label class="sr-only" for="explore-q">Search use cases</label>
+          <input id="explore-q" name="q" type="search" placeholder="Try “fraud detection”, “Bedrock”, “retail”…" autocomplete="off" data-query />
+          <button class="btn btn--primary" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--compact">
+      <div class="container explore">
+        <aside class="facets" aria-label="Filters" data-facets>
+          <div class="facets__head">
+            <h2>Filters</h2>
+            <button class="facets__clear" type="button" data-clear hidden>Clear all</button>
+          </div>
+          {facetGroups.map((group, index) => (
+            <details class="facet" open={index < 3} data-facet={group.key}>
+              <summary>{group.label}</summary>
+              <ul class="facet__list">
+                {group.items.map((item, position) => (
+                  <li class:list={["facet__item", { "is-overflow": position >= VISIBLE_VALUES }]}>
+                    <label>
+                      <input type="checkbox" name={group.key} value={item.label} data-facet-input={group.key} />
+                      <span class="facet__label">{item.label}</span>
+                      <span class="facet__count" data-count>{item.count}</span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+              {group.items.length > VISIBLE_VALUES && (
+                <button class="facet__more" type="button" data-facet-more>Show all {group.items.length}</button>
+              )}
+            </details>
+          ))}
+        </aside>
+
+        <div class="explore__results">
+          <div class="results-bar">
+            <p class="results-bar__count" aria-live="polite">
+              <strong data-result-count>{caseStudies.length.toLocaleString("en")}</strong> <span data-result-label>use cases</span>
+            </p>
+            <label class="select">
+              <span class="sr-only">Sort by</span>
+              <select data-sort>
+                <option value="">Best match</option>
+                <option value="newest">Newest</option>
+                <option value="maturity">Most mature</option>
+              </select>
+            </label>
+          </div>
+          <div class="active-filters" data-active-filters></div>
+          <p class="notice" data-index-missing hidden>Live search is available on the published site. Showing the newest use cases.</p>
+
+          <div class="card-grid" data-results>
+            {newest.slice(0, PAGE_SIZE).map((record) => <CaseCard card={toCardRecord(record)} />)}
+          </div>
+          <div class="empty-state" data-empty hidden>
+            <strong>No use cases match.</strong>
+            <span>Try fewer filters or a broader search.</span>
+          </div>
+          <div data-pager>
+            <Pagination currentPage={1} lastPage={lastPage} pageUrl={(page) => href(page === 1 ? "/browse/" : `/browse/${page}/`)} />
+          </div>
+          <template data-card-template><CaseCard card={BLANK_CARD} /></template>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import { buildCard, cardFromMeta } from "../scripts/cards";
+
+    const GROUPS = ["vendor", "industry", "usecase", "area", "outcome", "year"] as const;
+    type Group = (typeof GROUPS)[number];
+    type Sort = "" | "newest" | "maturity";
+    const PAGE_SIZE = 24;
+    const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
+    interface PagefindResult {
+      data: () => Promise<{ url: string; meta: Record<string, string> }>;
+    }
+    interface PagefindSearch {
+      results: PagefindResult[];
+      filters: Record<string, Record<string, number>>;
+    }
+    interface Pagefind {
+      options: (options: Record<string, unknown>) => Promise<void>;
+      init: () => void;
+      filters: () => Promise<Record<string, Record<string, number>>>;
+      search: (term: string | null, options: Record<string, unknown>) => Promise<PagefindSearch | null>;
+    }
+
+    const state = {
+      q: "",
+      sort: "" as Sort,
+      page: 1,
+      filters: Object.fromEntries(GROUPS.map((group) => [group, [] as string[]])) as Record<Group, string[]>,
+    };
+
+    const queryInput = document.querySelector<HTMLInputElement>("[data-query]");
+    const sortSelect = document.querySelector<HTMLSelectElement>("[data-sort]");
+    const resultsGrid = document.querySelector<HTMLElement>("[data-results]");
+    const template = document.querySelector<HTMLTemplateElement>("[data-card-template]");
+    const countLabel = document.querySelector<HTMLElement>("[data-result-count]");
+    const countSuffix = document.querySelector<HTMLElement>("[data-result-label]");
+    const emptyState = document.querySelector<HTMLElement>("[data-empty]");
+    const pager = document.querySelector<HTMLElement>("[data-pager]");
+    const activeFilters = document.querySelector<HTMLElement>("[data-active-filters]");
+    const clearButton = document.querySelector<HTMLButtonElement>("[data-clear]");
+    const indexMissing = document.querySelector<HTMLElement>("[data-index-missing]");
+    const inputs = Array.from(document.querySelectorAll<HTMLInputElement>("[data-facet-input]"));
+
+    function readUrl() {
+      const params = new URLSearchParams(location.search);
+      state.q = params.get("q")?.trim() ?? "";
+      const sort = params.get("sort") ?? "";
+      state.sort = sort === "newest" || sort === "maturity" ? sort : "";
+      state.page = Math.max(1, Number(params.get("page")) || 1);
+      for (const group of GROUPS) state.filters[group] = params.getAll(group);
+    }
+
+    function writeUrl() {
+      const params = new URLSearchParams();
+      if (state.q) params.set("q", state.q);
+      for (const group of GROUPS) for (const value of state.filters[group]) params.append(group, value);
+      if (state.sort) params.set("sort", state.sort);
+      if (state.page > 1) params.set("page", String(state.page));
+      const query = params.toString();
+      history.replaceState(null, "", `${location.pathname}${query ? `?${query}` : ""}`);
+    }
+
+    function syncControls() {
+      if (queryInput) queryInput.value = state.q;
+      if (sortSelect) sortSelect.value = state.sort;
+      for (const input of inputs) {
+        input.checked = state.filters[input.dataset.facetInput as Group].includes(input.value);
+      }
+    }
+
+    // OR within a group, AND across groups. `except` drops one group so its own
+    // counts show what selecting another value of that group would add.
+    function filterArg(except?: Group): Record<string, { any: string[] }> {
+      const filters: Record<string, { any: string[] }> = {};
+      for (const group of GROUPS) {
+        if (group !== except && state.filters[group].length) filters[group] = { any: state.filters[group] };
+      }
+      return filters;
+    }
+
+    function sortArg(): Record<string, string> | undefined {
+      if (state.sort === "maturity") return { maturity: "desc" };
+      if (state.sort === "newest" || !state.q) return { published: "desc" };
+      return undefined; // relevance
+    }
+
+    let pagefind: Pagefind | null = null;
+    // The index is generated after the site build, so the import must bypass
+    // Vite (whose preload wrapper breaks inside inlined scripts).
+    const importAtRuntime = new Function("url", "return import(url)") as (url: string) => Promise<Pagefind>;
+    async function loadPagefind(): Promise<Pagefind | null> {
+      try {
+        const module = await importAtRuntime(`${BASE}/pagefind/pagefind.js`);
+        await module.options({ baseUrl: `${BASE}/` });
+        module.init();
+        // Filter data loads lazily; without this, counts exist only for groups already queried.
+        await module.filters();
+        return module;
+      } catch (error) {
+        console.warn("Search index unavailable; showing the static list.", error);
+        return null;
+      }
+    }
+
+    async function searchFor(filters: Record<string, { any: string[] }>, sort?: Record<string, string>) {
+      // Pagefind needs a term or a filter; every page has a "year", so this matches all.
+      const effective = state.q || Object.keys(filters).length ? filters : { year: { any: allYears } };
+      return pagefind!.search(state.q || null, { filters: effective, ...(sort ? { sort } : {}) });
+    }
+    const allYears = inputs.filter((input) => input.dataset.facetInput === "year").map((input) => input.value);
+
+    function renderCounts(counts: Record<string, Record<string, number>>) {
+      for (const input of inputs) {
+        const group = input.dataset.facetInput as Group;
+        const count = counts[group]?.[input.value] ?? 0;
+        const label = input.closest("label");
+        const countEl = label?.querySelector<HTMLElement>("[data-count]");
+        if (countEl) countEl.textContent = String(count);
+        label?.classList.toggle("is-empty", count === 0 && !input.checked);
+      }
+    }
+
+    function renderActive() {
+      if (!activeFilters) return;
+      const chips: HTMLElement[] = [];
+      for (const group of GROUPS) {
+        for (const value of state.filters[group]) {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "chip chip--active";
+          chip.textContent = `${value} ×`;
+          chip.setAttribute("aria-label", `Remove filter ${value}`);
+          chip.addEventListener("click", () => {
+            state.filters[group] = state.filters[group].filter((item) => item !== value);
+            state.page = 1;
+            void update();
+          });
+          chips.push(chip);
+        }
+      }
+      activeFilters.replaceChildren(...chips);
+      if (clearButton) clearButton.hidden = chips.length === 0 && !state.q;
+    }
+
+    function renderPager(total: number) {
+      if (!pager) return;
+      const lastPage = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (lastPage <= 1) {
+        pager.replaceChildren();
+        return;
+      }
+      const nav = document.createElement("nav");
+      nav.className = "pagination";
+      nav.setAttribute("aria-label", "Pagination");
+      const button = (label: string, page: number, options: { current?: boolean; disabled?: boolean; step?: boolean } = {}) => {
+        const el = document.createElement("button");
+        el.type = "button";
+        el.textContent = label;
+        el.className = options.step ? "pagination__step" : "pagination__page";
+        if (options.current) {
+          el.classList.add("is-current");
+          el.setAttribute("aria-current", "page");
+        }
+        if (options.disabled) {
+          el.disabled = true;
+          el.classList.add("is-disabled");
+        }
+        el.addEventListener("click", () => {
+          state.page = page;
+          void update();
+          document.querySelector(".explore")?.scrollIntoView({ behavior: "smooth" });
+        });
+        return el;
+      };
+      const list = document.createElement("ol");
+      list.className = "pagination__pages";
+      let gap = false;
+      for (let page = 1; page <= lastPage; page += 1) {
+        if (page === 1 || page === lastPage || Math.abs(page - state.page) <= 2) {
+          const item = document.createElement("li");
+          item.append(button(String(page), page, { current: page === state.page }));
+          list.append(item);
+          gap = false;
+        } else if (!gap) {
+          const item = document.createElement("li");
+          item.className = "pagination__gap";
+          item.textContent = "…";
+          list.append(item);
+          gap = true;
+        }
+      }
+      nav.append(
+        button("← Previous", state.page - 1, { step: true, disabled: state.page === 1 }),
+        list,
+        button("Next →", state.page + 1, { step: true, disabled: state.page === lastPage }),
+      );
+      pager.replaceChildren(nav);
+    }
+
+    let generation = 0;
+    async function update() {
+      writeUrl();
+      syncControls();
+      renderActive();
+      if (!pagefind) return;
+      const current = ++generation;
+      resultsGrid?.classList.add("is-loading");
+
+      const search = await searchFor(filterArg(), sortArg());
+      if (!search || current !== generation) return;
+      const counts: Record<string, Record<string, number>> = { ...search.filters };
+      for (const group of GROUPS) {
+        if (!state.filters[group].length) continue;
+        const others = await searchFor(filterArg(group));
+        if (others) counts[group] = others.filters[group] ?? {};
+      }
+      if (current !== generation) return;
+
+      const total = search.results.length;
+      const lastPage = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      state.page = Math.min(state.page, lastPage);
+      const pageResults = await Promise.all(
+        search.results.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE).map((result) => result.data()),
+      );
+      if (current !== generation || !resultsGrid || !template) return;
+
+      resultsGrid.replaceChildren(
+        ...pageResults
+          .map((result) => buildCard(template, cardFromMeta(result.url, result.meta)))
+          .filter((card): card is HTMLAnchorElement => card !== null),
+      );
+      resultsGrid.classList.remove("is-loading");
+      if (countLabel) countLabel.textContent = total.toLocaleString("en");
+      if (countSuffix) countSuffix.textContent = state.q ? `results for “${state.q}”` : total === 1 ? "use case" : "use cases";
+      if (emptyState) emptyState.hidden = total > 0;
+      renderCounts(counts);
+      renderPager(total);
+      writeUrl();
+    }
+
+    let debounce: number | undefined;
+    queryInput?.addEventListener("input", () => {
+      window.clearTimeout(debounce);
+      debounce = window.setTimeout(() => {
+        state.q = queryInput.value.trim();
+        state.page = 1;
+        void update();
+      }, 200);
+    });
+    document.querySelector<HTMLFormElement>("[data-search-form]")?.addEventListener("submit", (event) => {
+      if (!pagefind) return; // fall back to a normal GET
+      event.preventDefault();
+      state.q = queryInput?.value.trim() ?? "";
+      state.page = 1;
+      void update();
+    });
+    sortSelect?.addEventListener("change", () => {
+      state.sort = sortSelect.value as Sort;
+      state.page = 1;
+      void update();
+    });
+    for (const input of inputs) {
+      input.addEventListener("change", () => {
+        const group = input.dataset.facetInput as Group;
+        state.filters[group] = input.checked
+          ? [...state.filters[group], input.value]
+          : state.filters[group].filter((value) => value !== input.value);
+        state.page = 1;
+        void update();
+      });
+    }
+    clearButton?.addEventListener("click", () => {
+      for (const group of GROUPS) state.filters[group] = [];
+      state.q = "";
+      state.page = 1;
+      void update();
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-facet-more]").forEach((button) => {
+      button.addEventListener("click", () => {
+        button.closest("[data-facet]")?.classList.add("is-expanded");
+        button.hidden = true;
+      });
+    });
+
+    readUrl();
+    syncControls();
+    renderActive();
+    pagefind = await loadPagefind();
+    if (pagefind) {
+      void update();
+    } else if (indexMissing) {
+      indexMissing.hidden = false;
+    }
+  </script>
+</BaseLayout>

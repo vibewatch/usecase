@@ -9,7 +9,8 @@ have no collection date and land in `data/weekly/undated.json`.
 Layout:
 
     data/weekly/index.json             newest-first list of weeks + counts
-    data/weekly/2026/2026-W41.json     full records collected that week
+    data/weekly/2026/2026-W41.json     references (id, vendor, customer, URLs, dates,
+                                       record path) for stories collected that week
     data/weekly/undated.json           samples / records without a date
 
 The step also stamps `collected_at` / `collected_week` onto the generated
@@ -26,7 +27,7 @@ from pathlib import Path
 from typing import Any
 
 from .settings import FETCH_MANIFEST_PATH, GENERATED_CASE_STUDIES_PATH, WEEKLY_ROOT
-from .utils import load_json, load_jsonl, write_json
+from .utils import load_json, load_jsonl, slugify, write_json
 
 UNDATED = "undated"
 INDEX_NAME = "index.json"
@@ -128,6 +129,20 @@ def partition(
     return weeks
 
 
+def _reference(record: dict[str, Any]) -> dict[str, Any]:
+    """Weekly files hold references, not full copies: data/records/ stays the single source."""
+    return {
+        "id": record["id"],
+        "slug": record.get("slug"),
+        "vendor": record.get("vendor"),
+        "customer_name": record.get("customer_name"),
+        "source_url": record.get("source_url"),
+        "published_date": record.get("published_date"),
+        "collected_at": record.get("collected_at"),
+        "record": None if record.get("is_sample") else f"data/records/{slugify(str(record.get('vendor', '')))}/{record.get('slug')}.json",
+    }
+
+
 def write_partitions(weeks: dict[str, list[dict[str, Any]]], root: Path) -> list[dict[str, Any]]:
     """Write one file per week plus index.json; remove week files that emptied out."""
     root.mkdir(parents=True, exist_ok=True)
@@ -148,7 +163,8 @@ def write_partitions(weeks: dict[str, list[dict[str, Any]]], root: Path) -> list
         )
         start, end = week_bounds(week) if week != UNDATED else (None, None)
         path = week_path(root, week)
-        write_json(path, {"week": week, "start": start, "end": end, "count": len(records), "records": records})
+        entries = [_reference(record) for record in records]
+        write_json(path, {"week": week, "start": start, "end": end, "count": len(entries), "records": entries})
         written.add(path)
         index.append(
             {

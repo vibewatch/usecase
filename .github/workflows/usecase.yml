@@ -191,7 +191,7 @@ jobs:
             --model "${{ steps.inputs.outputs.model }}" \
             --effort "${{ steps.inputs.outputs.effort }}" \
             --agent "UseCase Intel" \
-            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE} Orchestrate every stage yourself: discover, fetch, extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:merge / seed / export / npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
+            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE} Orchestrate every stage yourself: discover, triage (pre), fetch, triage (post), extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:merge / seed / export / partition / npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
 
       - name: Rebuild dashboard data (safety net)
         run: |
@@ -208,7 +208,7 @@ jobs:
           git config user.email "usecase-intel-bot@users.noreply.github.com"
           git fetch origin "${{ github.ref_name }}"
           git rebase --autostash "origin/${{ github.ref_name }}"
-          git add data/records data/weekly data/discovered_urls.jsonl data/fetch_manifest.jsonl
+          git add data/records data/weekly data/triage.jsonl data/discovered_urls.jsonl data/fetch_manifest.jsonl
           if git diff --cached --quiet; then
             echo "No new records this run."
             exit 0

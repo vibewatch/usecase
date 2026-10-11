@@ -1,0 +1,72 @@
+---
+import type { GetStaticPaths } from "astro";
+import CaseListing from "../../../components/CaseListing.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { topValues, flattenValues } from "../../../lib/analytics";
+import { caseStudies } from "../../../lib/caseStudies";
+import { FACETS, PAGE_SIZE, facetGroups, facetHref, type FacetKind } from "../../../lib/facets";
+import { href } from "../../../lib/paths";
+import type { CaseStudyRecord } from "../../../lib/types";
+
+// One paginated hub per facet value: /vendors/aws/, /industries/retail/2/, …
+export const getStaticPaths = (({ paginate }) =>
+  (Object.keys(FACETS) as FacetKind[]).flatMap((facet) =>
+    facetGroups(facet, caseStudies).flatMap((group) =>
+      paginate(group.records, {
+        pageSize: PAGE_SIZE,
+        params: { facet, value: group.slug },
+        props: { label: group.value, all: group.records },
+      }),
+    ),
+  )) satisfies GetStaticPaths;
+
+const facet = Astro.params.facet as FacetKind;
+const { page, label, all } = Astro.props as {
+  page: { data: CaseStudyRecord[]; currentPage: number; lastPage: number; total: number; start: number };
+  label: string;
+  all: CaseStudyRecord[];
+};
+const exploreParam = { vendors: "vendor", industries: "industry", "use-cases": "usecase" }[facet];
+const base = facetHref(facet, label);
+const related =
+  facet === "use-cases"
+    ? topValues(all.map((record) => record.vendor), 6)
+    : topValues(flattenValues(all, (record) => record.use_case_category), 6);
+const relatedKind: FacetKind = facet === "use-cases" ? "vendors" : "use-cases";
+---
+
+<BaseLayout title={`${label} use cases${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""} | Use Case Intelligence`} description={`${page.total} real-world customer use cases for ${label}.`}>
+  <main>
+    <section class="page-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href={href("/")}>Home</a><span aria-hidden="true">/</span>
+          <a href={href(`/${facet}/`)}>{FACETS[facet].plural}</a><span aria-hidden="true">/</span>
+          <span aria-current="page">{label}</span>
+        </nav>
+        <h1 class="page-hero__title">{label}</h1>
+        <p class="hero__lead">{page.total.toLocaleString("en")} customer use cases, newest first.</p>
+        <div class="hero__quick">
+          <span>{facet === "use-cases" ? "Top vendors:" : "Top use cases:"}</span>
+          {related.map((item) => (
+            <a class="chip chip--glass" href={facetHref(relatedKind, item.label)}>{item.label} · {item.count}</a>
+          ))}
+          <a class="chip chip--glass" href={href(`/explore/?${exploreParam}=${encodeURIComponent(label)}`)}>Filter further →</a>
+        </div>
+      </div>
+    </section>
+    <section class="section section--compact">
+      <div class="container">
+        <CaseListing
+          records={page.data}
+          currentPage={page.currentPage}
+          lastPage={page.lastPage}
+          total={page.total}
+          start={page.start}
+          pageUrl={(number) => (number === 1 ? base : `${base}${number}/`)}
+        />
+      </div>
+    </section>
+  </main>
+</BaseLayout>

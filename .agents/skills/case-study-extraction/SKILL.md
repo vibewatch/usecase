@@ -24,6 +24,11 @@ Use this skill when the user asks to:
 
 ## Procedure
 
+0. Confirm the page is a customer story.
+   - A customer story describes a named customer organization using the vendor's products or services, with a problem, a solution, or an outcome.
+   - Product launches, feature announcements, policy posts, research, partnership or availability news, event recaps, listing/index pages, and pages that no longer contain the story are **not** customer stories.
+   - If the page is not a customer story, output only `{"not_a_customer_story": true, "source_url": "<url>", "reason": "<one short sentence>"}` and stop. Do not write a record.
+
 1. Identify the source.
    - Preserve the original `source_url` exactly when provided.
    - If a URL is provided and browsing or fetch tools are available, fetch the page content before extracting.
@@ -117,6 +122,7 @@ Use this skill when the user asks to:
 
 ## Completion Criteria
 
+- Non-story pages produce only the `not_a_customer_story` object (step 0), never a record.
 - Output is strict JSON and parseable.
 - Source URL is preserved.
 - Required fields are present.

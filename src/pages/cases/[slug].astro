@@ -16,6 +16,7 @@ import { href } from "../../lib/paths";
 import type { CaseStudyRecord } from "../../lib/types";
 import { vendorStyle } from "../../lib/vendors";
 import { toCardRecord, weekLabel } from "../../lib/weeks";
+import { facetHref, newestKey, publishedYear } from "../../lib/facets";
 import taxonomy from "../../../taxonomy.json";
 
 type Props = {
@@ -40,22 +41,53 @@ const published = isParseableDate(record.published_date) ? formatDate(record.pub
 const collected =
   record.collected_week && record.collected_week !== "undated" ? `Week of ${weekLabel(record.collected_week)}` : "Reference set";
 const dots = [0, 1, 2, 3, 4, 5];
+
+// Search index (Pagefind): filters, sort keys and the fields result cards need.
+const card = toCardRecord(record);
+const searchFilters: Array<[string, string[]]> = [
+  ["vendor", [record.vendor]],
+  ["industry", [record.industry]],
+  ["usecase", record.use_case_category],
+  ["area", record.technical_area],
+  ["outcome", record.outcome_category],
+  ["year", [publishedYear(record)]],
+];
+const searchMeta: Record<string, string> = {
+  vendor: card.vendor,
+  mark: card.vendorMark,
+  color: card.vendorColor,
+  industry: card.industry,
+  region: card.region,
+  problem: card.problem,
+  metric: card.metric,
+  published: card.published,
+  maturity: String(card.maturity),
+  usecases: card.useCases.join("|"),
+  products: card.products.join(" · "),
+  sample: card.sample ? "1" : "0",
+};
 ---
 
 <BaseLayout
   title={`${record.customer_name} × ${record.vendor} — ${record.use_case_category[0] ?? "Use case"} | Use Case Intelligence`}
   description={record.business_problem.slice(0, 160)}
 >
-  <main>
+  <main data-pagefind-body>
+    <div hidden data-pagefind-ignore="index">
+      {searchFilters.map(([name, values]) => values.map((value) => <span data-pagefind-filter={name}>{value}</span>))}
+      {Object.entries(searchMeta).map(([name, value]) => <span data-pagefind-meta={name}>{value}</span>)}
+      <span data-pagefind-sort="published">{newestKey(record) || "0000-00-00"}</span>
+      <span data-pagefind-sort="maturity">{String(record.maturity_score)}</span>
+    </div>
     <section class="detail-hero">
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="container detail-hero__inner">
         <div class="detail-hero__copy">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
+          <nav class="breadcrumb" aria-label="Breadcrumb" data-pagefind-ignore>
             <a href={href("/")}>Dashboard</a>
             <span aria-hidden="true">/</span>
-            <a href={href(`/?vendor=${encodeURIComponent(record.vendor)}#explore`)}>{record.vendor}</a>
+            <a href={facetHref("vendors", record.vendor)}>{record.vendor}</a>
             <span aria-hidden="true">/</span>
             <span aria-current="page">{record.customer_name}</span>
           </nav>
@@ -68,7 +100,7 @@ const dots = [0, 1, 2, 3, 4, 5];
             <span class="chip chip--glass">{record.region}</span>
             {record.is_sample && <span class="chip chip--warn">Sample</span>}
           </div>
-          <h1 class="detail-hero__title">{record.customer_name}</h1>
+          <h1 class="detail-hero__title" data-pagefind-meta="title" data-pagefind-weight="10">{record.customer_name}</h1>
           {record.use_case_category.length > 0 && (
             <p class="detail-hero__usecase text-gradient">{record.use_case_category.join(" · ")}</p>
           )}
@@ -78,7 +110,7 @@ const dots = [0, 1, 2, 3, 4, 5];
               Read the original story
               <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M5 3h8v8h-1.5V5.56l-7.47 7.47-1.06-1.06L10.44 4.5H5z"/></svg>
             </a>
-            <a class="btn btn--glass" href={href("/#explore")}>Back to explorer</a>
+            <a class="btn btn--glass" href={href("/explore/")}>Explore all use cases</a>
           </div>
         </div>
 
@@ -195,7 +227,7 @@ const dots = [0, 1, 2, 3, 4, 5];
           <h3>Technical areas</h3>
           <ul class="tag-cloud">
             {record.technical_area.map((area) => (
-              <li><a class="tag tag--link" href={href(`/?area=${encodeURIComponent(area)}#explore`)}>{area}</a></li>
+              <li><a class="tag tag--link" href={href(`/explore/?area=${encodeURIComponent(area)}`)}>{area}</a></li>
             ))}
           </ul>
           <h3>Products</h3>
@@ -216,14 +248,14 @@ const dots = [0, 1, 2, 3, 4, 5];
     </div>
 
     {related.length > 0 && (
-      <section class="section section--tinted">
+      <section class="section section--tinted" data-pagefind-ignore="all">
         <div class="container">
           <div class="section__head">
             <div>
               <p class="eyebrow">Related</p>
               <h2 class="section__title">Similar use cases</h2>
             </div>
-            <a class="btn btn--ghost btn--small" href={href(`/?usecase=${encodeURIComponent(record.use_case_category[0] ?? "")}#explore`)}>See all like this</a>
+            <a class="btn btn--ghost btn--small" href={record.use_case_category[0] ? facetHref("use-cases", record.use_case_category[0]) : href("/explore/")}>See all like this</a>
           </div>
           <div class="card-grid">
             {related.map((item) => <CaseCard card={toCardRecord(item)} />)}

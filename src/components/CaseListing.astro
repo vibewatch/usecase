@@ -1,0 +1,25 @@
+---
+import CaseCard from "./CaseCard.astro";
+import Pagination from "./Pagination.astro";
+import type { CaseStudyRecord } from "../lib/types";
+import { toCardRecord } from "../lib/weeks";
+
+type Props = {
+  records: CaseStudyRecord[];
+  currentPage: number;
+  lastPage: number;
+  pageUrl: (page: number) => string;
+  total: number;
+  start: number;
+};
+
+const { records, currentPage, lastPage, pageUrl, total, start } = Astro.props;
+---
+
+<p class="results-bar__count listing__range">
+  Showing <strong>{(start + 1).toLocaleString("en")}–{(start + records.length).toLocaleString("en")}</strong> of {total.toLocaleString("en")} use cases
+</p>
+<div class="card-grid">
+  {records.map((record) => <CaseCard card={toCardRecord(record)} />)}
+</div>
+<Pagination currentPage={currentPage} lastPage={lastPage} pageUrl={pageUrl} />

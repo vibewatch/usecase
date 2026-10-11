@@ -8,6 +8,7 @@ Manifest JSONL line:
      "sha256": str, "fetched_at": ISO8601, "from_cache": bool, "error": null | str}
 
 Rerun-safe: URLs already in the manifest (with status 200) are skipped unless --refresh.
+URLs the triage step dropped (latest row in data/triage.jsonl) are never fetched.
 Queue is sorted by sitemap `lastmod` desc so the most recent case studies are fetched
 first; URLs without a `lastmod` (e.g. discovered via index pages) sort to the end.
 """
@@ -27,8 +28,10 @@ from .settings import (
     FETCH_MANIFEST_PATH,
     RAW_CONTENT_ROOT,
     SOURCES_PATH,
+    TRIAGE_PATH,
     fetch_options,
 )
+from .triage import load_decisions
 from .utils import load_json, load_jsonl, slugify
 
 
@@ -53,8 +56,12 @@ def fetch_urls(
     refresh: bool = False,
     sources_path: Optional[Path] = None,
     since: Optional[str] = None,
+    triage_path: Optional[Path] = TRIAGE_PATH,
 ) -> dict[str, int]:
     sources_path = sources_path or SOURCES_PATH
+    dropped = {
+        url for url, row in (load_decisions(triage_path) if triage_path else {}).items() if row.get("decision") == "drop"
+    }
     user_agent, delay = fetch_options(load_json(sources_path, {}))
 
     client = FetchClient(user_agent=user_agent, per_host_delay_seconds=delay, cache_dir=None)
@@ -73,6 +80,8 @@ def fetch_urls(
             continue
         if vendor_filter and vendor.lower() != vendor_filter.lower():
             continue
+        if url in dropped:
+            continue
         if since and row.get("lastmod") and row["lastmod"] < since:
             # Skip stale items with a known lastmod; unknown-date items still pass.
             continue
@@ -90,7 +99,7 @@ def fetch_urls(
         queue = queue[:limit]
 
     counts: dict[str, int] = {"ok": 0, "error": 0, "skipped": len(discovered) - len(queue)}
-    print(f"Fetching {len(queue)} url(s); {counts['skipped']} skipped (already fetched, vendor-filtered, --since, or trimmed by --limit)")
+    print(f"Fetching {len(queue)} url(s); {counts['skipped']} skipped (already fetched, triage-dropped, vendor-filtered, --since, or trimmed by --limit)")
 
     with manifest_path.open("a", encoding="utf-8") as out:
         for row in queue:

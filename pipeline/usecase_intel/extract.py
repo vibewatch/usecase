@@ -12,9 +12,13 @@ collects everything for `seed.py`.
 
 Resumability: URLs whose record already exists under `data/records/` are
 skipped, as are URLs whose bundle file already exists. Pass `--rebuild` to
-force regeneration of bundles. Candidates are sorted by sitemap `lastmod`
-desc (from `data/discovered_urls.jsonl`) so the freshest case studies are
-bundled first.
+force regeneration of bundles.
+
+When `data/triage.jsonl` has decisions, only pages the triage step kept are
+bundled, highest relevance score first, and the triage-detected publish date
+is used. Pages whose raw file is missing (e.g. a fresh CI checkout) are
+re-fetched. With no triage decisions, candidates are sorted by sitemap
+`lastmod` desc as before.
 """
 
 from __future__ import annotations
@@ -38,8 +42,10 @@ from .settings import (
     RECORDS_ROOT,
     SOURCES_PATH,
     TAXONOMY_PATH,
+    TRIAGE_PATH,
     fetch_options,
 )
+from .triage import load_decisions
 from .utils import load_json, load_jsonl, slugify
 
 PROMPT_TEMPLATE = """You are an extraction agent. Follow the SKILL below exactly and return a single strict JSON object — no markdown fences, no prose.
@@ -121,6 +127,7 @@ def extract_jobs(
     include_css_backgrounds: bool = True,
     image_client: Optional[object] = None,
     rebuild: bool = False,
+    triage_path: Optional[Path] = TRIAGE_PATH,
 ) -> dict[str, int]:
     if image_assets_limit < 0:
         raise ValueError("image_assets_limit must be >= 0")
@@ -141,8 +148,9 @@ def extract_jobs(
     discovered_path = discovered_path or DISCOVERED_URLS_PATH
     records_root = records_root or RECORDS_ROOT
     sources_path = sources_path or SOURCES_PATH
+    user_agent, delay = fetch_options(load_json(sources_path, {}))
+    page_client = FetchClient(user_agent=user_agent, per_host_delay_seconds=delay, cache_dir=None)
     if image_assets_limit > 0 and image_client is None:
-        user_agent, delay = fetch_options(load_json(sources_path, {}))
         image_client = FetchClient(
             user_agent=user_agent,
             per_host_delay_seconds=delay,
@@ -168,6 +176,8 @@ def extract_jobs(
         "skipped_existing_record": 0,
         "skipped_existing_bundle": 0,
         "skipped_missing_raw": 0,
+        "skipped_triage": 0,
+        "refetched": 0,
     }
     candidates = [row for row in manifest if row.get("status") == 200 and row.get("raw_path")]
     if vendor_filter:
@@ -182,14 +192,22 @@ def extract_jobs(
         pruned.append(row)
     candidates = pruned
 
-    # Newest first so a --limit cap keeps recent items over stale ones.
-    candidates.sort(
-        key=lambda r: (
-            url_to_lastmod.get(r["url"]) is not None,
-            url_to_lastmod.get(r["url"]) or "",
-        ),
-        reverse=True,
-    )
+    decisions = load_decisions(triage_path) if triage_path else {}
+    if decisions:
+        kept = [row for row in candidates if (decisions.get(row["url"]) or {}).get("stage") == "post"
+                and decisions[row["url"]].get("decision") == "keep"]
+        counts["skipped_triage"] = len(candidates) - len(kept)
+        # Most relevant first so a --limit cap spends extraction on the best stories.
+        candidates = sorted(kept, key=lambda r: float(decisions[r["url"]].get("score") or 0), reverse=True)
+    else:
+        # Newest first so a --limit cap keeps recent items over stale ones.
+        candidates.sort(
+            key=lambda r: (
+                url_to_lastmod.get(r["url"]) is not None,
+                url_to_lastmod.get(r["url"]) or "",
+            ),
+            reverse=True,
+        )
 
     if limit is not None:
         candidates = candidates[:limit]
@@ -205,8 +223,15 @@ def extract_jobs(
         sha = row["sha256"]
         raw_path = Path(row["raw_path"])
         if not raw_path.exists():
-            counts["skipped_missing_raw"] += 1
-            continue
+            try:
+                result = page_client.fetch(row["url"], use_cache=False)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  refetch failed {row['url']}: {exc}", file=sys.stderr)
+                counts["skipped_missing_raw"] += 1
+                continue
+            raw_path.parent.mkdir(parents=True, exist_ok=True)
+            raw_path.write_bytes(result.body)
+            counts["refetched"] += 1
 
         job_dir = jobs_root / vendor_slug
         job_dir.mkdir(parents=True, exist_ok=True)
@@ -258,7 +283,9 @@ def extract_jobs(
                     "profile": row.get("profile"),
                     "extraction_method": extraction_method,
                     "related_images": related_images,
-                    "published_date": url_to_lastmod.get(row["url"]),
+                    "published_date": (decisions.get(row["url"]) or {}).get("published_date")
+                    or url_to_lastmod.get(row["url"]),
+                    "triage_score": (decisions.get(row["url"]) or {}).get("score"),
                     "prompt": prompt,
                     "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 },
@@ -338,7 +365,9 @@ def main() -> None:
         f"image_assets={counts['image_assets']} "
         f"skipped_existing_record={counts['skipped_existing_record']} "
         f"skipped_existing_bundle={counts['skipped_existing_bundle']} "
-        f"skipped_missing_raw={counts['skipped_missing_raw']}"
+        f"skipped_missing_raw={counts['skipped_missing_raw']} "
+        f"skipped_triage={counts['skipped_triage']} "
+        f"refetched={counts['refetched']}"
     )
 
 

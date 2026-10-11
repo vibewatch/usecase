@@ -53,13 +53,14 @@ for the full extraction contract.
 npm install          # install Astro tooling
 python3 -m pip install -r requirements.txt
 npm run dev          # local dashboard at http://localhost:4321
-npm run build        # astro check && astro build → dist/
+npm run build        # astro check && astro build && pagefind --site dist → dist/
 
 # Pipeline (Python 3)
-npm run data:discover   # walk data/sources.json sitemaps → data/discovered_urls.jsonl
+npm run data:discover   # walk data/sources.json sitemaps/APIs → data/discovered_urls.jsonl
 npm run data:fetch      # fetch raw content → data/raw_content/, append data/fetch_manifest.jsonl
+npm run data:triage     # filter before extraction (pre → post → dates) → data/triage.jsonl
 npm run data:probe-fetch -- <url>  # probe/update Python fetch strategies for a hard host
-npm run data:extract    # build prompt bundles in data/extract_jobs/{vendor}/
+npm run data:extract    # build prompt bundles for triage-kept pages in data/extract_jobs/{vendor}/
 npm run data:merge      # fold data/records/**/*.json + samples → data/case-studies.merged.json
 npm run data:partition  # assign records to collection weeks → data/weekly/** (+ stamp generated JSON)
 npm run data:build      # merge → seed SQLite → export → partition
@@ -68,14 +69,50 @@ npm run data:build      # merge → seed SQLite → export → partition
 The dashboard imports `data/case-studies.generated.json`, so any rerun of
 `npm run data:build` is picked up by the next `npm run dev` / `build`.
 
+## Filtering before extraction
+
+Extraction is the only expensive step, so every discovered story passes a
+cheap, deterministic filter first (`pipeline/usecase_intel/triage.py`,
+criteria in `pipeline/usecase_intel/config/triage.json`):
+
+| Stage | Input | Drops |
+|---|---|---|
+| `pre` | discovery metadata | stories whose sitemap/API date predates the cutoff |
+| `post` | fetched page text | old (page metadata/dateline), thin, non-English, off-topic, duplicate, or redirected-away pages |
+| `dates` | undated survivors | pages the Internet Archive first saw before the cutoff |
+| extraction | the extractor itself | pages that turn out not to be customer stories (`--stage reject`) |
+
+Current criteria: published **2023 or later**, **AI & data** topics (AI-native
+vendors like OpenAI, Anthropic and LangChain are exempt from the topic check),
+at least 300 words, English. Survivors get a relevance score (topic depth,
+quantified results, architecture detail, recency) and extraction takes them
+highest-score first. Every decision and its reasons is in `data/triage.jsonl`
+(latest row per URL wins), so drops are auditable and nothing is judged twice.
+`python3 -m pipeline.usecase_intel.triage --stage summary` prints the funnel.
+
+## Search, browsing and pagination
+
+- **Search index** — `npm run build` runs [Pagefind](https://pagefind.app) over
+  the built site. Each case page carries hidden filter values (vendor,
+  industry, use case, technical area, outcome, year), card metadata and sort
+  keys; the browser downloads only the index chunks a query needs, so search
+  stays fast at thousands of stories.
+- **`/explore/`** — full-text search, multi-select filters with live counts
+  (OR within a group, AND across groups), sort by relevance / newest /
+  maturity, numbered pagination, shareable URLs. Without JavaScript it shows
+  the newest stories and links to the static pages below.
+- **Static pages** — `/browse/` (all stories, newest first, 24 per page) and
+  hubs per vendor, industry and use case (`/vendors/aws/`,
+  `/industries/retail/2/`, …), generated at build time.
+
 ## Automation & publishing
 
 - **Daily collection** — [`.github/workflows/usecase.yml`](.github/workflows/usecase.yml)
   runs every day at 06:00 UTC (and on demand via *Run workflow*). It invokes
-  the `UseCase Intel` agent (discover → fetch → extract → author up to `cap`
-  records), rebuilds the data, validates the site build, and commits
-  `data/records/**`, `data/weekly/**` and the URL/fetch ledgers. Requires the
-  `COPILOT_PAT` and `USECASE_PAT` repository secrets.
+  the `UseCase Intel` agent (discover → triage → fetch → triage → extract →
+  author up to `cap` records), rebuilds the data, validates the site build,
+  and commits `data/records/**`, `data/weekly/**`, `data/triage.jsonl` and the
+  URL/fetch ledgers. Requires the `COPILOT_PAT` and `USECASE_PAT` secrets.
 - **GitHub Pages** — [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
   rebuilds and deploys the dashboard on every push to `main` that touches
   records or site code, which includes the daily collection commit. One-time
@@ -92,17 +129,15 @@ committed to the repository:
 
 ```
 data/weekly/index.json            newest-first list of weeks + counts
-data/weekly/2026/2026-W41.json    full records first collected that ISO week
+data/weekly/2026/2026-W41.json    references (id, vendor, customer, URLs, dates,
+                                  record path) for stories first collected that ISO week
 data/weekly/undated.json          synthetic samples (no collection date)
 ```
 
 A record's week is its earliest successful fetch in `data/fetch_manifest.jsonl`
 (or the build date for brand-new records) and never changes afterwards — the
-committed weekly files are the ledger. The site mirrors this layout as slim,
-per-week JSON shards at `/data/weeks/<week>.json` (not linked from the UI). The explorer renders the newest weeks inline and
-fetches older shards on demand ("Load earlier weeks", or automatically when a
-filter needs the whole archive), so page weight stays flat as the archive
-grows.
+committed weekly files are the ledger. They hold references rather than full
+copies, so `data/records/` stays the single source of record content.
 
 ## Adding records
 
@@ -161,18 +196,23 @@ outputs belong under `data/diagrams/` and are ignored by git.
 
 ## Repository shape
 
-- `src/pages/index.astro` — dashboard: hero with latest arrivals, week-by-week
-  use case explorer (search + vendor / industry / use case / tech area / week
-  filters, lazy-loaded weekly shards), insight charts and the industry ×
-  use-case heatmap.
+- `src/pages/index.astro` — home: hero search, latest arrivals, newest use
+  cases, insight charts, industry × use-case heatmap, methodology.
+- `src/pages/explore.astro` — Pagefind-powered search with filters, sorting
+  and pagination.
+- `src/pages/browse/[...page].astro` — static paginated list of all stories.
+- `src/pages/[facet]/` — hub index and paginated hub pages per vendor,
+  industry and use case.
 - `src/pages/cases/[slug].astro` — per-record detail page (metrics, layered
-  solution architecture, evidence, related use cases).
-- `src/pages/data/weeks/` — static JSON endpoints for the weekly shards.
-- `src/components/` — `CaseCard` (also the client-side card template) and
-  `BarList`.
+  solution architecture, evidence, related use cases); also carries the
+  search-index filters, metadata and sort keys.
+- `src/components/` — `CaseCard` (also the client-side card template),
+  `CaseListing`, `Pagination`, `BarList`.
+- `src/scripts/cards.ts` — builds result cards in the browser from search metadata.
 - `src/lib/` — `caseStudies.ts` data import, `analytics.ts` aggregations,
-  `weeks.ts` week grouping + card projection, `paths.ts` base-path-aware
-  links, `vendors.ts` vendor marks, `types.ts` schema.
+  `facets.ts` facet grouping/slugs/sorting, `weeks.ts` week grouping + card
+  projection, `paths.ts` base-path-aware links, `vendors.ts` vendor marks,
+  `types.ts` schema.
 - `taxonomy.json` — canonical vocabulary for vendors / industries / technical
   areas / use cases / outcomes.
 - `pipeline/usecase_intel/` — `discover`, `fetch`, `probe`, `clean`, `media`,
