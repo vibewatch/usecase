@@ -1,0 +1,104 @@
+{
+  "id": "alibaba-cloud-pos-indonesia-document-processing",
+  "slug": "alibaba-cloud-pos-indonesia-document-processing",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Pos Indonesia",
+  "industry": "Logistics",
+  "region": "Indonesia",
+  "company_size": "Enterprise",
+  "business_problem": "As Indonesia's e-commerce sector expanded rapidly, PosIND’s legacy logistics infrastructure struggled to support growing parcel volumes and increasingly complex logistics operations. Key challenges included: Scalability issues during seasonal demand spikes resulted in system slowdowns and service disruptions.",
+  "solution_summary": "Pos Indonesia used Alibaba Cloud to address As Indonesia's e-commerce sector expanded rapidly, PosIND’s legacy logistics infrastructure struggled to support growing parcel volumes and increasingly complex logistics operations. Key challenges included: Scalability issues during seasonal demand spikes resulted in system slowdowns and service disruptions. Pos Indonesia (Persero), rebranded as PosIND , is Indonesia's state-owned postal and logistics company. Founded in 1746, the organization has evolved into a nationwide logistics and financial services provider. With over 24,000 service points covering all cities and districts across Indonesia, PosIND operates one of Southeast Asia’s largest logistics networks. PosIND selected Alibaba Cloud as its strategic technology partner based on several key differentiators. Alibaba Cloud provided the local infrastructure, cloud-native services , and enterprise-grade security required to modernize PosIND’s logistics environment.",
+  "products_used": [
+    "Data Transmission Service",
+    "Object Storage Service (OSS)",
+    "ApsaraDB RDS",
+    "Cloud Monitor",
+    "Container Service for Kubernetes (ACK)",
+    "Web Application Firewall (WAF)",
+    "Tair (Redis® OSS-Compatible)",
+    "Server Migration Center (SMC)"
+  ],
+  "solution_components": [
+    {
+      "name": "Data Transmission Service",
+      "role": "Services such as Server Migration Center (SMC) , Data Transmission Service (DTS) , Container Service for Kubernetes (ACK) , and managed database solutions enabled a smooth",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Object Storage Service (OSS) allows scalable storage for millions of delivery photos, proof-of-delivery documents, and archived transaction records with 99.9999999999% (12 9's)"
+    },
+    {
+      "name": "ApsaraDB RDS",
+      "role": "ApsaraDB RDS provides multi-AZ deployment with automatic failover, enabling high availability for critical transactional",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Monitor",
+      "role": "The architecture also implements DevOps best practices with CI/CD pipelines, infrastructure as code (IaC), and comprehensive monitoring through Cloud Monitor , ensuring rapid",
+      "layer": "Governance"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Container Service for Kubernetes (ACK) ensures optimal performance during peak periods while minimizing costs during off-peak",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Web Application Firewall (WAF)",
+      "role": "Web Application Firewall (WAF) protects against common web exploits, including SQL injection, XSS attacks, and DDoS",
+      "layer": "Governance"
+    },
+    {
+      "name": "Tair (Redis® OSS-Compatible)",
+      "role": "Tair (Redis® OSS-Compatible) enables an in-memory caching layer that accelerates application performance by reducing database load and providing sub-millisecond response times for",
+      "layer": "Storage"
+    },
+    {
+      "name": "Server Migration Center (SMC)",
+      "role": "Services such as Server Migration Center (SMC) , Data Transmission Service (DTS) , Container Service for Kubernetes (ACK) , and managed database solutions enabled a smooth"
+    }
+  ],
+  "data_flow": "Pos Indonesia's workloads and source data enter through Data Transmission Service are processed on Container Service for Kubernetes (ACK) persist to ApsaraDB RDS, Tair (Redis® OSS-Compatible) with security and operations controls from Cloud Monitor, Web Application Firewall (WAF).",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Supply Chain Optimization",
+    "Risk Management"
+  ],
+  "business_outcome": "Cost Optimization : 60% waste reduction during non-peak periods due to automated scaling. Reduction in total cost of ownership (TCO) compared to the on-premise infrastructure. Performance & Reliability :",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "3x increase in peak transaction processing capacity, handling promotional traffic without degradation.",
+    "Auto-scaling infrastructure handles 5x traffic spikes during peak seasons automatically."
+  ],
+  "architecture_clues": [
+    "Its Indonesia region supports local data residency requirements while delivering low-latency performance",
+    "Container Service for Kubernetes (ACK) ensures optimal performance during peak periods while minimizing costs during off-peak hours",
+    "ApsaraDB RDS provides multi-AZ deployment with automatic failover, enabling high availability for critical transactional data",
+    "Enhanced data protection with automated backups and disaster recovery capabilities",
+    "The company also intends to enhance customer engagement using Qwen's large language model and Model Studio platform",
+    "Qwen will serve as the backbone for PosIND's next-generation virtual assistant"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/posind",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As Indonesia's e-commerce sector expanded rapidly, PosIND’s legacy logistics infrastructure struggled to support growing parcel volumes and increasingly complex logistics operations.",
+    "Scalability issues during seasonal demand spikes resulted in system slowdowns and service disruptions.",
+    "High operational costs due to significant capital expenditure for maintenance, upgrades, and expansion.",
+    "Limited real-time visibility into operations and integration complexity made it difficult to optimize delivery routes, predict demand patterns, and provide accurate ETAs for delivering a unified customer experience.",
+    "Limited backup and disaster recovery capabilities posed risks to business continuity in case of infrastructure failures."
+  ]
+}

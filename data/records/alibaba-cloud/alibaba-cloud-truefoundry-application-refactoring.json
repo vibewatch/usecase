@@ -1,0 +1,70 @@
+{
+  "id": "alibaba-cloud-truefoundry-application-refactoring",
+  "slug": "alibaba-cloud-truefoundry-application-refactoring",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "TrueFoundry",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "As the AI agent ecosystem matured, TrueFoundry identified four critical barriers teams face when moving from prototype to production: Model fragmentation : Not every agent task requires the largest model. A quick file edit does not justify a frontier-scale invocation, and a repository-wide refactor demands the most capable model available.",
+  "solution_summary": "TrueFoundry used Alibaba Cloud to address As the AI agent ecosystem matured, TrueFoundry identified four critical barriers teams face when moving from prototype to production: Model fragmentation : Not every agent task requires the largest model. A quick file edit does not justify a frontier-scale invocation, and a repository-wide refactor demands the most capable model available. TrueFoundry is an AI infrastructure company headquartered in San Francisco, building the production layer for AI agents. Its flagship open-source product, TrueForge , provides teams with everything needed to build, deploy, debug, and govern production-grade AI agents — supporting any model and any MCP server within their own infrastructure. Enterprises including NetApp are already using TrueFoundry to run production agents at scale.",
+  "products_used": [
+    "Qwen",
+    "Alibaba Cloud Model Studio",
+    "API Gateway"
+  ],
+  "solution_components": [
+    {
+      "name": "Qwen",
+      "role": "TrueFoundry integrated the full Qwen model family into its Agent Harness, creating a unified platform where every model size sits behind one",
+      "layer": "Compute"
+    },
+    {
+      "name": "Alibaba Cloud Model Studio",
+      "role": "Supports TrueFoundry's deployment by accelerate deployment and scaling of Qwen, Wan, and more leading models on one secure Alibaba Cloud platform",
+      "layer": "Compute"
+    },
+    {
+      "name": "API Gateway",
+      "role": "Supports TrueFoundry's deployment by the API gateway is responsible for coordinating and managing various API and AI requests, serving as a key infrastructure for building applicat",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "TrueFoundry's workloads and source data are processed on Qwen, Alibaba Cloud Model Studio and are delivered through API Gateway.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Cost optimization : Total agent operating costs reduced by approximately 50% compared to managed, single-vendor agent platforms. Widest open coverage : Qwen's model spectrum — from sub-billion to 480B parameters — gives TrueForge users access to the most comprehensive selection of open models behind a single API. Zero-integration switching : Moving between model sizes is frictionless — no code rewrites or re-integrations required, making right-sizing a natural habit. Unified governance : One API, one dashboard, one budget — observability and spend caps apply consistently across every model size.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "TrueFoundry chose Alibaba's Qwen as a founding model partner for TrueForge's open-source launch, driven by several key factors:",
+    "Broadest open-model spectrum : Qwen offers the widest range of open models of any AI lab — from sub-billion-parameter models to the flagship Qwen3-Coder-480B-A35B with up to one-million-token context on coding models",
+    "Family coherence : All Qwen models share a unified family identity and function-call format, so switching between sizes feels seamless rather than like integrating a new provider",
+    "Production-grade capabilities : The Qwen coding line achieves state-of-the-art results among open models on agentic coding and tool-use tasks, performing on par with leading closed models",
+    "Open-weight philosophy : Qwen's open-weight approach aligns with TrueFoundry's vendor-neutral ethos",
+    "Teams can deploy Qwen models on their own infrastructure without proprietary restrictions"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/truefoundry",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As the AI agent ecosystem matured, TrueFoundry identified four critical barriers teams face when moving from prototype to production:",
+    "Model fragmentation : Not every agent task requires the largest model.",
+    "A quick file edit does not justify a frontier-scale invocation, and a repository-wide refactor demands the most capable model available.",
+    "Most teams need both, but stitching together separate providers creates significant integration overhead.",
+    "Vendor lock-in : Most managed agent platforms address production complexity by locking teams into a single model provider."
+  ]
+}

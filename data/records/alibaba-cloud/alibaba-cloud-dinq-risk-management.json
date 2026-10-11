@@ -1,0 +1,93 @@
+{
+  "id": "alibaba-cloud-dinq-risk-management",
+  "slug": "alibaba-cloud-dinq-risk-management",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "DINQ",
+  "industry": "Software / SaaS",
+  "region": "Hong Kong (China)",
+  "company_size": "SMB",
+  "business_problem": "As global AI talent communities are growing rapidly, DINQ needed to support increasing real-time collaboration and high engagement while delivering a consistent user experience across international markets. From a technology standpoint, the platform had to handle traffic fluctuations caused by community activities and launches, while maintaining low-latency AI-driven matching at scale. Also, stable WebSocket connections across regions were essential to ensure fast iteration with reliable CI/CD pipelines.",
+  "solution_summary": "DINQ used Alibaba Cloud to address As global AI talent communities are growing rapidly, DINQ needed to support increasing real-time collaboration and high engagement while delivering a consistent user experience across international markets. From a technology standpoint, the platform had to handle traffic fluctuations caused by community activities and launches, while maintaining low-latency AI-driven matching at scale. Also, stable WebSocket connections across regions were essential to ensure fast iteration with reliable CI/CD pipelines. DINQ is a next-generation career platform designed for the AI era. It serves AI researchers, engineers, founders, and creators by providing dynamic professional identity pages, precise talent matching, and collaboration-first networking. DINQ differentiates itself through AI-driven insights, real-time interaction, and a cloud-native architecture optimized for global scale.",
+  "products_used": [
+    "Qwen",
+    "ApsaraDB RDS for PostgreSQL",
+    "Object Storage Service (OSS)",
+    "Container Service for Kubernetes (ACK)",
+    "Server Load Balancer (SLB)",
+    "CDN"
+  ],
+  "solution_components": [
+    {
+      "name": "Qwen",
+      "role": "Qwen LLM provides the core orchestration and analysis for the advisor matching and recommendation",
+      "layer": "Compute"
+    },
+    {
+      "name": "ApsaraDB RDS for PostgreSQL",
+      "role": "ApsaraDB RDS for PostgreSQL with the pgvector extension to support AI vector similarity search with millisecond-level response",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Object Storage Service (OSS) with CDN for storing and globally distributing static assets such as avatars and"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Container Service for Kubernetes (ACK) hosting five core microservices, including Gateway, Server, Message, Discover, and Tool, with HPA scaling pods from 2 to 10 based on traffic",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Server Load Balancer (SLB)",
+      "role": "Server Load Balancer (SLB) ensures high-availability entry points for API gateways and WebSocket",
+      "layer": "Serving"
+    },
+    {
+      "name": "CDN",
+      "role": "Object Storage Service (OSS) with CDN for storing and globally distributing static assets such as avatars and",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "DINQ's workloads and source data are processed on Qwen, Container Service for Kubernetes (ACK) persist to ApsaraDB RDS for PostgreSQL and are delivered through Server Load Balancer (SLB), CDN.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Marketing Personalization",
+    "System Migration"
+  ],
+  "business_outcome": "As DINQ continues its global expansion, the platform is focused on optimizing latency for users across China, the Asia-Pacific region, North America, and Europe. It aims to enable global acceleration for both static assets and dynamic APIs, as well as build multi-region disaster recovery to enhance platform availability. Alibaba Cloud will continue to support DINQ’s next phase of growth through scalable infrastructure, cloud-native services, and AI-ready solutions, enabling global expansion, performance optimization, and accelerated innovation.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "API response latency < 200ms (P95)",
+    "CI/CD deployment time under 10 minutes"
+  ],
+  "architecture_clues": [
+    "Cloud-native Kubernetes support",
+    "Global infrastructure and CDN coverage",
+    "Container Service for Kubernetes (ACK) hosting five core microservices, including Gateway, Server, Message, Discover, and Tool, with HPA scaling pods from 2 to 10 based on traffic demand",
+    "Qwen LLM provides the core orchestration and analysis for the advisor matching and recommendation scenario",
+    "It aims to enable global acceleration for both static assets and dynamic APIs, as well as build multi-region disaster recovery to enhance platform availability",
+    "Primary customer region: Hong Kong (China)"
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/dinq",
+  "published_date": "2026-01-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As global AI talent communities are growing rapidly, DINQ needed to support increasing real-time collaboration and high engagement while delivering a consistent user experience across international markets.",
+    "From a technology standpoint, the platform had to handle traffic fluctuations caused by community activities and launches, while maintaining low-latency AI-driven matching at scale.",
+    "Also, stable WebSocket connections across regions were essential to ensure fast iteration with reliable CI/CD pipelines.",
+    "DINQ set clear objectives to achieve:",
+    "API response latency < 200ms (P95)"
+  ]
+}
