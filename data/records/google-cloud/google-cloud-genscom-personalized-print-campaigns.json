@@ -1,0 +1,80 @@
+{
+  "id": "google-cloud-genscom-personalized-print-campaigns",
+  "slug": "google-cloud-genscom-personalized-print-campaigns",
+  "vendor": "Google Cloud",
+  "customer_name": "Genscom",
+  "industry": "Software / SaaS",
+  "region": "Belgium",
+  "company_size": "SMB",
+  "business_problem": "Genscom wanted to automate highly personalized print campaigns at scale, but it needed to digitize legacy print assets, combine live customer data with physical production, and handle order spikes without sacrificing layout quality.",
+  "solution_summary": "Genscom uses Google Cloud to address this challenge: Genscom wanted to automate highly personalized print campaigns at scale, but it needed to digitize legacy print assets, combine live customer data with physical production, and handle order spikes without sacrificing layout quality. Gemini Enterprise Agent Platform manages the machine learning models that digitize archived layouts and support intelligent document understanding, serving as the compute layer. BigQuery stores and cleans the company and campaign data used to personalize B2B print outreach, serving as the storage layer. Cloud Run functions pull and clean target-company information from websites to automate personalized campaign preparation, serving as the serving layer. Firestore stores client data in separate databases that can grow as customer profiles expand, serving as the storage layer.",
+  "products_used": [
+    "Gemini Enterprise Agent Platform",
+    "BigQuery",
+    "Cloud Run functions",
+    "Firestore",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "manages the machine learning models that digitize archived layouts and support intelligent document understanding",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "stores and cleans the company and campaign data used to personalize B2B print outreach",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run functions",
+      "role": "pull and clean target-company information from websites to automate personalized campaign preparation",
+      "layer": "Serving"
+    },
+    {
+      "name": "Firestore",
+      "role": "stores client data in separate databases that can grow as customer profiles expand",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "is the next multimodal layer the company plans to use for conversational layout design and image adaptation",
+      "layer": "Compute"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Sales Automation"
+  ],
+  "business_outcome": "Genscom tripled revenue, improved campaign engagement, and built an automated bridge between digital intelligence and physical print production.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The platform can generate either one booklet or thousands of unique pages during spikes",
+    "The initial document-understanding workflow preserved decades of physical paper archives",
+    "Future Gemini multimodal work is aimed at conversational layout design"
+  ],
+  "source_url": "https://cloud.google.com/customers/genscom",
+  "published_date": "2026-06-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "3x revenue increase with automation using Gemini and Cloud Run.",
+    "Genscom uses Cloud Run functions BigQuery to automatically pull and clean company information from those target websites.",
+    "The system then outputs unique, print-ready, four-page newspapers sent directly to the printing presses."
+  ],
+  "data_flow": "Archived papers are digitized through models managed in Gemini Enterprise Agent Platform, campaign websites are scraped and cleaned through Cloud Run functions into BigQuery, customer data is stored in Firestore, and the resulting layouts are rendered into print-ready personalized newspapers.",
+  "integration_points": [
+    "target company websites",
+    "printing presses"
+  ]
+}

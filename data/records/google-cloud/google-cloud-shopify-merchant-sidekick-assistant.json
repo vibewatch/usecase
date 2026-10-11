@@ -1,0 +1,75 @@
+{
+  "id": "google-cloud-shopify-merchant-sidekick-assistant",
+  "slug": "google-cloud-shopify-merchant-sidekick-assistant",
+  "vendor": "Google Cloud",
+  "customer_name": "Shopify",
+  "industry": "Retail",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Shopify needed an AI commerce assistant that could understand merchant intent, chain together multiple tool calls, and stay available at global scale so millions of merchants could get faster guidance and store setup help.",
+  "solution_summary": "Shopify uses Google Cloud to address this challenge: Shopify needed an AI commerce assistant that could understand merchant intent, chain together multiple tool calls, and stay available at global scale so millions of merchants could get faster guidance and store setup help. Claude Sonnet 4.5 handles the advanced reasoning and tool-calling behavior behind the Sidekick commerce assistant, serving as the compute layer. Gemini platform provides the hosting flexibility and model access Shopify uses to keep Sidekick resilient and fast to update, serving as the serving layer. Bigtable supports high-scale data access for the broader Shopify environment that powers Sidekick, serving as the storage layer. BigQuery supports warehousing and analysis in the environments the team deploys around Sidekick, serving as the storage layer. Google Kubernetes Engine helps the team deliver end-to-end model deployment environments more quickly, serving as the orchestration layer.",
+  "products_used": [
+    "Claude Sonnet 4.5",
+    "Gemini platform",
+    "Bigtable",
+    "BigQuery",
+    "Google Kubernetes Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Sonnet 4.5",
+      "role": "handles the advanced reasoning and tool-calling behavior behind the Sidekick commerce assistant",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "provides the hosting flexibility and model access Shopify uses to keep Sidekick resilient and fast to update",
+      "layer": "Serving"
+    },
+    {
+      "name": "Bigtable",
+      "role": "supports high-scale data access for the broader Shopify environment that powers Sidekick",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "supports warehousing and analysis in the environments the team deploys around Sidekick",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "helps the team deliver end-to-end model deployment environments more quickly",
+      "layer": "Orchestration"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Shopify gave merchants a more capable commerce assistant, sped up internal model upgrades, and improved the resiliency of AI features that merchants rely on every day.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "A Claude Sonnet 4.0 to 4.5 upgrade reached production in less than 24 hours",
+    "The assistant can string together product lookup, analytics query, and recommendation steps without problematic latency",
+    "Developers use Model Garden to access Claude and Gemini models for internal tools"
+  ],
+  "source_url": "https://cloud.google.com/customers/shopify",
+  "published_date": "2026-02-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Shopify uses Claude on Google Cloud to scale Sidekick, an AI-enabled commerce assistant.",
+    "By running Claude on Google Cloud, Shopify achieved superior latency, resiliency, and uptime.",
+    "Shopify also uses solutions such as Bigtable BigQuery Compute Engine, and Google Kubernetes Engine to quickly deliver end-to-end environments for data warehousing and model deployment."
+  ],
+  "data_flow": "Merchant questions enter Sidekick, Claude Sonnet reasons through multiple tool calls inside the Gemini platform environment, supporting data services such as Bigtable and BigQuery provide the operational context, and GKE helps Shopify push model and feature updates quickly into production."
+}

@@ -1,0 +1,74 @@
+{
+  "id": "google-cloud-university-of-cambridge-supply-chain-risk-analytics",
+  "slug": "google-cloud-university-of-cambridge-supply-chain-risk-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "University of Cambridge",
+  "industry": "Education",
+  "region": "United Kingdom",
+  "company_size": "Public sector",
+  "business_problem": "the Industrial Resilience Research Group needed to trace complex global supply chains and detect emerging disruptions, but public reports, satellite imagery, and news data were too voluminous for academic tools and limited local computing.",
+  "solution_summary": "University of Cambridge uses Google Cloud to address this challenge: the Industrial Resilience Research Group needed to trace complex global supply chains and detect emerging disruptions, but public reports, satellite imagery, and news data were too voluminous for academic tools and limited local computing. Cloud Storage stores the raw public reports, satellite imagery references, and news data that feed the observatory, serving as the storage layer. BigQuery organizes and prepares the collected data so analysts can query and model supply-chain behavior at scale, serving as the storage layer. Gemini processes and cleans incoming data while also supporting sentiment analysis over supply-chain vulnerability signals, serving as the compute layer. Vertex AI classifies the curated data for forecasting and downstream risk analysis, serving as the compute layer.",
+  "products_used": [
+    "Cloud Storage",
+    "BigQuery",
+    "Gemini",
+    "Vertex AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Storage",
+      "role": "stores the raw public reports, satellite imagery references, and news data that feed the observatory",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "organizes and prepares the collected data so analysts can query and model supply-chain behavior at scale",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "processes and cleans incoming data while also supporting sentiment analysis over supply-chain vulnerability signals",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "classifies the curated data for forecasting and downstream risk analysis",
+      "layer": "Compute"
+    }
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The University of Cambridge translated academic research into an operational observatory that improves supply-chain transparency and gives policy makers and business leaders faster risk insight.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The Global Supply Chain Observatory is being reused for UK-India and UK-Japan collaborations",
+    "The team is exploring a natural-language Gemini interface for non-technical decision makers",
+    "The platform converts heterogeneous public data into a forecasting-ready supply-chain view"
+  ],
+  "source_url": "https://cloud.google.com/customers/university-of-cambridge",
+  "published_date": "2026-03-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "This raw data is stored in Cloud Storage before being moved into BigQuery, where it's organized and prepared for analysis, with Gemini models being used for data processing and cleaning, and Vertex AI to classify the data for forecasting.",
+    "The team is exploring a natural language interface, powered by the Gemini family of models, that would allow non-technical policy makers and business leaders to ask simple questions and receive clear, actionable answers."
+  ],
+  "data_flow": "Public reports, Google Earth Engine imagery references, and news articles are ingested into Cloud Storage, moved into BigQuery for organization and preparation, processed with Gemini for cleaning and sentiment work, and classified in Vertex AI for forecasting and risk insight generation.",
+  "integration_points": [
+    "Google Earth Engine",
+    "public reports",
+    "news articles"
+  ]
+}

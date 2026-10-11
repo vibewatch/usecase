@@ -1,0 +1,78 @@
+{
+  "id": "google-cloud-quadrivia-clinical-assistant-automation",
+  "slug": "google-cloud-quadrivia-clinical-assistant-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Quadrivia",
+  "industry": "Healthcare",
+  "region": "Unknown",
+  "company_size": "Unknown",
+  "business_problem": "Quadrivia needed a healthcare assistant that could automate clinical work in real time, preserve patient safety, and connect to electronic health records without sacrificing latency or privacy.",
+  "solution_summary": "Quadrivia uses Google Cloud to address this challenge: Quadrivia needed a healthcare assistant that could automate clinical work in real time, preserve patient safety, and connect to electronic health records without sacrificing latency or privacy. Gemini Flash handles Q Assistant reasoning workloads with low latency, multimodal understanding, and tool calling for patient and clinician interactions, serving as the compute layer. Cloud Healthcare API connects the assistant to electronic health records so responses use the right clinical context, serving as the ingest layer. Sensitive Data Protection protects regulated patient information inside the workflow, serving as the governance layer. Security Command Center surfaces vulnerabilities and supports continuous security monitoring for the healthcare platform, serving as the governance layer.",
+  "products_used": [
+    "Gemini Flash",
+    "Cloud Healthcare API",
+    "Sensitive Data Protection",
+    "Security Command Center",
+    "Google Kubernetes Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Flash",
+      "role": "handles Q Assistant reasoning workloads with low latency, multimodal understanding, and tool calling for patient and clinician interactions",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Healthcare API",
+      "role": "connects the assistant to electronic health records so responses use the right clinical context",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Sensitive Data Protection",
+      "role": "protects regulated patient information inside the workflow",
+      "layer": "Governance"
+    },
+    {
+      "name": "Security Command Center",
+      "role": "surfaces vulnerabilities and supports continuous security monitoring for the healthcare platform",
+      "layer": "Governance"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "deploys the assistant services so Quadrivia can reach patients across multiple geographies, including rural users",
+      "layer": "Orchestration"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Quadrivia automated a meaningful share of clinical work, cut patient response latency, and improved the safety and accuracy of AI-supported care interactions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Gemini supports both text and voice in one session without losing context",
+    "Clinicians can route calls to a human with natural language rules",
+    "The platform is aiming toward self-healing AI that monitors conversations for technical issues"
+  ],
+  "source_url": "https://cloud.google.com/customers/quadrivia",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Quadrivia uses Gemini, alongside other LLM models, to automate up to 30% of clinical tasks, delivering 10x faster response times for patients.",
+    "With the low latency of Gemini, Q delivers a 1.8-second response time.",
+    "The data integration provided by Cloud Healthcare API ensures that Q has the right context at the right time, leading to a 99.96% clinical accuracy rate."
+  ],
+  "data_flow": "Voice and chat requests enter Q Assistant, Gemini Flash reasons over the interaction, Cloud Healthcare API pulls electronic health record context, governance services protect the data, and GKE distributes the workload to production environments in different geographies.",
+  "integration_points": [
+    "electronic health records"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "google-cloud-iata-air-travel-demand-forecasting",
+  "slug": "google-cloud-iata-air-travel-demand-forecasting",
+  "vendor": "Google Cloud",
+  "customer_name": "IATA",
+  "industry": "Logistics",
+  "region": "Global",
+  "company_size": "Public sector",
+  "business_problem": "IATA wanted a repeatable short-term air-travel forecasting signal to complement long-term econometric models, but needed the entire workflow to run automatically each month with richer features and no manual intervention.",
+  "solution_summary": "IATA uses Google Cloud to address this challenge: IATA wanted a repeatable short-term air-travel forecasting signal to complement long-term econometric models, but needed the entire workflow to run automatically each month with richer features and no manual intervention. Cloud Scheduler triggers the monthly forecasting run without manual intervention, serving as the orchestration layer. Cloud Run functions start the execution flow that publishes the orchestration message, serving as the serving layer. Pub/Sub carries the event that wakes up the forecasting pipeline, serving as the orchestration layer. Gemini Enterprise Agent Platform orchestrates the machine-learning workflow with Kubeflow, serving as the orchestration layer. Cloud Storage stores the retrieved monthly data and intermediate assets for preprocessing and training, serving as the storage layer. Secret Manager stores the credentials used to authenticate data retrieval securely, serving as the governance layer.",
+  "products_used": [
+    "Cloud Scheduler",
+    "Cloud Run functions",
+    "Pub/Sub",
+    "Gemini Enterprise Agent Platform",
+    "Cloud Storage",
+    "Secret Manager",
+    "Cloud KMS"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Scheduler",
+      "role": "triggers the monthly forecasting run without manual intervention",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Run functions",
+      "role": "start the execution flow that publishes the orchestration message",
+      "layer": "Serving"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "carries the event that wakes up the forecasting pipeline",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "orchestrates the machine-learning workflow with Kubeflow",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "stores the retrieved monthly data and intermediate assets for preprocessing and training",
+      "layer": "Storage"
+    },
+    {
+      "name": "Secret Manager",
+      "role": "stores the credentials used to authenticate data retrieval securely",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud KMS",
+      "role": "encrypts the pipeline credentials and supports secure operations",
+      "layer": "Governance"
+    }
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "IATA automated its short-term forecasting process, reduced reliance on manual production, and created a richer predictive signal for air-travel outlooks and internal research.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "One global ML model produces approximately 5,700 bidirectional forecasts"
+  ],
+  "architecture_clues": [
+    "One global model produces about 5,700 bidirectional forecasts",
+    "The feature set includes schedule data, booking signals, and event and holiday calendars",
+    "The entire monthly pipeline runs end to end without a manual step"
+  ],
+  "source_url": "https://cloud.google.com/customers/iata",
+  "published_date": "2026-09-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "One global ML model produces approximately 5,700 bidirectional forecasts",
+    "Every month, a scheduled Cloud Scheduler job is triggered, activates a Cloud Run Function, and publishes a message to Pub/Sub.",
+    "The ML pipeline, orchestrated through Gemini Enterprise Agent Platform with Kubeflow, comes to life without a single manual step.",
+    "The pipeline is authenticated securely using credentials stored in Google Cloud Secret Manager, encrypted by Cloud KMS."
+  ],
+  "data_flow": "A monthly Cloud Scheduler trigger calls a Cloud Run function that publishes to Pub/Sub, Gemini Enterprise Agent Platform and Kubeflow orchestrate the forecasting workflow, the pipeline retrieves and stores data in Cloud Storage, and secure secrets and keys protect access during feature engineering and model retraining."
+}

@@ -1,0 +1,85 @@
+{
+  "id": "google-cloud-impulsogov-public-health-data-platform",
+  "slug": "google-cloud-impulsogov-public-health-data-platform",
+  "vendor": "Google Cloud",
+  "customer_name": "ImpulsoGov",
+  "industry": "Public Sector",
+  "region": "Brazil",
+  "company_size": "Public sector",
+  "business_problem": "ImpulsoGov needed to rebuild a public-health data platform so hundreds of municipalities could exchange preventive-care data faster, run pipelines in hours instead of days, and scale without proportionally increasing infrastructure costs.",
+  "solution_summary": "ImpulsoGov uses Google Cloud to address this challenge: ImpulsoGov needed to rebuild a public-health data platform so hundreds of municipalities could exchange preventive-care data faster, run pipelines in hours instead of days, and scale without proportionally increasing infrastructure costs. Cloud Storage receives raw municipal health records from a transmitter application installed in each city and stores the bronze layer of the medallion pipeline, serving as the storage layer. Google Kubernetes Engine runs the orchestrator that processes and refines data across the medallion architecture, serving as the orchestration layer. BigQuery stores the silver and gold data layers used for analytics and decision support, serving as the storage layer. Cloud Run supports the applications that deliver the final data products to healthcare professionals, serving as the serving layer. Cloud SQL backs the applications that expose curated information to practitioners, serving as the storage layer.",
+  "products_used": [
+    "Cloud Storage",
+    "Google Kubernetes Engine",
+    "BigQuery",
+    "Cloud Run",
+    "Cloud SQL"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Storage",
+      "role": "receives raw municipal health records from a transmitter application installed in each city and stores the bronze layer of the medallion pipeline",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "runs the orchestrator that processes and refines data across the medallion architecture",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "stores the silver and gold data layers used for analytics and decision support",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "supports the applications that deliver the final data products to healthcare professionals",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "backs the applications that expose curated information to practitioners",
+      "layer": "Storage"
+    }
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "ImpulsoGov shortened deployments and pipeline runtimes, reduced monthly data traffic, and expanded preventive-care coverage to many more municipalities on the same infrastructure.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Health list deployment cut from three months to 15 days",
+    "Data pipeline execution reduced from 20 hours to 4 to 5",
+    "Scaled from 65 to 330 municipalities on the same infrastructure",
+    "Infrastructure costs expected to drop by up to 60%",
+    "ImpulsoGov rebuilt on Google Cloud to cut deployment 6x and scale preventive care to four million Brazilians."
+  ],
+  "architecture_clues": [
+    "The rebuilt architecture follows a medallion pattern with bronze data in Cloud Storage and silver and gold layers in BigQuery",
+    "The platform scaled from 65 to 330 municipalities on the same infrastructure",
+    "The nonprofit expects infrastructure costs to drop by up to 60%"
+  ],
+  "source_url": "https://cloud.google.com/customers/impulsogov",
+  "published_date": "2026-09-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Health list deployment cut from three months to 15 days",
+    "Data pipeline execution reduced from 20 hours to 4 to 5",
+    "Scaled from 65 to 330 municipalities on the same infrastructure",
+    "Infrastructure costs expected to drop by up to 60%",
+    "ImpulsoGov rebuilt on Google Cloud to cut deployment 6x and scale preventive care to four million Brazilians.",
+    "is a Brazilian nonprofit healthtech that turns public health data into action. Brazil's universal health system covers 210 million people and holds the world's largest public health database. Yet despite this wealth of information, a preventable death occurs every nine minutes. ImpulsoGov's mission is to close that gap, helping municipalities use the data they already have to identify and reach the citizens who need care before it is too late."
+  ],
+  "data_flow": "Each municipality sends daily records through a local transmitter into Cloud Storage, GKE orchestrates processing through a medallion architecture, BigQuery holds refined silver and gold layers, and Cloud Run plus Cloud SQL serve the final applications to healthcare professionals."
+}

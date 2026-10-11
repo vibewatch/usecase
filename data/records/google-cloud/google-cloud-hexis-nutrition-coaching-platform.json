@@ -1,0 +1,79 @@
+{
+  "id": "google-cloud-hexis-nutrition-coaching-platform",
+  "slug": "google-cloud-hexis-nutrition-coaching-platform",
+  "vendor": "Google Cloud",
+  "customer_name": "Hexis",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Hexis needed to translate dense exercise physiology and nutrition science into instant, personalized athlete guidance while synchronizing wearable data globally and shipping new product features much faster.",
+  "solution_summary": "Hexis uses Google Cloud to address this challenge: Hexis needed to translate dense exercise physiology and nutrition science into instant, personalized athlete guidance while synchronizing wearable data globally and shipping new product features much faster. Compute Engine processes training, meal, and wellness data and runs the stateless application instances that power real-time coaching, serving as the compute layer. Cloud SQL for PostgreSQL stores the multi-regional athlete data that stays synchronized across Europe, the US, and Australia, serving as the storage layer. Gemini interprets natural-language, image, and voice inputs and converts them into structured nutrition data and coaching explanations, serving as the serving layer. Gemini Notebook centralizes scientific research into an internal knowledge base that accelerates onboarding and feature work, serving as the serving layer.",
+  "products_used": [
+    "Compute Engine",
+    "Cloud SQL for PostgreSQL",
+    "Gemini",
+    "Gemini Notebook"
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "processes training, meal, and wellness data and runs the stateless application instances that power real-time coaching",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL for PostgreSQL",
+      "role": "stores the multi-regional athlete data that stays synchronized across Europe, the US, and Australia",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "interprets natural-language, image, and voice inputs and converts them into structured nutrition data and coaching explanations",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Notebook",
+      "role": "centralizes scientific research into an internal knowledge base that accelerates onboarding and feature work",
+      "layer": "Serving"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Hexis delivered near-instant nutritional guidance, accelerated feature development, and built the basis for an automated digital coach that can scale beyond elite sports organizations.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "10x faster feature development with",
+    "<50 milliseconds to deliver nutritional insights",
+    "Hexis uses Google Cloud and Gemini to scale its nutrition OS for human performance globally and ship features 10x faster."
+  ],
+  "architecture_clues": [
+    "Application instances run statelessly across Europe, the US, and Australia behind global load balancing",
+    "Gemini returns nutrition breakdowns in under 50 milliseconds",
+    "A new Nutrients feature shipped in three days instead of an estimated 30"
+  ],
+  "source_url": "https://cloud.google.com/customers/hexis",
+  "published_date": "2026-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "10x faster feature development with",
+    "<50 milliseconds to deliver nutritional insights",
+    "Hexis uses Google Cloud and Gemini to scale its nutrition OS for human performance globally and ship features 10x faster.",
+    "Hexis uses Compute Engine-managed instance groups and a multi-regional Cloud SQL for PostgreSQL database to continuously sync live workout and wellness data from connected fitness devices.",
+    "Taking a picture of a plate of food or recording a quick voice note triggers Gemini.",
+    "Hexis engineers used Gemini to design, build, and launch a new Nutrients feature in just three days, 10x faster than the estimated 30 days."
+  ],
+  "data_flow": "Workout and wellness signals from connected devices sync into a multi-regional Cloud SQL store, Compute Engine processes the data for the Carb Coding system, and Gemini turns photos, voice notes, and natural-language questions into structured nutrition outputs and coaching responses.",
+  "integration_points": [
+    "connected fitness devices"
+  ]
+}

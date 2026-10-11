@@ -1,0 +1,72 @@
+{
+  "id": "google-cloud-inmobi-petabyte-data-platform-modernization",
+  "slug": "google-cloud-inmobi-petabyte-data-platform-modernization",
+  "vendor": "Google Cloud",
+  "customer_name": "InMobi",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "InMobi’s backend data platform was processing about 2 PB of data per day with shared Spark infrastructure that created storage bottlenecks, poor workload isolation, and limited visibility into compute and storage costs.",
+  "solution_summary": "InMobi uses Google Cloud to address this challenge: InMobi’s backend data platform was processing about 2 PB of data per day with shared Spark infrastructure that created storage bottlenecks, poor workload isolation, and limited visibility into compute and storage costs. Cloud Storage became the single source of truth for the bronze data layer and removed the I/O bottlenecks that constrained Spark throughput, serving as the storage layer. Google Kubernetes Engine runs workload-specific Spark node pools and redirects production compute to better-isolated clusters, serving as the orchestration layer. Storage Transfer Service migrates data movement into the new storage foundation during cutover, serving as the ingest layer. Bronze data is standardized in Cloud Storage, Storage Transfer Service helps shift data movement into the new architecture, and Spark workloads are redirected to workload-specific node pools on GKE so compute and storage scale independently.",
+  "products_used": [
+    "Cloud Storage",
+    "Google Kubernetes Engine",
+    "Storage Transfer Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Storage",
+      "role": "became the single source of truth for the bronze data layer and removed the I/O bottlenecks that constrained Spark throughput",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "runs workload-specific Spark node pools and redirects production compute to better-isolated clusters",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Storage Transfer Service",
+      "role": "migrates data movement into the new storage foundation during cutover",
+      "layer": "Ingest"
+    }
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "InMobi modernized a petabyte-scale platform with zero downtime, increased peak throughput, and pushed most compute onto lower-cost capacity without sacrificing performance.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Migrated a data platform processing 2 PB of data daily with zero production outages",
+    "Achieved 2 TB/s peak throughput by standardizing on",
+    "Transitioned >95% of compute workloads to cost-effective",
+    "Migrated 500+ production workflows to",
+    "InMobi seamlessly migrated its 2 PB/day data platform to Google Cloud, achieving zero downtime and transitioning >95% to Spot VMs."
+  ],
+  "architecture_clues": [
+    "The migration processed approximately 2 PB of data daily with zero production outages",
+    "A centralized feature toggle redirected production Spark workloads to GKE",
+    "More than 95% of compute workloads now run on Spot VMs"
+  ],
+  "source_url": "https://cloud.google.com/customers/inmobidataplatform",
+  "published_date": "2026-08-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Migrated a data platform processing 2 PB of data daily with zero production outages",
+    "Achieved 2 TB/s peak throughput by standardizing on",
+    "Transitioned >95% of compute workloads to cost-effective",
+    "Migrated 500+ production workflows to",
+    "InMobi seamlessly migrated its 2 PB/day data platform to Google Cloud, achieving zero downtime and transitioning >95% to Spot VMs.",
+    "Achieved 2 TB/s peak throughput by standardizing on Cloud Storage."
+  ],
+  "data_flow": "Bronze data is standardized in Cloud Storage, Storage Transfer Service helps shift data movement into the new architecture, and Spark workloads are redirected to workload-specific node pools on GKE so compute and storage scale independently."
+}

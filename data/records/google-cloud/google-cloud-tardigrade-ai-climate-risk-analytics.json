@@ -1,0 +1,92 @@
+{
+  "id": "google-cloud-tardigrade-ai-climate-risk-analytics",
+  "slug": "google-cloud-tardigrade-ai-climate-risk-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Tardigrade AI",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "SMB",
+  "business_problem": "Tardigrade AI needed a cloud-native climate-risk platform that could unify huge public, partner, and insurance data sets, orchestrate analysis automatically, and turn complex model outputs into understandable guidance for non-specialists.",
+  "solution_summary": "Tardigrade AI uses Google Cloud to address this challenge: Tardigrade AI needed a cloud-native climate-risk platform that could unify huge public, partner, and insurance data sets, orchestrate analysis automatically, and turn complex model outputs into understandable guidance for non-specialists. Cloud Run executes the workloads behind the Adapt platform and its climate-risk analyses, serving as the compute layer. BigQuery centralizes heterogeneous data sources and exposes a unified analytical layer for climatologists, econometricians, and AI experts, serving as the storage layer. Cloud SQL manages user-account and report data for the platform, serving as the storage layer. Cloud Storage stores report and supporting data assets in the platform, serving as the storage layer. Cloud Workflows orchestrates the end-to-end cloud-native process together with messaging primitives, serving as the orchestration layer.",
+  "products_used": [
+    "Cloud Run",
+    "BigQuery",
+    "Cloud SQL",
+    "Cloud Storage",
+    "Cloud Workflows",
+    "Pub/Sub",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "executes the workloads behind the Adapt platform and its climate-risk analyses",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "centralizes heterogeneous data sources and exposes a unified analytical layer for climatologists, econometricians, and AI experts",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "manages user-account and report data for the platform",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "stores report and supporting data assets in the platform",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Workflows",
+      "role": "orchestrates the end-to-end cloud-native process together with messaging primitives",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "supports event-driven orchestration across the climate-risk processing pipeline",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "turns model outputs into natural-language risk summaries and helps users query climate data more directly",
+      "layer": "Serving"
+    }
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Tardigrade AI made climate and disaster-risk analysis easier to understand and act on, while giving clients a more scalable way to explore and operationalize adaptation decisions.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Gemini contextualizes water-level projections against more than 440,000 French natural-disaster recognition orders",
+    "The team plans Looker dashboards and Google Earth visualization for clearer risk exploration",
+    "The platform uses generative AI to convert climate-model output into actionable recommendations"
+  ],
+  "source_url": "https://cloud.google.com/customers/tardigrade-ai",
+  "published_date": "2026-02-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The modernization relies on Cloud Run to execute workloads, BigQuery to centralize and exploit data, Cloud SQL and Cloud Storage to manage user accounts and reports, and Cloud Workflows and Pub/Sub to orchestrate the entire process.",
+    "Tardigrade AI relies on Gemini models: they interpret the results and render them in accessible language.",
+    "Tardigrade AI is working on the possibility of querying BigQuery in natural language with Gemini."
+  ],
+  "data_flow": "Insurance, public, partner, and Copernicus data is centralized in BigQuery, Cloud Run executes the core analytical workloads, Cloud Workflows and Pub/Sub orchestrate the process, and Gemini transforms the resulting climate-risk outputs into readable reports and natural-language exploration paths.",
+  "integration_points": [
+    "Copernicus program",
+    "Google Earth"
+  ]
+}

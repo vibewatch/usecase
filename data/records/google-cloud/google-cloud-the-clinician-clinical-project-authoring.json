@@ -1,0 +1,76 @@
+{
+  "id": "google-cloud-the-clinician-clinical-project-authoring",
+  "slug": "google-cloud-the-clinician-clinical-project-authoring",
+  "vendor": "Google Cloud",
+  "customer_name": "The Clinician",
+  "industry": "Healthcare",
+  "region": "Unknown",
+  "company_size": "Mid-market",
+  "business_problem": "The Clinician needed to scale the authoring of healthcare outcome projects while enforcing PHI screening, licensing controls, and auditability across mixed workloads with very different latency and reasoning requirements.",
+  "solution_summary": "The Clinician uses Google Cloud to address this challenge: The Clinician needed to scale the authoring of healthcare outcome projects while enforcing PHI screening, licensing controls, and auditability across mixed workloads with very different latency and reasoning requirements. Gemini Enterprise Agent Platform hosts the hybrid model-routing architecture that serves the application’s nine production endpoints, serving as the serving layer. Gemini Pro handles complex reasoning and document extraction inside project-authoring workflows, serving as the compute layer. Gemini Flash supports high-volume, latency-sensitive tasks such as question drafting, serving as the compute layer. Cloud Run functions provide the serverless endpoint layer for the governed healthcare workflow, serving as the serving layer.",
+  "products_used": [
+    "Gemini Enterprise Agent Platform",
+    "Gemini Pro",
+    "Gemini Flash",
+    "Cloud Run functions"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "hosts the hybrid model-routing architecture that serves the application’s nine production endpoints",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Pro",
+      "role": "handles complex reasoning and document extraction inside project-authoring workflows",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Flash",
+      "role": "supports high-volume, latency-sensitive tasks such as question drafting",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run functions",
+      "role": "provide the serverless endpoint layer for the governed healthcare workflow",
+      "layer": "Serving"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "The Clinician drastically reduced project setup time, increased project-launch volume, and replaced costly manual or outsourced steps with governed AI workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Slashes project-authoring time from 42 days to 3.1 hours",
+    "Scales monthly clinical project launches from four to 47",
+    "Saves $2.1M in annualized external costs through",
+    "Blocks 14 restricted instrument uses with"
+  ],
+  "architecture_clues": [
+    "The architecture runs nine production endpoints with hybrid model routing",
+    "PHI screening blocks calls that contain sensitive healthcare data",
+    "Licensing checks enforce the approved use of clinical instruments"
+  ],
+  "source_url": "https://cloud.google.com/customers/theclinician",
+  "published_date": "2026-07-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Slashes project-authoring time from 42 days to 3.1 hours",
+    "Scales monthly clinical project launches from four to 47",
+    "Saves $2.1M in annualized external costs through",
+    "Blocks 14 restricted instrument uses with",
+    "Deployed across the architecture features a hybrid model routing pattern running nine production endpoints.",
+    "It dynamically routes complex reasoning and document extraction to Gemini Pro, while assigning high-volume, latency-sensitive tasks like question drafting to Gemini Flash."
+  ],
+  "data_flow": "Project requests enter a serverless endpoint layer, Gemini Enterprise Agent Platform routes complex document extraction to Gemini Pro and drafting workloads to Gemini Flash, and governance checks screen PHI and restricted instruments before output is returned to clinicians."
+}

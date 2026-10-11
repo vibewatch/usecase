@@ -1,0 +1,63 @@
+{
+  "id": "google-cloud-turbopuffer-serverless-vector-search",
+  "slug": "google-cloud-turbopuffer-serverless-vector-search",
+  "vendor": "Google Cloud",
+  "customer_name": "turbopuffer",
+  "industry": "Software / SaaS",
+  "region": "Canada",
+  "company_size": "SMB",
+  "business_problem": "turbopuffer needed a search architecture for AI applications that could store every byte of data cheaply while still delivering strongly consistent vector and full-text queries at scale.",
+  "solution_summary": "turbopuffer uses Google Cloud to address this challenge: turbopuffer needed a search architecture for AI applications that could store every byte of data cheaply while still delivering strongly consistent vector and full-text queries at scale. Google Cloud Storage serves as the only storage dependency for the database and uses Compare-and-Swap semantics to preserve distributed consistency, serving as the storage layer. Google Kubernetes Engine simplifies management of the containerized application layer around the search system, serving as the orchestration layer. Compute Engine launches virtual machines on demand for the high-performance search service, serving as the compute layer. Vector and full-text data is stored directly in Google Cloud Storage, the search engine coordinates access through cloud-storage primitives instead of an external database, and GKE plus Compute Engine supply the execution environment for query-serving workloads.",
+  "products_used": [
+    "Google Cloud Storage",
+    "Google Kubernetes Engine",
+    "Compute Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Cloud Storage",
+      "role": "serves as the only storage dependency for the database and uses Compare-and-Swap semantics to preserve distributed consistency",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "simplifies management of the containerized application layer around the search system",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Compute Engine",
+      "role": "launches virtual machines on demand for the high-performance search service",
+      "layer": "Compute"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "turbopuffer cut storage costs dramatically, kept search simple, and gave AI software companies a scalable way to search all of their data.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The architecture uses Google Cloud Storage as the only database dependency",
+    "The company cites more than 90% lower storage cost than traditional approaches",
+    "Customers include AI software teams that rely on vector and full-text search for RAG-style applications"
+  ],
+  "source_url": "https://cloud.google.com/customers/turbopuffer",
+  "published_date": "2026-02-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company's unique architecture takes advantage of Google Cloud Storage features like a Compare-and-Swap API.",
+    "Alongside Google Cloud Storage, Google Kubernetes Engine (GKE) simplifies containerized application management and Google Compute Engine launches virtual machines on demand.",
+    "turbopuffer's only dependency is Google Cloud Storage itself."
+  ],
+  "data_flow": "Vector and full-text data is stored directly in Google Cloud Storage, the search engine coordinates access through cloud-storage primitives instead of an external database, and GKE plus Compute Engine supply the execution environment for query-serving workloads."
+}

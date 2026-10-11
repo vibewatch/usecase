@@ -1,0 +1,89 @@
+{
+  "id": "google-cloud-traba-supply-chain-workforce-automation",
+  "slug": "google-cloud-traba-supply-chain-workforce-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Traba",
+  "industry": "Logistics",
+  "region": "Unknown",
+  "company_size": "Unknown",
+  "business_problem": "industrial staffing operations were slowed by fragmented labor data, manual vetting, paper timesheets, and poor overnight visibility into shift coverage and warehouse conditions.",
+  "solution_summary": "Traba uses Google Cloud to address this challenge: industrial staffing operations were slowed by fragmented labor data, manual vetting, paper timesheets, and poor overnight visibility into shift coverage and warehouse conditions. Gemini Flash answers hiring and worker questions in under a second and handles complex, high-frequency interactions across the staffing workflow, serving as the serving layer. Gemini Flash-Lite keeps large volumes of hiring and operational processing affordable while supporting more than 50 AI use cases, serving as the compute layer. Cloud Run executes Neo’s AI tasks on demand for bigger operational automations, serving as the serving layer. Google Kubernetes Engine scales Traba’s core software as demand grows across industrial customers, serving as the orchestration layer. BigQuery acts as the central hub for spreadsheets, business records, operational logs, and HR databases so Gemini can reason over one consistent dataset, serving as the storage layer.",
+  "products_used": [
+    "Gemini Flash",
+    "Gemini Flash-Lite",
+    "Cloud Run",
+    "Google Kubernetes Engine",
+    "BigQuery"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Flash",
+      "role": "answers hiring and worker questions in under a second and handles complex, high-frequency interactions across the staffing workflow",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Flash-Lite",
+      "role": "keeps large volumes of hiring and operational processing affordable while supporting more than 50 AI use cases",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "executes Neo’s AI tasks on demand for bigger operational automations",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "scales Traba’s core software as demand grows across industrial customers",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "acts as the central hub for spreadsheets, business records, operational logs, and HR databases so Gemini can reason over one consistent dataset",
+      "layer": "Storage"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Traba filled shifts faster, expanded overnight operational throughput, and automated multilingual workforce support without adding administrative headcount.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Fills 95% of facility shifts in less than 24 hours",
+    "Helps teams clear 10x more overnight work",
+    "Processes around 130K",
+    "requests per week across 50+ use cases"
+  ],
+  "architecture_clues": [
+    "Gemini manages around 6,500 worker text messages per day",
+    "Gemini OCR reads handwritten paper timesheets",
+    "Traba uses Gemini roughly 130,000 times every week across more than 50 use cases"
+  ],
+  "source_url": "https://cloud.google.com/customers/traba",
+  "published_date": "2026-09-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Fills 95% of facility shifts in less than 24 hours",
+    "Helps teams clear 10x more overnight work",
+    "Processes around 130K",
+    "requests per week across 50+ use cases",
+    "By combining Gemini Flash and Flash-Lite models, the platform answers questions in under a second while keeping high-volume data processing affordable.",
+    "BigQuery acts as a single hub that brings spreadsheets, business records, operational logs, and HR databases together."
+  ],
+  "data_flow": "Applicant data from phone calls, surveys, resumes, spreadsheets, operational logs, and HR systems is unified in BigQuery, Gemini builds structured worker profiles and handles vetting and translation, Cloud Run executes larger automations, and GKE scales the Neo platform for live operations.",
+  "integration_points": [
+    "phone calls",
+    "surveys",
+    "resumes",
+    "HR databases"
+  ]
+}

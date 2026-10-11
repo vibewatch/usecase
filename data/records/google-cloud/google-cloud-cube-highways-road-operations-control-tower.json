@@ -1,0 +1,75 @@
+{
+  "id": "google-cloud-cube-highways-road-operations-control-tower",
+  "slug": "google-cloud-cube-highways-road-operations-control-tower",
+  "vendor": "Google Cloud",
+  "customer_name": "Cube Highways",
+  "industry": "Logistics",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Cube Highways needed faster incident reporting and safer field operations across dozens of toll roads, but patrol teams were using generic consumer apps and the operations center lacked immediate, location-aware visibility into hazards.",
+  "solution_summary": "Cube Highways uses Google Cloud to address this challenge: Cube Highways needed faster incident reporting and safer field operations across dozens of toll roads, but patrol teams were using generic consumer apps and the operations center lacked immediate, location-aware visibility into hazards. Compute Engine hosts RoadAid and the broader suite of internal applications that support field and control-center operations, serving as the compute layer. Cloud Storage secures tolling and operational data across the highway network, serving as the storage layer. BigQuery supports self-service safety reporting and historical analysis for engineers, serving as the storage layer. Google Maps Platform extracts GPS coordinates from RoadAid mobile reports and plots incidents on live heat maps, serving as the serving layer. Security Command Center identifies exposed ports and manages service-account risks to keep the platform audit ready, serving as the governance layer.",
+  "products_used": [
+    "Compute Engine",
+    "Cloud Storage",
+    "BigQuery",
+    "Google Maps Platform",
+    "Security Command Center"
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "hosts RoadAid and the broader suite of internal applications that support field and control-center operations",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "secures tolling and operational data across the highway network",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "supports self-service safety reporting and historical analysis for engineers",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Maps Platform",
+      "role": "extracts GPS coordinates from RoadAid mobile reports and plots incidents on live heat maps",
+      "layer": "Serving"
+    },
+    {
+      "name": "Security Command Center",
+      "role": "identifies exposed ports and manages service-account risks to keep the platform audit ready",
+      "layer": "Governance"
+    }
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Risk Management"
+  ],
+  "business_outcome": "Cube Highways improved road-response speed, maintained strong application uptime across its tolling estate, and prepared to scale the network without expanding IT headcount at the same rate.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "RoadAid has maintained 99.99% application uptime on Compute Engine for eight years",
+    "The cloud architecture also serves as the backbone of the disaster-recovery plan",
+    "The company is exploring Gemini and Vertex AI on top of accumulated highway data"
+  ],
+  "source_url": "https://cloud.google.com/customers/cube-highways",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Secures tolling data for 38 highways using Cloud Storage.",
+    "Google Maps Platform extracts the exact GPS coordinates, plotting the incident on live heat maps.",
+    "The company safeguards this architecture using the Security Command Center."
+  ],
+  "data_flow": "Field patrols capture issues in the RoadAid mobile app, Google Maps Platform extracts coordinates for live mapping, operations teams use the location-aware view to dispatch the right materials, and the resulting operational data is secured in Cloud Storage and analyzed through BigQuery."
+}

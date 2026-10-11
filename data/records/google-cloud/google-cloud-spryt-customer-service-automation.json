@@ -1,0 +1,90 @@
+{
+  "id": "google-cloud-spryt-customer-service-automation",
+  "slug": "google-cloud-spryt-customer-service-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Spryt",
+  "industry": "Healthcare",
+  "region": "Ireland",
+  "company_size": "SMB",
+  "business_problem": "healthcare providers were missing booked appointments because patients faced fear, confusion, and transport barriers, while Spryt also needed to replace a fragmented AI stack with a secure platform that could satisfy major healthcare buyers.",
+  "solution_summary": "Spryt uses Google Cloud to address this challenge: healthcare providers were missing booked appointments because patients faced fear, confusion, and transport barriers, while Spryt also needed to replace a fragmented AI stack with a secure platform that could satisfy major healthcare buyers. Gemini powers Cortex and Sentinel to reason over patient conversations, check responses for safety and compliance, and decide when a human should take over, serving as the compute layer. TensorFlow runs prediction models that identify patients at risk of missing or canceling appointments before outreach begins, serving as the compute layer. Google Kubernetes Engine runs the multi-agent Asa platform and scales patient engagement services for production healthcare deployments, serving as the orchestration layer. Cloud SQL supports Spryt’s MySQL database for the scheduling and engagement application, serving as the storage layer.",
+  "products_used": [
+    "Gemini",
+    "TensorFlow",
+    "Google Kubernetes Engine",
+    "Cloud SQL",
+    "Gemini Enterprise Agent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "powers Cortex and Sentinel to reason over patient conversations, check responses for safety and compliance, and decide when a human should take over",
+      "layer": "Compute"
+    },
+    {
+      "name": "TensorFlow",
+      "role": "runs prediction models that identify patients at risk of missing or canceling appointments before outreach begins",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "runs the multi-agent Asa platform and scales patient engagement services for production healthcare deployments",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "supports Spryt’s MySQL database for the scheduling and engagement application",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "provides the shared environment for developing, evaluating, and serving the models behind Asa, Cortex, Sentinel, and the prediction systems",
+      "layer": "Serving"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Spryt increased booking conversion, reduced no-shows and call-center load, and gave clinics a compliant way to turn scheduled care into attended care.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Increased booking conversion by 160%",
+    "Reduced call center load by 42%",
+    "Enables a 28% reduction in no-shows",
+    "Helps clinics save +8 admin hours per week",
+    "Increased patient adherence and preparation for their appointment by 35%"
+  ],
+  "architecture_clues": [
+    "Asa is a multi-agent patient engagement system with Cortex as the decision layer and Sentinel as the monitoring model",
+    "Patient data is processed in-region and encrypted at rest and in transit by default",
+    "Prediction models were developed and evaluated with more than 224 million de-identified Mayo Clinic Platform records"
+  ],
+  "source_url": "https://cloud.google.com/customers/spryt",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Increased booking conversion by 160%",
+    "Reduced call center load by 42%",
+    "Enables a 28% reduction in no-shows",
+    "Helps clinics save +8 admin hours per week",
+    "Increased patient adherence and preparation for their appointment by 35%",
+    "Gemini powers Cortex, the decision layer that governs everything Asa says."
+  ],
+  "data_flow": "Patient outreach begins in messaging channels such as WhatsApp and SMS, TensorFlow models score no-show risk, Gemini-powered Cortex governs the response and escalation path, GKE hosts the running agents, and Cloud SQL stores application data while Gemini Enterprise Agent Platform serves the underlying models.",
+  "integration_points": [
+    "WhatsApp",
+    "SMS",
+    "MediDrive",
+    "Mayo Clinic Platform"
+  ]
+}

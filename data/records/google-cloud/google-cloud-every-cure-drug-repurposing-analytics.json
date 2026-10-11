@@ -1,0 +1,81 @@
+{
+  "id": "google-cloud-every-cure-drug-repurposing-analytics",
+  "slug": "google-cloud-every-cure-drug-repurposing-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Every Cure",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Every Cure needed to evaluate tens of millions of drug-disease combinations fast enough to find overlooked repurposing opportunities, which required a unified biomedical data foundation instead of long, batch-style research cycles.",
+  "solution_summary": "Every Cure uses Google Cloud to address this challenge: Every Cure needed to evaluate tens of millions of drug-disease combinations fast enough to find overlooked repurposing opportunities, which required a unified biomedical data foundation instead of long, batch-style research cycles. BigQuery houses large biomedical knowledge graphs and lets the team score and query drug-disease relationships at scale, serving as the storage layer. Cloud Storage stores the platform’s biomedical data assets alongside the knowledge-graph foundation, serving as the storage layer. Gemini quantifies evidence across published research, clinical data, and molecular biology and helps triage the most promising predictions, serving as the compute layer. Google Cloud GPUs accelerate the prediction pipeline so experiments that once ran for months can complete in hours, serving as the compute layer.",
+  "products_used": [
+    "BigQuery",
+    "Cloud Storage",
+    "Gemini",
+    "Google Cloud GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "houses large biomedical knowledge graphs and lets the team score and query drug-disease relationships at scale",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "stores the platform’s biomedical data assets alongside the knowledge-graph foundation",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "quantifies evidence across published research, clinical data, and molecular biology and helps triage the most promising predictions",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud GPUs",
+      "role": "accelerate the prediction pipeline so experiments that once ran for months can complete in hours",
+      "layer": "Compute"
+    }
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Every Cure accelerated drug-repurposing discovery, launched more active programs, and focused expert review on the strongest candidates instead of manual screening.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "75 million drug-disease predictions analyzed",
+    "Prediction pipeline accelerated from 100 days to ~17 hours",
+    "Every Cure uses Google AI to match 4k existing drugs against 18k diseases, discovering life-saving treatments for patients faster."
+  ],
+  "architecture_clues": [
+    "The platform evaluates 75 million possible drug-disease combinations",
+    "Scientists reviewed the top 6,000 predictions from the platform in the past year",
+    "Cycle time dropped from 100 days for a single run to about 17 hours"
+  ],
+  "source_url": "https://cloud.google.com/customers/everycure",
+  "published_date": "2026-06-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "75 million drug-disease predictions analyzed",
+    "Prediction pipeline accelerated from 100 days to ~17 hours",
+    "Every Cure uses Google AI to match 4k existing drugs against 18k diseases, discovering life-saving treatments for patients faster.",
+    "Every Cure’s platform relies on Google Cloud as its underlying operating system, with BigQuery and Cloud Storage to house biomedical knowledge graphs seamlessly in one place.",
+    "Gemini helps triage what comes next.",
+    "Using Google Cloud GPUs, Every Cure has since compressed that cycle to approximately 17 hours."
+  ],
+  "data_flow": "Biomedical knowledge is centralized in Cloud Storage and BigQuery, Gemini evaluates evidence across the graph to score drug-disease combinations, and GPU-backed runs generate ranked predictions that scientists review for feasibility and clinical potential.",
+  "integration_points": [
+    "published research",
+    "clinical data",
+    "molecular biology"
+  ]
+}

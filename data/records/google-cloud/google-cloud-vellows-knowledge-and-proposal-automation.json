@@ -1,0 +1,92 @@
+{
+  "id": "google-cloud-vellows-knowledge-and-proposal-automation",
+  "slug": "google-cloud-vellows-knowledge-and-proposal-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "VELLOWS",
+  "industry": "Software / SaaS",
+  "region": "Switzerland",
+  "company_size": "Mid-market",
+  "business_problem": "VELLOWS needed a secure AI platform that could standardize knowledge management and accelerate proposal writing, but strict privacy rules and disconnected expertise repositories kept consultants from safely using AI at scale.",
+  "solution_summary": "VELLOWS uses Google Cloud to address this challenge: VELLOWS needed a secure AI platform that could standardize knowledge management and accelerate proposal writing, but strict privacy rules and disconnected expertise repositories kept consultants from safely using AI at scale. Gemini Enterprise provides the secure enterprise AI layer for proposal drafting, document analysis, and future digital services, serving as the serving layer. Gemini Notebook analyzes complex project documents and extracts technical answers during live work, serving as the serving layer. Agent Designer lets non-technical users build no-code personal agents for routine work such as drafting emails, serving as the serving layer. Agent Search enables natural-language retrieval across company files in SharePoint and Outlook, serving as the serving layer. Cloud Storage stores finalized project documents that feed the knowledge engine surfaced in Gemini Enterprise, serving as the storage layer.",
+  "products_used": [
+    "Gemini Enterprise",
+    "Gemini Notebook",
+    "Agent Designer",
+    "Agent Search",
+    "Cloud Storage",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise",
+      "role": "provides the secure enterprise AI layer for proposal drafting, document analysis, and future digital services",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Notebook",
+      "role": "analyzes complex project documents and extracts technical answers during live work",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agent Designer",
+      "role": "lets non-technical users build no-code personal agents for routine work such as drafting emails",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agent Search",
+      "role": "enables natural-language retrieval across company files in SharePoint and Outlook",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "stores finalized project documents that feed the knowledge engine surfaced in Gemini Enterprise",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "is planned to host additional ERP connectors that operationalize more structured company data",
+      "layer": "Serving"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Sales Automation"
+  ],
+  "business_outcome": "VELLOWS dramatically accelerated proposal creation, standardized internal communication quality, and created a governed base for future AI-driven client offerings.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Achieves 14x faster proposal creation",
+    "Standardizes document search and email drafting for 40+ consultants",
+    "VELLOWS uses Gemini Enterprise to secure data, standardize knowledge management, and accelerate complex proposal writing by 14x."
+  ],
+  "architecture_clues": [
+    "The deployment uses identity federation and role configuration to satisfy Swiss and EU residency expectations",
+    "The company expanded beyond its initial 39 Gemini Enterprise licenses as adoption grew",
+    "Future Cloud Run connectors will use structured staffing and capacity data for consultant matching"
+  ],
+  "source_url": "https://cloud.google.com/customers/vellows",
+  "published_date": "2026-09-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Achieves 14x faster proposal creation",
+    "Standardizes document search and email drafting for 40+ consultants",
+    "VELLOWS uses Gemini Enterprise to secure data, standardize knowledge management, and accelerate complex proposal writing by 14x.",
+    "A custom data pipeline moves these files to Cloud Storage on Google Cloud.",
+    "VELLOWS enables employees to use natural language to instantly locate specific files across SharePoint and Outlook."
+  ],
+  "data_flow": "Final project documents and metadata move from the ERP system into Cloud Storage, are indexed into a structured store, and are then surfaced through Gemini Enterprise, Agent Search, and Gemini Notebook so consultants can retrieve answers and draft proposals from a governed knowledge base.",
+  "integration_points": [
+    "ERP system",
+    "SharePoint",
+    "Outlook"
+  ]
+}

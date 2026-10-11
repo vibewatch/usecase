@@ -1,0 +1,68 @@
+{
+  "id": "google-cloud-bower-waste-sorting-assistant",
+  "slug": "google-cloud-bower-waste-sorting-assistant",
+  "vendor": "Google Cloud",
+  "customer_name": "Bower",
+  "industry": "Software / SaaS",
+  "region": "Unknown",
+  "company_size": "SMB",
+  "business_problem": "Bower needed to move beyond barcode-dependent recycling guidance so users anywhere could identify waste items, understand local disposal options, and keep the app learning as it expanded globally.",
+  "solution_summary": "Bower uses Google Cloud to address this challenge: Bower needed to move beyond barcode-dependent recycling guidance so users anywhere could identify waste items, understand local disposal options, and keep the app learning as it expanded globally. Vertex AI hosts and serves the machine learning models Bower uses to identify waste items from photos, serving as the serving layer. Compute Engine provides Cloud GPU capacity for training the image-identification model at global scale, serving as the compute layer. Vision AI performs object detection to identify item type, material, estimated mass, and brand from user-submitted images, serving as the compute layer. Gemini processes unstructured user input to evaluate recycling drop-off points and continuously enriches the global waste knowledge base, serving as the compute layer.",
+  "products_used": [
+    "Vertex AI",
+    "Compute Engine",
+    "Vision AI",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Vertex AI",
+      "role": "hosts and serves the machine learning models Bower uses to identify waste items from photos",
+      "layer": "Serving"
+    },
+    {
+      "name": "Compute Engine",
+      "role": "provides Cloud GPU capacity for training the image-identification model at global scale",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vision AI",
+      "role": "performs object detection to identify item type, material, estimated mass, and brand from user-submitted images",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "processes unstructured user input to evaluate recycling drop-off points and continuously enriches the global waste knowledge base",
+      "layer": "Compute"
+    }
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Bower scaled recycling guidance to a global audience, reduced manual data entry, and made its app capable of recognizing far more items than a barcode-only workflow could support.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Users validate new information with thumbs up or thumbs down feedback to keep the models improving",
+    "The platform processed more than 136 million waste items while expanding to over 170 countries",
+    "The app tracks estimated CO2 savings as part of the recognition workflow"
+  ],
+  "source_url": "https://cloud.google.com/customers/bower",
+  "published_date": "2026-02-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Bower used Vertex AI, leveraging high-speed Cloud GPUs with Compute Engine, to develop and train an ML model that allows users to identify any waste item, simply by uploading a photo.",
+    "Now, with Gemini, Bower can process unstructured user input to evaluate recycling drop-off points.",
+    "Thanks to our work with Google Cloud, we scaled our app globally from five to more than 170 countries in just six months."
+  ],
+  "data_flow": "Users upload a photo, Vision AI and the Vertex AI model identify the waste item and its characteristics, Compute Engine GPU training keeps the recognition model current, and Gemini processes additional user input about recycling locations so the knowledge base expands market by market."
+}
