@@ -1,0 +1,72 @@
+{
+  "id": "google-cloud-carousell-real-time-analytics",
+  "slug": "google-cloud-carousell-real-time-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Carousell",
+  "industry": "Retail",
+  "region": "Singapore",
+  "company_size": "Unknown",
+  "business_problem": "Carousell , a premier classifieds business focused on Southeast Asia, reached a pivotal moment in its data journey as its reporting needs grew in scale and complexity. Initially, the team successfully utilized Looker to build extensive reporting and dashboards that served every department, from Finance to Marketing.",
+  "solution_summary": "To resolve the tension between deep exploration and rapid reporting, Carousell implemented a multi-instance architecture. They designated a new, dedicated Looker instance strictly for aggregated dashboards, executive reviews, and platform health monitoring. This ensured that critical Weekly Business Reviews were powered by pre-aggregated tables in BigQuery, guaranteeing fast performance for leadership. Meanwhile, the legacy instance was retained to allow stakeholders to explore granular data and experiment with new metrics without impacting the speed or stability of production reports. A cornerstone of this new architecture was the implementation of a rigorous Continuous Integration and Continuous Deployment (CI/CD) pipeline on the new instance. Wei Jie Ng, a BI Engineer at Carousell, integrated tools like Looker CI and LAMS (Look At Me Sideways) to automate quality control.",
+  "products_used": [
+    "BigQuery",
+    "LookML",
+    "Looker"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries the analytics and AI-ready datasets that power the workload.",
+      "layer": "Storage"
+    },
+    {
+      "name": "LookML",
+      "role": "Defines governed metrics and semantic models so teams and AI workflows use the same business logic.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Looker",
+      "role": "Provides the governed semantic layer, dashboards, and self-service analytics used by business teams.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "stored or unified in BigQuery, and surfaced through Looker",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "IT Operations Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Reduced 98th percentile query times from over 40 seconds to significantly faster loads for critical dashboards; Shifted BI team focus from \"firefighting\" report errors to strategic Gen AI initiatives; Enforced data quality for Conversational Analytics through automated SQL and description checks using Looker Continuous Integration.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Reduced 98th percentile query times from over 40 seconds to significantly faster loads for critical dashboards"
+  ],
+  "architecture_clues": [
+    "Reduced 98th percentile query times from over 40 seconds to significantly faster loads for critical dashboards",
+    "Enforced data quality for Conversational Analytics through automated SQL and description checks using Looker Continuous Integration",
+    "# Carousell accelerates reporting and preps for Gen AI with Looker multi-instance architecture",
+    "Google Cloud Looker BigQuery"
+  ],
+  "source_url": "https://cloud.google.com/customers/looker-carousell",
+  "published_date": "2026-02-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Reduced 98th percentile query times from over 40 seconds to significantly faster loads for critical dashboards",
+    "Shifted BI team focus from \"firefighting\" report errors to strategic Gen AI initiatives",
+    "Enforced data quality for Conversational Analytics through automated SQL and description checks using Looker Continuous Integration",
+    "Carousell optimized its data operations by implementing a multi-instance Looker architecture and a robust CI/CD pipeline, significantly improving dashboard performance and data trust.",
+    "Initially, the team successfully utilized Looker to build extensive reporting and dashboards that served every department, from Finance to Marketing."
+  ]
+}

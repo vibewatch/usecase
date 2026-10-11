@@ -1,0 +1,86 @@
+{
+  "id": "google-cloud-ica-real-time-analytics",
+  "slug": "google-cloud-ica-real-time-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "ICA",
+  "industry": "Retail",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "Previously, however, ICA’s fragmented technical environment was holding it back. Data was siloed across legacy platforms and SQL server environments, creating high maintenance costs and preventing teams from sharing insights, while innovation stalled as data scientists struggled to push ML models into production.",
+  "solution_summary": "Security was built into the architecture from the start to meet strict regulatory requirements. The team engineered a custom encryption service to protect sensitive data at the column level. To allow data scientists to work with real information without compromising privacy, ICA implemented specialized decryption views. These views decrypt data only in transit when viewed by an authorized user, meaning the unencrypted data is never stored at rest in BigQuery. This approach eliminates the need to create mocked data when real data is too sensitive to access, which can often lead to inaccurate results. For added resiliency, ICA uses a hybrid key management strategy where a master key on an external cloud provider is required to unlock the key sets on Google Cloud.",
+  "products_used": [
+    "Gemini platform",
+    "Gemini",
+    "BigQuery",
+    "Looker",
+    "Bigtable"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Coordinates the solution's agentic and generative AI workflows on Google Cloud.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers natural-language reasoning, summarization, generation, or assistance inside the workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries the analytics and AI-ready datasets that power the workload.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Looker",
+      "role": "Provides the governed semantic layer, dashboards, and self-service analytics used by business teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Bigtable",
+      "role": "Stores high-volume low-latency operational data for real-time workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "stored or unified in BigQuery, Bigtable, orchestrated via Gemini platform, and surfaced through Gemini, Looker",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "AI and Machine Learning",
+    "Cloud Migration",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Faster development of proofs of concept; Enables secure innovation across the retail business; Improves ML model training and deployment speed while lowering costs; ICA modernized its data architecture on Google Cloud to break down silos and accelerate AI innovation from 18 months to 10 weeks..",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "ICA modernized its data architecture on Google Cloud to break down silos and accelerate AI innovation from 18 months to 10 weeks.",
+    "ICA Gruppen is a leading Swedish retailer, with a portfolio covering grocery, pharmacy and banking. Serving more than 5M people daily, its mission is to make every day a little easier for its customers."
+  ],
+  "architecture_clues": [
+    "Improves ML model training and deployment speed while lowering costs",
+    "# ICA modernizes its data foundation for AI innovation with BigQuery",
+    "Engineering a secure, SQL-native foundation for cross-sector data with BigQuery",
+    "Gemini platform"
+  ],
+  "source_url": "https://cloud.google.com/customers/ica-gruppen",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Faster development of proofs of concept",
+    "Enables secure innovation across the retail business",
+    "Improves ML model training and deployment speed while lowering costs",
+    "ICA modernized its data architecture on Google Cloud to break down silos and accelerate AI innovation from 18 months to 10 weeks.",
+    "Scaling a century of service through"
+  ]
+}

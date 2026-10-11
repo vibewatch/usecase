@@ -1,0 +1,115 @@
+{
+  "id": "google-cloud-chatandbuild-real-time-analytics",
+  "slug": "google-cloud-chatandbuild-real-time-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "ChatAndBuild",
+  "industry": "unknown",
+  "region": "Singapore",
+  "company_size": "SMB",
+  "business_problem": "Enabling 140,000+ users to turn natural language into working apps with sub-second latency. But this vision was hindered by the company’s previous infrastructure. Builders faced 30–70% higher latency, disrupting the flow of real-time generation. Complex agents, such as Japanese language tutors, suffered from context rot, causing loss of user history and hallucinating answers.",
+  "solution_summary": "Now, the platform handles requests as diverse as a PE teacher building a volleyball velocity tracker or a Head of Product prototyping a customer feedback app. When a prompt arrives, instantly routes tasks to specialized agents for coding and research. For complex multimodal needs, such as analyzing video motion, Gemini models on Vertex AI generate high-fidelity outputs in real time. To maintain the intelligence of these agents, the platform uses BigQuery as a telemetry layer, tracking billions of tokens to prevent context rot, and Cloud SQL for structured data management. Beneath this workflow, Google Kubernetes Engine (GKE) creates isolated namespaces for each agent graph, ensuring thousands of builders can create simultaneously. and Cloud Functions automatically spin up stateless microservices to handle traffic bursts, while Cloud Load Balancing ensures requests reach the nearest region for sub-second response times.",
+  "products_used": [
+    "Gemini",
+    "Vertex AI",
+    "BigQuery",
+    "Google Kubernetes Engine (GKE)",
+    "Cloud Run",
+    "Cloud Build",
+    "Cloud Storage",
+    "Cloud CDN",
+    "Cloud SQL"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "Powers natural-language reasoning, summarization, generation, or assistance inside the workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Hosts and orchestrates machine learning and generative AI capabilities inside the solution.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries the analytics and AI-ready datasets that power the workload.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Orchestrates the platform's containerized services and high-concurrency workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs application services and proprietary code in a managed container environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Build",
+      "role": "Automates build, test, and deployment workflows for engineering teams.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores large files, lake data, or static assets that feed downstream analytics and applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud CDN",
+      "role": "Accelerates delivery of front-end assets and content to end users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Provides the managed relational data layer for operational application data.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "stored or unified in BigQuery, Cloud Storage, Cloud SQL, processed with Vertex AI, orchestrated via Google Kubernetes Engine (GKE), Cloud Build, and surfaced through Gemini, Cloud Run, Cloud CDN",
+  "integration_points": [],
+  "technical_area": [
+    "Cloud Native",
+    "AI and Machine Learning",
+    "Cybersecurity",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Application Refactoring",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Cuts infrastructure overhead by 45% to fund innovation with Cloud Run; Reduces latency by 30-70% for real-time app generation using Vertex AI; Scales to 13B+ tokens with zero downtime during global events using GKE; Accelerates feature delivery 2x with unified DevOps tools including Cloud Build.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "Cuts infrastructure overhead by 45% to fund innovation with Cloud Run",
+    "Reduces latency by 30-70% for real-time app generation using Vertex AI",
+    "Scales to 13B+ tokens with zero downtime during global events using GKE",
+    "Accelerates feature delivery 2x with unified DevOps tools including Cloud Build",
+    "Enabling 140,000+ users to turn natural language into working apps with sub-second latency.",
+    "auto-scale to process more than 13 billion tokens with zero downtime."
+  ],
+  "architecture_clues": [
+    "Cuts infrastructure overhead by 45% to fund innovation with Cloud Run",
+    "Reduces latency by 30-70% for real-time app generation using Vertex AI",
+    "Accelerates feature delivery 2x with unified DevOps tools including Cloud Build",
+    "Enabling 140,000+ users to turn natural language into working apps with sub-second latency.",
+    "To maintain the intelligence of these agents, the platform uses BigQuery as a telemetry layer, tracking billions of tokens to prevent context rot, and Cloud SQL for structured data management."
+  ],
+  "source_url": "https://cloud.google.com/customers/chatandbuild",
+  "published_date": "2026-03-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Cuts infrastructure overhead by 45% to fund innovation with Cloud Run",
+    "Reduces latency by 30-70% for real-time app generation using Vertex AI",
+    "Scales to 13B+ tokens with zero downtime during global events using GKE",
+    "Accelerates feature delivery 2x with unified DevOps tools including Cloud Build",
+    "Enabling 140,000+ users to turn natural language into working apps with sub-second latency."
+  ]
+}

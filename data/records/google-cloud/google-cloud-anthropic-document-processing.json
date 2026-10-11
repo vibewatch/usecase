@@ -1,0 +1,82 @@
+{
+  "id": "google-cloud-anthropic-document-processing",
+  "slug": "google-cloud-anthropic-document-processing",
+  "vendor": "Google Cloud",
+  "customer_name": "Anthropic",
+  "industry": "unknown",
+  "region": "San Francisco, CA, USA",
+  "company_size": "Enterprise",
+  "business_problem": "During large-scale training runs, traffic is highly variable—dropping to near zero during model checkpointing before bursting to millions of events per minute. Anthropic needed a serverless messaging queue that scaled dynamically without requiring manual partition management. One of Anthropic’s top priorities was reducing latency.",
+  "solution_summary": "Producers serialize events into Protocol Buffers and apply zstd compression. If the compressed payload is under 8 MB, the client publishes the message directly to a Pub/Sub topic. If the payload is 8 MB or larger, the client writes the compressed bytes directly to a Cloud Storage bucket and publishes a lightweight JSON pointer notification containing the object URI through Pub/Sub. The downstream consumer uses this notification to fetch and decompress the payload from Cloud Storage. By reusing the pre-compressed bytes for the Cloud Storage upload, the pipeline avoids redundant compression cycles, keeping the messaging broker entirely unblocked. A block diagram mapping Anthropic's multi-cloud ingestion setup. It shows AWS-based and Google Cloud-based producers securely connecting over Private Service Connect to regional Pub/Sub topics. The diagram displays events fanning out to BigQuery, Dataflow, Cloud Storage, and external SIEM systems.",
+  "products_used": [
+    "BigQuery",
+    "Cloud Storage",
+    "Bigtable",
+    "Cloud Pub/Sub"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries the analytics and AI-ready datasets that power the workload.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores large files, lake data, or static assets that feed downstream analytics and applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Bigtable",
+      "role": "Stores high-volume low-latency operational data for real-time workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Pub/Sub",
+      "role": "Moves events between services so the platform can process updates asynchronously at scale.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Source data is captured through Cloud Pub/Sub, stored or unified in BigQuery, Cloud Storage, Bigtable",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Media and Content",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Handles peak throughput of over 1M events per second; Ingests over 500 billion daily rows per Pub/Sub topic; Processes 3 GBps of sustained model training metrics; Achieves sub-second event latency from publish to query.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Handles peak throughput of over 1M events per second",
+    "Ingests over 500 billion daily rows per Pub/Sub topic",
+    "Processes 3 GBps of sustained model training metrics",
+    "Reduces consumer-side ingestion latency by 88%",
+    "We migrated to StreamingPull—persistent bidirectional gRPC with server-side push—and the pull overhead dropped to nearly zero. 88% of our end-to-end latency, gone with one architectural change."
+  ],
+  "architecture_clues": [
+    "Achieves sub-second event latency from publish to query",
+    "Reduces consumer-side ingestion latency by 88%",
+    "BigQuery Dataflow Cloud Storage Bigtable"
+  ],
+  "source_url": "https://cloud.google.com/customers/anthropic-pubsub",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Handles peak throughput of over 1M events per second",
+    "Ingests over 500 billion daily rows per Pub/Sub topic",
+    "Processes 3 GBps of sustained model training metrics",
+    "Achieves sub-second event latency from publish to query",
+    "Reduces consumer-side ingestion latency by 88%"
+  ]
+}

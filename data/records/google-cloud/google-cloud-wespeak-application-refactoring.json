@@ -1,0 +1,89 @@
+{
+  "id": "google-cloud-wespeak-application-refactoring",
+  "slug": "google-cloud-wespeak-application-refactoring",
+  "vendor": "Google Cloud",
+  "customer_name": "WeSpeak",
+  "industry": "unknown",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Building that product required infrastructure that would never go down. Early on, WeSpeak ran on a virtual private server that could fail without warning, taking the entire platform offline. For a hotel waiting on a guest's booking decision, every minute the platform was down was a direct revenue loss. WeSpeak needed infrastructure that matched the stakes of the business it was serving.",
+  "solution_summary": "Moving to Google Cloud solved the infrastructure problem. eliminated the fixed server entirely, deploying serverless containers that scale automatically to handle guest inquiries across WhatsApp, Instagram, Facebook, and TikTok. To power these omnichannel conversations, WeSpeak leverages Gemini Pro and Gemini Flash using Gemini platform and Google AI Studio. WeSpeak ran more than a thousand automated tests on every model considered, measuring hallucination rates across real hotel scenarios. Gemini platform routes each conversation to the right model: Gemini Pro for the most complex hotels and Gemini Flash for the majority of properties where speed is the priority. Google AI Studio runs in the background as a fallback, ensuring that if Gemini platform ever has an issue, the guest still receives a response built with the same Gemini models.",
+  "products_used": [
+    "Gemini platform",
+    "Gemini Flash",
+    "Gemini Pro",
+    "Gemini",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Coordinates the solution's agentic and generative AI workflows on Google Cloud.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini Flash",
+      "role": "Handles high-volume generative AI tasks with lower latency and lower serving cost.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Pro",
+      "role": "Performs higher-depth reasoning and content generation for the workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers natural-language reasoning, summarization, generation, or assistance inside the workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs application services and proprietary code in a managed container environment.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "processed with Gemini Pro, orchestrated via Gemini platform, and surfaced through Gemini Flash, Gemini, Cloud Run",
+  "integration_points": [],
+  "technical_area": [
+    "Cloud Native",
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "70% of hotel guest inquiries automated end to end; Zero downtime since migrating from VPS to Cloud Run; Support tickets cut by 70% after switching to agentic Gemini; Direct booking conversion rates raised up to 167%.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "70% of hotel guest inquiries automated end to end",
+    "Support tickets cut by 70% after switching to agentic Gemini",
+    "Direct booking conversion rates raised up to 167%"
+  ],
+  "architecture_clues": [
+    "Zero downtime since migrating from VPS to Cloud Run",
+    "Support tickets cut by 70% after switching to agentic Gemini",
+    "WeSpeak built an AI hotel receptionist on Gemini to handle guest inquiries, from first message to payment, across Latin America.",
+    "# WeSpeak delivers 24/7 hotel sales automation across Latin America with Gemini",
+    "\"Gemini was the only model that consistently passed those tests,\" says Albiero. \"We tried the alternatives. None of them gave us what we needed at a price that made our business viable.\"",
+    "Gemini is the engine that moves WeSpeak. Every conversation we respond to, we respond with Gemini. We tested all the competitors and literally Google has what works best for us in terms of quality and price."
+  ],
+  "source_url": "https://cloud.google.com/customers/wespeak",
+  "published_date": "2026-08-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "70% of hotel guest inquiries automated end to end",
+    "Zero downtime since migrating from VPS to Cloud Run",
+    "Support tickets cut by 70% after switching to agentic Gemini",
+    "Direct booking conversion rates raised up to 167%",
+    "WeSpeak built an AI hotel receptionist on Gemini to handle guest inquiries, from first message to payment, across Latin America."
+  ]
+}

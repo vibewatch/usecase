@@ -1,0 +1,145 @@
+{
+  "id": "google-cloud-porter-it-operations-automation",
+  "slug": "google-cloud-porter-it-operations-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Porter",
+  "industry": "Logistics",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Porter (Smartshift Logistics Private Limited), a leading logistics platform based in India, orchestrates on-demand mini-trucks, tempos, and two-wheelers across 50+ major cities. When order volumes doubled, Porter’s platform engineering team began facing severe scaling constraints on legacy infrastructure.",
+  "solution_summary": "For data management, Porter migrated 130+ PostgreSQL databases to Cloud SQL for PostgreSQL , leveraging PostGIS and Cloud Pub/Sub to process real-time geospatial telemetry pings from active drivers. To handle 0.5 Petabytes (500 TB) of monthly application logs economically, Porter deployed a self-hosted Vector collector on GKE streaming directly to Cloud Storage , visualized seamlessly using Grafana. Meanwhile, to boost developer velocity, Porter built “Flash”, an in-house sandbox framework on GKE and Cloud Pub/Sub allowing engineers to run 1,200 parallel feature tests monthly. To transform driver onboarding, Porter deployed Gemini 2.5 Flash on Gemini platform to extract structured JSON data from identity documents. To comply with India's DPDP (Digital Personal Data Protection) and Aadhaar Acts, Porter relies on Cloud Key Management (KMS) for symmetric key encryption.",
+  "products_used": [
+    "Gemini platform",
+    "Gemini 2.5 Flash",
+    "Gemini Flash",
+    "Gemini",
+    "Vertex AI",
+    "BigQuery",
+    "Google Kubernetes Engine (GKE)",
+    "GKE Gateway API",
+    "Cloud Run",
+    "Cloud Storage",
+    "Cloud SQL for PostgreSQL",
+    "Cloud Pub/Sub",
+    "Cloud Composer"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Coordinates the solution's agentic and generative AI workflows on Google Cloud.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "role": "Handles low-latency generative AI tasks and natural-language interactions for the application.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Flash",
+      "role": "Handles high-volume generative AI tasks with lower latency and lower serving cost.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers natural-language reasoning, summarization, generation, or assistance inside the workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Hosts and orchestrates machine learning and generative AI capabilities inside the solution.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries the analytics and AI-ready datasets that power the workload.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Orchestrates the platform's containerized services and high-concurrency workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GKE Gateway API",
+      "role": "Provides centralized traffic and service routing for the platform's Kubernetes applications.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs application services and proprietary code in a managed container environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores large files, lake data, or static assets that feed downstream analytics and applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud SQL for PostgreSQL",
+      "role": "Provides the managed relational data layer for operational application data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Pub/Sub",
+      "role": "Moves events between services so the platform can process updates asynchronously at scale.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cloud Composer",
+      "role": "Schedules and orchestrates data pipelines across Google Cloud services.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Source data is captured through Cloud Pub/Sub, stored or unified in BigQuery, Cloud Storage, Cloud SQL for PostgreSQL, processed with Vertex AI, orchestrated via Gemini platform, Google Kubernetes Engine (GKE), GKE Gateway API, Cloud Composer, and surfaced through Gemini 2.5 Flash, Gemini Flash, Gemini, Cloud Run",
+  "integration_points": [
+    "Grafana",
+    "Argo CD",
+    "Argo Rollouts",
+    "Vector"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "DevOps",
+    "Generative AI / LLM",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Document Processing",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Scaled sandbox testing from 28 to 1,200 tests monthly with Google Kubernetes Engine (GKE); Cut driver onboarding times from days to minutes with Gemini; Achieved 30% zero-touch driver verification automation on Gemini platform; Slashed document processing costs by 75% using Gemini Flash.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Scaled sandbox testing from 28 to 1,200 tests monthly with Google Kubernetes Engine (GKE)",
+    "Achieved 30% zero-touch driver verification automation on Gemini platform",
+    "Slashed document processing costs by 75% using Gemini Flash",
+    "Reduced Code-to-Deployment lead time down to ~2 days on Google Cloud",
+    "Porter leverages GKE and Gemini 2.5 Flash on Google Cloud to modernize microservices and automate driver onboarding.",
+    "Automated vehicle categorization on Gemini platform achieved 97.5% classification accuracy, eliminating manual back-office sorting for complex three-wheeler and truck make/models."
+  ],
+  "architecture_clues": [
+    "Scaled sandbox testing from 28 to 1,200 tests monthly with Google Kubernetes Engine (GKE)",
+    "Cut driver onboarding times from days to minutes with Gemini",
+    "Achieved 30% zero-touch driver verification automation on Gemini platform",
+    "Slashed document processing costs by 75% using Gemini Flash",
+    "Reduced Code-to-Deployment lead time down to ~2 days on Google Cloud",
+    "Porter leverages GKE and Gemini 2.5 Flash on Google Cloud to modernize microservices and automate driver onboarding."
+  ],
+  "source_url": "https://cloud.google.com/customers/porter",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Scaled sandbox testing from 28 to 1,200 tests monthly with Google Kubernetes Engine (GKE)",
+    "Cut driver onboarding times from days to minutes with Gemini",
+    "Achieved 30% zero-touch driver verification automation on Gemini platform",
+    "Slashed document processing costs by 75% using Gemini Flash",
+    "Reduced Code-to-Deployment lead time down to ~2 days on Google Cloud"
+  ]
+}

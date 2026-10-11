@@ -1,0 +1,72 @@
+{
+  "id": "google-cloud-etsy-real-time-analytics",
+  "slug": "google-cloud-etsy-real-time-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Etsy",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "To serve its massive community, Etsy relies on multiple compute engines to process vast amounts of structured and unstructured items and search data. Previously, users read and wrote to Google Cloud Storage using Apache Spark or similar processing engines by referencing direct file paths or internal modules.",
+  "solution_summary": "By using Google Cloud’s Managed Service for Apache Spark serverless solution, Etsy established a streamlined, recommended path for all big data compute jobs. The Lakehouse runtime catalog , based on the Iceberg REST catalog, eliminates the need for developers to track raw Cloud Storage file paths. Now, data written through Spark jobs becomes instantly and automatically readable in BigQuery for analytics teams, allowing seamless interoperability across the organization's favored engines. With a self-hosted solution, the setup would’ve taken months. With Google’s Lakehouse solution, the team completed setup in weeks. By taking a strategic, use-case-driven approach rather than a single large-scale migration, Etsy seamlessly moved more than two petabytes of data to the new architecture.",
+  "products_used": [
+    "BigQuery",
+    "Managed Spark",
+    "Cloud Storage"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries the analytics and AI-ready datasets that power the workload.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Managed Spark",
+      "role": "Processes large datasets with managed Apache Spark jobs on Google Cloud.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores large files, lake data, or static assets that feed downstream analytics and applications.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "stored or unified in BigQuery, Cloud Storage, processed with Managed Spark",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Migrated two petabytes of data to a managed lakehouse; Accelerated data joining by up to 60%; Completed setup in weeks versus months; By migrating to Google Cloud’s Lakehouse, Etsy accelerated ML pipelines and improved search relevance to match unique items..",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Accelerated data joining by up to 60%",
+    "This efficiency is largely due to the ability to now use storage-partitioned joins (SPJ) in Spark, a capability unlocked by the Iceberg format. By implementing SPJ, Etsy has accelerated data joining by up to 60%."
+  ],
+  "architecture_clues": [
+    "By migrating to Google Cloud’s Lakehouse, Etsy accelerated ML pipelines and improved search relevance to match unique items.",
+    "Products: Cloud Storage BigQuery"
+  ],
+  "source_url": "https://cloud.google.com/customers/etsy-lakehouse",
+  "published_date": "2026-09-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Migrated two petabytes of data to a managed lakehouse",
+    "Accelerated data joining by up to 60%",
+    "Completed setup in weeks versus months",
+    "By migrating to Google Cloud’s Lakehouse, Etsy accelerated ML pipelines and improved search relevance to match unique items.",
+    "Overcoming file-path dependency and data silos"
+  ]
+}
