@@ -59,7 +59,10 @@ permissions:
   contents: write
 
 concurrency:
-  group: usecase-intel
+  # One run at a time per vendor scope: vendor-specific runs work disjoint
+  # slices of the queue and can run in parallel (the commit step handles
+  # overlapping pushes); all-vendor runs (schedule) serialize with each other.
+  group: usecase-intel-${{ github.event.inputs.vendor || 'all' }}
   cancel-in-progress: false
 
 jobs:
