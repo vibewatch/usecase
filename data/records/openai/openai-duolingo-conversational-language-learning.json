@@ -1,0 +1,76 @@
+{
+  "id": "openai-duolingo-conversational-language-learning",
+  "slug": "openai-duolingo-conversational-language-learning",
+  "vendor": "OpenAI",
+  "customer_name": "Duolingo",
+  "industry": "Education",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "Duolingo needed to close important learning gaps in conversation practice and personalized grammar explanation because scripted chats and earlier AI approaches were not flexible or accurate enough for immersive language learning.",
+  "solution_summary": "Duolingo integrated GPT-4 into a new subscription tier, Duolingo Max, to add richer conversational practice and contextual feedback to its language-learning platform. The company created Role Play, which serves as an AI conversation partner, and Explain my Answer, which breaks down why a learner made a mistake and can continue the explanation through follow-up questions. Learner prompts, lesson context, and mistakes flow into GPT-4, which generates a back-and-forth dialogue or grammar explanation, then returns those responses directly into the course experience so students can continue learning without leaving the app. Duolingo had previously experimented with GPT-3, but GPT-4 provided enough accuracy and flexibility to handle open-ended conversations and more reliable grammar support. That made it possible to move from static scripted exchanges toward a far more adaptive tutoring layer inside the product.",
+  "products_used": [
+    "GPT-4",
+    "Role Play",
+    "Explain my Answer",
+    "Duolingo Max"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-4",
+      "role": "Generates conversational practice and contextual explanations for learner mistakes.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Role Play",
+      "role": "Acts as an AI conversation partner for immersive language practice.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Explain my Answer",
+      "role": "Breaks down mistakes and supports follow-up questions about grammar and usage.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Duolingo Max",
+      "role": "Packages the GPT-4-powered learning features into Duolingo's premium subscription experience.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Learner responses and lesson context are passed into GPT-4, which returns either a conversational exchange through Role Play or a tailored explanation through Explain my Answer, and those outputs are delivered back into the Duolingo lesson flow for continued practice.",
+  "integration_points": [
+    "Duolingo lessons",
+    "learner prompts",
+    "premium subscription workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Duolingo launched more immersive language practice, improved the quality of grammar explanations, and sped up internal feature prototyping and engineering work.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Over 50 million learners rely on Duolingo every month",
+    "40 languages across 100+ courses",
+    "Within a day we were able to build a prototype",
+    "It gets us from zero-to-ninety-five percent very quickly"
+  ],
+  "architecture_clues": [
+    "Duolingo previously experimented with GPT-3 before moving to GPT-4",
+    "GPT-4 responses are evaluated by how deep a learner needs to go before returning to the lesson",
+    "The first rollout focused on Spanish and French in Duolingo Max"
+  ],
+  "source_url": "https://openai.com/index/duolingo/",
+  "published_date": "2024-01-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Duolingo turned to OpenAI's GPT-4 to advance the product with two new features: Role Play... and Explain my Answer",
+    "GPT-4 has learned from enough public data to create a flexible back and forth for the learner",
+    "GPT-4 gives us far more confidence in the accuracy of AI responses in Explain my Answer",
+    "The features we've put together have come out faster than they would have before GPT-4"
+  ]
+}

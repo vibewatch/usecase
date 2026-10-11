@@ -1,0 +1,57 @@
+{
+  "id": "openai-university-of-arizona-black-hole-simulations",
+  "slug": "openai-university-of-arizona-black-hole-simulations",
+  "vendor": "OpenAI",
+  "customer_name": "University of Arizona",
+  "industry": "Education",
+  "region": "US",
+  "company_size": "Unknown",
+  "business_problem": "University of Arizona researcher Chi-kwan Chan needed faster ways to create stable numerical approximations for black hole simulations because the equations are computationally intractable and new approaches can take years to develop.",
+  "solution_summary": "At the University of Arizona, computational astrophysicist Chi-kwan Chan uses Codex to accelerate the code and algorithm work behind black hole simulations for the Event Horizon Telescope effort. The scientific workflow starts with telescope observations and the need to model how plasma behaves in extreme environments, but the underlying equations are so complex that even supercomputers struggle and new approximations can take years to invent. Chan uses Codex to generate coordinate transformations, numerical algorithms, and supporting scientific code through an agent skill he wrote, then implements and verifies those outputs before comparing simulation results with observational data. Codex also reviews code and helps catch mistakes in statistics and numerical methods, making the simulation loop both faster and more reliable. In effect, Codex sits between astrophysics questions and software production, letting Chan spend more of his time on research instead of manual coding.",
+  "products_used": [
+    "Codex"
+  ],
+  "solution_components": [
+    {
+      "name": "Codex",
+      "role": "Generates and reviews numerical algorithms and scientific code for black hole simulations.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Observational goals and simulation problems from the Event Horizon Telescope workflow are turned into coding tasks for Codex, which proposes algorithms and code that Chan validates and runs before comparing the resulting simulations against telescope observations.",
+  "integration_points": [
+    "Event Horizon Telescope",
+    "Arizona Radio Observatory 12m radio telescope",
+    "Kitt Peak National Observatory"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Chan dramatically accelerated simulation development, improved the stability of numerical methods, and freed more time for scientific interpretation and discovery.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "It would take me ten days to come up with ten new approximations. With Codex, this can be done in minutes",
+    "speed up these calculations by a factor of 1000"
+  ],
+  "architecture_clues": [
+    "Chan uses an agent skill he wrote to drive Codex for simulation work",
+    "The workflow compares simulation outputs with telescope observations",
+    "Codex is also used for scientific code review and numerical-method validation"
+  ],
+  "source_url": "https://openai.com/index/creating-new-simulations-black-holes/",
+  "published_date": "2026-06-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "So CK turned to Codex to help accelerate this process",
+    "With Codex we are now able to automatically discover new coordinate transformations and algorithms that can speed up these calculations by a factor of 1000",
+    "CK still has to implement and verify each approximation Codex creates",
+    "Codex helps CK review scientific code and catch mistakes with statistics and numerical methods"
+  ]
+}

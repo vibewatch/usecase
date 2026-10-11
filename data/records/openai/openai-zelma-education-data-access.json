@@ -1,0 +1,74 @@
+{
+  "id": "openai-zelma-education-data-access",
+  "slug": "openai-zelma-education-data-access",
+  "vendor": "OpenAI",
+  "customer_name": "Zelma",
+  "industry": "Education",
+  "region": "US",
+  "company_size": "Unknown",
+  "business_problem": "Zelma needed to make fragmented K-12 assessment data usable for parents, educators, and policymakers because the information was scattered across portals and formats and was too hard for most people to query or visualize.",
+  "solution_summary": "Zelma turns public education data into a conversational analytics experience by combining a cleaned national dataset with GPT-4 and the OpenAI API. Brown University researchers first gathered and normalized standardized-test data into one format, then Novy used function calling to tell GPT-4 which charts, fields, and views to use when answering user questions. For the Ask a Question interface, Zelma fine-tuned a model to provide data-aware typeahead suggestions and embedded known-good example graphs in a vector database to improve accuracy on edge cases. Questions in plain language enter the interface, the OpenAI-backed orchestration layer maps them to relevant datasets and visuals, and Zelma returns charts, SQL logic, and plain-language context about caveats such as assessment changes. That design makes school-performance analysis faster, more transparent, and more accessible to nontechnical audiences.",
+  "products_used": [
+    "OpenAI API",
+    "GPT-4",
+    "vector database"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI API",
+      "role": "Connects Zelma's application logic to GPT-backed question answering and chart selection workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Interprets natural-language education questions and selects the right visuals and fields for answers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "vector database",
+      "role": "Stores known-good example graphs that improve accuracy on difficult edge cases.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Standardized-test data is cleaned into a uniform dataset, user questions are sent through the OpenAI API to GPT-4 with function-calling guidance, and the resulting answers return charts, supporting logic, and contextual explanations grounded in Zelma's education data.",
+  "integration_points": [
+    "standardized test data",
+    "SQL output",
+    "education visualizations"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Zelma made school-performance data far easier to query, visualize, and discuss, giving leaders and families faster access to insights that previously took hours or days to assemble.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "top 5 highest performing non-charter school districts in math in Minnesota",
+    "around a 77 percent proficiency rate",
+    "views that have historically taken district leadership teams hours or even days to generate"
+  ],
+  "architecture_clues": [
+    "Function calling is used to decide which visuals and fields to display",
+    "The Ask a Question view uses a fine-tuned model for data-aware typeahead",
+    "Known-good graphs are embedded in a vector database to improve accuracy",
+    "Zelma shows the SQL code behind answers for transparency"
+  ],
+  "source_url": "https://openai.com/index/zelma/",
+  "published_date": "2024-04-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Novy leveraged function calling to tell GPT-4 which visuals and fields to choose from in displaying the data",
+    "They fine-tuned a model to create a data-aware type-ahead",
+    "They embedded and stored known-good example graphs in a vector database to improve accuracy on difficult edge cases",
+    "Zelma offers K-12 superintendents an intuitive, conversational platform to instantly visualize student learning data"
+  ]
+}

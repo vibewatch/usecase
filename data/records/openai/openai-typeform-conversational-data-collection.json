@@ -1,0 +1,76 @@
+{
+  "id": "openai-typeform-conversational-data-collection",
+  "slug": "openai-typeform-conversational-data-collection",
+  "vendor": "OpenAI",
+  "customer_name": "Typeform",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Typeform wanted to move beyond static forms and make customer data collection feel conversational while still handling routing, computation, multilingual interactions, and downstream analysis at scale.",
+  "solution_summary": "Typeform built Formless on GPT-3.5 Turbo and GPT-4 so businesses can create AI-driven conversations instead of manually designing traditional forms. A creator now supplies basic instructions about what information to collect, and the models generate the conversational flow, decide what question should come next, and support two-way exchanges where respondents can ask clarifying questions just as they would with a person. The same stack also handles computation, conditionals, routing, brand voice adaptation, multilingual translation based on browser language, and AI-based analysis of the completed responses. After the conversation finishes, Typeform converts those natural-language responses into whatever structure the business requires and exposes DataPilot so users can ask questions about results and connect information from multiple sources. That turns form creation, completion, and analysis into one continuous AI-assisted workflow.",
+  "products_used": [
+    "Formless",
+    "GPT-3.5 Turbo",
+    "GPT-4",
+    "DataPilot"
+  ],
+  "solution_components": [
+    {
+      "name": "Formless",
+      "role": "Provides the conversational front end where businesses define prompts and respondents interact with the AI flow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-3.5 Turbo",
+      "role": "Helps generate and manage the conversational form behavior and response handling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Supports richer reasoning for dynamic questioning, routing, and result analysis in Formless.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DataPilot",
+      "role": "Lets business users ask questions about collected results and act on the resulting insights.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business users define collection goals in Formless, GPT-3.5 Turbo and GPT-4 turn those instructions into a live multilingual conversation, respondent answers are normalized into structured data, and DataPilot then lets teams query the results and combine them with other information sources.",
+  "integration_points": [
+    "browser language settings",
+    "various information sources"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Typeform made form creation and response analysis far more conversational, reduced the work needed to build advanced form logic, and gave customers a faster path from raw answers to actionable insights.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "ten times easier to make delightful and extremely powerful form experiences"
+  ],
+  "architecture_clues": [
+    "Businesses can train the AI on a subject and brand voice before launch",
+    "The platform automatically translates based on the respondent's browser language settings",
+    "Responses are transformed into whatever structure the business requires",
+    "DataPilot supports questioning and integrating information from multiple sources"
+  ],
+  "source_url": "https://openai.com/index/typeform/",
+  "published_date": "2024-01-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The platform, built with OpenAI's GPT-3.5 Turbo model as well as GPT-4, handles the rest",
+    "The next question is a reaction to the previous answer",
+    "Businesses can use the platform's AI-driven natural language analysis to transform conversational responses into data that matches any structure the business requires",
+    "Then, with the platform's DataPilot feature, they can talk to the AI about their data"
+  ]
+}

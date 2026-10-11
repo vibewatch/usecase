@@ -1,0 +1,59 @@
+{
+  "id": "openai-lifespan-surgical-consent-simplification",
+  "slug": "openai-lifespan-surgical-consent-simplification",
+  "vendor": "OpenAI",
+  "customer_name": "Lifespan",
+  "industry": "Healthcare",
+  "region": "US",
+  "company_size": "Unknown",
+  "business_problem": "Lifespan needed to make surgical consent forms easier for patients to understand because the documents were still written at a college reading level and could undermine health literacy during emotionally difficult care decisions.",
+  "solution_summary": "Lifespan built a tightly governed document-simplification workflow around GPT-4 to rewrite surgical consent forms into plain language without changing meaning. Medical residents first identified that consent forms remained too complex for many patients, then used a simple prompt to ask GPT-4 to preserve content while rewriting the text to the average American reading level. The model produced an initial draft at roughly a sixth-grade reading level, after which legal and medical reviewers checked the output to mitigate hallucination and bias before deployment. That human-in-the-loop flow let Lifespan move from dense three-page documents toward simpler one-page forms, then extend the same process to other clinical paperwork such as intake and chemotherapy consent forms. The result is an implementation that keeps AI as the first-pass drafting layer while clinicians and legal staff remain the final authority on what reaches patients.",
+  "products_used": [
+    "GPT-4"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-4",
+      "role": "Creates the first simplified draft of surgical consent forms while preserving their original meaning.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Lifespan feeds an existing surgical consent form and a simplification prompt into GPT-4, receives a plain-language draft, routes that draft through legal and medical review, and then deploys the approved version across the health system as patient-facing documentation.",
+  "integration_points": [
+    "legal review workflow",
+    "medical review workflow",
+    "surgical consent forms"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Lifespan made consent forms more accessible for patients, reduced document length and complexity, and created a repeatable AI-assisted workflow for simplifying other forms across the health system.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "over half of Americans reading at or below the 6th grade level",
+    "approximately a 6th grade reading level with a 25 percent reduction in word count",
+    "reduced from three pages to one page"
+  ],
+  "architecture_clues": [
+    "GPT-4 is used only for a first pass and not final publication",
+    "Legal and medical reviewers check outputs for bias and hallucination",
+    "The same process is being extended to intake and chemotherapy consent forms"
+  ],
+  "source_url": "https://openai.com/index/lifespan/",
+  "published_date": "2024-03-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Lifespan leadership created a system where GPT-4 would do a first pass, and then legal and medical reviewers would check the output",
+    "GPT-4 generated a draft of the surgical consent form at approximately a 6th grade reading level with a 25 percent reduction in word count",
+    "In September 2023, Lifespan began deploying the revised surgical consent forms, reduced from three pages to one page",
+    "Lifespan has now replicated this GPT-4 assisted process to deploy simplified medical documentation across its healthcare system"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "openai-ironclad-contract-review-automation",
+  "slug": "openai-ironclad-contract-review-automation",
+  "vendor": "OpenAI",
+  "customer_name": "Ironclad",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Ironclad needed to automate contract review without sacrificing control, precision, or privacy because legal teams were spending too much time on manual redlining and policy checks.",
+  "solution_summary": "Ironclad embedded GPT-4 into AI Assist to automate the first pass of contract review inside its contract-lifecycle platform. The application identifies irregularities, proposes redlines, surfaces pre-approved clauses, and follows company-specific AI Playbooks so legal teams can work from their own policies rather than from generic drafting rules. Contract text enters Ironclad's editor, GPT-4 and the AI Assist workflow generate suggested changes and supporting language, and users then accept, reject, or disable those suggestions under human oversight. Ironclad also kept data-governance concerns front and center by using the API in a way that does not train OpenAI on customer-submitted data by default. That architecture makes AI a directly embedded legal-workflow feature rather than a detached assistant, which is why teams can move from manual review to governed automation in the same editor.",
+  "products_used": [
+    "AI Assist™",
+    "GPT-4",
+    "AI Playbooks"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Assist™",
+      "role": "Automates contract review by flagging issues, proposing redlines, and surfacing pre-approved language.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Provides the instruction-following and language-generation capability behind AI Assist's review workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Playbooks",
+      "role": "Supply company-specific clause guidance and policy rules for the review process.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Contract language enters Ironclad's editor, GPT-4 powers AI Assist to identify issues and draft redlines against AI Playbooks, and the resulting suggestions are surfaced to users who review, accept, reject, or turn off the AI output as needed.",
+  "integration_points": [
+    "contract editor",
+    "company-specific playbooks",
+    "OpenAI API privacy controls"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Ironclad cut the time needed for an initial contract-redlining pass from forty minutes to two, accelerated adoption of AI review, and gave legal teams a governed way to work faster without removing human judgment.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "An initial pass at contract redlining usually takes about 40 minutes",
+    "With AI Assist, we're seeing users complete them in two minutes"
+  ],
+  "architecture_clues": [
+    "Human oversight is built into the workflow through accept, reject, and disable controls",
+    "AI Assist was ported to GPT-4 as soon as it launched in April 2023",
+    "OpenAI does not use data submitted via the API to train or improve its models by default"
+  ],
+  "source_url": "https://openai.com/index/ironclad/",
+  "published_date": "2024-01-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AI Assist empowers users to automate legal review by identifying and redlining irregularities in contracts",
+    "The product also provides pre-approved clauses and language guidelines based on company-specific AI Playbooks",
+    "Human oversight is baked into the workflow, giving users the ability to accept or reject all automated suggestions",
+    "An initial pass at contract redlining usually takes about 40 minutes. With AI Assist, we're seeing users complete them in two minutes"
+  ]
+}

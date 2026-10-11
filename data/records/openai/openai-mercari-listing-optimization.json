@@ -1,0 +1,86 @@
+{
+  "id": "openai-mercari-listing-optimization",
+  "slug": "openai-mercari-listing-optimization",
+  "vendor": "OpenAI",
+  "customer_name": "Mercari",
+  "industry": "Retail",
+  "region": "Japan",
+  "company_size": "Unknown",
+  "business_problem": "Mercari needed to reduce the effort and guesswork sellers face when creating listings, because poor descriptions, missing attributes, and post-sale friction limited conversion and slowed marketplace growth.",
+  "solution_summary": "Mercari embedded OpenAI models into two listing workflows so sellers can create better marketplace content with less manual effort. The first feature, Mercari AI Assistant, combines offline GPT-4 analysis of top-performing category listings with online GPT-3.5 Turbo evaluation of live user listings to identify missing attributes and suggest improvements when items remain unsold. The second feature, AI Listing Support, takes uploaded product photos, uses GPT-4o mini to suggest categories, and then generates tailored titles and descriptions for each item. Mercari originally built that flow with GPT-4 and later moved it to GPT-4o mini for lower latency, better cost efficiency, and multi-image support, then continued refining outputs by comparing AI-generated descriptions to actual listings after launch. This architecture keeps AI inside the existing seller journey so the assistance feels native rather than like a separate tool.",
+  "products_used": [
+    "Mercari AI Assistant",
+    "GPT-4",
+    "GPT-3.5 Turbo",
+    "AI Listing Support",
+    "GPT-4o mini"
+  ],
+  "solution_components": [
+    {
+      "name": "Mercari AI Assistant",
+      "role": "Reviews unsold listings against best practices and recommends changes that can improve sales outcomes.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Analyzes top listings offline to identify the attributes that strong category listings should contain.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-3.5 Turbo",
+      "role": "Evaluates active user listings online and returns real-time improvement suggestions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Listing Support",
+      "role": "Lets sellers start from photos and receive categories, titles, and descriptions automatically.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Generates low-latency, cost-efficient listing content from multiple uploaded images.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Seller photos and listing drafts enter Mercari's listing flows, where GPT-4 and GPT-3.5 Turbo power evaluation and optimization for existing listings, while GPT-4o mini classifies new photo-based listings and generates final titles and descriptions that are compared against real marketplace outcomes for ongoing refinement.",
+  "integration_points": [
+    "uploaded product photos",
+    "existing seller listings",
+    "marketplace category data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Mercari improved listing quality, increased conversion, saved sellers time, and created a scalable AI layer that now supports hundreds of AI-assisted listings per minute across its marketplace.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "a statistically significant increase in average sales per user",
+    "about two months from the initial concept to the final release",
+    "Over a few hundred AI-assisted listings are created per minute"
+  ],
+  "architecture_clues": [
+    "Mercari uses an offline analysis stage and an online suggestion stage for listing optimization",
+    "AI Listing Support moved from GPT-4 to GPT-4o mini for latency and cost reasons",
+    "Mercari compares AI-generated descriptions to actual listings to keep improving outputs",
+    "Multi-image support was enabled after the model transition to GPT-4o mini"
+  ],
+  "source_url": "https://openai.com/index/mercari/",
+  "published_date": "2024-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "GPT-4 analyzed top listings in each category to identify key attributes",
+    "GPT-3.5 Turbo evaluated active listings of users and provided real-time improvement tips",
+    "With AI Listing Support, users can list items effortlessly by simply uploading photos",
+    "Originally developed with GPT-4, the feature later transitioned to GPT-4o mini for superior cost-efficiency and reduced latency"
+  ]
+}

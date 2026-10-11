@@ -1,0 +1,105 @@
+{
+  "id": "openai-10bedicu-critical-care-workflows",
+  "slug": "openai-10bedicu-critical-care-workflows",
+  "vendor": "OpenAI",
+  "customer_name": "10BedICU",
+  "industry": "Healthcare",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "10BedICU needed to extend scarce specialist capacity across India's government hospitals, because critical-care demand outstripped available ICU infrastructure and clinicians were burdened by fragmented monitoring and documentation work.",
+  "solution_summary": "10BedICU uses OpenAI models to add AI-powered documentation, monitoring, and continuity-of-care workflows on top of its CARE telehealth and EMR platform. CARE already links more than 200 hospitals and supports remote specialist consultations, but the team needed new tools that could help clinicians document visits faster, connect older devices, and summarize long patient histories without compromising privacy or rollout discipline. CARE Scribe combines Whisper API and GPT-4 to transcribe doctor-patient interactions into structured EMR entries in multiple Indian languages, CARE Device Connect uses GPT-4 Vision to pull data from incompatible monitors into the CARE platform in real time, and CARE Discharge Summary uses GPT-4 to summarize records for handoff and discharge. Those flows are piloted with state partners and hospitals under closed feedback loops. The result is an AI layer that helps clinicians spend more time with patients while making the broader care network more capable.",
+  "products_used": [
+    "CARE",
+    "CARE Scribe",
+    "Whisper API",
+    "GPT-4",
+    "CARE Device Connect",
+    "GPT-4 Vision",
+    "CARE Discharge Summary"
+  ],
+  "solution_components": [
+    {
+      "name": "CARE",
+      "role": "Acts as the telehealth and EMR backbone connecting hospitals and specialist workflows across the network.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CARE Scribe",
+      "role": "Transcribes clinician-patient conversations and converts them into structured EMR entries.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Whisper API",
+      "role": "Performs speech transcription for multilingual clinician interactions inside CARE Scribe.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Structures clinical conversations and summarizes patient records for documentation workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CARE Device Connect",
+      "role": "Brings readings from older hospital monitors into the CARE platform for continuous monitoring.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "GPT-4 Vision",
+      "role": "Interprets monitor readings captured by cameras so incompatible devices can feed the platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CARE Discharge Summary",
+      "role": "Automates patient-record summarization for handoffs and continuity-of-care workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Audio from doctor-patient interactions flows through Whisper API and GPT-4 into structured CARE EMR entries, monitor data is captured by cameras and interpreted by GPT-4 Vision before entering CARE for live monitoring, and patient histories are summarized by GPT-4 through CARE Discharge Summary for downstream care teams.",
+  "integration_points": [
+    "government hospitals",
+    "state governments",
+    "telehealth specialists",
+    "hospital monitors",
+    "CARE EMR platform"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "10BedICU expanded what clinicians can do inside underserved hospitals, reduced documentation effort, improved data quality, and laid the groundwork for smarter ICU monitoring across India.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 20 million cases in just a few months",
+    "2.3 ICU beds per 100,000 people",
+    "over 200 hospitals across nine states",
+    "reduce the time healthcare providers spend entering data into the EMR software by over 50%",
+    "pilot the tool across 43 hospitals",
+    "being piloted in 50 hospitals across India",
+    "saving doctors and nurses over an hour of paperwork per patient"
+  ],
+  "architecture_clues": [
+    "10BedICU does not collect personally identifying information",
+    "New tools are tested with participating states and hospitals in closed feedback loops",
+    "Rollout is described as slow and iterative",
+    "The core platform already supports telehealth consultations and EMR workflows across the hospital network"
+  ],
+  "source_url": "https://openai.com/index/10bedicu/",
+  "published_date": "2024-06-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Today, 10BedICU is a network of over 200 hospitals across nine states, connected through the CARE electronic medical record platform",
+    "CARE Scribe... has been estimated to reduce the time healthcare providers spend entering data into the EMR software by over 50%",
+    "CARE Device Connect enables continuous patient monitoring",
+    "CARE Discharge Summary... sometimes saving doctors and nurses over an hour of paperwork per patient"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "openai-sensory-ai-wildfire-detection",
+  "slug": "openai-sensory-ai-wildfire-detection",
+  "vendor": "OpenAI",
+  "customer_name": "SensoRy AI",
+  "industry": "Public Sector",
+  "region": "US",
+  "company_size": "Unknown",
+  "business_problem": "SensoRy AI needed to convert complex wildfire sensor readings into clear, immediate guidance for responders because detecting a fire is only useful if firefighters and officials can understand the situation quickly enough to act.",
+  "solution_summary": "SensoRy AI combines a solar-powered wildfire sensor network with ChatGPT so raw detections become responder-ready intelligence instead of opaque telemetry. Its field sensors watch for heat, smoke, flame, and plume activity at ignition and pass those signals through a mesh network, along with supporting context such as thermal imagery, GPS coordinates, wind conditions, and projected fire spread. ChatGPT then translates that live sensor stream into plain-language alerts that firefighters and officials can understand immediately, and Ryan Honary also built a walkie-talkie style interface so responders can ask follow-up questions such as whether a detection is a fire, where it is located, or which evacuation route is best. Voice interactions let him run tests hands-free in the field while the same model layer keeps formatting answers for operational use. The result is a system where AI sits between the raw sensor mesh and emergency decision-making.",
+  "products_used": [
+    "ChatGPT",
+    "ChatGPT Voice"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatGPT",
+      "role": "Translates live wildfire sensor data into plain-language alerts and responder answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ChatGPT Voice",
+      "role": "Supports hands-free field testing and spoken interaction with the wildfire detection system.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Heat, smoke, flame, plume, image, GPS, and wind data move from SensoRy AI's solar sensors through a mesh network into ChatGPT, which converts the live readings into alerts and Q&A responses that firefighters and officials can use for detection, routing, and evacuation decisions.",
+  "integration_points": [
+    "solar-powered sensors",
+    "mesh network",
+    "thermal images",
+    "GPS coordinates",
+    "firefighters and officials"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "SensoRy AI made wildfire alerts easier to interpret, gave responders interactive answers in seconds, and created a workflow that helps officials react sooner and with better situational clarity.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "answers in seconds"
+  ],
+  "architecture_clues": [
+    "Sensors detect heat, smoke, flame, and plume activity at ignition",
+    "The deployment uses a mesh network to relay field data",
+    "A walkie-talkie feature lets firefighters ask follow-up questions about a detected fire"
+  ],
+  "source_url": "https://openai.com/index/detecting-wildfires-early/",
+  "published_date": "2026-10-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "ChatGPT translates the complex sensor data into clear, actionable information responders can quickly and easily understand",
+    "SensoRy AI's solar-powered sensors detect heat, smoke, flame, and plume activity at ignition",
+    "ChatGPT turns live sensor data into answers in seconds",
+    "ChatGPT allowed us to find new ways to solve an old problem. It's catching fires faster"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "openai-yabble-customer-feedback-insights",
+  "slug": "openai-yabble-customer-feedback-insights",
+  "vendor": "OpenAI",
+  "customer_name": "Yabble",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Yabble needed to turn large volumes of survey answers and customer feedback into actionable insights faster, because manual coding and analysis could take days or weeks and users were asking increasingly complex questions about their data.",
+  "solution_summary": "Yabble layered GPT-3 into its customer-insight platform to automate the hardest part of feedback analysis: converting large, unstructured datasets into themes, subthemes, and usable answers. The platform already collected survey responses and customer feedback forms at scale, but analysts still had to spend days or weeks coding results and assembling insights. With GPT-3, Yabble Query can interpret more nuanced natural-language questions from users and return answers grounded in the relevant dataset, while Yabble Count analyzes thousands of comments, tags sentiment, and organizes the data into themes and subthemes. The workflow starts with survey and feedback data entering Yabble, continues through GPT-3-based classification and question answering, and ends with business users consuming richer insight outputs inside Yabble's existing experience. That architecture lets Yabble spend less time on manual analysis and more time helping customers make business decisions.",
+  "products_used": [
+    "GPT-3",
+    "Yabble Query",
+    "Yabble Count"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-3",
+      "role": "Provides the natural-language understanding that turns unstructured feedback into themes and answers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Yabble Query",
+      "role": "Lets users ask questions about their own data and receive dataset-aware insight outputs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Yabble Count",
+      "role": "Categorizes comments by sentiment and organizes them into themes and subthemes.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Survey answers and customer feedback forms flow into Yabble, where GPT-3 classifies comments into themes and subthemes, powers Yabble Count sentiment analysis, and supports Yabble Query so users can ask natural-language questions and receive insights tied to the underlying dataset.",
+  "integration_points": [
+    "surveys",
+    "customer feedback forms"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Yabble cut insight generation from days or weeks to minutes, delivered more nuanced answers to customer questions, and turned Query from a helpful feature into an essential part of customers' business strategy workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "thousands of customer data points",
+    "days or even weeks translating data sets",
+    "translated into meaningful themes in minutes"
+  ],
+  "architecture_clues": [
+    "Yabble Query answers questions about a customer's own dataset",
+    "Yabble Count analyzes unstructured comments for sentiment and themes",
+    "The platform was already ingesting survey and feedback data before GPT-3 was added"
+  ],
+  "source_url": "https://openai.com/index/yabble/",
+  "published_date": "2024-01-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Beginning in 2017, Yabble created a platform where organizations could easily analyze thousands of customer data points",
+    "Yabble Query... uses AI-powered algorithms to provide relevant insights",
+    "Using GPT-3, data sets that would usually take Yabble teams days to code and develop insights for, were now being translated into meaningful themes in minutes",
+    "Query went from helpful to our customers to absolutely essential to their business strategy"
+  ]
+}
