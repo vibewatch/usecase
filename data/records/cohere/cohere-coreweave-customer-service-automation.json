@@ -1,0 +1,77 @@
+{
+  "id": "cohere-coreweave-customer-service-automation",
+  "slug": "cohere-coreweave-customer-service-automation",
+  "vendor": "Cohere",
+  "customer_name": "CoreWeave",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "CoreWeave needed to route customer issues to the right engineers faster, reduce the manual context gathering and tool handoffs in its Slack-centric support process, and do it without letting sensitive customer data leave its own security perimeter.",
+  "solution_summary": "CoreWeave rebuilt its support workflow around Cohere North, deploying the agentic AI platform privately inside its own data centers and embedding it directly into Slack through APIs rather than forcing teams into a separate chat surface. When a new issue arrives, North's triage bot gathers customer context such as region, cluster, and other account details from CoreWeave's backend record-keeping systems, then presents the prefilled ticket to a customer support engineer for review. After the engineer confirms or edits the details, internal automation opens a Jira issue and a swarming channel, where a second North resolution agent retrieves documentation and historical post-ticket reviews to recommend the next steps. North's multi-model architecture let CoreWeave fit different models to different tasks while keeping privacy, control, and support-team speed aligned.",
+  "products_used": [
+    "North",
+    "Slack",
+    "Jira"
+  ],
+  "solution_components": [
+    {
+      "name": "North",
+      "role": "Privately deployed agentic AI platform that triages support issues, gathers context, and recommends resolution actions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Slack",
+      "role": "Hosts support intake and agent interactions so customer support engineers can stay in their preferred workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Jira",
+      "role": "Receives confirmed incidents and coordinates the swarming workflow with the right engineering teams.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "A customer issue arrives in Slack, North's triage bot pulls region, cluster, and other customer context from backend systems, a support engineer reviews and confirms the ticket, Jira opens the swarming workflow, and a North resolution agent uses documentation plus post-ticket reviews to suggest the next steps for engineering.",
+  "integration_points": [
+    "CoreWeave backend record-keeping systems",
+    "internal support automation",
+    "documentation repositories",
+    "historical post-ticket reviews"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "CoreWeave transformed its customer support in 90 days, cut mean time to resolution from 4-8 days to 2-5 days, sustained 4.9 - 5.0 CSAT scores, improved routing accuracy, and gave engineers more time to solve problems instead of chasing context across disconnected tools.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "90 days",
+    "Resolution time decreased from 4-8 days to 2-5 days",
+    "4.9 - 5.0 customer satisfaction (CSAT) scores"
+  ],
+  "architecture_clues": [
+    "North was privately deployed inside CoreWeave's own data centers so sensitive customer data stayed inside its security perimeter.",
+    "North's architecture supports multiple models and configurations so CoreWeave can match the right model to each use case.",
+    "The workflow uses separate North triage and resolution agents tied to Slack and Jira automations."
+  ],
+  "source_url": "https://cohere.com/customer-stories/coreweave",
+  "published_date": "2026-02-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "North can be integrated via API into existing business software, workflows, and automations. For CoreWeave, that meant they could embed North directly into their preferred support system: Slack.",
+    "Because North would be privately deployed inside CoreWeave’s own data centers, sensitive customer data never leaves their security perimeter",
+    "North collects and pre-populates key customer context, such as region, cluster, and other customer-specific information from CoreWeave's backend record-keeping systems.",
+    "A separate internal automation creates a Jira issue",
+    "On average, CoreWeave’s resolution time decreased from 4-8 days to 2-5 days",
+    "4.9 - 5.0 customer satisfaction (CSAT) scores"
+  ]
+}

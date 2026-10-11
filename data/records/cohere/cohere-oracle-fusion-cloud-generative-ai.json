@@ -1,0 +1,96 @@
+{
+  "id": "cohere-oracle-fusion-cloud-generative-ai",
+  "slug": "cohere-oracle-fusion-cloud-generative-ai",
+  "vendor": "Cohere",
+  "customer_name": "Oracle",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Oracle wanted to embed generative AI into Oracle Fusion Applications for a global base of more than 14,000 customers without breaking existing workflows, while still preserving enterprise-grade privacy, security, and a flexible path for customers and partners to add their own AI features.",
+  "solution_summary": "Oracle integrated Cohere's Command R and Command R+ models into Oracle Fusion Applications and ran the resulting features on Oracle Cloud Infrastructure so generative AI could show up directly inside finance, supply chain, HR, sales, marketing, and service workflows. The architecture pairs those language models with retrieval-augmented generation patterns built on Cohere Embed and Cohere Rerank, which help ground outputs in enterprise data and reduce hallucinations before answers reach end users. Oracle used this stack to deliver more than 100 generative AI use cases such as insight narratives, supplier recommendations, candidate assistants, service-webchat summaries, and assisted authoring. Because the capabilities ship inside Fusion's regular update cycle and governance model, customers get faster adoption, tighter data control, and a reusable framework for extending AI across core business processes.",
+  "products_used": [
+    "Oracle Fusion Applications",
+    "Command R",
+    "Command R+",
+    "Cohere Embed",
+    "Cohere Rerank",
+    "Oracle Cloud Infrastructure (OCI)"
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Fusion Applications",
+      "role": "Presents the embedded generative AI features inside Oracle's finance, HR, supply chain, sales, marketing, and service workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Command R",
+      "role": "Provides the language-model layer for embedded generative AI tasks inside Fusion workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Command R+",
+      "role": "Handles more demanding enterprise reasoning and generation tasks across Fusion use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cohere Embed",
+      "role": "Supports retrieval-augmented generation by representing enterprise content for search and grounding.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cohere Rerank",
+      "role": "Improves response quality by pushing the most relevant retrieved context to the top before generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure (OCI)",
+      "role": "Hosts the governed Oracle environment where the embedded AI services run and receive regular upgrades.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "A Fusion user triggers an in-app workflow such as reporting, sourcing, recruiting, or service support; Fusion retrieves relevant enterprise context with Cohere Embed and Cohere Rerank, Command R or Command R+ generates the narrative or recommendation, and OCI delivers the result inside Oracle's governed cloud application environment.",
+  "integration_points": [
+    "finance workflows",
+    "supply chain workflows",
+    "HR workflows",
+    "sales workflows",
+    "marketing workflows",
+    "service workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Supply Chain Optimization",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Oracle delivered over 100 embedded generative AI use cases across Fusion Applications, helping customers improve the speed and accuracy of finance, HR, supply chain, and customer-experience processes while keeping tight control over data governance and security through OCI.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 100 GenAI use cases",
+    "over 14,000 customers"
+  ],
+  "architecture_clues": [
+    "The applications use retrieval-augmented generation (RAG) systems to reduce hallucinations.",
+    "Customers can adopt new embedded AI features through Oracle Fusion Applications' quarterly updates.",
+    "Oracle designed the framework so customers and partners can add their own generative AI features."
+  ],
+  "source_url": "https://cohere.com/customer-stories/oracle",
+  "published_date": "2024-09-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Oracle integrated Cohere’s Command R and Command R+ models into its Fusion Cloud Applications",
+    "Applications were built with retrieval-augmented generation (RAG) systems to help reduce hallucinations and optimized for search and retrieval with Cohere Embed and Cohere Rerank",
+    "The Cohere team worked with the Oracle Fusion Applications team on over 100 GenAI use cases embedded across finance, supply chain, HR, sales, marketing, and service workflows.",
+    "Built on Oracle Cloud Infrastructure (OCI)",
+    "With Oracle Fusion Applications’ quarterly updates, customers can easily adopt new embedded AI features"
+  ]
+}

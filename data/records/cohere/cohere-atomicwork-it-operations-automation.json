@@ -1,0 +1,105 @@
+{
+  "id": "cohere-atomicwork-it-operations-automation",
+  "slug": "cohere-atomicwork-it-operations-automation",
+  "vendor": "Cohere",
+  "customer_name": "Atomicwork",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Atomicwork needed to help enterprise customers connect fragmented business applications and internal services, cut the flood of repetitive IT requests around enterprise information and troubleshooting, and improve answer quality without adding latency to employee support workflows.",
+  "solution_summary": "Atomicwork built Atom AI as a digital IT support assistant on Cohere's Command R+ and Rerank models using a retrieval-augmented generation design. The platform connects enterprise data sources such as SharePoint, Confluence, and other knowledge bases so employees can search company information and get support directly inside collaboration tools like Slack and Microsoft Teams. Retrieval is tuned to use less context while still maximizing faithfulness, relevancy, and context recall, and Cohere Rerank plugs directly into the pipeline to surface the strongest passages before generation. Command R+ then produces grounded answers for software updates, app provisioning, troubleshooting, and broader IT-service requests. Atomicwork moved from proof of concept to production in under a week with Rerank and extended additional use cases with Command R+ in two weeks, showing a fast path from evaluation to deployment.",
+  "products_used": [
+    "Atom AI",
+    "Command R+",
+    "Cohere Rerank",
+    "SharePoint",
+    "Confluence",
+    "Slack",
+    "Microsoft Teams"
+  ],
+  "solution_components": [
+    {
+      "name": "Atom AI",
+      "role": "Acts as the digital IT support assistant that orchestrates retrieval and response delivery for enterprise employees.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Command R+",
+      "role": "Generates grounded answers for enterprise support and knowledge workflows after retrieval is complete.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cohere Rerank",
+      "role": "Pushes the most relevant enterprise passages to the top of the retrieval pipeline to improve answer quality.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SharePoint",
+      "role": "Supplies enterprise documents and knowledge that Atom AI retrieves during support interactions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Confluence",
+      "role": "Provides knowledge-base content that grounds support answers and self-service search results.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Slack",
+      "role": "Serves as one of the collaboration surfaces where employees can ask for help and receive answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Teams",
+      "role": "Acts as another employee-facing channel for Atom AI's self-service support experience.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Employees ask Atom AI for help in Slack or Microsoft Teams, the assistant retrieves enterprise knowledge from SharePoint, Confluence, and other sources, Cohere Rerank sorts the strongest passages, and Command R+ generates a grounded answer that supports provisioning, troubleshooting, or information requests inside the existing collaboration workflow.",
+  "integration_points": [
+    "other knowledge bases",
+    "enterprise information systems",
+    "software update workflows",
+    "app provisioning workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Atomicwork improved answer accuracy by 20% with Cohere Rerank, improved latency by 75%, achieved a 168% accuracy improvement over GPT3.5, and moved from proof of concept to production in less than a week before expanding to more use cases with Command R+ in two weeks.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "70% of the total volume of incoming IT requests",
+    "50% of IT teams' productive time",
+    "20% improvement in accuracy using Cohere Rerank",
+    "75% improvement to latency",
+    "168% accuracy improvement over competitive models like GPT3.5",
+    "less than a week from proof-of-concept (POC) to evaluation and production using Rerank",
+    "two weeks to deploy with Command R+ for additional use cases"
+  ],
+  "architecture_clues": [
+    "Atomicwork evaluated answer quality using faithfulness, relevancy, and context recall.",
+    "Cohere's third-party API calling was relevant for many of Atomicwork's use cases.",
+    "Rerank integrated out-of-the-box into Atomicwork's retrieval pipeline."
+  ],
+  "source_url": "https://cohere.com/customer-stories/atomicwork",
+  "published_date": "2024-07-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Atomicwork connected various enterprise data sources, such as SharePoint, Confluence, and other knowledge bases",
+    "Atomicwork's solution was to develop Atom AI, a digital IT support assistant powered by Cohere's advanced AI models, specifically Command R+ and Rerank.",
+    "The evaluation of answer quality was structured around faithfulness, relevancy, and context recall",
+    "Building the solution took less than a week from proof-of-concept (POC) to evaluation and production using Rerank.",
+    "20% improvement in accuracy using Cohere Rerank.",
+    "75% improvement to latency",
+    "168% accuracy improvement over competitive models like GPT3.5"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "cohere-bamboohr-enterprise-knowledge-search",
+  "slug": "cohere-bamboohr-enterprise-knowledge-search",
+  "vendor": "Cohere",
+  "customer_name": "BambooHR",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "BambooHR needed employees to get accurate answers to routine HR questions without overloading HR teams, while also handling sensitive employee data, company-specific terminology, and strict privacy requirements such as GDPR.",
+  "solution_summary": "BambooHR built Ask BambooHR as an AI-powered assistant inside the BambooHR platform to answer employee questions about policies, benefits, records, and company information. The system draws from centralized HR data such as organizational charts, employee records, and company manuals, then uses a retrieval pipeline designed with Cohere. Query and document understanding run through Cohere Embed so the platform can match meaning instead of keywords, which matters for industry-specific jargon such as the difference between '401k' and 'pension.' Cohere Rerank then sorts candidate results against the original question before the assistant returns a context-specific answer. The implementation respects existing data-access permissions, uses in-house automated evaluations plus customer beta feedback, and keeps the workflow aligned with GDPR and broader sensitive-data handling requirements.",
+  "products_used": [
+    "Ask BambooHR",
+    "Cohere Embed",
+    "Cohere Rerank"
+  ],
+  "solution_components": [
+    {
+      "name": "Ask BambooHR",
+      "role": "Serves as the employee-facing assistant for HR questions inside the BambooHR platform.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cohere Embed",
+      "role": "Represents employee questions and HR content semantically so retrieval can match meaning instead of simple keywords.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cohere Rerank",
+      "role": "Reorders retrieved HR content to keep the final answer accurate and context specific.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "An employee asks Ask BambooHR a question, Cohere Embed turns the question and HR content into semantic representations, the system compares the query against policies and records, Cohere Rerank sorts the best matches, and the assistant returns an answer that respects the user's data permissions.",
+  "integration_points": [
+    "organizational charts",
+    "employee records",
+    "company manuals",
+    "company policies",
+    "data access permissions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Ask BambooHR now delivers precise, real-time answers that improve employee experience, answer tens of thousands of questions, save thousands of hours for HR professionals, and let HR teams focus more of their time on strategic work instead of repetitive inquiries.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "tens of thousands of questions",
+    "thousands of hours for HR professionals"
+  ],
+  "architecture_clues": [
+    "The retrieval flow adheres to existing data access permissions.",
+    "BambooHR built automated evaluation systems in-house to track accuracy improvements.",
+    "The implementation was designed to ensure GDPR compliance for sensitive HR data."
+  ],
+  "source_url": "https://cohere.com/customer-stories/bamboohr",
+  "published_date": "2025-02-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Drawing from BambooHR's centralized data—including organizational charts, employee records, and company manuals",
+    "powered by Cohere Rerank and Cohere Embed",
+    "The solution embeds user queries, compares them against company policies, for example, and reranks the results based on relevance to the original query",
+    "It also ensures GDPR compliance and secure handling of sensitive HR data.",
+    "Employees have already used this to answer tens of thousands of questions, saving thousands of hours for HR professionals."
+  ]
+}
