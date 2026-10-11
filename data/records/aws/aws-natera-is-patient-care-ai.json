@@ -1,0 +1,107 @@
+{
+  "id": "aws-natera-is-patient-care-ai",
+  "slug": "aws-natera-is-patient-care-ai",
+  "vendor": "AWS",
+  "customer_name": "Natera",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "In the case of Brent, a young husband and father sought care following a mountain bike accident that caused pain and discomfort.",
+  "solution_summary": "Discover how Natera, a pioneer in cell-free DNA testing, used AWS to create a robust data and analytics platform and democratize data to deliver crucial tailored medical care for patients worldwide. Every year, over two million patients in the U.S. discover they have cancer for the first time, with over eighteen million patients suffering globally (source: National Institutes of Health World Health Organization ). In the case of Brent, a young husband and father sought care following a mountain bike accident that caused pain and discomfort. Unexpectedly, a test revealed atypical cells, and further examination found tumors. After their removal and biopsy, Brent was diagnosed with stage three bladder cancer. He started chemotherapy right away. As part of his treatment plan, Brent’s oncologist introduced him to Natera’s Signatera testing, which tracks cancer indicators over time.",
+  "products_used": [
+    "Amazon RDS",
+    "AWS Step Functions",
+    "Amazon SageMaker",
+    "AWS HealthOmics",
+    "Amazon Textract",
+    "Amazon Bedrock",
+    "Claude 3",
+    "Amazon Q"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon RDS",
+      "role": "Stores structured application or analytical data in a managed relational database.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Step Functions",
+      "role": "Coordinates multi-step application or data workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Supports model training, fine-tuning, evaluation, or managed inference for the customer workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS HealthOmics",
+      "role": "Runs large-scale biological workflows and pipeline execution for genomic or clinical data.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon Textract",
+      "role": "Extracts structured information from business or clinical documents.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Hosts the foundation models and inference APIs that power the generative AI features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude 3",
+      "role": "Serves as the primary large language model for generation or analysis tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Q",
+      "role": "Provides conversational AI assistance for employees or end users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Source data is ingested through Amazon Textract, stored or indexed in Amazon RDS, processed with Amazon SageMaker, Amazon Bedrock, Claude 3, coordinated by AWS Step Functions, AWS HealthOmics, and delivered through Amazon Q.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Natera nearly doubled data extraction, from 25 to 46 elements per test, enabling more accurate patient care, and it achieved a 150% cost reduction in data processing. But, its work is far from over. Key reported metrics include Natera nearly doubled data extraction, from 25 to 46 elements per test, enabling more accurate patient care, and it achieved a 150% cost reduction in data processing.; Natera’s identified over 200 potential use cases for AI implementation with personalized healthcare delivery.; The Signatera test is able to detect cancer recurrence 6-9 months earlier than standard imaging, so imagine what’s possible with further innovation..",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Natera nearly doubled data extraction, from 25 to 46 elements per test, enabling more accurate patient care, and it achieved a 150% cost reduction in data processing.",
+    "Natera’s identified over 200 potential use cases for AI implementation with personalized healthcare delivery.",
+    "The Signatera test is able to detect cancer recurrence 6-9 months earlier than standard imaging, so imagine what’s possible with further innovation.",
+    "This enables Natera to detect disease recurrence up to 9 months earlier than standard imaging—allowing patients to receive critical treatment sooner when it's most effective.",
+    "The resulting chunks are analyzed in Amazon Bedrock using the Claude 3.5 Sonnet model to generate embeddings and perform document-level parsing and understanding.",
+    "This pipeline enables more precise attribute extraction, increasing the number of extracted elements per test document from 25 to 46."
+  ],
+  "architecture_clues": [
+    "The platform handles compute, scalability, scheduling, and orchestration seamlessly, while Natera's scientists write their pipelines in Nextflow without worrying about underlying infrastructure.",
+    "AWS Step Functions ensures workflow reliability from dataset ingestion to output archival, with full traceability for troubleshooting—making the entire process automated and dependable.",
+    "This has enabled Natera to scale Signatera Oncology tests to serve over 250,000 patients, with HealthOmics now processing over 54,000 tests and 60,000 pipelines weekly across lab locations.",
+    "Embeddings are stored in Amazon Relational Database Service (Amazon RDS) with vector search capabilities, optimized for semantic retrieval.",
+    "This pipeline enables more precise attribute extraction, increasing the number of extracted elements per test document from 25 to 46.",
+    "The workflow management is handled by AWS Step Functions, which orchestrates the process flow from document upload."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/natera-case-study/",
+  "published_date": "2025-01-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Natera nearly doubled data extraction, from 25 to 46 elements per test, enabling more accurate patient care, and it achieved a 150% cost reduction in data processing.",
+    "Natera’s identified over 200 potential use cases for AI implementation with personalized healthcare delivery.",
+    "The Signatera test is able to detect cancer recurrence 6-9 months earlier than standard imaging, so imagine what’s possible with further innovation.",
+    "This enables Natera to detect disease recurrence up to 9 months earlier than standard imaging—allowing patients to receive critical treatment sooner when it's most effective.",
+    "The resulting chunks are analyzed in Amazon Bedrock using the Claude 3.5 Sonnet model to generate embeddings and perform document-level parsing and understanding.",
+    "This pipeline enables more precise attribute extraction, increasing the number of extracted elements per test document from 25 to 46."
+  ]
+}

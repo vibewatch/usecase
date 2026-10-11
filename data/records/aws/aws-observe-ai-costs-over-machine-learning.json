@@ -1,0 +1,74 @@
+{
+  "id": "aws-observe-ai-costs-over-machine-learning",
+  "slug": "aws-observe-ai-costs-over-machine-learning",
+  "vendor": "AWS",
+  "customer_name": "Observe.AI",
+  "industry": "Software / SaaS",
+  "region": "Unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Our ML engineers and scientists faced challenges in accurately predicting this capability when transitioning models from research to production.\" The company sought to deploy a larger ML model in production for enhanced accuracy. Achieving an optimal return on investment through fine-tuning its infrastructure was key, and the business wanted a solution compatible with its existing Amazon Web Services (AWS) environment.",
+  "solution_summary": "Observe.AI developed and open-sourced the One Load Audit Framework on AWS to optimize machine learning model costs, boost developer efficiency, and scale to meet data growth. Observe.AI uses conversation intelligence to uncover insights from live and post-customer interactions, helping companies increase contact center agent performance. The company developed and open-sourced the One Load Audit Framework (OLAF), which integrates with Amazon SageMaker to automatically find bottlenecks and performance problems in machine learning services. Using OLAF to load-test Amazon SageMaker instances, Observe.AI reduced machine learning costs by over 50 percent, lowered development time from one week to hours, and facilitated on-demand scaling to support a tenfold growth in data load size. Source data enters the Observe.AI workflow through its application services, processed with Amazon SageMaker, coordinated by Amazon SNS, Amazon SQS.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon SNS",
+    "Amazon SQS"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Supports model training, fine-tuning, evaluation, or managed inference for the customer workload.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SNS",
+      "role": "Fans out notifications and event signals to downstream systems.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon SQS",
+      "role": "Buffers asynchronous jobs between distributed services.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Source data enters the Observe.AI workflow through its application services, processed with Amazon SageMaker, coordinated by Amazon SNS, Amazon SQS.",
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Launched in 2022, OLAF by Observe.AI is now actively employed by dozens of ML engineers and researchers for testing and predicting data loads. By using OLAF, Observe.AI has cut LLM costs by conducting load tests on Amazon SageMaker instances, identifying the most suitable configuration aligned with the company’s business metrics. Key reported metrics include lower costs by fine-tuning instance sizes 50%; higher data loads supported 10x; 10x.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "lower costs by fine-tuning instance sizes 50%",
+    "higher data loads supported 10x",
+    "10x",
+    "Launched in 2022, OLAF by Observe.AI is now actively employed by dozens of ML engineers and researchers for testing and predicting data loads.",
+    "Using OLAF and AWS, we can replicate and precisely increase the load by 100 percent, anticipating potential breakpoints or database issues."
+  ],
+  "architecture_clues": [
+    "Integrated with , a service that builds, trains, and deploys ML models for any use case, OLAF identifies bottlenecks and performance issues in ML services, offering latency and throughput measurements under both static a",
+    "They simply input their AWS credentials and the Amazon SageMaker endpoint, and the tool conducts load testing, providing latency numbers and expected errors for a particular model or instance.\" Following the initial buil",
+    "Next, the company incorporated Amazon Simple Queue Service (Amazon SQS), a fully managed message queuing service for microservices, distributed systems, and serverless applications.",
+    "Aashraya explains, \"Our research team encountered higher costs than anticipated when deploying an LLM, as well as other ML models, with specific latency and throughput requirements into production.",
+    "This process ensured the best return on investment.\" Previously, Observe.AI developers had to write multiple scripts and construct numerous pipeline workflows, resulting in a complex array of onboarding data transfers an"
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/observe-ai-case-study",
+  "published_date": "2024-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "10x",
+    "Launched in 2022, OLAF by Observe.AI is now actively employed by dozens of ML engineers and researchers for testing and predicting data loads.",
+    "Using OLAF and AWS, we can replicate and precisely increase the load by 100 percent, anticipating potential breakpoints or database issues.",
+    "Our ML engineers and scientists faced challenges in accurately predicting this capability when transitioning models from research to production.\" The company sought to deploy a larger ML model in production for enhanced accuracy. Achieving ",
+    "To address its challenge of predicting ML load sizes, Observe.AI created and open-sourced the (OLAF).",
+    "Integrated with , a service that builds, trains, and deploys ML models for any use case, OLAF identifies bottlenecks and performance issues in ML services, offering latency and throughput measurements under both static and dynamic data load"
+  ]
+}

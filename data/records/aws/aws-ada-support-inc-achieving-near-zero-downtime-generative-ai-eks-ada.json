@@ -1,0 +1,83 @@
+{
+  "id": "aws-ada-support-inc-achieving-near-zero-downtime-generative-ai-eks-ada",
+  "slug": "aws-ada-support-inc-achieving-near-zero-downtime-generative-ai-eks-ada",
+  "vendor": "AWS",
+  "customer_name": "Ada Support Inc",
+  "industry": "Software / SaaS",
+  "region": "Unknown",
+  "company_size": "Mid-market",
+  "business_problem": "After weighing the options, it chose AWS Global Accelerator —a networking service that organizations use to improve the availability, performance, and security of public applications—because Ada’s engineers could incrementally route traffic to clusters and quickly roll it back if needed.",
+  "solution_summary": "In 4 months, with near-zero downtime, Ada completed the migration and several major version upgrades of Kubernetes in 2022. The vast majority of Ada’s workloads, ranging from generic compute to ML workloads, run on Amazon EKS. Because of the huge number of API changes in a multiple-version upgrade, Ada used blue/green deployments —a deployment strategy that creates two separate, identical environments—so that engineers could test changes in isolation. “Using AWS Global Accelerator, we could dial traffic incrementally from 0 to 100 percent with very good granularity,” says Kosta Djukic, principal engineer of cloud infrastructure, Ada. “We could canary-test the new cluster and gain confidence as we added more traffic to Amazon EKS.” Amazon EKS automatically manages the availability and scalability of the Kubernetes control-plane nodes responsible for scheduling containers, managing application availability, storing cluster data, and other key tasks.",
+  "products_used": [
+    "AWS Global Accelerator",
+    "Amazon EKS",
+    "Amazon EC2",
+    "AWS Graviton processors"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Global Accelerator",
+      "role": "Routes traffic over the AWS backbone for lower-latency global access.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized workloads and Kubernetes-based application services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides configurable compute capacity for application, training, or inference workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Graviton processors",
+      "role": "Improve price performance for compute workloads running on Arm-based instances.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Source data enters the Ada Support Inc workflow through its application services, processed with Amazon EKS, Amazon EC2, AWS Graviton processors, and delivered through AWS Global Accelerator.",
+  "technical_area": [
+    "Cloud Native",
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Ada plans to continue investing in innovative generative AI features and is considering expanding into other regions, such as Asia Pacific, because of its increased operational efficiency. “Using Amazon EKS, we have much more time to develop and improve product capabilities to deliver a high-quality customer experience,” says Mike Gozzo, chief product and technology officer at Ada. Key reported metrics include In 4 months, with near-zero downtime, Ada completed the migration and several major version upgrades of Kubernetes in 2022.; By applying the blue/green strategy using Amazon EKS, Ada can upgrade its clusters in 5 days instead of up to 5 months.; In the year and a half after the migrati",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "In 4 months, with near-zero downtime, Ada completed the migration and several major version upgrades of Kubernetes in 2022.",
+    "By applying the blue/green strategy using Amazon EKS, Ada can upgrade its clusters in 5 days instead of up to 5 months.",
+    "In the year and a half after the migration, Ada increased the deployment velocity by 70 percent.",
+    "Ada’s benchmark automated resolution rates increased from 20–30 percent with declarative agents before the migration to up to 77 percent using generative AI.",
+    "With new features, Ada has grown its overall compute footprint by 30 percent since the migration.",
+    "Yet, the company reduced compute costs by 15 percent over the same period."
+  ],
+  "architecture_clues": [
+    "In 4 months, with near-zero downtime, Ada completed the migration and several major version upgrades of Kubernetes in 2022.",
+    "Because of the huge number of API changes in a multiple-version upgrade, Ada used blue/green deployments —a deployment strategy that creates two separate, identical environments—so that engineers could test changes in is",
+    "“We could canary-test the new cluster and gain confidence as we added more traffic to Amazon EKS.” Amazon EKS automatically manages the availability and scalability of the Kubernetes control-plane nodes responsible for s",
+    "Ada Architecture Diagram Ada saves time using managed services from AWS, so its engineering team has more time to optimize architecture and deployment pipelines.",
+    "For example, Ada set up application sets from Argo CD—an open-source, continuous-delivery tool for Kubernetes—to keep copies of Ada’s applications running across different clusters in sync and efficiently manage differen",
+    "“Because the migration to Amazon EKS went smoothly, we had time to improve our automated processes and workflows,” says Djukic."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/ada-support-eks-case-study/",
+  "published_date": "2025-01-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "In 4 months, with near-zero downtime, Ada completed the migration and several major version upgrades of Kubernetes in 2022.",
+    "By applying the blue/green strategy using Amazon EKS, Ada can upgrade its clusters in 5 days instead of up to 5 months.",
+    "In the year and a half after the migration, Ada increased the deployment velocity by 70 percent.",
+    "Ada’s benchmark automated resolution rates increased from 20–30 percent with declarative agents before the migration to up to 77 percent using generative AI.",
+    "With new features, Ada has grown its overall compute footprint by 30 percent since the migration.",
+    "Yet, the company reduced compute costs by 15 percent over the same period."
+  ]
+}
