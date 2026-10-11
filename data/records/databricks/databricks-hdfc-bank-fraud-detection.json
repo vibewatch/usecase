@@ -1,0 +1,82 @@
+{
+  "id": "databricks-hdfc-bank-fraud-detection",
+  "slug": "databricks-hdfc-bank-fraud-detection",
+  "vendor": "Databricks",
+  "customer_name": "Hdfc Bank",
+  "industry": "Financial Services",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "HDFC Bank has long been at the forefront of technology adoption, utilizing data-driven decision-making to maintain their competitive edge and provide superior customer service and experiences. However, due to customer growth and increased data management complexity, there were limitations in how they could continue to scale up some of their tech, especially their campaign operations.",
+  "solution_summary": "Hdfc Bank built its Databricks implementation around Delta Lake, Unity Catalog, Databricks Data + AI Platform, Apache Spark. HDFC Bank has long been at the forefront of technology adoption, utilizing data-driven decision-making to maintain their competitive edge and provide superior customer service and experiences. However, due to customer growth and increased data management complexity, there were limitations in how they could continue to scale up some of their tech, especially their campaign operations. Delta Lake stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning. Unity Catalog applies centralized governance, lineage, auditing, and access control across shared data assets. Databricks Data + AI Platform provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment. Apache Spark processes large-scale transformations and analytics over unified datasets.",
+  "products_used": [
+    "Delta Lake",
+    "Unity Catalog",
+    "Databricks Data + AI Platform",
+    "Apache Spark",
+    "Power BI"
+  ],
+  "solution_components": [
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, auditing, and access control across shared data assets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment."
+    },
+    {
+      "name": "Apache Spark",
+      "role": "Processes large-scale transformations and analytics over unified datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Power BI",
+      "role": "Presents dashboards and reports to business users and planners.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Source data is ingested into databricks, curated in Delta Lake tables, processed with Databricks compute and orchestration services, and exposed to downstream analytics and users. It connects with Power BI.",
+  "integration_points": [
+    "Power BI"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "HDFC Bank’s CRAIN department’s migration to the Databricks Data + AI Platform has enhanced their data analytics capabilities for credit-related use cases. The platform has simplified the integration of various data sources, streamlined data processing and improved analytics capabilities — enabling the department to uncover new actionable insights.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Delta Lake",
+    "Unity Catalog",
+    "Databricks Data + AI Platform",
+    "Apache Spark",
+    "Data pipelines for downstream risk management use cases",
+    "Legacy platform complexity slows data insights and inflates costs"
+  ],
+  "source_url": "https://www.databricks.com/customers/hdfc-bank",
+  "published_date": "2025-02-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "HDFC Bank, India’s largest private-sector bank, has migrated to the Databricks Data + AI Platform on Azure to address limitations in their on-premises data management environment, including data silos, scaling compute cost-efficiently and m",
+    "Ashish Abraham, Head of Analytics and Innovation at HDFC Bank, described the business and technical challenges of their 16-node Hadoop cluster: “We’re responsible for the development, execution and maintenance of campaign-specific legacy ET",
+    "Ashish explained, “In many cases, there was a requirement to optimize the translated code, perform Apache Spark TM parameter fine-tuning and effectively partition the data, which led to a huge reduction in the overall query execution time a",
+    "Ashish presented the business impacts CRAIN has realized as a direct result of migrating to the Databricks Data + AI Platform. He reported, “Our data pipeline is significantly faster, and query time has reduced considerably."
+  ]
+}

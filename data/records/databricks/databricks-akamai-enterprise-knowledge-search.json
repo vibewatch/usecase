@@ -1,0 +1,97 @@
+{
+  "id": "databricks-akamai-enterprise-knowledge-search",
+  "slug": "databricks-akamai-enterprise-knowledge-search",
+  "vendor": "Databricks",
+  "customer_name": "Akamai",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Akamai runs a pervasive, highly distributed content delivery network (CDN). Its CDN uses approximately 345,000 servers in more than 135 countries and over 1,300 networks worldwide to route internet traffic for some of the largest enterprises in media, commerce, finance, retail and many other industries.",
+  "solution_summary": "Akamai built its Databricks implementation around Databricks SQL, Databricks Data + AI Platform, Delta Lake, Structured Streaming. Akamai runs a pervasive, highly distributed content delivery network (CDN). Its CDN uses approximately 345,000 servers in more than 135 countries and over 1,300 networks worldwide to route internet traffic for some of the largest enterprises in media, commerce, finance, retail and many other industries. Databricks SQL serves governed analytics, dashboards, and ad hoc queries for business users and operational teams. Databricks Data + AI Platform provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment. Delta Lake stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning. Structured Streaming processes live streams continuously for low-latency analytics.",
+  "products_used": [
+    "Databricks SQL",
+    "Databricks Data + AI Platform",
+    "Delta Lake",
+    "Structured Streaming",
+    "Spark Structured Streaming",
+    "Apache Spark"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks SQL",
+      "role": "Serves governed analytics, dashboards, and ad hoc queries for business users and operational teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment."
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Structured Streaming",
+      "role": "Processes live streams continuously for low-latency analytics.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Spark Structured Streaming",
+      "role": "Processes live streams continuously for low-latency analytics.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Apache Spark",
+      "role": "Processes large-scale transformations and analytics over unified datasets.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Source data is ingested into databricks, curated in Delta Lake tables, processed with Databricks compute and orchestration services, and served through analytics, semantic search, or model endpoints for downstream users and applications. It connects with Kafka.",
+  "integration_points": [
+    "Kafka"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Today, the web security analytics tool ingests and transforms data, stores it in cloud storage, and sends the location of the file via Kafka. It then uses a Databricks Job as the ingest application.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "Min ingestion time, reduced from 15 min",
+    "Of queries have a response time of 7 seconds or less",
+    "Akamai’s web security analytics tool ingests approximately 10GB of data related to security events per second.",
+    "Akamai offers strict service level agreements (SLAs) to its customers of 5 to 7 minutes from when an attack occurs until it is displayed in the tool.",
+    "“We’ve seen an 80% increase in traffic and data in the last year, so being able to scale fast is critical.”",
+    "That way Akamai is able to make available security event data to customers within the SLA of 5 to 7 minutes from when an attack occurs."
+  ],
+  "architecture_clues": [
+    "Databricks SQL",
+    "Databricks Data + AI Platform",
+    "Delta Lake",
+    "Structured Streaming",
+    "structured streaming",
+    "Databricks Job"
+  ],
+  "source_url": "https://www.databricks.com/customers/akamai",
+  "published_date": "2023-03-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The web security analytics tool initially relied on an on-premises architecture running Apache Spark™ on Hadoop. Akamai offers strict service level agreements (SLAs) to its customers of 5 to 7 minutes from when an attack occurs until it is",
+    "After conducting proofs of concept with several companies, Akamai chose to base its streaming analytics architecture on Spark and the Databricks Data + AI Platform. “Because of our scale and the demands of our SLA, we determined that Databr",
+    "Today, the web security analytics tool ingests and transforms data, stores it in cloud storage, and sends the location of the file via Kafka. It then uses a Databricks Job as the ingest application.",
+    "Patel says he likes that Delta Lake is open source, as the company has benefitted from a community of users working to improve the product. “The fact that Delta Lake is open source and there’s a big community behind it means we don’t need t",
+    "Min ingestion time, reduced from 15 min",
+    "Of queries have a response time of 7 seconds or less"
+  ]
+}

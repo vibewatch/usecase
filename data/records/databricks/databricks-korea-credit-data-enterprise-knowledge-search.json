@@ -1,0 +1,99 @@
+{
+  "id": "databricks-korea-credit-data-enterprise-knowledge-search",
+  "slug": "databricks-korea-credit-data-enterprise-knowledge-search",
+  "vendor": "Databricks",
+  "customer_name": "Korea Credit Data",
+  "industry": "Financial Services",
+  "region": "South Korea",
+  "company_size": "Mid-market",
+  "business_problem": "Korea Credit Data — a fintech company that’s always been concerned with helping small-to-medium enterprises (SMEs) optimize financial data management, enhance decision-making and support their sustainable business growth — developed the data-driven Cashnote app to achieve all of these initiatives for their valued customers. Better yet, the app allowed business owners to overcome a variety of common obstacles, includi",
+  "solution_summary": "Korea Credit Data built its Databricks implementation around Delta Lake, Lakeflow Connect, Databricks Data + AI Platform, Unity Catalog. Korea Credit Data — a fintech company that’s always been concerned with helping small-to-medium enterprises (SMEs) optimize financial data management, enhance decision-making and support their sustainable business growth — developed the data-driven Cashnote app to achieve all of these initiatives for their valued customers. Better yet, the app allowed business owners to overcome a variety of common obstacles, includi. Delta Lake stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning. Lakeflow Connect ingests source data from operational systems into governed lakehouse tables. Databricks Data + AI Platform provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment.",
+  "products_used": [
+    "Delta Lake",
+    "Lakeflow Connect",
+    "Databricks Data + AI Platform",
+    "Unity Catalog",
+    "Databricks Lakeflow",
+    "Auto Loader"
+  ],
+  "solution_components": [
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakeflow Connect",
+      "role": "Ingests source data from operational systems into governed lakehouse tables.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment."
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, auditing, and access control across shared data assets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Databricks Lakeflow",
+      "role": "Schedules and orchestrates recurring data pipelines and transformations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Auto Loader",
+      "role": "Incrementally ingests new files or events into the lakehouse as data arrives.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Source data and events are ingested through managed connectors, files, or streaming feeds into databricks, curated in Delta Lake tables, processed with Databricks compute and orchestration services, and exposed to downstream analytics and users. It connects with Amazon SQS, RDS, APIs.",
+  "integration_points": [
+    "Amazon SQS",
+    "RDS",
+    "APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "With Databricks, KCD has significantly reduced pipeline management costs. Previously, they executed 700,000 transaction pipeline-related queries per day in RDS, leading to high I/O costs that amounted to tens of millions of won per month.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "90%+ Reduction in management costs through pipeline optimization strategies",
+    "70%+ Reduction in additional cluster maintenance costs with Unity Catalog",
+    "50%+ Reduction in cluster execution costs through optimization",
+    "KCD’s Cashnote app — used by 1.4 million business owners — provides insights into credit card sales, credit score management and financial benefits.",
+    "“Queries that joined around 30 billion data sources to create this aggregated data were highly complex,” explained Sangyoung Park, Data Engineer at KCD.",
+    "Since a transaction pipeline runs every 20 minutes, there was no longer a need for data ingestion to be constant."
+  ],
+  "architecture_clues": [
+    "Delta Lake",
+    "Lakeflow Connect",
+    "Databricks Data + AI Platform",
+    "Unity Catalog",
+    "serverless",
+    "file notification"
+  ],
+  "source_url": "https://www.databricks.com/customers/korea-credit-data",
+  "published_date": "2024-09-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As a business owner, you might often wonder, “Why isn’t my business making enough money?” or “How many regular customers do I have?” Korea Credit Data (KCD) helps answer these questions by connecting business data to empower owners to make",
+    "With so many services offered to their users, KCD needed to collect and cleanse large amounts of business data and efficiently apply these insights to continually develop their offerings. However, with their existing AWS platform, KCD had t",
+    "Furthermore, KCD optimized their transaction pipeline using Databricks’ built-in features. For instance, Auto Loader uploaded data collected from the data ingestion layer into a Delta table, using what’s referred to as “File Notification” m",
+    "KCD overcame challenges related to tracking costs, learning frameworks and tracing data lineage using the Databricks Data + AI Platform. “We are very much looking forward to the upcoming support for LLMs and serverless computing, which our",
+    "90%+ Reduction in management costs through pipeline optimization strategies",
+    "70%+ Reduction in additional cluster maintenance costs with Unity Catalog"
+  ]
+}

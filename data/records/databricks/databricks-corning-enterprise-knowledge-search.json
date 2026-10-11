@@ -1,0 +1,96 @@
+{
+  "id": "databricks-corning-enterprise-knowledge-search",
+  "slug": "databricks-corning-enterprise-knowledge-search",
+  "vendor": "Databricks",
+  "customer_name": "Corning",
+  "industry": "Manufacturing",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Corning collects data from hundreds of sources globally, and new sources emerge almost daily. The company’s legacy data warehousing solution could no longer keep pace, and analytics activities were cumbersome.",
+  "solution_summary": "Corning built its Databricks implementation around Lakeflow Jobs, More from, Databricks Data + AI Platform, Databricks Assistant. Corning collects data from hundreds of sources globally, and new sources emerge almost daily. The company’s legacy data warehousing solution could no longer keep pace, and analytics activities were cumbersome. Lakeflow Jobs schedules and orchestrates recurring data pipelines and transformations. More from more from is part of the named implementation described in the customer story. Databricks Data + AI Platform provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment. Databricks Assistant helps practitioners accelerate code, query, and troubleshooting work inside the Databricks workspace. The solution also connects to Power BI, BigQuery, Airflow, so teams can work from a shared governed environment instead of disconnected tools.",
+  "products_used": [
+    "Lakeflow Jobs",
+    "More from",
+    "Databricks Data + AI Platform",
+    "Databricks Assistant",
+    "Unity Catalog",
+    "Lakehouse Federation"
+  ],
+  "solution_components": [
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Schedules and orchestrates recurring data pipelines and transformations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "More from",
+      "role": "More from is part of the named implementation described in the customer story."
+    },
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared lakehouse environment for ingestion, engineering, analytics, and AI workflows in this deployment."
+    },
+    {
+      "name": "Databricks Assistant",
+      "role": "Helps practitioners accelerate code, query, and troubleshooting work inside the Databricks workspace.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, auditing, and access control across shared data assets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Lakehouse Federation",
+      "role": "Lets teams query remote systems alongside lakehouse data without copying all source data first.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Source data is ingested into databricks, curated in shared lakehouse tables, processed with Databricks compute and orchestration services, and exposed to downstream analytics and users. It connects with Power BI, BigQuery, Airflow.",
+  "integration_points": [
+    "Power BI",
+    "BigQuery",
+    "Airflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Reported outcomes include ~5 petabytes Data unified by Databricks; 2,500 Jobs running; 900 Active Databricks users.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "~5 petabytes Data unified by Databricks",
+    "2,500 Jobs running",
+    "900 Active Databricks users",
+    "“To accomplish all that over 400 different datasets with different teams was a big challenge,” said Hamenoo."
+  ],
+  "architecture_clues": [
+    "Lakeflow Jobs",
+    "More from",
+    "Databricks Data + AI Platform",
+    "Databricks Assistant",
+    "medallion architecture",
+    "serverless"
+  ],
+  "source_url": "https://www.databricks.com/customers/corning",
+  "published_date": "2024-07-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Jibreal Hamenoo, Principal System Engineer, Data Engineering at Corning, wanted to create a central data source to enable data engineers, machine learning engineers and data scientists to self-serve. Ultimately, this would help Corning achi",
+    "Corning turned to the Databricks Data + AI Platform to centralize their data sources. “Databricks allows us to bring all our data into the platform in all different formats,” shared Hamenoo.",
+    "The Data + AI Platform also provides Corning the compute power they need to derive insights faster. “Instead of a data scientist loading data locally into a client, they can go into the Databricks workspace, stand up an instance of the righ",
+    "Corning uses Databricks Lakeflow Jobs to execute multiple data pipeline tasks, enabling full medallion pipeline orchestration. Raw data ingested from various sources is brought into a Bronze layer.",
+    "~5 petabytes Data unified by Databricks",
+    "2,500 Jobs running"
+  ]
+}

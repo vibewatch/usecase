@@ -1,0 +1,92 @@
+{
+  "id": "databricks-nederlandse-spoorwegen-predictive-maintenance",
+  "slug": "databricks-nederlandse-spoorwegen-predictive-maintenance",
+  "vendor": "Databricks",
+  "customer_name": "Nederlandse Spoorwegen",
+  "industry": "Public Sector",
+  "region": "Netherlands",
+  "company_size": "Public sector",
+  "business_problem": "For Nederlandse Spoorwegen (NS / Dutch Railways), operational safety, efficiency and reliability is critical. Even minor equipment failures or weather-related disruptions can quickly ripple across the rail network, causing delays and operational challenges that impact passengers far beyond the original incident.",
+  "solution_summary": "Nederlandse Spoorwegen built its Databricks implementation around Partners, Capgemini, Databricks SQL, Unity Catalog. For Nederlandse Spoorwegen (NS / Dutch Railways), operational safety, efficiency and reliability is critical. Even minor equipment failures or weather-related disruptions can quickly ripple across the rail network, causing delays and operational challenges that impact passengers far beyond the original incident. Partners partners is part of the named implementation described in the customer story. Capgemini capgemini is part of the named implementation described in the customer story. Databricks SQL serves governed analytics, dashboards, and ad hoc queries for business users and operational teams. Unity Catalog applies centralized governance, lineage, auditing, and access control across shared data assets.",
+  "products_used": [
+    "Partners",
+    "Capgemini",
+    "Databricks SQL",
+    "Unity Catalog",
+    "Delta Lake",
+    "Databricks Real-Time Mode"
+  ],
+  "solution_components": [
+    {
+      "name": "Partners",
+      "role": "Partners is part of the named implementation described in the customer story."
+    },
+    {
+      "name": "Capgemini",
+      "role": "Capgemini is part of the named implementation described in the customer story."
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Serves governed analytics, dashboards, and ad hoc queries for business users and operational teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, auditing, and access control across shared data assets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks Real-Time Mode",
+      "role": "Runs continuous streaming logic for operational intelligence use cases.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Source data is ingested into databricks, curated in Delta Lake tables, processed with Databricks compute and orchestration services, and served through analytics, semantic search, or model endpoints for downstream users and applications.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "With Databricks in place, Dutch Railways has combined both historical analysis and real-time operational intelligence across its massive rail network within a single platform. The ability to process train telemetry as it is generated gives teams access to insights in real time and unlocks emerging use cases for the business.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "1 Unified platform for both real-time and analytics workloads",
+    "Nederlandse Spoorwegen (Dutch Railways) operates one of the most heavily used rail networks in Europe, serving more than 1.1 million passengers per day.",
+    "Across the fleet, this results in more than 100 billion data points per day.",
+    "Consolidating workloads onto Databricks has reduced analytical compute costs by approximately 70 percent."
+  ],
+  "architecture_clues": [
+    "Partners",
+    "Capgemini",
+    "Databricks SQL",
+    "Unity Catalog",
+    "real-time mode",
+    "structured streaming"
+  ],
+  "source_url": "https://www.databricks.com/customers/dutch-railways",
+  "published_date": "2026-09-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We were already using data to better understand failures and optimize maintenance, but some failures happen before the data is even processed,” says Gerrit van den Brink, Product Owner of Data, Innovation and Analytics, Nederlandse Spoorwe",
+    "By moving from micro-batch processing to real-time with RTM, Dutch Railways eliminated architectural complexity while significantly improving performance. The same business logic was preserved, but execution shifted to a continuous streamin",
+    "The shift to a unified platform has also changed how teams work. Instead of maintaining separate tools for streaming, analytics, and governance, Dutch Railways now operates within a single environment where data can be accessed, processed,",
+    "To dive deeper into the architecture they engineered on Databricks, watch their recent Data + AI Summit session: \" Streaming at Scale With Real-Time Mode: Sub-Second Train Telemetry Across the Netherlands.",
+    "1 Unified platform for both real-time and analytics workloads",
+    "Nederlandse Spoorwegen (Dutch Railways) operates one of the most heavily used rail networks in Europe, serving more than 1.1 million passengers per day."
+  ]
+}

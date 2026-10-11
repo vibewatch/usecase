@@ -1,0 +1,93 @@
+{
+  "id": "databricks-kard-enterprise-knowledge-search",
+  "slug": "databricks-kard-enterprise-knowledge-search",
+  "vendor": "Databricks",
+  "customer_name": "Kard",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Kard helps retail, restaurant and convenience brands capture new customers for life through hyper-personalized rewards. The company connects merchants and card issuers, analyzing billions of transactions to deliver targeted offers and customer insights.",
+  "solution_summary": "Kard built its Databricks implementation around AI/BI, Databricks SQL, Delta Lake, Lakebase. Kard helps retail, restaurant and convenience brands capture new customers for life through hyper-personalized rewards. The company connects merchants and card issuers, analyzing billions of transactions to deliver targeted offers and customer insights. AI/BI delivers business intelligence and semantic analytics over curated Databricks data. Databricks SQL serves governed analytics, dashboards, and ad hoc queries for business users and operational teams. Delta Lake stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning. Lakebase supports application-facing, low-latency operational serving alongside analytics. The solution also connects to MongoDB, so teams can work from a shared governed environment instead of disconnected tools. With Databricks, Kard has dramatically improved speed and scalability.",
+  "products_used": [
+    "AI/BI",
+    "Databricks SQL",
+    "Delta Lake",
+    "Lakebase",
+    "Lakeflow Jobs",
+    "Unity Catalog"
+  ],
+  "solution_components": [
+    {
+      "name": "AI/BI",
+      "role": "Delivers business intelligence and semantic analytics over curated Databricks data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Serves governed analytics, dashboards, and ad hoc queries for business users and operational teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores curated lakehouse tables with ACID guarantees for downstream analytics and machine learning.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakebase",
+      "role": "Supports application-facing, low-latency operational serving alongside analytics.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Lakeflow Jobs",
+      "role": "Schedules and orchestrates recurring data pipelines and transformations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Applies centralized governance, lineage, auditing, and access control across shared data assets.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Source data is ingested into databricks, curated in Delta Lake tables, processed with Databricks compute and orchestration services, and served through analytics, semantic search, or model endpoints for downstream users and applications. It connects with MongoDB.",
+  "integration_points": [
+    "MongoDB"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "With Databricks, Kard has dramatically improved speed and scalability. Ingesting four billion transactions from a partner that once took a month now takes just one engineer an hour.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "4B Transactions processed in an hour, down from weeks with legacy systems",
+    "10x More cost-effective than MongoDB"
+  ],
+  "architecture_clues": [
+    "AI/BI",
+    "Databricks SQL",
+    "Delta Lake",
+    "Lakebase",
+    "medallion architecture",
+    "serverless"
+  ],
+  "source_url": "https://www.databricks.com/customers/kard",
+  "published_date": "2025-12-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As a rapidly growing fintech startup, Kard dealt with increasing data volumes that pushed data pipelines to their limits — causing production jobs to stretch for weeks, ingestion pipelines to fail and manual analysis to slow insights to a c",
+    "Integration with AWS has enabled Kard to realize faster insights, smarter targeting and the ability to operationalize data-driven experiences directly within their commerce media platform, helping retail and restaurant brands capture new cu",
+    "Governance and collaboration improved across the organization, giving analysts and engineers the freedom to explore data safely without DevOps support. This streamlined access fuels richer segmentation, more accurate forecasting and better",
+    "4B Transactions processed in an hour, down from weeks with legacy systems",
+    "10x More cost-effective than MongoDB"
+  ]
+}
