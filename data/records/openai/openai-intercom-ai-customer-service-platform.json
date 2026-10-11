@@ -1,0 +1,97 @@
+{
+  "id": "openai-intercom-ai-customer-service-platform",
+  "slug": "openai-intercom-ai-customer-service-platform",
+  "vendor": "OpenAI",
+  "customer_name": "Intercom",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Intercom needed a flexible AI platform that could keep pace with rapidly changing models while handling large volumes of customer support interactions, complex workflow tasks, and new voice channels at production quality.",
+  "solution_summary": "Intercom reorganized its product and engineering stack around AI so Fin could move from experimental chat to a durable service platform. The company launched Fin within months of GPT-4, then built a modular architecture that routes support work across chat, email, and voice while swapping in better models as they emerge. Fin handles the conversational support layer, Fin Tasks automates multi-step workflows such as refunds or account changes, and Fin Voice uses the Realtime API for phone-style interactions. GPT-4.1 now powers a growing share of Intercom's AI usage because evals showed it could complete key task flows with strong reliability, lower latency, and a 20% cost reduction versus GPT-4o. Structured offline tests, live A/B experiments, transcript-based benchmarks, and modality-specific voice evals let Intercom move from one model generation to the next in days instead of quarters without rewriting the surrounding system.",
+  "products_used": [
+    "Fin",
+    "Fin Tasks",
+    "Fin Voice",
+    "GPT-4.1",
+    "Realtime API",
+    "Intercom MCP Server"
+  ],
+  "solution_components": [
+    {
+      "name": "Fin",
+      "role": "Resolves large volumes of inbound support queries across Intercom's support channels.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Fin Tasks",
+      "role": "Automates complex workflows such as refunds, account changes, and technical troubleshooting.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Fin Voice",
+      "role": "Handles voice interactions with human-quality support behavior over real-time audio.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Powers key task logic where Intercom found the best balance of reliability, latency, and cost.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Realtime API",
+      "role": "Supplies the low-latency audio model interface behind Fin Voice.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intercom MCP Server",
+      "role": "Connects AI tools to customer conversations, tickets, and user data for broader product and ops workflows.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer interactions flow into Fin over chat, email, or voice. The platform routes conversational work to the best model path, invokes Fin Tasks when refunds or other multi-step actions are needed, evaluates behavior with transcript and A/B tests, and feeds connected conversation and ticket data through the MCP Server for downstream product and operations teams.",
+  "integration_points": [
+    "Customer conversations",
+    "Tickets",
+    "User data",
+    "Refund workflows",
+    "Account-change workflows",
+    "Support transcripts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Intercom launched Fin just four months after GPT-4, replatformed the business around AI, migrated task automation onto GPT-4.1 in days, and reduced cost while increasing reliability and support quality across text and voice channels.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "$100 million committed to replatform around AI",
+    "Launched Fin four months after GPT-4 arrived",
+    "20% cost reduction compared to GPT-4o in Intercom evaluations",
+    "Eval results and rollout plan for GPT-4.1 within 48 hours"
+  ],
+  "architecture_clues": [
+    "Fin architecture is modular and model-agnostic across chat, email, and voice",
+    "Offline evals and live A/B trials benchmark instruction following, tool calls, and coherence",
+    "Voice evals explicitly score personality, interruption handling, and background noise",
+    "Intercom is on its third major architecture iteration with another in development"
+  ],
+  "source_url": "https://openai.com/index/intercom/",
+  "published_date": "2025-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Within hours of GPT-3.5's release, the customer service software company began experimenting, and just four months later launched Fin\"",
+    "\"GPT-4.1 powers a growing share of Intercom's AI usage, including key logic inside Fin Tasks.\"",
+    "\"When GPT-4.1 dropped, we had eval results within 48 hours and a rollout plan right after\"",
+    "\"The architecture allows Intercom to route queries to the best model for the job and swap models without reengineering the underlying system.\""
+  ]
+}

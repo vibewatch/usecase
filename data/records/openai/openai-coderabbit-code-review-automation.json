@@ -1,0 +1,89 @@
+{
+  "id": "openai-coderabbit-code-review-automation",
+  "slug": "openai-coderabbit-code-review-automation",
+  "vendor": "OpenAI",
+  "customer_name": "CodeRabbit",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "CodeRabbit needed to remove manual code review as the new bottleneck in software delivery by catching cross-file issues, reducing false positives, and shortening pull-request cycles for large codebases.",
+  "solution_summary": "CodeRabbit built a multi-step review pipeline around OpenAI models so code review happens with richer context and more automation than a human-only process can sustain. When a developer opens a pull request, CodeRabbit clones the repository into a sandbox, enriches the diff with code history, linters, code-graph signals, issue tickets, and developer conversations, and then runs recursive review passes across that material. o4-mini and o3 handle reasoning-heavy bug finding, refactors, and architecture issues across multiple files, while GPT-4.1 uses its long context window for summaries, docstrings, and routine QA checks. Customer-specific prompts add each team's review rules, security posture, and best practices, and the system now also surfaces reviews directly inside VS Code so engineers can act before code reaches the final merge gate.",
+  "products_used": [
+    "CodeRabbit",
+    "o4-mini",
+    "o3",
+    "GPT-4.1"
+  ],
+  "solution_components": [
+    {
+      "name": "CodeRabbit",
+      "role": "Orchestrates repository cloning, context enrichment, recursive review passes, and delivery of review comments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "o4-mini",
+      "role": "Finds reasoning-heavy multi-line bugs, refactors, and architecture issues across files.",
+      "layer": "Compute"
+    },
+    {
+      "name": "o3",
+      "role": "Handles deeper reasoning tasks for code review where context and nuance matter most.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Uses long-context review for summarization, docstring generation, and routine QA checks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A pull request enters CodeRabbit, which clones the repo into a sandbox and enriches the diff with history, linter output, code-graph context, tickets, and conversations. OpenAI models run multiple review passes, then the resulting comments and summaries are surfaced in pull requests or directly inside VS Code.",
+  "integration_points": [
+    "Pull requests",
+    "VS Code",
+    "Code history",
+    "Linters",
+    "Code graph analysis",
+    "Issue tickets",
+    "Developer conversations"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Security and Compliance"
+  ],
+  "business_outcome": "CodeRabbit improved review precision, helped customers ship 4x faster, cut production bugs in half, and produced measurable ROI by shortening PR cycles and reducing escaped defects.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "More than 5,000 customers",
+    "70,000 open-source projects",
+    "50% increase in accurate suggestions",
+    "25-50% faster pull request cycles",
+    "50% fewer bugs in production",
+    "20-60x ROI",
+    "4x faster shipping"
+  ],
+  "architecture_clues": [
+    "Repositories are cloned into a sandboxed environment before review",
+    "Recursive multi-model review passes follow context enrichment",
+    "Customer-specific prompts encode code review requirements and security posture",
+    "VS Code integration brings review comments into the editor"
+  ],
+  "source_url": "https://openai.com/index/coderabbit/",
+  "published_date": "2025-05-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"When a developer submits a pull request, CodeRabbit clones the repository into a sandboxed environment\"",
+    "\"We run recursive reviews using OpenAI models.\"",
+    "\"o4-mini and o3 ... power tasks like multi-line bugs and code refactors or architecture issues across files\"",
+    "\"50% fewer bugs in production\""
+  ]
+}

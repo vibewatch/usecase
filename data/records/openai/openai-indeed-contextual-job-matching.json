@@ -1,0 +1,84 @@
+{
+  "id": "openai-indeed-contextual-job-matching",
+  "slug": "openai-indeed-contextual-job-matching",
+  "vendor": "OpenAI",
+  "customer_name": "Indeed",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Indeed wanted job recommendations to explain why a role fits a candidate instead of only matching on structured attributes, but needed to do it efficiently at massive messaging scale.",
+  "solution_summary": "Indeed combined its long-standing job-matching AI with OpenAI GPT models to improve the language and context behind Invite to Apply recommendations. The team first used the Chat Completions API and few-shot prompting to generate richer explanations for why a candidate matched a specific job, then realized the prompt-heavy approach consumed too many tokens at Indeed's scale. In response, Indeed and OpenAI fine-tuned a smaller GPT model using GPT-4 for data augmentation, an annotation operation with labeled outputs and ground truths, and content guidelines that taught the model to explain relevance economically. Dedicated instances let the engineering team deploy the fine-tuned model at very high volume, personalizing recommendations to millions more job seekers. The result is a recommendation system that still depends on Indeed's proprietary marketplace data and matching logic, but now adds a natural-language rationale that improves both application starts and downstream hiring success.",
+  "products_used": [
+    "OpenAI GPT models",
+    "fine-tuned GPT model",
+    "GPT-4",
+    "dedicated instances"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI GPT models",
+      "role": "Generate personalized explanations that tell job seekers why a recommendation fits their background.",
+      "layer": "Compute"
+    },
+    {
+      "name": "fine-tuned GPT model",
+      "role": "Delivers similar personalization quality with far lower token use at Indeed's production scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Supports data augmentation and helps create training material for the fine-tuning process.",
+      "layer": "Compute"
+    },
+    {
+      "name": "dedicated instances",
+      "role": "Provide the scalable serving environment for personalized recommendation messaging to millions of job seekers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Indeed combines resume, profile, and qualification data with job-posting context, then passes the matched candidate-job pair to the fine-tuned GPT model for a natural-language explanation. The generated rationale is sent through Invite to Apply at scale on dedicated instances and measured through A/B tests against downstream hiring outcomes.",
+  "integration_points": [
+    "Resume data",
+    "Indeed Profile data",
+    "Job postings",
+    "Invite to Apply messaging"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Indeed scaled personalized match explanations from 1 million to nearly 20 million messages a day, increased started applications by 20%, improved downstream fit by 13%, and made the GPT-powered recommendation layer ROI-positive during testing.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "Over 350 million unique visitors every month",
+    "More than 3.5 million employers and over 32 million jobs",
+    "Scaled from 1 million to nearly 20 million messages a day",
+    "60% fewer tokens after fine-tuning a smaller model",
+    "20% increase in started job applications",
+    "13% uplift in downstream success"
+  ],
+  "architecture_clues": [
+    "Few-shot prompting was replaced by a fine-tuned smaller GPT model for efficiency",
+    "GPT-4 was used for data augmentation during training",
+    "Annotation operations created ground truths for automated evaluation",
+    "Dedicated instances were provisioned for high-volume personalization"
+  ],
+  "source_url": "https://openai.com/index/indeed/",
+  "published_date": "2024-08-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Indeed enhanced the personalized language in the ‘Invite to Apply’ feature\"",
+    "\"OpenAI and Indeed worked together to fine-tune a smaller GPT model that was able to deliver similarly performing results but with 60% fewer tokens.\"",
+    "\"expanded to nearly 20 million messages per day\"",
+    "\"+20% increase in started job applications\""
+  ]
+}

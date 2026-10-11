@@ -1,0 +1,78 @@
+{
+  "id": "openai-lowes-retail-ai-assistance",
+  "slug": "openai-lowes-retail-ai-assistance",
+  "vendor": "OpenAI",
+  "customer_name": "Lowe's",
+  "industry": "Retail",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Lowe's needed to give DIY shoppers and store associates project-specific guidance across thousands of products and 1,700 stores while also improving merchandising, forecasting, and supply-chain decisions without making the experience feel impersonal.",
+  "solution_summary": "Lowe's built a layered AI program around OpenAI's APIs and its own retail data to support how customers shop, how associates sell, and how teams run operations. On Lowe's.com, Mylow acts as a home-improvement advisor that turns natural-language questions into trusted project guidance and tailored product recommendations. In stores, Mylow Companion gives associates instant access to project steps, product details, and availability so they can answer complex questions in any department. These customer-facing experiences are grounded in Lowe's century of project expertise and linked to broader machine-learning deployments in pricing, forecasting, and supply chain. Around the tools, Lowe's created an AI governance committee, an AI Community of Practice, and a transformation office so adoption, training, and measurement could scale with the business rather than remain isolated experiments.",
+  "products_used": [
+    "OpenAI's APIs",
+    "Mylow",
+    "Mylow Companion"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI's APIs",
+      "role": "Provide the language-model layer that powers the customer and associate assistants built on Lowe's retail expertise and data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mylow",
+      "role": "Acts as Lowe's online home-improvement advisor, turning project questions into trusted guidance and product recommendations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Mylow Companion",
+      "role": "Gives store associates project steps, product details, and availability so they can help customers anywhere in the store.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer or associate questions enter Mylow or Mylow Companion, which use OpenAI's APIs plus Lowe's project knowledge, product catalog context, and availability signals to return guidance, recommendations, and next steps. The same operating model sits alongside Lowe's broader ML estate for pricing, forecasting, and supply-chain decisions.",
+  "integration_points": [
+    "Lowe's.com",
+    "Store product catalog",
+    "Inventory and availability systems",
+    "Pricing workflows",
+    "Forecasting workflows",
+    "Supply-chain workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Enterprise Knowledge Search",
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Lowe's turned AI into a retail operating layer that helps customers and associates make better project decisions, supported more than 50 machine-learning models across core operations, and created the governance and training needed to scale adoption across the company.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "50+ machine learning models deployed across pricing, forecasting, and supply chain",
+    "Approximately 16 million customer transactions a week",
+    "1,700 stores"
+  ],
+  "architecture_clues": [
+    "OpenAI APIs power both Mylow and Mylow Companion",
+    "AI governance committee and AI Community of Practice support rollout",
+    "AI Transformation Office bridges business and technology adoption",
+    "Assistants use project guidance, product details, and availability to support customers and associates"
+  ],
+  "source_url": "https://openai.com/index/lowes-chandhu-nair/",
+  "published_date": "2025-05-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Mylow ... is like having a red-vested associate in your pocket, walking you through a project, recommending the right products, and helping you feel prepared to move forward.\"",
+    "\"With Mylow Companion, associates can instantly access project steps, product details, and check availability.\"",
+    "\"We've already deployed over 50 machine learning models in areas like pricing, forecasting, and supply chain.\"",
+    "\"Lowe's is using OpenAI's APIs to power Mylow ... OpenAI is also powering its Mylow Companion app for store associates\""
+  ]
+}

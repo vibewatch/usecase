@@ -1,0 +1,109 @@
+{
+  "id": "openai-healthify-ai-health-coaching",
+  "slug": "openai-healthify-ai-health-coaching",
+  "vendor": "OpenAI",
+  "customer_name": "Healthify",
+  "industry": "Healthcare",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Unknown",
+  "business_problem": "Healthify needed to improve the accuracy and scalability of food tracking and coaching so it could serve millions of users, support coaches, and localize its health platform across new countries faster than its traditional ML stack allowed.",
+  "solution_summary": "Healthify upgraded its long-running health-coaching stack by combining its existing behavioral-data pipelines with OpenAI models for vision, speech, language, and embeddings. The company kept Ria and Coach Co-pilot as core surfaces, but replaced earlier rules-based and custom-NLU limits with GPT-backed workflows that can reason over nutrition history and broader user context. Snap now combines proprietary food-recognition models with GPT-4 Vision so users can log meals from photos more accurately, even when the meal contains multiple items. Whisper improved transcription for coach workflows, while embeddings solved the food-name matching problem between GPT outputs and Healthify's internal food catalog. Ria also evolved into an ensemble that includes fine-tuned GPT-3.5 and GPT-4 Turbo so it can correlate sleep, glucose, and food history and deliver richer advice. Together these changes gave Healthify a reusable model stack for coaching, food logging, and global expansion.",
+  "products_used": [
+    "Ria",
+    "Coach Co-pilot",
+    "Snap",
+    "GPT-4 Vision",
+    "Whisper",
+    "Embeddings",
+    "GPT-4 Turbo",
+    "GPT 3.5"
+  ],
+  "solution_components": [
+    {
+      "name": "Ria",
+      "role": "Acts as the AI nutritionist that answers health and coaching questions using user history and platform knowledge.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Coach Co-pilot",
+      "role": "Supports human coaches with faster transcription, context handling, and scaled client management.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Snap",
+      "role": "Turns food photos into tracked meals and recommendations with higher accuracy and less manual logging.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4 Vision",
+      "role": "Improves food recognition and multi-item meal understanding inside Snap.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Whisper",
+      "role": "Transcribes coaching interactions for the coach-facing assistant and related workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Embeddings",
+      "role": "Matches GPT-identified food names to Healthify's internal food catalog with cosine similarity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4 Turbo",
+      "role": "Adds deeper reasoning and personalization to the latest version of Ria.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT 3.5",
+      "role": "Contributes to the fine-tuned ensemble behind Ria's updated coaching workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Users send messages, health context, and food photos into Ria, Coach Co-pilot, and Snap. GPT-4 Vision interprets meal images, embeddings map recognized foods into Healthify's catalog, Whisper transcribes coaching interactions, and the Ria ensemble uses those inputs plus sleep, glucose, and platform history to generate personalized nutrition guidance.",
+  "integration_points": [
+    "Food-photo uploads",
+    "Healthify food catalog",
+    "Continuous Glucose Monitor (CGM) data",
+    "Wearable sleep logs",
+    "Coach message history"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Healthify increased food-tracking engagement, doubled coaching conversation length, cut coach response time in half, and used OpenAI to accelerate its plan to launch in 20 countries instead of spending years localizing each market.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Over 40 million users",
+    "25 million+ pounds lost by users",
+    "Users track food 50% more often with Snap",
+    "Conversation length has doubled",
+    "Coaches respond to clients in half the time",
+    "Clients engage with AI-supported coaches 18% more",
+    "Launch in 20 countries in just this year"
+  ],
+  "architecture_clues": [
+    "Snap uses an ensemble of proprietary models plus GPT-4 Vision",
+    "Ria uses fine-tuned GPT-3.5 and GPT-4 Turbo with user-specific history",
+    "Embeddings solve name matching between GPT outputs and Healthify's internal catalog",
+    "Platform combines food, sleep, glucose, and coaching signals for personalized guidance"
+  ],
+  "source_url": "https://openai.com/index/healthify/",
+  "published_date": "2024-03-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"GPT-4 Vision instantly surpassed Snap pipeline's performance\"",
+    "\"Healthify used the Embeddings model to solve one of its key problems\"",
+    "\"Conversation length has doubled\"",
+    "\"It took them two years to roll out to Southeast Asia with their traditional ML systems. But with OpenAI, they will launch in 20 countries in just this year\""
+  ]
+}

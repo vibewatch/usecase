@@ -1,0 +1,84 @@
+{
+  "id": "openai-doppel-social-engineering-defense",
+  "slug": "openai-doppel-social-engineering-defense",
+  "vendor": "OpenAI",
+  "customer_name": "Doppel",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Startup",
+  "business_problem": "Doppel needed to detect, classify, and stop phishing, impersonation, and other social-engineering threats at internet speed, long before human analysts could keep up with the volume and variation created by generative attacks.",
+  "solution_summary": "Doppel rebuilt its defense stack around OpenAI models so threat analysis could move from manual review into autonomous, explainable decisions. The pipeline starts with heuristic filtering and o4-mini-based feature extraction over millions of domains, URLs, and accounts. Each suspicious signal is then evaluated by multiple GPT-5 prompts tailored to different threat questions, such as impersonation risk, brand misuse, or social-engineering patterns. An o4-mini model improved through reinforcement fine-tuning synthesizes those confirmations into a structured classification, after which a second GPT-5 pass validates the decision, generates justification, and can automatically trigger enforcement when confidence is high. Low-confidence cases are routed to analysts, and those decisions flow back into the RFT loop so future judgments become more consistent. This architecture gives customers faster action and clearer explanations for digital surfaces where threats can do damage within minutes.",
+  "products_used": [
+    "GPT-5",
+    "o4-mini",
+    "reinforcement fine-tuning",
+    "LLM-driven pipeline"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-5",
+      "role": "Handles targeted threat reasoning, final verification, and customer-facing justifications.",
+      "layer": "Compute"
+    },
+    {
+      "name": "o4-mini",
+      "role": "Filters signals, extracts features, and supports the RFT-based classification stage.",
+      "layer": "Compute"
+    },
+    {
+      "name": "reinforcement fine-tuning",
+      "role": "Turns analyst judgments into structured training signals for consistent threat classification.",
+      "layer": "Governance"
+    },
+    {
+      "name": "LLM-driven pipeline",
+      "role": "Coordinates filtering, parallel confirmations, classification, verification, and enforcement.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Domains, URLs, accounts, and other threat signals enter Doppel's pipeline, where heuristics and o4-mini reduce noise and extract features. GPT-5 and RFT-enhanced classifiers then assess malicious intent, produce labels and justifications, and either auto-enforce or escalate uncertain cases to analysts.",
+  "integration_points": [
+    "Domains",
+    "URLs",
+    "Social media accounts",
+    "Analyst feedback loop"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cybersecurity",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Fraud Detection",
+    "Risk Management"
+  ],
+  "business_outcome": "Doppel automated most threat classification, reduced analyst workload, tripled handling capacity, and cut response times from hours to minutes while improving the transparency customers get around each takedown decision.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "80% reduced analyst workflows",
+    "3x threat handling capacity",
+    "Threat response times reduced from hours to minutes",
+    "Most threats classified automatically"
+  ],
+  "architecture_clues": [
+    "Threat pipeline uses heuristic filtering plus o4-mini feature extraction",
+    "Multiple GPT-5 prompts run in parallel for different threat analyses",
+    "RFT is trained on analyst decisions and graded for explanation quality",
+    "Automated takedowns include AI-generated justifications for customers"
+  ],
+  "source_url": "https://openai.com/index/doppel/",
+  "published_date": "2025-10-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Doppel’s platform detects, classifies, and takes down threats autonomously\"",
+    "\"cutting analyst workloads by 80%\"",
+    "\"triples threat-handling capacity\"",
+    "\"reduces response times from hours to minutes\""
+  ]
+}

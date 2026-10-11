@@ -1,0 +1,98 @@
+{
+  "id": "openai-schoolai-classroom-ai-platform",
+  "slug": "openai-schoolai-classroom-ai-platform",
+  "vendor": "OpenAI",
+  "customer_name": "SchoolAI",
+  "industry": "Education",
+  "region": "North America",
+  "company_size": "SMB",
+  "business_problem": "SchoolAI needed to help teachers personalize instruction and spot struggling students earlier without letting AI simply hand answers to students or create unsafe, opaque classroom behavior.",
+  "solution_summary": "SchoolAI designed its classroom platform as a teacher-in-the-loop agent system rather than a generic chatbot. Teachers use Dot to create Spaces, where lesson goals are translated into interactive activities and apps, while students work through those activities with Sidekick, an AI tutor built on GPT-4o and GPT-4.1. Under the hood, each student interaction runs through an agent graph with dozens of specialized nodes that call models, tools, or guardrails before returning an answer, keeping the system focused on coaching instead of answer-giving. GPT-4o handles conversational lesson construction and response logic, GPT-4.1 handles deeper reasoning such as multi-step math scaffolding, image generation produces classroom visuals, and text-to-speech delivers spoken feedback in more than 60 languages. Logs and reports remain observable to teachers and administrators, so instructional data, safety controls, and intervention signals flow back to the humans responsible for student outcomes.",
+  "products_used": [
+    "Dot",
+    "Spaces",
+    "Sidekick",
+    "GPT-4o",
+    "GPT-4.1",
+    "image generation",
+    "text-to-speech"
+  ],
+  "solution_components": [
+    {
+      "name": "Dot",
+      "role": "Helps teachers create differentiated lessons and learning environments from natural-language instructions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Spaces",
+      "role": "Provide the interactive environments where lesson goals, student tasks, and AI support come together.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Sidekick",
+      "role": "Acts as the student-facing tutor that adapts guidance, pacing, and encouragement to each learner.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Drives Dot's conversational lesson building and real-time instructional response generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Handles deeper reasoning tasks such as scaffolding multi-step math problems.",
+      "layer": "Compute"
+    },
+    {
+      "name": "image generation",
+      "role": "Creates lesson visuals such as maps or science diagrams to support classroom activities.",
+      "layer": "Serving"
+    },
+    {
+      "name": "text-to-speech",
+      "role": "Provides spoken feedback and multilingual accessibility in more than 60 languages.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Teachers prompt Dot to create Spaces and lessons, then students interact with Sidekick inside those environments. Each student input passes through the agent graph and the appropriate OpenAI models before a guided response is returned, while logs, reports, and intervention signals stay visible to teachers and administrators.",
+  "integration_points": [
+    "Teacher prompts",
+    "Student lesson interactions",
+    "Administrative reports",
+    "Real-time classroom logs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "SchoolAI reached 1 million classrooms in 80+ countries, embedded itself in hundreds of education partnerships, saved teachers more than 10 hours a week, and gave educators earlier intervention signals without removing them from the learning loop.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "1 million classrooms reached across 80+ countries",
+    "500 education partnerships embedding SchoolAI",
+    "10+ hours saved weekly for teachers"
+  ],
+  "architecture_clues": [
+    "Every student input runs through an agent graph with dozens of specialized nodes",
+    "Teachers and administrators can observe model decisions through logs and reports",
+    "Smart routing sends heavy reasoning to GPT-4.1 or GPT-4o and lighter checks to smaller models",
+    "Built-in guardrails keep AI aligned with classroom goals"
+  ],
+  "source_url": "https://openai.com/index/schoolai/",
+  "published_date": "2025-09-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"If a teacher types ‘create a differentiated reading activity for students at three different levels,’ Dot will assemble a ready-to-use lesson in seconds.\"",
+    "\"Students engage with these lessons through Sidekick, an AI tutor built on GPT-4o and GPT-4.1.\"",
+    "\"every student input runs through an agent graph with dozens of specialized nodes\"",
+    "\"In just two years, SchoolAI has reached 1 million classrooms across 80+ countries\""
+  ]
+}

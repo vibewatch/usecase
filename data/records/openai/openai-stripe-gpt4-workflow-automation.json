@@ -1,0 +1,65 @@
+{
+  "id": "openai-stripe-gpt4-workflow-automation",
+  "slug": "openai-stripe-gpt4-workflow-automation",
+  "vendor": "OpenAI",
+  "customer_name": "Stripe",
+  "industry": "Financial Services",
+  "region": "Europe & UK",
+  "company_size": "Enterprise",
+  "business_problem": "Stripe needed to discover where large language models could most meaningfully improve developer support, business understanding, and fraud detection across a large payments platform and community ecosystem.",
+  "solution_summary": "Stripe used GPT-4 as a cross-functional experimentation layer across support, onboarding, risk, and documentation workflows. The company paused normal work for 100 employees so they could prototype candidate features, then narrowed roughly 50 ideas into a smaller set of strong product directions. GPT-4 now scans customer websites and summarizes what a business actually does so support can be tailored without laborious manual research, reads Stripe documentation on behalf of developers and returns focused technical answers, and analyzes inbound community communications to identify likely fraudsters or coordinated bad actors. These capabilities build on earlier GPT-3 support-routing and summarization work, but GPT-4's stronger reasoning over free-form text and images made it practical to move from small assists to workflows that outperform human reviewers in some classification tasks and can be productized inside Stripe's broader support and risk systems.",
+  "products_used": [
+    "GPT-4"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-4",
+      "role": "Summarizes customer businesses, answers documentation questions, and flags suspicious community activity across Stripe workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Free-form website content, developer questions, documentation, and community posts are sent to GPT-4, which summarizes business context, surfaces relevant support answers, or flags suspicious patterns for fraud teams. Stripe then uses those outputs inside its support, onboarding, and risk processes.",
+  "integration_points": [
+    "Customer websites",
+    "Stripe documentation",
+    "Developer support workflows",
+    "Discord community workflows",
+    "Fraud team follow-up processes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Fraud Detection"
+  ],
+  "business_outcome": "Stripe identified dozens of viable GPT-4 use cases, found that the model outperformed human reviewers in business classification, improved developer support workflows, and strengthened its ability to detect malicious community behavior.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "100 employees mobilized to prototype GPT-4-powered features",
+    "50 AI use cases identified",
+    "15 prototypes considered strong candidates for integration",
+    "GPT-4 outperformed human reviewers in business classification tasks"
+  ],
+  "architecture_clues": [
+    "Experimentation sprint spanned support, onboarding, risk, and documentation teams",
+    "GPT-4 summarizes sparse or ambiguous customer websites",
+    "Same model layer answers technical documentation questions and supports fraud screening in community channels"
+  ],
+  "source_url": "https://openai.com/index/stripe/",
+  "published_date": "2023-03-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Stripe asked 100 employees to do something highly unusual: stop their day jobs and instead, dream up features and functionality\"",
+    "\"GPT-4 is able to scan these sites and deliver a summary, which outperforms those written by people.\"",
+    "\"GPT is able to understand the user's question, read detailed documentation on their behalf\"",
+    "\"Just by analyzing the syntax of posts in Discord, GPT-4 has been flagging accounts\""
+  ]
+}

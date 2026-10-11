@@ -1,0 +1,91 @@
+{
+  "id": "openai-circles-telco-personalization",
+  "slug": "openai-circles-telco-personalization",
+  "vendor": "OpenAI",
+  "customer_name": "Circles",
+  "industry": "Software / SaaS",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Enterprise",
+  "business_problem": "Circles needed to turn rich telco signals such as usage, billing, network activity, and location into real-time support and monetization actions instead of reactive, siloed customer journeys.",
+  "solution_summary": "Circles built an AI-native telco stack on the OpenAI API to unify customer support, account management, and personalization inside one conversational surface. Its AI Concierge serves as the front door, combining search, support, account actions, and recommendations in a single experience. Behind it, CareX uses an orchestration agent plus specialist agents for billing, subscriptions, network management, and account services to resolve issues without making customers repeat context. In parallel, Xplore IQ combines behavior, account history, and real-time signals to recommend the next best action such as a roaming pack, plan upgrade, or churn-prevention offer. Circles also encrypts personally identifiable information before model access, scopes agent access by task, and uses staged rollouts, rollback controls, and escalation paths so the same stack can operate safely across multiple operators and markets.",
+  "products_used": [
+    "OpenAI API",
+    "AI Concierge",
+    "CareX",
+    "Xplore IQ",
+    "Codex"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI API",
+      "role": "Provides the model interface that powers Circles' conversational support and personalization systems.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Concierge",
+      "role": "Brings search, account management, support, and recommendations into a single conversational customer experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CareX",
+      "role": "Coordinates orchestration and specialist agents for billing, subscriptions, network management, and account services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Xplore IQ",
+      "role": "Uses customer behavior and real-time signals to recommend upgrades, roaming packs, and churn-prevention actions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Codex",
+      "role": "Improves internal engineering velocity across design, coding assistance, testing, and incident work.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer context from usage, billing, network, and location signals enters AI Concierge, which passes each request to CareX for orchestration across specialist agents. Xplore IQ uses the same behavioral and account data to surface the next best offer or save action, while scoped access and encrypted PII ensure only the data required for each task reaches the model layer.",
+  "integration_points": [
+    "Billing systems",
+    "Subscription systems",
+    "Network management systems",
+    "Account services",
+    "Roaming offers",
+    "Plan-upgrade workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Circles achieved a 65% autonomous resolution rate in support, increased ARPU by 22% and reduced churn by 9% in Singapore through personalization, and improved development efficiency by 29% using Codex internally.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "22% increase in ARPU in Singapore from AI-driven personalization",
+    "9% reduction in churn after introducing AI recommendations",
+    "65% autonomous resolution rate for customer support with CareX",
+    "29% increase in development efficiency using Codex"
+  ],
+  "architecture_clues": [
+    "CareX combines an orchestration agent with specialist agents",
+    "PII is identified and encrypted before reaching the model layer",
+    "Agent access is scoped to the information needed for a specific task",
+    "Phased rollouts, rate limits, rollback mechanisms, and escalation paths remain in place"
+  ],
+  "source_url": "https://openai.com/index/circles/",
+  "published_date": "2026-08-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Circles built its AI Concierge on the OpenAI API\"",
+    "\"CareX is the proprietary multi-agent architecture that powers Circles' AI Concierge.\"",
+    "\"Xplore IQ is Circles' AI-powered personalization engine.\"",
+    "\"Today, CareX autonomously resolves 65% of customer service interactions across supported workflows\""
+  ]
+}

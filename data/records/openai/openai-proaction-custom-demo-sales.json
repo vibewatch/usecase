@@ -1,0 +1,99 @@
+{
+  "id": "openai-proaction-custom-demo-sales",
+  "slug": "openai-proaction-custom-demo-sales",
+  "vendor": "OpenAI",
+  "customer_name": "Proaction",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "SMB",
+  "business_problem": "Proaction needed a way to create highly personalized fleet-management demos and operational follow-ups without consuming scarce engineering time, while also extending automation into day-to-day fleet workflows for customers.",
+  "solution_summary": "Proaction turned Codex into the working surface for sales, product, and support operations. After a call, the team feeds Codex the Granola meeting recording, prospect email threads, and shared spreadsheets so it can build an HTML demo environment that mirrors Proaction's product and the prospect's actual fleet. Those demos then double as implementation references once a deal closes, reducing back-and-forth with engineers. Codex plugins connect Gmail, Slack, Linear, GitHub, and HubSpot so follow-ups, issue creation, and sales updates happen in one place. On the customer side, Proaction is extending the same model stack into its Managed Execution Layer, where GPT-Live-1, GPT-6 Astra, and ChatGPT-5.6 Sol support voice agents such as Marty that coordinate maintenance, review documents and images, and help execute fleet operations with humans stepping in only when exceptions require judgment.",
+  "products_used": [
+    "Codex",
+    "Granola",
+    "GPT-Live-1",
+    "GPT-6 Astra",
+    "ChatGPT-5.6 Sol",
+    "Marty"
+  ],
+  "solution_components": [
+    {
+      "name": "Codex",
+      "role": "Builds personalized demos, gathers context from connected tools, and automates sales and operational follow-up work.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Granola",
+      "role": "Supplies call recordings that Codex turns into customized demos and downstream sales actions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "GPT-Live-1",
+      "role": "Powers voice agents that execute parts of day-to-day fleet operations for customers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "role": "Accelerates the creation of customer experiences and computer-use flows for Proaction's agents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT-5.6 Sol",
+      "role": "Helps identify vehicle damage from submitted photos and supports platform analysis tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Marty",
+      "role": "Coordinates maintenance conversations, repair-shop calls, approvals, and payments for fleet issues.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Sales context from Granola, email threads, and spreadsheets flows into Codex, which creates a prospect-specific HTML demo and writes updates into connected business systems. For customer operations, voice, document, image, and chat inputs route through GPT-Live-1, GPT-6 Astra, and ChatGPT-5.6 Sol so agents such as Marty can coordinate maintenance and other fleet workflows before escalating exceptions to humans.",
+  "integration_points": [
+    "Granola",
+    "Gmail",
+    "Slack",
+    "Linear",
+    "GitHub",
+    "HubSpot",
+    "Prospect spreadsheets",
+    "Repair shops"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Proaction increased sales by 60%, saved 40-60 engineering hours a month on custom demos, saved founders 25-33 hours a month on cross-tool work, and began extending voice agents into fleet operations so customers reclaim time as well.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "40-60 engineering hours saved per month",
+    "33 founder hours saved per month",
+    "60% increase in sales",
+    "Four to six customized demos a month",
+    "30 to 45 minutes to build each demo"
+  ],
+  "architecture_clues": [
+    "Codex plugins connect Granola, Gmail, Slack, Linear, GitHub, and HubSpot",
+    "Customized HTML demos are reused as implementation references after a deal closes",
+    "Managed Execution Layer routes voice, text, image, and document work to specialized models",
+    "Human review remains in the loop for maintenance and payment exceptions"
+  ],
+  "source_url": "https://openai.com/index/proaction/",
+  "published_date": "2026-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Colin directs Codex to the Granola recording, prospect email threads, and any spreadsheets the prospect has shared.\"",
+    "\"With Codex, I can easily take a customer conversation and turn it into a custom demo built around their vehicles and workflows.\"",
+    "\"Everything that I do is centered around working in Codex. I don't leave it much.\"",
+    "\"One agent, Marty, is designed to coordinate vehicle maintenance.\""
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "openai-rakuten-codex-engineering-operations",
+  "slug": "openai-rakuten-codex-engineering-operations",
+  "vendor": "OpenAI",
+  "customer_name": "Rakuten",
+  "industry": "Retail",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Enterprise",
+  "business_problem": "Rakuten needed to ship faster, recover from incidents faster, and increase autonomous execution across a large engineering organization without relaxing security or reliability standards.",
+  "solution_summary": "Rakuten made Codex a core part of its engineering stack and aligned its rollout around three operational goals: build faster, build safer, and operate smarter. For speed, Codex works with KQL-based monitoring and diagnostics so engineers can move from alert to root-cause analysis and remediation more quickly, cutting mean time to recovery roughly in half. For safety, Codex is invoked directly in CI/CD pipelines for code review and vulnerability checks against Rakuten's internal coding principles, allowing guardrails to run before code reaches production. For autonomy, Codex is used on larger, ambiguously specified projects, where it can move from partial requirements to working implementations, as shown by a full-stack mobile project with a Python/FastAPI backend and a Swift/SwiftUI app. Rakuten pairs these workflows with workshops across teams, shifting engineers toward writing better specifications and verification standards rather than reviewing every line by hand.",
+  "products_used": [
+    "Codex",
+    "KQL-based monitoring",
+    "CI/CD workflow",
+    "AI agent service"
+  ],
+  "solution_components": [
+    {
+      "name": "Codex",
+      "role": "Acts as the primary agent for incident response, code review, vulnerability checks, and autonomous project execution.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "KQL-based monitoring",
+      "role": "Supplies operational telemetry and queries that Codex uses for diagnosis and remediation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CI/CD workflow",
+      "role": "Runs Codex-based code review and vulnerability checks before production deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI agent service",
+      "role": "Represents the web-based service whose mobile version Codex implemented end to end from a single specification.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Logs and telemetry flow through KQL-based monitoring into Codex-assisted diagnosis and remediation. Source changes move through a CI/CD workflow where Codex applies internal review principles and vulnerability checks, while larger project requirements can be translated by Codex into working service implementations.",
+  "integration_points": [
+    "KQL monitoring",
+    "CI/CD pipeline",
+    "Internal coding principles",
+    "Python/FastAPI backend",
+    "Swift/SwiftUI iOS app"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "IT Operations Automation",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Rakuten reduced incident recovery time, accelerated project delivery, made automated safety checks part of everyday shipping, and created a clearer division of labor where engineers define intent and verification while Codex handles more execution.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "50% reduction in MTTR",
+    "3-4x faster potential build time for projects, from quarters to weeks",
+    "30,000 employees worldwide"
+  ],
+  "architecture_clues": [
+    "Codex is embedded in KQL monitoring, CI/CD review, and end-to-end project delivery",
+    "Internal coding principles are fed into Codex for automated standards checking",
+    "Ambiguous specifications can still be turned into working full-stack implementations"
+  ],
+  "source_url": "https://openai.com/index/rakuten/",
+  "published_date": "2026-03-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Rakuten has used Codex to fix problems twice as fast when something breaks\"",
+    "\"Codex conducts code review and vulnerability checks before changes reach production\"",
+    "\"Codex cut the development time for this project from one quarter to weeks.\"",
+    "\"Our role is to define clearly what we want and establish how to verify it.\""
+  ]
+}

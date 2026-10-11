@@ -1,0 +1,94 @@
+{
+  "id": "openai-ringg-multichannel-service-agents",
+  "slug": "openai-ringg-multichannel-service-agents",
+  "vendor": "OpenAI",
+  "customer_name": "Ringg",
+  "industry": "Software / SaaS",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Startup",
+  "business_problem": "Ringg needed to help enterprises automate large volumes of customer calls and chats with reliable tool use, low latency, multilingual quality, and unit economics that improved rather than worsened at scale.",
+  "solution_summary": "Ringg built an enterprise agent platform around multiple OpenAI models so customer-service workflows could be routed to the best model for each step. GPT-4.1 handles much of the real-time voice and chat traffic, GPT-5.6 Luna is used when its latency or price-performance profile is better for a request, GPT-5.6 Terra powers post-call summaries and sentiment analysis, and GPT-5.6 Sol supports evaluation and prompt improvement. Around those models, Ringg runs an orchestration layer that connects to CRMs, ticketing platforms, payment systems, scheduling tools, internal APIs, and a semantic retrieval stack spanning PDFs, CSVs, and business documents. Specialized subagents manage qualification, verification, scheduling, support, and escalation, while summaries preserve context near token limits. Offline and staged production evals then guide migrations and router decisions, allowing the company to lower costs while maintaining customer outcomes across voice, chat, WhatsApp, and web channels.",
+  "products_used": [
+    "enterprise agent platform",
+    "GPT-4.1",
+    "GPT-5.6 Luna",
+    "GPT-5.6 Terra",
+    "GPT-5.6 Sol"
+  ],
+  "solution_components": [
+    {
+      "name": "enterprise agent platform",
+      "role": "Coordinates multichannel customer-service workflows and enterprise integrations across voice, chat, WhatsApp, and web.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Handles much of Ringg's real-time voice and chat traffic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-5.6 Luna",
+      "role": "Supports selected real-time workloads where its latency or economics fit better.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-5.6 Terra",
+      "role": "Performs post-call analysis such as summaries and sentiment classification.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "role": "Drives model-as-judge evaluation and prompt-improvement workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Voice or chat input is combined with instructions, customer data, conversation history, knowledge-base context, and available tools inside Ringg's orchestration layer. The router selects the right OpenAI model, executes any CRM or payment actions, and returns a response or escalates with a structured summary when human intervention is needed.",
+  "integration_points": [
+    "CRMs",
+    "Ticketing platforms",
+    "Payment systems",
+    "Scheduling tools",
+    "Internal APIs",
+    "PDFs",
+    "CSVs",
+    "Business documents"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Ringg helped customers automate routine support at scale, cut model cost for selected workloads, maintain strong satisfaction, and prove that completed outcomes rather than call volume can define next-generation customer operations.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "7M+ connected calls handled each month",
+    "Up to 65% request resolution via agents",
+    "90% lower costs vs. GPT-4.1 for selected workloads",
+    "4.8 average customer CSAT",
+    "67% of Policybazaar calls handled without human intervention",
+    "70% operating-cost decline for Practo"
+  ],
+  "architecture_clues": [
+    "Router chooses between GPT-4.1 and GPT-5.6 variants by workload",
+    "Orchestration layer executes actions across CRMs, payment systems, and scheduling tools",
+    "Structured summaries are created when context nears approximately 80,000 tokens",
+    "Offline evals are followed by small-scale production rollout and latency-aware traffic shifting"
+  ],
+  "source_url": "https://openai.com/index/ringg/",
+  "published_date": "2026-09-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"That experience led Ringg to build an enterprise agent platform with high-efficiency models like GPT‑5.6 at its core\"",
+    "\"Ringg’s agents now handle more than 7 million connected calls each month\"",
+    "\"Migrating certain real-time workloads from GPT‑4.1 to GPT‑5.6 Luna reduced model costs by approximately 90%.\"",
+    "\"Up to 65% request resolution via agents\""
+  ]
+}

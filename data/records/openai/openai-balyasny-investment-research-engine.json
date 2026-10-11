@@ -1,0 +1,85 @@
+{
+  "id": "openai-balyasny-investment-research-engine",
+  "slug": "openai-balyasny-investment-research-engine",
+  "vendor": "OpenAI",
+  "customer_name": "Balyasny Asset Management",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Balyasny needed an investment-research system that could reason across huge volumes of structured and unstructured financial data, support high-stakes analyst workflows, and stay within strict compliance boundaries.",
+  "solution_summary": "Balyasny built a centralized AI investment research system through its Applied AI team so each investment desk can use agentic workflows without rebuilding the core stack. The platform uses GPT-5.4 as a reasoning engine alongside internal models selected task by task from a rigorous evaluation pipeline that measures forecasting accuracy, numerical reasoning, scenario analysis, tool execution, and hallucination resistance against proprietary benchmarks and data. Core agent frameworks, toolchains, and compliance guardrails are developed centrally, then deployed in a federated model with scoped access for macro, equities, commodities, and other strategies. On top of that base, specialized agents such as Central Bank Speech Analyst and Merger Arbitrage Superforecaster synthesize filings, research, and earnings, continuously re-evaluate scenarios as new information arrives, and give analysts cited, explainable outputs that increase conviction while preserving human decision-making.",
+  "products_used": [
+    "AI investment research system",
+    "GPT-5.4",
+    "Central Bank Speech Analyst",
+    "Merger Arbitrage Superforecaster"
+  ],
+  "solution_components": [
+    {
+      "name": "AI investment research system",
+      "role": "Serves as the central platform that reasons, retrieves, and acts like a skilled analyst across investment workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-5.4",
+      "role": "Acts as a reasoning engine for multi-step planning, tool execution, and lower-hallucination financial analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Central Bank Speech Analyst",
+      "role": "Automates macroeconomic scenario analysis over speeches and related financial evidence.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Merger Arbitrage Superforecaster",
+      "role": "Continuously updates deal probabilities as new filings or press releases arrive.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Financial filings, market data, research, earnings, and other desk-specific sources are evaluated by the central research system, which routes work through GPT-5.4 and internal models. Specialized agents then synthesize and continuously update cited outputs for individual investment teams under scoped access and compliance guardrails.",
+  "integration_points": [
+    "Market data",
+    "Research reports",
+    "Regulatory filings",
+    "Earnings documents",
+    "Internal benchmarks",
+    "Proprietary financial data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Risk Management"
+  ],
+  "business_outcome": "Balyasny moved deep research from days to hours, reached roughly 95% adoption across investment teams, cut a macro scenario workflow from two days to about 30 minutes, and created a reusable evaluation-and-guardrail model for secure AI use in finance.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "95% of investment teams actively use the AI platform",
+    "Deep research tasks moved from days to hours",
+    "Central Bank Speech Analyst cut macroeconomic scenario analysis time from 2 days to ~30 minutes",
+    "Approximately 180 investment teams"
+  ],
+  "architecture_clues": [
+    "Applied AI team centralizes agent frameworks, toolchains, and compliance guardrails",
+    "Model evaluation spans 12+ dimensions against proprietary data",
+    "Federated deployment model gives each desk scoped access to data and tools",
+    "Feedback loops drive rapid changes to orchestration and tool access"
+  ],
+  "source_url": "https://openai.com/index/balyasny-asset-management/",
+  "published_date": "2026-03-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Their flagship product, an AI investment research system, is designed to reason, retrieve, and act like a skilled analyst.\"",
+    "\"GPT-5.4 proved it could plan, reason, and execute with real rigor.\"",
+    "\"95% of Balyasny investment teams actively use their AI platform\"",
+    "\"cut macroeconomic scenario analysis time from 2 days to ~30 minutes.\""
+  ]
+}

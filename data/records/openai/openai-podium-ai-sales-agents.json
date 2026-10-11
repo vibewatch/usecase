@@ -1,0 +1,87 @@
+{
+  "id": "openai-podium-ai-sales-agents",
+  "slug": "openai-podium-ai-sales-agents",
+  "vendor": "OpenAI",
+  "customer_name": "Podium",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Mid-market",
+  "business_problem": "Podium needed to help local businesses capture after-hours demand, follow brand-specific sales rules, and convert leads without forcing SMB owners to configure complex software or hire more staff.",
+  "solution_summary": "Podium evolved early spam-filtering and lead-enrichment experiments into Jerry, an AI agent that acts more like a teammate than a script. Jerry uses GPT-5.1 to handle lead capture, appointment scheduling, service requests, sales conversations, and follow-up across messaging channels, while preferences let each business tune tone, terminology, and policies without engineering help. Podium combines vertical baselines for industries such as automotive, home services, aesthetics, and retail with business-level customization, so each deployment starts with a strong template and adapts to the operator's workflows. An evaluation framework replays production-like scenarios and measures conversion rather than just correctness; in head-to-head tests GPT-5.1 delivered better win rates, lower cost per conversation, and faster responses. Internal teams also use ChatGPT Enterprise and OpenAI APIs to build onboarding flows and playbooks, extending the same agentic operating model beyond the product.",
+  "products_used": [
+    "Jerry",
+    "GPT-5.1",
+    "ChatGPT Enterprise",
+    "OpenAI APIs"
+  ],
+  "solution_components": [
+    {
+      "name": "Jerry",
+      "role": "Acts as the customer-facing AI agent that captures leads, schedules work, and follows up across channels.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-5.1",
+      "role": "Provides the reasoning, instruction following, and conversational performance behind Jerry 2.0.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT Enterprise",
+      "role": "Helps internal Podium teams create onboarding flows, role-play scenarios, and playbooks faster.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI APIs",
+      "role": "Integrate model capabilities such as function calling and streaming into Podium's multi-agent stack.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer inquiries enter Jerry over messaging channels, where GPT-5.1 applies vertical playbooks and business-specific rules to qualify leads, schedule appointments, and follow up. Podium measures those outcomes through production-like eval scenarios while internal teams use ChatGPT Enterprise and the APIs to refine onboarding and conversation assets.",
+  "integration_points": [
+    "Messaging channels",
+    "Scheduling workflows",
+    "Service-request workflows",
+    "Internal onboarding flows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Podium deployed tens of thousands of agents, grew AI revenue 300% year over year, helped customers improve revenue and lead conversion, and let SMBs run 24/7 service and sales workflows without adding headcount.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "300% year-over-year AI revenue growth",
+    "30% increase in revenue on average",
+    "45% increase in lead conversion",
+    "Agents live in 10,000 businesses",
+    "41% lower cost per conversation",
+    "39% faster response than competitors",
+    "65.4% head-to-head evaluation win rate for GPT-5.1"
+  ],
+  "architecture_clues": [
+    "Vertical baselines are provided for auto, home services, aesthetics, and retail",
+    "Business owners can tune policies in natural language",
+    "Industrial-grade evaluation replays thousands of production-like scenarios",
+    "Function calling and streaming integrate into Podium's multi-agent stack"
+  ],
+  "source_url": "https://openai.com/index/podium/",
+  "published_date": "2025-12-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Podium evolved those tools into an AI agent they affectionately call \"Jerry\"\"",
+    "\"Jerry uses GPT-5.1 to handle lead capture, scheduling, service requests, sales, and follow-up\"",
+    "\"Every release runs through thousands of production-like scenarios.\"",
+    "\"Podium's AI agents are live in 10,000 businesses\""
+  ]
+}

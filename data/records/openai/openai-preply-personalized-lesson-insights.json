@@ -1,0 +1,89 @@
+{
+  "id": "openai-preply-personalized-lesson-insights",
+  "slug": "openai-preply-personalized-lesson-insights",
+  "vendor": "OpenAI",
+  "customer_name": "Preply",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Mid-market",
+  "business_problem": "Preply wanted to personalize language learning more deeply and reduce repetitive tutor work without replacing the human relationship that makes one-to-one teaching effective.",
+  "solution_summary": "Preply built Lesson Insights on top of OpenAI so each live lesson could become a personalized learning loop instead of a standalone conversation. With learner consent, lessons in the Preply Classroom are recorded and transcribed, then an OpenAI-powered workflow generates structured feedback on grammar, vocabulary, pronunciation, lesson topics, and next steps just before the session ends so tutor and learner can review it together. Those outputs feed directly into Preply's self-learning exercise engine, creating personalized homework and practice that compounds lesson to lesson. Internally, Preply also deployed ChatGPT Enterprise across more than 600 employees and embedded OpenAI APIs, custom GPTs such as Brand Voice GPT, and Codex into content and engineering workflows. By pairing AI with human tutors rather than replacing them, Preply created a system where the platform handles summary, structure, and personalization while tutors focus on motivation, context, and teaching judgment.",
+  "products_used": [
+    "Lesson Insights",
+    "OpenAI API",
+    "ChatGPT Enterprise",
+    "Brand Voice GPT",
+    "Codex"
+  ],
+  "solution_components": [
+    {
+      "name": "Lesson Insights",
+      "role": "Turns each tutoring session into structured feedback and personalized follow-up learning.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI API",
+      "role": "Generates lesson summaries, feedback, and self-learning inputs from class transcripts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT Enterprise",
+      "role": "Supports company-wide AI adoption and everyday work across more than 600 employees.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Brand Voice GPT",
+      "role": "Helps teams create content that stays aligned with Preply's messaging and tone.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Codex",
+      "role": "Accelerates engineering work such as code generation, PR reviews, and debugging.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Lesson recordings and transcripts from the Preply Classroom are processed through the OpenAI API into summaries, corrections, recommendations, and next steps. Those insights flow into the chat thread and self-learning engine, while internal teams use ChatGPT Enterprise, Brand Voice GPT, and Codex for operational and product workflows.",
+  "integration_points": [
+    "Preply Classroom",
+    "Lesson transcripts",
+    "Chat thread",
+    "Self-learning exercise engine"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "Preply increased internal AI adoption, helped tutors and learners keep engaging with personalized lesson follow-ups over time, and reduced the administrative burden of teaching while improving the continuity and perceived value of each learning journey.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "95% ChatGPT weekly active usage among Preply employees",
+    "75% of English-language learners actively use Lesson Insights",
+    "More than 70% of tutors use the feature",
+    "Around 75% of active learners continue engaging with Lesson Insights more than a year later",
+    "4.7/5 satisfaction rating",
+    "70% product market fit score"
+  ],
+  "architecture_clues": [
+    "Insight generation is scheduled a few minutes before the end of the lesson",
+    "Lesson outputs feed directly into a self-learning exercise engine",
+    "Brand Voice GPT and Codex extend AI into internal content and engineering workflows"
+  ],
+  "source_url": "https://openai.com/index/preply/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Lesson Insights, an OpenAI API-powered experience that transforms every lesson into a personalized learning journey\"",
+    "\"Those insights feed directly into Preply’s self-learning exercise engine\"",
+    "\"95% ChatGPT weekly active usage among Preply employees\"",
+    "\"Before I started using Preply's AI feature ... that time has been cut by more than half.\""
+  ]
+}

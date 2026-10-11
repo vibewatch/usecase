@@ -1,0 +1,103 @@
+{
+  "id": "openai-wrtn-lifestyle-ai-personalization",
+  "slug": "openai-wrtn-lifestyle-ai-personalization",
+  "vendor": "OpenAI",
+  "customer_name": "Wrtn",
+  "industry": "Software / SaaS",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Unknown",
+  "business_problem": "Wrtn needed to move beyond narrow productivity tools and make AI feel natural, localized, and useful for everyday Korean users across creativity, learning, and conversation at mass scale.",
+  "solution_summary": "Wrtn built a consumer AI stack that combines localized prompting, memory scaffolding, and model routing so millions of users can interact with AI in natural Korean rather than translated English patterns. Its Crack character-chat product and broader suite of AI Supporter and Labs experiences sit on top of a router architecture that sends lightweight classification and traffic-direction tasks to GPT-4o mini and GPT-4.1 mini, while heavier tutoring, counseling, and multimodal interactions run on GPT-4.1, GPT-5, and audio models. Persona prompts, role guidance, and temperature tuning shape the tone and pacing of responses, while each new OpenAI release can be swapped into the stack with minimal disruption. That architecture let Wrtn improve retention, time spent, and localization quality while scaling lifestyle AI across Korea and into new East Asian markets.",
+  "products_used": [
+    "Crack",
+    "router architecture",
+    "GPT-4o mini",
+    "GPT-4.1 mini",
+    "GPT-4.1",
+    "GPT-5",
+    "multimodal TTS"
+  ],
+  "solution_components": [
+    {
+      "name": "Crack",
+      "role": "Serves as Wrtn's open-ended character chat product for storytelling, language learning, and self-expression.",
+      "layer": "Serving"
+    },
+    {
+      "name": "router architecture",
+      "role": "Classifies requests and directs them to the most appropriate model path for cost, latency, and capability.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Handles lightweight routing and classification tasks in the product stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4.1 mini",
+      "role": "Supports low-cost classification and traffic-direction tasks in the modular architecture.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Runs heavier tutoring and reasoning tasks where better context handling and localization matter.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-5",
+      "role": "Improves consistency, instruction adherence, personalization, and overall consumer engagement.",
+      "layer": "Compute"
+    },
+    {
+      "name": "multimodal TTS",
+      "role": "Adds spoken tutoring and other audio interactions to Wrtn's consumer AI experiences.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User requests enter Crack or other Wrtn apps, where the router architecture classifies intent with smaller models and sends heavier work to GPT-4.1, GPT-5, or multimodal audio paths. Persona prompts, memory scaffolding, and localization layers shape the response before the product returns text or voice output to the user.",
+  "integration_points": [
+    "Web search",
+    "Tutoring conversations",
+    "Character chat experiences",
+    "Localization prompts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Wrtn reached 6.5 million monthly active users, doubled retention, quadrupled time spent per user, and used same-day GPT-5 adoption plus a modular model router to keep improving consumer engagement and localization quality.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "6.5 million monthly active users",
+    "Retention has doubled",
+    "Time spent per user has quadrupled",
+    "15% increase in session time after a router upgrade",
+    "10% jump in month-one retention",
+    "More than 10,000 hours of tutoring conversations in the first month",
+    "8% increase in daily active users within a week of GPT-5 launch"
+  ],
+  "architecture_clues": [
+    "Persona-based prompts and memory scaffolding shape responses",
+    "Router architecture swaps in new models with minimal disruption",
+    "Localization tuned for Korean slang and cadence",
+    "Heavy tasks are separated from lightweight classification for cost control"
+  ],
+  "source_url": "https://openai.com/index/wrtn/",
+  "published_date": "2025-10-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"That work led to Crack, Wrtn's open-ended character chat platform\"",
+    "\"Today, Wrtn's product suite spans AI Supporter, Labs, and Crack, reaching 6.5 million monthly active users.\"",
+    "\"Under the hood, Wrtn runs a router architecture\"",
+    "\"After a router upgrade, session time rose 15% and month-one retention jumped 10%.\""
+  ]
+}

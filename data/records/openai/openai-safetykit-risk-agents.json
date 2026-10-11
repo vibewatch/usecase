@@ -1,0 +1,90 @@
+{
+  "id": "openai-safetykit-risk-agents",
+  "slug": "openai-safetykit-risk-agents",
+  "vendor": "OpenAI",
+  "customer_name": "SafetyKit",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Startup",
+  "business_problem": "SafetyKit needed to review huge volumes of risky multimodal content for fraud, prohibited activity, and compliance violations with higher nuance and lower cost than legacy moderation systems or manual review could provide.",
+  "solution_summary": "SafetyKit built a portfolio of risk agents on top of OpenAI's reasoning and multimodal stack so each violation type can be handled by the model best suited to it. GPT-5 performs high-stakes multimodal reasoning across text, images, and user interfaces; GPT-4.1 follows detailed content-policy instructions in high-volume moderation flows; reinforcement fine-tuning pushes recall and precision beyond base-model performance; deep research adds real-time online investigation for merchants and verifications; and the Computer Using Agent automates policy tasks once handled manually. The platform routes each piece of customer content to the right agent for scams, policy disclosure, illegal products, or other risk categories, covering gray areas like embedded phone numbers, regional rules, and ambiguous product claims. SafetyKit also benchmarks every new model release against its hardest cases and can deploy winning models quickly, turning OpenAI model progress into immediate product gains.",
+  "products_used": [
+    "GPT-5",
+    "GPT-4.1",
+    "Reinforcement Fine-Tuning",
+    "deep research",
+    "Computer Using Agent"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-5",
+      "role": "Handles multimodal reasoning for subtle and high-stakes safety and compliance decisions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Executes high-volume moderation tasks with strong instruction following.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Reinforcement Fine-Tuning",
+      "role": "Improves recall, precision, and policy consistency using SafetyKit's feedback data.",
+      "layer": "Governance"
+    },
+    {
+      "name": "deep research",
+      "role": "Brings real-time online investigation into merchant-review and verification workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Computer Using Agent",
+      "role": "Automates complex policy tasks that would otherwise require manual review.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer content and signals are routed by risk category into specialized agents. The selected OpenAI model evaluates text, images, transactions, or listings against policy context, may run research or browser tasks, and returns structured decisions that SafetyKit can enforce or escalate.",
+  "integration_points": [
+    "Marketplace content",
+    "Payment-platform data",
+    "Financial transactions",
+    "Product listings",
+    "Merchant reviews"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Fraud Detection",
+    "Risk Management"
+  ],
+  "business_outcome": "SafetyKit expanded into more risk domains, increased moderation coverage and consistency, protected human reviewers from harmful content, and turned new OpenAI model releases into an operational edge for customers fighting rapidly evolving fraud and abuse.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "95%+ accuracy reviewing 100% of customer content based on SafetyKit evals",
+    "16B tokens processed daily, up from 200M six months ago",
+    "10+ point performance gains on hardest vision tasks with GPT-5"
+  ],
+  "architecture_clues": [
+    "Each risk category is handled by a purpose-built agent",
+    "RFT uses policy-specific analyst feedback to improve precision and recall",
+    "Deep research and CUA extend the moderation system beyond static model inference",
+    "New OpenAI releases are benchmarked against SafetyKit's hardest cases and deployed quickly"
+  ],
+  "source_url": "https://openai.com/index/safetykit/",
+  "published_date": "2025-09-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"SafetyKit’s agents leverage GPT‑5, GPT‑4.1, deep research, and Computer Using Agent (CUA) to review 100% of customer content with over 95% accuracy\"",
+    "\"16B tokens processed daily, up from 200M six months ago\"",
+    "\"GPT‑5 followed, and within days, it was deployed across their most demanding agents\"",
+    "\"Recent breakthroughs in model reasoning and multimodal understanding now make this more effective\""
+  ]
+}

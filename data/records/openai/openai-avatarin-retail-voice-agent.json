@@ -1,0 +1,82 @@
+{
+  "id": "openai-avatarin-retail-voice-agent",
+  "slug": "openai-avatarin-retail-voice-agent",
+  "vendor": "OpenAI",
+  "customer_name": "avatarin",
+  "industry": "Retail",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Startup",
+  "business_problem": "avatarin needed to extend expert retail support beyond store hours and turn product discovery into a natural multilingual conversation instead of a brittle keyword chatbot.",
+  "solution_summary": "avatarin used GPT-Realtime to build the Kurashi-Marugoto AI Agent for Yamada Denki, creating a 24/7 shopping assistant that can speak, listen, and reason over product information in one loop. The system combines low-latency voice interaction with a retrieval-augmented generation layer so shoppers can ask open-ended questions about needs, space constraints, or budget and still receive grounded product guidance. avatarin also translated Yamada Denki's category-specific sales expertise into prompts and conversation flows, allowing the agent to ask follow-up questions rather than waiting for exact keywords. Guardrails keep the interaction centered on shopping outcomes even when customers change direction, and OpenAI worked with the team on prompt structure, cost optimization, and implementation practices for always-on service. The result is a branded retail interface that preserves context across voice and text while capturing the intent signals conventional ecommerce channels often miss.",
+  "products_used": [
+    "GPT-Realtime",
+    "Kurashi-Marugoto AI Agent",
+    "retrieval-augmented generation system",
+    "OpenAI API"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-Realtime",
+      "role": "Provides low-latency multimodal conversation for voice, text, and image understanding.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Kurashi-Marugoto AI Agent",
+      "role": "Acts as the shopper-facing retail assistant for product discovery and purchase guidance.",
+      "layer": "Serving"
+    },
+    {
+      "name": "retrieval-augmented generation system",
+      "role": "Grounds answers in product data while preserving responsive conversation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OpenAI API",
+      "role": "Supports earlier speech recognition, inquiry analysis, and implementation patterns used in production.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A shopper speaks or types into the Kurashi-Marugoto AI Agent, which uses GPT-Realtime plus a retrieval-augmented generation layer to combine intent, product data, and Yamada Denki sales patterns into guided recommendations. Voice surveys at the end of conversations feed back customer reactions and intent signals for future improvement.",
+  "integration_points": [
+    "Yamada Denki product information",
+    "Voice channel",
+    "Text channel",
+    "Post-conversation surveys"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "avatarin proved that AI can extend retail expertise beyond store hours, delivering strong user satisfaction, large public engagement, and a foundation for one brand-consistent intelligence that can follow customers across channels.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "30,000 shoppers engaged during a two-week public experience",
+    "92% of post-use survey responses were positive",
+    "24/7 multilingual support by voice and text"
+  ],
+  "architecture_clues": [
+    "GPT-Realtime unifies speech, text, and image handling in one conversational loop",
+    "RAG grounds responses in product information",
+    "Conversation flows encode Yamada Denki sales expertise by product category",
+    "Voice surveys are captured at the end of each interaction"
+  ],
+  "source_url": "https://openai.com/index/avatarin/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Built on OpenAI’s GPT‑Realtime, the Kurashi-Marugoto AI Agent supports natural voice conversations\"",
+    "\"A retrieval-augmented generation system grounds the agent’s responses in product information\"",
+    "\"approximately 30,000 people used the agent\"",
+    "\"92% of survey responses were positive\""
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "openai-nubank-customer-support-and-search",
+  "slug": "openai-nubank-customer-support-and-search",
+  "vendor": "OpenAI",
+  "customer_name": "Nubank",
+  "industry": "Financial Services",
+  "region": "Latin America",
+  "company_size": "Enterprise",
+  "business_problem": "Nubank needed to scale employee knowledge access, customer support, and fraud-response quality across more than 114 million customers without slowing response times or overloading human agents.",
+  "solution_summary": "Nubank built a connected AI support stack with OpenAI that starts inside the company and extends directly to customers. The first layer is a custom enterprise search tool that uses GPT-4o, GPT-4o mini, RAG, semantic search, and fine-tuned models to retrieve FAQs, brand guidelines, and policies from fragmented internal repositories through a chat interface. On top of that knowledge foundation, Nubank created a support copilot with GPT-4o that surfaces next-reply suggestions, chat summaries, and step-by-step guidance for agents around the clock. The bank then added an AI Assistant powered by GPT-4o that handles up to five automated interactions directly with customers before escalating, and separately began piloting GPT-4o vision for fraud-quality assurance across transactions, documents, and customer communications. This layered design lets Nubank reuse knowledge retrieval, context, and supervision patterns across employee productivity, support automation, and fraud operations.",
+  "products_used": [
+    "custom enterprise search solution",
+    "GPT-4o",
+    "GPT-4o mini",
+    "call center copilot",
+    "AI Assistant",
+    "GPT-4o vision",
+    "fine-tuned models"
+  ],
+  "solution_components": [
+    {
+      "name": "custom enterprise search solution",
+      "role": "Gives employees chat-based access to FAQs, brand guidelines, and internal policies.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Powers enterprise search, the call center copilot, and the customer-facing AI Assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Supports retrieval and response generation in the internal knowledge-search stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "call center copilot",
+      "role": "Provides next-reply suggestions, summaries, and guided steps for human support agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI Assistant",
+      "role": "Answers customer questions directly before escalating more complex issues to people.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o vision",
+      "role": "Analyzes documents, communications, and transaction evidence for fraud-quality assurance.",
+      "layer": "Compute"
+    },
+    {
+      "name": "fine-tuned models",
+      "role": "Adapt the knowledge-search system to Nubank's domain-specific content and relevance needs.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Internal documents are retrieved through RAG and semantic search, then ranked and answered through the enterprise search interface. The same knowledge and chat context power the agent copilot and AI Assistant for customer support, while GPT-4o vision separately reviews transaction and document evidence to flag fraud issues under policy controls.",
+  "integration_points": [
+    "FAQs",
+    "Brand guidelines",
+    "Internal policies",
+    "Chat history",
+    "Monthly chats and emails",
+    "Transaction records",
+    "Submitted documents"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation",
+    "Fraud Detection"
+  ],
+  "business_outcome": "Nubank accelerated employee search, handled millions of customer conversations with automation, cut chat response time by 70%, resolved queries 2.3x faster, and added vision-based fraud QA to improve consistency and service quality.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Over 114 million customers",
+    "Over 5,000 employees use enterprise search monthly",
+    "Over 45% of agents use the copilot's key features",
+    "Handles over 2 million monthly chats",
+    "Resolves 55% of Tier 1 inquiries",
+    "70% reduction in chat response times",
+    "Queries resolved 2.3x faster"
+  ],
+  "architecture_clues": [
+    "Enterprise search combines RAG, semantic search, and fine-tuned models",
+    "Copilot integrates the bank's knowledge base and chat history",
+    "AI Assistant handles up to five automated interactions before escalation",
+    "GPT-4o vision is being piloted for fraud-quality assurance"
+  ],
+  "source_url": "https://openai.com/index/nubank/",
+  "published_date": "2025-03-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Powered by GPT-4o and GPT-4o mini, the solution integrates Retrieval-Augmented Generation (RAG) techniques\"",
+    "\"over 5,000 employees use it monthly\"",
+    "\"AI-powered assistant: Resolves 55% of Tier 1 inquiries, handling over 2 million monthly chats and reducing chat response times by 70%.\"",
+    "\"Nubank is piloting a solution to ensure more consistent and high-quality responses to fraud incidents with GPT-4o vision.\""
+  ]
+}

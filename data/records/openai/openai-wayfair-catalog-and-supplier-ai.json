@@ -1,0 +1,85 @@
+{
+  "id": "openai-wayfair-catalog-and-supplier-ai",
+  "slug": "openai-wayfair-catalog-and-supplier-ai",
+  "vendor": "OpenAI",
+  "customer_name": "Wayfair",
+  "industry": "Retail",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Wayfair needed to keep product attributes accurate across a massive catalog and handle large supplier-support volumes without relying on slow, error-prone manual review.",
+  "solution_summary": "Wayfair combined the OpenAI API and ChatGPT Enterprise to improve catalog quality and supplier operations at scale. For catalog data, the company built an AI system that uses web information and Wayfair's internal definitions to generate labeling guides, then applies OpenAI models to validate and assign product attributes across millions of listings. The workflow is governed by structured audits, supplier validation, and confidence thresholds that determine whether updates can be applied automatically or need additional review. For supplier support, Wayfair embedded OpenAI models into Wilma, its custom support platform, so incoming tickets can be read, enriched with context, routed to the correct team, and in some cases advanced through agentic resolution workflows. Alignment-rate measurements determine when a workflow stays assistive and when it can move toward semi-autonomous autopilot. In parallel, ChatGPT Enterprise seats and ChatGPT Work broadened productivity across the business.",
+  "products_used": [
+    "OpenAI API",
+    "ChatGPT Enterprise",
+    "Wilma",
+    "ChatGPT Work"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI API",
+      "role": "Powers catalog-attribute validation, ticket understanding, and agentic supplier-support workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT Enterprise",
+      "role": "Supports employees tackling internal tasks and generative AI experiments across the company.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Wilma",
+      "role": "Acts as the supplier-support platform that reads, enriches, routes, and helps resolve requests.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ChatGPT Work",
+      "role": "Connects everyday workflows to tools such as Slack and Google Drive.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Catalog content is combined with web information and Wayfair's internal attribute definitions to create label guides, then OpenAI models validate and update product attributes under confidence-based controls. Supplier tickets flow through Wilma, which adds context from internal data sources, routes issues, and triggers downstream assistive or semi-autonomous workflows.",
+  "integration_points": [
+    "Web information",
+    "Internal attribute definitions",
+    "Supplier databases",
+    "Slack",
+    "Google Drive"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Wayfair improved product-discovery quality, created more chances to grow sales from its existing catalog, automated large volumes of supplier work, and freed internal teams from substantial manual data-entry and routing tasks.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "11M+ product specs validated",
+    "41K supplier support tickets automated per month",
+    "Automation reaches up to 70% of tickets in some workflows",
+    "1,200 ChatGPT Enterprise seats deployed",
+    "40 million-item catalog"
+  ],
+  "architecture_clues": [
+    "Labeling guides are generated from web information and internal definitions",
+    "Confidence thresholds decide whether attribute changes can apply automatically",
+    "Wilma enriches tickets with context from internal databases",
+    "Alignment rate determines when workflows can move from co-pilot to autopilot"
+  ],
+  "source_url": "https://openai.com/index/wayfair/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Wayfair built an AI catalog quality system with OpenAI models\"",
+    "\"The AI-powered catalog quality system has processed more than 1 million products\"",
+    "\"In supplier support, Wayfair automates 41,000 support tickets per month\"",
+    "\"Wayfair has deployed more than 1,200 ChatGPT Enterprise seats\""
+  ]
+}

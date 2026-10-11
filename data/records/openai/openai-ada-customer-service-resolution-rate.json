@@ -1,0 +1,87 @@
+{
+  "id": "openai-ada-customer-service-resolution-rate",
+  "slug": "openai-ada-customer-service-resolution-rate",
+  "vendor": "OpenAI",
+  "customer_name": "Ada",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Ada needed to move past containment-rate chatbots and build a customer-service system that actually resolves issues well, supports voice use cases, and reduces hallucinations at production scale.",
+  "solution_summary": "Ada rebuilt its AI-native customer-service platform around OpenAI models so it could optimize for resolution rate instead of containment alone. The company first created an evaluation framework that scores whether conversations are resolved with relevant, accurate, and safe replies, reaching 80-90% agreement with human reviewers. It then combined GPT-4, GPT-4o, OpenAI's API, and the fine-tuning API into a multi-agent configuration with a central planning agent and a set of subagents that understand the request, reflect on it, call tools, and keep gathering knowledge until an answer is ready. GPT-4o improved low-latency reasoning for voice use cases, while fine-tuning is used to estimate hallucination risk and feed that score into the rest of the toolchain. This let Ada preserve roughly similar containment rates while doubling resolution performance, and gave enterprises new coaching, transparency, and control levers over LLM-based agents.",
+  "products_used": [
+    "AI Agent",
+    "GPT-4",
+    "GPT-4o",
+    "OpenAI API",
+    "fine-tuning API"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Agent",
+      "role": "Acts as Ada's new-generation customer-service agent built around resolution-focused multi-agent workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Powered Ada's first LLM-driven resolution framework and early generation of the AI agent.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Improves low-latency reasoning for real-time and voice-oriented support use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI API",
+      "role": "Supplies the model interface Ada uses for evaluation and customer-service automation workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "fine-tuning API",
+      "role": "Produces hallucination-confidence scores that feed into Ada's broader control toolchain.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer requests enter the AI Agent, where a planning agent and subagents use GPT-4 or GPT-4o to understand the issue, call tools, retrieve knowledge, and generate an answer. Ada's evaluation layer scores resolution quality, and fine-tuning outputs hallucination-confidence signals that are used to suppress risky responses before escalation or delivery.",
+  "integration_points": [
+    "Historical support data",
+    "Knowledge base",
+    "Voice support workflows",
+    "Customer-service transcripts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Ada doubled automatic resolution rates for migrated customers, kept containment roughly similar, and created a measurable framework for high-quality support automation that improves ROI, satisfaction, retention, and signup performance for its customers.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "80-90% agreement with human reviewers in the evaluation framework",
+    "Previous system had 70% containment and 30% resolution",
+    "New system typically reaches up to 60% resolution with highest-performing customers north of 80%"
+  ],
+  "architecture_clues": [
+    "Resolution rate replaced containment as the north-star metric",
+    "Multi-agent configuration includes a central planning agent plus subagents",
+    "Fine-tuning is used to estimate hallucination risk inside the toolchain",
+    "Customers can onboard, measure, and coach AI agents like human agents"
+  ],
+  "source_url": "https://openai.com/index/ada/",
+  "published_date": "2024-09-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Initially using GPT-4 ... Ada built a new evaluation framework\"",
+    "\"Ada's AI Agent uses a multi-agent configuration, with a central planning agent and a collection of subagents\"",
+    "\"For real-time reasoning, we've seen a big leap in latency and overall quality with GPT-4o\"",
+    "\"they have the similar containment results, but typically see a resolution rate of up to 60%\""
+  ]
+}

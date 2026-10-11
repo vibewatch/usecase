@@ -1,0 +1,99 @@
+{
+  "id": "openai-unify-agentic-gtm-search",
+  "slug": "openai-unify-agentic-gtm-search",
+  "vendor": "OpenAI",
+  "customer_name": "Unify",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Startup",
+  "business_problem": "Unify needed a way to automate prospect research and hyper-personalized outreach so go-to-market teams could find the right buyers and act on high-intent signals without doing manual research at human scale.",
+  "solution_summary": "Unify built its go-to-market platform as an agentic search system on top of several OpenAI models, matching each task to the model best suited for it. The Observation Model, powered by OpenAI o3, continuously researches a customer's total addressable market, detects high-signal events such as new hires or stack changes, and surfaces strategic insight through multi-agent workflows. The research agent uses GPT-4.1 for planning, the Computer-Using Agent for dynamic browsing tasks that static scraping cannot complete, and GPT-4o for synthesis, allowing users to ask open-ended questions and generate grounded outbound copy. A separate copywriting layer then turns those findings into personalized messages tailored to each lead. Unify reinforced the stack with continuous benchmarking and reasoning-quality evaluations so upstream signal detection and planning improve as models change. This lets GTM teams treat growth as a measurable search problem instead of a labor-intensive manual process.",
+  "products_used": [
+    "Observation Model",
+    "research agent",
+    "Copywriting",
+    "OpenAI o3",
+    "GPT-4.1",
+    "Computer-Using Agent",
+    "GPT-4o"
+  ],
+  "solution_components": [
+    {
+      "name": "Observation Model",
+      "role": "Continuously researches the target market and detects high-signal events for prospecting.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "research agent",
+      "role": "Answers open-ended research questions and supports grounded outbound content generation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Copywriting",
+      "role": "Turns agentic research outputs into hyper-personalized outbound drafts for each lead.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI o3",
+      "role": "Powers reasoning-heavy signal detection and upstream decision logic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Handles planning for research tasks and agent decisioning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Computer-Using Agent",
+      "role": "Performs dynamic browsing and UI-level research tasks not possible with static scraping.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Synthesizes research findings and supports copy generation.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "The Observation Model scans public sources for market signals, which are classified and routed into the research agent. GPT-4.1, CUA, and GPT-4o then gather, browse, and synthesize relevant context before the Copywriting layer turns the output into personalized outreach for sales teams.",
+  "integration_points": [
+    "Publicly available company sources",
+    "Review sites",
+    "Trust and Safety pages",
+    "Total addressable market data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Unify turned prospecting and outreach into a repeatable agentic workflow, generating a large share of its own pipeline, supporting hundreds of millions in customer pipeline, and reducing the amount of manual research GTM teams need to do.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Platform now generates 30% of Unify's own pipeline",
+    "Supports hundreds of millions in pipeline for customers each year"
+  ],
+  "architecture_clues": [
+    "Observation Model is powered by OpenAI o3 and multi-agent workflows",
+    "Research agent combines GPT-4.1 planning, CUA browsing, and GPT-4o synthesis",
+    "Continuous model benchmarking is used for reasoning quality, not just accuracy or latency",
+    "CUA is used for UI-level research tasks that static scraping cannot handle"
+  ],
+  "source_url": "https://openai.com/index/unify/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The Observation Model ... powered by OpenAI o3\"",
+    "\"It uses GPT‑4.1 for planning, CUA for dynamic browsing, and GPT‑4o for synthesis.\"",
+    "\"which now generates 30% of its pipeline\"",
+    "\"supports hundreds of millions in pipeline for its customers each year\""
+  ]
+}

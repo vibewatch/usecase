@@ -1,0 +1,91 @@
+{
+  "id": "openai-choco-order-agent-automation",
+  "slug": "openai-choco-order-agent-automation",
+  "vendor": "OpenAI",
+  "customer_name": "Choco",
+  "industry": "Retail",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Choco needed to turn unstructured food orders arriving through email, SMS, images, documents, and phone calls into accurate ERP orders without forcing distributors to expand manual order-entry teams.",
+  "solution_summary": "Choco rebuilt its food-distribution platform around OpenAI APIs so order capture could move from workflow support to execution. OrderAgent ingests multimodal inputs including emails, SMS messages, images, and documents, then uses transcription, extraction, structured outputs, function calling, and customer-specific context from prior ordering behavior to convert them into ERP-ready orders. VoiceAgent extends the same model to phone ordering through the Realtime API with sub-second latency, enabling distributors to accept spoken orders after hours while maintaining continuity with the rest of the ordering stack. Choco also built evaluation infrastructure with ground-truth datasets, continuous monitoring, and A/B testing so the system can decide when to trigger an optional Autopilot mode and when to keep humans in the loop. The result is a context-aware operational agent that can resolve ambiguity at order capture instead of relying on staff to translate every incoming request by hand.",
+  "products_used": [
+    "OrderAgent",
+    "VoiceAgent",
+    "OpenAI APIs",
+    "Realtime API",
+    "Autopilot"
+  ],
+  "solution_components": [
+    {
+      "name": "OrderAgent",
+      "role": "Converts multimodal customer order inputs into structured, ERP-ready orders.",
+      "layer": "Serving"
+    },
+    {
+      "name": "VoiceAgent",
+      "role": "Lets customers place orders naturally over the phone with low-latency AI conversations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI APIs",
+      "role": "Provide the speech, extraction, embeddings, and function-calling capabilities at the core of Choco's platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Realtime API",
+      "role": "Powers sub-second voice interactions for always-on phone ordering.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Autopilot",
+      "role": "Automatically processes orders when confidence thresholds are met while leaving edge cases for human review.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Orders arrive as emails, texts, images, documents, or phone calls and are routed through OrderAgent or VoiceAgent. OpenAI models transcribe, extract, and resolve ambiguous items against customer-specific history and catalogs, then produce ERP-ready orders; Autopilot can finalize confident cases while low-confidence cases go to human review.",
+  "integration_points": [
+    "ERP systems",
+    "Ordering history",
+    "Customer catalogs",
+    "Email",
+    "SMS",
+    "Phone calls"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Choco now processes millions of orders with materially less manual entry, higher team productivity, low configurable error rates, and 24/7 intake, letting distributors scale order operations without adding headcount at the same pace as volume.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Processes over 8.8 million orders annually",
+    "Up to 50% reduction in manual order entry",
+    "2x productivity gains",
+    "Maintains error rates below 1–5%",
+    "Supports 24/7 order intake"
+  ],
+  "architecture_clues": [
+    "Multimodal order capture handles email, SMS, images, documents, and phone calls",
+    "Inference layers resolve ambiguity against customer ordering history and catalog context",
+    "Realtime API powers after-hours phone ordering with sub-second latency",
+    "Ground-truth datasets, continuous monitoring, and A/B testing govern rollout"
+  ],
+  "source_url": "https://openai.com/index/choco/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"OrderAgent ... processes multimodal inputs—including emails, SMS, images, and documents—and converts them into structured, ERP-ready orders.\"",
+    "\"VoiceAgent, powered by OpenAI’s Realtime API\"",
+    "\"Processes over 8.8 million orders annually\"",
+    "\"Enables 2x productivity gains\""
+  ]
+}

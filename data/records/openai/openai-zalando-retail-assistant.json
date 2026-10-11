@@ -1,0 +1,83 @@
+{
+  "id": "openai-zalando-retail-assistant",
+  "slug": "openai-zalando-retail-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "Zalando",
+  "industry": "Retail",
+  "region": "Europe & UK",
+  "company_size": "Enterprise",
+  "business_problem": "Zalando needed to scale its shopping assistant from a few markets to 25 multilingual markets while improving personalization, instruction following, and recommendation quality without sharply increasing cost.",
+  "solution_summary": "Zalando rebuilt its shopping assistant around GPT-4o mini and a more granular evaluation framework so personalization could scale across Europe. The first assistant version used GPT-3.5 in a handful of German and English markets, but struggled with nuanced fashion requests, multilingual instruction following, and broad rollout economics. Working with OpenAI, Zalando introduced component-specific evals that score routing and response generation separately and improved few-shot prompts with stronger examples of good and bad recommendations. Once those diagnostics were in place, the team migrated traffic to GPT-4o mini in stages, first moving half the traffic in two weeks and then finishing the rollout across 25 markets. The new stack produces localized recommendations in multiple languages, handles detailed event- and season-specific requests better, and gives Zalando a scalable way to keep improving the assistant as conversational commerce use cases deepen.",
+  "products_used": [
+    "Zalando Assistant",
+    "GPT-4o mini",
+    "component-specific evaluations",
+    "few-shot prompts"
+  ],
+  "solution_components": [
+    {
+      "name": "Zalando Assistant",
+      "role": "Provides personalized product discovery and recommendation experiences for shoppers across Zalando markets.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Powers multilingual, instruction-following recommendation and conversational shopping tasks at lower cost and latency.",
+      "layer": "Compute"
+    },
+    {
+      "name": "component-specific evaluations",
+      "role": "Measure routing and response generation separately so the team can improve weak parts of the assistant stack.",
+      "layer": "Governance"
+    },
+    {
+      "name": "few-shot prompts",
+      "role": "Teach the model what strong and weak recommendations look like so quality stays aligned with user expectations.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "A shopper request enters the Zalando Assistant, which routes it through the evaluated assistant stack and sends generation tasks to GPT-4o mini. Component-specific evals and few-shot examples monitor routing and recommendation quality so localized responses can be improved before and after rollout across each market.",
+  "integration_points": [
+    "Recommendation carousel",
+    "Wishlist workflows",
+    "Localized market experiences",
+    "Routing layer"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Zalando increased product clicks by 23%, boosted wishlist additions by more than 40%, scaled the assistant to all 25 markets, and expanded traffic 12x without spending significantly more after moving to GPT-4o mini.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "23% increase in product clicks",
+    "40%+ increase in products added to the wishlist",
+    "Scaled availability to 25 markets",
+    "12x traffic growth without spending significantly more",
+    "5% decrease in unhelpful recommendations"
+  ],
+  "architecture_clues": [
+    "Component-specific evaluations isolate routing and response generation quality",
+    "Few-shot prompts provide explicit examples of strong and weak outputs",
+    "Migration moved 50% of traffic to GPT-4o mini in two weeks",
+    "Assistant supports local languages and cultural contexts across 25 markets"
+  ],
+  "source_url": "https://openai.com/index/zalando/",
+  "published_date": "2025-01-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Zalando worked with OpenAI to develop the Zalando Assistant\"",
+    "\"The new framework included component-specific evaluations to test individual parts of the system\"",
+    "\"By transitioning from GPT-3.5 to GPT-4o mini, Zalando was able to scale its traffic 12x\"",
+    "\"The Assistant now performs seamlessly across all 25 of Zalando's markets\""
+  ]
+}
