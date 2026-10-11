@@ -1,0 +1,76 @@
+{
+  "id": "snowflake-yieldmo-advertising-inference-optimization",
+  "slug": "snowflake-yieldmo-advertising-inference-optimization",
+  "vendor": "Snowflake",
+  "customer_name": "Yieldmo",
+  "industry": "Media and Entertainment",
+  "region": "Nashua, New Hampshire",
+  "company_size": "Enterprise",
+  "business_problem": "serve privacy-first advertising predictions at low latency without moving huge data volumes out of Snowflake or overpaying for inference infrastructure.",
+  "solution_summary": "Yieldmo uses Snowflake, Snowpark Container Services, and Secure Data Sharing on Snowflake to serve privacy-first advertising predictions at low latency without moving huge data volumes out of snowflake or overpaying for inference infrastructure. Signals such as smartphone scrolls, tilts, and swipes from billions of daily impressions are stored and processed in Snowflake for campaign prediction workloads. Yieldmo develops models with H2O Driverless AI and runs H2O eScorer on Snowpark Container Services so inference happens next to the data instead of after large exports. The resulting predictions support near-real-time advertising decisions, while Secure Data Sharing lets Yieldmo collaborate with vendors and cybersecurity partners without building ETL pipelines. Keeping ingestion, storage, transformation, and downstream access on one governed platform reduces data copying, simplifies operations, and gives teams a single trusted operating view for analytics and AI. Yieldmo made...",
+  "products_used": [
+    "Snowflake",
+    "Snowpark Container Services",
+    "Secure Data Sharing"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the centralized data platform that stores governed datasets and serves analytics or AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark Container Services",
+      "role": "Runs containerized inference or application services close to Snowflake data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Secure Data Sharing",
+      "role": "Shares governed data with partners or internal consumers without moving copies.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "behavioral ad-impression signals and log data flow into Snowflake, Snowpark Container Services, and Secure Data Sharing; curated data and model outputs are then served to prediction services, operations teams, and external partners.",
+  "integration_points": [
+    "H2O Driverless AI",
+    "H2O eScorer",
+    "Kumo",
+    "HUMAN Security"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Yieldmo made advertising predictions 20 times faster at a quarter of the cost, improved collaboration with partners, and created a path to score every impression instead of relying on heavy sampling.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "20x faster advertising predictions",
+    "75% cost reduction for inference layer",
+    "billions of daily impressions",
+    "a quarter of the cost"
+  ],
+  "architecture_clues": [
+    "Uses H2O Driverless AI for model development and H2O eScorer running on Snowpark Container Services for inference.",
+    "Keeps data in Snowflake instead of moving it into a separate inference environment.",
+    "Uses Secure Data Sharing for governed collaboration with Kumo and HUMAN Security."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/yieldmo/",
+  "published_date": "2025-04-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By developing and running AI models on Snowpark Container Services, Yieldmo delivers predictions 20 times faster at a quarter of the cost",
+    "Yieldmo uses H2O Driverless AI to develop machine learning models and produce predictions",
+    "securely shares data with Snowflake partner and AI software company Kumo",
+    "provides log file data to another Snowflake partner, HUMAN Security"
+  ]
+}

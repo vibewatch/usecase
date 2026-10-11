@@ -1,0 +1,66 @@
+{
+  "id": "snowflake-jet2-customer-intent-sentiment-analysis",
+  "slug": "snowflake-jet2-customer-intent-sentiment-analysis",
+  "vendor": "Snowflake",
+  "customer_name": "Jet2",
+  "industry": "Logistics",
+  "region": "Yorkshire, England",
+  "company_size": "Enterprise",
+  "business_problem": "analyze thousands of long customer-service calls at reasonable cost so the business could understand intent, sentiment, and service pain points at scale.",
+  "solution_summary": "Jet2 uses Snowflake and Cortex AI on Snowflake to analyze thousands of long customer-service calls at reasonable cost so the business could understand intent, sentiment, and service pain points at scale. Thousands of daily call transcripts from Jet2 contact centers are stored and analyzed in Snowflake to reveal customer intent, preferences, and pain points. Cortex AI supports the core summarization and classification workflow, and Jet2 maintains an LLMOps framework to tune performance and hold down cost as prompts and classifications evolve. Analysts and service leaders use the outputs to improve customer service, and the same framework is being extended to other communications and self-service insight use cases across the company. Keeping ingestion, storage, transformation, and governed access on one platform reduces handoffs, improves concurrency, and makes it easier to reuse trusted data across teams and applications. Jet2 deployed its first LLM use case in three months,...",
+  "products_used": [
+    "Snowflake",
+    "Cortex AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the centralized data platform that stores governed datasets and serves analytics or AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Provides in-platform AI functions used for summarization, classification, generation, or model-assisted analysis.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "contact-center call transcripts flow into Snowflake and Cortex AI; curated data and model outputs are then served to analysts, service leaders, and future messaging-channel workflows.",
+  "integration_points": [
+    "call transcripts",
+    "AWS",
+    "Mistral LLM"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Jet2 deployed its first LLM use case in three months, analyzes about 2,000 calls a day for intent, and found a lower-cost way to maintain high-quality sentiment classification at scale.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "2,000 Calls analyzed daily for customer intent",
+    "deploy its use case in just three months"
+  ],
+  "architecture_clues": [
+    "Runs on Snowflake on AWS.",
+    "Fine-tunes LLM behavior in Cortex AI and tracks model quality with an LLMOps framework.",
+    "Combines manual classifications with an adapted Mistral model for cost-effective sentiment analysis."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/jet2/",
+  "published_date": "2025-07-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "using Cortex AI, Jet2 has been making the most of large language models to analyze customer intent and sentiment across thousands of call transcripts",
+    "With no prior experience in LLMs, Jet2 was able to deploy its use case in just three months using Cortex AI",
+    "2,000 Calls analyzed daily for customer intent",
+    "I don’t think we could have gone down the LLM route at all without Cortex"
+  ]
+}
