@@ -80,8 +80,8 @@ The dashboard imports `data/case-studies.generated.json`, so any rerun of
   rebuilds and deploys the dashboard on every push to `main` that touches
   records or site code, which includes the daily collection commit. One-time
   setup: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
-  The site is served at `https://genisisiq.com/usecase/` (the organization's
-  Pages custom domain); links are
+  The site is served at `https://usecase.genisisiq.com/` (Pages custom
+  domain; DNS `CNAME usecase → vibewatch.github.io`). Links are
   base-path aware (`src/lib/paths.ts`), and `SITE_URL` / `BASE_PATH` are
   supplied by `actions/configure-pages`.
 
