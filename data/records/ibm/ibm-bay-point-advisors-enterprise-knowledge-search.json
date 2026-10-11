@@ -1,0 +1,81 @@
+{
+  "id": "ibm-bay-point-advisors-enterprise-knowledge-search",
+  "slug": "ibm-bay-point-advisors-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Bay Point Advisors",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Bay Point Advisors needed to speed private-market due diligence across secure data rooms full of documents without compromising answer quality, citation grounding, or document-level security controls.",
+  "solution_summary": "Bay Point Advisors built Atlas, a conversational due-diligence platform that combines IBM DataStax Astra DB within IBM watsonx.data, Azure Blob Storage, Azure OpenAI, and a SQL metadata layer. Documents stored in secure data rooms are transformed into a retrieval-augmented-generation architecture where Astra DB acts as the vector-backed knowledge layer and Azure Blob Storage holds the underlying files. When advisors or clients ask questions, Atlas retrieves grounded evidence, applies the language model, and returns citation-backed answers in milliseconds instead of forcing users to manually read hundreds of PDFs, spreadsheets, and contracts. IBM's Astra DB team helped Bay Point tune retrieval workflows, parameters, and security, while document-level permissions remain enforced end to end. The result is a secure, self-service interface for private-market research that blends structured and unstructured data for faster investment decisions and more personalized client guidance.",
+  "products_used": [
+    "IBM DataStax Astra DB",
+    "IBM watsonx.data",
+    "Azure Blob Storage",
+    "Azure OpenAI"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM DataStax Astra DB",
+      "role": "Provides the secure vector-backed database that powers retrieval over private-market data-room content.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Supplies the broader data platform that houses Astra DB and supports the RAG knowledge layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure Blob Storage",
+      "role": "Stores the original documents that Atlas turns into a searchable due-diligence corpus.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure OpenAI",
+      "role": "Generates conversational answers from the retrieved data-room context.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "PDFs, spreadsheets, and contracts from secure data rooms are stored in Azure Blob Storage, indexed into Astra DB within watsonx.data, retrieved through Atlas's RAG pipeline, and passed to Azure OpenAI so advisors and clients receive citation-backed answers with document-level permissions enforced.",
+  "integration_points": [
+    "PDFs",
+    "spreadsheets",
+    "contracts",
+    "SQL metadata layer",
+    "secure data rooms"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Bay Point Advisors reduced document-review time, improved responsiveness for clients, and created a secure self-service research experience that supports faster, higher-confidence private-market decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Hours to minutes",
+    "Minutes to seconds",
+    "delivered in milliseconds"
+  ],
+  "architecture_clues": [
+    "The platform uses retrieval-augmented generation across structured and unstructured data.",
+    "Document-level permissions are enforced end to end.",
+    "Bay Point plans to add agentic AI capabilities for proactive intelligence."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/bay-point",
+  "published_date": "2026-01-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Leveraging IBM DataStax Astra DB within IBM watsonx.data, Azure Blob Storage, Azure OpenAI, and a SQL metadata layer, Atlas uses a Retrieval-Augmented Generation (RAG) architecture",
+    "instant, citation-backed answers delivered in milliseconds",
+    "document-level permissions enforced end-to-end, protecting sensitive data.",
+    "reduced document review and research time from hours to seconds",
+    "Atlas delivers a secure, personalized experience for every client."
+  ]
+}

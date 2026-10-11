@@ -1,0 +1,81 @@
+{
+  "id": "ibm-oiki-document-processing",
+  "slug": "ibm-oiki-document-processing",
+  "vendor": "IBM",
+  "customer_name": "Oiki Acciai Inossidabili SpA",
+  "industry": "Manufacturing",
+  "region": "Italy",
+  "company_size": "Unknown",
+  "business_problem": "Oiki's sales team spent too much time manually interpreting emailed orders and searching internal systems for the details needed to prepare bids and respond to customers, slowing processing and limiting scalability.",
+  "solution_summary": "Oiki partnered with IBM and BlueIT to replace manual order interpretation with an AI-powered order intake workflow built on the watsonx stack. Incoming email orders are uploaded to a dedicated interface where IBM watsonx.ai, powered by the IBM Granite large language model, extracts key fields such as product codes and quantities. IBM watsonx Orchestrate then interprets intent, validates the extracted data, and triggers downstream actions, while IBM Cloud provides the secure, scalable connectivity back to Oiki's ERP environment and document databases. Microsoft Teams is part of the operating workflow, and governance modules were added so the automation remains compliant and trustworthy. The result is a semi-automated intake pipeline that turns unstructured emails into validated order data and frees sales staff to focus on customer engagement instead of repetitive data handling.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Granite",
+    "IBM Cloud",
+    "IBM watsonx Orchestrate"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Extracts product codes, quantities, and other order details from incoming customer emails.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Provides the large language model used to interpret unstructured order messages.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Connects the AI workflow securely to Oiki's ERP and document systems and provides scalable runtime infrastructure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Validates extracted data, interprets intent, and triggers downstream workflow actions.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer orders arrive by email, sales staff upload them to the interface, IBM watsonx.ai and IBM Granite extract the order details, watsonx Orchestrate validates intent and fields, and IBM Cloud connects the results into Oiki's ERP and document databases so the team can prepare bids and responses faster.",
+  "integration_points": [
+    "email orders",
+    "ERP",
+    "document databases",
+    "Microsoft Teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Sales Automation"
+  ],
+  "business_outcome": "Oiki cut order-processing time, reduced time spent on bid management, improved service responsiveness, and created a scalable foundation for broader AI adoption across its operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "60% reduction in order processing time, down from 30 minutes to 12.",
+    "180 minutes in a working day saved in time spent on bid management, down from 300.",
+    "further gains upwards of 45% expected as ERP integration advances"
+  ],
+  "architecture_clues": [
+    "The workflow is semi-automated rather than fully hands-off.",
+    "The AI agent validates extracted data before triggering downstream actions.",
+    "Governance modules were added to keep the automation trustworthy and compliant."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/oiki",
+  "published_date": "2026-03-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Built on IBM watsonx.ai, an AI development studio and powered by the the IBM Granite large language model (LLM), the solution extracted critical details like product codes and quantities from email orders.",
+    "This capability was integrated into OIKI’s workflows through IBM Cloud, ensuring scalability and secure connectivity with existing ERP and document databases.",
+    "An AI Agent, built with IBM watsonx Orchestrate interpreted intent, validated data, and triggered downstream actions.",
+    "Average processing time dropped from 30 minutes to 12—a 60% reduction.",
+    "Bid management saw time savings of up to 180 minutes per day"
+  ]
+}

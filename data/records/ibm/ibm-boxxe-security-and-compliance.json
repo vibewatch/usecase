@@ -1,0 +1,70 @@
+{
+  "id": "ibm-boxxe-security-and-compliance",
+  "slug": "ibm-boxxe-security-and-compliance",
+  "vendor": "IBM",
+  "customer_name": "boxxe",
+  "industry": "Software / SaaS",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "boxxe needed to detect and respond to faster-moving cyber threats across diverse customer environments without overloading its security analysts or relying on fragmented dashboards and manual reporting.",
+  "solution_summary": "boxxe modernized its security-operations workflow with IBM Security QRadar SIEM on Cloud and IBM Security QRadar SOAR. QRadar's user behavior analytics applies machine learning to identify abnormal login behavior and other threats earlier than boxxe's prior manual rules, while SOAR and the unified analyst experience help analysts investigate, cross-reference, escalate, and threat-hunt from a smaller set of consolidated dashboards. The team deployed UBA in a multitenant architecture and activated more than 1,500 rules, allowing the platform to learn in the background and tune detection thresholds with minimal analyst input. QRadar's federated search also reaches into external platforms and returns filtered results into one pane of glass, which helped boxxe shrink 14 dashboards to three with a goal of one. That architecture gives the SOC broader visibility, faster detection, and lower operational overhead across managed customer environments.",
+  "products_used": [
+    "IBM Security QRadar SIEM",
+    "IBM Security QRadar SOAR"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Security QRadar SIEM",
+      "role": "Collects and analyzes security telemetry, applies UBA, and provides the federated investigation experience used by boxxe's SOC.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Security QRadar SOAR",
+      "role": "Coordinates response and automation workflows so the SOC can mitigate threats more quickly.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Security telemetry from customer systems is ingested into QRadar SIEM, where UBA and machine-learning analytics score risky behavior, federated search brings in context from other platforms, and QRadar SOAR helps analysts escalate and remediate threats from the same operating environment.",
+  "integration_points": [
+    "multitenant architecture",
+    "external platforms",
+    "federated search",
+    "managed customer environments"
+  ],
+  "technical_area": [
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "boxxe reduced response times, cut manual reporting work, consolidated analyst tooling, and improved its ability to detect and mitigate sophisticated threats across customer environments.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "60% reduction in MTTR",
+    "20 hours of manual monthly reporting eliminated",
+    "65% reduction in MTTA, from 17 minutes to 6 minutes",
+    "23% reduction in mean time to triage, from 13 minutes to 10 minutes",
+    "activated more than 1,500 rules",
+    "only one false positive"
+  ],
+  "architecture_clues": [
+    "The deployment uses a multitenant architecture.",
+    "User behavior analytics detected one brute-force attack before the team's manual rule fired.",
+    "Federated search is being used to consolidate 14 dashboards down to three and eventually one."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/boxxe",
+  "published_date": "2024-06-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM Security QRadar SIEM on cloud, combined with IBM Security QRadar SOAR, offered the best advantages for today’s security challenges.",
+    "Within five minutes, UBA detected abnormal logins and began increasing the activity’s risk score",
+    "The team has deployed UBA in a multitenant architecture and activated more than 1,500 rules, and has gotten only one false positive.",
+    "Mean time to resolution (MTTR): 60% reduction, from 35 minutes to 14 minutes",
+    "eliminate about 20 hours per month of manual reporting"
+  ]
+}

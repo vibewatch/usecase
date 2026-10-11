@@ -1,0 +1,61 @@
+{
+  "id": "ibm-honda-enterprise-knowledge-search",
+  "slug": "ibm-honda-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Honda Motor Co., Ltd.",
+  "industry": "Automotive",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Honda needed a faster way to transfer skilled engineering knowledge into its Advanced Expert System because converting internal PowerPoint materials into reusable knowledge models for vehicle-development reviews was too manual and slow to scale across thousands of parts.",
+  "solution_summary": "Honda worked with IBM to use generative AI for extracting engineering know-how from Microsoft PowerPoint materials and turning it into reusable knowledge for its Advanced Expert System. The source documents contained diagrams and graphs but relatively little text, which made them difficult to reuse with conventional AI techniques. IBM proposed a multimodal approach in IBM watsonx.ai that converts graphical and diagram-heavy content into text, stores the resulting know-how in a database, and then supports retrieval-augmented-generation-style knowledge access. A pilot run from November to December 2023 validated the approach. The resulting architecture lets Honda move from manually creating handbooks and knowledge models over multi-year timelines toward AI-assisted documentation modeling that can surface engineering guidance faster, reduce rework in collision-safety simulation reviews, and broaden reuse of expert knowledge across the development organization.",
+  "products_used": [
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs the multimodal generative-AI pilot that converts diagram-heavy technical documents into reusable knowledge and supports RAG-style retrieval.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "PowerPoint materials containing engineering diagrams and graphs are processed in watsonx.ai, converted into textual knowledge, stored in a database, and then reused through retrieval-augmented access to support Honda's Advanced Expert System and engineering review workflows.",
+  "integration_points": [
+    "Microsoft PowerPoint",
+    "Advanced Expert System",
+    "knowledge database"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Honda expects to accelerate knowledge modeling, reduce development and planning effort, and make expert engineering knowledge easier to reuse across product-development workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "67% reduction in documentation modeling time",
+    "30%-50% saving in development and planning work",
+    "400 hours to create a knowledge model for just two to three components",
+    "from three years to one"
+  ],
+  "architecture_clues": [
+    "The approach uses a multimodal model to interpret diagrams and graphs with sparse text.",
+    "The extracted know-how is stored in a database to support RAG-like retrieval.",
+    "The pilot ran from November to December of 2023."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/honda-watsonx",
+  "published_date": "2024-05-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM proposed using generative AI to extract and database knowledge from Microsoft PowerPoint materials containing dispersed know-how within the company.",
+    "IBM suggested applying a large, multi-modal model (LMM) to convert graph and diagram content into text",
+    "Storing textual know-how in a database allows for retrieval-augmented generation (RAG) search-like knowledge utilization.",
+    "67% reduction in documentation modeling time",
+    "30%-50% saving in development and planning work"
+  ]
+}

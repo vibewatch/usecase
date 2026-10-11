@@ -1,0 +1,77 @@
+{
+  "id": "ibm-crazylog-enterprise-knowledge-search",
+  "slug": "ibm-crazylog-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Crazylog",
+  "industry": "Software / SaaS",
+  "region": "France",
+  "company_size": "SMB",
+  "business_problem": "Crazylog needed to help industrial maintenance technicians find trusted technical information quickly during equipment failures, even as documentation volumes, compliance needs, and workforce turnover made field troubleshooting harder.",
+  "solution_summary": "Crazylog embedded governed AI into its QuickBrain CMMS platform by combining IBM watsonx.ai, IBM watsonx.data, and IBM Cloud. After an experimentation phase with IBM Client Engineering and PEDAB, the production architecture introduced two AI modules: QuickSearch, which uses retrieval-augmented generation to answer natural-language maintenance questions with referenced answers grounded in documentation, and QuickAssist, which generates structured troubleshooting guidance from a failure scenario. IBM watsonx.data stores and retrieves technical documentation, asset registers, and maintenance histories as the vector-backed RAG layer, while IBM Cloud hosts the SaaS platform and watsonx.ai provides the language-model layer for both text and image tasks such as machine-nameplate recognition. The result is a field-ready knowledge workflow where technicians can query complex maintenance history and procedures directly inside the CMMS instead of searching scattered documents under pressure.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx.data",
+    "IBM Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the language-model and experimentation environment for QuickSearch and QuickAssist.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Stores and retrieves technical documentation and maintenance records as the vector-backed RAG layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the QuickBrain SaaS platform that delivers AI support into maintenance workflows.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Technical documentation, asset registers, and maintenance histories are indexed into watsonx.data, technicians query QuickBrain in natural language, watsonx.ai generates grounded answers or troubleshooting steps, and the resulting guidance is returned inside the maintenance workflow with traceable dialog history.",
+  "integration_points": [
+    "QuickBrain CMMS",
+    "technical documentation",
+    "asset registers",
+    "maintenance records",
+    "machine nameplates"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "Crazylog reduced the time technicians spend searching for information, lowered downtime for customers, improved repair quality and safety, and used the new AI features to differentiate its CMMS offering in industrial markets.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "3× faster access to maintenance support information",
+    "~25% reduction in downtime generating ~€240K annual savings per plant",
+    "3 customers adopted the solution within six months of production release",
+    "10 frontline naval vessels"
+  ],
+  "architecture_clues": [
+    "QuickSearch returns referenced answers grounded in authoritative documentation.",
+    "QuickAssist generates structured troubleshooting guidance from specific failure scenarios.",
+    "Dialogue history is retained to improve documentation and repair procedures over time."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/crazylog-pedab",
+  "published_date": "2026-07-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "QuickSearch enables technicians to ask technical questions in natural language and receive referenced answers grounded in authoritative documentation using retrieval augmented generation (RAG)",
+    "QuickAssist goes a step further by generating structured troubleshooting guidance",
+    "Crazylog uses IBM watsonx.data as a vector database to store and retrieve relevant technical documentation",
+    "3x reduction in the average search time for maintenance support information",
+    "customers see a ~25% reduction in equipment downtime"
+  ]
+}

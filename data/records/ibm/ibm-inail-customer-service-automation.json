@@ -1,0 +1,83 @@
+{
+  "id": "ibm-inail-customer-service-automation",
+  "slug": "ibm-inail-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "INAIL",
+  "industry": "Public Sector",
+  "region": "Italy",
+  "company_size": "Public sector",
+  "business_problem": "INAIL needed to absorb a surge in grant-funding inquiries and application volume for its Bandi ISI program without overwhelming the contact center or delaying applicant guidance during the submission and admission process.",
+  "solution_summary": "INAIL worked with IBM Consulting and IBM Client Engineering to build a virtual assistant for its Bandi ISI funding process. The pilot used unstructured content such as manuals, FAQs, prior tickets, requests, and official documentation to power a conversational support layer embedded in the web application companies use to access the funding procedure. IBM watsonx Assistant acts as the orchestration layer between IBM Watson Discovery and IBM watsonx.ai: Discovery indexes the documentation and identifies the text passages likely to contain answers, while watsonx.ai runs the Mixtral 8x7B Mistral model to generate response text grounded in those indexed materials. This architecture lets applicants ask both general and specific questions about the call, eligibility, and operating procedures, while INAIL can standardize contact-center responses and later extend the same knowledge base into automated verification during post-approval review phases.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery",
+    "IBM watsonx.ai",
+    "Mistral"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Orchestrates the conversational workflow and routes user questions across the answer-generation stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Indexes manuals, FAQs, tickets, and documentation so the assistant can retrieve grounded source passages.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Hosts the generative AI model used to produce answers from the indexed documentation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mistral",
+      "role": "Provides the Mixtral 8x7B large language model used to generate grounded response text.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Applicants submit natural-language questions in the Bandi ISI web application, watsonx Assistant orchestrates the request, Watson Discovery retrieves relevant passages from manuals and prior support content, and the Mistral model on watsonx.ai generates the final response for applicants or contact-center staff.",
+  "integration_points": [
+    "web application",
+    "manuals",
+    "FAQs",
+    "previous tickets",
+    "official documentation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "INAIL improved the consistency and availability of applicant support, eased pressure on its contact center during a high-demand funding round, and created a knowledge base it can reuse for future review and verification workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "65% growth in the budget—from EUR 300 to 500 million",
+    "50% rise in applications",
+    "24x7 assistance",
+    "2 months"
+  ],
+  "architecture_clues": [
+    "The pilot used unstructured support artifacts rather than a manually curated FAQ alone.",
+    "INAIL plans to expand the same knowledge base into automated verification during review phases.",
+    "The assistant is embedded directly in the application used to access the funding process."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/inail",
+  "published_date": "2024-11-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The solution involved IBM watsonx Assistant, which was able to understand and address various questions, general or specific, by leveraging multiple features and acting as the orchestrator between IBM Watson Discovery platform and IBM watsonx.ai AI studio.",
+    "IBM Watson Discovery was used as a documentation collector and cognitive engine available to the overall application.",
+    "Finally, the gen AI Mistral LLM model (mixtral8-7B) on watsonx.ai was used to engage the conversation and generate answer texts",
+    "24x7 assistance, eliminating wait times and the risk of missed deadlines.",
+    "50% rise in applications"
+  ]
+}

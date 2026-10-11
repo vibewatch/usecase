@@ -1,0 +1,77 @@
+{
+  "id": "ibm-di-square-customer-service-automation",
+  "slug": "ibm-di-square-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "DI Square",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Mid-market",
+  "business_problem": "DI Square needed to improve call-center operator productivity and reduce dependence on individual know-how as labor shortages and higher staffing costs made it harder to hire, train, and retain operators.",
+  "solution_summary": "DI Square extended its EasyAnswer Series with EasyAnswer JINN/RAG-Opt, a call-center support capability built around a custom retrieval-augmented-generation architecture using IBM AI services. The system links company data such as customer information, inquiry history, manuals, regulations, and product data to IBM watsonx Assistant, IBM Watson Discovery, and the Japanese version of IBM Granite delivered through watsonx.ai. Operators type questions into the interface and the assistant searches company knowledge to present appropriate answer candidates and relevant past conversations, helping them respond faster and more consistently. Over time, usage feeds new findings and corrected knowledge back into the system so answer quality can improve and standardize across the operation. In practice, the solution becomes a governed knowledge-assistance layer for call centers, combining enterprise retrieval with Japanese-language LLM performance tuned for business use.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM watsonx.ai",
+    "IBM Watson Discovery",
+    "IBM Granite"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the virtual-agent interface that operators use to search and receive answer candidates.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Delivers the AI runtime that hosts Granite and the solution's RAG workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Processes and retrieves company documents and knowledge for operator assistance.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Supplies the Japanese-language large language model used to generate business-ready answer candidates.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer information, inquiry history, manuals, regulations, and product data are indexed into the RAG architecture, operators submit questions through watsonx Assistant, Watson Discovery retrieves relevant knowledge, and Granite on watsonx.ai generates answer candidates and uses past conversation history to support the response.",
+  "integration_points": [
+    "customer information",
+    "inquiry history",
+    "manuals",
+    "regulations",
+    "product data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "DI Square created a call-center knowledge assistant that helps operators search faster, standardize answers, and increase response productivity while preserving and reusing accumulated know-how.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The solution uses a unique RAG architecture optimized for company data.",
+    "Past conversation history is reused to improve operator responses.",
+    "As usage increases, new findings are accumulated to improve answer quality and standardization."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/di-square",
+  "published_date": "2025-02-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"EasyAnswer JINN/RAG-Opt\" embeds watsonx Assistant, Watson Discovery and the Japanese version of Granite provided by watsonx.ai.",
+    "\"EasyAnswer JINN/RAG-Opt\", with its unique RAG architecture, enables search results based on the company's data",
+    "This function helps operators to do efficient searches and to use past conversations history to instantly give effective responses to their customers.",
+    "the quality of answers provided by the AI can be improved and standardized",
+    "helping to resolve various issues these are challenged with"
+  ]
+}

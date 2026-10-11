@@ -1,0 +1,87 @@
+{
+  "id": "ibm-benete-real-time-analytics",
+  "slug": "ibm-benete-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "Benete",
+  "industry": "Healthcare",
+  "region": "Finland",
+  "company_size": "Unknown",
+  "business_problem": "Benete needed a way to turn large volumes of BeneCare assisted-daily-living sensor data into usable caregiver insights without forcing nurses and care teams to manually interpret dashboards and create summaries.",
+  "solution_summary": "Benete worked with IBM Client Engineering to add an LLM-based summarization layer to its BeneCare elder-care platform. IoT sensors already captured activity, movement, sleep, hygiene, and food-preparation signals for elderly clients; IBM watsonx.ai was introduced to convert that raw operational data into concise care summaries and multilingual reports. Benete created prompt templates in watsonx.ai, used IBM Cloudant to store structured sensor findings and generated summaries, and tracked model development with Jupyter Notebook plus AI factsheets in IBM watsonx.governance. Llama and Mistral models were evaluated and then deployed on watsonx.ai as endpoints that transform the incoming care data into readable insights integrated back into BeneCare. This architecture preserves the continuous monitoring workflow while automating the most time-consuming interpretation step for caregivers.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Cloudant",
+    "IBM watsonx.governance",
+    "Llama",
+    "Mistral"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Hosts the prompt-driven LLM endpoints that turn care data into readable summaries and translations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloudant",
+      "role": "Stores structured IoT-derived findings and the generated summaries for efficient retrieval and querying.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.governance",
+      "role": "Tracks AI factsheets and evaluation artifacts so Benete can monitor prompt and model behavior.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Llama",
+      "role": "Provides one of the large language models Benete evaluated and deployed for summary generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mistral",
+      "role": "Provides an alternative large language model Benete deployed to keep the summarization capability model-agnostic.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "IoT sensors feed BeneCare with assisted-daily-living data, Benete stores structured findings in IBM Cloudant, prompt templates in IBM watsonx.ai call Llama or Mistral endpoints to generate summaries and translations, and the resulting outputs are pushed back into BeneCare dashboards for caregivers and nurses.",
+  "integration_points": [
+    "IoT sensors",
+    "BeneCare dashboards",
+    "Jupyter Notebook"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Benete gave caregivers near-instant, multilingual summaries of client conditions, sharply reduced the time needed to interpret patient data, and improved the ability to deliver preventive care while serving more elderly clients efficiently.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "90% reduction in patient data interpretation time, down to 1 minute from 10",
+    "Easy-to-consume summary reports in less than 5 seconds",
+    "Accurate, tone-appropriate and on-demand translation of summary reports into 5 languages",
+    "30 minutes of daily time savings per nurse"
+  ],
+  "architecture_clues": [
+    "The BeneCare dashboard continuously monitors key care metrics and generates data 24x7.",
+    "Prompt templates were tracked with AI factsheets for model evaluation and cost monitoring.",
+    "Benete kept the summarization feature model-agnostic after testing both Llama and Mistral."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/benete",
+  "published_date": "2025-05-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Benete saved valuable time in documentation procedures, enabling caregivers to focus more on patients.",
+    "By creating prompt templates in watsonx.ai, Benete sourced variables, data and tasks from IBM Cloudant",
+    "These prompts were then deployed in watsonx.ai to become endpoints where data is transformed into understandable insights and integrated into BeneCare.",
+    "Summary reports, which were previously generated and interpreted manually, are now instantly generated in less than 5 seconds",
+    "there’s a 90% reduction in the time taken to understand client data"
+  ]
+}

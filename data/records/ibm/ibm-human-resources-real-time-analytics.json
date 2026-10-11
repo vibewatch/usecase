@@ -1,0 +1,68 @@
+{
+  "id": "ibm-human-resources-real-time-analytics",
+  "slug": "ibm-human-resources-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "IBM Human Resources",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM HR needed to make people analytics easier for business leaders and non-technical users because dashboard growth alone still left managers dependent on analysts to interpret metrics, filters, and workforce context.",
+  "solution_summary": "IBM piloted watsonx BI to turn HR analytics into a conversational experience built on top of the organization's existing people-data foundation. HR data had already been consolidated into a lakehouse and exposed through self-service dashboards, but watsonx BI adds a governed semantic layer and centralized metric catalog so users can ask workforce questions in natural language instead of locating the right report and applying filters manually. The system shows its work by surfacing the data sources, columns, filters, and SQL behind each answer, which helps users refine questions and trust the results. Existing Cognos reporting assets and the enterprise lakehouse are reused rather than replaced, which keeps the new experience aligned with existing governance and reduces duplication. This architecture allows leaders to explore talent questions contextually, while HR teams spend less time answering repetitive requests and more time on strategic analysis.",
+  "products_used": [
+    "IBM watsonx BI",
+    "IBM Cognos"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx BI",
+      "role": "Provides the conversational BI agent, semantic layer, and explainable answer generation for people analytics.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cognos",
+      "role": "Supplies existing reporting frameworks that watsonx BI reuses as part of the governed analytics foundation.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Workforce data from IBM's HR lakehouse is interpreted through a governed semantic layer in watsonx BI, which translates natural-language questions into metric logic and SQL, retrieves the relevant data, and returns explainable answers to business leaders and managers.",
+  "integration_points": [
+    "enterprise lakehouse",
+    "self-service dashboards",
+    "metric catalog",
+    "SQL"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "IBM HR reduced time to answer workforce questions, improved self-service access to people analytics, and created a governed model for conversational BI that can extend beyond HR into other enterprise domains.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "89.26% accuracy rate on a sampling of user submitted questions",
+    "Days to Minutes reduced time-to-answer from summary level talent data",
+    "20% each year initial self-serve Dashboards Adoption Growth"
+  ],
+  "architecture_clues": [
+    "The semantic layer embeds HR logic such as metrics, filters, and population definitions.",
+    "The system exposes the SQL and data sources used to answer each question.",
+    "The pilot began in Q3 2025 and reused the existing lakehouse and Cognos assets."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-watsonxbi",
+  "published_date": "2026-03-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The pilot began in Q3 2025 and achieved an accuracy rate of 89.26% on a sample of questions submitted by users",
+    "watsonx BI product offers Generative Business Intelligence agents (GenBI) that can unlock the value of data.",
+    "A centralized, AI-enriched metric catalog acts as a single source of truth",
+    "users can now receive data quickly, thanks to automated data preparation",
+    "time-to-answer from summary-level talent data from days to minutes"
+  ]
+}

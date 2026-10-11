@@ -1,0 +1,81 @@
+{
+  "id": "ibm-dynamiq-document-processing",
+  "slug": "ibm-dynamiq-document-processing",
+  "vendor": "IBM",
+  "customer_name": "Dynamiq",
+  "industry": "Software / SaaS",
+  "region": "Unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Dynamiq needed a way to help legal teams process large volumes of contracts, compliance reports, and regulatory documents faster, while reducing manual review work and improving the consistency of compliance decisions.",
+  "solution_summary": "Dynamiq built an AI-powered legal agent on the IBM watsonx platform using IBM watsonx.data, IBM Granite foundation models, and IBM watsonx Orchestrate. Watsonx.data acts as the unified lakehouse where contracts, compliance reports, and regulatory documents are ingested, organized, vectorized, and retrieved, including support for Milvus vector stores. On top of that data layer, Dynamiq uses a multi-model strategy: Granite small language models handle routine compliance activities such as template matching and formatting, while the agent performs semantic contract search, comparative analysis, clause-level compliance scoring, and legal Q&A. IBM watsonx Orchestrate and prebuilt APIs connect those insights to enterprise systems such as SAP, Salesforce, and ServiceNow, and the workflow can route documents for approval or escalate cases to humans. The result is a legal-operations platform that turns document repositories into an actionable knowledge base rather than a manual review queue.",
+  "products_used": [
+    "IBM watsonx.data",
+    "IBM Granite",
+    "IBM watsonx Orchestrate",
+    "Milvus"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.data",
+      "role": "Stores, organizes, and retrieves contracts, regulatory documents, and compliance content for the legal agent.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Runs the legal-analysis and compliance tasks, with smaller models handling routine review work.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Connects legal insights into business systems and automates approval and escalation workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Milvus",
+      "role": "Provides vector-store support for embedding proprietary legal data inside the agent workflow.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Contracts, compliance reports, and regulatory documents are ingested into watsonx.data and Milvus, Granite-based models analyze them for search, clause scoring, and comparison, and watsonx Orchestrate routes the resulting insights into SAP, Salesforce, ServiceNow, and human approval workflows.",
+  "integration_points": [
+    "SAP",
+    "Salesforce",
+    "ServiceNow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Dynamiq helped legal teams review contracts faster, answer business questions much more quickly, automate clause-level compliance analysis, and shift legal operations from reactive manual review to proactive guidance and workflow automation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "50% reduction in contract review, down from 1.5 hours to 45 minutes",
+    "98% reduction in time to answer business queries, down from 2 days to 60 minutes",
+    "90% reduction in clause identification, down from 20 minutes to 2 minutes"
+  ],
+  "architecture_clues": [
+    "The solution uses a multi-model strategy to balance cost and performance.",
+    "The agent can route documents for approval and escalate complex cases for human review.",
+    "Semantic contract search, comparative document analysis, and clause-level compliance scoring are core capabilities."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/dynamiq",
+  "published_date": "2025-10-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "watsonx.data served as a unified platform to ingest, organize and retrieve thousands of contracts, compliance reports and regulatory documents.",
+    "Granite small language models handled routine compliance tasks such as template matching and formatting.",
+    "The solution’s modular architecture—including APIs and pre-built integration points with IBM watsonx Orchestrate—allowed legal insights to flow into business systems such as CRM and HR platforms.",
+    "50% reduction in contract review",
+    "90% reduction in clause identification"
+  ]
+}

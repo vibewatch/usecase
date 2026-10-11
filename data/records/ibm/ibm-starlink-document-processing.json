@@ -1,0 +1,86 @@
+{
+  "id": "ibm-starlink-document-processing",
+  "slug": "ibm-starlink-document-processing",
+  "vendor": "IBM",
+  "customer_name": "StarLink",
+  "industry": "Software / SaaS",
+  "region": "Middle East and Africa",
+  "company_size": "Enterprise",
+  "business_problem": "StarLink needed to eliminate manual effort in procurement processes such as email intake, purchase-order validation, document extraction, and quote comparison without losing governance or visibility across enterprise workflows.",
+  "solution_summary": "Through its Client Zero program with IBM Build Engineering, StarLink implemented agentic procurement workflows on top of IBM Bob and IBM watsonx Orchestrate. Bob serves as the AI development lifecycle partner that helps teams build, test, and deploy agents, while watsonx Orchestrate provides the governed runtime where those agents execute and coordinate work. The solution connects Oracle NetSuite, Docling, and Automation Anywhere so incoming procurement emails can be classified, purchase orders can be checked against ERP records, quote details can be extracted from unstructured documents, and accounts-payable steps can be completed without handoffs between disconnected tools. Instead of separate automations for each task, StarLink created a connected workflow layer that spans the full purchase-order lifecycle and can be reused as the company expands agentic AI to partners and customers across the region.",
+  "products_used": [
+    "IBM Bob",
+    "IBM watsonx Orchestrate",
+    "Oracle NetSuite",
+    "Docling",
+    "Automation Anywhere"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Bob",
+      "role": "Helps StarLink build, test, and deploy the AI agents used in procurement workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Runs, orchestrates, and governs the AI agents across the purchase-order lifecycle.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Oracle NetSuite",
+      "role": "Provides the ERP data that the agents use to validate procurement information.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Docling",
+      "role": "Supports document processing and extraction from procurement files and quotations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Automation Anywhere",
+      "role": "Executes automation tasks connected to purchase-order and accounts-payable workflows.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Procurement emails and documents enter the workflow, IBM Bob helps create the agents that parse and route the work, watsonx Orchestrate coordinates validations against Oracle NetSuite and document extraction through Docling, and Automation Anywhere completes downstream processing for quote comparison and accounts-payable activities.",
+  "integration_points": [
+    "procurement emails",
+    "purchase orders",
+    "quotations",
+    "accounts payable"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "StarLink expects major time savings in procurement operations, much faster quote comparison, and dramatically shorter agent-development cycles, while building repeatable expertise it can take to customers across the Middle East and Africa.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "85% faster development, testing and deployment of AI agents from 2 weeks to 2 days",
+    "11,500 hours projected annual time savings across purchase order and quote processes",
+    "90% projected faster comparison of purchase orders and quotes, from 30 minutes to 3 minutes"
+  ],
+  "architecture_clues": [
+    "The implementation was built as a Client Zero program inside StarLink's own operations.",
+    "The solution coordinates workflows end to end rather than automating isolated procurement tasks.",
+    "watsonx Orchestrate provides the governance layer for the AI agents."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/starlink",
+  "published_date": "2026-09-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using IBM Bob and IBM watsonx Orchestrate, StarLink developed AI agents to automate and coordinate key activities across the purchase order lifecycle",
+    "Bob serves as an AI-powered development lifecycle partner, helping teams build, test and deploy agents, while watsonx Orchestrate provides the environment to run, orchestrate and govern them.",
+    "The solution connects with Oracle NetSuite, Docling and Automation Anywhere to automate email intake and classification, enterprise resource planning validation, document processing, quote comparison and accounts payable activities.",
+    "11,500 hours projected annual time savings",
+    "reduce the time needed to compare internal documents, partner purchase orders and vendor quotations from 30 minutes to three minutes"
+  ]
+}

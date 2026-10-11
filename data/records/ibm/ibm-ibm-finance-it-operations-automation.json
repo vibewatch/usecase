@@ -1,0 +1,79 @@
+{
+  "id": "ibm-ibm-finance-it-operations-automation",
+  "slug": "ibm-ibm-finance-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM Finance",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM's finance team needed to reduce the manual effort, long cycle times, and validation inconsistencies involved in preparing and submitting journal entries across multiple systems, especially during financial close periods.",
+  "solution_summary": "IBM Finance expanded its earlier robotic process automation work by launching the Jobotx initiative with IBM watsonx Orchestrate, IBM watsonx.ai, and IBM Apptio Enterprise Business Management. Apptio EBM analyzes full-year ledger data to identify the highest-value automation opportunities, while watsonx.ai powers custom root-cause-analysis models and anomaly detection to improve journal accuracy before submission. IBM watsonx Orchestrate then interprets the journal-entry steps defined by finance analysts, validates inputs against the ledger, converts approved actions into precise RPA commands, and schedules journal submissions during financial close. IBM Business Automation Workflow adds a dynamic exception-management dashboard so analysts can focus on unresolved issues instead of routine data handling. The resulting architecture combines AI, RPA, and cost-based prioritization into a journal-processing pipeline that can be extended to more ERP and finance applications over time.",
+  "products_used": [
+    "IBM watsonx Orchestrate",
+    "IBM watsonx.ai",
+    "IBM Apptio Enterprise Business Management",
+    "IBM Business Automation Workflow"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Interprets journal-entry steps, coordinates validations, and schedules automated submission commands.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs custom AI models for root-cause analysis and anomaly detection in journal processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Apptio Enterprise Business Management",
+      "role": "Analyzes ledger data to identify automation opportunities and prioritize finance workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "IBM Business Automation Workflow",
+      "role": "Provides the real-time dashboard used for exception management during journal processing.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Ledger and finance-system data is analyzed in Apptio EBM, watsonx.ai models validate and score journal inputs, watsonx Orchestrate translates approved finance steps into RPA actions and schedules submission to the ledger, and IBM Business Automation Workflow surfaces exceptions through a real-time dashboard for analyst review.",
+  "integration_points": [
+    "ledger",
+    "robotic process automation",
+    "ERP systems",
+    "financial applications"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "IBM Finance accelerated journal-entry processing, improved accuracy, reduced manual work, and freed analysts to focus on more strategic finance tasks while creating a platform it can extend to additional ERP and compliance processes.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    ">90% reduction in cycle time possible",
+    "An estimated USD 600,000 in annual cost savings projected"
+  ],
+  "architecture_clues": [
+    "The program layered AI on top of an existing RPA foundation rather than replacing automation entirely.",
+    "Real-time anomaly detection was added before journal submission.",
+    "The team plans to extend the platform to additional ERP systems and risk-assessment use cases."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-finance",
+  "published_date": "2025-04-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "the team launched the Jobotx initiative in 2024, expanding automation capabilities using IBM watsonx Orchestrate and IBM Apptio Enterprise Business Management (EBM).",
+    "The IBM finance team used IBM Apptio EBM to analyze full year ledger data and identify automation opportunities, then leveraged watsonx.ai to build custom AI models for root cause analysis.",
+    "They then deployed IBM watsonx Orchestrate and integrated it with robotic process automation (RPA) to validate inputs against the ledger",
+    "The solution also worked well with IBM Business Automation Workflow to deliver a dynamic, real-time dashboard",
+    "Estimated >90% reduction in cycle time"
+  ]
+}

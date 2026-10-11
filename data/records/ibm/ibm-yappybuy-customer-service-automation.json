@@ -1,0 +1,94 @@
+{
+  "id": "ibm-yappybuy-customer-service-automation",
+  "slug": "ibm-yappybuy-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "yappyBuy GmbH",
+  "industry": "Software / SaaS",
+  "region": "Germany",
+  "company_size": "SMB",
+  "business_problem": "yappyBuy needed an enterprise-grade AI stack for its Buddy shopping assistant so it could personalize search, product support, and checkout interactions while meeting European data-privacy and governance requirements.",
+  "solution_summary": "yappyBuy built its Buddy e-commerce assistant platform on the IBM watsonx portfolio to support personalized shopping journeys across online stores. IBM watsonx.ai serves as the enterprise AI studio and model runtime, where the team began with IBM Granite models and Meta Llama 3.1 for conversational and agentic flows. IBM Watson Discovery, watsonx.data, and watsonx.governance extend that core stack so Buddy can ground responses with retrieval-augmented generation and govern how the assistant is used as the startup moves from pilot to open beta. The platform ingests PDFs, JSON files, CSV files, Word documents, databases, and dynamic API responses to provide contextual answers, product guidance, and support during browsing and checkout. IBM also helped yappyBuy tune latency and cost, which matters for real-time commerce interactions, while preserving control over data-storage and processing locations needed for GDPR-sensitive European deployments.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Granite",
+    "Meta Llama 3.1",
+    "IBM Watson Discovery",
+    "IBM watsonx.data",
+    "IBM watsonx.governance"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the enterprise AI studio and runtime for Buddy's conversational and agentic assistant workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Supplies low-latency large language models for parts of the shopping assistant workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Meta Llama 3.1",
+      "role": "Works alongside Granite as one of the selectable models for conversational commerce use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Helps the assistant retrieve relevant content from enterprise data sources for grounded responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Supports the data layer used to provide contextual information to the assistant.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.governance",
+      "role": "Provides governance, risk, and compliance controls for the AI assistant platform.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Merchant documents and data sources such as PDFs, JSON, CSV, Word files, databases, and live APIs are fed into the Buddy platform, where watsonx.ai uses Granite or Llama models with retrieval-augmented generation to answer shopper questions, guide product discovery, and support checkout interactions with grounded responses.",
+  "integration_points": [
+    "PDFs",
+    "JSON files",
+    "CSV files",
+    "Word documents",
+    "databases",
+    "dynamic API responses",
+    "e-commerce shops"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "yappyBuy accelerated development of its Buddy assistant, gained a governance- and GDPR-aware AI foundation for open-beta rollout, and built a platform it expects to use for personalized search, support, upsell, and checkout optimization across B2B and B2C commerce clients.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Compliance"
+  ],
+  "metrics": [
+    "analyzed over 1 million online comments"
+  ],
+  "architecture_clues": [
+    "The platform uses retrieval-augmented generation to inject merchant data into LLM responses.",
+    "IBM helped optimize latency for e-commerce interactions by increasing use of Granite models in agentic workflows.",
+    "yappyBuy selected IBM in part to control data-storage and processing locations for GDPR compliance."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/yappybuy",
+  "published_date": "2024-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Currently the primary IBM watsonx products of our platform include watsonx.ai, IBM Watson Discovery, watsonx.data and watsonx.governance.",
+    "We started off with the IBM Granite models together with Meta Llama 3.1, the next generation of Meta’s open LLM, for our conversational tool with agentic flow capabilities.",
+    "we can now successfully incorporate documents, such as PDFs, JSON files, CSV files, [Microsoft] Word docs and databases, or dynamic API responses to provide contextual information",
+    "parts of our conversational agentic workflows now include extensive use of the IBM Granite models that decrease latency and optimize the user experience.",
+    "we analyzed over 1 million online comments"
+  ]
+}

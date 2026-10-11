@@ -1,0 +1,93 @@
+{
+  "id": "ibm-formez-pa-enterprise-knowledge-search",
+  "slug": "ibm-formez-pa-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Formez PA",
+  "industry": "Public Sector",
+  "region": "Italy",
+  "company_size": "Public sector",
+  "business_problem": "Formez PA needed a way to standardize public-sector professional profiles, skills, and terminology so agencies could compare roles, exchange data, and collaborate without being blocked by incompatible dictionaries and manual profile entry.",
+  "solution_summary": "Formez PA and IBM Client Engineering embedded AI into the RiVa portal to turn public-sector professional profiling into a semantic search and classification workflow. User descriptions are converted into embeddings with IBM watsonx.ai using the Llama model, while IBM watsonx.data—backed by Milvus as a vector database—executes semantic searches to find professional profiles that are conceptually similar even when keywords do not match. A custom microservice exposes APIs between the RiVa portal and the IBM services, and optional filters for contractual areas, professional dimensions, and professional families help narrow the result set. The solution can suggest profile names, organizational purposes, and primary activities from user descriptions and is designed to expand into skills and role recommendations over time. In practice, RiVa becomes a governed semantic layer for public-sector HR data rather than a static profile-entry form.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx.data",
+    "Milvus",
+    "IBM Code Engine",
+    "IBM Cloudant",
+    "IBM Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Converts natural-language descriptions into embeddings and interprets public-sector HR requests.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Runs semantic searches across vectorized professional profiles and skills data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Milvus",
+      "role": "Provides the vector database used to search for semantically similar professional profiles.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Code Engine",
+      "role": "Supports the microservice layer that exposes APIs between RiVa and the IBM AI services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Cloudant",
+      "role": "Supports cloud-native data persistence in the solution's API and feedback workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the cloud components that integrate the semantic search and API services.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Public-sector role descriptions entered into the RiVa portal are converted to embeddings with watsonx.ai, searched semantically in watsonx.data and Milvus, filtered by public-administration criteria, and returned through RiVa as suggested profiles, activities, and future skill recommendations.",
+  "integration_points": [
+    "RiVa portal",
+    "contractual areas",
+    "professional dimensions",
+    "professional families",
+    "feedback mechanism"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Formez PA expects to reduce manual profile management work, improve search accuracy, and make professional-role data more consistent and usable across public administrations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "90% expected reduction in time spent on data entry and processing tasks",
+    "80% expected improvement in search accuracy",
+    "60% expected increase in user satisfaction"
+  ],
+  "architecture_clues": [
+    "The solution uses semantic similarity rather than exact keyword matching.",
+    "A microservice intermediary converts requests into embeddings and invokes vector search APIs.",
+    "User feedback is built into the product to refine results over time."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/formez-pa",
+  "published_date": "2025-05-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The solution leverages the IBM watsonx portfolio of products to translate user queries into embeddings.",
+    "IBM watsonx.data, which leverages Milvus as its vector database to execute semantic searches within vector spaces.",
+    "the IBM–Formez team devised a microservice to expose APIs.",
+    "approximately 90% reduction in manual data entry and data processing",
+    "approximately 80% increase in search precision"
+  ]
+}

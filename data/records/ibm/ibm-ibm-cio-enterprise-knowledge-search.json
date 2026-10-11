@@ -1,0 +1,76 @@
+{
+  "id": "ibm-ibm-cio-enterprise-knowledge-search",
+  "slug": "ibm-ibm-cio-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "IBM CIO",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM employees needed a faster way to find proposal content across many internal sources because searching sales documents, templates, product guides, and offerings manually slowed proposal creation and made it harder to respond with accurate details quickly.",
+  "solution_summary": "IBM Consulting, IBM Software, and the IBM CIO organization built AskTECHNO as a generative-search assistant for proposal management. The platform combines IBM watsonx.ai, IBM Granite-class language models, IBM Watson Discovery, and IBM Cloud Code Engine with curated internal IBM content such as sales documents and proposal artifacts. Watsonx.ai generates answer text from relevant material, Granite supports bilingual search and translation between Japanese and English, Watson Discovery indexes IBM web and content sources, and Cloud Code Engine captures user activity logs for continuous improvement. Using retrieval-augmented generation, AskTECHNO answers employee questions with grounded responses that include source references and publication dates. The result is a multilingual internal search layer that makes proposal knowledge accessible through natural-language questions instead of time-consuming content hunting across disconnected repositories.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Granite",
+    "IBM Watson Discovery",
+    "IBM Cloud Code Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Generates answers to proposal-related questions using retrieved IBM content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Translates and searches content between Japanese and English for bilingual proposal users.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Indexes internal and external IBM content so AskTECHNO can retrieve relevant sources.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud Code Engine",
+      "role": "Captures and stores user activity logs to support the assistant's search workflows and improvement loop.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Internal sales and product content is indexed through Watson Discovery, employees ask questions in Japanese or English, Granite helps interpret and translate those queries, watsonx.ai generates source-backed answers using RAG, and Cloud Code Engine records usage data for tuning and expansion.",
+  "integration_points": [
+    "sales related documents",
+    "proposal templates",
+    "product offerings",
+    "product guides",
+    "subject matter experts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "AskTECHNO reduced proposal-content search effort, improved access to multilingual product knowledge, and created a reusable internal generative-search pattern IBM teams can apply elsewhere.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The assistant uses bilingual generative search across Japanese and English content.",
+    "Responses include the original sources and publication or last-updated dates.",
+    "The initial release launched in IBM Japan in April 2024 with plans for global expansion."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/asktechno",
+  "published_date": "2024-09-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The digital assistant was built with IBM watsonx.ai, IBM Granite-class large language models (LLMs), IBM Watson Discovery and IBM Cloud Code Engine",
+    "watsonx.ai helped generate answers to users’ questions while IBM Granite translated users’ queries and searched contents between English and Japanese.",
+    "The Retrieval-Augmented Generation (RAG) technique enables the digital assistant to use the ingested contents to create responses",
+    "The responses offered by AskTECHNO include the information sources and when was the information published or last updated.",
+    "The intention is for all IBM employees to use the application"
+  ]
+}

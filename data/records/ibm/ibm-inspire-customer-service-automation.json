@@ -1,0 +1,75 @@
+{
+  "id": "ibm-inspire-customer-service-automation",
+  "slug": "ibm-inspire-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "Inspire",
+  "industry": "Software / SaaS",
+  "region": "Middle East",
+  "company_size": "Mid-market",
+  "business_problem": "Inspire needed to reduce the manual effort in routine HR tasks so employees could complete leave, expense, and insurance requests quickly and the company could offer a more modern employee experience to attract and retain talent.",
+  "solution_summary": "Inspire built an internal HR virtual assistant on IBM watsonx Assistant and trained it with Meta Llama 3 models through IBM watsonx.ai. The assistant is embedded in the company's internal portal, where employees can ask HR questions in natural language and complete transactional requests such as booking leave, submitting expenses, or requesting health-insurance forms. Behind the scenes, the assistant uses APIs to reach the required HR systems and complete those actions in real time rather than merely answering FAQs. Inspire and IBM also worked with the IBM Build Lab to stand up an on-premises platform powered by watsonx.ai and watsonx Assistant in the data center, which gave the company a secure base for future enhancements. With the new HR automation layer in place, the company can tune models, consider a future move to Granite, and add speech interfaces while preserving a unified conversational front end for employees.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "Meta Llama 3",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the employee-facing conversational interface for HR questions and tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Meta Llama 3",
+      "role": "Supplies the large language models that Inspire fine-tuned for its HR assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Supports model training and the on-premises AI platform that powers the assistant.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Employees interact with the HR assistant in the company portal, watsonx Assistant interprets the request using models trained in watsonx.ai, the workflow calls HR-system APIs to execute tasks such as leave bookings or expense requests, and the result is returned to the employee in real time.",
+  "integration_points": [
+    "internal company portal",
+    "HR systems",
+    "APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Inspire reduced employee time and operating costs, improved HR productivity, and built a secure on-premises conversational platform it can keep expanding with new models and speech capabilities.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "15% reduction in employee time, freeing resources for higher-value tasks",
+    "15% boost in productivity, driving business growth and efficiency",
+    "15% decrease in costs, resulting in significant cost savings",
+    "450 employees"
+  ],
+  "architecture_clues": [
+    "The assistant is embedded directly into the internal portal rather than exposed as a separate tool.",
+    "Inspire and IBM Build Lab deployed the platform on premises in the data center.",
+    "The company is considering switching from Meta Llama 3 to IBM Granite models and adding speech services."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/inspire",
+  "published_date": "2025-05-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The new solution deployed by Inspire is an AI conversational virtual assistant created with IBM watsonx Assistant",
+    "It’s built on large language models from Meta Llama 3, which the company trained by using IBM watsonx.ai",
+    "Behind the scenes, the conversational AI receives the request, accesses the necessary HR systems through APIs, and makes the booking in real time.",
+    "15% boost in productivity",
+    "15% decrease in costs"
+  ]
+}
