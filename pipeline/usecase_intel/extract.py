@@ -24,6 +24,7 @@ re-fetched. With no triage decisions, candidates are sorted by sitemap
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from datetime import datetime, timezone
@@ -128,6 +129,7 @@ def extract_jobs(
     image_client: Optional[object] = None,
     rebuild: bool = False,
     triage_path: Optional[Path] = TRIAGE_PATH,
+    shard: Optional[tuple[int, int]] = None,
 ) -> dict[str, int]:
     if image_assets_limit < 0:
         raise ValueError("image_assets_limit must be >= 0")
@@ -208,6 +210,14 @@ def extract_jobs(
             ),
             reverse=True,
         )
+
+    if shard is not None:
+        # Stable URL-hash partition so parallel runs never pick the same story.
+        index, count = shard
+        candidates = [
+            row for row in candidates
+            if int(hashlib.sha1(row["url"].encode("utf-8")).hexdigest(), 16) % count == index - 1
+        ]
 
     if limit is not None:
         candidates = candidates[:limit]
@@ -300,6 +310,15 @@ def extract_jobs(
     return counts
 
 
+def _parse_shard(value: Optional[str]) -> Optional[tuple[int, int]]:
+    if not value:
+        return None
+    index, _, count = value.partition("/")
+    if not (index.isdigit() and count.isdigit() and 1 <= int(index) <= int(count)):
+        raise SystemExit(f"--shard must look like I/N with 1 <= I <= N, got {value!r}")
+    return int(index), int(count)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Build extraction prompt bundles from fetched content."
@@ -313,6 +332,12 @@ def main() -> None:
     parser.add_argument("--sources", type=Path, default=SOURCES_PATH)
     parser.add_argument("--vendor", type=str, default=None)
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument(
+        "--shard",
+        type=str,
+        default=None,
+        help="Only bundle shard I of N (e.g. 2/3), a stable URL-hash partition for parallel runs",
+    )
     parser.add_argument(
         "--image-assets-limit",
         type=int,
@@ -358,6 +383,7 @@ def main() -> None:
         image_min_score=args.image_min_score,
         include_css_backgrounds=not args.no_css_background_images,
         rebuild=args.rebuild,
+        shard=_parse_shard(args.shard),
     )
     print(
         "Jobs="

@@ -28,7 +28,7 @@ Resolve these values before running any stage:
 - `since`: `YYYY-MM-DD` cutoff for fetch's sitemap `lastmod` filter, or empty for no cutoff. URLs without a known `lastmod` are always kept.
 - `discoverLimit`: per-vendor cap on newly discovered URLs per run. Default `25`. Keeps each discover pass bounded; the next run picks up the next batch.
 
-Compute `vendorFlag` once: `--vendor "<vendor>"` when `vendor` is non-empty, otherwise empty. Compute `sinceFlag` once: `--since <since>` when `since` is non-empty, otherwise empty.
+Compute `vendorFlag` once: `--vendor "<vendor>"` when `vendor` is non-empty, otherwise empty. Compute `sinceFlag` once: `--since <since>` when `since` is non-empty, otherwise empty. Compute `shardFlag` once: `--shard <shard>` when a `shard` (e.g. `2/3`) is given, otherwise empty — it limits extraction to that stable slice of the backlog so parallel runs never pick the same story.
 
 ## Pipeline
 
@@ -52,7 +52,7 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
    - Judges each fetched page on content (publish date ≥ cutoff, length, English, AI & data topic, duplicates, redirects, removed pages) and scores the survivors. Criteria live in `pipeline/usecase_intel/config/triage.json`.
    - Then date undated survivors via the Internet Archive, bounded so the run stays short: `python3 -m pipeline.usecase_intel.triage --stage dates --limit 50 [vendorFlag]`. Archive outages stop it early; that is fine — the next run continues.
 
-5. **Extract** — `python3 -m pipeline.usecase_intel.extract --limit <cap> [vendorFlag]`
+5. **Extract** — `python3 -m pipeline.usecase_intel.extract --limit <cap> [vendorFlag] [shardFlag]`
    - Only bundles pages triage kept, highest score first; re-fetches a page if its raw file is missing.
    - Skips URLs whose normalized record already exists under `data/records/`.
    - Emits at most `cap` new prompt bundles under `data/extract_jobs/{vendor_slug}/{sha}.json`.

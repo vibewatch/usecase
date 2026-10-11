@@ -18,7 +18,7 @@
 #   trigger other workflows).
 
 name: UseCase Intel — discover, extract, and publish records
-run-name: "UseCase Intel · ${{ github.event.inputs.vendor || 'all vendors' }} · cap ${{ github.event.inputs.cap || '40' }}"
+run-name: "UseCase Intel · ${{ github.event.inputs.vendor || 'all vendors' }} · cap ${{ github.event.inputs.cap || '40' }}${{ github.event.inputs.shard && format(' · shard {0}', github.event.inputs.shard) || '' }}"
 
 on:
   schedule:
@@ -37,6 +37,11 @@ on:
         default: ""
       since:
         description: "Skip URLs whose sitemap lastmod is older than this date (YYYY-MM-DD); blank for no cutoff"
+        type: string
+        required: false
+        default: ""
+      shard:
+        description: "Extract only shard I of N of the backlog (e.g. 2/3) so parallel runs split a large vendor; blank for all"
         type: string
         required: false
         default: ""
@@ -63,7 +68,7 @@ concurrency:
   # One run at a time per vendor scope: vendor-specific runs work disjoint
   # slices of the queue and can run in parallel (the commit step handles
   # overlapping pushes); all-vendor runs (schedule) serialize with each other.
-  group: usecase-intel-${{ github.event.inputs.vendor || 'all' }}
+  group: usecase-intel-${{ github.event.inputs.vendor || 'all' }}-${{ github.event.inputs.shard || 'whole' }}
   cancel-in-progress: false
 
 jobs:
@@ -136,6 +141,7 @@ jobs:
           RAW_VENDOR: ${{ github.event.inputs.vendor }}
           RAW_SINCE: ${{ github.event.inputs.since }}
           RAW_DISCOVER_LIMIT: ${{ github.event.inputs.discoverLimit }}
+          RAW_SHARD: ${{ github.event.inputs.shard }}
           RAW_MODEL: ${{ github.event.inputs.model }}
         run: |
           set -euo pipefail
@@ -143,6 +149,11 @@ jobs:
           VENDOR="${RAW_VENDOR:-}"
           SINCE="${RAW_SINCE:-}"
           DISCOVER_LIMIT="${RAW_DISCOVER_LIMIT:-25}"
+          SHARD="${RAW_SHARD:-}"
+          if [ -n "$SHARD" ] && ! [[ "$SHARD" =~ ^[1-9]/[1-9]$ ]]; then
+            echo "Invalid shard '$SHARD'; expected I/N such as 2/3." >&2
+            exit 2
+          fi
           MODEL="${RAW_MODEL:-gpt-5.4}"
 
           if ! [[ "$CAP" =~ ^([1-9]|[1-4][0-9]|50)$ ]]; then
@@ -180,6 +191,7 @@ jobs:
           echo "vendor=$VENDOR" >> "$GITHUB_OUTPUT"
           echo "since=$SINCE" >> "$GITHUB_OUTPUT"
           echo "discoverLimit=$DISCOVER_LIMIT" >> "$GITHUB_OUTPUT"
+          echo "shard=$SHARD" >> "$GITHUB_OUTPUT"
           echo "model=$MODEL" >> "$GITHUB_OUTPUT"
           echo "effort=$EFFORT" >> "$GITHUB_OUTPUT"
 
@@ -193,6 +205,10 @@ jobs:
             VENDOR_CLAUSE=" vendor: ${{ steps.inputs.outputs.vendor }}."
           fi
           SINCE_CLAUSE=""
+          SHARD_CLAUSE=""
+          if [ -n "${{ steps.inputs.outputs.shard }}" ]; then
+            SHARD_CLAUSE=" shard: ${{ steps.inputs.outputs.shard }}."
+          fi
           if [ -n "${{ steps.inputs.outputs.since }}" ]; then
             SINCE_CLAUSE=" since: ${{ steps.inputs.outputs.since }}."
           fi
@@ -200,7 +216,7 @@ jobs:
             --model "${{ steps.inputs.outputs.model }}" \
             --effort "${{ steps.inputs.outputs.effort }}" \
             --agent "UseCase Intel" \
-            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE} Orchestrate every stage yourself: discover, triage (pre), fetch, triage (post), extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:merge / seed / export / partition / npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
+            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE}${SHARD_CLAUSE} Orchestrate every stage yourself: discover, triage (pre), fetch, triage (post), extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:merge / seed / export / partition / npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
 
       - name: Rebuild dashboard data (safety net)
         run: |
