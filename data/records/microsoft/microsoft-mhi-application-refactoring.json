@@ -1,0 +1,66 @@
+{
+  "id": "microsoft-mhi-application-refactoring",
+  "slug": "microsoft-mhi-application-refactoring",
+  "vendor": "Microsoft",
+  "customer_name": "MHI",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Since its establishment in 1884, Mitsubishi Heavy Industries, Ltd. (MHI) has been providing a wide range of products and services in various fields - including energy, engineering, defense and space, and mechanical systems, as a \"comprehensive infrastructure company that supports peoples' lives through engineering and manufacturing\". Among these is the field known as the \"Energy Domain,\" where the company's gas turbines, boilers, and other power generation equipment, as well as operation and maintenance solutions, support the large-scale power generation facilities that are indispensable to our daily lives.",
+  "solution_summary": "MHI built its Microsoft solution to improve application modernization workflows. Since its establishment in 1884, Mitsubishi Heavy Industries, Ltd. (MHI) has been providing a wide range of products and services in various fields - including energy, engineering, defense and space, and mechanical systems, as a \"comprehensive infrastructure company that supports peoples' lives through engineering and manufacturing\". Among these is the field known as the \"Energy Domain,\" where the company's gas turbines, boilers, and other power generation equipment, as well as operation and maintenance solutions, support the large-scale power generation facilities that are indispensable to our daily lives. Key components included Azure OpenAI Service ran model inference or heavy processing, and Azure AI Studio coordinated workflows, prompts, or deployment.",
+  "products_used": [
+    "Azure OpenAI Service",
+    "Azure AI Studio",
+    "Azure AI Search"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure OpenAI Service",
+      "role": "Runs large language models that generate grounded responses, summaries, and copilots.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure AI Studio",
+      "role": "Provides the build environment for prompt orchestration, safety controls, and model tuning.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure AI Search",
+      "role": "Indexes enterprise content so copilots and applications can retrieve grounded answers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User prompts and domain content are orchestrated through Azure AI Studio, processed by Azure OpenAI Service, and then delivered through Azure OpenAI Service so MHI can return context-aware answers or automation in the flow of work.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "MHI has declared its intention to become carbon neutral by 2040.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "\"We evaluated Microsoft's API, 'Azure OpenAI Service on your data,' but it didn't seem to give us the results we wanted."
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/1779541850037077027-mhi-azure-discrete-manufacturing-en-japan",
+  "published_date": "2024-07-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Since its establishment in 1884, Mitsubishi Heavy Industries, Ltd. (MHI) has been providing a wide range of products and services in various fields - including energy, engineering, defense and space, and mechanical systems, as a \"comprehensive infrastructure company that supports peoples' lives through engineering and manufacturing\". Among these is the field known as the \"Energy Domain,\" where the company's gas turbines, boilers, and other power generation equipment, as well as operation and maintenance solutions, support the large-scale power generation facilities that are indispensable to our daily lives.",
+    "MHI has declared its intention to become carbon neutral by 2040.",
+    "Since MHI was an early adopter of Microsoft's Azure OpenAI Service - which ensures that customer data is not used for training of generative AI - there was no concern that the input information for the generative AI would be leaked outside the company.",
+    "\"We evaluated Microsoft's API, 'Azure OpenAI Service on your data,' but it didn't seem to give us the results we wanted.",
+    "Azure OpenAI Service would first create an answer to the question from the trained data.",
+    "For generic questions, Azure OpenAI Service may be able to find the answer in that trained data."
+  ],
+  "is_sample": false
+}
