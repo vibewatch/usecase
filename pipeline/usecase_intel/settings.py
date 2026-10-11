@@ -6,7 +6,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
-DEFAULT_USER_AGENT = "UseCaseIntelBot/0.1 (+https://github.com/vibewatch/usecase)"
+DEFAULT_USER_AGENT = "UseCaseIntelBot/0.1 (+https://usecase.genisisiq.com)"
 DEFAULT_DELAY_SECONDS = 1.0
 DEFAULT_TIMEOUT_SECONDS = 30.0
 
