@@ -1,0 +1,86 @@
+{
+  "id": "aws-rexera-real-estate-document-processing",
+  "slug": "aws-rexera-real-estate-document-processing",
+  "vendor": "AWS",
+  "customer_name": "Rexera",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Rexera needed to replace slow, manual, error-prone residential real estate closing workflows with a scalable AI system that could process large legal-document sets, extract critical details, and reduce risks and human effort across transactions.",
+  "solution_summary": "Rexera runs its AI-assisted closing workflows on AWS, centering the implementation on Amazon Bedrock after a two-week proof of concept and a two-week migration from OpenAI. The system ingests large sets of real estate documents, including homeowners associations' agreements and property records, and uses large language models in Amazon Bedrock to extract critical details, flag obstacles, and identify counterparties such as municipalities, lenders, utilities, and homeowners associations. Rexera applies a multiple-model strategy with Meta's Llama and Anthropic's Claude in Bedrock to reduce hallucinations and bias while keeping operations stable inside its broader AWS environment. Retrieval-augmented generation supplies document-specific context, and downstream AI agents use the extracted facts to verify customer communications, run quality control across transactions, and place calls to confirm property information and request missing documents.",
+  "products_used": [
+    "Amazon Bedrock",
+    "Meta's Llama",
+    "Anthropic's Claude"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Hosts the generative AI workflows that process closing documents, extract details, and coordinate model use in production.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Meta's Llama",
+      "role": "Serves as one of the foundation model options Rexera selects in Amazon Bedrock for document-processing tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Anthropic's Claude",
+      "role": "Serves as one of the foundation model options Rexera selects in Amazon Bedrock for document-processing tasks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Rexera ingests real estate documents such as homeowners associations' agreements and property records, sends them through Amazon Bedrock with retrieval-augmented context, and uses the extracted facts in downstream AI agents that verify communications, flag transaction issues, and request missing information from counterparties.",
+  "integration_points": [
+    "homeowners associations' agreements",
+    "property records",
+    "customer communications",
+    "municipalities",
+    "homeowners associations",
+    "lenders",
+    "utility companies"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Rexera processes 5 million pages of real estate documents each month, reduces manual document-processing workloads by 99 percent, saves customers 4 hours of review time per transaction, lowers operational costs by 25 percent, and uses greater than 95 percent accuracy to scale over 5,000 transactions each month.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "5 million pages of real estate documents",
+    "over 5,000 transactions each month",
+    "1 percent of all US residential real estate transactions",
+    "up to 70% percent",
+    "99 percent",
+    "4 hours",
+    "25 percent",
+    "more than 95 percent",
+    "80 percent"
+  ],
+  "architecture_clues": [
+    "Rexera completed a 2-week proof of concept and a 2-week migration to Amazon Bedrock in the second quarter of 2024.",
+    "The implementation uses a multiple-model approach in Amazon Bedrock to reduce biases and hallucinations.",
+    "Retrieval-augmented generation uses homeowners associations' agreements and property records as context.",
+    "AI agents verify customer communications, run transaction quality control, and call counterparties to confirm property information."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/bedrock-rexera/",
+  "published_date": "2024-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using AWS, Rexera processes 5 million pages of real estate documents and facilitates over 5,000 transactions each month, and the first workflow that Rexera developed is now used in 1 percent of all US residential real estate transactions.",
+    "After a 2-week proof of concept and a 2-week migration, Rexera moved fully into production on Amazon Bedrock in the second quarter of 2024.",
+    "Thus, the company reduces manual document-processing workloads for customers by 99 percent and minimizes document-related risks and inaccuracies.",
+    "On average, Rexera’s solution saves customers 4 hours on manual document review in each transaction and lowers operational costs by 25 percent.",
+    "With a multiple-model approach, we have an accuracy rate of more than 95 percent and need less human intervention in straightforward cases.",
+    "This tool reduces manual review time by 80 percent and significantly lowers the risk of missing critical information."
+  ]
+}

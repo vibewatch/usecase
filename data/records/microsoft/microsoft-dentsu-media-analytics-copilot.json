@@ -1,0 +1,96 @@
+{
+  "id": "microsoft-dentsu-media-analytics-copilot",
+  "slug": "microsoft-dentsu-media-analytics-copilot",
+  "vendor": "Microsoft",
+  "customer_name": "Dentsu",
+  "industry": "Media and Entertainment",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "Dentsu needed to turn slow, specialist-driven media analytics into faster self-service insights because complex metrics, multiple systems, and weeks-long turnaround times were putting campaign speed and client satisfaction at risk.",
+  "solution_summary": "Dentsu built a predictive analytics copilot on the Microsoft Azure AI platform to turn complex media-planning analysis into a conversational, self-service workflow. The application sits inside Dentsu's existing business suite as a loosely coupled microservice and uses multiple autonomous generative AI agents that collaborate through API-based integration and GraphQL. Media metrics, modeled client data, best practices, and forecasting logic flow through Azure AI Foundry, Azure OpenAI Service, and Azure Machine Learning, while Azure Kubernetes Service (AKS) runs the front end and connects it to an Azure AI hub that hosts prompt flow as the app's third tier. The team assembled agent logic as Python-based DAG flows and used Azure API Management for generative AI logging and monitoring. The result is a governed GenAIOps-ready architecture that preserves Dentsu's shared governance model while moving from proof of concept to production in under 12 weeks.",
+  "products_used": [
+    "Azure AI Foundry",
+    "Azure OpenAI Service",
+    "Azure Machine Learning",
+    "Azure Kubernetes Service (AKS)",
+    "Azure API Management"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure AI Foundry",
+      "role": "Orchestrates the copilot's prompt flows, agent workflows, and Azure AI hub integration for media-planning analysis.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure OpenAI Service",
+      "role": "Drives the chat capability that turns natural-language questions into media-planning insights.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Machine Learning",
+      "role": "Supports the predictive analytics and model operations needed for the copilot's forecasting and optimization logic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Kubernetes Service (AKS)",
+      "role": "Runs the front-end application tier and connects it to the Azure AI hub and prompt flow services.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure API Management",
+      "role": "Provides logging and monitoring for generative AI requests to help enforce responsible AI operations.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "User questions from Dentsu's business applications enter the AKS-hosted front end, flow through Azure AI Foundry prompt flows and collaborating agents, draw on media metrics, modeled client data, and best practices through Azure OpenAI Service and Azure Machine Learning, and return governed insights with Azure API Management capturing logging and monitoring.",
+  "integration_points": [
+    "Dentsu suite of business apps",
+    "multiple systems",
+    "modeled client data",
+    "media metrics",
+    "GraphQL APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Dentsu moved from weeks-long analysis cycles to a conversational copilot that cuts analysis time by 80 percent, reduces overall time to insight by 90 percent, lowers analysis costs, and helps planners and clients optimize media plans faster with more confidence and broader self-service access.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "under 12 weeks",
+    "80%",
+    "90%",
+    "weeks",
+    "minutes",
+    "zero downtime",
+    "10,000+ employees"
+  ],
+  "architecture_clues": [
+    "The application uses loosely coupled microservices and multiple autonomous generative AI agents.",
+    "Agents collaborate using API-based integration and the GraphQL protocol.",
+    "Prompt flow runs as a third tier in front of Dentsu's existing application architecture with Python-based DAG flows.",
+    "Azure API Management supports generative AI logging and monitoring, and the rollout used a blue/green deployment model with zero downtime."
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/19582-dentsu-azure-kubernetes-service",
+  "published_date": "2024-11-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The application architecture consists of loosely coupled microservices and multiple generative AI agents that act autonomously but can collaborate using API-based integration and the GraphQL protocol.",
+    "After assessing its options for an AI platform, Dentsu chose the Microsoft Azure AI platform, including Azure OpenAI Service and Azure Machine Learning.",
+    "With that support, the Dentsu team developed the copilot in under 12 weeks.",
+    "We had our existing app architecture in front of prompt flow, and we ran everything on Azure Kubernetes Service (AKS) at the front end and connected that with our Azure AI hub in AI Foundry to provide prompt flow as a third tier for the app.",
+    "A custom implementation of Azure API Management supports generative AI logging and monitoring to help ensure responsible AI.",
+    "It slashes analysis time by 80% and overall time to insight by 90%, reducing analysis costs."
+  ]
+}

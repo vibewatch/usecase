@@ -1,0 +1,110 @@
+{
+  "id": "microsoft-trusting-social-banking-ai-agents",
+  "slug": "microsoft-trusting-social-banking-ai-agents",
+  "vendor": "Microsoft",
+  "customer_name": "Trusting Social",
+  "industry": "Financial Services",
+  "region": "Vietnam",
+  "company_size": "Mid-market",
+  "business_problem": "Trusting Social wanted to deliver personalized banking and financial inclusion at mass-market scale, but it needed a cross-border AI platform that could integrate its data foundation, support autonomous agents, and satisfy strict banking-sector security and regulatory requirements.",
+  "solution_summary": "Trusting Social built Agent Foundry on Azure to extend its long-running data science platform into a generative AI environment for personalized banking. The implementation starts with a data foundation that integrates Azure Kubernetes Services, Azure Database for PostgreSQL, Azure Databricks, and Azure Synapse Analytics so operational data and warehouse insights can feed new applications quickly. On top of that stack, Azure Machine Learning and Azure OpenAI Service are used to build and train autonomous agents with Trusting Social's own models alongside models available on the Azure AI platform. The first agent, ALICE, uses this architecture to support onboarding, answer banking questions, and handle conversational cross-sales. Security is built in through strict data governance, Microsoft Sentinel for central logging, and WAF plus IDS/IPS controls for public-facing traffic, allowing the platform to satisfy bank-specific security settings without third-party add-ons.",
+  "products_used": [
+    "Azure Kubernetes Services",
+    "Azure Database for PostgreSQL",
+    "Azure Databricks",
+    "Azure Synapse Analytics",
+    "Azure Machine Learning",
+    "Azure OpenAI Service",
+    "Microsoft Sentinel"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure Kubernetes Services",
+      "role": "Provides the application layer that Trusting Social integrated into its data foundation so new AI solutions can be developed and deployed quickly.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure Database for PostgreSQL",
+      "role": "Stores application data that participates in the bank-facing generative AI platform and related digital journeys.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure Databricks",
+      "role": "Processes and prepares platform data so Trusting Social can build and scale AI-driven banking solutions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Synapse Analytics",
+      "role": "Moves insights rapidly into the company's data warehouse for downstream banking and analytics use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure Machine Learning",
+      "role": "Builds and trains the autonomous banking agents with Trusting Social's own models and workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure OpenAI Service",
+      "role": "Supplies the generative AI capability used to power conversational agents such as ALICE.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Sentinel",
+      "role": "Provides secure central logging to support security monitoring and governance in financial-sector deployments.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Trusting Social feeds operational and customer data through a foundation built on Azure Kubernetes Services, PostgreSQL, Azure Databricks, and Azure Synapse Analytics; Azure Machine Learning and Azure OpenAI Service then train and run autonomous agents such as ALICE, while Microsoft Sentinel and perimeter controls monitor public-facing interactions.",
+  "integration_points": [
+    "credit insights using alt-data",
+    "eKYC workflows",
+    "banking client systems",
+    "public-facing internet interactions",
+    "office applications"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "Trusting Social launched ALICE and its broader Agent Foundry platform to support personalized banking, helping one client lift credit card conversion rates by 10 percent, increase customer satisfaction by 42 percent, and raise spending among engaged customers by 10 percent while creating a secure foundation to scale AI agents across more than 130 financial institutions.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "over 130 financial institutions",
+    "over 1 billion subscribers",
+    "six months",
+    "10% increase in conversion rates",
+    "42%",
+    "10% increase in spending",
+    "50-999 employees"
+  ],
+  "architecture_clues": [
+    "The data foundation integrates Azure Kubernetes Services, Azure Database for PostgreSQL, Azure Databricks, and Azure Synapse Analytics.",
+    "Trusting Social set up strict data governance protocols plus WAF and IDS/IPS controls for public-facing interactions.",
+    "Agent Foundry is a generative AI platform with multiple autonomous AI-driven agents.",
+    "The company avoided third-party security tools by relying on Azure-native services and controls."
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/1751482919190212988-trustingsocial-azure-banking-and-capital-markets-en-vietnam",
+  "published_date": "2024-03-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "It enables banks to lend to the underserved, working with over 130 financial institutions across Asia.",
+    "Today, we serve over 1 billion subscribers across Asia.",
+    "The first step was laying the data foundation. Trusting Social integrated its data platform with Azure Kubernetes Services, Azure Database for PostgreSQL, and Azure Databricks to quickly start developing and deploying solutions.",
+    "Azure Synapse Analytics helps bring insights across to the company’s data warehouse rapidly.",
+    "With Azure Machine Learning and Azure OpenAI Service, we’re able to build and train these generative AI agents with our own models and those available on the Azure AI platform to meet the specific needs of organizations.",
+    "Since deploying ALICE, one of our clients has seen a 10% increase in conversion rates in its credit card business.",
+    "With ALICE, there has been an increase in customer satisfaction (CSAT) by 42% and a 10% increase in spending for engaged customers."
+  ]
+}
