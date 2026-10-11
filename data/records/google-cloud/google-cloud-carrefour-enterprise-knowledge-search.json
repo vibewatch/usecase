@@ -1,0 +1,92 @@
+{
+  "id": "google-cloud-carrefour-enterprise-knowledge-search",
+  "slug": "google-cloud-carrefour-enterprise-knowledge-search",
+  "vendor": "Google Cloud",
+  "customer_name": "Carrefour",
+  "industry": "Retail",
+  "region": "France",
+  "company_size": "Enterprise",
+  "business_problem": "Maximum cost-efficiency with scale-to-zero: Hosting on Cloud Run ensures the infrastructure completely shuts down at night and on weekends, reducing operational costs to the absolute minimum",
+  "solution_summary": "Integration effort is the true heart of the project: The most complex development did not focus on prompt engineering, but on creating a robust, asynchronous middleware (FastAPI and Cloud Run ) capable of preventing Google Chat API timeouts State management with Agent Platform sessions: Integrating this component is essential to preserve conversational context during complex, multi-turn SQL troubleshooting queries Total observability through BQAA (BigQuery Agent Analytics) : Streaming agent events to BigQuery allows the team to monitor performance, analyze user behavior, and control API costs in real-time Maximum cost-efficiency with scale-to-zero: Hosting on Cloud Run ensures the infrastructure completely shuts down at night and on weekends, reducing operational costs to the absolute minimum",
+  "products_used": [
+    "Agent Development Kit (ADK)",
+    "Agent Platform",
+    "BigQuery Managed Context Protocol (MCP) server",
+    "BigQuery Agent Analytics (BQAA)",
+    "BigQuery",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Agent Development Kit (ADK)",
+      "role": "Coordinates multi-agent workflows, tool calling, and governed automation across the application.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Agent Platform",
+      "role": "Coordinates multi-agent workflows, tool calling, and governed automation across the application.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery Managed Context Protocol (MCP) server",
+      "role": "Supports a core part of the deployed AI and data workflow described in the customer story.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BigQuery Agent Analytics (BQAA)",
+      "role": "Supports a core part of the deployed AI and data workflow described in the customer story.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Serves as the governed analytics and storage layer for high-volume operational data, features, and reporting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs serverless application services and APIs with automatic scaling for bursty workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "With a multi-format network of more than 15,000 stores in more than 40 countries, the Carrefour Group is one of the world leaders in food commerce.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Total observability through BQAA (BigQuery Agent Analytics) : Streaming agent events to BigQuery allows the team to monitor performance, analyze user behavior, and control API costs in real-time",
+    "Maximum cost-efficiency with scale-to-zero: Hosting on Cloud Run ensures the infrastructure completely shuts down at night and on weekends, reducing operational costs to the absolute minimum",
+    "Carrefour transformed internal support by deploying a serverless, RAG-based AI assistant in Google Chat, reducing resolution times from hours to under two minutes while resolving 75% of queries.",
+    "How do you scale platform support for thousands of internal data users without burning out your engineering team?",
+    "in just a single weekend, and this architecture has successfully reduced support resolution times from several hours down to under two minutes.",
+    "This serverless model is particularly efficient because it scales completely to zero during inactive hours, eliminating idle compute costs."
+  ],
+  "architecture_clues": [
+    "Integration effort is the true heart of the project: The most complex development did not focus on prompt engineering, but on creating a robust, asynchronous middleware (FastAPI and Cloud Run ) capable of preventing Google Chat API timeouts",
+    "Carrefour transformed internal support by deploying a serverless, RAG-based AI assistant in Google Chat, reducing resolution times from hours to under two minutes while resolving 75% of queries.",
+    "Scaling platform support for thousands of internal data users without burning out your engineering team is a massive challenge.",
+    "To ensure rapid deployment, high observability, and strict cost control, the team leveraged a vertically integrated, serverless Google Cloud stack."
+  ],
+  "source_url": "https://cloud.google.com/customers/carrefour-tech",
+  "published_date": "2026-08-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "State management with Agent Platform sessions: Integrating this component is essential to preserve conversational context during complex, multi-turn SQL troubleshooting queries",
+    "To ensure rapid deployment, high observability, and strict cost control, the team leveraged a vertically integrated, serverless Google Cloud stack. At the center of orchestration is the Google Cloud ADK, which coordinate",
+    "The analytical brain is powered by Gemini 2.5 Pro, selected for its advanced reasoning capabilities and European regional availability. For the retrieval pipeline, Agent Platform Search (Discovery Engine) indexes interna",
+    "The entire setup is hosted on Cloud Run, which runs both the middleware and the ADK code. This serverless model is particularly efficient because it scales completely to zero during inactive hours, eliminating idle compu",
+    "The middleware receives the HTTP POST webhook from the Google Chat API and immediately returns a 200 OK status to the platform. Simultaneously, it triggers a background worker task using FastAPI's BackgroundTasks utility"
+  ]
+}
