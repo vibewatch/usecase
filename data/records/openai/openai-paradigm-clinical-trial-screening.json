@@ -1,0 +1,69 @@
+{
+  "id": "openai-paradigm-clinical-trial-screening",
+  "slug": "openai-paradigm-clinical-trial-screening",
+  "vendor": "OpenAI",
+  "customer_name": "Paradigm",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Paradigm needed to extract and interpret complex medical-record information for clinical-trial enrollment faster and more accurately so providers could match patients to trials without overwhelming clinicians with manual review.",
+  "solution_summary": "Paradigm replaced a slow patchwork of specialized healthcare ML and NLP models with GPT-4 delivered through the OpenAI API to analyze clinical-trial data and patient records. Instead of building, training, and validating a separate model for every data element, the company now uses GPT-4’s long context and multimodal capabilities to summarize unstructured medical text, identify relevant clinical details, and match patients against trial criteria. The system was evaluated on expert-curated golden datasets and outperformed state-of-the-art domain models by at least 10% on a blended precision/recall metric, with especially strong gains on complex information spread across multiple documents. Because the resulting output requires far less validation data and less manual checking from clinicians, Paradigm can expand faster to new providers and trials while moving toward interactive patient-eligibility conversations that further reduce burden on nurses and doctors.",
+  "products_used": [
+    "OpenAI API",
+    "GPT-4"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI API",
+      "role": "Provides the integration layer through which Paradigm processes medical records and trial data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Extracts, interprets, and reasons over unstructured clinical data for trial matching and screening.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Medical records, notes, and trial documents are passed through the OpenAI API to GPT-4, which extracts structured facts and eligibility signals from unstructured content. Paradigm then validates outputs against expert-curated datasets and uses the resulting matches to support clinicians and provider partners in enrollment workflows.",
+  "integration_points": [
+    "Medical records",
+    "Expert-curated golden datasets",
+    "Provider-partner workflows",
+    "Clinical trial databases"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Paradigm accelerated its product roadmap, reduced clinician validation effort, improved extraction accuracy, and created a path to more equitable access to life-saving clinical trials for underserved patients.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "At least 10% more accurate than state-of-the-art ML models on a blended precision/recall metric",
+    "90% reduction in expert clinician time needed for model validation",
+    "Potentially evaluates hundreds of patients per minute versus roughly 50 patients per day for a typical nurse research coordinator"
+  ],
+  "architecture_clues": [
+    "Previous approach required a separate ML model for every data element",
+    "Paradigm selected OpenAI in part for multimodal entry, long context windows, and HIPAA-oriented compliance support",
+    "Clinicians can eventually have a dialogue with ChatGPT about patient eligibility and missing information",
+    "GPT-4 performs especially well when information is spread across many unstructured documents"
+  ],
+  "source_url": "https://openai.com/index/paradigm/",
+  "published_date": "2024-03-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"GPT‑4 was at least 10% more accurate than state-of-the-art ML models\"",
+    "\"Paradigm estimates that they only need 1/10th of the data to evaluate GPT‑4’s output\"",
+    "\"With GPT‑4, their platform can potentially evaluate hundreds of patients per minute\"",
+    "\"supporting our need to comply with HIPAA\""
+  ]
+}

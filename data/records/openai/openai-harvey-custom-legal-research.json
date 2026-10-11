@@ -1,0 +1,71 @@
+{
+  "id": "openai-harvey-custom-legal-research",
+  "slug": "openai-harvey-custom-legal-research",
+  "vendor": "OpenAI",
+  "customer_name": "Harvey",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Harvey needed a legal AI system that could reason over vast case-law and contract corpora with higher accuracy and fewer hallucinations than generic fine-tuning or basic retrieval could provide for professional legal work.",
+  "solution_summary": "Harvey partnered with OpenAI to build a custom-trained model for legal professionals after finding that standard fine-tuning and retrieval-augmented generation could not reliably handle open-ended case-law research. The company combined its secure professional-services platform with a custom case-law model that injects large volumes of legal knowledge and domain-specific reasoning into the base model, first with Delaware case law and then across all U.S. case law. Harvey added the equivalent of 10 billion tokens of data and evaluated the system side by side against GPT-4 with attorneys from 10 major law firms. The resulting workflow helps lawyers ask complex research questions, draft documents, compare large contract sets, and receive longer answers grounded in citations, while Harvey continues exploring agent patterns that combine multiple model calls into more complete legal work products.",
+  "products_used": [
+    "Harvey platform",
+    "Custom-trained case law model"
+  ],
+  "solution_components": [
+    {
+      "name": "Harvey platform",
+      "role": "Provides the secure workspace where legal, tax, and finance professionals run research, drafting, and review workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Custom-trained case law model",
+      "role": "Supplies domain-specific legal reasoning and cited answers built from large U.S. case-law corpora.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Lawyer questions and document-review tasks enter the Harvey platform, where the custom-trained case law model reasons over the added legal corpus and returns answers with supporting citations. Side-by-side evaluations and attorney feedback then inform further tuning of the model and future agent workflows.",
+  "integration_points": [
+    "U.S. case law corpus",
+    "Law-firm evaluation workflows",
+    "Contracts",
+    "Litigation email review"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Harvey improved legal-research quality and citation grounding, won strong attorney preference over baseline GPT-4 output, and created a foundation for broader drafting, contract analysis, and agent-assisted professional-services workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "97% of the time, lawyers preferred the output from the case law model",
+    "10 billion tokens worth of data added to power the custom-trained case law model",
+    "86 out of 100 generated legal-advice answers were acceptable to attorneys without editing",
+    "Revenue increased over 10x in 2023"
+  ],
+  "architecture_clues": [
+    "Harvey first trained on Delaware case law before expanding to all U.S. case law",
+    "Team compared custom-model output against GPT-4 with attorneys from 10 large law firms",
+    "Every sentence in case law answers is described as being supported with the cited case",
+    "Harvey is exploring agents that combine multiple model calls into a single output"
+  ],
+  "source_url": "https://openai.com/index/harvey/",
+  "published_date": "2024-03-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Harvey partnered with OpenAI to create a custom-trained case law model.\"",
+    "\"They added the equivalent of 10 billion tokens worth of data to power the custom-trained case law model.\"",
+    "\"97% of the time, the lawyers preferred the output from the case law model\"",
+    "\"Not only does the case law model not make up cases, but every sentence is actually supported with the case it’s citing\""
+  ]
+}

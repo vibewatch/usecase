@@ -1,0 +1,83 @@
+{
+  "id": "openai-genspark-no-code-personal-agents",
+  "slug": "openai-genspark-no-code-personal-agents",
+  "vendor": "OpenAI",
+  "customer_name": "Genspark",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Users wanted outcomes, not just search results, and Genspark needed a no-code way to automate complex multimodal tasks such as calls, presentations, videos, and report generation through simple prompts.",
+  "solution_summary": "Genspark pivoted from AI search into agentic execution by launching Super Agent, a no-code assistant that can make phone calls, assemble decks, create videos, and automate other real-world tasks. Under the hood, the platform orchestrates nine specialized language models and more than 80 tools, with OpenAI models at the center. GPT-4.1 handles research and structured outputs across very long contexts, GPT-image-1 generates visuals, and the OpenAI Realtime API powers Call For Me, a voice experience that can conduct live conversations with people. A dual-layer voice architecture combines the Realtime API for live dialogue with a shadow model that monitors and guides the interaction through queues, allowing the system to handle ambiguity, hold music, and real-time back-and-forth. Users never see that complexity; they simply request an outcome in natural language and the agent executes the workflow. This architecture, plus close collaboration with OpenAI’s startup team, let a 20-person company scale to remarkable ARR without paid marketing.",
+  "products_used": [
+    "Super Agent",
+    "GPT-4.1",
+    "GPT-image-1",
+    "OpenAI Realtime API"
+  ],
+  "solution_components": [
+    {
+      "name": "Super Agent",
+      "role": "Provides the no-code interface that turns simple prompts into executed multimodal workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Handles research and structured long-context outputs in the Super Agent workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-image-1",
+      "role": "Generates visuals and cover images for decks, videos, and other outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI Realtime API",
+      "role": "Drives live speech-to-speech phone conversations for Call For Me.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "A user prompt enters Super Agent, which routes research, document generation, image creation, or phone calls to the appropriate OpenAI-backed components. For voice calls, the Realtime API manages live dialogue while a shadow model monitors and guides the interaction before the final artifact or completed task is returned to the user.",
+  "integration_points": [
+    "More than 80 integrated tools",
+    "Phone-call workflows",
+    "Slide decks",
+    "Video generation",
+    "OpenAI startup solutions-architect support"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Genspark turned a search product into a viral no-code agent platform, shipped features rapidly with a tiny team, and proved strong demand for outcome-driven multimodal automation rather than purely informational AI experiences.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "$36M ARR in just 45 days",
+    "20-person team",
+    "Eight major agent features shipped in 70 days"
+  ],
+  "architecture_clues": [
+    "Platform orchestrates nine specialized language models and more than 80 tools",
+    "Realtime voice is paired with a shadow model via message queue",
+    "Strict JSON output and prompt caching help downstream tools and cost control",
+    "Growth was entirely organic with no paid advertising"
+  ],
+  "source_url": "https://openai.com/index/genspark/",
+  "published_date": "2025-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Super Agent uses OpenAI multimodal models and Realtime API to enable tasks across text, image, and voice\"",
+    "\"a fully autonomous, no-code assistant that can make phone calls, design slides, generate videos, and more\"",
+    "\"Grown to $36M ARR in just 45 days\"",
+    "\"The OpenAI API design helped us move quickly, shipping, debugging, and scaling without bottlenecks.\""
+  ]
+}

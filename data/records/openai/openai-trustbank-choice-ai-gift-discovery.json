@@ -1,0 +1,84 @@
+{
+  "id": "openai-trustbank-choice-ai-gift-discovery",
+  "slug": "openai-trustbank-choice-ai-gift-discovery",
+  "vendor": "OpenAI",
+  "customer_name": "TRUSTBANK",
+  "industry": "Financial Services",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Enterprise",
+  "business_problem": "Furusato Nozei donors struggled to navigate a huge catalog of thank-you gifts and municipalities, so TRUSTBANK needed a more personalized way to guide discovery without requiring users to understand a complex tax-donation marketplace.",
+  "solution_summary": "TRUSTBANK partnered with Recursive to build Choice AI for the Furusato Choice app using OpenAI models. The team started by bringing AI-powered search into a marketplace of roughly 760,000 thank-you gifts, then expanded the experience into a multi-agent conversational recommender that can tailor guidance based on user intent, prior status, and vague requests such as shopping for a parent. A routing model analyzes the query and delegates work to specialized agents such as Search Agent, Recommendation Agent, and Greeting Agent, each of which can call additional subagents and tools. Recursive built the RAG system and agent infrastructure while TRUSTBANK prepared the gift database, requirements, and app integration. GPT-4.1 mini is the default runtime, with model switching experiments for latency and accuracy, and controlled randomness is used to prevent over-concentration on the same municipalities or popular items so more regions and niche products can be discovered.",
+  "products_used": [
+    "Choice AI",
+    "Search Agent",
+    "Recommendation Agent",
+    "Greeting Agent",
+    "GPT-4.1 mini"
+  ],
+  "solution_components": [
+    {
+      "name": "Choice AI",
+      "role": "Provides the conversational gift-discovery experience inside the Furusato Choice app.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Search Agent",
+      "role": "Finds relevant thank-you gifts from the large marketplace catalog based on user intent.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Recommendation Agent",
+      "role": "Personalizes which gifts and municipalities to surface for each user.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Greeting Agent",
+      "role": "Handles initial interaction flows and user engagement within the multi-agent system.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4.1 mini",
+      "role": "Powers the default reasoning path for Choice AI while other model sizes are tested dynamically.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User questions enter Choice AI, where a routing model determines intent and invokes search, recommendation, greeting, or supporting agents. Those agents retrieve items from the gift database and use prompting logic plus controlled randomness to personalize and diversify suggestions before results are shown in the app.",
+  "integration_points": [
+    "Furusato Choice app",
+    "Gift database",
+    "Recursive-built RAG system"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "TRUSTBANK simplified gift discovery, helped users navigate a complex donation marketplace more naturally, and increased exposure for a broader range of municipalities and products instead of concentrating only on the most popular items.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "Roughly 760,000 thank-you gifts listed on Furusato Choice"
+  ],
+  "architecture_clues": [
+    "Recursive designed and implemented the conversational AI agent and RAG system",
+    "Routing model delegates to specialized agents and subagents",
+    "User paths differ dynamically for first-time users versus existing users",
+    "Controlled randomness is introduced to diversify municipalities and products shown"
+  ],
+  "source_url": "https://openai.com/index/trustbank/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Using the OpenAI API, the company developed the Choice AI feature\"",
+    "\"The core of Choice AI is its multiagent architecture.\"",
+    "\"Choice AI currently runs on the GPT‑4.1 series.\"",
+    "\"Furusato Choice ... with roughly 760,000 thank-you gifts listed.\""
+  ]
+}

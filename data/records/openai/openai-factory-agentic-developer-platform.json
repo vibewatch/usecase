@@ -1,0 +1,88 @@
+{
+  "id": "openai-factory-agentic-developer-platform",
+  "slug": "openai-factory-agentic-developer-platform",
+  "vendor": "OpenAI",
+  "customer_name": "Factory",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Developers were losing time to fragmented knowledge, manual planning, and context switching across tools instead of spending that time on high-leverage engineering work.",
+  "solution_summary": "Factory built an AI-native command center for software development by embedding OpenAI reasoning models into each phase of the engineering lifecycle. The platform uses o3-mini for codebase exploration and documentation lookup where speed matters, OpenAI o1 for architectural planning and system-level reasoning, and GPT-4o for code generation, editing, and review with lower-latency predicted outputs. Around those models, Factory’s context-first architecture retrieves information from codebases, documentation, and issue-tracking systems so developers can plan, understand dependencies, and act without switching across tools. The company is also experimenting with reinforcement fine-tuning o3-mini for code reranking and lightweight guidance injection to improve compliance. Its long-term direction is to connect reasoning models to source control, project management, team communication, monitoring, and delivery systems so AI can proactively plan, execute, and refine engineering work.",
+  "products_used": [
+    "Factory Platform",
+    "o3-mini",
+    "OpenAI o1",
+    "GPT-4o"
+  ],
+  "solution_components": [
+    {
+      "name": "Factory Platform",
+      "role": "Serves as the unified engineering environment that combines retrieval, planning, coding, and workflow context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "o3-mini",
+      "role": "Handles fast exploration, documentation search, and code-understanding tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI o1",
+      "role": "Provides deeper reasoning for architecture decisions and system-level planning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Supports code generation, editing, and reviews with low-latency assistance.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Codebase content, documentation, issue-tracker context, and developer tasks are pulled into the Factory Platform. The platform routes exploration to o3-mini, planning to o1, and execution to GPT-4o, then returns code, insights, and workflow actions in one environment instead of multiple disconnected tools.",
+  "integration_points": [
+    "Codebases",
+    "Documentation",
+    "Issue tracking systems",
+    "Source control",
+    "Project management",
+    "Team communication",
+    "Error monitoring",
+    "Continuous delivery pipelines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Factory accelerated feature delivery, cut context switching, increased developer throughput, and created a foundation for more autonomous engineering workflows that can reason over both code and process context.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "2–4x faster feature development cycles",
+    "60% reduction in context switching time",
+    "10+ additional hours per week per developer",
+    "o3‑mini is 10x quicker than larger models for exploration tasks",
+    "Predicted outputs reduce latency by 50% for real-time coding assistance"
+  ],
+  "architecture_clues": [
+    "Model routing is aligned to exploration, prioritization, planning, and execution stages",
+    "Factory uses a context-first architecture that dynamically pulls insights from codebases, documentation, and issue trackers",
+    "Company is experimenting with reinforcement fine-tuning o3-mini for code reranking",
+    "Future state connects reasoning models directly to delivery and collaboration systems"
+  ],
+  "source_url": "https://openai.com/index/factory/",
+  "published_date": "2025-02-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"With OpenAI o1, o3‑mini, and GPT‑4o embedded directly into the Platform’s workflows\"",
+    "\"2–4x faster feature development cycles\"",
+    "\"Factory’s context-first architecture dynamically pulls insights from codebases, documentation, and issue tracking systems\"",
+    "\"they’re building AI systems that can proactively plan, execute, and refine engineering tasks\""
+  ]
+}

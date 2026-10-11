@@ -1,0 +1,84 @@
+{
+  "id": "openai-ly-corporation-ai-knowledge-search",
+  "slug": "openai-ly-corporation-ai-knowledge-search",
+  "vendor": "OpenAI",
+  "customer_name": "LY Corporation",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "LY Corporation needed to modernize flagship consumer platforms and internal operations with AI while safely handling large volumes of user and enterprise information and maintaining trust in user-facing experiences.",
+  "solution_summary": "LY Corporation built a shared OpenAI-powered foundation for both employee productivity and consumer-facing product features. Internally, the company rolled out SeekAI, an in-house tool built on the OpenAI API that uses retrieval-augmented generation over internal workspaces and documentation databases to answer employee questions quickly and reduce verification work across departments. Externally, LY uses GPT-4o in the LINE AI Assistant so users can access conversational help inside the messaging app they already use every day, and it added GPT-4 and GPT-4o features to Yahoo! JAPAN Search to summarize reviews and generate travel plans. The rollout was wrapped in governance, ethics, and employee-education controls, including zero-data-retention guarantees and clear rules around model inputs and outputs, enabling 32 production use cases by late 2024.",
+  "products_used": [
+    "OpenAI API",
+    "SeekAI",
+    "LINE AI Assistant",
+    "Yahoo! JAPAN Search AI features"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI API",
+      "role": "Provides the model interface underlying LY Corporation’s internal and consumer AI features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SeekAI",
+      "role": "Uses retrieval-augmented generation to answer employee questions against internal workspaces and documentation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LINE AI Assistant",
+      "role": "Delivers GPT-4o-powered conversational assistance inside LINE for consumer users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Yahoo! JAPAN Search AI features",
+      "role": "Summarize reviews and generate travel plans directly in Yahoo! JAPAN Search experiences.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Internal documents and workspace content are indexed for SeekAI, which retrieves and synthesizes answers for employees. On the consumer side, LINE and Yahoo! JAPAN user requests are routed through GPT-4-series models, and the resulting summaries or plans are refined with user feedback and LY’s product data.",
+  "integration_points": [
+    "Internal workspaces",
+    "In-house documentation databases",
+    "LINE app",
+    "Yahoo! JAPAN Search",
+    "User feedback"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "LY Corporation created 32 AI-driven use cases, cut hundreds of thousands of work hours through internal productivity gains, improved consumer search and assistant experiences, and projected material revenue and productivity upside from AI-powered features.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "32 AI-driven use cases as of December 2024",
+    "700,000–800,000 annual working hours reduced",
+    "Annual sales increases of ¥110B yen (roughly $715M USD)",
+    "Productivity improvements valued at ¥10B yen ($65M USD) annually"
+  ],
+  "architecture_clues": [
+    "SeekAI uses RAG over internal workspaces and documentation databases",
+    "Governance model emphasized ethics, employee education, and safe use of generative AI",
+    "OpenAI API rollout included zero data retention and no secondary use of employee input data",
+    "LY Corporation acts as a beta tester for OpenAI’s new products"
+  ],
+  "source_url": "https://openai.com/index/ly-corporation/",
+  "published_date": "2025-02-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"In July 2024, LY Corporation implemented a company-wide rollout of SeekAI, an in-house productivity tool developed on OpenAI’s API.\"",
+    "\"SeekAI leverages RAG to provide answers to employee inquiries by referencing internal workspaces and in-house documentation databases.\"",
+    "\"The LINE AI Assistant is an AI tool that feels like a friend. Powered by GPT‑4o in text interactions\"",
+    "\"LY Corporation estimates a reduction of 700,000–800,000 annual working hours\""
+  ]
+}

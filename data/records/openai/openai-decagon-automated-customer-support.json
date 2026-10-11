@@ -1,0 +1,93 @@
+{
+  "id": "openai-decagon-automated-customer-support",
+  "slug": "openai-decagon-automated-customer-support",
+  "vendor": "OpenAI",
+  "customer_name": "Decagon",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Decagon needed to automate complex customer support conversations at high volume while keeping latency low, preserving nuanced responses, and adapting to each client’s business logic and workflows.",
+  "solution_summary": "Decagon built a configurable support-automation platform that combines multiple OpenAI models across the customer-service pipeline. Fine-tuned GPT-3.5 rewrites incoming customer queries before they enter retrieval-augmented generation workflows, while GPT-4 handles more complex decisions such as API-driven actions and intricate operations. The broader platform can also draw on GPT-4o, GPT-4 Turbo, and OpenAI o1-mini so each stage of the interaction uses the model best suited for its speed and reasoning needs. This model orchestration lets Decagon capture client-specific business logic, generate tailored software surfaces around each agent, and rapidly test new model releases through evaluations. Customers use the platform to run fast, mostly autonomous support operations at global scale, and Decagon can bring the core infrastructure online for a new customer in days while continuing to explore voice as the next automation frontier.",
+  "products_used": [
+    "Decagon platform",
+    "Fine-tuned GPT-3.5",
+    "GPT-4",
+    "GPT-4o",
+    "GPT-4 Turbo",
+    "OpenAI o1-mini"
+  ],
+  "solution_components": [
+    {
+      "name": "Decagon platform",
+      "role": "Orchestrates customer-service workflows, client business logic, evaluation, and integration across support channels.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Fine-tuned GPT-3.5",
+      "role": "Rewrites customer queries before they enter retrieval-augmented support workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Handles complex decision-making tasks and API-driven operations inside support flows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Supports additional response-generation and automation tasks within the support stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4 Turbo",
+      "role": "Provides alternate support for workloads requiring different performance tradeoffs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI o1-mini",
+      "role": "Extends the platform with additional reasoning capacity for agentic customer-support tasks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Incoming support questions are rewritten with fine-tuned GPT-3.5, passed through retrieval and business-logic workflows inside the Decagon platform, and then routed to GPT-4 or other OpenAI models for response generation or API actions. The resulting outputs are evaluated continuously and returned either directly to customers or used to expand automation coverage.",
+  "integration_points": [
+    "Client business logic",
+    "Retrieval-augmented generation workflows",
+    "APIs",
+    "Support conversations",
+    "Evaluation pipelines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Decagon enabled highly automated support for large clients, shortened onboarding for new deployments, and kept its platform current by quickly evaluating new OpenAI models for accuracy and efficiency gains.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "91% of global support handled without a human being involved for one of Decagon’s largest customers",
+    "Core infrastructure for new customers can be up and running in days"
+  ],
+  "architecture_clues": [
+    "Different OpenAI models are assigned to different stages of the interaction pipeline",
+    "GPT-3.5 is fine-tuned specifically for query rewriting before RAG",
+    "Decagon rapidly evaluates each new model release before integrating it",
+    "Voice support is the next planned frontier for the platform"
+  ],
+  "source_url": "https://openai.com/index/decagon/",
+  "published_date": "2024-09-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Decagon fine-tuned GPT‑3.5 to rewrite customer queries before they enter retrieval-augmented generation (RAG) workflows.\"",
+    "\"the company uses GPT‑4 for complex decision-making tasks\"",
+    "\"For one of our largest customers, we handle 91% of all their global support, without a human being involved\"",
+    "\"For new customers, our core infrastructure can be up and running in days\""
+  ]
+}

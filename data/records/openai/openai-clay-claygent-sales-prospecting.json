@@ -1,0 +1,83 @@
+{
+  "id": "openai-clay-claygent-sales-prospecting",
+  "slug": "openai-clay-claygent-sales-prospecting",
+  "vendor": "OpenAI",
+  "customer_name": "Clay",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Go-to-market teams needed a better way to centralize fragmented lead information, research companies, and personalize outreach without relying on brittle scrapers or labor-intensive SDR workflows.",
+  "solution_summary": "Clay built Claygent with GPT-4 to turn web research and sales-enrichment work into an agentic workflow. Instead of forcing teams to juggle multiple data providers and manual research tasks, Claygent visits websites, finds relevant information, summarizes it, and feeds those insights into outreach workflows much like a sales researcher would. To keep the system efficient, Clay uses GPT-4 to reason about where on a site the needed information is likely to appear before scraping, then narrows the search space with a binary-search pattern instead of sending entire sites through the model. The broader Clay platform also assigns different models to different tasks: smaller, cheaper models support tools like AI Formula Generator for plain-English data transformations, while GPT-4 Turbo is reserved for more complex workflows. Cross-verification against multiple data sources and models helps assess trustworthiness so small GTM teams and “Claygencies” can operate at agency scale with only one or two people.",
+  "products_used": [
+    "Claygent",
+    "GPT-4",
+    "AI Formula Generator",
+    "GPT-4 Turbo"
+  ],
+  "solution_components": [
+    {
+      "name": "Claygent",
+      "role": "Researches websites, extracts relevant company information, and summarizes it for outreach workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Reason about where to search and how to interpret website content for lead enrichment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Formula Generator",
+      "role": "Lets non-technical users transform data using plain-English instructions and examples.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4 Turbo",
+      "role": "Handles more complicated product tasks that need greater speed and intelligence.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Lead and website targets enter Claygent, which uses GPT-4 to decide what sections to scrape and how to summarize findings. Enriched data is then checked against other providers and models, and the results feed personalized outreach and GTM workflows inside the Clay platform.",
+  "integration_points": [
+    "Multiple data providers",
+    "Websites",
+    "Sales outreach workflows",
+    "Claygencies built on top of the platform"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Clay accelerated lead research and outreach, enabled tiny teams to perform like full agencies, and translated GPT-powered enrichment into rapid user and revenue growth.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "10x year-over-year growth for each of the past two years",
+    "Over 100 thousand users",
+    "30% of customers use Claygent daily",
+    "500,000 research and outreach tasks per day",
+    "Revenue grew 2.5x in the first five months of 2024"
+  ],
+  "architecture_clues": [
+    "Claygent asks GPT-4 where on a site the desired information is likely to live before scraping",
+    "Binary-search approach narrows the search space instead of sending whole websites to the model",
+    "Different models are selected per task for cost and performance optimization",
+    "Clay cross-verifies enriched data against multiple sources and models"
+  ],
+  "source_url": "https://openai.com/index/clay/",
+  "published_date": "2024-07-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Clay integrated with GPT‑4 to create Claygent, an AI agent that can research anything.\"",
+    "\"Claygent asks GPT‑4 which section of the website is most likely to contain the desired information\"",
+    "\"30% use Claygent daily, generating an impressive 500,000 research and outreach tasks per day\"",
+    "\"The company has achieved 10x year-over-year growth for each of the past two years\""
+  ]
+}

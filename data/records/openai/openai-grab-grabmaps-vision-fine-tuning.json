@@ -1,0 +1,72 @@
+{
+  "id": "openai-grab-grabmaps-vision-fine-tuning",
+  "slug": "openai-grab-grabmaps-vision-fine-tuning",
+  "vendor": "OpenAI",
+  "customer_name": "Grab",
+  "industry": "Logistics",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "Enterprise",
+  "business_problem": "Grab needed a more accurate and efficient way to map fast-changing Southeast Asian road networks, where manual intervention and conventional mapping coverage were insufficient for local traffic rules and complex geometries.",
+  "solution_summary": "Grab uses GPT-4o vision fine-tuning inside GrabMaps to automate detailed mapmaking from street-level imagery gathered across Southeast Asia. The company collects millions of 360-degree images through motorbike drivers and pedestrian partners, then combines that imagery with map tiles to train models that can localize speed-limit signs, turn restrictions, road geometries, lane dividers, and other hyperlocal features. An initial speed-limit-sign workflow improved from 67% to 80% accuracy after only two rounds of fine-tuning on 100 sample cases, and the same approach helped the model reason through elevated roads, occlusions, and context that had previously required manual correction. The resulting location-intelligence data supports Grab’s ride-hailing and delivery operations and is also packaged for enterprise customers, while related AI work is expanding into accessibility and support assistants for broader platform use.",
+  "products_used": [
+    "GrabMaps",
+    "GPT-4o"
+  ],
+  "solution_components": [
+    {
+      "name": "GrabMaps",
+      "role": "Transforms street-level imagery into localized mapping and location-intelligence data for Grab’s operations and enterprise customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Provides the vision fine-tuning and contextual reasoning used to detect road features and map complex geometries.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Street-level imagery from drivers and pedestrian partners is combined with map tiles and sent through GPT-4o fine-tuned vision workflows. The resulting sign, lane, and road-geometry annotations feed GrabMaps, which then supports internal mobility services and external enterprise location-intelligence offerings.",
+  "integration_points": [
+    "Street-level imagery",
+    "Map tiles",
+    "Driver-partner cameras",
+    "Enterprise location-intelligence customers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Grab improved lane and sign localization accuracy, reduced manual mapping work and operational costs, and created a more trustworthy, hyperlocal map platform that better serves users, driver-partners, and enterprise customers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "42 million monthly users across eight countries",
+    "6 million driver-partners registered on the platform",
+    "3.5 billion annual transactions in 2023",
+    "Speed-limit localization improved from 67% to 80% accuracy",
+    "Lane count accuracy increased by 20%",
+    "Speed limit sign localization improved by 13%"
+  ],
+  "architecture_clues": [
+    "Fine-tuning used only 100 sample cases in the initial speed-limit workflow",
+    "Model cross-references street imagery with map tiles to make context-aware decisions",
+    "System handles elevated roads and occlusions that previously required manual intervention",
+    "Grab is extending AI into multilingual voice assistance and advanced support chatbots"
+  ],
+  "source_url": "https://openai.com/index/grab/",
+  "published_date": "2024-10-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"GPT‑4o vision fine-tuning enables the service to correctly localize traffic signs and count lane dividers\"",
+    "\"Starting with a baseline accuracy of 67%, the model improved to 80% after two rounds of fine-tuning\"",
+    "\"Lane count accuracy increased by 20%\"",
+    "\"Speed limit sign localization improved by 13%\""
+  ]
+}

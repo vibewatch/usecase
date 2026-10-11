@@ -1,0 +1,90 @@
+{
+  "id": "openai-rox-agentic-sales-platform",
+  "slug": "openai-rox-agentic-sales-platform",
+  "vendor": "OpenAI",
+  "customer_name": "Rox",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Revenue teams needed a way to unify fragmented customer data, automate repetitive sales work, and personalize outreach without relying on disconnected tools or generic chat interfaces that did not match seller workflows.",
+  "solution_summary": "Rox built an end-to-end revenue platform around OpenAI models so sellers can work from a shared data, workflow, and agent layer instead of juggling point tools. The data layer uses smaller models such as GPT-4o mini to clean and structure fragmented warehouse data for retrieval. On top of that, mid-tier reasoning models prioritize actions and collaborate with reps, while GPT-4o and the OpenAI Realtime API power the interaction layer that drafts emails, manages LinkedIn outreach, and prepares voice-enabled meeting briefs. At the center is the Rox Agent Swarm, a set of always-on account agents that monitor signals when reps are offline and surface recommendations when they return. Rox iterated from an open-ended chat concept to a configurable workflow platform shaped by customers such as Ramp, Couchbase, and Confluent, allowing top-seller practices to be encoded and reused across teams.",
+  "products_used": [
+    "OpenAI API",
+    "GPT-4o mini",
+    "GPT-4o",
+    "OpenAI Realtime API",
+    "Rox Agent Swarm"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI API",
+      "role": "Provides the flexible model interface Rox uses across data processing, reasoning, and outreach workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Unifies fragmented data from warehouses into structured, retrievable records for revenue workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Generates sales emails, outreach, and other higher-complexity seller interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI Realtime API",
+      "role": "Powers voice-enabled meeting briefs and multimodal interaction features for sellers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Rox Agent Swarm",
+      "role": "Runs always-on account agents that monitor accounts and surface actionable next steps for reps.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Revenue data from customer warehouses is cleaned and structured with GPT-4o mini, then passed into reasoning layers that prioritize actions for each account. The Rox Agent Swarm monitors those accounts continuously and uses GPT-4o and the Realtime API to generate outreach, briefs, and recommendations that reps review and act on.",
+  "integration_points": [
+    "Data warehouses",
+    "LinkedIn outreach",
+    "Voice-enabled meeting briefs",
+    "Publicly available account information",
+    "Customer workflows at Ramp, Couchbase, and Confluent"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Rox helped sellers recover administrative time, improve engagement and pipeline generation, and scale top-performer workflows across revenue teams while the company itself grew rapidly with a small engineering footprint.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Reps are 50% more productive during work hours",
+    "8+ hours saved weekly",
+    "35% increase in customer engagement",
+    "2x increase in sales-accepted pipeline",
+    "Grew from zero to 25 accounts in seven months"
+  ],
+  "architecture_clues": [
+    "Platform is designed in data, intelligence, and interaction layers",
+    "Rox Agent Swarm assigns always-on agents to each account",
+    "Team pivoted away from an open-ended chat UI toward configurable workflows",
+    "Voice-enabled feature is powered by OpenAI Realtime API"
+  ],
+  "source_url": "https://openai.com/index/rox/",
+  "published_date": "2024-10-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Their platform combines fragmented data into a unified system of record and delivers insights through always-on AI agents swarms powered by OpenAI.\"",
+    "\"Rox uses smaller models like GPT‑4o mini to unify fragmented data from various warehouses\"",
+    "\"Advanced models like GPT‑4o and OpenAI’s Realtime API generate emails, manage LinkedIn outreach, and prepare voice-enabled meeting briefs.\"",
+    "\"2x ROI on sales pipeline: Beta clients saw a 2x increase in sales-accepted pipeline\""
+  ]
+}

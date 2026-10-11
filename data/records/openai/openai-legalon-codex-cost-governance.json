@@ -1,0 +1,80 @@
+{
+  "id": "openai-legalon-codex-cost-governance",
+  "slug": "openai-legalon-codex-cost-governance",
+  "vendor": "OpenAI",
+  "customer_name": "LegalOn Technologies",
+  "industry": "Software / SaaS",
+  "region": "Asia-Pacific & Oceania",
+  "company_size": "SMB",
+  "business_problem": "LegalOn needed to preserve the development-speed gains from Codex while preventing AI spending from growing uncontrollably as model usage expanded across the organization.",
+  "solution_summary": "LegalOn Technologies treated model selection and budget control as part of its engineering system rather than an after-the-fact finance task. After initially giving developers broad access to GPT-5.5 Fast mode and embedding Codex into design, implementation, and daily work, the company saw that unlimited use of top-tier models would exceed budget. Its AI-powered Development CoE created model-selection guidelines backed by testing and monitoring, then paired those rules with administrator controls and monthly usage limits for departments and individuals. Under the new operating model, GPT-6 Luna handles everyday implementation and simpler delegated tasks, GPT-6.1 Sol supports standard design, analysis, and documents, and GPT-6 Astra is reserved for complex architecture and orchestration. Budgets are also tuned to business maturity, keeping high-growth areas aggressive while requiring established units to improve efficiency without slowing overall delivery.",
+  "products_used": [
+    "Codex",
+    "GPT-6 Luna",
+    "GPT-6.1 Sol",
+    "GPT-6 Astra"
+  ],
+  "solution_components": [
+    {
+      "name": "Codex",
+      "role": "Provides the AI coding surface embedded across LegalOn’s development process and daily engineering work.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-6 Luna",
+      "role": "Handles lightweight implementation, automations, and simpler delegated engineering tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "role": "Supports standard software design, analysis, and document creation that require moderate reasoning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "role": "Handles complex analysis, architectural design, and orchestration for the hardest engineering work.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Engineering tasks are routed through Codex and then assigned to Luna, Sol, or Astra depending on complexity and delivery stage. Usage data is monitored through administrator settings and budget caps so teams can keep shipping while leadership reallocates AI spend across mature and growth businesses.",
+  "integration_points": [
+    "Administrator settings",
+    "Department budgets",
+    "Individual usage limits",
+    "Feature-release ROI pipeline"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "LegalOn maintained development speed while cutting estimated daily AI costs, improved cost efficiency in mature business units, and created a governance model that ties model choice and future ROI measurement to customer value.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "65% reduction in estimated daily costs",
+    "Up to approximately 20% cost-efficiency improvement in mature businesses"
+  ],
+  "architecture_clues": [
+    "AID CoE tests and monitors models, then distributes model-selection guidance to teams",
+    "Fast mode is restricted by default and enabled only when needed",
+    "Administrator settings enforce monthly usage limits at department and individual levels",
+    "Company is building a feature-release level ROI pipeline to connect AI costs to customer value"
+  ],
+  "source_url": "https://openai.com/index/legalon-halves-codex-costs/",
+  "published_date": "2026-09-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"the company halved costs while maintaining development speed\"",
+    "\"GPT‑6 Luna ... handles code implementation, mainly as a subagent\"",
+    "\"GPT‑6 Astra ... handles advanced judgment, including architecture design\"",
+    "\"Together, model selection, feature restrictions, and budgets tailored to each business reduced estimated daily costs by approximately 65%.\""
+  ]
+}

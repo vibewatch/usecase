@@ -1,0 +1,67 @@
+{
+  "id": "openai-scout24-heyimmo-conversational-search",
+  "slug": "openai-scout24-heyimmo-conversational-search",
+  "vendor": "OpenAI",
+  "customer_name": "Scout24",
+  "industry": "Software / SaaS",
+  "region": "Europe & UK",
+  "company_size": "Enterprise",
+  "business_problem": "Scout24 needed to move beyond keyword real-estate search so seekers could get guided help, listings, and recommendations that better reflected how people actually explore where and how they want to live.",
+  "solution_summary": "Scout24 used GPT-5 to build HeyImmo, a conversational real-estate assistant that turns property search into an interactive guidance experience. Rather than only returning results, the assistant can ask clarifying questions, surface relevant listings, summarize options, and adapt its response format to match what a user needs at that moment—bullet points, full explanations, or direct listing suggestions with image previews. The team intentionally simplified its technical architecture away from a more complex multi-agent plan and instead leaned on function calling and tightly scoped components so it could ship, learn, and optimize for latency and reliability. To protect quality, Scout24 built its own evaluation system inspired by the OpenAI Evals framework and delayed launch once to make sure the experience met its internal bar. Broad employee “swarm testing,” close collaboration with OpenAI solutions architects, and a willingness to refine answer structure and edge-case handling helped turn conversational property search into a trustworthy core product experience.",
+  "products_used": [
+    "HeyImmo",
+    "GPT-5"
+  ],
+  "solution_components": [
+    {
+      "name": "HeyImmo",
+      "role": "Acts as the conversational real-estate assistant that guides users through search and listing discovery.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-5",
+      "role": "Provides the reasoning engine behind conversational search, clarifying questions, and adaptive answer formats.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User search intent enters HeyImmo, which asks follow-up questions, formats results appropriately, and returns listings or summaries based on GPT-5 reasoning. Quality signals from custom evals and broad internal testing then feed back into answer refinement before new improvements are shipped.",
+  "integration_points": [
+    "Real-estate listings",
+    "Image previews",
+    "OpenAI Evals framework",
+    "Internal swarm testing"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Scout24 launched a more intelligent real-estate search experience, established rigorous AI quality controls for customer-facing answers, and created a platform it can extend across seekers, homeowners, landlords, and agents.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "GPT‑5 powers Scout24’s conversational search assistant HeyImmo"
+  ],
+  "architecture_clues": [
+    "Team simplified from a multi-agent concept to function calling and focused components",
+    "Custom quality framework is inspired by OpenAI Evals",
+    "Almost all employees were invited into “swarm testing” to stress-test edge cases",
+    "Launch was delayed once to meet the defined quality bar"
+  ],
+  "source_url": "https://openai.com/index/scout24/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We needed a real-estate expert assistant—a sparring partner\"",
+    "\"GPT‑5 powering Scout24’s conversational search assistant HeyImmo\"",
+    "\"the team intentionally simplified: using function calling and focused components\"",
+    "\"The company delayed launch once to ensure the experience met the bar\""
+  ]
+}

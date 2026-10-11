@@ -1,0 +1,88 @@
+{
+  "id": "openai-mercado-libre-verdi-ai-platform",
+  "slug": "openai-mercado-libre-verdi-ai-platform",
+  "vendor": "OpenAI",
+  "customer_name": "Mercado Libre",
+  "industry": "Retail",
+  "region": "Latin America",
+  "company_size": "Enterprise",
+  "business_problem": "Mercado Libre needed an AI platform that could safely automate complex customer-service mediation and other high-stakes workflows across a massive commerce and fintech environment, not just assist with isolated catalog or review tasks.",
+  "solution_summary": "Mercado Libre built Verdi as a natural-language-first development platform that lets its 17,000 developers create AI applications across more than 30,000 microservices while keeping security, routing logic, and guardrails built into the platform. Verdi uses GPT-4o, GPT-4o mini, and GPT-3.5 Turbo to handle multimodal reasoning, routing, and lightweight tasks, and one of its first major deployments is autonomous customer-service mediation between buyers and sellers. Rather than forcing developers to manage code-level complexity directly, Verdi presents a structured framework of language models, Python nodes, skills, and APIs so teams can compose agentic workflows, including image-based “proof of damage” steps with vision, inter-skill communication, unit testing, and deployment inside Mercado Libre’s internal developer platform. Beyond Verdi, OpenAI models also power inventory expansion, fraud detection, review summarization, product-description localization, and personalized notifications across the broader marketplace.",
+  "products_used": [
+    "Verdi",
+    "GPT-4o",
+    "GPT-4o mini",
+    "GPT-3.5 Turbo"
+  ],
+  "solution_components": [
+    {
+      "name": "Verdi",
+      "role": "Provides the secure internal AI-development platform for building autonomous workflows at Mercado Libre scale.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Handles context-rich and multimodal tasks such as vision-based proof-of-damage analysis and complex workflow reasoning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-4o mini",
+      "role": "Powers lightweight tasks such as automated review summaries for product feedback.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-3.5 Turbo",
+      "role": "Supports translation and other lower-cost language tasks inside the Verdi ecosystem.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Marketplace listings, disputes, reviews, images, and customer-service cases flow into Verdi’s skill graph, where GPT-4o, GPT-4o mini, and GPT-3.5 Turbo combine with Python nodes and APIs to make decisions, call systems, and return outputs. The same model family also enriches listings, detects fraud, summarizes feedback, and personalizes notifications across the marketplace.",
+  "integration_points": [
+    "30,000 microservices",
+    "Python nodes",
+    "External APIs",
+    "Internal developer platform",
+    "Proof-of-damage image workflows",
+    "Mercado Pago user journeys"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Fraud Detection"
+  ],
+  "business_outcome": "Mercado Libre expanded catalog coverage, improved fraud accuracy, increased order conversion, and began shifting large volumes of customer-service mediation from human operators to an internal AI platform built for secure scale.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Catalogs 100x more products than before in a span of two years",
+    "Nearly 99% fraud-detection accuracy for flagged items",
+    "17,000 developers responsible for over 30,000 microservices",
+    "Verdi started to handle 10% of customer-service mediation on one major site",
+    "Potential to support the tasks of 9,000 human operators",
+    "Autonomously manage customer service decisions involving $450 million annually",
+    "Mercado Pago has 50 million active users each quarter"
+  ],
+  "architecture_clues": [
+    "Natural language remains the central interaction mode and developers never see the source code",
+    "Security, guardrails, and routing logic are built directly into Verdi",
+    "Skills can call one another, such as return workflows invoking shipping workflows",
+    "Unit testing and lifecycle management are integrated within Mercado Libre’s developer platform"
+  ],
+  "source_url": "https://openai.com/index/mercado-libre/",
+  "published_date": "2024-10-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Verdi changes this by allowing the AI to manage these interactions\"",
+    "\"The biggest difference between Verdi and other solutions is that in Verdi, natural language remains the central mode of interaction\"",
+    "\"improving fraud detection accuracy to nearly 99% for flagged items\"",
+    "\"In just a few months, Verdi has started to handle 10% of customer service mediation\""
+  ]
+}

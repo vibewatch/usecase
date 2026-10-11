@@ -1,0 +1,84 @@
+{
+  "id": "openai-morgan-stanley-advisor-knowledge-and-debrief",
+  "slug": "openai-morgan-stanley-advisor-knowledge-and-debrief",
+  "vendor": "OpenAI",
+  "customer_name": "Morgan Stanley",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Morgan Stanley needed trustworthy AI that could help advisors search a large internal knowledge base, summarize research and meetings, and support client conversations while meeting strict quality, compliance, and privacy standards.",
+  "solution_summary": "Morgan Stanley paired GPT-4 with an evaluation-driven rollout so advisor-facing AI could be trusted before it reached production. AI @ Morgan Stanley Assistant serves as an internal chatbot for wealth-management teams, using retrieval over the firm’s growing corpus of intellectual capital to answer advisor questions quickly and consistently. The team continuously refined prompts, retrieval methods, and translation support through evals scored by advisors and prompt engineers, expanding coverage from 7,000 questions to effectively any question across 100,000 documents. On top of that foundation, Morgan Stanley launched AI @ Morgan Stanley Debrief, which combines Whisper and GPT-4 to turn consented Zoom calls into client notes, CRM updates, and draft follow-ups. Daily regression testing, expert review, and zero-data-retention controls keep outputs aligned with financial-services requirements.",
+  "products_used": [
+    "GPT-4",
+    "AI @ Morgan Stanley Assistant",
+    "AI @ Morgan Stanley Debrief",
+    "Whisper"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-4",
+      "role": "Powers advisor question answering, summarization, and meeting-output generation inside Morgan Stanley workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI @ Morgan Stanley Assistant",
+      "role": "Retrieves answers from Morgan Stanley’s internal knowledge base for financial advisors.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI @ Morgan Stanley Debrief",
+      "role": "Generates client notes, CRM-ready outputs, and follow-up drafts from advisor meetings.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Whisper",
+      "role": "Transcribes Zoom recordings so Debrief can summarize meetings and extract action items.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Advisor questions are routed through AI @ Morgan Stanley Assistant, which retrieves and summarizes content from the firm’s internal document corpus. Client meeting recordings flow through Whisper and GPT-4 in Debrief, then reviewed notes and follow-ups are pushed into CRM systems for advisors to finalize.",
+  "integration_points": [
+    "Internal document corpus",
+    "Zoom recordings",
+    "CRM systems",
+    "Evaluation datasets",
+    "Translation workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Morgan Stanley achieved broad advisor adoption, sharply expanded the share of searchable documents, shortened follow-up turnaround from days to hours, and created a reusable eval framework for additional AI products across the firm.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Over 98% of advisor teams actively use AI @ Morgan Stanley Assistant",
+    "Expanded from 7,000 questions to effectively answering any question from a corpus of 100,000 documents",
+    "Access to documents has jumped from 20% to 80%",
+    "Follow-ups that used to take days now happen within hours"
+  ],
+  "architecture_clues": [
+    "Every use case is tested with an evaluation framework before deployment",
+    "Daily regression suites are used to detect quality or compliance regressions",
+    "Debrief outputs are reviewed by advisors before finalization",
+    "OpenAI zero data retention addressed privacy concerns around proprietary data"
+  ],
+  "source_url": "https://openai.com/index/morgan-stanley/",
+  "published_date": "2024-05-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Today, over 98% of advisor teams actively use AI @ Morgan Stanley Assistant\"",
+    "\"We went from being able to answer 7,000 questions to a place where we can now effectively answer any question from a corpus of 100,000 documents\"",
+    "\"Debrief turns Zoom recordings, with client consent, into actionable outputs like client notes, which are automatically integrated into CRM systems\"",
+    "\"OpenAI’s zero data retention policy also addressed key security concerns\""
+  ]
+}

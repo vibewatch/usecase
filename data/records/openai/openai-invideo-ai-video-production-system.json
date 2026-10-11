@@ -1,0 +1,89 @@
+{
+  "id": "openai-invideo-ai-video-production-system",
+  "slug": "openai-invideo-ai-video-production-system",
+  "vendor": "OpenAI",
+  "customer_name": "Invideo AI",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Small teams and creators needed a way to produce high-quality marketing, sales, and social-media videos without navigating complex editing software or spending hours stitching together scripts, visuals, narration, and format-specific optimizations.",
+  "solution_summary": "Invideo AI turns OpenAI models into a coordinated video-production stack that starts from a natural-language idea and ends with a finished video. OpenAI o3 acts as the planner and orchestrator, reasoning about audience, tone, and destination platform before assigning subtasks. GPT-4.1 refines the narrative structure and pacing, search-augmented GPT models add current context and supporting details, and moderation models review tone and safety against platform and brand constraints. Visual assets are generated with gpt-image-1, while text-to-speech models provide multilingual narration. The system then re-optimizes output for specific channels such as TikTok by adjusting pacing, visuals, and voiceover according to each platform’s needs. With this model-routing architecture, invideo AI can produce not only finished videos but also performance-oriented creative strategies, dramatically reducing production time for users while supporting high-volume growth across millions of outputs each month.",
+  "products_used": [
+    "OpenAI o3",
+    "GPT-4.1",
+    "gpt-image-1",
+    "Text-to-speech models",
+    "Moderation API"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI o3",
+      "role": "Plans and orchestrates the end-to-end production workflow based on content purpose, tone, and channel.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Structures scripts and video narratives with the right pacing, tone, and strategy.",
+      "layer": "Compute"
+    },
+    {
+      "name": "gpt-image-1",
+      "role": "Generates backgrounds, cutaway visuals, and branded assets for the finished video.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Text-to-speech models",
+      "role": "Create multilingual voiceovers with human-like narration.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Moderation API",
+      "role": "Reviews content for safety, tone, and brand alignment before output is finalized.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A user prompt enters the orchestrator, which routes planning to o3, scripting to GPT-4.1, research to search-augmented GPT models, image generation to gpt-image-1, and narration to text-to-speech models. Moderation checks then validate the output before the assembled video is delivered in a platform-optimized format.",
+  "integration_points": [
+    "Search-augmented research",
+    "Platform-specific optimization for TikTok and other channels",
+    "Brand norms",
+    "Marketing and sales workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Invideo AI cut video-production time dramatically, helped users improve monetization, and scaled to millions of monthly outputs by making professional creative workflows available through natural-language interaction.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Users spend 10x less time on production",
+    "A full day’s work is cut to 30 minutes or less",
+    "Many users have doubled their revenue",
+    "Over 50 million users",
+    "More than 7 million videos created each month"
+  ],
+  "architecture_clues": [
+    "System is explicitly described as a multi-agent workflow with one model per production task",
+    "Prompt like “make this video hook work for TikTok” triggers coordinated model routing",
+    "Moderation models act like a content strategist for safety and tone",
+    "Roadmap is revisited with each new OpenAI model release"
+  ],
+  "source_url": "https://openai.com/index/invideo-ai/",
+  "published_date": "2025-06-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"At the core of invideo AI is a multi-agent system where each OpenAI model handles a different part of the video creation process.\"",
+    "\"OpenAI o3 functions as the planner and orchestrator\"",
+    "\"Users are spending 10x less time on production, cutting a full day’s work to 30 minutes or less.\"",
+    "\"Today, invideo AI helps over 50 million users create more than 7 million videos each month\""
+  ]
+}

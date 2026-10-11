@@ -1,0 +1,78 @@
+{
+  "id": "openai-netomi-agentic-enterprise-runtime",
+  "slug": "openai-netomi-agentic-enterprise-runtime",
+  "vendor": "OpenAI",
+  "customer_name": "Netomi",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "SMB",
+  "business_problem": "Enterprise AI agents needed to coordinate messy, high-volume service workflows across many backend systems while staying low-latency, policy-compliant, and predictable under real production load.",
+  "solution_summary": "Netomi built an Agentic OS that combines OpenAI GPT-4.1 and GPT-5.2 inside a governed execution layer for production-grade enterprise agents. GPT-4.1 handles low-latency tool use and fast reasoning for transactional workflows, while GPT-5.2 takes on deeper multi-step planning and complex orchestration. The runtime is designed for ambiguity: requests can span booking engines, loyalty databases, CRMs, payments, policy logic, and knowledge sources, so Netomi uses structured planning, persistence reminders, explicit tool-use expectations, and rich-media decisions to keep state across long tasks. The company also architected the platform for concurrency rather than serial pipelines, allowing it to sustain sub-three-second responses during traffic bursts such as major sporting events. Governance is intrinsic to execution, with schema validation, inline policy enforcement, PII protection, deterministic fallback, and full observability so agent behavior remains auditable in regulated settings like insurance and travel.",
+  "products_used": [
+    "Agentic OS",
+    "GPT-4.1",
+    "GPT-5.2"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentic OS",
+      "role": "Coordinates backend systems, governance, concurrency, and execution for enterprise-grade AI agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-4.1",
+      "role": "Provides fast, predictable tool use and low-latency reasoning for real-time workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPT-5.2",
+      "role": "Handles deeper multi-step reasoning, structured planning, and long-running orchestration tasks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer requests are classified and routed through the Agentic OS, which calls backend systems such as CRMs, booking engines, payments, and policy services in parallel. GPT-4.1 or GPT-5.2 then reasons over the results, while governance checks validate tools, enforce policies, mask PII, and back off to safe paths if confidence drops.",
+  "integration_points": [
+    "Booking engines",
+    "Loyalty databases",
+    "CRM systems",
+    "Payments",
+    "Knowledge sources",
+    "OpenAPI contracts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Netomi created a blueprint for agentic enterprise systems that stay responsive under burst traffic, keep policy controls inline, and scale safely across demanding customer-service and regulated workflows.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Traffic above 40,000 concurrent customer requests per second during major sporting events",
+    "Sub-three-second responses at scale",
+    "98% intent classification accuracy",
+    "Close to two million provider requests each year for one dental-insurance customer"
+  ],
+  "architecture_clues": [
+    "Platform uses persistence reminders, explicit tool-use expectations, structured planning, and agent-driven rich media decisions",
+    "Concurrency is designed into the system instead of executing classify → retrieve → validate → call tools → generate output sequentially",
+    "Governance layer includes schema validation, inline policy enforcement, PII protection, deterministic fallback, and runtime observability",
+    "Context-led ensemble architecture is emphasized for airline workflows"
+  ],
+  "source_url": "https://openai.com/index/netomi/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Their platform pairs GPT‑4.1 for low-latency, reliable tool use with GPT‑5.2 for deeper, multi-step planning\"",
+    "\"DraftKings ... with traffic during major sporting events spiking above 40,000 concurrent customer requests per second\"",
+    "\"Netomi has sustained sub-three-second responses with 98% intent classification accuracy\"",
+    "\"The governance is not bolted on—it’s part of the runtime.\""
+  ]
+}

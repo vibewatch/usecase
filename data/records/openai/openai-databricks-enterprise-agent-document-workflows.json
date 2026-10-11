@@ -1,0 +1,80 @@
+{
+  "id": "openai-databricks-enterprise-agent-document-workflows",
+  "slug": "openai-databricks-enterprise-agent-document-workflows",
+  "vendor": "OpenAI",
+  "customer_name": "Databricks",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Databricks needed a model that could supervise enterprise agent workflows involving scanned PDFs, legacy files, and long-context documents without the parsing and retrieval errors that frequently break production systems.",
+  "solution_summary": "Databricks validated GPT-5.5 on OfficeQA Pro, its benchmark for complex enterprise document tasks, and then exposed the model for production use inside customer agent workflows. The benchmark stresses parsing, retrieval, and grounded reasoning across scanned PDFs, legacy files, and long-context enterprise documents, where a single extraction error can derail downstream execution. After GPT-5.5 reduced errors by 46% versus GPT-5.4 and became the first model to exceed 50% accuracy on OfficeQA Pro, Databricks made it available through AI Unity Gateway for workflows built with AgentBricks and the Agent Supervisor API. In that architecture, GPT-5.5 supervises specialized agents handling parsing, retrieval, and execution so customers can run more reliable multistep document workflows with fewer search detours and less manual intervention.",
+  "products_used": [
+    "GPT-5.5",
+    "AI Unity Gateway",
+    "AgentBricks",
+    "Agent Supervisor API"
+  ],
+  "solution_components": [
+    {
+      "name": "GPT-5.5",
+      "role": "Provides the reasoning engine that supervises parsing, retrieval, and multistep document workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Unity Gateway",
+      "role": "Exposes GPT-5.5 to Databricks customers inside production agent workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AgentBricks",
+      "role": "Builds the custom agent workflows that use GPT-5.5 for enterprise document tasks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Agent Supervisor API",
+      "role": "Coordinates specialized agents and lets GPT-5.5 supervise workflow execution.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Scanned PDFs, legacy files, and long-context documents enter agent workflows built with AgentBricks. GPT-5.5, delivered through AI Unity Gateway and coordinated by the Agent Supervisor API, supervises parsing, retrieval, and execution steps before grounded answers or task completions are returned.",
+  "integration_points": [
+    "Scanned PDFs",
+    "Legacy enterprise files",
+    "Long-context documents",
+    "OfficeQA Pro benchmark"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Databricks improved the reliability of enterprise document agents, surpassed prior benchmark performance, and gave customers a production path for GPT-5.5-supervised workflows that require stronger parsing and grounded retrieval.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "50% accuracy on the OfficeQA Pro benchmark (state of the art)",
+    "46% reduction in errors on the OfficeQA Pro benchmark vs. GPT-5.4"
+  ],
+  "architecture_clues": [
+    "OfficeQA Pro is used to stress parsing-heavy workflows across scanned PDFs and legacy documents",
+    "GPT-5.5 cut down unnecessary search detours seen in earlier models",
+    "GPT-5.5 is made available through AI Unity Gateway",
+    "AgentBricks and the Agent Supervisor API are the orchestration layer for production customer workflows"
+  ],
+  "source_url": "https://openai.com/index/databricks/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"OfficeQA Pro evaluates how models handle parsing, retrieval, and grounded reasoning across workflows involving scanned PDFs, legacy files, and long-context documents\"",
+    "\"GPT‑5.5 reduced errors by 46% compared to GPT‑5.4 and became the first model to surpass 50% accuracy on OfficeQA Pro.\"",
+    "\"Databricks now makes GPT‑5.5 available through AI Unity Gateway\"",
+    "\"In these systems, GPT‑5.5 orchestrates parsing, retrieval, and execution across specialized agents.\""
+  ]
+}

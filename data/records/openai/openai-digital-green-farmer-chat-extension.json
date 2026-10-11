@@ -1,0 +1,85 @@
+{
+  "id": "openai-digital-green-farmer-chat-extension",
+  "slug": "openai-digital-green-farmer-chat-extension",
+  "vendor": "OpenAI",
+  "customer_name": "Digital Green",
+  "industry": "Public Sector",
+  "region": "India, Kenya",
+  "company_size": "Unknown",
+  "business_problem": "Digital Green needed to extend scarce agricultural advisory expertise to far more farmers in rural communities without sacrificing the local accuracy, language coverage, and human review required for high-stakes farming decisions.",
+  "solution_summary": "Digital Green built Farmer.Chat on OpenAI technology to turn years of agricultural-extension content into an interactive advisory system for extension workers. The first version used GPT-4 with retrieval-augmented generation to combine Digital Green’s library of nearly 8,000 farmer-training videos with government-partner sources such as video transcripts, annotated call-center logs, and crop-research factsheets. India’s Ministry of Agriculture validates the knowledge base, and the initial deployment deliberately placed Farmer.Chat in the hands of extension agents rather than directly with farmers so another layer of human review could catch errors. Digital Green then expanded the system with a Farmer.Chat GPT in ChatGPT, multimodal crop-photo input, real-time weather and market information, and Assistants API integrations for channels like WhatsApp and Telegram, allowing local-language guidance to reach more field workers at much lower cost.",
+  "products_used": [
+    "Farmer.Chat",
+    "GPT-4",
+    "Farmer.Chat GPT",
+    "Assistants API"
+  ],
+  "solution_components": [
+    {
+      "name": "Farmer.Chat",
+      "role": "Provides the core agricultural-extension chatbot used by extension workers in India and Kenya.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4",
+      "role": "Supplies the reasoning engine for question answering over agricultural knowledge sources.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Farmer.Chat GPT",
+      "role": "Extends the chatbot inside ChatGPT with multimodal crop diagnosis and richer interactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Assistants API",
+      "role": "Brings Farmer.Chat capabilities into interfaces already used by extension workers, such as WhatsApp and Telegram.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Training videos, transcripts, call-center logs, crop factsheets, weather data, market information, and crop photos are fed into Farmer.Chat’s RAG workflow. GPT-4 then returns localized guidance for extension agents, who review recommendations before passing them on to farmers through field channels and messaging apps.",
+  "integration_points": [
+    "Training video transcripts",
+    "Annotated call center logs",
+    "Crop research factsheets",
+    "WhatsApp",
+    "Telegram",
+    "Weather and market information"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Digital Green expanded advisory reach, lowered the cost of extension support, improved multilingual field assistance, and created a pathway for extension agents to serve more farmers while building their own expertise.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Nearly 8,000 farmer-to-farmer training videos in more than 50 languages",
+    "Videos increased farmer income by an average of 24 percent",
+    "100x reduction in cost of traditional extension services, from $35 per farmer to $0.35 cents per farmer",
+    "Over 4,500 extension agents using Farmer.Chat across Kenya and India"
+  ],
+  "architecture_clues": [
+    "Farmer.Chat uses RAG over Digital Green and government-partner knowledge sources",
+    "India’s Ministry of Agriculture validates documents in the knowledge base",
+    "Initial rollout positioned the chatbot as an assistant to extension agents rather than direct-to-farmer automation",
+    "Digital Green is testing an Agri-LLM and using Assistants API for WhatsApp and Telegram delivery"
+  ],
+  "source_url": "https://openai.com/index/digital-green/",
+  "published_date": "2023-12-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Farmer.Chat uses Retrieval Augmented Generation (RAG) to integrate Digital Green’s vast library of agricultural information with those of government partners\"",
+    "\"India’s Ministry of Agriculture validates all documents in the knowledge base\"",
+    "\"Early estimates suggest that by leveraging generative AI, Farmer.Chat can bring down the cost of traditional extension services 100x\"",
+    "\"over 4,500 extension agents are using Farmer.Chat across both Kenya and India\""
+  ]
+}

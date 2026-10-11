@@ -1,0 +1,68 @@
+{
+  "id": "openai-basis-tax-agent-workbook-automation",
+  "slug": "openai-basis-tax-agent-workbook-automation",
+  "vendor": "OpenAI",
+  "customer_name": "Basis",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "SMB",
+  "business_problem": "Basis needed AI agents that could reliably finish long, detail-heavy accounting tasks with strong intent understanding, lower latency, and better task-path decisions than earlier models.",
+  "solution_summary": "Basis uses GPT-6 Astra inside tax-workflow agents designed to automate the repetitive, high-detail work accountants perform every day. The company benchmarked Astra against GPT-5.6 Sol on a 50-tab tax workbook and found Astra was able to complete the task in half the time while also showing a stronger understanding of user intent. That mattered because Basis cares not only about final answers but about how agents progress through long-running tasks: Astra makes better early decisions, corrects itself less often, and can adjust its reasoning effort dynamically as a job moves from simpler to harder steps without dropping cache state. Basis also evaluates whether agents follow templates, check their own work, and consult primary tax sources when appropriate, and Astra improved those internal evaluations significantly. Together, those gains let Basis reduce the amount of hard-coded rules needed for corner cases while increasing confidence that agents can generalize beyond what was explicitly covered in tests.",
+  "products_used": [
+    "Basis agents",
+    "GPT-6 Astra"
+  ],
+  "solution_components": [
+    {
+      "name": "Basis agents",
+      "role": "Automate long-running tax and accounting workflows that would otherwise require extensive manual effort.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-6 Astra",
+      "role": "Provides the deeper intent understanding and adaptive reasoning needed for complex workbook completion.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User instructions and workbook tasks enter Basis agents, which route the work through GPT-6 Astra for reasoning, task-path selection, and step-by-step completion. Internal evaluations then assess whether the agents followed templates, consulted primary sources, and checked their own work before results are returned.",
+  "integration_points": [
+    "Tax workbooks",
+    "Templates",
+    "Primary tax sources",
+    "Internal evaluation pipelines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Basis cut completion time on complex tax work, improved internal evaluation scores, and reduced the effort needed to encode one-off rules for every edge case in accountant workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "50% less time to complete a 50-tab tax workbook vs. GPT-5.6 Sol",
+    "Approximately 20% improvement in internal evaluation scores"
+  ],
+  "architecture_clues": [
+    "Astra adjusts reasoning effort dynamically as tasks become easier or harder",
+    "Cache stays intact while reasoning intensity changes mid-task",
+    "Evaluation checks include template following, consulting primary sources, and self-checking work",
+    "System relies less on manually written rules for individual situations"
+  ],
+  "source_url": "https://openai.com/index/basis-tax-workbook-with-astra/",
+  "published_date": "2026-09-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"GPT‑6 Astra is able to complete that workbook in half the time that GPT‑5.6 Sol is able to.\"",
+    "\"Basis saw about a 20% improvement in its internal evaluation scores with GPT‑6 Astra\"",
+    "\"GPT-6 Astra does a better job of really understanding the intent of the user and the problem.\"",
+    "\"The model can make these adjustments while keeping its cache intact.\""
+  ]
+}

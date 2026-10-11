@@ -1,0 +1,89 @@
+{
+  "id": "openai-superhuman-ai-email-productivity",
+  "slug": "openai-superhuman-ai-email-productivity",
+  "vendor": "OpenAI",
+  "customer_name": "Superhuman",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Professionals spend enormous amounts of time triaging, reading, and writing email, and Superhuman needed a way to reduce inbox burden without forcing users into a separate AI tool or compromising privacy.",
+  "solution_summary": "Superhuman used the OpenAI API to turn email from a manual workflow into a layered AI experience inside the inbox. The company launched Superhuman AI, a suite of capabilities that includes Write with AI for full-email drafting, Rewrite in Your Voice and Write with Your Voice for tone-aware composition, Auto Summarize for one-line thread summaries, and Instant Reply for one-click contextual responses. Because these features live directly in the email product and integrate with Gmail and Outlook workflows, users can move faster without paying the switching costs of external tools. OpenAI’s zero-data-retention support also helped Superhuman meet the privacy expectations that come with handling confidential email threads. The company is now extending the same foundation toward agentic inbox experiences where messages come pre-summarized, replies are pre-drafted, and future AI agents can triage, schedule, and take basic online actions on behalf of the user.",
+  "products_used": [
+    "Superhuman AI",
+    "Write with AI",
+    "Auto Summarize",
+    "Instant Reply",
+    "OpenAI API"
+  ],
+  "solution_components": [
+    {
+      "name": "Superhuman AI",
+      "role": "Provides the shared AI layer that transforms drafting, summarization, and response workflows inside the inbox.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Write with AI",
+      "role": "Turns prompts into full emails and accelerates outbound writing tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Auto Summarize",
+      "role": "Maintains up-to-date one-line summaries for email threads in the inbox.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Instant Reply",
+      "role": "Generates contextual responses that users can send with a single click.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI API",
+      "role": "Powers the language-generation and summarization features inside Superhuman AI.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Incoming email threads are summarized by Auto Summarize, while user prompts or dictated notes flow through Write with AI and related features to generate complete messages. Contextual reply suggestions are then surfaced through Instant Reply so users can process inboxes faster without leaving Superhuman.",
+  "integration_points": [
+    "Gmail",
+    "Outlook",
+    "Confidential email threads"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Superhuman doubled inbox-processing speed for users, increased adoption and engagement of AI-assisted email features, and helped grow its user base by making AI-native email workflows practical and privacy-conscious.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "More than 85% of users opt in to GPT-powered features",
+    "Users employ Write with AI an average of 25 times per week",
+    "Write with AI usage grew 55% since launch",
+    "Users get through their inbox about twice as fast as before",
+    "Users wrote emails twice as fast in beta",
+    "User base more than doubled the number of weekly new users"
+  ],
+  "architecture_clues": [
+    "AI features live directly inside the email client rather than in a separate browser experience",
+    "OpenAI zero data retention was important because the product sits inside confidential email threads",
+    "Each thread can carry both an automatic summary and AI-drafted responses",
+    "Roadmap includes GPT-based agents that triage, schedule, and take basic actions"
+  ],
+  "source_url": "https://openai.com/index/superhuman/",
+  "published_date": "2024-03-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Superhuman’s goal is to reduce the time spent managing inboxes.\"",
+    "\"More than 85% of Superhuman’s users are opting in to the new GPT‑powered features.\"",
+    "\"Our AI features help customers get through their inbox about twice as fast as before\"",
+    "\"users were writing emails twice as fast as before\""
+  ]
+}
