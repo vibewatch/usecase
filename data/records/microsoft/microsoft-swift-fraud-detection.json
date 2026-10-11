@@ -1,0 +1,72 @@
+{
+  "id": "microsoft-swift-fraud-detection",
+  "slug": "microsoft-swift-fraud-detection",
+  "vendor": "Microsoft",
+  "customer_name": "Swift",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Swift needed to improve fraud and anomaly detection for global financial transactions without copying or moving sensitive member data out of secure locations.",
+  "solution_summary": "Swift and Microsoft are building a federated anomaly-detection platform for financial crime on Azure Machine Learning and Azure confidential computing. Rather than moving member data to a central repository, Swift sends models to participants’ local compute environments, trains against distributed datasets at the edge, and then fuses the training results into a shared model. Confidential computing and supporting governance controls keep data protected during collaboration, while the Azure ML environment manages the training workflows required for the anomaly-detection use case. The design lets more than 11,500 financial institutions contribute insights without copying transactional data out of secure locations, preserving privacy while improving pattern detection. For Swift, the architecture creates a path to detect fraudulent transactions more accurately, with stronger security, privacy, and cost efficiency than traditional centralized approaches.",
+  "products_used": [
+    "Azure Machine Learning",
+    "Azure confidential computing",
+    "Microsoft Purview"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure Machine Learning",
+      "role": "Orchestrates federated model training and the anomaly-detection workflow across distributed participants.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure confidential computing",
+      "role": "Protects data and model execution while training occurs at secure participant locations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Purview",
+      "role": "Supports the governance and policy framework around sensitive financial data collaboration.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Transactional data stays in participants’ secure environments, Azure Machine Learning sends models to local compute for training, Azure confidential computing protects execution, and the resulting training outputs are fused into a shared anomaly-detection model.",
+  "integration_points": [
+    "Distributed member datasets",
+    "Local participant compute environments"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cybersecurity",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Risk Management"
+  ],
+  "business_outcome": "Swift is creating a privacy-preserving fraud-detection approach that can improve financial-crime prevention while keeping member data confidential and operationally distributed.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Over 11,500 financial institutions worldwide",
+    "Products and services delivered in over 200 countries",
+    "More than nine billion financial messages a year"
+  ],
+  "architecture_clues": [
+    "Federated learning sends the model to the data instead of moving the data to the model",
+    "Zero Trust based policy framework is part of the design",
+    "Participants’ data remains confidential during collaborative model building"
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/1637929534319366070-swift-banking-capital-markets-azure-machine-learning",
+  "published_date": "2023-05-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using federated learning techniques along with Azure Machine Learning and Azure confidential computing, Swift and Microsoft are building an anomaly detection model for transactional data—all without copying or moving data from secure locations.",
+    "Rather than bringing the data to a central point, we do the opposite. We send the model for training to the participants’ local compute and datasets at the edge and fuse the training results in a foundation model.",
+    "Swift’s network and platform is trusted to provide seamless automated transmission, receipt, and processing of more than nine billion financial messages a year."
+  ]
+}

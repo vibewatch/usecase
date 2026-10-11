@@ -1,0 +1,90 @@
+{
+  "id": "microsoft-barnsley-hospital-nhs-foundation-trust-customer-service-automation",
+  "slug": "microsoft-barnsley-hospital-nhs-foundation-trust-customer-service-automation",
+  "vendor": "Microsoft",
+  "customer_name": "Barnsley Hospital NHS Foundation Trust",
+  "industry": "Healthcare",
+  "region": "United Kingdom",
+  "company_size": "Public sector",
+  "business_problem": "Barnsley Hospital’s pandemic-era video consultation solution required manual rekeying and created a poor patient and clinician experience, limiting the trust’s ability to scale virtual care efficiently.",
+  "solution_summary": "Barnsley Hospital NHS Foundation Trust implemented a Teams-based virtual consultation platform on Microsoft Azure to replace a clunky pandemic-era video system. The solution uses Power Platform components including Power Apps and Power Automate, Azure Service Bus, and Azure Communication Services to synchronize the digital consultation workflow with the hospital’s electronic patient records system. Appointments created in the EPR appear automatically in Microsoft Teams, links and reminders go to patients without requiring app installation, and clinicians can switch to a phone call directly from the workflow when needed. Operational dashboards give IT teams visibility into where patients drop off in the journey and how long calls take. By integrating scheduling, messaging, waiting-room behavior, and consultation delivery into a familiar Teams environment, Barnsley removed rekeying, reduced friction for clinicians and patients, and created a more scalable model for virtual care.",
+  "products_used": [
+    "Microsoft Teams",
+    "Power Apps",
+    "Power Automate",
+    "Microsoft Azure",
+    "Azure Communication Services",
+    "Azure Service Bus"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Teams",
+      "role": "Provides the clinician-facing consultation environment and integrated virtual waiting room.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power Apps",
+      "role": "Supports the digital health platform and associated workflow interfaces.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power Automate",
+      "role": "Generates notifications and automates parts of the appointment workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Hosts the digital health platform that supports the virtual consultation service.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Communication Services",
+      "role": "Lets clinicians place follow-up phone calls directly from the consultation workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure Service Bus",
+      "role": "Moves workflow events and supports operational diagnostics across the platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Appointments created in the EPR are synchronized into Microsoft Teams, reminders and links are sent through the automation layer, patients join through the browser-based flow, and platform telemetry is captured for dashboarding and support diagnostics.",
+  "integration_points": [
+    "Electronic patient records system",
+    "Browser-based patient access"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Native",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Barnsley improved the patient and clinician experience for virtual appointments, cut rekeying work, and built a better path to meet NHS virtual-consultation targets with less operational friction.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "More than 300,000 outpatient appointments per year",
+    "NHS target is 25 percent of consultations as virtual",
+    "Barnsley expects 15 to 20 percent of consultations to be virtual once fully rolled out"
+  ],
+  "architecture_clues": [
+    "Appointments created in the EPR appear automatically and immediately in Microsoft Teams",
+    "Browser-only patient access was chosen to simplify the experience",
+    "Operational dashboards show patient journey drop-off points and call-duration information"
+  ],
+  "source_url": "https://www.microsoft.com/en/customers/story/1683653805468263732-barnsley-hospital-health-provider-azure-en-united-kingdom",
+  "published_date": "2023-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The video solution deployed at speed during the pandemic met an immediate need, but the Trust knew there was potential for improvement. It chose a new, integrated platform using Power Platform and Microsoft Teams for video consultations.",
+    "This enables an appointment to be created in the EPR and for it to appear automatically and immediately in Microsoft Teams. The clinician simply clicks to join the call; there is no rekeying.",
+    "If a patient is struggling to attend a remote consultation via Teams, the clinician can make a telephone call in one click directly from the system via Azure Communication Services."
+  ]
+}
