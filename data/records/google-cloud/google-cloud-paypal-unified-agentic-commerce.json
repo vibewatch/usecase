@@ -1,0 +1,80 @@
+{
+  "id": "google-cloud-paypal-unified-agentic-commerce",
+  "slug": "google-cloud-paypal-unified-agentic-commerce",
+  "vendor": "Google Cloud",
+  "customer_name": "PayPal",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "After unifying its core data estate, PayPal needed an AI platform that could power global commerce use cases, let developers choose the best model for each workload, and elastically handle training and inference without reverting to monolithic release cycles or custom infrastructure for every project.",
+  "solution_summary": "PayPal built its next-generation AI stack on Google Cloud by combining BigQuery, Google Kubernetes Engine, Gemini Enterprise Agent Platform, and Cloud GPUs into a unified model and infrastructure layer. BigQuery provides the AI-ready data foundation following PayPal's migration of more than 300 petabytes, while GKE gives teams an elastic architecture that replaced slower monolithic release patterns and now supports 25,000 pipelines per day. On top of that runtime, PayPal created a unified LLM stack: open-source models run on the GKE inferencing layer, while proprietary models such as Gemini run through Gemini Enterprise Agent Platform and Model Garden. Cloud GPU capacity provides the compute horsepower for training and high-performance workloads. This architecture lets developers move from idea to production quickly while preserving security, compliance, and model-choice flexibility across PayPal's 439 million-user commerce business.",
+  "products_used": [
+    "BigQuery",
+    "Google Kubernetes Engine",
+    "Gemini Enterprise Agent Platform",
+    "Cloud GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores the unified data foundation that PayPal uses to train, evaluate, and operationalize AI workloads at global scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Runs the elastic inferencing and application architecture that replaced slower monolithic release patterns.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Hosts proprietary model access and gives developers a governed path to production AI agents and Model Garden assets.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud GPUs",
+      "role": "Provide the high-performance training and inference compute needed for PayPal's unified AI stack.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Enterprise data lands in BigQuery and is consumed by PayPal's data scientists and AI services. Open-source models run on the GKE inferencing layer, proprietary models such as Gemini are served through Gemini Enterprise Agent Platform, and Cloud GPUs supply the training and inference capacity needed to scale AI products into commerce workflows.",
+  "technical_area": [
+    "Cloud Native",
+    "Generative AI / LLM",
+    "Data Platform",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "PayPal transformed its post-migration data estate into a flexible AI platform that speeds releases, supports tens of thousands of pipelines a day, and lets the business scale agentic commerce capabilities without locking teams into a single model vendor or architecture pattern.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "migrating over 300 petabytes of data to BigQuery",
+    "25,000 pipelines every day",
+    "more than 200 enterprise-ready models",
+    "over 439 million global users"
+  ],
+  "architecture_clues": [
+    "Open-source models run on top of the inferencing stack on GKE",
+    "close-sourced models like Gemini run on top of Gemini Enterprise Agent Platform",
+    "Model Garden exposes more than 200 enterprise-ready models",
+    "PayPal is transitioning into B200 GPUs"
+  ],
+  "source_url": "https://cloud.google.com/customers/paypal-ai",
+  "published_date": "2026-08-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "migrating over 300 petabytes of data to BigQuery",
+    "after GKE, our release life cycle went from weeks to minutes.",
+    "developers have access to more than 200 enterprise-ready models through Model Garden.",
+    "PayPal built a unified large language model (LLM) stack, which runs open-source models on top of the inferencing stack on GKE and close-sourced models like Gemini on top of Gemini Enterprise Agent Platform.",
+    "With Google Cloud, PayPal built a unified AI platform to architect the next era of commerce for over 439 million global users."
+  ]
+}

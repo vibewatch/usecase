@@ -1,0 +1,86 @@
+{
+  "id": "google-cloud-paypal-looker-mcp-conversational-analytics",
+  "slug": "google-cloud-paypal-looker-mcp-conversational-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "PayPal",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "PayPal wanted thousands of employees to query petabytes of governed finance data conversationally, but it had to avoid plaintext secrets, AI hallucinations, inconsistent metric definitions, and data-loss-prevention risks that are unacceptable in financial services.",
+  "solution_summary": "PayPal layered conversational analytics on top of its existing Google Cloud data stack by combining BigQuery, Looker, and Looker MCP Server inside a tightly controlled enterprise architecture. BigQuery remains the underlying warehouse for petabyte-scale data, while Looker provides the governed semantic layer and LookML business definitions needed to keep metrics consistent. To expose that semantic layer safely to LLMs, PayPal deployed Looker MCP Server into its internal MCP Hub behind an AI proxy layer, then wrapped it with an automated security handshake that fetches credentials from Looker, encrypts them into a secure vault or database, and stores access tokens in Redis rather than on user machines. Claude queries the Looker model instead of raw tables, which lets PayPal deliver natural-language analytics with near-100% accuracy while preserving auditability, row-level governance, and strict InfoSec controls.",
+  "products_used": [
+    "BigQuery",
+    "Looker",
+    "Looker MCP Server",
+    "Claude"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores the petabyte-scale data estate that PayPal employees query through governed conversational analytics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Looker",
+      "role": "Provides the semantic layer and governed LookML definitions that keep metrics accurate and consistent across teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Looker MCP Server",
+      "role": "Acts as the bridge that lets LLMs understand Looker semantic models inside PayPal's secured enterprise environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude",
+      "role": "Handles natural-language questions against the Looker semantic layer without querying raw databases directly.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Users ask questions in Claude Desktop, which connects through PayPal's AI proxy and MCP Hub to Looker MCP Server. The server retrieves governed context from Looker, Looker generates SQL against BigQuery, and the response returns as a natural-language answer grounded in approved metric definitions rather than raw table guesses.",
+  "integration_points": [
+    "PayPal MCP Hub",
+    "AI proxy layer",
+    "secure vault/database",
+    "Redis cache",
+    "internal software center"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics",
+    "Security and Compliance"
+  ],
+  "business_outcome": "PayPal delivered governed self-service analytics to 5,000 users, accelerated insight generation and dashboard creation, and proved that conversational data access can meet the accuracy and security bar required in regulated financial operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "Delivered governed, self-service analytics to over 5,000 users across the organization",
+    "Achieved near 100% accuracy in AI-generated insights",
+    "accelerating insights by more than 50%",
+    "reducing build time from hours to minutes"
+  ],
+  "architecture_clues": [
+    "Looker MCP Server is deployed directly into PayPal's MCP Hub",
+    "Credentials are pushed into a secured vault/database with encryption and access tokens are stored in Redis cache",
+    "AI queries the Looker model instead of the raw database",
+    "The environment is delivered as a one-click installation from the internal software center"
+  ],
+  "source_url": "https://cloud.google.com/customers/paypal-looker-mcp",
+  "published_date": "2026-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "PayPal adopted Looker's Model Context Protocol (MCP) Server to provide secure, conversational analytics to its workforce.",
+    "By grounding AI interactions in Looker's governed data models, PayPal ensures accuracy and compliance while enabling 5,000 employees to query petabytes of data using natural language.",
+    "the system pushes them directly into a secured vault/database with encryption, while access tokens are encrypted and stored in Redis cache",
+    "When the LLM receives a prompt, it doesn't query the raw database; it queries the Looker model.",
+    "delivers almost 100% accuracy against our defined metrics."
+  ]
+}

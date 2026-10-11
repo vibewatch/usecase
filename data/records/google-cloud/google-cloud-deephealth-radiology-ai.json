@@ -1,0 +1,93 @@
+{
+  "id": "google-cloud-deephealth-radiology-ai",
+  "slug": "google-cloud-deephealth-radiology-ai",
+  "vendor": "Google Cloud",
+  "customer_name": "DeepHealth",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "DeepHealth needed to handle rising imaging volumes, a worsening radiologist shortage, and the need to deliver faster, more consistent cancer detection without limiting access to high-quality diagnostics to major urban hospitals.",
+  "solution_summary": "DeepHealth built DeepHealth OS entirely on Google Cloud to unify clinical AI, enterprise imaging, and imaging operations in a single radiology platform. Cloud Healthcare API streams and stores more than 20 million medical images each year with healthcare-oriented privacy controls and multi-zone replication for availability across regions. Gemini Enterprise Agent Platform routes exams to the right specialists based on qualifications and expertise, while Gemini drafts and summarizes radiology reports from dictated findings so physicians can review structured results faster. For domain-specific reasoning, DeepHealth fine-tunes MedGemma for healthcare use cases. BigQuery curates training cohorts and powers performance analytics, and Looker sits on top of the stack to surface dashboards and outcome insights to clinical and operational users.",
+  "products_used": [
+    "Cloud Healthcare API",
+    "Gemini Enterprise Agent Platform",
+    "Gemini",
+    "MedGemma",
+    "BigQuery",
+    "Looker"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Healthcare API",
+      "role": "Streams and stores imaging data for DeepHealth OS with healthcare-oriented interoperability, privacy, and multi-zone availability.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Routes imaging exams to the right radiology specialists and coordinates agentic workflow steps across radiology operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Summarizes dictated radiology findings into draft reports that radiologists can quickly review and finalize.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MedGemma",
+      "role": "Provides medical-grade language-model reasoning that DeepHealth fine-tunes for specialized clinical AI workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Curates model-training cohorts and stores performance analytics used by physicians and technologists.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Looker",
+      "role": "Delivers organization-wide dashboards so non-technical users can analyze imaging performance and outcomes.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Imaging centers stream scans into Cloud Healthcare API, where DeepHealth OS makes them available to radiology workflows. Gemini Enterprise Agent Platform routes studies to the right specialists, Gemini and MedGemma assist with report drafting and clinical reasoning, and BigQuery plus Looker expose cohort, quality, and performance analytics across the network.",
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "DeepHealth improved detection and reporting consistency while helping clinicians find cancers earlier, reduce manual reporting work, and scale advanced imaging workflows across a broad provider network.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "21% increase in breast cancer detection rates",
+    "76% of lung cancers found at earlier stages",
+    "20M+ medical images streamed yearly with Cloud Healthcare API",
+    ">90% of characterized nodules are accepted by radiologists without any changes",
+    "results are based on data from 240+ RadNet sites and 22,000 thyroid studies"
+  ],
+  "architecture_clues": [
+    "DeepHealth OS is built entirely on Google Cloud",
+    "Cloud Healthcare API uses multi-zone replication across regions",
+    "Gemini Enterprise Agent Platform routes exams by specialist qualification and expertise",
+    "BigQuery supports both AI model training cohorts and customer-facing analytics",
+    "Looker surfaces dashboards for physicians and technologists"
+  ],
+  "source_url": "https://cloud.google.com/customers/deephealth",
+  "published_date": "2026-08-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Cloud Healthcare API handles DeepHealth's image streaming, delivering more than 20 million medical images per year.",
+    "DeepHealth uses Gemini Enterprise Agent Platform to run agentic tooling across radiology workflows, mainly routing the right exams to the right specialists.",
+    "Gemini helps draft or summarize report content that, once finalized, referring physicians can act on.",
+    "DeepHealth uses BigQuery to curate data cohorts for AI model training and to provide performance analytics to customers.",
+    "Looker sits on top of the stack to deliver organizational dashboards across the network."
+  ]
+}

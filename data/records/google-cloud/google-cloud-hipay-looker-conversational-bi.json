@@ -1,0 +1,67 @@
+{
+  "id": "google-cloud-hipay-looker-conversational-bi",
+  "slug": "google-cloud-hipay-looker-conversational-bi",
+  "vendor": "Google Cloud",
+  "customer_name": "HiPay",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "Mid-market",
+  "business_problem": "HiPay needed to replace a legacy BI environment that was causing dashboard fatigue, low self-service adoption, and duplicated calculations, while still preserving strong metric governance and security for payment analytics.",
+  "solution_summary": "HiPay migrated its BI environment to BigQuery, Looker, and Gemini Enterprise Agent Platform so business users could ask questions conversationally instead of wrestling with complex dashboards. BigQuery supplies the analytical compute layer, while Looker’s semantic model and version-controlled LookML centralize business definitions and let calculations run directly on the warehouse without data replication. HiPay then connected a natural-language interface to that semantic layer using governed API endpoints, which means row- and column-level security still flows through Looker User Attributes and access filters. The same platform also supports predictive modeling through Model Garden on Gemini Enterprise Agent Platform. By grounding conversational access in the governed semantic layer, HiPay increased BI adoption, reduced dashboard fatigue, and freed engineers from routine reporting requests.",
+  "products_used": [
+    "BigQuery",
+    "Looker",
+    "Gemini Enterprise Agent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Provides the warehouse compute layer for governed payment analytics and predictive modeling workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Looker",
+      "role": "Supplies the semantic model, security controls, and conversational analytics interface for business users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Hosts predictive modeling and natural-language AI capabilities connected to Looker's semantic layer.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Payment analytics data is processed in BigQuery and modeled in Looker with governed business definitions. Business users access the data through a natural-language interface backed by Looker's semantic APIs, while predictive models can be deployed through Gemini Enterprise Agent Platform.",
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "HiPay made BI easier to use, increased adoption, and preserved strong governance by tying conversational access and predictive modeling back to a single semantic definition layer.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "drives 50% higher BI adoption"
+  ],
+  "architecture_clues": [
+    "LookML business definitions are version controlled",
+    "Looker User Attributes and access filters enforce row- and column-level security",
+    "Model Garden on Gemini Enterprise Agent Platform supports predictive models"
+  ],
+  "source_url": "https://cloud.google.com/customers/hipay-looker",
+  "published_date": "2026-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "HiPay migrated legacy BI environment to Looker and BigQuery, increasing user adoption by 50 percent through governed conversational analytics.",
+    "Centralizing their business definitions inside version-controlled LookML code allowed HiPay to eliminate data replication entirely",
+    "Because Looker’s conversational framework queries the semantic model using governed API endpoints",
+    "This natural language interface has completely eliminated dashboard fatigue",
+    "Deploying Looker has triggered a massive fifty percent year-over-year surge in business intelligence utilization"
+  ]
+}

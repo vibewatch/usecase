@@ -1,0 +1,86 @@
+{
+  "id": "google-cloud-relex-promotion-optimization-agents",
+  "slug": "google-cloud-relex-promotion-optimization-agents",
+  "vendor": "Google Cloud",
+  "customer_name": "RELEX Solutions",
+  "industry": "Retail",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "RELEX needed to help retailers plan promotions faster and more accurately by turning complex retail data and forecasting models into an interactive, AI-assisted optimization workflow instead of a slow manual planning exercise.",
+  "solution_summary": "RELEX built its promotion-optimization stack on Google Cloud by combining large-scale retail data processing with Vertex AI and Gemini-powered agents. Cloud Storage ingests transaction histories, inventory levels, and promotional calendars, while BigQuery serves as the central data platform and Dataflow handles specialized large-scale transformations. Forecasting models that had previously lived in a more manual environment were migrated to Vertex AI so the team could manage versioning, performance monitoring, and the broader MLOps lifecycle in one place. On top of that foundation, RELEX is building a Gemini-based agent orchestrated through Google Kubernetes Engine that lets retailers interact with campaign and demand data in natural language, effectively creating a pocket pricing consultant that can turn analytics into immediate action. The platform reduces campaign-management effort from hours to minutes while improving the recommendation engine that drives retail promotions.",
+  "products_used": [
+    "Cloud Storage",
+    "BigQuery",
+    "Dataflow",
+    "Vertex AI",
+    "Gemini",
+    "Google Kubernetes Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Storage",
+      "role": "Ingests and stores the large retail datasets used for promotion and forecasting workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Acts as the central platform for large-scale retail data transformation and analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Dataflow",
+      "role": "Runs specialized, large-scale processing jobs over retail datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Manages the forecasting-model lifecycle, monitoring, and MLOps operations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers the natural-language promotion-planning agent layer.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Orchestrates the AI agent that turns retail analytics into interactive planning workflows.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Retail transaction, inventory, and promotion data lands in Cloud Storage and BigQuery, where Dataflow and forecasting models on Vertex AI process it. Gemini agents on GKE then turn those insights into natural-language planning guidance and promotional actions for retailers.",
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "RELEX compressed promotion planning from hours to minutes, improved the quality of retail recommendations, and created an interactive AI layer that helps retailers act on data faster.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "4+ hours of campaign management cut to <2 minutes"
+  ],
+  "architecture_clues": [
+    "Forecasting models were migrated to Vertex AI for MLOps",
+    "The Gemini-based agent is orchestrated through GKE",
+    "Cloud Storage, BigQuery, and Dataflow form the retail data foundation"
+  ],
+  "source_url": "https://cloud.google.com/customers/relex",
+  "published_date": "2026-02-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With Google Cloud, RELEX turns raw retail data into actionable insights.",
+    "Once the data is processed, it moves into the ML layer.",
+    "the company recently migrated its forecasting models ... to Vertex AI",
+    "Now, RELEX is enabling retailers to turn these high-level insights into immediate action with an agentic layer built using Gemini models on Vertex AI, and orchestrated through Google Kubernetes Engine (GKE).",
+    "4+ hours of campaign management cut to <2 minutes with AI Agent"
+  ]
+}

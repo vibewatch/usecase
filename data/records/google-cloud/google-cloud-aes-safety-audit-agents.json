@@ -1,0 +1,72 @@
+{
+  "id": "google-cloud-aes-safety-audit-agents",
+  "slug": "google-cloud-aes-safety-audit-agents",
+  "vendor": "Google Cloud",
+  "customer_name": "AES",
+  "industry": "Energy",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "AES needed to scale health and safety audits, reduce the time and cost of each audit, and keep a secure human-in-the-loop process while adopting generative AI in a regulated operating environment.",
+  "solution_summary": "AES built a generative-AI audit environment on Google Cloud using Gemini platform and Anthropic Claude models to automate large portions of safety-review work. Gemini platform provides the secure managed environment for deploying and coordinating the audit agents, while Claude is called through Gemini platform APIs to handle the reasoning-heavy portions of the process. This approach solved security concerns around permissions and service-account management and gave AES a way to synchronize multiple agents across complex audit steps without building a new runtime from scratch. Human reviewers remain in the loop for final examination, but the AI agents now handle much of the repetitive evidence gathering and report generation. The result is a significantly faster, cheaper, and more accurate audit workflow that also lays a foundation for future predictive and maintenance-focused AI use cases across energy operations.",
+  "products_used": [
+    "Gemini platform",
+    "Claude",
+    "Model Garden in Gemini platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Provides the secure managed environment for deploying, coordinating, and governing AES audit agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude",
+      "role": "Performs the high-volume reasoning tasks that power AES's health and safety audit workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Model Garden in Gemini platform",
+      "role": "Simplifies access to pre-trained models, including Claude, for building AI-powered audit applications.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Audit inputs are processed through Gemini platform, where Claude-powered agents execute reasoning and report-generation tasks. Human reviewers then examine the output before audits are finalized, keeping the process controlled and compliant.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "AES doubled audit capacity while cutting time and cost per audit and improving accuracy, proving that secure agentic workflows can accelerate safety operations in the energy sector.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "20% increase in audit accuracy",
+    "99% reduction in the cost of each audit",
+    "results were delivered 99.7% faster",
+    "from 14 days ... to just one hour",
+    "double the number of audits conducted"
+  ],
+  "architecture_clues": [
+    "Claude is enabled through API calls within the Gemini platform environment",
+    "Gemini platform resolves permission-level and service-account security issues",
+    "A human in the loop remains part of the process",
+    "The project has already completed more than 50 agent audits"
+  ],
+  "source_url": "https://cloud.google.com/customers/aes",
+  "published_date": "2024-12-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Running Claude on Google Cloud is driving immense improvements, such as a 20% increase in audit accuracy and a 99% reduction in the cost of each audit.",
+    "Our auditors previously spent 14 days completing each audit process. Now ... the same work is completed in just one hour.",
+    "we can double the number of audits conducted",
+    "We found the solution by enabling Claude to be used through API calls within the Gemini platform environment.",
+    "The other half, which involves a ‘human in the loop’ examining the process, remains in place."
+  ]
+}

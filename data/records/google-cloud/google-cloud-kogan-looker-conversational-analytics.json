@@ -1,0 +1,77 @@
+{
+  "id": "google-cloud-kogan-looker-conversational-analytics",
+  "slug": "google-cloud-kogan-looker-conversational-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Kogan.com",
+  "industry": "Retail",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Kogan.com needed to eliminate brittle export-based BI pipelines, shorten slow answer cycles for business users, and expose analytics conversationally without losing semantic consistency or data-level security.",
+  "solution_summary": "Kogan.com reorganized around a data-engineering-first analytics stack on Google Cloud, using BigQuery, dbt, and Looker as the governed core and then exposing that core through conversational AI. Raw staging data is funneled into BigQuery, where dbt builds tested fact and dimension tables and manages metadata that automatically surfaces inside Looker. Looker supplies the semantic layer and row-level permissions, while an internal enterprise MCP fleet server with OAuth wraps the open Model Context Protocol architecture so AI agents can query only the data a user is authorized to see. Batch jobs and transformations also run directly in BigQuery to keep costs controlled. The result is an environment where non-technical teams can ask questions through text, get secure instant answers from curated datasets, and hand dashboards back into Looker for shared use, rather than waiting on a reactive BI ticket queue.",
+  "products_used": [
+    "BigQuery",
+    "Looker",
+    "dbt",
+    "Model Context Protocol (MCP) fleet server"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores Kogan.com's curated retail datasets and runs batch transformations directly in the warehouse.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Looker",
+      "role": "Provides the semantic layer, permission model, and dashboarding environment for governed self-service analytics.",
+      "layer": "Serving"
+    },
+    {
+      "name": "dbt",
+      "role": "Builds tested facts, dimensions, and metadata definitions that structure Kogan.com's analytics layer.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Model Context Protocol (MCP) fleet server",
+      "role": "Connects internal AI agents to Looker and BigQuery through an OAuth-secured conversational interface.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Operational retail data is loaded into BigQuery, transformed by dbt into facts and dimensions, and surfaced in Looker. Employees then query that semantic layer through an OAuth-protected MCP fleet server, which enforces Looker permissions before returning conversational answers or dashboards.",
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Kogan.com cut data turnaround to seconds, turned more than a hundred non-technical users into self-service analysts, and reduced maintenance burden by grounding conversational analytics in a tested semantic model instead of fragile export scripts.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Data turnaround dropped from 40 minutes to under 60 seconds",
+    "150 non-technical team members"
+  ],
+  "architecture_clues": [
+    "dbt metadata and column definitions flow directly into BigQuery and surface in Looker",
+    "The MCP fleet server is wrapped with an OAuth security layer",
+    "Looker executes native row-level permissions",
+    "Transformations run directly under BigQuery to keep processing costs optimized"
+  ],
+  "source_url": "https://cloud.google.com/customers/kogan-looker",
+  "published_date": "2026-06-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By unifying dbt and Looker, Kogan.com created a highly optimized, cost-effective data pipeline.",
+    "Data turnaround dropped from 40 minutes to under 60 seconds",
+    "connected their curated BigQuery datasets and Looker’s semantic layer directly to internal AI agents through an enterprise Model Context Protocol (MCP) fleet server",
+    "This zero-trust approach mandates user authentication before granting server access",
+    "transforming 150 non-technical team members into independent, data-driven vibe coders"
+  ]
+}

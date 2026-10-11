@@ -1,0 +1,78 @@
+{
+  "id": "google-cloud-refik-anadol-large-nature-model",
+  "slug": "google-cloud-refik-anadol-large-nature-model",
+  "vendor": "Google Cloud",
+  "customer_name": "Refik Anadol Studio",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Refik Anadol Studio needed to process and understand billions of nature images fast enough to train a new multimodal model for DATALAND, while also enriching the dataset with better semantic context than previous open-source captioning approaches could provide.",
+  "solution_summary": "Refik Anadol Studio built the Large Nature Model on Google Cloud using Vertex AI, Gemini 2.5 Flash, BigQuery, and Google Cloud Storage. Vertex AI orchestrates the image-processing pipeline, handling preprocessing, object detection, and embedding generation in parallel so the team can prepare huge visual datasets far faster than before. Gemini 2.5 Flash then generates richer, more scientifically accurate captions for each image, turning raw visuals into semantically meaningful training data rather than generic tags. Google Cloud Storage holds the petabyte-scale archive and metadata record system, while BigQuery lets the team query billions of image-caption pairs in seconds for retrieval and analysis. This stack gave Refik Anadol Studio the speed, accuracy, and scale needed to turn a massive image corpus into a living, queryable nature encyclopedia that can power generative art and RAG-style interactions inside DATALAND.",
+  "products_used": [
+    "Vertex AI",
+    "Gemini 2.5 Flash",
+    "BigQuery",
+    "Google Cloud Storage"
+  ],
+  "solution_components": [
+    {
+      "name": "Vertex AI",
+      "role": "Orchestrates preprocessing, object detection, and embedding generation across the large image archive.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "role": "Generates accurate, context-rich captions that add semantic meaning to every image in the dataset.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores and queries large-scale image-caption data for retrieval, analysis, and model support.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud Storage",
+      "role": "Holds the petabyte-scale image archive and associated metadata records.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Images are stored in Google Cloud Storage, then processed in Vertex AI for object detection and embeddings. Gemini 2.5 Flash creates captions for the same data, and the resulting image-caption pairs are queried through BigQuery for retrieval, analysis, and downstream model use.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Refik Anadol Studio dramatically accelerated multimodal data preparation, improved caption quality, and built a scalable data engine for an AI-native art experience that can query and reason over nature imagery at massive scale.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "23x faster data processing",
+    "7x faster image embeddings",
+    "improved caption accuracy by nearly 40%",
+    "query billions of image-caption pairs in seconds"
+  ],
+  "architecture_clues": [
+    "Vertex AI orchestrates a multi-stage image-processing pipeline",
+    "BigQuery and Cloud Storage provide the retrieval-ready memory layer",
+    "Gemini 2.5 Flash replaced a weaker open-source captioning model",
+    "The platform supports RAG-like workflows for DATALAND"
+  ],
+  "source_url": "https://cloud.google.com/customers/refikanadolstudio",
+  "published_date": "2026-02-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Reduced object detection and image preprocessing time from 30 hours to just 80 minutes using Vertex AI",
+    "Accelerated the generation of image embeddings by 7x with Vertex AI",
+    "With Gemini 2.5 Flash, we improved caption accuracy by nearly 40%",
+    "Enabled the ability to query billions of image-caption pairs in seconds rather than days",
+    "The combination of Vertex AI orchestration, Gemini's captioning, and the instant-access storage from Cloud Storage and BigQuery provides the technical engine"
+  ]
+}

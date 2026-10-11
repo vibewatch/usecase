@@ -1,0 +1,83 @@
+{
+  "id": "google-cloud-fifth-dimension-multi-model-document-processing",
+  "slug": "google-cloud-fifth-dimension-multi-model-document-processing",
+  "vendor": "Google Cloud",
+  "customer_name": "Fifth Dimension",
+  "industry": "unknown",
+  "region": "United Kingdom",
+  "company_size": "Unknown",
+  "business_problem": "Fifth Dimension needed to process large commercial-real-estate deal datasets with long-context reasoning, secure centralized model access, and internal developer adoption without forcing engineers to manage separate vendor runtimes for Gemini and Claude.",
+  "solution_summary": "Fifth Dimension expanded its Google Cloud estate into a multi-model document-processing platform that combines Gemini platform, Claude, and core data services. Gemini platform centralizes model inference securely and supports workflows that can last one to three hours while switching models at different phases. The team uses Gemini for large-scale document grouping and Claude for extraction and reasoning when working through deal datasets containing thousands of documents. Cloud SQL for PostgreSQL and Google Cloud Storage store relational and unstructured data, while BigQuery tracks analytics and usage. The same environment also improved internal engineering adoption, with engineers generating more than 300,000 lines of code monthly and accepting 98% of suggestions. This gives Fifth Dimension a governed way to route each stage of document intelligence to the best-fit model without rebuilding the platform per vendor.",
+  "products_used": [
+    "Gemini platform",
+    "Claude",
+    "Cloud SQL",
+    "BigQuery",
+    "Google Cloud Storage"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Centralizes secure model inference and orchestrates long-running multi-model document workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude",
+      "role": "Performs high-performance extraction and reasoning over commercial-real-estate deal documents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores relational application data that supports the document-processing platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Acts as the central analytics and usage-tracking engine for the environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud Storage",
+      "role": "Stores unstructured document content used in large-scale document-processing workflows.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Large document sets are stored in Google Cloud Storage and Cloud SQL-backed application workflows, then orchestrated through Gemini platform. Gemini handles large-scale grouping, Claude performs extraction and reasoning, and BigQuery tracks analytics and usage across the platform.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Fifth Dimension processed larger deal datasets securely, improved internal engineering adoption, and gained the flexibility to use the best model at each phase of a complex commercial-real-estate workflow.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Engineers are generating more than 300,000 lines of code monthly",
+    "consistently accept 98% of suggestions",
+    "Processed massive deal datasets containing thousands of documents using Gemini’s 1-million-token context window"
+  ],
+  "architecture_clues": [
+    "Gemini platform supports workflows lasting between 1 and 3 hours",
+    "Gemini is used for initial large-scale document grouping",
+    "Claude is used for extraction and reasoning",
+    "BigQuery serves as the central engine for data analysis and usage tracking"
+  ],
+  "source_url": "https://cloud.google.com/customers/fifth-dimension-anthropic",
+  "published_date": "2026-04-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Gemini platform supports long-running workflows that can sometimes last between 1 and 3 hours",
+    "we will sometimes use Gemini for initial large-scale document grouping, then switch to Claude for subsequent high-performance data extraction and reasoning.",
+    "Every engineer at Fifth Dimension is an active Claude Code user.",
+    "Engineers are generating more than 300,000 lines of code monthly and consistently accept 98% of suggestions.",
+    "BigQuery serves as the central engine for data analysis and usage tracking."
+  ]
+}

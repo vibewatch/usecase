@@ -1,0 +1,62 @@
+{
+  "id": "google-cloud-att-gemini-customer-experience",
+  "slug": "google-cloud-att-gemini-customer-experience",
+  "vendor": "Google Cloud",
+  "customer_name": "AT&T",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "AT&T needed to route customers more accurately, increase autonomous issue containment, and make virtual assistants feel more personal instead of forcing users through repetitive phone trees and stateless support interactions.",
+  "solution_summary": "AT&T combined BigQuery with Gemini Enterprise for Customer Experience to build a more contextual support stack across voice and chat channels. BigQuery analyzes customer history so the contact center can route each person to the right path without relying on rigid menus, improving front-end containment before a conversation even begins. Once the interaction starts, Gemini Enterprise for Customer Experience handles more complex issues naturally and retains up to sixty days of conversational memory, which means customers do not have to restate context every time they return or move between support scenarios. This memory layer also helps AT&T use the same conversational foundation for sales, service, and troubleshooting. The result is a support experience that resolves more calls autonomously, routes customers faster, and feels more continuous and personalized than traditional telecom-service flows.",
+  "products_used": [
+    "BigQuery",
+    "Gemini Enterprise for Customer Experience"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Analyzes customer history and intent signals to improve routing and front-end containment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Enterprise for Customer Experience",
+      "role": "Runs the contextual voice and chat agents that handle issues naturally and retain long-lived memory.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer history and intent signals are analyzed in BigQuery, which improves initial routing. Gemini Enterprise for Customer Experience then handles the conversation, retains memory across interactions, and returns more personalized resolutions in voice and chat channels.",
+  "technical_area": [
+    "Contact Center",
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "AT&T increased autonomous containment and made virtual-assistant interactions more continuous and helpful, reducing the friction customers feel when seeking support or sales help.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "20% more calls autonomously",
+    "about 20% better containment at the front end of the call",
+    "keep 60 days worth of memory"
+  ],
+  "architecture_clues": [
+    "BigQuery is the routing and intent-analysis layer",
+    "Gemini Enterprise for Customer Experience provides long-lived memory",
+    "The same conversational stack supports sales, service, and troubleshooting workflows"
+  ],
+  "source_url": "https://cloud.google.com/customers/att-gemini-enterprise-cx",
+  "published_date": "2026-09-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AT&T uses BigQuery and Gemini Enterprise for Customer Experience to deploy highly contextual AI agents, resolving 20% more calls autonomously.",
+    "BigQuery provides the intelligence AT&T needs to bypass rigid menus and direct users to the right solution",
+    "Gemini Enterprise for Customer Experience allows us to keep 60 days worth of memory.",
+    "we're about 20% better containment at the front end of the call.",
+    "the conversation ... handles complex issues naturally"
+  ]
+}

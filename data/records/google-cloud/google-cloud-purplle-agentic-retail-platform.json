@@ -1,0 +1,120 @@
+{
+  "id": "google-cloud-purplle-agentic-retail-platform",
+  "slug": "google-cloud-purplle-agentic-retail-platform",
+  "vendor": "Google Cloud",
+  "customer_name": "Purplle",
+  "industry": "Retail",
+  "region": "India",
+  "company_size": "Mid-market",
+  "business_problem": "Purplle needed to support rapid 6x user growth, survive peak sale traffic, and automate search, CRM, pricing, and assortment decisions without increasing infrastructure costs or slowing down retail operations.",
+  "solution_summary": "Purplle rebuilt its retail technology stack on a cloud-native Google Cloud foundation so growth in users, transactions, and AI workloads would not require proportional increases in cost. Google Kubernetes Engine forms the backbone for its customer-facing platform, with Cloud SQL, Cloud Storage, and Cloud Pub/Sub supporting transactional data, object content, and event-driven messaging. On the analytical side, Purplle unified its data in BigQuery with Datastream for CDC and Managed Service for Apache Airflow for orchestration. Gemini platform speeds CRM campaigns to under an hour, while Cloud Run functions and Cloud AutoML power a self-serve pricing engine that updates every four hours. The same environment supports search, assortment planning, and operational recovery workflows, giving Purplle a single stack for retail personalization, merchandising decisions, and peak-event resilience.",
+  "products_used": [
+    "Google Kubernetes Engine",
+    "Cloud SQL",
+    "Cloud Storage",
+    "Cloud Pub/Sub",
+    "BigQuery",
+    "Datastream",
+    "Managed Service for Apache Airflow",
+    "Gemini platform",
+    "Cloud Run",
+    "Cloud AutoML"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Runs Purplle's retail platform and absorbs large traffic spikes during mega-sale events without downtime.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Supports Purplle's transactional retail workloads alongside the broader cloud-native application stack.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores retail platform data and assets used across customer and operations workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Pub/Sub",
+      "role": "Enables event-driven messaging across the platform's cloud-native architecture.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Acts as the unified analytics warehouse for search, merchandising, and AI-driven business decisions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Datastream",
+      "role": "Provides change-data capture into the BigQuery analytics layer.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Managed Service for Apache Airflow",
+      "role": "Orchestrates automated retail data workflows and analytical pipelines.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Generates CRM campaigns and other AI-driven retail interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Hosts the pricing-engine functions that update retail decisions every four hours.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud AutoML",
+      "role": "Powers self-serve pricing intelligence for retail operations.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Transactions and customer events flow through GKE, Cloud SQL, Cloud Storage, and Pub/Sub into BigQuery, where Datastream and Airflow keep the analytical layer current. Gemini platform uses that data for CRM campaigns, while Cloud AutoML and Cloud Run drive pricing and assortment decisions back into operational retail workflows.",
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Purplle sustained major user growth at flat infrastructure cost, improved retail search and uptime, and used Google Cloud to automate merchandising and marketing workflows that directly influenced revenue and operations.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "6x user growth at flat infra cost",
+    "CRM campaigns run in <1 hour",
+    "70% reduction in manual operations",
+    "Mean Time To Recovery (MTTR) from eight hours to under 30 minutes",
+    "99.99% uptime",
+    "10x traffic spikes",
+    "P95 search latency plummeted from 1.2 seconds to just 300 milliseconds",
+    "8% to 10% uplift in search-driven Gross Merchandise Value (GMV)"
+  ],
+  "architecture_clues": [
+    "Google Kubernetes Engine forms the backbone of the cloud-native infrastructure",
+    "Cloud SQL, Cloud Storage, and Cloud Pub/Sub support the backbone stack",
+    "BigQuery is fed by Datastream and Managed Service for Apache Airflow",
+    "Cloud AutoML and Cloud Run functions update the pricing engine every four hours"
+  ],
+  "source_url": "https://cloud.google.com/customers/purplleai",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "6x user growth at flat infra cost with Google Kubernetes Engine (GKE)",
+    "CRM campaigns run in <1 hour using Gemini platform",
+    "Utilizing Cloud AutoML Cloud Run functions, a self-serve pricing engine went live in two weeks, updating automatically every four hours.",
+    "These implementations drove a 70% reduction in manual operations, shrinking Mean Time To Recovery (MTTR) from eight hours to under 30 minutes.",
+    "The GKE ecosystem maintains a resilient 99.99% uptime, effortlessly absorbing 10x traffic spikes during peak mega-sale events without downtime."
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "id": "google-cloud-eon-backup-data-lake-search",
+  "slug": "google-cloud-eon-backup-data-lake-search",
+  "vendor": "Google Cloud",
+  "customer_name": "Eon",
+  "industry": "Software / SaaS",
+  "region": "New York and Israel",
+  "company_size": "Unknown",
+  "business_problem": "Eon needed to turn static backup archives into queryable data assets so customers could recover information faster, search historical data with natural language, and cut backup-storage cost instead of treating archives as passive cold copies.",
+  "solution_summary": "Eon built a backup-data platform on Google Cloud that transforms archived files into live data lakes. Backup content is stored in Cloud Storage, then converted into an analytics-ready format that BigQuery can query directly without manual restores or data transfers. As new data is ingested, Eon indexes metadata and embeddings into a vector store on Vertex AI, and Gemini plus a custom Agent Development Kit workflow allow customers to ask natural-language questions over petabytes of backup history. The system then generates SQL and runs external BigQuery queries against the data in Cloud Storage. This architecture gives customers fast, granular recovery access, reduces backup infrastructure cost through global deduplication optimized for object storage, and turns backups into a searchable operational data source rather than a last-resort archive.",
+  "products_used": [
+    "Cloud Storage",
+    "BigQuery",
+    "Gemini",
+    "Vertex AI",
+    "Agent Development Kit (ADK)"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Storage",
+      "role": "Stores backup data in a form that Eon can transform into live, queryable data lakes.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Queries backup data directly and returns analytical answers without requiring restores.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Hosts the vector-store indexing layer built from backup metadata and embeddings.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Translates natural-language backup questions into queries over the data lake.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Agent Development Kit (ADK)",
+      "role": "Powers the custom agent that converts user questions into complex SQL over backup data.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Backup data is stored in Cloud Storage, indexed into a Vertex AI vector layer, and queried through BigQuery. Users ask natural-language questions with Gemini, an ADK-based agent turns them into SQL, and BigQuery executes the query directly against the backup data lake.",
+  "technical_area": [
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Eon turned backups into searchable data lakes, cut recovery time and storage cost, and gave customers a much more useful way to work with historical data than traditional restore-centric approaches.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "90% improvement in data recovery time",
+    "at least 40%"
+  ],
+  "architecture_clues": [
+    "Global deduplication is optimized for Cloud Storage",
+    "Vertex AI stores metadata embeddings",
+    "BigQuery runs external queries directly on backup data",
+    "ADK is used to generate SQL from natural-language questions"
+  ],
+  "source_url": "https://cloud.google.com/customers/eon",
+  "published_date": "2026-02-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "improving data recovery time by up to 90%",
+    "running on Cloud Storage, Eon reduces customers’ cloud backup infrastructure costs by at least 40%",
+    "As Eon backs up the data, it automatically indexes and embeds metadata into a vector store on Vertex AI.",
+    "This allows customers to search across petabytes of historical data asking natural language questions with Gemini",
+    "Using the Agent Development Kit (ADK), Eon has built a customized agent to convert these natural language queries into complex SQL queries."
+  ]
+}

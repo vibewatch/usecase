@@ -1,0 +1,75 @@
+{
+  "id": "google-cloud-growth-protocol-neuro-symbolic-reasoning",
+  "slug": "google-cloud-growth-protocol-neuro-symbolic-reasoning",
+  "vendor": "Google Cloud",
+  "customer_name": "Growth Protocol",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Growth Protocol needed to build an enterprise reasoning platform for regulated industries that could combine large-scale data pipelines with deterministic recommendations while guaranteeing zero data retention for sensitive customer information.",
+  "solution_summary": "Growth Protocol built its Enterprise Reasoning Platform on Google Cloud by combining BigQuery, Cloud Run, Gemini platform, and Gemini with its own neuro-symbolic reasoning layer and Elastic search. BigQuery and GKE-scale data pipelines handle the large industrial and insurance datasets behind the service, while Gemini platform and Model Garden provide the managed model environment used to productionize internal models and interpret user intent. Gemini’s enterprise security posture and zero-data-retention controls were essential because the company works with regulated customers that cannot allow private information into model-training loops. Cloud Run helps package the reasoning service into scalable application workflows. This combination let Growth Protocol grow quickly while keeping the platform deterministic enough to return clear executive recommendations and flexible enough to deploy frontier reasoning capabilities without repeated re-platforming.",
+  "products_used": [
+    "BigQuery",
+    "Cloud Run",
+    "Gemini platform",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Processes the large industrial and insurance datasets that feed Growth Protocol's reasoning workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Hosts scalable application workflows around the enterprise reasoning service.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Provides the managed model environment used to productionize internal models and orchestrate reasoning services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Understands user intent and supports zero-data-retention reasoning for regulated customers.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Enterprise data is processed through BigQuery-backed pipelines, then Growth Protocol's reasoning service on Cloud Run and Gemini platform interprets user intent, applies neuro-symbolic logic, and returns deterministic recommendations without using customer data for model training.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Growth Protocol created a secure reasoning platform for regulated customers, enabling fast growth while keeping enterprise recommendations deterministic and privacy-sensitive workloads out of model-training loops.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "grew 5x"
+  ],
+  "architecture_clues": [
+    "Zero data retention is a key architectural requirement",
+    "Gemini platform productionalizes internal models through Model Garden",
+    "BigQuery and GKE-scale pipelines support industrial and insurance data",
+    "Cloud Run packages the reasoning service into scalable workflows"
+  ],
+  "source_url": "https://cloud.google.com/customers/growth-protocol",
+  "published_date": "2026-06-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Secured zero data retention for regulated clients using Gemini’s approachable and cost-effective enterprise security features",
+    "Gemini platform: Growth Protocol uses Model Garden in Gemini platform to productionalize internal models",
+    "BigQuery and Google Kubernetes Engine: These tools handle the massive data pipelines and scaling requirements",
+    "By orchestrating Gemini platform, Gemini, and Elastic search, they transform how global enterprises make strategic business decisions.",
+    "The Enterprise Reasoning Platform: How Growth Protocol grew 5x with neuro-symbolic AI"
+  ]
+}

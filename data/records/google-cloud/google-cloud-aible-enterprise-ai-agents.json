@@ -1,0 +1,80 @@
+{
+  "id": "google-cloud-aible-enterprise-ai-agents",
+  "slug": "google-cloud-aible-enterprise-ai-agents",
+  "vendor": "Google Cloud",
+  "customer_name": "Aible",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Aible needed to deploy secure enterprise AI agents quickly while keeping customer data inside each enterprise cloud boundary, avoiding idle GPU cost, and proving that large-scale analytics and model orchestration could be both fast and economical.",
+  "solution_summary": "Aible built its enterprise agent platform on Google Cloud by combining serverless analytics with scalable model infrastructure. BigQuery is the core data plane, allowing Aible to evaluate millions of questions across billions of rows without moving data outside the customer's cloud boundary. Cloud Run and Google Kubernetes Engine support the application and agent runtime, while G4 and newer NVIDIA-backed GPU configurations provide the model capacity needed for long-running planning tasks and rapid deployment of fine-tuned variants. This stack lets Aible stand up trusted agents in as little as 30 days, migrate key workloads quickly, and run many model variants per GPU without paying for idle capacity. By pairing BigQuery's serverless economics with GPU-backed agent execution, Aible created a platform where enterprise customers can keep control of their data while still getting large-scale generative AI assistance tied directly to business KPIs.",
+  "products_used": [
+    "BigQuery",
+    "Cloud Run",
+    "Google Kubernetes Engine (GKE)",
+    "G4 GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Keeps enterprise data in place and powers the large-scale analytics workloads that feed Aible's AI agents.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Hosts agent services and supports rapid deployment of Aible's application workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Runs scalable application and model-serving infrastructure for longer-running agent workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "G4 GPUs",
+      "role": "Provide the accelerated compute needed for fine-tuned models and long-running planning tasks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Enterprise data stays in BigQuery, where Aible evaluates questions and variable combinations at large scale. Agent services on Cloud Run and GKE call that data plane, and GPU-backed model runtimes handle planning and inference before returning KPI-aligned recommendations to users.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Aible shortened time to value for enterprise AI agents, cut analytics cost dramatically, and showed that governed, data-in-place agent workflows can scale without forcing customers to surrender data control.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "within 30 days",
+    "1000x analytics cost efficiency gain",
+    "processed 5 billion rows of data and evaluated 10 million variable combinations in less than 10 minutes",
+    "a mere $10",
+    "25% performance boost for multi-step agent workflows",
+    "run up to 10 fine-tuned model variants on a single GPU simultaneously"
+  ],
+  "architecture_clues": [
+    "Enterprise data remains stored inside Google BigQuery",
+    "Aible migrated to Cloud Run and G4 VMs in less than 2 hours",
+    "Long-running planning tasks can run on Google Cloud with GPU-backed models",
+    "The platform is designed to keep data under the customer's own control"
+  ],
+  "source_url": "https://cloud.google.com/customers/aible",
+  "published_date": "2026-07-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Aible delivers secure, scalable AI impact within 30 days.",
+    "By using Google Cloud’s serverless architecture with NVIDIA Blackwell GPUs, we demonstrated a 1000x improvement in analytics efficiency.",
+    "Aible successfully processed 5 billion rows of data and evaluated 10 million variable combinations in less than 10 minutes.",
+    "running millions of automated, AI-initiated queries costs a mere $10.",
+    "enterprise data remains safely stored inside Google BigQuery"
+  ]
+}

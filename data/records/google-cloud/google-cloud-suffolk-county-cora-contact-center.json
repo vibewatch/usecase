@@ -1,0 +1,85 @@
+{
+  "id": "google-cloud-suffolk-county-cora-contact-center",
+  "slug": "google-cloud-suffolk-county-cora-contact-center",
+  "vendor": "Google Cloud",
+  "customer_name": "Suffolk County",
+  "industry": "Public Sector",
+  "region": "New York",
+  "company_size": "Public sector",
+  "business_problem": "Suffolk County's departments faced seasonal call surges on outdated telephony infrastructure, with more than 600 calls per day, 30-minute waits, and over 70% of calls abandoned during peak property-tax periods.",
+  "solution_summary": "Working with Google Public Sector and UVS InfoTech, Suffolk County deployed the Civic Oriented Response Assistant (CORA) as an AI-powered first line of constituent service. CORA is built on Google Cloud Contact Center AI and integrated with the county's existing RingCentral telephony environment so callers can receive multilingual support around the clock without requiring a live agent for every request. Gemini platform extends the assistant's intelligence, while Google Cloud Storage and BigQuery support the knowledge and telemetry layers behind the service. Interaction data is streamed into BigQuery dashboards so the IT team can monitor resolution trends and tune workflows continuously. The system automates high-volume, repetitive calls during tax season, routes more complex issues to county staff only when needed, and gives employees more room to focus on deep constituent support rather than backlog triage.",
+  "products_used": [
+    "Contact Center AI (CCAI)",
+    "Gemini platform",
+    "Google Cloud Storage",
+    "BigQuery"
+  ],
+  "solution_components": [
+    {
+      "name": "Contact Center AI (CCAI)",
+      "role": "Runs CORA as the county's conversational front door for multilingual voice interactions and automated workflow handling.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Adds generative AI reasoning that helps CORA understand and resolve more complex resident questions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud Storage",
+      "role": "Stores content and assets used by the virtual assistant environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Captures interaction telemetry for central dashboards used to monitor trends and optimize service performance.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Resident calls enter through RingCentral and are answered by CORA on Contact Center AI. Gemini platform helps resolve or route requests, while call telemetry streams into BigQuery dashboards and related assistant content is stored in Google Cloud Storage for ongoing optimization.",
+  "integration_points": [
+    "RingCentral telephony system"
+  ],
+  "technical_area": [
+    "Contact Center",
+    "Generative AI / LLM",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Suffolk County reduced waits and backlogs, resolved large portions of inbound traffic automatically, and established a repeatable public-sector model for AI-assisted resident services.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Delivers secure, 24/7 multilingual assistance to 1.5 million residents across Suffolk County",
+    "874 incoming calls within its first two weeks",
+    "directly resolving 36% of all inbound traffic",
+    "30% reduction in incoming call volumes during the high-stress property tax season",
+    "surges of more than 600 calls per day",
+    "average caller wait times topped 30 minutes",
+    "more than 70% of inbound calls were abandoned"
+  ],
+  "architecture_clues": [
+    "CORA is integrated with the county's existing RingCentral telephony system",
+    "interaction telemetry is streamed directly into BigQuery for dashboards",
+    "The deployment was built with Google Public Sector and UVS InfoTech",
+    "The assistant is designed as an agentic virtual assistant for multiple county processes"
+  ],
+  "source_url": "https://cloud.google.com/customers/suffolk-county-new-york",
+  "published_date": "2026-07-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Powered by Google Cloud Contact Center AI (CCAI) Platform and integrated seamlessly with the county’s existing RingCentral telephony system, CORA acts as an intelligent conversational first point of contact.",
+    "Streams interaction telemetry directly into BigQuery, powering a central dashboard",
+    "CORA handled 874 incoming calls within its first two weeks, directly resolving 36% of all inbound traffic.",
+    "the system immediately drove a 30% reduction in incoming call volumes during the high-stress property tax season",
+    "With limited agents, average caller wait times topped 30 minutes, and more than 70% of inbound calls were abandoned."
+  ]
+}

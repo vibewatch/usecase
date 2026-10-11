@@ -1,0 +1,85 @@
+{
+  "id": "google-cloud-unico-agentic-data-cloud-identity",
+  "slug": "google-cloud-unico-agentic-data-cloud-identity",
+  "vendor": "Google Cloud",
+  "customer_name": "Unico",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Unico needed to modernize identity-data operations, improve privacy and observability at large scale, and free engineering capacity that had been tied up maintaining a more complex analytics stack.",
+  "solution_summary": "Unico rebuilt its identity-data platform on Google Cloud with BigQuery as the managed analytical core and Cloud Spanner as the transactional backbone for strict availability requirements. The company moved away from a Databricks-centric estate and used Datastream for low-latency CDC plus Dataform for governance and CI/CD, giving business and marketing analysts direct SQL access to a more approachable warehouse. BigQuery now handles identity analytics with policy tags protecting PII, while Spanner continues to support high-SLA identity verification workflows. The result is a platform that processes billions of identity checks more efficiently, improves observability and privacy control, and sets up future fraud-detection work on Gemini Enterprise Agent Platform without requiring the team to keep spending half its effort on maintenance.",
+  "products_used": [
+    "BigQuery",
+    "Cloud Spanner",
+    "Datastream",
+    "Dataform",
+    "Gemini Enterprise Agent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Serves as Unico's core managed data warehouse for analytics, observability, and governed data access.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Spanner",
+      "role": "Handles high-availability transactional identity-check workloads with strict SLA requirements.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Datastream",
+      "role": "Supplies low-latency change-data capture into Unico's modernized analytics environment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Dataform",
+      "role": "Provides governance and CI/CD for the BigQuery-based data platform.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Represents the next planned layer for enhancing fraud-detection capabilities on top of the unified data stack.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Identity verification data moves through Datastream into BigQuery, where Dataform-managed models govern analytical use. High-availability transactional checks continue on Cloud Spanner, and the unified platform feeds future Gemini-based fraud-detection work.",
+  "technical_area": [
+    "Data Platform",
+    "Cloud Migration",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Security and Compliance",
+    "Fraud Detection"
+  ],
+  "business_outcome": "Unico simplified its data estate, improved privacy and observability, and redirected technical effort from maintenance to strategic platform capabilities while preparing for more advanced fraud analytics.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "1.5 billion identity verifications annually",
+    "enhanced privacy",
+    "a 50% increase in team efficiency",
+    "Reduced platform maintenance resources by 50%"
+  ],
+  "architecture_clues": [
+    "BigQuery uses policy tags to protect PII data",
+    "Dataform is used for governance and CI/CD",
+    "Datastream provides change data capture with minimal latency",
+    "Gemini Enterprise Agent Platform is being explored for fraud detection"
+  ],
+  "source_url": "https://cloud.google.com/customers/unico",
+  "published_date": "2026-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By leveraging BigQuery and Spanner, Unico now processes 1.5 billion identity verifications annually",
+    "The migration to BigQuery has fundamentally changed how data is consumed at Unico.",
+    "the adoption of Dataform for governance and CI/CD",
+    "BigQuery was a game changer regarding data privacy because we have a lot more control using policy tags and protecting PII data.",
+    "Unico is exploring the Gemini Enterprise Agent Platform to further enhance its fraud detection capabilities."
+  ]
+}

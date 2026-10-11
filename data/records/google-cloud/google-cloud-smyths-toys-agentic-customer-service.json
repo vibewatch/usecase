@@ -1,0 +1,92 @@
+{
+  "id": "google-cloud-smyths-toys-agentic-customer-service",
+  "slug": "google-cloud-smyths-toys-agentic-customer-service",
+  "vendor": "Google Cloud",
+  "customer_name": "Smyths Toys",
+  "industry": "Retail",
+  "region": "Ireland",
+  "company_size": "Enterprise",
+  "business_problem": "Smyths Toys needed to handle growing customer-service volume across email, web, and social channels while giving AI agents access to live order, shipping, refund, and product data without slowing or destabilizing core SAP transaction systems.",
+  "solution_summary": "Smyths Toys built an agentic customer-service platform called Codie on top of Gemini Enterprise and a split Google Cloud architecture that separates transactional SAP workloads from heavier AI inference. Business-critical processes remain in an ABAP implementation using the Google Cloud ABAP SDK, while more compute-intensive orchestration and reasoning run in a Python environment on Kubernetes using the Google Agent Development Kit. Incoming requests are first classified through Gemini Enterprise Agent Platform, then handed to a supervisor agent that can delegate retrieval or action tasks to specialized sub-agents. Gemini's native function-calling pulls live information from SAP S/4HANA, carrier APIs such as Royal Mail, DPD, and DHL, and payment providers including Stripe and Worldpay. BigQuery augments the SAP estate with additional datasets, allowing Smyths to serve customer requests in real time while preserving the performance of mission-critical retail systems.",
+  "products_used": [
+    "BigQuery",
+    "Gemini Enterprise",
+    "Gemini Enterprise Agent Platform",
+    "Google Cloud ABAP SDK",
+    "Google Agent Development Kit (ADK)"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise",
+      "role": "Provides the underlying Gemini models used for customer-service reasoning and function-calling in Codie.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Classifies incoming requests and orchestrates the supervisor-and-sub-agent workflow for customer-service tasks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Google Cloud ABAP SDK",
+      "role": "Connects business-critical SAP processes to Google Cloud while preserving performance for transactional retail workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Agent Development Kit (ADK)",
+      "role": "Supports the Python-based agent environment that handles complex AI tasks on Kubernetes.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Combines SAP and additional enterprise datasets so agents can reason over broader retail context.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer emails, web chats, and social messages are classified on Gemini Enterprise Agent Platform and routed to a supervisor agent. The workflow calls live SAP, carrier, and payment systems through Gemini function-calling, enriches the response with BigQuery-backed context, and then returns or completes the action before sending the customer reply.",
+  "integration_points": [
+    "SAP S/4HANA",
+    "Royal Mail",
+    "DPD",
+    "DHL",
+    "Stripe",
+    "Worldpay",
+    "Kubernetes"
+  ],
+  "technical_area": [
+    "Contact Center",
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Smyths expanded Codie from order tracking into a broad omnichannel service platform, resolved hundreds of thousands of emails, and automated most peak shopping-period support while keeping satisfaction above 90%.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Resolved more than 300,000 customer emails",
+    "handled approximately 60% of the entire customer service workload",
+    "maintaining customer satisfaction above 90%"
+  ],
+  "architecture_clues": [
+    "Codie uses two complementary environments: ABAP for SAP-critical processes and Python on Kubernetes for heavier AI workloads",
+    "Incoming requests are analyzed before being assigned to a supervisor agent",
+    "Specialized sub-agents can execute function calls against operational systems",
+    "BigQuery is being used alongside enterprise SAP data to support larger analytics workloads"
+  ],
+  "source_url": "https://cloud.google.com/customers/smyths-toys-ge",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Through Gemini's native function-calling capabilities, Codie securely retrieves live information from SAP S/4HANA, carrier APIs such as Royal Mail, DPD, and DHL, and payment platforms including Stripe and Worldpay.",
+    "Codie consists of two complementary environments.",
+    "Each customer interaction begins with an intelligent classification stage.",
+    "incoming requests are analyzed before being assigned to a supervisor agent responsible for planning how the enquiry should be resolved.",
+    "During peak shopping periods, the platform handled approximately 60% of the entire customer service workload, while maintaining customer satisfaction above 90%."
+  ]
+}

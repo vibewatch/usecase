@@ -1,0 +1,77 @@
+{
+  "id": "google-cloud-cxai-looker-workplace-analytics",
+  "slug": "google-cloud-cxai-looker-workplace-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "CXAI",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "CXAI needed to replace fragmented manual workplace and real-estate reporting with a scalable analytics layer that could detect anomalies automatically, serve many clients from one model, and eliminate unnecessary infrastructure complexity.",
+  "solution_summary": "CXAI standardized its workplace analytics suite on Looker and Google Cloud so utilization, application, and occupancy data could be modeled once and reused across an entire client base. The company captures real-estate and app-usage data, then combines booking logs from Cloud SQL with other signals in a more direct cloud-side model rather than sending everything through a separate data lake. Looker provides the scalable semantic and API layer, while BigQuery, Cloud SQL, and Firebase support data access, application integration, and broader platform needs. Automated Looker alerts now notify managers when patterns such as a spike in booking cancellations appear, so they can investigate facility issues immediately instead of waiting for manual reports. By moving from labor-intensive custom reporting to an API-first analytics stack, CXAI turned workplace data into a proactive operational tool and gave clients faster insight into utilization and ROI.",
+  "products_used": [
+    "Looker",
+    "BigQuery",
+    "Cloud SQL",
+    "Firebase"
+  ],
+  "solution_components": [
+    {
+      "name": "Looker",
+      "role": "Provides the semantic, alerting, and API layer that turns workplace data into reusable, client-facing analytics.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Supports scalable analytics queries and helps CXAI avoid a separate data-lake layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores booking logs and operational data that feed CXAI's analytics environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Firebase",
+      "role": "Supports application-level data capture and integration within the workplace platform.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Workplace and application-usage data flows from Cloud SQL and other sources into the Looker-driven analytics layer, where metrics are modeled once, alerts are triggered on anomalies, and dashboards or API outputs are delivered to web, mobile, and other endpoints.",
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "CXAI replaced manual reporting with proactive alerts and reusable analytics, making it easier to prove workplace ROI and respond faster to facilities or utilization problems across many client environments.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "saving thousands of hours in employee productivity",
+    "implementation team often spent eight hours manually generating a single report for a client",
+    "30% spike in booking cancellations"
+  ],
+  "architecture_clues": [
+    "Looker alerts are pushed to Slack or email",
+    "Looker is used as an API-first data layer across multiple client channels",
+    "The company eliminated the need for a separate Snowflake data lake",
+    "Cloud SQL booking logs remain part of the core data pipeline"
+  ],
+  "source_url": "https://cloud.google.com/customers/cxai-looker",
+  "published_date": "2026-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Now, they set specific thresholds and receive immediate notifications by Looker Alert in Slack or email when anomalies occur.",
+    "Eliminated the need for a separate Snowflake data lake by connecting Looker directly to multiple data sources",
+    "the implementation team often spent eight hours manually generating a single report for a client.",
+    "Looker has become its own product within our ecosystem.",
+    "save thousands of hours in employee productivity."
+  ]
+}

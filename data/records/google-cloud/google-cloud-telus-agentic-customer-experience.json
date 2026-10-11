@@ -1,0 +1,80 @@
+{
+  "id": "google-cloud-telus-agentic-customer-experience",
+  "slug": "google-cloud-telus-agentic-customer-experience",
+  "vendor": "Google Cloud",
+  "customer_name": "TELUS",
+  "industry": "Telecommunications",
+  "region": "Canada",
+  "company_size": "Enterprise",
+  "business_problem": "TELUS needed to break down channel silos, analyze far more than a tiny fraction of its support interactions, and automate customer-service resolution without exposing sensitive data or forcing customers and agents to restart conversations at every handoff.",
+  "solution_summary": "TELUS built an agentic customer-experience stack on Google Cloud with BigQuery as its central data foundation. Raw conversational data from 22 million annual calls flows into BigQuery, which serves as an Agentic Data Cloud across more than 14 petabytes of structured and unstructured TELUS data. Sensitive Data Protection scrubs private information before Gemini platform analyzes the full interaction set for sentiment, root causes, and operational patterns. Those insights feed Generative Playbooks and Quality AI coaching so Gemini for customer experience can respond with better guidance, preserve memory as customers move between channels, and assist frontline employees in real time. The result is a unified system that connects zero-copy data in BigQuery with customer-facing and agent-facing Gemini services, turning previously fragmented contact-center analytics into operational AI that can continuously improve every interaction.",
+  "products_used": [
+    "BigQuery",
+    "Sensitive Data Protection",
+    "Gemini platform",
+    "Gemini for customer experience"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Acts as TELUS's Agentic Data Cloud, storing and exposing conversational and enterprise data for downstream AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Sensitive Data Protection",
+      "role": "Scrubs private details from customer interactions before the data is analyzed by Gemini-based workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Analyzes all customer interactions for sentiment, root causes, and Quality AI coaching signals, then powers Generative Playbooks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini for customer experience",
+      "role": "Uses the analyzed context to automate customer responses, preserve memory across channels, and guide frontline agents in real time.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer calls are ingested into BigQuery, where Sensitive Data Protection removes private details. Gemini platform analyzes the interactions for sentiment and root causes, generates coaching and playbooks, and then Gemini for customer experience uses that context to automate responses or support human agents across channels.",
+  "technical_area": [
+    "Contact Center",
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "TELUS turned its contact-center data into an always-on operational AI system, resolving issues much faster, automating a meaningful share of calls, and identifying customer problems with far more certainty than its previous siloed setup allowed.",
+  "outcome_category": [
+    "Customer Experience",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "87% faster",
+    "$53.9M in annual operational cost savings",
+    "automate 30% of customer calls",
+    "22 million annual interactions",
+    "over 14 petabytes of structured and unstructured data"
+  ],
+  "architecture_clues": [
+    "BigQuery serves as the central Agentic Data Cloud",
+    "Sensitive Data Protection automatically scrubs private details",
+    "Generative Playbooks are built from Gemini platform insights",
+    "Quality AI analyzes acoustic nuances such as long silences and customer tone of voice"
+  ],
+  "source_url": "https://cloud.google.com/customers/telus-gemini-enterprise-cx",
+  "published_date": "2026-06-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "TELUS uses BigQuery, Gemini for customer experience, and Gemini platform to automate 30% of customer calls and resolve them 87% faster.",
+    "Raw conversational data from 22 million annual calls is ingested into BigQuery.",
+    "Sensitive Data Protection automatically scrubs private details, allowing Gemini platform to safely analyze every call for sentiment and root causes.",
+    "Gemini for customer experience maintains a continuous 'memory' as customers move between channels.",
+    "A key capability of the Gemini platform, Quality AI analyzes acoustic nuances."
+  ]
+}

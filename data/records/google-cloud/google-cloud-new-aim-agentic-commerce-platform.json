@@ -1,0 +1,91 @@
+{
+  "id": "google-cloud-new-aim-agentic-commerce-platform",
+  "slug": "google-cloud-new-aim-agentic-commerce-platform",
+  "vendor": "Google Cloud",
+  "customer_name": "New Aim",
+  "industry": "Retail",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "New Aim needed to evolve from a large retailer into an infrastructure platform that could optimize supply chain, product performance, and multi-channel commerce with AI agents, while keeping latency and incident response under control.",
+  "solution_summary": "New Aim built an AI-native operating layer called AimCore on Google Cloud to manage transactions and logistics across more than forty sales channels and a 120,000-square-meter fulfillment footprint. Cloud Storage underpins a hybrid data lake for transaction and logistics data, while BigQuery serves as the core warehouse and uses native ML plus Gemini Flash models to analyze customer behavior, SKU performance, and internal telemetry at machine speed. The company also runs 24/7 internal agents through Gemini Enterprise Agent Platform, processing billions of tokens each week so planners can ask operational questions such as days of stock in plain English. Applications and transaction endpoints are deployed through Cloud Run to reduce latency for offshore operations. This stack lifted uptime, slashed incident response time, and turned what had been manual retail analysis into a continuous, AI-assisted commerce and supply-chain workflow.",
+  "products_used": [
+    "Cloud Storage",
+    "BigQuery",
+    "BigQuery ML",
+    "Gemini Flash",
+    "Gemini Enterprise Agent Platform",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Storage",
+      "role": "Holds the hybrid data lake containing transaction and logistics data across channels and fulfillment operations.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Acts as the core warehouse for behavior, telemetry, and operational analysis across AimCore.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery ML",
+      "role": "Runs granular predictive models across products and commerce activity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Flash",
+      "role": "Powers internal operational agents that answer planning questions and automate SKU analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Hosts the 24/7 internal agents that process large token volumes for operational decision-making.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Deploys applications and transaction endpoints with low-latency global access.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Transaction and logistics data is centralized in Cloud Storage and BigQuery, where BigQuery ML and Gemini Flash agents analyze supply-chain and product-performance questions. Results feed planners and operational applications deployed on Cloud Run for ongoing commerce decisions.",
+  "technical_area": [
+    "Data Platform",
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "New Aim improved uptime and response time while turning retail and logistics data into a continuously accessible AI operating layer that helps managers make faster decisions across channels and inventory.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Processing transactions across more than 40 distinct sales channels",
+    "120,000 sq m fulfillment footprint",
+    "billions of tokens weekly",
+    "lifting service uptime from 97% to 99%",
+    "crashing infrastructure incident response times from hours to just 15 minutes"
+  ],
+  "architecture_clues": [
+    "AimCore is New Aim's proprietary AI-native operating layer",
+    "Cloud Run hosts global applications and endpoints",
+    "Gemini Flash agents are used for 24/7 internal operations",
+    "BigQuery ML is used to eliminate manual product and operational analysis friction"
+  ],
+  "source_url": "https://cloud.google.com/customers/newaim",
+  "published_date": "2026-06-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "To successfully transition from a high-scale retailer to an ecosystem infrastructure provider, New Aim built a proprietary, AI-native operating layer known as AimCore.",
+    "Processing transactions across more than 40 distinct sales channels",
+    "deploy 24/7 internal operational agents",
+    "lifting service uptime from 97% to 99% and crashing infrastructure incident response times from hours to just 15 minutes.",
+    "Leveraging native capabilities like BigQuery, ML, and Gemini Flash"
+  ]
+}

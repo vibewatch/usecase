@@ -1,0 +1,89 @@
+{
+  "id": "google-cloud-fifth-dimension-document-intelligence",
+  "slug": "google-cloud-fifth-dimension-document-intelligence",
+  "vendor": "Google Cloud",
+  "customer_name": "Fifth Dimension",
+  "industry": "unknown",
+  "region": "United Kingdom",
+  "company_size": "Unknown",
+  "business_problem": "Fifth Dimension needed to scale commercial-real-estate document processing and model deployment quickly, lower infrastructure costs, and support AI-first product delivery without stitching together separate cloud, messaging, and runtime stacks.",
+  "solution_summary": "Fifth Dimension adopted an AI-first Google Cloud architecture that combines messaging, runtime, storage, and model services into a single document-intelligence platform for commercial real estate. Pub/Sub handles chunk-level message processing, Cloud Run scales endpoints up and down for cost and performance efficiency, and Cloud SQL supports the high-availability relational workloads behind the application. On top of that base, Fifth Dimension runs a Gemini platform-based machine-learning stack that uses both Gemini and Anthropic Claude models for training, inference, and experimentation. This stack helped the company absorb surging document demand, shorten deployment cycles from weeks to days, and expand intelligence capabilities without rebuilding the platform underneath them.",
+  "products_used": [
+    "Pub/Sub",
+    "Cloud Run",
+    "Cloud SQL",
+    "Gemini platform",
+    "Gemini",
+    "Claude"
+  ],
+  "solution_components": [
+    {
+      "name": "Pub/Sub",
+      "role": "Carries chunk-level message traffic through the document-processing pipeline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Scales service endpoints up or down to handle varying document and inference demand efficiently.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Provides high-availability relational storage for the platform's application workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Manages the end-to-end machine-learning lifecycle from training through deployment for Fifth Dimension's AI stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Supplies long-context model capabilities inside Fifth Dimension's commercial-real-estate AI workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude",
+      "role": "Runs alongside Gemini as part of the production machine-learning stack used for document intelligence and reasoning.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Commercial-real-estate documents are chunked and moved through Pub/Sub into Cloud Run services, with platform state persisted in Cloud SQL. Gemini platform orchestrates training and deployment for Gemini and Claude models, and the resulting outputs feed Fifth Dimension's document-intelligence products.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Fifth Dimension increased document-processing scale dramatically, lowered infrastructure expense, and shortened model deployment cycles enough to keep pace with surging customer demand in commercial real estate.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Scaled up processing capabilities 50x",
+    "decreased infrastructure costs by 30 percent",
+    "reduced model deployment time from weeks to days"
+  ],
+  "architecture_clues": [
+    "Pub/Sub is used for chunk-level message processing",
+    "Cloud Run scales endpoints up or down for cost and performance efficiency",
+    "Cloud SQL supports high-availability relational database workloads",
+    "The machine learning stack runs on both Gemini and Anthropic Claude models"
+  ],
+  "source_url": "https://cloud.google.com/customers/fifth-dimension",
+  "published_date": "2026-03-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Cloud SQL For relational database workloads requiring high availability",
+    "Pub/Sub For chunk-level message processing",
+    "Cloud Run For scaling endpoints up or down for cost and performance efficiency",
+    "The company’s Gemini platform-based machine learning stack runs on Google Cloud Gemini and Anthropic Claude models.",
+    "Using Google Cloud, Fifth Dimension decreased infrastructure costs by 30 percent through serverless architecture and optimized resource usage."
+  ]
+}

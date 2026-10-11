@@ -1,0 +1,78 @@
+{
+  "id": "google-cloud-wayfair-ci-cd-intelligence",
+  "slug": "google-cloud-wayfair-ci-cd-intelligence",
+  "vendor": "Google Cloud",
+  "customer_name": "Wayfair",
+  "industry": "Retail",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Wayfair needed to reduce developer context switching and long CI failure recovery times by giving engineers fast, contextual explanations and fixes inside the tools they already use.",
+  "solution_summary": "Wayfair built a CI/CD intelligence system on Google Cloud that combines Gemini, retrieval-augmented generation, and secure developer-tool integrations. When a post-commit build fails, a custom RAG pipeline analyzes Buildkite logs and historical resolution data, then uses Gemini to produce explanations and suggested fixes delivered directly in Slack. Through an MCP Server integration, the same guidance can also be accessed inside developer tools such as Cursor, so engineers no longer have to jump across dashboards and log systems to diagnose failures. Gemini platform integration and prompt tuning helped the system become accurate enough for daily engineering use, while the architecture spans infrastructure, developer tooling, ML, and security teams. The result is a workflow where CI failures become searchable, explainable events and developers can recover from broken builds much faster with far less manual context gathering.",
+  "products_used": [
+    "Gemini",
+    "Gemini platform",
+    "Buildkite",
+    "MCP Server"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "Generates failure explanations and fix suggestions from CI logs and historical context.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Provides the managed environment and prompt-tuning support for Wayfair's CI intelligence workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Buildkite",
+      "role": "Supplies the CI logs and post-commit build events analyzed by the RAG system.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "MCP Server",
+      "role": "Delivers secure in-IDE access to logs and fix suggestions for developer tools such as Cursor.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "When a post-commit build fails, Buildkite logs and historical resolution data are pulled into a RAG pipeline, Gemini generates explanations and fixes, and the results are delivered through Slack or an MCP Server integration into developer tools.",
+  "technical_area": [
+    "DevOps",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Wayfair shortened CI recovery time, cut context switching, and turned build-failure diagnosis into an AI-assisted developer workflow rather than a manual hunt across tools and logs.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "58% reduction in Mean Time To Recovery (MTTR), from 26 minutes to 11",
+    "save over 31,000 engineering hours annually",
+    "80% reduction in context switching",
+    "over 12,000 build retries each month",
+    "cut their CI fix time to under 5 minutes"
+  ],
+  "architecture_clues": [
+    "A custom RAG pipeline analyzes Buildkite logs and historical data",
+    "Slack delivers LLM-generated explanations and suggested fixes",
+    "An MCP Server integration exposes the same guidance inside Cursor",
+    "The implementation required coordination across infrastructure, tooling, ML, and security teams"
+  ],
+  "source_url": "https://cloud.google.com/customers/wayfair-developer",
+  "published_date": "2026-08-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Wayfair leveraged Google Cloud’s Gemini model and a custom RAG pipeline to create a GenAI-powered CI/CD intelligence system.",
+    "When a post-commit CI build fails, the custom RAG pipeline analyzes the Buildkite logs and historical data.",
+    "through an MCP Server integration, developer tools like Cursor can securely access these logs and real-time fix suggestions from within the IDE.",
+    "Failed deployment recovery time: The mean time to recovery (MTTR) has decreased by 58%, from 26 minutes to 11 minutes.",
+    "projects to save over 31,000 engineering hours annually."
+  ]
+}

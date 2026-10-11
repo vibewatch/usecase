@@ -1,0 +1,93 @@
+{
+  "id": "google-cloud-inmobi-ad-tech-real-time-analytics",
+  "slug": "google-cloud-inmobi-ad-tech-real-time-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "InMobi",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "InMobi needed to migrate a latency-sensitive advertising platform from another hyperscaler, preserve zero-downtime service at massive QPS, and create a more efficient real-time serving and analytics environment for both auction traffic and future GenAI workloads.",
+  "solution_summary": "InMobi executed a staged migration to Google Cloud that combined core-serving modernization with a large analytical data plane. Google Kubernetes Engine now hosts containerized real-time serving workloads, using custom ComputeClasses and autoscaling features to react to volatility in spot capacity. Cloud Storage holds petabytes of supply-side platform data, Hyperdisk provides low-latency block storage for performance-critical paths, and Databricks on Google Cloud plus Cloud Composer support distributed processing and hundreds of orchestrated data pipelines. The company also mapped additional workloads onto Compute Engine and Cloud SQL during the migration, then used Bigtable and in-memory caching in the serving layer to keep ad-delivery latency low. The result is a platform that can process millions of queries per second and tens of millions of ML inferences daily with zero downtime while lowering infrastructure cost and setting up future agentic advertising work on Vertex AI.",
+  "products_used": [
+    "Google Kubernetes Engine (GKE)",
+    "Databricks on Google Cloud",
+    "Google Cloud Hyperdisk",
+    "Cloud Storage",
+    "Cloud Composer",
+    "Compute Engine",
+    "Cloud SQL",
+    "Bigtable"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Runs InMobi's real-time serving workloads and dynamically scales capacity under live auction traffic.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores petabytes of supply-side platform data for analytics and model-development workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud Hyperdisk",
+      "role": "Provides consistent low-latency block storage for performance-critical serving and data-pipeline workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks on Google Cloud",
+      "role": "Executes distributed data-processing workloads on the migrated platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Composer",
+      "role": "Orchestrates hundreds of production data pipelines in a managed Airflow environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Bigtable",
+      "role": "Supports the serving flow with fast-access data needed by real-time ad delivery.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Ad-serving requests hit GKE-hosted services in the real-time path, where cached and low-latency data layers help return responses quickly. Large historical datasets live in Cloud Storage and flow through Databricks and Cloud Composer pipelines for analytics, model development, and future Vertex AI workloads.",
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "InMobi completed a live migration without downtime, reduced cost, and created a more elastic foundation for ad-serving analytics and future GenAI advertising features.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "7 million peak qps",
+    "performing >50M ML inferences daily with zero downtime",
+    "Lowered overall infrastructure costs by 15%",
+    "Reduced recovery time to ~10 mins"
+  ],
+  "architecture_clues": [
+    "Production traffic was migrated incrementally during the cutover",
+    "GKE custom ComputeClasses manage capacity across instance types",
+    "Cloud Composer orchestrates hundreds of production data pipelines",
+    "InMobi plans to extend the stack into full agentic advertising on Vertex AI"
+  ],
+  "source_url": "https://cloud.google.com/customers/inmobi",
+  "published_date": "2026-06-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Processed 7 million peak qps performing >50M ML inferences daily with zero downtime",
+    "Lowered overall infrastructure costs by 15% on Compute Engine versus another hyperscaler",
+    "As the data layer, Cloud Storage houses several petabytes of supply-side platform data",
+    "Spark workloads run on GKE, Databricks operates on Google Cloud for distributed processing, and Cloud Composer orchestrates hundreds of production data pipelines",
+    "At the heart of the serving architecture, containerized workloads run directly in the real-time serving path"
+  ]
+}

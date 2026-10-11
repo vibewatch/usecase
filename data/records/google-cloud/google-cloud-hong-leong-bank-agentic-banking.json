@@ -1,0 +1,106 @@
+{
+  "id": "google-cloud-hong-leong-bank-agentic-banking",
+  "slug": "google-cloud-hong-leong-bank-agentic-banking",
+  "vendor": "Google Cloud",
+  "customer_name": "Hong Leong Bank",
+  "industry": "Financial Services",
+  "region": "Malaysia",
+  "company_size": "Enterprise",
+  "business_problem": "Hong Leong Bank needed to replace slow manual banking operations and limited chatbot performance with a secure AI ecosystem that could support dynamic customer support, document-heavy trade operations, sanction screening, and faster software delivery.",
+  "solution_summary": "Hong Leong Bank built its AI ecosystem on Google Cloud with Gemini platform as the secure environment for internal and customer-facing agents. The bank runs Gemini as a private instance to minimize data exposure. For customer service, it replaced a static open-source chatbot with Gemini 2.5 Flash in a Retrieval-Augmented Generation architecture, then used the Agent Development Kit to coordinate specialized agents that call backend APIs and retrieve real-time core-banking data for personalized responses and promotions. Document AI handles trade-finance OCR across invoices and shipping forms and supports sanction screening for credit-underwriting teams. Compute Engine, Cloud SQL, and Google Cloud Search support the wider application environment, while Gemini Code Assist improves developer productivity. This gives HLB one platform for conversational banking, document automation, risk controls, and faster software delivery.",
+  "products_used": [
+    "Gemini platform",
+    "Gemini 2.5 Flash",
+    "Document AI",
+    "Agent Development Kit (ADK)",
+    "Compute Engine",
+    "Cloud SQL",
+    "Google Cloud Search",
+    "Gemini Code Assist"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Provides the secure private AI environment in which Hong Leong Bank deploys its multi-agent banking workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "role": "Runs the dynamic RAG chatbot that interprets intent and coordinates personalized banking responses.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Agent Development Kit (ADK)",
+      "role": "Lets Gemini command specialized agents that call backend APIs and retrieve core-banking data in real time.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Document AI",
+      "role": "Processes trade-finance and underwriting documents for OCR, field extraction, and sanction screening.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Compute Engine",
+      "role": "Supports the broader AI and application runtime around the bank's Google Cloud workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores operational data used by the bank's AI ecosystem and surrounding applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud Search",
+      "role": "Supplies enterprise search capabilities inside the wider banking solution landscape.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Code Assist",
+      "role": "Improves developer productivity and reduces development time for DevOps workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer or employee requests are interpreted by Gemini 2.5 Flash in Gemini platform, which uses ADK-driven agents to call secure backend banking APIs and return real-time answers. Trade-finance and underwriting documents are processed through Document AI, while the wider application environment relies on Compute Engine, Cloud SQL, and search services.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Hong Leong Bank increased chatbot accuracy and engagement, sped up document-heavy operations, reduced development time, and created a secure platform for expanding agentic banking services.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Accelerate development time by 25%",
+    "Handles 67% of customer support queries",
+    "30% efficiency gain",
+    "chatbot's accuracy from 75% to an industry-leading 99%",
+    "3x increase in digital engagement of monthly chat transactions",
+    "handle 70% of chat volume"
+  ],
+  "architecture_clues": [
+    "Gemini runs as a private instance on Gemini platform",
+    "ADK drives specialized agents that call backend APIs",
+    "Document AI processes invoices and shipping forms across more than 200 languages",
+    "Gemini Code Assist speeds DevOps workflows"
+  ],
+  "source_url": "https://cloud.google.com/customers/hongleongbank",
+  "published_date": "2026-01-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "the bank deploys a diverse suite of AI agents on this platform",
+    "Gemini 2.5 Flash for its dynamic Retrieval-Augmented Generation (RAG)",
+    "Using the Agent Development Kit (ADK), Gemini commands specialized agents to execute secure calls to HLB's backend APIs",
+    "Document AI to process high-volume documents, such as invoices and shipping forms.",
+    "Gemini Code Assist that speeds time-to-market."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "google-cloud-machina-sports-fan-engagement",
+  "slug": "google-cloud-machina-sports-fan-engagement",
+  "vendor": "Google Cloud",
+  "customer_name": "Machina Sports",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Machina Sports needed to deliver low-latency live-sports experiences to large concurrent fan audiences while staying flexible enough to swap models, ground answers in fresh information, and expand multimodal features without stitching together multiple AI vendors.",
+  "solution_summary": "Machina Sports built its fan-engagement platform on Google Cloud using Gemini Enterprise Agent Platform and related Gemini services as the core of a live, multimodal sports experience. Gemini Flash Lite handles fast conversational responses during matches, while Grounding with Google Search brings in fresh updates and Model Garden gives the team a simple way to test and switch models without rewriting code. Cloud Storage backs content and assets, and Gemini's Context Caching reduces repeated prompt-processing overhead during long fan sessions. The team also uses Priority Pay-As-You-Go endpoints to shave response wait times and is extending the platform with Google Kubernetes Engine for custom open models and future features such as personalized AI audio commentary and what-if match simulations. This unified stack lets Machina Sports keep latency low during live events while expanding richer fan experiences on one platform.",
+  "products_used": [
+    "Gemini Enterprise Agent Platform",
+    "Gemini Flash Lite",
+    "Grounding with Google Search",
+    "Model Garden",
+    "Cloud Storage",
+    "Google Kubernetes Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Runs the live fan-engagement agents that power Machina Sports experiences.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini Flash Lite",
+      "role": "Provides fast conversational responses during high-concurrency live sports interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Grounding with Google Search",
+      "role": "Injects fresh external updates into live match conversations and fan experiences.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Model Garden",
+      "role": "Lets engineers test and swap models quickly to optimize performance without rewriting the application.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores platform content and supporting assets used by fan experiences.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Will host custom open models and future features such as personalized commentary and simulations.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Fan prompts reach Gemini agents during live events, where Grounding with Google Search adds fresh match context and Cloud Storage supplies supporting assets. Gemini Flash Lite returns fast responses, Context Caching minimizes repeated prompt processing, and future custom models on GKE will extend the same experience with richer multimodal features.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Machina Sports expanded to a large fan audience, improved live-response speed, and created a single Google Cloud environment for grounded, multimodal sports experiences that can keep evolving as concurrency grows.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Expanded market presence to 1.6M sports fans in Brazil",
+    "over 30% faster",
+    "up to 17% off response wait times"
+  ],
+  "architecture_clues": [
+    "Gemini's Context Caching prevents the AI from re-reading background instructions on every turn",
+    "Priority Pay-As-You-Go endpoints were used to reduce response wait times",
+    "Model Garden allows engineers to test and swap models by changing settings",
+    "The company is building custom open models on Google Kubernetes Engine"
+  ],
+  "source_url": "https://cloud.google.com/customers/machina-sports",
+  "published_date": "2026-09-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Machina Sports uses Gemini Enterprise Agent Platform to deliver live-sports experiences for 1.6 million fans",
+    "Gemini models were over 30% faster in delivering that first response compared to competing options",
+    "Priority Pay-As-You-Go endpoints shaved up to 17% off response wait times.",
+    "Model Garden on Google Cloud allows engineers to test and swap out AI models by changing simple settings instead of rewriting code from scratch.",
+    "Gemini's Context Caching prevents the AI from re-processing long background prompts on every reply."
+  ]
+}

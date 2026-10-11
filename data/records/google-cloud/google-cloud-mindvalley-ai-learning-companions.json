@@ -1,0 +1,87 @@
+{
+  "id": "google-cloud-mindvalley-ai-learning-companions",
+  "slug": "google-cloud-mindvalley-ai-learning-companions",
+  "vendor": "Google Cloud",
+  "customer_name": "Mindvalley",
+  "industry": "Education",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Mindvalley needed to scale personalized AI learning companions for a large active-user base while keeping latency, uptime, and compute costs under control across customer-facing conversational workloads.",
+  "solution_summary": "Mindvalley deployed a multi-agent learning ecosystem on Google Cloud to personalize onboarding, content discovery, and in-course tutoring. Goals AI handles conversational onboarding, EVE helps users discover the right catalog content and growth paths, and a Learning Assistant supports coursework. These companions run on Gemini platform and draw on data services built with Cloud SQL, BigQuery, Managed Service for Apache Airflow, and Cloud Run. Cloud SQL hosts the Unified Customer Profile and vector-store context used to personalize responses, while BigQuery supports broader analytics and future graph-based personalization. The architecture gives Mindvalley a reliable, low-latency environment for 1.3 million annual agent requests, nearly doubling weekly engagement while cutting model-compute cost enough to scale further. Google Cloud made personalized conversational learning a core platform capability rather than an add-on feature.",
+  "products_used": [
+    "Gemini platform",
+    "Cloud SQL",
+    "BigQuery",
+    "Managed Service for Apache Airflow",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini platform",
+      "role": "Runs Mindvalley's customer-facing AI companions for onboarding, discovery, and tutoring.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores the Unified Customer Profile and vector data used to personalize responses across learning agents.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Supports analytics and future graph-based personalization on top of Mindvalley's learning data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Managed Service for Apache Airflow",
+      "role": "Orchestrates data workflows that keep the AI companion ecosystem supplied with current user and content context.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Hosts supporting services in the AI learning platform.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User interactions flow into AI companions on Gemini platform, which retrieve profile and vector context from Cloud SQL and operate against data workflows maintained with Airflow and Cloud Run. BigQuery supports analytical insight and future graph enrichment, feeding better personalization back into the companion experience.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Mindvalley nearly doubled AI-companion engagement, increased content interaction, and created a cost-efficient personalized learning platform that can keep scaling to hundreds of thousands of active users.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "92% weekly AI companion engagement boost",
+    "21.2% content engagement surge",
+    "Response latencies dropped under 5.5 seconds",
+    "99.79% uptime",
+    "1.3 million annual agent requests",
+    "6x reduction in model compute costs",
+    "200,000 active users"
+  ],
+  "architecture_clues": [
+    "Cloud SQL unifies vector database with 99.79% uptime",
+    "The Unified Customer Profile is stored in Cloud SQL",
+    "Mindvalley is poised to use BigQuery Graph for deeper behavioral insight",
+    "Multiple named agents share a common Google Cloud foundation"
+  ],
+  "source_url": "https://cloud.google.com/customers/mindvalley-gemini",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Cloud SQL unifies vector database with 99.79% uptime",
+    "Mindvalley deployed a multi-agent ecosystem driven by Google Cloud: Goals AI for conversational onboarding, EVE for catalog discovery alongside personal growth advice, and the Learning Assistant for in-course tutoring.",
+    "weekly active engagement has nearly doubled to 92%.",
+    "These solutions leverage Gemini platform",
+    "Achieving a 6x reduction in model compute costs provided the predictability to scale its agentic footprint effortlessly"
+  ]
+}

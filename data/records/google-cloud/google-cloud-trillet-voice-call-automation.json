@@ -1,0 +1,77 @@
+{
+  "id": "google-cloud-trillet-voice-call-automation",
+  "slug": "google-cloud-trillet-voice-call-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Trillet",
+  "industry": "Software / SaaS",
+  "region": "Australia",
+  "company_size": "Unknown",
+  "business_problem": "Trillet needed to automate complex enterprise calls in sensitive industries, but earlier model choices produced unreliable answers and its fragmented infrastructure made it hard to scale voice workflows predictably and cost-effectively.",
+  "solution_summary": "Trillet moved its voice application layer to Google Cloud so conversational automation could be both predictable and scalable. Gemini in Vertex AI became the core reasoning engine, allowing the team to run with near-zero model freedom for high-stakes healthcare and enterprise interactions while still maintaining large context and fast responses. The models cross-reference live clinic databases and scheduling rules to formulate answers, which sharply reduced erroneous appointment responses compared with earlier LLM attempts. Google Kubernetes Engine and Cloud Load Balancing provide the elastic runtime needed to absorb large call spikes, while the unified Google Cloud stack removes the operational overhead of a fragmented black-box setup. This architecture lets Trillet orchestrate thousands of calls simultaneously, keep error rates below one percent, and combine real-time data access with strict AI control in a way that is suitable for regulated customer interactions.",
+  "products_used": [
+    "Vertex AI",
+    "Gemini",
+    "Google Kubernetes Engine",
+    "Cloud Load Balancing"
+  ],
+  "solution_components": [
+    {
+      "name": "Vertex AI",
+      "role": "Hosts Trillet's conversational AI workflows and enforces the controlled, low-variance reasoning needed for sensitive call handling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Cross-references user requests against live databases and scheduling rules to produce accurate call responses.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Scales the voice application layer to handle thousands of calls and traffic spikes without manual intervention.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Load Balancing",
+      "role": "Distributes incoming call workload across the runtime environment.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Caller requests enter through Cloud Load Balancing into services on GKE, where Gemini models on Vertex AI validate the request against live clinic data and scheduling rules. The resulting response is returned to the caller or escalated if needed, while the platform elastically scales for spikes in call volume.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Trillet cut infrastructure cost, reduced escalations and error rates, and turned Google Cloud into a production voice layer that can automate most complex enterprise calls while maintaining the reliability demanded by sensitive industries.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "resolve 85% of complex enterprise calls",
+    "Cuts infrastructure costs by ~80%",
+    "Reduces call escalations to <15%",
+    "Achieves <1% error rate",
+    "Scales instantly to 3x traffic spikes"
+  ],
+  "architecture_clues": [
+    "Gemini in Vertex AI cross-references requests against a clinic's live database and scheduling rules",
+    "Google Kubernetes Engine and Vertex AI work together to handle thousands of calls simultaneously",
+    "The team set model temperature to zero to maximize determinism"
+  ],
+  "source_url": "https://cloud.google.com/customers/trilletai",
+  "published_date": "2026-04-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With Gemini in Vertex AI we gained the strictness, large context window, and predictability we needed for sensitive industries such as healthcare.",
+    "Gemini in Vertex AI cross-references the request against the clinic's live database and scheduling rules to formulate a response.",
+    "Moving to Google Cloud gave us the unified infrastructure we needed.",
+    "Cuts infrastructure costs by ~80% with Vertex AI",
+    "Achieves <1% error rate using Gemini in Vertex AI"
+  ]
+}

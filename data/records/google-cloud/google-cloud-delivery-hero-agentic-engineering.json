@@ -1,0 +1,85 @@
+{
+  "id": "google-cloud-delivery-hero-agentic-engineering",
+  "slug": "google-cloud-delivery-hero-agentic-engineering",
+  "vendor": "Google Cloud",
+  "customer_name": "Delivery Hero",
+  "industry": "unknown",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Delivery Hero needed a standardized AI engineering platform that could support autonomous software delivery, let teams use the strongest coding model for each task, and still preserve centralized governance, review, and security across a global engineering organization.",
+  "solution_summary": "Delivery Hero built its agentic engineering platform on Google Cloud using Gemini Enterprise Agent Platform as the shared control layer for multiple coding and review models. The company created Herogen, an autonomous software delivery agent, on top of Claude and Google Cloud infrastructure so engineers could move beyond autocomplete toward guided feature completion. Agent Platform's open design let Delivery Hero place LiteLLM in front of the environment, giving developers IDE-agnostic access to models such as Claude Opus and Gemini while the central team maintained one governed AI foundation. Claude handles most coding tasks, while Gemini participates in a council-of-agents review flow that checks code quality and security before changes reach production. Delivery Hero also uses Gemini Code Assist and Gemini CLI for day-to-day development work, turning Google Cloud into the backbone for both autonomous delivery and governed multi-model software engineering.",
+  "products_used": [
+    "Gemini Enterprise Agent Platform",
+    "Claude",
+    "Gemini",
+    "LiteLLM",
+    "Gemini Code Assist",
+    "Gemini CLI"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Provides the enterprise AI control plane that standardizes model access and powers autonomous engineering workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude",
+      "role": "Serves as the primary coding model for Herogen and day-to-day software-development tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Reviews generated code and performs additional quality and security checks in a multi-agent workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "LiteLLM",
+      "role": "Acts as an LLM proxy so engineers can access multiple models from their preferred IDEs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Code Assist",
+      "role": "Supports general software-development tasks when teams need a cost-effective coding assistant.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini CLI",
+      "role": "Extends Google Cloud-assisted development into command-line engineering workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Engineer requests or autonomous Herogen tasks enter through LiteLLM into Gemini Enterprise Agent Platform. Claude generates or advances the code, Gemini participates in review and security checks, and approved outputs return to the engineer's IDE or delivery workflow.",
+  "technical_area": [
+    "DevOps",
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Delivery Hero established a governed multi-model engineering platform that increases developer autonomy, supports autonomous feature work, and keeps review and security embedded in the software-delivery flow.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "LiteLLM is used as an LLM proxy in front of Agent Platform",
+    "Herogen runs as an autonomous software delivery agent",
+    "Claude is the primary coding model while Gemini participates in a council of agents",
+    "Engineers can access models from their preferred IDEs"
+  ],
+  "source_url": "https://cloud.google.com/customers/deliveryhero",
+  "published_date": "2026-09-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The power of Herogen lies in the tandem use of Claude and Google Cloud models.",
+    "Delivery Hero uses Claude as the primary model for coding tasks, while Gemini serves within a 'council of agents' to review the code and conduct security checks.",
+    "The platform’s open nature allowed the team to implement LiteLLM as an LLM proxy.",
+    "Delivery Hero chose Google Cloud’s Agent Platform.",
+    "Delivery Hero uses Gemini Code Assist and Gemini CLI"
+  ]
+}

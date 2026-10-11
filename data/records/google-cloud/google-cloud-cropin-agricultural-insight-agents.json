@@ -1,0 +1,103 @@
+{
+  "id": "google-cloud-cropin-agricultural-insight-agents",
+  "slug": "google-cloud-cropin-agricultural-insight-agents",
+  "vendor": "Google Cloud",
+  "customer_name": "Cropin",
+  "industry": "unknown",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "Cropin needed to centralize very large agricultural data streams, reduce infrastructure cost, and speed both analytics delivery and model-training cycles as it expanded OrbitAI across hundreds of crops and global farming workflows.",
+  "solution_summary": "Cropin rebuilt its agricultural intelligence stack on Google Cloud to connect planetary-scale data, real-time analytics, and agentic AI. BigQuery became the real-time warehouse for more than 670 million agricultural observations, while OrbitAI was launched on Google Cloud using Gemini models and Gemini Enterprise Agent Platform to support an agentic workforce. Behind the scenes, Google Earth Engine and WeatherNext feed environmental and satellite context into the platform, while Google Kubernetes Engine and Cloud SQL keep the service available globally. Apigee helps manage integrations at the API layer. This unified architecture cut infrastructure cost, reduced BI turnaround from days to seconds, and shortened model-training cycles, letting a relatively small technical team deliver much more output without having to manage multiple disjointed data and ML environments.",
+  "products_used": [
+    "BigQuery",
+    "Gemini Enterprise Agent Platform",
+    "Gemini",
+    "Apigee",
+    "Google Earth Engine",
+    "WeatherNext",
+    "Google Kubernetes Engine",
+    "Cloud SQL"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Acts as Cropin's real-time warehouse for large agricultural datasets and analytical workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Provides the agentic runtime behind OrbitAI and Cropin's AI workforce.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers the reasoning and conversational capabilities inside OrbitAI.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Apigee",
+      "role": "Manages the API integrations that connect Cropin's services and external systems.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Earth Engine",
+      "role": "Supplies satellite and planetary data used in Cropin's agricultural intelligence workflows.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "WeatherNext",
+      "role": "Adds climate and weather context to Cropin's data platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Keeps OrbitAI available and reliable worldwide.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Supports globally available transactional and metadata workloads around OrbitAI.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Agricultural observations, satellite signals, and weather context are centralized in BigQuery, where OrbitAI and Gemini-based agents reason over the data. Apigee governs integrations, and GKE plus Cloud SQL keep the service operational worldwide.",
+  "technical_area": [
+    "Data Platform",
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Cropin sped up analytics delivery, lowered infrastructure and training cost, and turned a large agricultural data estate into an agentic decision-support platform for crop intelligence.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "670 million agricultural observations",
+    "Reduced BI analytics delivery turnaround by over 90%",
+    "cut infrastructure costs by 25%",
+    "Gemini Enterprise Agent Platform cut model training time by 30%",
+    "3 to 4x increase in output"
+  ],
+  "architecture_clues": [
+    "OrbitAI runs using Gemini models and Gemini Enterprise Agent Platform",
+    "Google Earth Engine and WeatherNext feed planetary context",
+    "GKE and Cloud SQL keep OrbitAI available worldwide",
+    "The shift to Google Cloud enabled a lean team to expand output significantly"
+  ],
+  "source_url": "https://cloud.google.com/customers/cropin",
+  "published_date": "2026-07-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "centralizing over 670 million agricultural observations into a real-time data warehouse.",
+    "Reduced BI analytics delivery turnaround by over 90% using BigQuery through OrbitAI",
+    "Gemini Enterprise Agent Platform cut model training time by 30%",
+    "reducing overall infrastructure costs by approximately 25%",
+    "fewer than 40 data scientists and engineers achieved a 3 to 4x increase in output."
+  ]
+}

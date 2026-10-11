@@ -1,0 +1,79 @@
+{
+  "id": "google-cloud-incrementa-marketing-analytics-agents",
+  "slug": "google-cloud-incrementa-marketing-analytics-agents",
+  "vendor": "Google Cloud",
+  "customer_name": "Incrementa",
+  "industry": "unknown",
+  "region": "Chile",
+  "company_size": "Unknown",
+  "business_problem": "Incrementa needed to centralize campaign data from multiple advertising channels, cut the time analysts spent producing insight, and turn raw marketing performance data into strategic recommendations that could scale across all clients.",
+  "solution_summary": "Incrementa built a Google Cloud analytics environment that combines Cloud Run, BigQuery, and Gemini Enterprise Standard to convert multi-channel marketing data into faster strategic insight. Cloud Run extracts campaign-performance information from advertising APIs such as Meta, Google Ads, and TikTok, then loads it into BigQuery as a secure single source of truth. Gemini Enterprise Standard sits on top of that warehouse as the natural-language front end, combining the structured campaign data with unstructured context such as brand manuals and client contracts stored in Microsoft OneDrive. This lets Incrementa analyze complete campaign histories in hours instead of a week and return detailed recommendations instead of just raw metrics. The platform turned campaign analysis from a manual reporting function into a scalable advisory engine that now supports all clients and allows the agency to focus more time on growth.",
+  "products_used": [
+    "Cloud Run",
+    "BigQuery",
+    "Gemini Enterprise Standard"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "Extracts performance data from external advertising APIs and moves it into Incrementa's analytics stack.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Acts as the secure single source of truth for multi-channel campaign and client data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Enterprise Standard",
+      "role": "Lets teams query campaign data and supporting context in natural language to produce strategic recommendations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Campaign data is pulled from advertising APIs through Cloud Run into BigQuery, where Gemini Enterprise Standard combines the structured warehouse data with unstructured context from OneDrive to generate analysis and recommendations.",
+  "integration_points": [
+    "Meta",
+    "Google Ads",
+    "TikTok",
+    "Microsoft OneDrive"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Incrementa reduced the time required for marketing analysis, increased agency productivity, and turned campaign data into a repeatable recommendation engine that improves client reach and supports all customers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Reduced insight analysis from one week to 3 hours",
+    "increased productivity by more than 40%",
+    "Analyzes 100% of campaigns with Gemini Enterprise Standard",
+    "Supports 100% of clients with personalized AI agents",
+    "more than 30% improvement in client campaign reach"
+  ],
+  "architecture_clues": [
+    "Cloud Run extracts data from advertising APIs",
+    "BigQuery is the secure single source of truth",
+    "Gemini Enterprise Standard combines warehouse data with unstructured context from OneDrive",
+    "The platform analyzes up to 1 to 2 million data points across campaign histories"
+  ],
+  "source_url": "https://cloud.google.com/customers/incrementa",
+  "published_date": "2026-02-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Data analysis used to take one week with two people dedicated to it. Today, if you generate a good prompt, that takes 3 hours for an update.",
+    "The technical architecture relies on Cloud Run to extract campaign performance data from external APIs ... and centralizes it in a BigQuery data warehouse.",
+    "The team uses Gemini Enterprise Standard as the intelligent front end.",
+    "This strategic shift has led to a more than 30% improvement in client campaign reach.",
+    "increased productivity by more than 40%"
+  ]
+}

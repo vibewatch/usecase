@@ -1,0 +1,96 @@
+{
+  "id": "google-cloud-cogedis-devops-cloud-modernization",
+  "slug": "google-cloud-cogedis-devops-cloud-modernization",
+  "vendor": "Google Cloud",
+  "customer_name": "Cogedis",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "Mid-market",
+  "business_problem": "Cogedis needed to replace unreliable on-premise infrastructure and outage-prone API management, lower infrastructure spend, and create enough operational flexibility to pursue AI services for its accounting and advisory customers.",
+  "solution_summary": "Cogedis pursued a DevOps-led migration to Google Cloud that modernized both its runtime platform and its path to AI services. Cloud SQL gave the team on-demand database and virtual-machine flexibility so environments could be provisioned only when needed rather than permanently overprovisioned. Apigee replaced a fragile legacy API manager that had been failing several times per week, stabilizing document-scanning and other customer-facing integrations. Pub/Sub and Cloud Run support near-real-time data transformation and visualization pipelines, while BigQuery is being explored for predictive profitability recommendations to customers such as farmers deciding when to sell crops. On the engineering side, Gemini Code Assist reviews most operations code before production, and Gemini Enterprise Agent Platform underpins an AI legal-assistant initiative. Together, these services turned reliability improvements and cost control into a base for ongoing automation and advisory innovation.",
+  "products_used": [
+    "Cloud SQL",
+    "Apigee",
+    "Pub/Sub",
+    "Cloud Run",
+    "BigQuery",
+    "Gemini Code Assist",
+    "Gemini Enterprise Agent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud SQL",
+      "role": "Provides elastic database capacity so Cogedis can provision and retire environments as jobs require instead of overbuilding infrastructure.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Apigee",
+      "role": "Manages customer-facing APIs reliably after frequent outages with Cogedis's previous API manager.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "Carries events for near-real-time data transformations and downstream visualizations.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Executes scalable services for transformation and visualization workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Supports predictive analytics work such as profitability forecasting for customers.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Code Assist",
+      "role": "Reviews most operations code before production as part of Cogedis's DevOps adoption.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Supports Cogedis's customer-facing AI legal-assistant initiative.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Operational and customer data moves through Pub/Sub and Cloud Run for near-real-time transformation, with APIs exposed through Apigee and persisted in Cloud SQL. BigQuery is used for predictive analytics, while Gemini-based developer and legal-assistant workflows sit on top of the modernized platform.",
+  "technical_area": [
+    "Cloud Migration",
+    "DevOps",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Cogedis cut infrastructure costs sharply, stabilized critical API flows, and freed technical capacity to build new data-driven and AI-assisted advisory services for its 20,000 customers.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "66.6% reduction in infrastructure costs",
+    "Gemini Code Assist reviews 90% of the OPS code related to DevOps adoption before it reaches production"
+  ],
+  "architecture_clues": [
+    "Cloud SQL lets the company spin up database solutions or virtual machines as needed",
+    "Apigee replaced an API manager that could go down three or four times a week",
+    "Pub/Sub and Cloud Run support near-real-time visualization and transformation",
+    "BigQuery is being explored for customer profitability predictions"
+  ],
+  "source_url": "https://cloud.google.com/customers/cogedis",
+  "published_date": "2026-05-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Gemini Code Assist is integrated into all IDEs, and it reviews 90% of the OPS code related to DevOps adoption before it reaches production",
+    "With Cloud SQL, Cogedis can spin up virtual machines or database solutions as needed and shut them down when a job is complete",
+    "This has allowed the company to avoid over-provisioning and has reduced infrastructure costs by 66.6%",
+    "Now, with Apigee, we have a reliable, scalable solution, meaning our customers enjoy smoother data streams without interruptions.",
+    "Cogedis is currently exploring how to use BigQuery to provide customers with data-driven predictions"
+  ]
+}
