@@ -1,0 +1,99 @@
+{
+  "id": "google-cloud-gimmefy-marketing-personalization",
+  "slug": "google-cloud-gimmefy-marketing-personalization",
+  "vendor": "Google Cloud",
+  "customer_name": "gimmefy",
+  "industry": "Software / SaaS",
+  "region": "Singapore",
+  "company_size": "Unknown",
+  "business_problem": "gimmefy was operating a multi-model marketing platform across 14 AI providers, which created integration overhead, fallback costs, and 11-minute workflow latency that made content generation harder to scale profitably.",
+  "solution_summary": "gimmefy consolidated its white-label marketing AI platform on Google Cloud so text, image, video, audio, and attachment workflows could run through one API surface instead of multiple vendor-specific integrations. Gemini 3.5 Flash simplified routing and fallback logic for the core platform, while Gemini 3.1 Pro, Gemini 2.5 Flash, Gemini 3 Pro Image, and Veo 3.1 handle multimodal campaign generation and model-arena evaluation use cases. The company also rebuilt its attachment pipeline around Gemini 3.5 Flash to process PDFs, slide decks, and audio media, and it uses downstream reporting and export integrations such as Search Console, GA4, YouTube, and Slides. This architecture reduced latency and cost while giving gimmefy one scalable Google Cloud backbone for brand-safe, partner-facing AI content generation.",
+  "products_used": [
+    "Gemini 3.5 Flash",
+    "Gemini 3.1 Pro",
+    "Gemini 2.5 Flash",
+    "Gemini 3 Pro Image",
+    "Veo 3.1",
+    "Gemini Enterprise Agent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini 3.5 Flash",
+      "role": "Provides the unified multimodal model layer that simplified routing, fallback logic, and attachment processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "role": "Supports higher-end model execution within the marketing platform's multimodel workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "role": "Handles fast-turn multimodal generation tasks in the core workflow mix.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini 3 Pro Image",
+      "role": "Generates marketing images for white-label customer campaigns.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Veo 3.1",
+      "role": "Makes commercial video generation feasible within customer credit budgets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Represents the planned next step for meeting European data residency requirements.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer briefs enter gimmefy's unified Google Cloud workflow, where Gemini models evaluate or generate text, image, and media outputs, Gemini 3.5 Flash processes attachments such as PDFs and audio, Veo 3.1 creates finished video assets, and the results feed reporting and export paths tied to Search Console, GA4, YouTube, and Slides.",
+  "integration_points": [
+    "Search Console",
+    "GA4",
+    "YouTube",
+    "Slides",
+    "PDFs",
+    "decks",
+    "audio"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "After consolidating on Google Cloud, gimmefy reached a 98.5% task success rate, shifted Google models to 52.3% of traffic, generated 90.9% of platform images on Google AI, and made commercial video generation affordable enough to produce 1,236 brand clips.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Achieved 98.5% task success rate across core workflows with Gemini",
+    "Generated 90.9% of total image generation using Google AI",
+    "Made video cost-effective, generating 1,236 brand clips with Veo 3.1",
+    "By July 2026, Google models carried 52.3% of platform traffic, up from 22.0% in June.",
+    "Consolidating traffic on Google Cloud improved execution reliability, achieving a 98.5% success rate across 2,106 logged attempts."
+  ],
+  "architecture_clues": [
+    "gimmefy routes jobs side-by-side across 14 AI providers but consolidated its core engine on Google Cloud.",
+    "The company runs a model arena where seven models evaluate a brief simultaneously.",
+    "The attachment pipeline processes PDFs, decks, and audio through Gemini 3.5 Flash.",
+    "The next architectural step is Gemini Enterprise Agent Platform for European data residency."
+  ],
+  "source_url": "https://cloud.google.com/customers/gimmefy",
+  "published_date": "2026-08-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Managing four distinct vendors previously created integration taxes, fallback bills, and 11-minute playbook latencies.",
+    "Google Cloud provided one unified API surface across text, image, video, and audio workflows.",
+    "By July 2026, Google models carried 52.3% of platform traffic, up from 22.0% in June.",
+    "Consolidating traffic on Google Cloud improved execution reliability, achieving a 98.5% success rate across 2,106 logged attempts.",
+    "gimmefy also rebuilt its attachment pipeline around Gemini 3.5 Flash, processing 2,116 media segments across PDFs, decks, and audio."
+  ]
+}

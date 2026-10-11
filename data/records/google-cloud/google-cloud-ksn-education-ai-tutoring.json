@@ -1,0 +1,130 @@
+{
+  "id": "google-cloud-ksn-education-ai-tutoring",
+  "slug": "google-cloud-ksn-education-ai-tutoring",
+  "vendor": "Google Cloud",
+  "customer_name": "KSN Education",
+  "industry": "Education",
+  "region": "India",
+  "company_size": "SMB",
+  "business_problem": "KSN Education needed to launch an AI tutor for more than 10,000 students without taking on large infrastructure costs or complex operations, while still supporting multimodal interaction, personalized content, and secure handling of student data.",
+  "solution_summary": "KSN Education built NABBLE AI as a serverless, multimodal tutoring platform on Google Cloud so students can get personalized help through text, voice, and screen-share interactions at any time. Vertex AI and Gemini power the core tutoring logic, generating adaptive explanations, quizzes, and verified step-by-step answers that respond to student performance in real time. Cloud Run supplies the serverless execution layer, Firestore secures student learning histories, and Cloud Storage supports the wider application data model without forcing the startup to manage infrastructure directly. Speech-to-Text API and Text-to-Speech AI add spoken interaction, while Cloud Build, Cloud Load Balancing, Cloud CDN and Media CDN, Cloud DNS, and BigQuery support delivery, reliability, and analysis at scale. The system also uses human review and proprietary curriculum tuning to keep answers trustworthy in a high-stakes exam-preparation environment.",
+  "products_used": [
+    "Vertex AI",
+    "Gemini",
+    "Cloud Run",
+    "Firestore",
+    "Cloud Storage",
+    "Speech-to-Text API",
+    "Text-to-Speech AI",
+    "Cloud Build",
+    "Cloud Load Balancing",
+    "Cloud CDN and Media CDN",
+    "Cloud DNS",
+    "BigQuery"
+  ],
+  "solution_components": [
+    {
+      "name": "Vertex AI",
+      "role": "Hosts the AI capabilities that power KSN Education's tutoring workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Generates personalized explanations, quizzes, and step-by-step solutions for students.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Executes the tutoring platform as serverless microservices with no idle infrastructure cost.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Firestore",
+      "role": "Stores sensitive student data with built-in security controls.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Provides storage for the application and tutoring content.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Speech-to-Text API",
+      "role": "Lets students speak to the tutor using natural voice input.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Text-to-Speech AI",
+      "role": "Returns spoken responses to support different learning styles.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Build",
+      "role": "Supports delivery workflows for the education platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Load Balancing",
+      "role": "Distributes traffic across the production environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud CDN and Media CDN",
+      "role": "Accelerate content delivery for distributed learners.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud DNS",
+      "role": "Supports platform routing and endpoint management.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Supports analytics across the tutoring platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Student questions arrive through text, voice, or screen-share channels, are processed by Gemini on Vertex AI through serverless Cloud Run services, stored and secured in Firestore and Cloud Storage, and are returned as adaptive explanations, quizzes, or spoken responses while analytics and delivery services monitor platform performance.",
+  "integration_points": [
+    "text tutoring",
+    "voice tutoring",
+    "screen-share sessions",
+    "human-in-the-loop content review"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "KSN Education launched to more than 10,000 students with zero downtime and low infrastructure overhead, added an AI exam-paper generator that saves educators up to 10 hours a week, and created a scalable base for multilingual expansion across India.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "more than 10,000 students",
+    "Zero infrastructure overhead with a serverless architecture built on Cloud Run",
+    "saves up to 10 hours per week per educator",
+    "zero downtime and minimal infrastructure costs"
+  ],
+  "architecture_clues": [
+    "The platform is fully serverless and relies on microservices for AI logic, persistence, and delivery.",
+    "Speech and voice response are native parts of the tutoring experience.",
+    "A human-in-the-loop review cycle is used to maintain content accuracy.",
+    "The next growth step is expanding to more exams and Indian-language interfaces."
+  ],
+  "source_url": "https://cloud.google.com/customers/ksneducation",
+  "published_date": "2026-01-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "KSN Education brings AI-powered learning to over 10,000 students with a serverless, Gemini-driven platform on Google Cloud.",
+    "Multimodal (text, voice, screen-share) AI tutoring powered by Vertex AI",
+    "Cloud Speech-to-Text and Text-to-Speech enabled new modes of learning",
+    "Adopting Cloud Run brought down high computational costs, ensuring that costs are only incurred when a user makes a request",
+    "an AI exam paper generator that saves up to 10 hours per week per educator"
+  ]
+}

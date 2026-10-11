@@ -1,0 +1,76 @@
+{
+  "id": "google-cloud-quantiphi-security-and-compliance",
+  "slug": "google-cloud-quantiphi-security-and-compliance",
+  "vendor": "Google Cloud",
+  "customer_name": "Quantiphi",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Quantiphi needed to consolidate security data spread across multiple clouds because analysts were stuck triaging alerts in isolated dashboards and dealing with severe alert fatigue instead of proactively addressing threats.",
+  "solution_summary": "Quantiphi modernized its security operations on Google Cloud by consolidating multicloud telemetry into a unified Google SecOps operating model. The company uses Google Security Operations SOAR to create a single data model and automate response workflows, while Google Security Operations (SecOps) provides the centralized threat-detection surface that replaces fragmented native logging systems from multiple clouds. Analysts use Gemini in SecOps to generate correlation rules and SOAR playbooks from natural-language prompts instead of writing them manually, and Mandiant Threat Intelligence adds external threat context to the environment. Together, these components reduce engineering time, cut alert fatigue, and let the security team move toward auto-remediation and self-healing security systems. The resulting platform improves data protection and supports the regulatory trust Quantiphi needs for its global client work.",
+  "products_used": [
+    "Google Security Operations SOAR",
+    "Google Security Operations (SecOps)",
+    "Gemini in SecOps",
+    "Mandiant Threat Intelligence"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Security Operations SOAR",
+      "role": "Provides the unified data model and automates security response playbooks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Google Security Operations (SecOps)",
+      "role": "Centralizes security telemetry and threat detection across Quantiphi's multicloud estate.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini in SecOps",
+      "role": "Lets analysts generate correlation rules and SOAR playbooks using natural-language prompts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mandiant Threat Intelligence",
+      "role": "Adds threat intelligence that supports automated remediation and stronger security posture.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Logs from multiple cloud environments are consolidated into Google SecOps, normalized through the SOAR data model, enriched with Mandiant intelligence, and acted on through Gemini-generated rules and playbooks that automate triage and remediation.",
+  "integration_points": [
+    "native logging from multiple cloud services",
+    "security operations center workflows",
+    "threat remediation playbooks"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Quantiphi unified dispersed log sources, reduced analyst alert fatigue, accelerated rule and playbook creation, and positioned its security operations for auto-remediation and self-healing workflows.",
+  "outcome_category": [
+    "Compliance",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The original problem involved log sources spread across as many as three different cloud services.",
+    "Gemini is used inside SecOps specifically for correlation-rule and SOAR-playbook generation.",
+    "The architecture is designed to support instantaneous auto-remediation and self-healing systems.",
+    "The platform is aimed at both cybersecurity and data privacy workflows."
+  ],
+  "source_url": "https://cloud.google.com/customers/quantiphisecops",
+  "published_date": "2026-09-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Unified dispersed log sources using Google SecOps",
+    "Built SOC correlation rules on the fly with Gemini in SecOps",
+    "Reduced analyst alert fatigue by automating Google SecOps SOAR",
+    "Quantiphi deployed Google Security Operations SOAR (Security Orchestration, Automation, and Response) to establish a unified data model.",
+    "Combined with Mandiant Threat Intelligence, Google Security Operations (SecOps) enables Quantiphi to pursue instantaneous auto-remediation and self-healing systems using agentic AI."
+  ]
+}

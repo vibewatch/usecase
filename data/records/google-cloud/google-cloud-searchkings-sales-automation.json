@@ -1,0 +1,107 @@
+{
+  "id": "google-cloud-searchkings-sales-automation",
+  "slug": "google-cloud-searchkings-sales-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "SearchKings",
+  "industry": "Software / SaaS",
+  "region": "Toronto, Ontario, Canada",
+  "company_size": "Mid-market",
+  "business_problem": "SearchKings had a small team supporting thousands of advertising customers and needed a way to automate repetitive campaign-analysis work without losing the personalized service that differentiates the agency.",
+  "solution_summary": "SearchKings built its internal operating system, Ease, on Google Cloud so account managers could move from manual campaign maintenance to faster, AI-assisted decision-making. The company initially used Google Kubernetes Engine for flexibility, then shifted more of the platform to Cloud Run and Cloud SQL so a lean development team could take advantage of serverless simplicity, autoscaling, and faster deployment. Gemini 3.1 Flash and Gemini 3.1 Pro power tools such as Negative Keyword Suggestion, which ingests campaign context like geography and customer vertical, recommends which search terms to exclude, and keeps a human reviewer in the loop before changes are applied. Around that core, Google Workspace and Firebase support collaboration and earlier product development, while Gemini CLI helps developers in daily work. This architecture lets SearchKings run tens of thousands of reports every day and serve thousands of customers with just over 100 employees.",
+  "products_used": [
+    "Google Kubernetes Engine (GKE)",
+    "Cloud Run",
+    "Cloud SQL",
+    "Gemini 3.1 Flash",
+    "Gemini 3.1 Pro",
+    "Google Workspace",
+    "Firebase",
+    "Gemini CLI"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Provided the original flexible environment for building SearchKings' AI platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs the production application in a serverless model that reduces maintenance overhead.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Supports the structured data layer behind Ease.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini 3.1 Flash",
+      "role": "Handles faster recommendation and analysis tasks within the campaign-optimization workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini 3.1 Pro",
+      "role": "Handles deeper recommendation and analysis tasks within Ease.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Workspace",
+      "role": "Supports internal collaboration across the agency's Google-based operations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Firebase",
+      "role": "Supported early platform development and introduced the team to the broader Google ecosystem.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini CLI",
+      "role": "Helps developers work faster inside the Google-based development environment.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Campaign and performance data enters the Ease platform, where Cloud Run-hosted services and a Cloud SQL-backed data layer feed Gemini models that analyze context such as geography and customer vertical, generate keyword and workflow recommendations, and return suggestions that account managers approve before acting on them.",
+  "integration_points": [
+    "CRM functionality",
+    "campaign management",
+    "performance monitoring",
+    "Google Ads partner workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "SearchKings cut negative-keyword review time from 30 minutes to five, automated campaign-analysis work at scale, and kept personalized service intact for thousands of customers with a team of just over 100 employees.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "Cut manual search term review time from 30 to five minutes with Gemini",
+    "We have a little over 100 employees but thousands of customers.",
+    "we need to run tens of thousands of performance reports every day"
+  ],
+  "architecture_clues": [
+    "SearchKings migrated from a more GKE-heavy setup toward Cloud Run and Cloud SQL for simplicity and autoscaling.",
+    "Ease combines CRM, campaign management, performance monitoring, and financial operations in one system.",
+    "Gemini suggestions are reviewed by humans before being accepted or rejected.",
+    "The company is extending the platform toward customer-facing agentic AI experiences."
+  ],
+  "source_url": "https://cloud.google.com/customers/searchkings",
+  "published_date": "2026-06-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Cut manual search term review time from 30 to five minutes with Gemini",
+    "Cloud Run was a perfect fit for us because it abstracted away a lot of the maintenance.",
+    "The team reviews those suggestions and either approves or rejects them, keeping a human in the loop but reducing time spent to an average of five minutes.",
+    "We have a little over 100 employees but thousands of customers.",
+    "We use Google Cloud solutions. We use Workspace. Our developers use Gemini CLI."
+  ]
+}

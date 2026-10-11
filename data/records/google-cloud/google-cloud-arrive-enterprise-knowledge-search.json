@@ -1,0 +1,89 @@
+{
+  "id": "google-cloud-arrive-enterprise-knowledge-search",
+  "slug": "google-cloud-arrive-enterprise-knowledge-search",
+  "vendor": "Google Cloud",
+  "customer_name": "Arrive",
+  "industry": "unknown",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "Arrive needed to work across fragmented post-merger HR, CRM, project, and messaging systems without waiting on a long ETL program, because information silos were slowing RFP work, onboarding, and day-to-day collaboration.",
+  "solution_summary": "Arrive used Gemini Enterprise and Gemini Enterprise Agent Platform to build Aria, an AI retrieval and orchestration layer that sits across siloed internal systems created by multiple acquisitions. Instead of migrating all data first, the company configured Aria to query live backend sources across HR systems, CRM platforms, project tools, messaging systems, and other internal repositories, then return grounded answers through a single conversational interface. Gemini handles the natural-language reasoning, Agent Search points requests toward verified internal sources, and prompt engineering bridges inconsistent schemas so the model can interpret disparate data structures correctly. The team monitors performance with automated logging and employee feedback as new companies and systems are brought into the environment. This design let Arrive deliver a production virtual agent in two weeks and turn hours of manual RFP and onboarding research into minutes.",
+  "products_used": [
+    "Gemini Enterprise",
+    "Gemini Enterprise Agent Platform",
+    "Gemini",
+    "Agent Search",
+    "Google Maps"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise",
+      "role": "Provides the governed enterprise AI layer that sits across Arrive's siloed systems.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Provides the foundational orchestration platform for Aria and its live system access.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini",
+      "role": "Interprets complex queries and generates grounded responses from fragmented internal data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Agent Search",
+      "role": "Directs the model toward verified internal data sources to reduce hallucinations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Maps",
+      "role": "Supports Arrive's longer-term plan to add richer geospatial mobility insights.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Employees ask Aria natural-language questions, Gemini interprets the request, the agent layer queries live HR, CRM, project, and messaging systems, Agent Search grounds the response in verified internal sources, and the answer is returned through a single conversational interface while logs and feedback tune performance over time.",
+  "integration_points": [
+    "HR systems",
+    "CRM platforms",
+    "project management systems",
+    "messaging systems",
+    "Slack"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Arrive built its AI retrieval layer in two weeks, cut RFP research from hours to minutes, improved onboarding and cross-team collaboration, and created a scalable alternative to separate AI add-ons across each legacy system.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Enabled development of an AI retrieval layer in two weeks",
+    "Cut RFP research time from hours to minutes",
+    "a similar process would have taken up to four hours"
+  ],
+  "architecture_clues": [
+    "Aria queries live systems instead of waiting for a multiannual ETL migration.",
+    "Prompt engineering is used to normalize inconsistent HR schemas.",
+    "Agent Search is used to ground answers in verified internal data sources.",
+    "Performance is monitored with automated logging and employee feedback."
+  ],
+  "source_url": "https://cloud.google.com/customers/arrive-ai",
+  "published_date": "2026-06-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Enabled development of an AI retrieval layer in two weeks",
+    "using Gemini Enterprise to build an AI-driven orchestration layer that sits across siloed systems and surfaces answers in real time.",
+    "We used Gemini Enterprise Agent Platform, which provided the foundational platform, and combined it with Gemini's advanced natural language capabilities.",
+    "the team used Agent Search to point the model towards verified internal data sources",
+    "a similar process would have taken up to four hours"
+  ]
+}

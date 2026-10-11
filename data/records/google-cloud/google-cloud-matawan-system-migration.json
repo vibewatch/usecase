@@ -1,0 +1,102 @@
+{
+  "id": "google-cloud-matawan-system-migration",
+  "slug": "google-cloud-matawan-system-migration",
+  "vendor": "Google Cloud",
+  "customer_name": "Matawan",
+  "industry": "Logistics",
+  "region": "France",
+  "company_size": "Unknown",
+  "business_problem": "Matawan needed to move beyond rigid server and VM infrastructure that required heavy manual operations, because its mobility SaaS platform had to absorb traffic peaks, stay continuously available, and support international growth without ballooning operating costs.",
+  "solution_summary": "Matawan migrated its mobility platform toward Google Cloud in stages so transit operators could keep running without interruption while the architecture shifted from tightly coupled virtual machines to modular managed services. Google Kubernetes Engine became the primary orchestration layer for containerized independent services, Cloud Run handles highly variable processes with serverless elasticity, and Compute Engine provides the remaining core compute foundation during the transition. On the data side, Cloud SQL supports critical transactional databases, Cloud Storage handles large-scale storage, and BigQuery gives operators near-real-time analytical visibility into transit usage patterns. This architecture helps Matawan process ticket validations, payments, passenger information, and mobility data with better resilience and less operational toil. It also supports international expansion, faster service launches, and AI-enabled mobility innovation with Gemini.",
+  "products_used": [
+    "Compute Engine",
+    "Google Kubernetes Engine (GKE)",
+    "Cloud Storage",
+    "BigQuery",
+    "Cloud Run",
+    "Cloud SQL",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "Provides foundational compute during Matawan's staged modernization.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Orchestrates the containerized services that now make up the mobility platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Handles large-scale storage requirements for the SaaS environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Analyzes high-volume mobility and usage data for operators.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Adds serverless elasticity for processes with significant load variation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Supports critical transactional databases in the mobility platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "Represents the next AI layer Matawan plans to use for mobility innovation.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Transit validations, payments, passenger information, and mobility data flow through GKE-hosted and Cloud Run services, persist in transactional and storage systems, and are analyzed in BigQuery so operators can see network patterns while Matawan keeps scaling new mobility services.",
+  "integration_points": [
+    "ticket validation",
+    "payment processing",
+    "passenger information",
+    "mobility data management"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Matawan now processes over 150 million transit-pass validations a year, handles nearly five times more validations at equivalent infrastructure cost, cut CO2 emissions by 43%, and launches new services faster with much less operational effort.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Over 150 million transit pass validations processed per year.",
+    "process almost five times more transit pass validations at an equivalent infrastructure cost",
+    "in 2024, we reduced our CO₂ emissions by 43% compared to 2023"
+  ],
+  "architecture_clues": [
+    "The modernization was staged to maintain continuity for live transit networks.",
+    "Matawan shifted from tightly coupled VMs to independent services orchestrated by GKE.",
+    "Cloud Run is reserved for processes with large load swings and near-instant elasticity needs.",
+    "BigQuery is used specifically to expose usage patterns for network operators."
+  ],
+  "source_url": "https://cloud.google.com/customers/matawan",
+  "published_date": "2026-08-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Enhanced scalability and resilience thanks to GKE and Google Cloud managed services",
+    "This allows the company to process almost five times more transit pass validations at an equivalent infrastructure cost.",
+    "in 2024, we reduced our CO₂ emissions by 43% compared to 2023",
+    "Cloud SQL for certain critical transactional databases, Cloud Storage for large-scale storage needs, and BigQuery for analytics.",
+    "Google Cloud asserted itself as a strategic imperative."
+  ]
+}

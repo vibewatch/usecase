@@ -1,0 +1,79 @@
+{
+  "id": "google-cloud-besmart-campus-ai-tutoring",
+  "slug": "google-cloud-besmart-campus-ai-tutoring",
+  "vendor": "Google Cloud",
+  "customer_name": "BeSmart Campus",
+  "industry": "Education",
+  "region": "The Netherlands",
+  "company_size": "Unknown",
+  "business_problem": "BeSmart Campus needed a way to deliver individualized instruction at scale after demand for tutoring surged, but static online video could not answer questions or adapt explanations to each student's pace and understanding.",
+  "solution_summary": "BeSmart Campus built an interactive learning platform on Google Cloud so educational video content can be paired with real-time AI tutoring instead of passive playback. The company uses Gemini models to analyze and organize teacher-created video lessons, then relies on multimodal understanding to let students pause a lesson at any moment, ask a question about the exact point on screen, and receive an explanation that follows BeSmart's own pedagogical method. Vertex AI and Gemini supply the reasoning layer, while BigQuery supports the data foundation behind the platform's evolving content and results. The system also generates practice exercises on the fly and uses the same course context to explain mistakes, rephrase concepts repeatedly, and guide students through alternative examples. This architecture turns the platform into a personalized tutor that can keep pace with each learner while staying inside a controlled instructional environment.",
+  "products_used": [
+    "Vertex AI",
+    "Gemini Models",
+    "BigQuery",
+    "NotebookLM"
+  ],
+  "solution_components": [
+    {
+      "name": "Vertex AI",
+      "role": "Hosts the AI capabilities used to power contextual tutoring across BeSmart's learning platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini Models",
+      "role": "Interpret video context and generate explanations, rephrasings, and practice exercises for students.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Supports the platform's data layer for educational content and outcome analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "NotebookLM",
+      "role": "Helped validate that Gemini could understand educational content with the needed contextual fidelity.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Teacher-created videos are analyzed and organized with Gemini, students watch those lessons in the BeSmart platform, pause them to ask context-specific questions, and receive grounded responses or generated exercises that stay tied to the exact lesson segment and teaching method.",
+  "integration_points": [
+    "teacher-created explanatory videos",
+    "student question-and-answer interactions",
+    "real-time exercise generation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BeSmart launched its first operational platform in three months, produced measurable student gains in school tests, and created a scalable tutoring model that can re-explain concepts as many times as each learner needs.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "The first operational version of the BeSmart Learning Platform was designed in only three months",
+    "two classes allowed to use the platform for two weeks preceding exams achieved averages of 6.4 and 6.9 out of 10",
+    "two other classes of the same level, prepared without the platform, showed an average of 5.0"
+  ],
+  "architecture_clues": [
+    "The platform relies on video grounding so Gemini answers stay consistent with BeSmart's controlled corpus.",
+    "Students can pause videos and ask questions tied to the exact moment in the lesson.",
+    "The AI generates practice exercises in real time and guides correction.",
+    "The company designed the first operational version in three months using Google's orchestration, processing, and AI integration capabilities."
+  ],
+  "source_url": "https://cloud.google.com/customers/besmart",
+  "published_date": "2026-02-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Dutch EdTech company BeSmart Campus leverages Google Cloud and Gemini models to offer every student a personalized AI tutor, directly integrated into educational content designed with teachers.",
+    "Thanks to its multimodal understanding, Gemini immediately identifies the relevant section and provides a response consistent with the pedagogical method designed by BeSmart Campus.",
+    "The AI never gets impatient and can rephrase ten, twenty, or thirty times if necessary.",
+    "The first operational version of the BeSmart Learning Platform was designed in only three months",
+    "two classes allowed to use the platform for two weeks preceding exams achieved averages of 6.4 and 6.9 out of 10, while two other classes of the same level, prepared without the platform, showed an average of 5.0"
+  ]
+}

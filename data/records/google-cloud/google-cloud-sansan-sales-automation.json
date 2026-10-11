@@ -1,0 +1,84 @@
+{
+  "id": "google-cloud-sansan-sales-automation",
+  "slug": "google-cloud-sansan-sales-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Sansan",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Sansan needed to unify fragmented customer and sales data so teams could move from static reporting to immediate, data-driven sales actions without relying on manual aggregation or hallucination-prone AI outputs.",
+  "solution_summary": "Sansan built its Sansan BI platform on Google Cloud to connect analytics directly to sales execution. Looker sits at the center of the design, with LookML encoding complex business logic once so the company can create a reliable single source of truth for customers and internal teams. BigQuery provides the large-scale analytical store, while Gemini is grounded in the semantic layer so natural-language questions and proposal scenarios use the same governed metrics that appear in dashboards. Managed Service for Apache Airflow supports the surrounding data pipeline operations, and Git-based development lets the team review logic changes like code instead of editing dashboards ad hoc. This architecture turns sales data into a conversational system that can suggest next actions, reduce hallucinations, and move field teams from interpreting charts to acting on specific opportunities.",
+  "products_used": [
+    "BigQuery",
+    "Managed Service for Apache Airflow",
+    "Looker",
+    "LookML",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores and analyzes large sales and customer datasets for rapid querying.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Managed Service for Apache Airflow",
+      "role": "Supports the managed orchestration of data workflows around Sansan BI.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Looker",
+      "role": "Provides the governed BI and conversational analytics surface used by sales teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LookML",
+      "role": "Defines shared business logic as code so metrics stay consistent across dashboards and AI workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Gemini",
+      "role": "Answers natural-language questions and generates actionable proposal scenarios from governed data.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer and sales data is modeled in BigQuery, governed through LookML inside Looker, and then exposed through dashboards and Gemini-powered conversational analytics so sales staff can ask questions in natural language and receive business-ready recommendations tied to trusted metrics.",
+  "integration_points": [
+    "sales force automation platforms",
+    "core business systems",
+    "SaaS applications",
+    "Git-based development workflows"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Sansan eliminated manual aggregation risk, reduced hallucinations in AI-driven insights, and enabled sales teams to move directly from data interpretation to concrete, automated proposal scenarios and next actions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "LookML is the semantic layer that grounds both dashboards and Gemini outputs.",
+    "The development life cycle is managed through Git integration for review and governance.",
+    "The platform is designed to present not only insights but specific next-step proposal scenarios.",
+    "Sansan BI is positioned as conversational analytics rather than traditional BI reporting."
+  ],
+  "source_url": "https://cloud.google.com/customers/sansan-ai",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Created a single source of truth by defining complex business logic as code using LookML",
+    "Reduced \"hallucinations\" in AI-driven insights by grounding Gemini in accurate metrics defined within the semantic layer",
+    "Enabled immediate transition from data interpretation to sales action through automated, reliable proposal scenarios",
+    "By integrating Looker with BigQuery, Gemini and Gemini platform, Sansan has created a platform where data is not just seen but \"spoken.\"",
+    "By having the AI reference accurate metrics defined in LookML, we can suppress hallucinations and provide customers with reliable business insights."
+  ]
+}

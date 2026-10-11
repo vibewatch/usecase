@@ -1,0 +1,80 @@
+{
+  "id": "google-cloud-national-library-board-immersive-citizen-experience",
+  "slug": "google-cloud-national-library-board-immersive-citizen-experience",
+  "vendor": "Google Cloud",
+  "customer_name": "National Library Board",
+  "industry": "Public Sector",
+  "region": "Singapore",
+  "company_size": "Public sector",
+  "business_problem": "NLB needed to deliver a highly personalized SG60 exhibition experience with real-time video, audio, and avatar interactions, but traditional cloud architectures could not satisfy the latency and data residency requirements for a sensitive public-sector deployment.",
+  "solution_summary": "National Library Board built the SG60 Heart & Soul experience on Google Cloud so each visitor could receive a personalized, emotionally responsive journey instead of a static exhibition. The core deployment uses Google Distributed Cloud Connected to bring AI compute close to visitors and process biometric inputs on site, which is essential for low-latency face-fusion rendering and strict data residency. Gemini models in Vertex AI power the digital concierge that converses naturally with guests and adapts the path ahead based on their aspirations, while Vertex AI also supports video generation and localized aging effects. The broader experience extends into the physical venue through audio guides using UHF and NFC triggers, and locally processed visitor contributions become part of a shared national roadmap. This architecture let NLB coordinate more than 110 agencies while keeping the technology invisible behind an immersive public experience.",
+  "products_used": [
+    "Google Distributed Cloud Connected",
+    "Vertex AI",
+    "Gemini models",
+    "Gemini in Vertex AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Distributed Cloud Connected",
+      "role": "Brings AI compute to the edge so personalized content can be generated with low latency and strong data residency controls.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Supports creative generation for personalized videos and immersive digital experiences.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini models",
+      "role": "Drive the conversational and generative AI experiences inside the exhibition journey.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini in Vertex AI",
+      "role": "Powers the digital concierge that learns visitor hopes and tailors the experience in real time.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Visitors begin with a Gemini-powered conversation, their inputs and biometric data are processed locally on Google Distributed Cloud Connected, personalized videos and audio are generated through Vertex AI and face-fusion models, and their final aspirations are aggregated into a shared experience without sending sensitive data off site.",
+  "integration_points": [
+    "localized facefusion model",
+    "audio guides",
+    "Ultra High Frequency (UHF)",
+    "Near Field Communication (NFC)"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Industry Cloud"
+  ],
+  "use_case_category": [],
+  "business_outcome": "NLB delivered the region's first Google Distributed Cloud Connected deployment for low-latency AI, created a seamless personalized SG60 visitor journey, and turned immersive storytelling into a secure public-sector AI showcase.",
+  "outcome_category": [
+    "Customer Experience",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "Deployed region’s first Google Distributed Cloud Connected for low-latency AI",
+    "orchestrated a complex ecosystem of 110+ agencies",
+    "almost every 10 minutes"
+  ],
+  "architecture_clues": [
+    "The design depends on edge AI compute so biometric processing can stay on site.",
+    "Gemini in Vertex AI acts as a digital concierge at the beginning of the journey.",
+    "The experience combines physical triggers such as UHF and NFC with generative AI outputs.",
+    "Visitor aspirations are processed locally and added to a shared collective output."
+  ],
+  "source_url": "https://cloud.google.com/customers/nlb",
+  "published_date": "2026-06-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Deployed region’s first Google Distributed Cloud Connected for low-latency AI",
+    "Gemini in Vertex AI engaged guests in natural dialogue",
+    "By processing biometric data instantly on-site, the system renders high-fidelity videos of visitors’ future selves without the latency that breaks immersion",
+    "strict data residency requirements for a sensitive public sector project",
+    "With Accenture’s support, NLB orchestrated a complex ecosystem of 110+ agencies."
+  ]
+}

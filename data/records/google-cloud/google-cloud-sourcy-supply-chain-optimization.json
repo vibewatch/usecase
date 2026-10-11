@@ -1,0 +1,133 @@
+{
+  "id": "google-cloud-sourcy-supply-chain-optimization",
+  "slug": "google-cloud-sourcy-supply-chain-optimization",
+  "vendor": "Google Cloud",
+  "customer_name": "Sourcy",
+  "industry": "Software / SaaS",
+  "region": "Singapore",
+  "company_size": "SMB",
+  "business_problem": "Sourcy needed to turn rough buyer requests into manufacturable product specifications and supplier quotes quickly, but traditional product-development handoffs depended on slow manual coordination that was difficult to scale across languages and suppliers.",
+  "solution_summary": "Sourcy built a multi-agent prompt-to-product platform on Google Cloud so consumer brands can turn rough product ideas into supplier-ready specifications in seconds instead of hours. The system uses Gemini Enterprise Agent Platform to orchestrate specialized agents for customer activation, specification building, supplier discovery, supplier engagement, and quote preparation. Through the Gemini API, Sourcy routes high-volume work to lighter models and complex reasoning to Gemini Pro while keeping AI costs low at large token volumes. Cloud Run hosts the company's expanding set of containerized services, while Cloud SQL, Firestore, Pub/Sub, BigQuery, Document AI, Speech-to-Text, App Engine, Google AI Studio, and Compute Engine support the surrounding data and processing stack. The result is a multilingual sourcing platform that compresses idea-to-factory workflows and builds a reusable sourcing-intelligence layer from supplier and quotation data.",
+  "products_used": [
+    "Gemini Enterprise Agent Platform",
+    "Gemini API",
+    "Compute Engine",
+    "Cloud SQL",
+    "Google AI Studio",
+    "App Engine",
+    "Document AI",
+    "Speech-to-Text",
+    "Firestore",
+    "Pub/Sub",
+    "BigQuery",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini Enterprise Agent Platform",
+      "role": "Orchestrates specialized sourcing agents across specification, supplier, and quote workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini API",
+      "role": "Supplies the multimodal model access Sourcy uses for high-volume and complex sourcing tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Compute Engine",
+      "role": "Supports core compute workloads in the sourcing platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores structured operational data behind the sourcing system.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google AI Studio",
+      "role": "Supports AI development and experimentation for the product workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "App Engine",
+      "role": "Provides additional application-hosting support within the platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Document AI",
+      "role": "Processes product documents and related inputs in the sourcing workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Speech-to-Text",
+      "role": "Converts spoken inputs into text for product specification workflows.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Firestore",
+      "role": "Stores application data used by the multi-agent platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "Moves events between sourcing services and agents.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Houses sourcing, supplier, and quotation data for future reuse and analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs the containerized services that power Sourcy's production workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Buyer descriptions, documents, and spoken inputs enter Sourcy through multimodal ingestion services, flow through Gemini-orchestrated agents for specification building, supplier discovery, and quote preparation, run on Cloud Run-hosted services, and persist supplier and quotation outputs in operational stores and BigQuery for future sourcing reuse.",
+  "integration_points": [
+    "supplier discovery",
+    "supplier engagement",
+    "quotation workflows",
+    "buyer product descriptions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Sourcy now turns buyer requests into factory-ready specifications in seconds, reduced blended AI cost to roughly $1 per million tokens, and expanded its production estate from two to 23 Cloud Run services while processing around four billion tokens per month.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Reduced AI costs to roughly $1 per million tokens",
+    "Scaled from two to 23 containerized services on Cloud Run",
+    "Turns buyer requests into factory-ready specs in seconds instead of hours with Gemini",
+    "We process around four billion tokens per month on Google Cloud",
+    "the intelligence layer is still only one-fifth of our bill"
+  ],
+  "architecture_clues": [
+    "Sourcy Brain orchestrates specialized agents for activation, specification building, supplier discovery, supplier engagement, and quote preparation.",
+    "The system uses five model families and tiers work between flash and pro models.",
+    "Services run in the Google Cloud Singapore region to keep latency low for Asia-based supplier workflows.",
+    "Each workflow captures supplier and quotation data for future reuse."
+  ],
+  "source_url": "https://cloud.google.com/customers/sourcy",
+  "published_date": "2026-08-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Sourcy built a multi-agent sourcing system on Gemini Enterprise Agent Platform.",
+    "Sourcy Brain orchestrates specialized agents for customer activation, specification building, supplier discovery and engagement, and quote preparation.",
+    "This model tiering has supported billions of processed tokens at a blended AI cost of roughly $1 per million tokens.",
+    "Deploying these services on Cloud Run also helps the team scale while continuing to manage a heavy transactional load.",
+    "Sourcy was able to grow from two services to 23 with the company’s existing team size."
+  ]
+}

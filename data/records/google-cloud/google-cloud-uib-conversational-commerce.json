@@ -1,0 +1,81 @@
+{
+  "id": "google-cloud-uib-conversational-commerce",
+  "slug": "google-cloud-uib-conversational-commerce",
+  "vendor": "Google Cloud",
+  "customer_name": "UIB",
+  "industry": "Software / SaaS",
+  "region": "Singapore",
+  "company_size": "SMB",
+  "business_problem": "UIB needed a scalable, low-latency, and localized platform for conversational commerce so clients like Transnasional could own customer data, meet Malaysian data residency requirements, and move ticket sales off third-party agents.",
+  "solution_summary": "UIB built a WhatsApp-based conversational commerce platform on Google Cloud for clients that need direct digital sales channels. The system runs on Google Kubernetes Engine (GKE), which automatically scales with chatbot demand without requiring extra hardware, giving the company a reliable base for revenue-generating customer conversations. UIB added Gemini and Gemma to provide the natural-language layer for the ticketing experience, while Cloud Storage near Malaysia keeps customer information in a company-controlled environment that satisfies localization and latency requirements. In production, this architecture integrates with Transnasional's public transportation ticketing workflow so passengers can discover, book, and complete transactions through WhatsApp instead of external online travel agents. The result is a governed conversational commerce stack that combines messaging, AI, and localized storage on one cloud platform.",
+  "products_used": [
+    "Google Kubernetes Engine (GKE)",
+    "Gemini",
+    "Gemma",
+    "Cloud Storage"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Hosts the conversational commerce platform and automatically scales with chatbot traffic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers the natural-language capabilities in the conversational ticketing interface.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemma",
+      "role": "Supports the natural-language experience used in the conversational interface.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores customer data near Malaysia to meet data residency and low-latency requirements.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Passengers start on WhatsApp, where the UIB platform running on GKE handles traffic spikes, routes conversational requests through Gemini and Gemma for language understanding, and stores customer data in Cloud Storage located near Malaysia so Transnasional can complete ticket sales while keeping the data in its own environment.",
+  "integration_points": [
+    "WhatsApp",
+    "Transnasional ticketing workflow",
+    "customer data storage near Malaysia"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "The platform helped Transnasional move more than 60% of ticket sales to WhatsApp, retain 100% of its customer data, and replace OTA dependency with a direct conversational sales channel.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Converted more than 60% of ticket sales to WhatsApp",
+    "The company now owns and retains 100% of its customer data",
+    "WhatsApp now accounts for more than 60% of Transnasional's total ticket sales"
+  ],
+  "architecture_clues": [
+    "The platform was built as the first WhatsApp-based public transportation ticketing solution in Malaysia.",
+    "Localized cloud storage was used to satisfy strict Malaysian data residency requirements.",
+    "GKE is used because traffic is spiky and scales automatically without new hardware.",
+    "UIB consolidated onto one Google Cloud stack before focusing on client-facing solutions."
+  ],
+  "source_url": "https://cloud.google.com/customers/uibai",
+  "published_date": "2026-08-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Converted more than 60% of ticket sales to WhatsApp",
+    "Together, UIB and Transnasional launched the first WhatsApp-based public transportation ticketing solution in Malaysia.",
+    "The custom platform relies on Google Kubernetes Engine (GKE), which can scale up or down automatically to handle chatbot traffic changes without needing to provision additional hardware.",
+    "Beyond processing, UIB also uses Gemini and Gemma to power the interface’s natural language capabilities.",
+    "The company now owns and retains 100% of its customer data, and WhatsApp now accounts for more than 60% of Transnasional's total ticket sales."
+  ]
+}

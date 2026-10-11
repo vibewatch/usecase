@@ -1,0 +1,116 @@
+{
+  "id": "google-cloud-macrofactor-ai-food-logging",
+  "slug": "google-cloud-macrofactor-ai-food-logging",
+  "vendor": "Google Cloud",
+  "customer_name": "MacroFactor",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "MacroFactor needed a fast, scalable application foundation that would let a tiny engineering team ship a cross-platform nutrition app quickly, support hundreds of thousands of users, and add trustworthy AI-powered food logging without accumulating structural debt.",
+  "solution_summary": "MacroFactor built its nutrition coaching app on Firebase and Flutter so a small team could deliver Android and iOS experiences from one codebase while relying on managed backend services for security, sync, analytics, and rapid iteration. Firebase Authentication, Firestore, Google Analytics, Crashlytics, Remote Config, and Cloud Run provide the operational backbone, while Cloud Functions helps the app react to events without extra infrastructure work. For AI meal logging, the app stores photo and metadata inputs in Cloud Storage and then uses Vertex AI with Firebase AI Logic to call Gemini 2.5 Flash directly from the client, breaking meals down into editable ingredient-level nutrition data without requiring custom backend inference code. This architecture let MacroFactor combine a science-first coaching experience with a lightweight, resilient cloud stack capable of supporting over 400,000 users.",
+  "products_used": [
+    "Cloud Run",
+    "Google Analytics",
+    "Firebase Authentication",
+    "Firebase Crashlytics",
+    "Firebase Remote Config",
+    "Firestore",
+    "Gemini 2.5 Flash",
+    "Vertex AI with Firebase AI Logic",
+    "Cloud Functions",
+    "Cloud Storage"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "Runs serverless application services that support the growing nutrition platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Analytics",
+      "role": "Tracks product usage so the team can understand behavior and refine the app.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Firebase Authentication",
+      "role": "Secures user access and identity management for the consumer application.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Firebase Crashlytics",
+      "role": "Detects and helps resolve release issues across mobile updates.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Firebase Remote Config",
+      "role": "Supports A/B testing and rapid feature iteration without a full app release.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Firestore",
+      "role": "Keeps app data synchronized and shared securely across user devices.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "role": "Analyzes meal photos and generates ingredient-level nutrition breakdowns.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vertex AI with Firebase AI Logic",
+      "role": "Connects the mobile app directly to Gemini for AI food-logging workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Functions",
+      "role": "Executes backend code in response to events so the app can scale without more engineering support.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores meal photos and related data before AI analysis.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Users log meals and activity in the Flutter app, which authenticates through Firebase, stores synchronized data in Firestore and Cloud Storage, invokes Gemini 2.5 Flash through Vertex AI with Firebase AI Logic for photo-based meal analysis, and feeds the results back into coaching workflows while Crashlytics, Analytics, and Remote Config support ongoing iteration.",
+  "integration_points": [
+    "Android",
+    "iOS",
+    "meal photo uploads",
+    "adaptive coaching algorithms"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "MacroFactor reached the top tier of nutrition apps with a two-engineer starting team, supports over 400,000 users, and gives customers faster, editable AI meal logging without sacrificing trust or privacy.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Built a top 10 Google Play app with a 2-person engineering team",
+    "Support features for over 400k subscribers",
+    "400k+ active users"
+  ],
+  "architecture_clues": [
+    "MacroFactor uses a single Flutter codebase to ship Android and iOS updates together.",
+    "Cloud Functions supplies event-driven backend execution so the team can scale without extra engineers.",
+    "The AI pipeline prompts Gemini 2.5 Flash directly from the app through Firebase AI Logic.",
+    "The company plans to expand AI features further through the Firebase and Vertex AI integration."
+  ],
+  "source_url": "https://cloud.google.com/customers/macrofactor",
+  "published_date": "2026-03-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "MacroFactor uses Firebase, Flutter, and Gemini to scale its top-rated nutrition app to 400k+ users and deliver trusted, AI-powered food logging.",
+    "With Firebase and Flutter, we were able to go from idea to one of the top nutrition apps on the market as a lean development team with only 2 engineers to start.",
+    "Cloud Functions provides a serverless framework that lets MacroFactor automatically run backend code in response to events.",
+    "The system stores data in Cloud Storage, then MacroFactor uses Firebase AI Logic to prompt Gemini 2.5 Flash directly from the app using Dart.",
+    "This allows meals to be broken down to ingredient level data without writing backend code."
+  ]
+}

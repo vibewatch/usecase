@@ -1,0 +1,83 @@
+{
+  "id": "google-cloud-sep2-security-and-compliance",
+  "slug": "google-cloud-sep2-security-and-compliance",
+  "vendor": "Google Cloud",
+  "customer_name": "SEP2",
+  "industry": "Software / SaaS",
+  "region": "UK",
+  "company_size": "Unknown",
+  "business_problem": "SEP2 needed to eliminate the alert-analysis bottleneck in its security operations center, where analysts were spending up to 20 minutes gathering context for a single event and risking backlogs during threat spikes.",
+  "solution_summary": "SEP2 built an ecosystem of custom security agents on Gemini platform and Google Security Operations to automate the repetitive parts of threat triage while keeping human analysts focused on higher-value investigations. The company defines specialized agent personas such as triage agents and threat-intelligence agents that pull data from firewalls, endpoints, and external feeds, then use Gemini reasoning to summarize findings and support faster remediation. These workflows also help engineers create new threat-detection rules far faster by turning natural-language inputs into programmatic logic. SEP2 designed the environment with customer-data isolation and UK residency requirements in mind, using Google Cloud controls so client data is kept separate and never used to train public models. The roadmap extends toward continuous threat-hunting agents and a self-healing SOC where verified threats can trigger automated containment in seconds.",
+  "products_used": [
+    "Gemini",
+    "Gemini platform",
+    "Google Security Operations",
+    "Google AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "Provides the reasoning engine for custom security agents and faster rule creation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Hosts the agentic security ecosystem and orchestrates multi-step threat workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Google Security Operations",
+      "role": "Anchors SEP2's security workflows and live remediation environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google AI",
+      "role": "Supplies the broader AI services SEP2 uses to expand security automation.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "When a new alert fires, SEP2's triage and threat-intelligence agents gather evidence from firewalls, endpoints, and external feeds, reason over the combined context with Gemini, and present a standardized summary to human analysts who can approve remediation or continue deeper investigation.",
+  "integration_points": [
+    "firewalls",
+    "endpoints",
+    "external threat feeds",
+    "security operations center workflows"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "SEP2 now writes threat-detection rules six times faster, triages new security alerts 20 times faster, avoids analyst burnout during high-volume periods, and is building toward proactive continuous threat hunting and automated containment.",
+  "outcome_category": [
+    "Compliance",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "6x faster to write threat detection rules with Gemini",
+    "20x faster to triage new security alerts",
+    "spent up to 20 minutes manually checking firewalls, endpoints, and threat feeds for a single event",
+    "This entire data-gathering process takes the agents just one minute"
+  ],
+  "architecture_clues": [
+    "SEP2 organizes the platform around specialized agent personas such as triage and threat-intelligence agents.",
+    "The environment is configured so all customer data remains isolated and localized for UK residency needs.",
+    "The company is integrating Google Security Operations with Gemini platform for agentic remediation.",
+    "The long-term design target is a self-healing SOC with automated containment."
+  ],
+  "source_url": "https://cloud.google.com/customers/sep2",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "6x faster to write threat detection rules with Gemini",
+    "20x faster to triage new security alerts",
+    "This entire data-gathering process takes the agents just one minute",
+    "Because the company services enterprise clients with strict security needs, they use Google Cloud configuration parameters to ensure that all customer data remains isolated.",
+    "The long-term goal is a self-healing security operations center where verified threats trigger automated containment actions"
+  ]
+}

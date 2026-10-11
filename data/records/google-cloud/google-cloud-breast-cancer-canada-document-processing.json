@@ -1,0 +1,101 @@
+{
+  "id": "google-cloud-breast-cancer-canada-document-processing",
+  "slug": "google-cloud-breast-cancer-canada-document-processing",
+  "vendor": "Google Cloud",
+  "customer_name": "Breast Cancer Canada",
+  "industry": "Healthcare",
+  "region": "Canada",
+  "company_size": "Unknown",
+  "business_problem": "Breast Cancer Canada needed a secure, ethics-approved cloud environment that could collect long-term patient-reported data and also help translate complex pathology information into plain language without the limitations of antiquated university-hosted infrastructure.",
+  "solution_summary": "Breast Cancer Canada partnered with CloudifyAI to rebuild its patient advocacy and research platform on Google Cloud so long-term patient-reported outcomes could be collected, analyzed, and converted into clinically credible evidence. BigQuery provides the analytics backbone for large, multi-point datasets gathered through the PROgress Tracker 2.0 study, while Cloud Run, Pub/Sub, Google Apps Script, Cloud Logging, and Cloud Monitoring support the surrounding application services. On top of that secure environment, CONNECT lets patients upload pathology reports, and Google Cloud AI tools perform OCR and document interpretation so medical language can be translated into understandable treatment timelines and question prompts. Gemini Notebook is also used to transform internal educational materials into clearer patient roadmaps. This architecture gave BCC an ethically compliant clinical-study platform for research publication, multi-site adoption, and a future national registry.",
+  "products_used": [
+    "BigQuery",
+    "Gemini Notebook",
+    "Pub/Sub",
+    "Cloud Run",
+    "Google Apps Script",
+    "Cloud Logging",
+    "Cloud Monitoring"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores and analyzes large longitudinal patient-reported datasets for research and advocacy.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Notebook",
+      "role": "Turns internal educational materials into readable and scientifically sound patient roadmaps.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "Moves events through the patient-data and analytics environment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs secure cloud-based application services for the study and patient tools.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Apps Script",
+      "role": "Supports workflow automation around the advocacy and analytics platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Logging",
+      "role": "Captures audit and operational logs for the clinical environment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud Monitoring",
+      "role": "Provides operational visibility for the secure cloud platform.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Patient-reported outcomes and uploaded pathology reports enter BCC's cloud study environment, are processed and analyzed through BigQuery-backed services, translated into readable explanations and timelines through AI-assisted document interpretation, and then reused for research, advocacy, and multi-site clinical decision support.",
+  "integration_points": [
+    "pathology report uploads",
+    "PROgress Tracker 2.0",
+    "CONNECT",
+    "hospital sites"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Breast Cancer Canada scaled PROgress Tracker 2.0 past 1,000 active patients, published research at ASCO, expanded adoption across hospital sites, and gained a secure data foundation for advocacy, future wearables integration, and potential national-registry use.",
+  "outcome_category": [
+    "Compliance",
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Scaled clinical Patient Reported Outcomes Platform to more than 1,000 active patients",
+    "enrollment projected to scale up to 10,000 users within the next 18 months",
+    "Secured a breakthrough research presentation at the ASCO symposium"
+  ],
+  "architecture_clues": [
+    "The platform became Canada's first cloud-hosted, ethically approved clinical study.",
+    "CONNECT uses OCR and document interpretation to translate pathology reports into plain language.",
+    "The architecture is designed to satisfy strict ethical review and security requirements.",
+    "BCC plans to integrate Fitbit data and explore a national registry on top of the same environment."
+  ],
+  "source_url": "https://cloud.google.com/customers/breast-cancer-canada",
+  "published_date": "2026-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Scaled clinical Patient Reported Outcomes Platform to more than 1,000 active patients",
+    "the cloud framework successfully powered PROgress Tracker 2.0, making it Canada's first cloud-hosted, ethically approved clinical study.",
+    "Patients upload detailed pathology reports directly into CONNECT, where Google Cloud AI tools execute advanced document interpretation and optical character recognition (OCR)",
+    "BCC used Gemini Notebook to parse internal educational materials",
+    "The infrastructure allows us to go to policymakers with hard evidence to dismantle assumptions, change the healthcare system, and drive real legislative policy."
+  ]
+}

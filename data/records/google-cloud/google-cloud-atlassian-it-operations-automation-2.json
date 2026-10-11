@@ -1,0 +1,70 @@
+{
+  "id": "google-cloud-atlassian-it-operations-automation-2",
+  "slug": "google-cloud-atlassian-it-operations-automation-2",
+  "vendor": "Google Cloud",
+  "customer_name": "Atlassian",
+  "industry": "Software / SaaS",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Atlassian needed to upgrade its Rovo agent platform so it could handle enterprise-grade scale and quality, because lenient tool schemas in the legacy model were allowing subtle errors and limiting confidence in production rollouts.",
+  "solution_summary": "Atlassian migrated its Rovo personal assistant and agent platform to Gemini 3 Flash to improve both agent reliability and production scale. During evaluation, the team discovered that Gemini 3 Flash enforced stricter tool-schema behavior than its prior model, which forced Atlassian to tighten tool definitions and eliminate silent failures that had previously slipped through. The company then rolled the model out in phases, using an opt-in toggle so customers could switch agents gradually while offline and online evaluation results were tracked closely. This combination of schema refinement, controlled migration, and Google Cloud's resilient infrastructure let Atlassian scale from a single invocation to more than 200,000 daily invocations in six weeks while preserving the responsiveness needed for simple requests and deeper multi-loop reasoning for complex enterprise tasks.",
+  "products_used": [
+    "Gemini 3 Flash",
+    "Google Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini 3 Flash",
+      "role": "Powers the Rovo agent experience and enforces stricter tool schemas for higher-quality outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud",
+      "role": "Provides the resilient infrastructure that allowed Atlassian to scale agent invocations rapidly.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User requests enter the Rovo agent platform, are handled by Gemini 3 Flash against stricter tool schemas, pass through evaluation gates during phased rollout, and then return either quick responses or deeper multi-loop reasoning results depending on task complexity.",
+  "integration_points": [
+    "Rovo personal assistant",
+    "Rovo agent platform",
+    "phased opt-in migration workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Atlassian raised offline pass rates to 85%, boosted online agent success to 80%, moved nearly half of customers in two weeks, and scaled the platform to over 200,000 daily invocations in six weeks.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Increased offline evaluation pass rates to 85% using Gemini 3 Flash",
+    "Boosted online agent task success rates to 80% with Gemini 3 Flash",
+    "Scaled seamlessly to 200,000 daily invocations on Google Cloud",
+    "nearly 50% of customers to migrate within two weeks",
+    "scaled seamlessly from a single invocation to over 200,000 daily invocations in six weeks"
+  ],
+  "architecture_clues": [
+    "The migration was gated by an opt-in toggle rather than a big-bang switch.",
+    "Gemini 3 Flash forced Atlassian to tighten tool schemas that had previously been too lenient.",
+    "Atlassian tracked both offline and online evaluations through the rollout.",
+    "The platform is designed to serve both high-speed simple queries and deeper multi-loop reasoning tasks."
+  ],
+  "source_url": "https://cloud.google.com/customers/atlassian",
+  "published_date": "2026-08-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Increased offline evaluation pass rates to 85% using Gemini 3 Flash",
+    "Gemini 3 Flash enforced stricter schema definitions, requiring Atlassian to update its tool definitions.",
+    "This precision eliminated silent failures and significantly uplifted overall system quality.",
+    "High satisfaction drove nearly 50% of customers to migrate within two weeks.",
+    "Atlassian scaled seamlessly from a single invocation to over 200,000 daily invocations in six weeks"
+  ]
+}

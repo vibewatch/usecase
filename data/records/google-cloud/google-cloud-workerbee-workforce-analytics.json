@@ -1,0 +1,88 @@
+{
+  "id": "google-cloud-workerbee-workforce-analytics",
+  "slug": "google-cloud-workerbee-workforce-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Workerbee",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Workerbee needed a way to evaluate internal and external talent against company-specific role requirements without repeatedly reinterpreting scattered workforce data or relying on opaque keyword matching that was slow, costly, and inconsistent.",
+  "solution_summary": "Workerbee built a living Work Graph on Google Cloud to connect company strategy, role requirements, capabilities, and evidence across both employees and job applicants. Gemini extracts skills, achievements, and other role-relevant evidence from resumes, portfolios, project updates, meeting notes, and reviews, while explicitly excluding protected demographic attributes from the structured decision graph. That graph is then traversed with BigQuery Graph so managers can evaluate millions of relationships among people, roles, and experiences in seconds instead of rerunning raw-text reasoning for each search. AlloyDB for PostgreSQL stores operational application data, and the company is also testing Spanner Graph for live updates as employees complete projects, training, or certifications. The resulting architecture gives companies consistent, auditable rankings for hiring and workforce planning while turning static HR data into a reusable strategic asset.",
+  "products_used": [
+    "Gemini",
+    "BigQuery",
+    "BigQuery Graph",
+    "AlloyDB for PostgreSQL",
+    "Spanner Graph"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "Extracts role-relevant capabilities and evidence from internal and external workforce data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Supports the analytical foundation for large-scale talent and capability evaluation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery Graph",
+      "role": "Traverses the Work Graph to evaluate connected talent data in seconds.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AlloyDB for PostgreSQL",
+      "role": "Stores operational data such as profiles, user records, and application settings.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Spanner Graph",
+      "role": "Is being tested for operational graph workloads and live Work Graph updates.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Employee records, resumes, portfolios, project updates, meeting notes, and reviews are structured by Gemini into a Work Graph, searched with BigQuery Graph against company-specific role definitions, and combined with operational data from AlloyDB to deliver auditable hiring and workforce recommendations.",
+  "integration_points": [
+    "resumes",
+    "portfolios",
+    "project updates",
+    "performance reviews",
+    "meeting notes"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Workerbee evaluates one million candidate profiles in five seconds, cuts screening effort by 80% to 85%, saves $80,000 in recruiting fees across four roles, and gives companies auditable evidence for fair workforce decisions.",
+  "outcome_category": [
+    "Compliance",
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Evaluated 1M candidate profiles in five seconds to speed up hiring",
+    "Cut screening effort by 80-85% to focus on top talent",
+    "Saved $80K in recruiting fees across four specialist hires"
+  ],
+  "architecture_clues": [
+    "Protected demographic attributes are excluded from the structured evaluation data.",
+    "The Work Graph is updated as employees complete projects, training modules, or certifications.",
+    "The design avoids repeated raw-text reasoning by structuring information once and reusing it.",
+    "Spanner Graph is being tested for operational live-update use cases."
+  ],
+  "source_url": "https://cloud.google.com/customers/workerbee",
+  "published_date": "2026-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Evaluated 1M candidate profiles in five seconds to speed up hiring",
+    "Gemini extracts relevant capabilities, experience, and evidence from the information companies already have",
+    "Protected demographic attributes, such as age and gender, are excluded from the structured evaluation data",
+    "BigQuery Graph acts like a GPS traversing the map",
+    "Workerbee also gives companies an auditable record of how talent decisions were made"
+  ]
+}

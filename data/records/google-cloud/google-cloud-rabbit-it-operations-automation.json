@@ -1,0 +1,132 @@
+{
+  "id": "google-cloud-rabbit-it-operations-automation",
+  "slug": "google-cloud-rabbit-it-operations-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Rabbit",
+  "industry": "Software / SaaS",
+  "region": "Singapore",
+  "company_size": "SMB",
+  "business_problem": "Rabbit needed to operate hundreds of isolated enterprise tenants and run large-scale cost optimization analytics without building an operations-heavy platform, because its small engineering team had to scale FinOps automation safely and cheaply.",
+  "solution_summary": "Rabbit built its cloud-optimization platform on a fully managed Google Cloud architecture so a small team could manage hundreds of isolated enterprise tenants without maintaining a large operations function. Cloud Run hosts the core services and scales to zero when idle, Google Kubernetes Engine orchestrates heavier data-collection pipelines, and Cloud SQL plus Firestore handle tenant orchestration and operational state. At the center of the analytics layer, BigQuery powers real-time cost analysis and counterfactual pricing simulations over more than 10 billion jobs and more than 500 petabytes of storage metadata. Supporting services such as Memorystore for Redis, Pub/Sub, Cloud Scheduler, Secret Manager, Cloud Build, Cloud Logging, and Cloud Monitoring round out the platform's eventing, secrets, deployment, and observability stack. This design lets Rabbit turn a stable serverless foundation into a FinOps product that actively manages capacity and automates cost savings.",
+  "products_used": [
+    "Cloud Run",
+    "Google Kubernetes Engine (GKE)",
+    "Cloud SQL",
+    "Firestore",
+    "BigQuery",
+    "Memorystore for Redis",
+    "Pub/Sub",
+    "Cloud Scheduler",
+    "Secret Manager",
+    "Cloud Build",
+    "Cloud Logging",
+    "Cloud Monitoring"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "Runs Rabbit's core services and scales them to zero when not in use.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Orchestrates complex data-collection pipelines behind the optimization platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Stores operational data for tenant and platform orchestration.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Firestore",
+      "role": "Supports tenant orchestration in the managed platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Performs real-time cost analytics and pricing simulations over very large metadata sets.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Memorystore for Redis",
+      "role": "Provides in-memory support services inside the FinOps platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Pub/Sub",
+      "role": "Moves events through the distributed optimization workflows.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cloud Scheduler",
+      "role": "Triggers automated recurring optimization tasks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Secret Manager",
+      "role": "Protects secrets used across isolated enterprise tenants.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud Build",
+      "role": "Supports platform deployment and release automation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Logging",
+      "role": "Captures runtime logs across the multi-tenant platform.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud Monitoring",
+      "role": "Provides observability over the production optimization platform.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Tenant usage and metadata are collected through GKE-based pipelines, routed through event-driven services into Cloud Run-hosted application logic, stored in operational databases, and analyzed in BigQuery so Rabbit can simulate pricing, adjust reservations, and push automated cost optimizations safely across isolated customer environments.",
+  "integration_points": [
+    "enterprise tenants",
+    "capacity reservations",
+    "pricing simulations",
+    "FinOps workflows"
+  ],
+  "technical_area": [
+    "Cost Optimization",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Rabbit helped Lufthansa cut total BigQuery costs by 52%, helped Daangn cut monthly spend by 41%, and uses the same serverless architecture to optimize hundreds of enterprise tenants and monitor over 500 PB of BigQuery storage data.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Cuts BigQuery costs by up to 52% through automated scaling",
+    "Monitors and optimizes over 500 PB of BigQuery storage data",
+    "metadata from more than 10 billion jobs",
+    "Lufthansa Group achieved a 52% reduction in total BigQuery costs",
+    "Daangn cut its monthly spend by 41%"
+  ],
+  "architecture_clues": [
+    "The same base architecture scaled from the first tenant to hundreds without drastic re-architecture.",
+    "Cloud Run is the core hosting layer and scales to zero.",
+    "Rabbit tests features on its own Google Cloud footprint before customer rollout.",
+    "The platform is explicitly designed around isolated enterprise tenants."
+  ],
+  "source_url": "https://cloud.google.com/customers/followrabbit",
+  "published_date": "2026-08-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Cuts BigQuery costs by up to 52% through automated scaling",
+    "Monitors and optimizes over 500 PB of BigQuery storage data",
+    "manage hundreds of isolated enterprise tenants with just a handful of engineers",
+    "It scaled from our first tenant to hundreds of enterprise customers without drastic re-architecting",
+    "BigQuery sits at the heart of Rabbit’s platform"
+  ]
+}

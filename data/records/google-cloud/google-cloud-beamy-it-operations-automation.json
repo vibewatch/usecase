@@ -1,0 +1,83 @@
+{
+  "id": "google-cloud-beamy-it-operations-automation",
+  "slug": "google-cloud-beamy-it-operations-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Beamy",
+  "industry": "Software / SaaS",
+  "region": "France",
+  "company_size": "Unknown",
+  "business_problem": "Large enterprises could not see how employees actually used applications and business processes across thousands of SaaS tools, which made it hard to control shadow IT, rationalize licenses, and prioritize AI initiatives with the highest business impact.",
+  "solution_summary": "Beamy built an AI-driven business transformation platform on Google Cloud to reconstruct how people, technologies, and business processes actually interact inside large organizations. A browser extension captures real-time employee activity such as opening tickets, editing CRM fields, or validating invoices, then transforms those interactions into structured logs. Vertex AI models analyze those logs to identify process patterns across a sprawling application estate, while Cloud Run executes Beamy's serverless application services, BigQuery stores and analyzes large-scale behavior data, and Looker exposes the resulting insights through dashboards for business and IT leaders. This architecture lets customers such as Veolia see the gap between official inventories and real usage, negotiate software spend with evidence, and prioritize more than a thousand AI opportunities based on actual work patterns instead of assumptions.",
+  "products_used": [
+    "Cloud Run",
+    "BigQuery",
+    "Looker",
+    "Vertex AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Run",
+      "role": "Executes Beamy's application services in a serverless architecture.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores and analyzes large-scale behavioral and application-usage data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Looker",
+      "role": "Delivers dashboards and actionable visibility to business and IT teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Runs the AI models that identify processes and patterns across the application estate.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A browser extension observes employee actions across enterprise applications, turns those events into structured logs, analyzes the logs with Vertex AI to reconstruct real business process sequences, stores the behavioral data in BigQuery, and serves prioritized insights to customers through Looker dashboards and Beamy's platform services.",
+  "integration_points": [
+    "browser extension",
+    "CRM workflows",
+    "ticketing systems",
+    "invoice-validation workflows"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Beamy revealed thousands of previously untracked applications, helped customers rationalize licenses and negotiate spend, and gave enterprises a fact-based way to choose among more than 1,000 candidate AI initiatives.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "6,000 applications in use on top of those officially tracked by IT (Veolia)",
+    "Efficient AI prioritization among 1,000+ initiatives",
+    "the analysis caused an initial 'electric shock': we thought we had a catalog of about 4,000 applications; Beamy revealed that over 10,000 solutions were actually being used across the company.",
+    "Billions of unique behavioral data points processed through Google Cloud managed services"
+  ],
+  "architecture_clues": [
+    "The platform begins with a browser extension that observes real-time activity.",
+    "Structured events are reconciled to rebuild business process sequences rather than simple app inventories.",
+    "Beamy uses serverless Cloud Run services with BigQuery storage and Looker dashboards.",
+    "The company plans to use Google Cloud Marketplace to accelerate international expansion."
+  ],
+  "source_url": "https://cloud.google.com/customers/beamy",
+  "published_date": "2026-05-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Beamy leverages Google Cloud to analyze real application usage within large organizations.",
+    "The system uses a browser extension to observe real-time employee activity. Interactions (opening a ticket, modifying a CRM field, validating an invoice) are transformed into structured logs.",
+    "Beamy utilizes AI models deployed by Vertex AI.",
+    "Beamy also uses Cloud Run to execute its application services in a serverless architecture, BigQuery for large-scale data storage and analysis, and Looker to deliver actionable dashboards to its clients.",
+    "we thought we had a catalog of about 4,000 applications; Beamy revealed that over 10,000 solutions were actually being used across the company."
+  ]
+}
