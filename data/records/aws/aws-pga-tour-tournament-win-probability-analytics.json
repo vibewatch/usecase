@@ -1,0 +1,73 @@
+{
+  "id": "aws-pga-tour-tournament-win-probability-analytics",
+  "slug": "aws-pga-tour-tournament-win-probability-analytics",
+  "vendor": "AWS",
+  "customer_name": "PGA TOUR",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "The PGA TOUR wanted to give fans real-time insight into tournament outcomes, but doing so required a machine learning model that could run thousands of simulations and process nearly four billion records fast enough for live event coverage.",
+  "solution_summary": "The PGA TOUR built its Win, Cut Probability model on AWS to calculate a player’s chances of advancing in and winning a tournament while tournaments are in progress. The solution uses Amazon Elastic Container Service (Amazon ECS) with AWS Fargate to run thousands of simulations without managing infrastructure, then relies on Amazon Redshift and Amazon DynamoDB to support analytical and low-latency application workloads behind the fan experience. This serverless architecture lets the PGA TOUR scale week to week as tournament complexity changes, keep operations lean, and deliver immersive probability insights across multiple viewing platforms.",
+  "products_used": [
+    "Amazon ECS",
+    "AWS Fargate",
+    "Amazon Redshift",
+    "Amazon DynamoDB"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon ECS",
+      "role": "Runs containerized application workloads and batch simulations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Fargate",
+      "role": "Provides serverless compute capacity for containerized workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Stores analytical datasets and serves aggregated reporting workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores low-latency application, search, or telemetry state data.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Tournament and player data feeds the Win, Cut Probability model, which runs thousands of simulations on Amazon ECS with AWS Fargate and serves analytical outputs backed by Amazon Redshift and Amazon DynamoDB across PGA TOUR viewing experiences.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The PGA TOUR can run its model quickly, scale week to week as event complexity changes, and give audiences real-time win and cut probability insights without taking on the operational overhead of managing infrastructure.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "run thousands of simulations",
+    "process nearly four billion records"
+  ],
+  "architecture_clues": [
+    "Using Amazon Elastic Container Service (ECS) with AWS Fargate to run thousands of simulations and process nearly four billion records.",
+    "Powered by AWS, advanced data analytics, cloud infrastructure, and serverless services, the Win, Cut Probability model measures a player’s chances of advancing in and winning a tournament.",
+    "AWS Serverless helps us scale reliably week to week as we move from event to event."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/pga-tour-ecs-case-study/",
+  "published_date": "2024-07-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The PGA TOUR introduced Win, Cut Probability, a novel ML-powered analytics model that provides real-time insights into the likelihood of outcomes during tournaments.",
+    "Using Amazon Elastic Container Service (ECS) with AWS Fargate to run thousands of simulations and process nearly four billion records, the PGA TOUR can take advantage AWS’s elasticity, run their model quickly and scale as needed, while offloading the operational overhead of infrastructure management to AWS.",
+    "AWS Serverless helps us scale reliably week to week as we move from event to event.",
+    "Each event brings its own set of complexities from size and scale, and what we need to do.",
+    "Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale."
+  ]
+}

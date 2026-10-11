@@ -1,0 +1,82 @@
+{
+  "id": "aws-scania-connected-vehicle-messaging",
+  "slug": "aws-scania-connected-vehicle-messaging",
+  "vendor": "AWS",
+  "customer_name": "Scania",
+  "industry": "Automotive",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "Using products like AWS Lambda —a service that runs code while eliminating the need to think about servers or clusters—Scania could scale as much as it needed with lower latency and better security.",
+  "solution_summary": "Transportation company Scania had top-of-the-line on-premises servers, but it could not scale enough to keep up with the growing amount of messaging data from its vehicles. Its fleet grew and continues to grow quickly; by the last quarter of 2022, the fleet of trucks that could exchange data with Scania numbered more than 500,000. For 3 years, Scania underwent a complete redesign of its data network, migrating its servers from on premises to Amazon Web Services (AWS). Using products like AWS Lambda —a service that runs code while eliminating the need to think about servers or clusters—Scania could scale as much as it needed with lower latency and better security.",
+  "products_used": [
+    "AWS Lambda",
+    "Amazon DynamoDB",
+    "Amazon Kinesis",
+    "Amazon EC2",
+    "Amazon EC2 G5 Instances"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Lambda",
+      "role": "Runs event-driven application logic without provisioning servers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores low-latency application, search, or telemetry state data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Kinesis",
+      "role": "Streams and processes high-volume event and telemetry data in real time.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides elastic compute capacity for application, analytics, and infrastructure workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 G5 Instances",
+      "role": "Provides specialized compute capacity for imaging, graphics, or machine learning workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Other services provided data storage throughout the transition, like Amazon DynamoDB , a fast, flexible NoSQL database service for single-digit millisecond performance at nearly any scale.",
+  "integration_points": [],
+  "technical_area": [
+    "IoT",
+    "Cloud Migration",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Scania has big plans for the future as it continues enhancing the Message Platform. “We have gained a lot of flexibility. Other services provided data storage throughout the transition, like Amazon DynamoDB , a fast, flexible NoSQL database service for single-digit millisecond performance at nearly any scale.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "When the company decided to make its servers virtual, it settled on AWS, and with the new solution, Scania achieved an 80 percent reduction in latency.",
+    "This near-real-time availability of data further helps developers deploy changes in less than 1 week."
+  ],
+  "architecture_clues": [
+    "Another setback was that the first redesign Scania developed had high latency, and developers had to create a second redesign, which ultimately used Amazon Elastic Compute Cloud (Amazon EC2), secure and resizable compute capacity for virtually any workload, in addition to other AWS serverless products.",
+    "So, the company worked closely with an AWS team to develop a temporary hybrid system, giving the company time to find a solution to maintain the telecom connections.",
+    "Using AWS Transit Gateway —which connects Amazon VPCs, AWS accounts, and on-premises networks to a single gateway—Scania could access the telecom connections through its on-premises solution while building its serverless network.",
+    "This near-real-time availability of data further helps developers deploy changes in less than 1 week."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/scania-case-study/",
+  "published_date": "2023-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Founded in 1891, Scania produces trucks and other transport vehicles.",
+    "In 2011, it started offering connected-truck services for all its trucks—Internet of Things (IoT) products capturing vehicle data in near real time and sending it through Scania’s on-premises data centers.",
+    "Scania was then able to send new instructions and data back to the vehicles.",
+    "When Scania introduced connected vehicles, the company dealt with about 50 of these data messages per second.",
+    "But as its customer base and services grew and more services came to rely on this communication format, Scania realized that its on-premises servers were not powerful enough to handle the quickly increasing traffic."
+  ]
+}

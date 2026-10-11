@@ -1,0 +1,65 @@
+{
+  "id": "aws-comscore-clean-room-analytics",
+  "slug": "aws-comscore-clean-room-analytics",
+  "vendor": "AWS",
+  "customer_name": "Comscore",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Comscore wanted a simpler way to cross-analyze panel data with partner datasets without physically moving sensitive information from server to server or exposing raw data during collaboration.",
+  "solution_summary": "Comscore adopted AWS Clean Rooms to create a privacy-preserving collaboration environment for advertisers and data partners. Instead of ingesting every external dataset behind its own firewall, Comscore can invite up to five collaborators into an AWS Clean Room, load pre-encrypted data from Amazon S3 into configured tables, and apply mutually agreed join keys and privacy controls so each party can run double-blind analyses on combined data. Comscore then connects the results to Amazon QuickSight dashboards for visualization. This architecture gives collaborators richer audience and campaign insights while keeping cookies, first-party IDs, and IP addresses protected.",
+  "products_used": [
+    "AWS Clean Rooms",
+    "Amazon S3",
+    "Amazon QuickSight"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Clean Rooms",
+      "role": "Enables privacy-preserving collaboration on combined datasets.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores datasets, objects, model artifacts, or binary assets at scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon QuickSight",
+      "role": "Builds dashboards and visual analytics on shared datasets.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Comscore loads pre-encrypted data from Amazon S3 into AWS Clean Rooms tables, collaborators join and analyze combined datasets with privacy controls in place, and the resulting outputs can be visualized in Amazon QuickSight dashboards.",
+  "integration_points": [],
+  "technical_area": [
+    "Data Analytics",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "With its AWS-based clean-room architecture, Comscore can ingest data from thousands of sources, standardize collaboration workflows, avoid the cost and risk of physically moving datasets, and improve the accuracy of analytics for advertisers and partners.",
+  "outcome_category": [
+    "Compliance",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "AWS Clean Rooms helps Comscore’s customers and partners to securely match, analyze, and collaborate on their combined datasets with ease and without sharing or revealing underlying data.",
+    "Comscore can invite up to five collaborators into an AWS Clean Room and pull pre-encrypted data into a configured data table from Amazon Simple Storage Service (Amazon S3).",
+    "Comscore can also connect AWS Clean Rooms with Amazon QuickSight so that it can visualize its data in one place using interactive, customizable dashboards."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/comscore/",
+  "published_date": "2023-04-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Comscore wanted to provide customers with a simpler option: an interoperable environment that collaborators can access to analyze datasets without revealing their raw data.",
+    "AWS Clean Rooms helps Comscore’s customers and partners to securely match, analyze, and collaborate on their combined datasets with ease and without sharing or revealing underlying data.",
+    "Then, Comscore can set up its own privacy controls, including a mutually agreed upon join key that gives collaborators the ability to match data tables and perform analyses using a double-blind method.",
+    "Comscore can also connect AWS Clean Rooms with Amazon QuickSight so that it can visualize its data in one place using interactive, customizable dashboards.",
+    "With its underlying infrastructure built on AWS, Comscore can scale to ingest data from thousands of data sources and standardize its processes for data collaboration with other enterprises by using AWS Clean Rooms."
+  ]
+}

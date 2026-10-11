@@ -1,0 +1,83 @@
+{
+  "id": "aws-encored-technologies-weather-forecasting-hpc",
+  "slug": "aws-encored-technologies-weather-forecasting-hpc",
+  "vendor": "AWS",
+  "customer_name": "Encored Technologies",
+  "industry": "Energy",
+  "region": "South Korea",
+  "company_size": "Mid-market",
+  "business_problem": "provides a comprehensive solution for VPP sellers ranging from power generation prediction, floor control, and market bid optimization. It focuses on helping energy sellers create stable revenue in the VPP market by adopting AI-based technologies for power generation prediction and optimization.",
+  "solution_summary": "Encored Technologies is an energy IT company that uses AI technologies for renewable energy generation prediction and optimization so that it can help electricity sellers create stable revenue in the VPP (Virtual Power Plant) market. To this end, the company built an in-house Weather Research & Forecasting (WRF) model to improve prediction accuracy. Encored Technologies was able to accelerate the process of configuring a cost-optimized HPC cluster by building on Amazon Web Services (AWS) dedicated HPC instances on Amazon Elastic Compute Cloud (Amazon EC2)— Amazon EC2 Hpc6a and Amazon EC2 Hpc7g To generate weather forecasts, Encored Technologies carries out four calculations a day, with each calculation taking up to two hours using a cluster of 500 cores (maximum 4,000 cores daily), generating approximately 500GB of output every day.",
+  "products_used": [
+    "Amazon EC2 Hpc7g",
+    "Amazon EC2",
+    "Amazon EC2 Hpc6a",
+    "Amazon S3",
+    "Amazon FSx for Lustre"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EC2 Hpc7g",
+      "role": "Runs cost-efficient ARM-based HPC workloads for large simulations and forecasts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides elastic compute capacity for application, analytics, and infrastructure workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 Hpc6a",
+      "role": "Runs high-performance weather-modeling and simulation workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores datasets, objects, model artifacts, or binary assets at scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon FSx for Lustre",
+      "role": "Provides high-throughput shared file storage for HPC and analytics jobs.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "EVP Hyoseop Lee says building an on-premise datacenter with massive computing power usually takes at least 6 months plus the cost of configuration and operation, but it took only three days with AWS.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "EVP Hyoseop Lee explained, “Nobody was sure if building the same system on an on-premise environment can give us the performance we want. Our researchers can directly configure the necessary HPC cluster environment as a code, which means we can remove or change clusters whenever we want.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "To generate weather forecasts, Encored Technologies carries out four calculations a day, with each calculation taking up to two hours using a cluster of 500 cores (maximum 4,000 cores daily), generating approximately 500GB of output every day.",
+    "The company loads and processes about 100TB of data on one go while creating the training data for its power generation forecasting AI model.",
+    "EVP Hyoseop Lee says building an on-premise datacenter with massive computing power usually takes at least 6 months plus the cost of configuration and operation, but it took only three days with AWS.",
+    "Encored Technologies saved cost by 60 percent after changing the instance to which is an ARM-based, HPC-dedicated instance type powered by AWS Graviton 3E processor.",
+    "Based on this, it performs calculations using up to about 4000 cores to predict power generation - a task only a high-end HPC cluster or a supercomputer could do in the past."
+  ],
+  "architecture_clues": [
+    "Encored Technologies chose AWS’ HPC solution to save HPC environment configuration time and operate HPC clusters in a cost-efficient manner.",
+    "Encored Technologies built its initial HPC environment by creating an HPC cluster for weather forecasting using , an x86-based Amazon EC2 instance type for HPC.",
+    "It stored the big data required for weather forecasting using Amazon Simple Storage Service (Amazon S3) Amazon FSx for Lustre It used AWS ParallelCluster , an open source cluster management tool, for easy deployment and management.",
+    "Encored Technologies saved cost by 60 percent after changing the instance to which is an ARM-based, HPC-dedicated instance type powered by AWS Graviton 3E processor."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/encored-technologies-case-study/",
+  "published_date": "2024-01-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "provides a comprehensive solution for VPP sellers ranging from power generation prediction, floor control, and market bid optimization.",
+    "It focuses on helping energy sellers create stable revenue in the VPP market by adopting AI-based technologies for power generation prediction and optimization.",
+    "Encored Technologies built an in-house weather forecasting system to improve the accuracy of power generation from renewables such as solar and wind.",
+    "To generate weather forecasts, Encored Technologies carries out four calculations a day, with each calculation taking up to two hours using a cluster of 500 cores (maximum 4,000 cores daily), generating approximately 500GB of output every day.",
+    "The company loads and processes about 100TB of data on one go while creating the training data for its power generation forecasting AI model."
+  ]
+}

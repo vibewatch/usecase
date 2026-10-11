@@ -1,0 +1,68 @@
+{
+  "id": "aws-amazon-ads-ultralow-latency-ml",
+  "slug": "aws-amazon-ads-ultralow-latency-ml",
+  "vendor": "AWS",
+  "customer_name": "Amazon Ads",
+  "industry": "Retail",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Amazon Ads needed to deliver relevant product suggestions to online shoppers at the scale of tens of billions of impressions each day while serving hundreds of millions of deep learning requests per second with very low latency.",
+  "solution_summary": "Amazon Ads built an ultralow-latency recommendation stack on AWS by combining deep product understanding with near-real-time trend analysis. For product understanding, the company trains embedding representations on product titles and descriptions, then uses a hybrid caching approach with Amazon ElastiCache so popular product embeddings stay in local cache while less popular ones are fetched remotely. For trend understanding, Amazon Kinesis processes engagement data in near real time, and Amazon SQS helps prioritize near-real-time traffic over batch feature publishing so compute stays focused on fast-changing shopping behavior. This architecture lets Amazon Ads recommend relevant products at scale across 20 markets without letting latency or bandwidth costs explode.",
+  "products_used": [
+    "Amazon ElastiCache",
+    "Amazon Kinesis",
+    "Amazon SQS"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon ElastiCache",
+      "role": "Caches the most popular product embeddings so online recommendation requests can be served with ultralow latency.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Kinesis",
+      "role": "Processes product-engagement signals in near real time to keep trend understanding current.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon SQS",
+      "role": "Prioritizes near-real-time feature publishing over batch traffic during heavy demand.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Product descriptions and titles are embedded for product understanding, popular product embeddings are served from local Amazon ElastiCache caches while less popular products use remote cache, engagement data streams through Amazon Kinesis for near-real-time trend analysis, and Amazon SQS prioritizes near-real-time features over batch workloads.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "By combining deep product understanding and near-real-time trend analysis on AWS, Amazon Ads delivers ultralow-latency recommendations at scale and now recommends relevant products to customers in 20 markets.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "Now, the company’s machine learning models recommend relevant products to customers in 20 markets."
+  ],
+  "architecture_clues": [
+    "Amazon Ads employed Amazon ElastiCache and Amazon Kinesis to process billions of impressions every day at ultralow latency.",
+    "The solution must scale up to hundreds of millions of product embedding requests per second, which could easily consume several terabits per second of bandwidth.",
+    "To address feature publishing congestion, Amazon Ads uses Amazon Simple Queue Service (Amazon SQS) to prioritize near-real-time traffic over batch features."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/amazon-ads/",
+  "published_date": "2023-04-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Amazon Ads employed Amazon ElastiCache and Amazon Kinesis to process billions of impressions every day at ultralow latency.",
+    "Now, the company’s machine learning models recommend relevant products to customers in 20 markets.",
+    "We need to deal with hundreds of millions of deep learning requests per second for online influencing within a very small amount of latency.",
+    "To scale efficiently, Amazon Ads has implemented a scalable hybrid approach using Amazon ElastiCache, an in-memory caching service supporting flexible, near-real-time use cases.",
+    "To process product engagement in near real time, Amazon Ads uses Amazon Kinesis, which offers key capabilities to cost-effectively process streaming data at nearly any scale."
+  ]
+}

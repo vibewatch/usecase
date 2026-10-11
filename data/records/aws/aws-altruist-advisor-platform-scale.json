@@ -1,0 +1,79 @@
+{
+  "id": "aws-altruist-advisor-platform-scale",
+  "slug": "aws-altruist-advisor-platform-scale",
+  "vendor": "AWS",
+  "customer_name": "Altruist",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "Altruist set out to create a scalable, secure platform to better serve the $10 trillion registered investment advisor market by overcoming the constraints of outdated technology used by legacy custodians.",
+  "solution_summary": "Altruist built a full-stack, vertically integrated custodial platform on AWS so financial advisors can access a more scalable and secure operating environment. The platform runs core services on Amazon EKS and Amazon RDS, while AWS IAM and AWS CloudTrail help enforce access controls and audit activity. Altruist also uses Amazon EC2 with AWS Graviton processors to improve price-performance. According to the case study, the company can automatically scale resources across regions on demand and maintain highly available databases and clusters while keeping security controls strong. This architecture gives engineers faster test-and-release cycles and lets the firm expand advisor-facing capabilities without relying on legacy custodian infrastructure.",
+  "products_used": [
+    "Amazon EKS",
+    "Amazon RDS",
+    "AWS IAM",
+    "AWS CloudTrail",
+    "Amazon EC2"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EKS",
+      "role": "Runs the core platform services that power Altruist’s vertically integrated custodian.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon RDS",
+      "role": "Stores the relational data that underpins the advisor platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS IAM",
+      "role": "Controls identities and permissions for internal users and workloads.",
+      "layer": "Governance"
+    },
+    {
+      "name": "AWS CloudTrail",
+      "role": "Captures audit activity so suspicious behavior can be detected and addressed quickly.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides the compute foundation that benefits from AWS Graviton price-performance improvements.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Advisor-platform workloads run on Amazon EKS and Amazon RDS, while AWS IAM and AWS CloudTrail govern access and audit activity across the environment and Amazon EC2 with AWS Graviton processors improves compute efficiency.",
+  "integration_points": [],
+  "technical_area": [
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Using AWS, Altruist maintains system stability and security alongside efficiency-driving tools that financial advisors depend on to deliver better outcomes to more clients at lower costs.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "Reduced costs By implementing AWS Graviton processors , Altruist achieves 20 percent lower costs while improving performance."
+  ],
+  "architecture_clues": [
+    "Altruist built a full-stack, vertically integrated custodian using Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Relational Database Service (Amazon RDS), and additional AWS services.",
+    "Its databases and clusters maintain 99.99999% availability for optimal SLAs.",
+    "By implementing AWS Graviton processors, Altruist achieves 20 percent lower costs while improving performance."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/altruist-eks-infographic/",
+  "published_date": "2025-02-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Altruist, a rapidly growing financial technology company, set out to create a scalable, secure platform to better serve the $10 trillion registered investment advisor market by overcoming the constraints of outdated technology used by legacy custodians.",
+    "To achieve this, Altruist built a full-stack, vertically integrated custodian using Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Relational Database Service (Amazon RDS), and additional AWS services.",
+    "Its databases and clusters maintain 99.99999% availability for optimal SLAs.",
+    "By implementing AWS Graviton processors, Altruist achieves 20 percent lower costs while improving performance.",
+    "Using AWS, our engineering capabilities are on the cutting edge of security, stability, and innovation."
+  ]
+}

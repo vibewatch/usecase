@@ -1,0 +1,65 @@
+{
+  "id": "aws-omron-hpc-r-and-d-platform",
+  "slug": "aws-omron-hpc-r-and-d-platform",
+  "vendor": "AWS",
+  "customer_name": "OMRON",
+  "industry": "Manufacturing",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Under its long-term vision, a project called \"Shaping the Future 2030 (SF2030)\", OMRON aims to “continue to create innovation driven by social needs through automation to empower people.” In the midterm management plan for the fiscal years 2022–24, the company is working on transforming two things: its business and its organizational capabilities.",
+  "solution_summary": "OMRON manufactures four types of products: industrial automation, healthcare equipment, socialsystems, and electronic components. The company’s research and development (R&D) department builta high performance computing (HPC) environment used for things such as machine learning (ML) andcomputer-aided engineering (CAE) analysis on Amazon Web Services (AWS). It achieved theconstruction of research environments in a short period of time and a reduction in analysis time. \"In the sensing and healthcare fields, there is an increase in research on image recognition using ML and simulating human movements. Complex simulation models are also increasing in the fields of data and CAE analysis,” says Manabu Tsuda from the business process platform design department, the technology and intellectual property headquarters at OMRON.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon EC2",
+    "AWS Control Tower"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Supports training, fine-tuning, and managed inference for machine learning workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides elastic compute capacity for application, analytics, and infrastructure workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Control Tower",
+      "role": "Sets up and governs multi-account environments with centralized guardrails.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "The design policy was finalized from April to July 2022, and after constructing a production environment, it was released as the first step in October 2022 to two divisions: the department that researches ML and image recognition within the technology and intellectual property division, and the department that researches CAE and data analysis.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Migration"
+  ],
+  "use_case_category": [],
+  "business_outcome": "By using AWS, the time to build an HPC environment has been greatly shortened, and it is now possible to respond quickly to researchers’ requests.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "“We were able to reduce the time it takes from procurement to construction from months to 5 minutes, and this has had a dramatic effect,” says Tsuda."
+  ],
+  "architecture_clues": [
+    "“The decisive factors for choosing AWS were that it is used by financial institutions and government agencies with strict security requirements and that there are plenty of features to protect confidential information.” In addition to the abundance of managed services and the high degree of freedom of development, another factor was that OMRON SOFTWARE (OSK), OMRON’s software development company, began training its engineers on AWS in 2019, so they had accumulated knowledge on in-house production development.",
+    "The existing R&D and HPC environments on AWS are connected using AWS Direct Connect , a service that creates a dedicated network connection to AWS, to verify security.",
+    "OMRON configures a multi-account environment according to each research theme, such as confidential research, HPC computation, and co-creation with other companies, and uses AWS Control Tower for overall account control."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/omron-case-study/",
+  "published_date": "2024-02-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Under its long-term vision, a project called \"Shaping the Future 2030 (SF2030)\", OMRON aims to “continue to create innovation driven by social needs through automation to empower people.” In the midterm management plan for the fiscal years 2022–24, the company is working on transforming two things: its business and its organizational capabilities.",
+    "To achieve the goals of SF2030, OMRON needed to provide an R&D environment that met the needs of developers.",
+    "However, in the existing on-premises environment, OMRON felt limited in procuring computational resources.",
+    "\"In the sensing and healthcare fields, there is an increase in research on image recognition using ML and simulating human movements.",
+    "Complex simulation models are also increasing in the fields of data and CAE analysis,” says Manabu Tsuda from the business process platform design department, the technology and intellectual property headquarters at OMRON."
+  ]
+}

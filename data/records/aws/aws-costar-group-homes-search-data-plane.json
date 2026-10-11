@@ -1,0 +1,79 @@
+{
+  "id": "aws-costar-group-homes-search-data-plane",
+  "slug": "aws-costar-group-homes-search-data-plane",
+  "vendor": "AWS",
+  "customer_name": "CoStar Group",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "CoStar’s commercial real estate data systems were powered by an on-premises data center with 6,000 servers; however, Homes.com needed to support more listings with increased data sources and faster load times than the on-premises solution could handle.",
+  "solution_summary": "CoStar Group (CoStar), a real estate information and analytics provider, was planning the launch of Homes.com to provide residential real estate data for more than 200 million properties. Recognizing the need to modernize its data strategy, CoStar embarked on a migration from on-premises infrastructure to the cloud with support from Amazon Web Services (AWS). CoStar built a data plane using AWS services to seamlessly integrate and unify the data driving its real estate products, while catering to the speed and scalability requirements of modern, interactive websites for customers. Using AWS services, CoStar’s data plane keeps data for the company’s products current and updated in near real time, standardizes data access for developers, and facilitates rapid innovation and expedited product delivery.",
+  "products_used": [
+    "Amazon EKS",
+    "Amazon DynamoDB",
+    "Amazon S3",
+    "Amazon OpenSearch Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EKS",
+      "role": "Runs and scales Kubernetes-based application and analytics services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores low-latency application, search, or telemetry state data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores datasets, objects, model artifacts, or binary assets at scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon OpenSearch Service",
+      "role": "Indexes, searches, and analyzes operational or customer-facing data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "CoStar uses the data plane, a system of AWS native services, to unify data and provide data as a service to its developers.",
+  "integration_points": [
+    "residential multiple-listing service systems",
+    "RESTful interfaces"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "CoStar plans to fully migrate to the cloud and use the data plane across its business in the future. “We plan to use the data plane, built on AWS, elsewhere to achieve the scalability and speed of getting data from the source system to applications in seconds rather than minutes or hours,” says Ventura.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "CoStar Group (CoStar), a real estate information and analytics provider, was planning the launch of Homes.com to provide residential real estate data for more than 200 million properties.",
+    "With this infrastructure, the company updates listings in 4 seconds on average, which is important for price and availability changes.",
+    "It’s significantly faster than the on-premises solution, which took 6–30 minutes to update real estate listings.",
+    "Even with up to 50 million monthly active users on Homes.com, CoStar can return search results in an average of 30 milliseconds using Amazon OpenSearch Service."
+  ],
+  "architecture_clues": [
+    "In most use cases, CoStar stores model topic data using Amazon DynamoDB , a fully managed, serverless, key-value NoSQL database service for single-digit millisecond performance at virtually any scale.",
+    "“We’ve achieved that using AWS.” To provide search results across multiple fields—such as number of bedrooms and bathrooms, price, and location—CoStar uses Amazon OpenSearch Service to securely unlock near-real-time search, monitoring, and analysis of business and operational data."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/costar-opensearch-case-study/",
+  "published_date": "2023-07-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Founded in 1987, CoStar conducts expansive, ongoing research to produce and maintain a comprehensive database of real estate information.",
+    "It provides commercial real estate information, analytics, and news to professionals around the world.",
+    "In 2014, CoStar acquired Apartments.com as a complement to its commercial real estate offerings.",
+    "The company further expanded into residential real estate in 2021 with the acquisition of Homes.com.",
+    "CoStar’s commercial real estate data systems were powered by an on-premises data center with 6,000 servers; however, Homes.com needed to support more listings with increased data sources and faster load times than the on-premises solution could handle."
+  ]
+}
