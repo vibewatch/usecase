@@ -1,0 +1,66 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-slack-enterprise-knowledge-search",
+  "slug": "anthropic-slack-enterprise-knowledge-search",
+  "customer_name": "Slack",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Slack needed to turn huge volumes of messages, threads, and files into searchable, permission-aware knowledge and time-saving summaries without sacrificing security or conversational quality.",
+  "solution_summary": "Slack uses the Claude Platform as a core model layer for several AI features that sit directly inside the collaboration product. Natural-language search runs across conversations, threads, and files to surface relevant content quickly, while instant summaries and AI-generated recaps condense channels, highlight action items, and prioritize unread discussions. Claude's long context window and conversational quality let Slack personalize tone and format instead of returning generic answers, and the implementation respects existing content and channel permissions for enterprise customers. Slack also uses Claude Code plus close model-testing collaboration with Anthropic to accelerate prototyping and engineering work behind the product. The result is an AI layer that treats the message archive as organizational knowledge rather than just chat history and makes that knowledge available in the same interface where teams already work.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Code"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the AI foundation behind Slack search, summaries, recaps, and workflow assistance.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Helps Slack engineers accelerate prototyping, testing, and bug fixing around the AI experience.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Messages, threads, files, and huddle context stay inside Slack, where Claude processes natural-language searches, generates summaries or recaps, and returns permission-aware answers and workflow assistance in the same interface.",
+  "integration_points": [
+    "conversations",
+    "threads",
+    "files",
+    "huddles",
+    "Slack workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Slack reports that the average user saves 97 minutes per week through AI summarization and recap features, while enterprise customers get faster knowledge retrieval, clearer action items, and AI help that still respects existing permissions and security expectations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "97 minutes per week saved by the average user through summarization and recap features"
+  ],
+  "architecture_clues": [
+    "Claude processes search, summaries, and recaps over Slack's message and file corpus while respecting channel permissions.",
+    "Slack engineers also use Claude Code to fix bugs and move AI features faster."
+  ],
+  "source_url": "https://claude.com/customers/slack",
+  "published_date": "2026-04-16",
+  "evidence_quotes": [
+    "Saved the average user 97 minutes per week through summarization and recap features",
+    "Claude's models are uniquely equipped to process the billions of messages and files flowing through the Slack platform daily",
+    "Search results locate relevant content and deliver clear, rapid results.",
+    "Slack's AI delivers prompt conversation summaries of channels and threads, highlighting key decisions and action items",
+    "Slack's close collaboration with Anthropic has helped our Engineering and Product teams accelerate prototyping and model testing."
+  ]
+}

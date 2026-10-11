@@ -1,0 +1,89 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-qonto-document-processing",
+  "slug": "anthropic-qonto-document-processing",
+  "customer_name": "Qonto",
+  "industry": "Financial Services",
+  "region": "EMEA",
+  "company_size": "Mid-market",
+  "business_problem": "Qonto wanted small-business customers to stop spending up to eight hours a month on repetitive financial admin such as transfers, invoicing, payroll, and cash-flow questions, but any agent touching bank accounts had to satisfy compliance, latency, and accuracy constraints.",
+  "solution_summary": "Qonto's AI Lab built in-app agents on the Claude Platform to act as both operators and analysts inside business banking workflows. Users upload invoices or payroll documents and chat with the agent instead of navigating the product manually. Complex steps run on Claude Opus 4.5 and Sonnet, while smaller steps go to Haiku, all through Amazon Bedrock so Qonto can use structured outputs, prompt caching, quota controls, and provider-level GDPR and EU AI Act compliance. The operator agent prepares transfers, drafts invoices, and converts payroll runs into bulk payments but always pauses for final customer approval before money moves. On the analysis side, agents answer questions over transaction data so customers can understand cash flow without exporting numbers into spreadsheets. Internally, Qonto's builders use Claude Code, Claude Cowork, and Claude Design to ship and refine the experience quickly.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Opus 4.5",
+    "Claude Sonnet",
+    "Claude Haiku",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the model platform behind Qonto's in-app operator and analyst agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Opus 4.5",
+      "role": "Runs the most complex agent missions around financial administration and insight generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Sonnet",
+      "role": "Handles many of the production financial-admin steps alongside Opus.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Haiku",
+      "role": "Covers simpler, latency-sensitive steps in Qonto's routed workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Supplies the controlled runtime and provider-level compliance envelope for Claude inside Qonto."
+    }
+  ],
+  "data_flow": "Customers upload invoices, payslips, or ask a question in the Qonto app, the workflow routes each step to the right Claude model tier, the agent prepares transfers, invoice drafts, or payroll actions, and the customer gives the final approval before money or documents are sent.",
+  "integration_points": [
+    "Qonto transaction data",
+    "uploaded invoices",
+    "pay slips",
+    "customer CRM or spreadsheet source lists",
+    "Qonto app"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Qonto made bank transfers 2x faster, cut invoice creation time 3x, sped payroll runs 5x, and saw customers trust agents with transfers as large as €100,000 while preserving final human approval for every action.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "2X faster bank transfers",
+    "3X less time to create client invoices",
+    "Runs payroll 5X quicker",
+    "Sees customers delegate transfers as large as €100,000",
+    "Generated one customer's 500-plus monthly invoices in a single batch"
+  ],
+  "architecture_clues": [
+    "Qonto routes each workflow step by latency, performance, and cost across multiple model tiers.",
+    "Prompt caching, structured outputs, and quota management all run through Amazon Bedrock.",
+    "Every money-moving workflow ends with explicit customer approval."
+  ],
+  "source_url": "https://claude.com/customers/qonto",
+  "published_date": "2026-09-14",
+  "evidence_quotes": [
+    "sends bank transfers 2X faster, with no manual beneficiary search, amount entry, or reference copying, then waits for the customer's final approval before the money moves",
+    "Cuts client invoice creation time 3X, with its AI agents drafting every invoice and the customer confirming before it's sent",
+    "The agents' complex missions run on Claude Opus 4.5 and Sonnet, while simpler steps go to smaller models, including Haiku.",
+    "Access runs through Amazon Bedrock, with GDPR and EU AI Act compliance handled at the provider level.",
+    "We were quite surprised to see transfers of 100,000 euros with agents."
+  ]
+}

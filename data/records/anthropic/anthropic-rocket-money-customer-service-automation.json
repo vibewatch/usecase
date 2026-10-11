@@ -1,0 +1,92 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-rocket-money-customer-service-automation",
+  "slug": "anthropic-rocket-money-customer-service-automation",
+  "customer_name": "Rocket Money",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Rocket Money wanted to put a trustworthy financial expert in every customer's pocket, but a personal finance agent that reads account data, answers questions, and takes actions has to be highly accurate, observable, and cheap enough to scale.",
+  "solution_summary": "Rocket Money built Rowan as an agent-workflow hybrid on the Claude Platform. User requests arrive by text message and first pass through a Haiku 4.5 classifier that routes each job to a single-responsibility subagent. Most subagents run on Sonnet 5, while Opus 5 handles the financial tasks that need deeper reasoning, and a final formatting agent keeps Rowan's voice consistent. Routine tasks stay deterministic code; when a website changes, a repair agent updates the automation instead of leaving the flow broken. The full system runs through Amazon Bedrock on top of Rocket Money's existing app and data services, with every failure traceable to the exact classifier or downstream call that failed. Claude Code and Fable also accelerated development, letting a small team ship and maintain many specialized agents in parallel.",
+  "products_used": [
+    "Claude Platform",
+    "Haiku 4.5",
+    "Sonnet 5",
+    "Opus 5",
+    "Amazon Bedrock",
+    "Claude Code"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Supplies the core model platform behind Rowan's customer-facing financial assistant.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Haiku 4.5",
+      "role": "Classifies each incoming request and routes it to the right specialist agent.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Sonnet 5",
+      "role": "Runs most of Rowan's single-responsibility subagents for day-to-day financial tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Opus 5",
+      "role": "Handles the highest-stakes financial tasks that need deeper reasoning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Provides the production runtime for Rowan on top of Rocket Money's existing systems."
+    },
+    {
+      "name": "Claude Code",
+      "role": "Helps Rocket Money's small team build and maintain Rowan's specialized-agent codebase.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customers text Rowan, a Haiku 4.5 classifier routes each request, Sonnet 5 or Opus 5 subagents execute the task against Rocket Money's finance workflows and app data, a formatter standardizes the reply, and deterministic code paths or repair agents handle external-site automations. Everything runs on Claude through Amazon Bedrock with traceable failures.",
+  "integration_points": [
+    "text-message interface",
+    "Rocket Money app",
+    "Gmail",
+    "financial account data",
+    "external websites that power user tasks"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Rocket Money reached near-zero hallucinations in Rowan's beta, increased monthly code commits 11x as it built the product, widened code contribution beyond engineering, and launched a specialized-agent architecture that can expand Rowan's financial assistant capabilities without sacrificing traceability.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "11x increase in code commits from 11 in December to 128 in July",
+    "Near-zero hallucinations across Rowan's beta",
+    "9th of 76 PR authors across the entire repository within three months of her first commit"
+  ],
+  "architecture_clues": [
+    "A Haiku 4.5 classifier routes each request to single-responsibility subagents.",
+    "Most subagents run on Sonnet 5, with Opus 5 reserved for financial tasks that need deeper reasoning.",
+    "Routine tasks remain deterministic code and a repair agent fixes flows when websites change."
+  ],
+  "source_url": "https://claude.com/customers/rocket-money",
+  "published_date": "2026-08-30",
+  "evidence_quotes": [
+    "A classifier running on Haiku 4.5 reads each incoming request and routes it to a subagent built to do exactly one thing.",
+    "Most subagents run on Sonnet 5; for a financial task that needs real reasoning, the system reaches for Opus 5",
+    "All of this runs in production on Claude through Amazon Bedrock.",
+    "Across Rowan's beta, the team has seen near-zero hallucinations.",
+    "the team's monthly code commits climbed from 11 in December 2025 to 128 in July 2026"
+  ]
+}

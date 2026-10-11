@@ -1,0 +1,87 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-supermetrics-real-time-analytics",
+  "slug": "anthropic-supermetrics-real-time-analytics",
+  "customer_name": "Supermetrics",
+  "industry": "Software / SaaS",
+  "region": "Europe",
+  "company_size": "SMB",
+  "business_problem": "Marketers and agencies had no shortage of dashboards, but still had to manually export, reconcile, and report data from multiple ad platforms, making campaign analysis slow and too risky for AI systems that hallucinate.",
+  "solution_summary": "Supermetrics built a Claude-native marketing workflow on top of its own normalized data infrastructure. Through its MCP server and Claude connector, marketers ask questions in Claude Cowork, which calls Supermetrics tools to pull live campaign data from hundreds of ad and analytics sources, attach source and timestamp details to every figure, render charts inline, and recommend next actions. With approval, the same conversation can create or edit campaigns across Google Ads, Meta, Microsoft Advertising, TikTok, LinkedIn, and Snapchat. Supermetrics accesses Claude Sonnet 5 and Opus 5 through Google Cloud's Agent Platform and keeps zero-retention agreements with its model and cloud providers. Internally, the company also uses Claude Code against its monolith and incident data, letting engineering rely on the same platform it sells to customers.",
+  "products_used": [
+    "Claude Cowork",
+    "Claude Code",
+    "Sonnet 5",
+    "Opus 5",
+    "Google Cloud's Agent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Cowork",
+      "role": "Hosts the conversational interface marketers use to ask questions, review charts, and approve campaign changes.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Supports Supermetrics engineers as they maintain the monolith and investigate incidents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Sonnet 5",
+      "role": "Handles many of the data-driven marketing tasks exposed through the connector.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Opus 5",
+      "role": "Runs the more demanding reasoning tasks inside the Claude-based marketing workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud's Agent Platform",
+      "role": "Provides access to Claude Sonnet 5 and Opus 5 for Supermetrics' customer-facing workflow."
+    }
+  ],
+  "data_flow": "A marketer asks Claude a question, Supermetrics fetches normalized data from connected ad and analytics platforms, Claude reasons over the live figures and inline charts, and, with human approval, the workflow can push edits back out to campaign systems in the same conversation.",
+  "integration_points": [
+    "Supermetrics MCP server",
+    "Google Ads",
+    "Meta",
+    "Microsoft Advertising",
+    "TikTok",
+    "LinkedIn",
+    "Snapchat"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Supermetrics' Claude connector averaged 250 percent month-over-month growth in active users, cut one agency's reporting job from 10 hours to 20 minutes, validated zero hallucinations in multi-week testing, and gave customers faster daily optimization loops instead of monthly reporting scrambles.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "250% average month-over-month growth in active users",
+    "10-hour reports done in 20 minutes",
+    "zero hallucinations in that agency's multi-week validation of live marketing data"
+  ],
+  "architecture_clues": [
+    "The connector serves normalized data from hundreds of marketing sources with a source and timestamp attached to every figure.",
+    "Campaign creation and edits require human approval before anything goes live.",
+    "Supermetrics uses the same Claude stack internally for code, reporting, and incident response."
+  ],
+  "source_url": "https://claude.com/customers/supermetrics",
+  "published_date": "2026-09-23",
+  "evidence_quotes": [
+    "Grew active users of its Claude connector 250% month over month on average since its February launch",
+    "Turned one agency customer's 10-hour client reports into 20-minute tasks through the connector",
+    "I have not found a single hallucination or incorrect data point.",
+    "Runs campaign creation and edits across Google Ads, Meta, Microsoft Advertising, TikTok, Linkedin and Snapchat with human approval before anything goes live"
+  ]
+}

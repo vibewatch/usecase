@@ -1,0 +1,87 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-dxc-document-processing",
+  "slug": "anthropic-dxc-document-processing",
+  "customer_name": "DXC Technology",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "DXC needed to reduce insurance document backlogs and automate highly regulated underwriting and claims decisions without losing auditability, policy fidelity, or human oversight.",
+  "solution_summary": "DXC built Assure, an orchestration layer on the Claude Platform, to insert Claude into every layer of its insurance software portfolio. Claims submissions and policy documents arrive from email, fax, paper, phone, and OCR processes, then Claude classifies and reasons over them, including hundred-page commercial claims files. Assure keeps every action logged, traceable, and replayable for regulators, and routes work across model tiers so frontier models are reserved for the hardest files. DXC also uses Claude to encode new regulations and decision logic into purpose-built Smart Apps, such as a workers' compensation weekly earnings calculator that combines legislation, documented rules, system algorithms, and DXC calculators. Because Assure is API-driven and tied to DXC's existing platforms, carriers can connect without custom setups while keeping compliance and governance built into the flow.",
+  "products_used": [
+    "Claude Platform",
+    "Assure",
+    "Smart Apps",
+    "Claude Code"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the model layer that reasons over insurance documents and decision logic.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Assure",
+      "role": "Acts as DXC's orchestration platform for claims, underwriting, logging, and regulator-ready traceability.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Smart Apps",
+      "role": "Package Claude into purpose-built insurance agents such as first notice of loss and regulated benefits calculations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Helps DXC field development engineers build and refine insurance capabilities on top of Claude.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Submissions and claims arrive through email, fax, paper, phone, and OCR channels, Assure routes them to Claude for classification and reasoning, Smart Apps apply insurance logic or regulatory calculations, and every action is logged so carriers and regulators can replay the decision path end to end.",
+  "integration_points": [
+    "email",
+    "fax",
+    "paper claims",
+    "phone-based submissions",
+    "OCR processes",
+    "DXC calculators",
+    "carrier insurance platforms"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management",
+    "Security and Compliance"
+  ],
+  "business_outcome": "DXC cut claims-document backlogs from days to minutes, classified documents in under a second, embedded new regulatory rules in days instead of 12 to 18 months, and stood up a regulated benefits calculation in eight hours that was 80 percent right on the first pass.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Days to minutes for claims document backlogs, classified in under a second",
+    "Embeds new regulatory rules in days, work that historically took 12 to 18 months",
+    "8 hours to stand up a regulated benefits calculation, 80% right on the first pass",
+    "The share of the calculation requiring human judgment has already dropped from 70% to 20%"
+  ],
+  "architecture_clues": [
+    "Assure logs every action, traceable and replayable end to end for regulators.",
+    "DXC routes work across model tiers, reserving frontier models for hundred-page claims files.",
+    "The workers' comp Smart App combined regulations, legislation, documented rules, system algorithms, and DXC calculators."
+  ],
+  "source_url": "https://claude.com/customers/dxc",
+  "published_date": "2026-09-15",
+  "evidence_quotes": [
+    "Claude now runs inside every layer of it, from reading claims documents to logging every action an agent takes for regulators.",
+    "Cut claims document backlogs from days to minutes, with documents classified in under a second",
+    "We fed Claude the regulations, the legislation, documented rules, our system algorithms, and our own DXC calculators",
+    "The workers’ comp Smart App running on Claude was 80% right on the first pass.",
+    "The share of the calculation requiring human judgment has already dropped from 70% to 20%"
+  ]
+}

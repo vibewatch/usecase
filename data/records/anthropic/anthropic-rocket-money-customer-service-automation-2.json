@@ -1,0 +1,56 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-rocket-money-customer-service-automation-2",
+  "slug": "anthropic-rocket-money-customer-service-automation-2",
+  "customer_name": "Rocket Money",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Rocket Money wanted Rowan to deliver financial help by text message without making users open dashboards, while still keeping the assistant accurate enough to act on real money decisions.",
+  "solution_summary": "The Q&A version of Rocket Money's story describes Rowan as a Claude-based financial assistant layered on top of the existing Rocket Money app. Users text questions or requests such as reviewing spend, negotiating bills, or cancelling subscriptions, and Rowan does the work instead of simply surfacing dashboards. Rocket Money chose Claude because its team had already tested every major model and found Claude the most reliable when context had to stay compact and actions still had to be correct. Rowan continues to follow the same specialized-agent pattern described in the companion case study: requests are routed to purpose-built capabilities rather than one monolithic agent. The roadmap extends that pattern into proactive tasks such as Gmail-based free-trial tracking and an in-app assistant, letting Rocket Money add more actions without changing the core trust model.",
+  "products_used": [
+    "Claude Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the model layer behind Rowan's text-based personal finance assistant.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Users send a text to Rowan, Rowan interprets the request against Rocket Money's existing personal-finance workflows, executes the task or analysis, and returns the result through SMS; upcoming flows also let Rowan inspect Gmail-based trial activity before notifying the user.",
+  "integration_points": [
+    "text-message interface",
+    "Rocket Money app",
+    "Gmail",
+    "subscription cancellation workflows",
+    "bill-negotiation workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Rocket Money found Claude reliable enough to underpin Rowan's SMS financial assistant and new proactive features like free-trial reminders, giving users help without forcing them into charts, dashboards, or manual admin work.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Rowan sits on top of the existing Rocket Money app and acts through natural-language requests over text message.",
+    "The team prioritized reliability with minimal context instead of one large, overloaded assistant."
+  ],
+  "source_url": "https://claude.com/customers/rocket-money-qa",
+  "published_date": "2026-08-28",
+  "evidence_quotes": [
+    "Rowan is an assistant running on Claude models that sits on top of the Rocket Money app",
+    "Users reach Rowan by text message, and an in-app version is coming soon.",
+    "We're about to roll out free-trial tracking, where Rowan reads your Gmail",
+    "With the least amount of context, Claude tends to get the most things right."
+  ]
+}

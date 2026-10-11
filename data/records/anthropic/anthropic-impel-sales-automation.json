@@ -1,0 +1,103 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-impel-sales-automation",
+  "slug": "anthropic-impel-sales-automation",
+  "customer_name": "Impel",
+  "industry": "Automotive",
+  "region": "North America",
+  "company_size": "Mid-market",
+  "business_problem": "Impel's product and engineering teams were shipping new automotive AI capabilities faster than 150-plus customer-facing reps could learn them, while monthly business reviews and strategic projects still consumed hours of manual prep.",
+  "solution_summary": "Impel uses Claude as the reasoning layer behind a portfolio of internal agents selected by business impact. For the highest-priority training problem, Claude analyzed more than 150,000 Gong calls plus Salesforce data to create a dealer roleplay agent that simulates hard conversations, speaks through speech-to-text and text-to-speech, and scores objection handling, rapport, product knowledge, and next steps before DMing scorecards in Slack. The company routes reasoning-heavy design work to Opus 4.5 and Fable 5.1 across MCP-connected workflows, then tests lighter Sonnet models as executor agents once a flow is proven. Beyond training, Snowflake-backed briefs reduce monthly business-review prep, and 400-plus Claude Enterprise seats extend the same agentic patterns into support, migrations, and knowledge work. This lets Impel treat agent building as an investment portfolio rather than a one-off experiment.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Enterprise",
+    "Claude Code",
+    "Opus 4.5",
+    "Fable 5.1",
+    "Sonnet",
+    "Snowflake"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the model platform behind Impel's internal training and business-workflow agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Enterprise",
+      "role": "Extends Claude usage to more than 400 engineering and knowledge-work users across the company.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Accelerates the engineering work that originally triggered Impel's broader AI rollout.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Opus 4.5",
+      "role": "Handles multi-step reasoning work across complex agentic workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Fable 5.1",
+      "role": "Tackles unmapped problems and higher-reasoning design work before flows are simplified.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Sonnet",
+      "role": "Runs proven executor flows once Impel has validated the workflow design.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Feeds the data used to draft monthly business-review briefs.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Recorded Gong calls, Salesforce records, and Snowflake business data feed Claude-powered agent workflows; Fable or Opus reason over the hard parts, Sonnet executes stabilized tasks, and outputs such as roleplay scorecards or review briefs are delivered back to teams in Slack and other internal workflows.",
+  "integration_points": [
+    "Gong calls",
+    "Salesforce",
+    "Snowflake",
+    "Slack",
+    "speech-to-text",
+    "text-to-speech"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Impel cut new-product ramp time from three to six months to about one month, reduced dealer business-review prep by roughly 85 percent, increased support-case throughput by 20 percent, and built its flagship roleplay agent in about three weeks while scaling Claude to more than 400 internal users.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Ramp time cut to 1 month",
+    "85% less prep time per dealer business review",
+    "Handles 20% more support cases",
+    "Saw roughly 25% of go-to-market staff practicing voluntarily in the past month",
+    "Built the flagship roleplay agent in about 3 weeks"
+  ],
+  "architecture_clues": [
+    "Claude analyzed more than 150 thousand Gong calls and the entire Salesforce instance to build the roleplay agent.",
+    "The roleplay agent uses speech-to-text and text-to-speech and DMs scorecards in Slack.",
+    "Impel maps 30 to 40 agent opportunities into six root-cause problem clusters and funds them in priority order."
+  ],
+  "source_url": "https://claude.com/customers/impel",
+  "published_date": "2026-09-22",
+  "evidence_quotes": [
+    "Cut new-product ramp time from 3 to 6 months to an average of 1 month of roleplay and certification",
+    "Reduced monthly business review prep from 3 to 4 hours to about 30 minutes with Claude-drafted briefs from Snowflake",
+    "digging through more than 150 thousand Gong calls and our entire Salesforce instance",
+    "We use frontier models like Opus 5 and Fable 5.1 where stronger reasoning matters most",
+    "Once a flow is proven, we test lighter models like Sonnet and routinely find they deliver sufficient results as executor agents."
+  ]
+}

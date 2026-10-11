@@ -1,0 +1,61 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-international-rescue-committee-real-time-analytics-2",
+  "slug": "anthropic-international-rescue-committee-real-time-analytics-2",
+  "customer_name": "International Rescue Committee",
+  "industry": "unknown",
+  "region": "Burkina Faso",
+  "company_size": "Enterprise",
+  "business_problem": "IRC wanted proof that AI could turn inconsistent frontline health data into useful local decision support despite electricity constraints, poor connectivity, and ministry-defined indicators that varied across facilities.",
+  "solution_summary": "The IRC Q&A describes the Burkina Faso pilot as a deliberately simple, chat-built analytics system on Claude Enterprise. Rather than redesigning upstream collection, the team focused on one variable: visualization. Measurement specialists and health teams use Claude to create and revise an HTML dashboard template around the indicators they already track, then send the lightweight file to facilities where local Excel data can be dropped in with no internet connection. The team explicitly notes that they did this in chat, without Claude Code, which made it practical for non-engineers to adapt the dashboards themselves. That combination of local files, natural-language customization, and repeated facility-level use turned a previously manual reporting process into a reusable pattern that can scale across thousands of sub-Saharan health facilities facing the same data problem.",
+  "products_used": [
+    "Claude Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Enterprise",
+      "role": "Lets IRC staff build and modify offline health-data dashboards directly in chat.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Facility staff enter aggregate figures into paper registers and Excel, IRC teams use Claude to build an HTML dashboard template, and each site loads its local Excel file into the template to produce charts and summaries offline for local health discussions.",
+  "integration_points": [
+    "paper notebooks and registers",
+    "facility Excel files",
+    "Ministry of Health indicators",
+    "local facility managers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The Burkina Faso pilot showed that IRC teams could create dashboards in about 20 minutes, adapt them without engineers, and give nearly 3,000 facilities facing similar constraints a repeatable way to turn local data into faster program decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "2,700+ health facilities across 40 countries",
+    "20 minutes to create HTML dashboards in Claude",
+    "close to 23,000 healthcare facilities in sub-Saharan Africa that have the same problem"
+  ],
+  "architecture_clues": [
+    "The dashboard workflow was built directly in chat rather than with Claude Code.",
+    "Facility teams can adapt the HTML template themselves with natural-language changes.",
+    "The same pattern is intended to scale across many sub-Saharan facilities with low connectivity."
+  ],
+  "source_url": "https://claude.com/customers/irc-qa",
+  "published_date": "2026-09-28",
+  "evidence_quotes": [
+    "20 minutes to create HTML dashboards in Claude",
+    "We just did it in the chat. We didn’t even need Claude Code",
+    "Then they can take their Excel file from that local facility and just drag and drop it in there. No connectivity needed.",
+    "When you consider that nearly 3,000 health facilities across sub-Saharan Africa face the same data challenge, what works in Burkina Faso has the potential to change how health teams across the region use data.",
+    "It’s close to 23,000 healthcare facilities in sub-Saharan Africa that have the same problem."
+  ]
+}

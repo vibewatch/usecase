@@ -1,0 +1,67 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-notion-enterprise-knowledge-search",
+  "slug": "anthropic-notion-enterprise-knowledge-search",
+  "customer_name": "Notion",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Notion needed to embed trusted Claude agents natively inside collaborative workflows, with automations, long-running tasks, memory, coding sandboxes, and human approvals that could scale across whole workspaces instead of one-user/one-agent chats.",
+  "solution_summary": "Notion built External Agents on Claude Managed Agents so Claude sessions can live inside Notion pages and task boards rather than separate tools. A Notion task board acts as the orchestrator: moving a task to ready-to-start invokes a Claude session that pulls context from connected pages, design systems, API docs, and product requirements documents. Most usage is automated, triggered by Notion pages, Slack messages, or schedules, and top workspaces run several agents across dozens of threads per day. Managed Agents supplies the long-running execution layer, memory, sandbox, packages, and GitHub endpoint that let Claude read repositories and run code. Notion also splits work across stage-specific agents—investigate, plan, build—with different permissions and sharing rules so collaborative teams can review and approve work safely inside the same workspace.",
+  "products_used": [
+    "Claude Managed Agents"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Managed Agents",
+      "role": "Provides the hosted execution, memory, sandbox, and API building blocks behind Notion's embedded Claude sessions.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Pages, task boards, Slack messages, or schedules trigger a Claude session inside Notion; the session pulls context from connected documents and repositories, performs the requested work, and streams results back as files, comments, or page updates that teammates can review and approve.",
+  "integration_points": [
+    "Notion pages",
+    "Slack messages",
+    "scheduled runs",
+    "design system documents",
+    "API docs",
+    "product requirements documents",
+    "GitHub repositories"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Notion created 18,000 Claude agents in the first three weeks, saw 90 percent of agent turns come from automations rather than chat, and reduced early prototyping work from about 12 hours to 20 minutes while keeping agent collaboration and permissions inside the existing workspace.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "18,000 Claude agents created in the first three weeks",
+    "about 140,000 steps",
+    "90% of agent turns triggered by automations, not chat",
+    "12 hours of prototyping work collapse into about 20 minutes"
+  ],
+  "architecture_clues": [
+    "A Notion task board acts as an orchestrator for Claude sessions.",
+    "Top workspaces run three or four agents across dozens of threads per day.",
+    "Notion deploys separate investigator, planner, and builder agents with distinct permissions."
+  ],
+  "source_url": "https://claude.com/customers/notion-qa",
+  "published_date": "2026-04-08",
+  "evidence_quotes": [
+    "So far it's about 18,000 Claude agents created, and those agents have done about 140,000 steps.",
+    "90% of the turns people are doing with Claude are automations in Notion, triggered on a Notion page, a Slack message, or scheduled runs.",
+    "You create a task, move it to \"ready to start,\" and it invokes a Claude session.",
+    "The GitHub endpoint in Managed Agents was really useful.",
+    "Even with the early prototype, we saw 12 hours of prototyping work collapse into about 20 minutes."
+  ]
+}

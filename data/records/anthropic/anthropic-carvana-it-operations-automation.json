@@ -1,0 +1,71 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-carvana-it-operations-automation",
+  "slug": "anthropic-carvana-it-operations-automation",
+  "customer_name": "Carvana",
+  "industry": "Retail",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Carvana wanted AI to investigate production alerts inside Slack, but its homegrown Slackbots consumed engineering time and lacked the team-scoped access controls needed to expand safely across retail science, verification, and wholesale workflows.",
+  "solution_summary": "Carvana replaced two internal Slack-based agent systems with Claude Tag so alert triage, root-cause analysis, and fix generation could happen in the collaboration channels teams already use. Claude Tag is packaged into per-team bundles that combine instructions, tools, and scoped access, then runs under separate identities against Carvana's cloud data warehouse and engineering systems. In production channels it monitors alerts, identifies code owners, checks tickets, build history, logs, and repositories, and posts investigations in the exact format each team expects. The retail science team can ask Tag to open a pull request from the analysis thread; the verification team automatically compares each release to a pre-ship log baseline and even adds new logging when evidence is missing; the wholesale platform team gives Tag read-only access to tickets, builds, and code so it can trace issues to underlying services. Human review remains in the loop before anything ships.",
+  "products_used": [
+    "Claude Tag",
+    "Opus 5"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Tag",
+      "role": "Monitors Slack channels, investigates alerts, checks internal systems, and proposes fixes or pull requests.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Opus 5",
+      "role": "Handles the broad range of reasoning tasks Carvana runs through Claude Tag.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Production alerts land in Slack, where Claude Tag automatically starts an investigation using team-specific bundles. Tag reads tickets, build history, logs, code, and data-warehouse records, posts a root-cause analysis, and can draft a pull request or file follow-up work before a human reviews and promotes the change.",
+  "integration_points": [
+    "Slack",
+    "Carvana cloud data warehouse",
+    "work tickets",
+    "build history",
+    "code repositories",
+    "runbooks and alert notes",
+    "feature flags"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Carvana reduced alert noise by 56 percent, cut answer time by 65 percent for the wholesale platform team, replaced two internally maintained Slackbots, and extended AI-assisted investigation, release verification, and hourly operational checks across multiple engineering teams.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "56% fewer alerts",
+    "Answers 65% faster for the wholesale platform team's issue and alert triage"
+  ],
+  "architecture_clues": [
+    "Bundles package instructions, tools, and scoped access per Slack channel.",
+    "The verification team keeps its comparison logic as a skill in the repo next to runbooks and alert notes.",
+    "Some teams schedule hourly checks for failing pipelines and stale feature flags instead of continuous monitoring."
+  ],
+  "source_url": "https://claude.com/customers/carvana",
+  "published_date": "2026-09-15",
+  "evidence_quotes": [
+    "Claude Tag monitors the Slack channels where production monitoring warnings show up and automatically begins investigating.",
+    "Claude Tag can run under its own scoped identities, so Carvana set up one connection to its cloud data warehouse, plus separate identities that give individual teams their own slice.",
+    "In the retail science channel, alert volume declined 56% as Claude Tag helped teams address recurring root causes",
+    "On the wholesale platform team, Claude Tag reduced the time required to reach an answer by 65%",
+    "Each case ended the way a careful engineer would, with a ticket filed, a pull request offered, or a fix deliberately not made."
+  ]
+}

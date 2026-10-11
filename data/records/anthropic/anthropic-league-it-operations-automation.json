@@ -1,0 +1,88 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-league-it-operations-automation",
+  "slug": "anthropic-league-it-operations-automation",
+  "customer_name": "League",
+  "industry": "Healthcare",
+  "region": "North America",
+  "company_size": "Mid-market",
+  "business_problem": "League needed to accelerate product development and internal operations in a regulated healthcare environment, but prompt tuning, multi-agent experimentation, and back-office work still required manual effort and strict security controls.",
+  "solution_summary": "League standardized on Claude Enterprise and Claude Code to make agentic work safe enough for a regulated healthcare software company. Engineers use Claude through an internal Swarm orchestration layer that can run up to 50 parallel agents against real build tasks, write code, run tests, and open pull requests, while engineers review every change before it ships. For a critical prompt-optimization workflow, League paired Fable exploration with Claude Code implementation across four codebases and two languages so a failing agent can read evaluation scores and rewrite its own prompt automatically. The rollout also extends beyond engineering: finance automates month-end, quarter-end, and payroll workflows, and teams use Claude Design for branded decks. Claude Security controls model tiers, connectors, and usage boundaries across the company.",
+  "products_used": [
+    "Claude Enterprise",
+    "Claude Code",
+    "Fable",
+    "Claude Security",
+    "Claude Design"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Enterprise",
+      "role": "Provides the company-wide AI workspace League uses across regulated product, finance, and operational workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Powers Swarm agents that write code, run tests, and open pull requests across multiple codebases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Fable",
+      "role": "Handles exploratory multi-agent sessions that design new prompt-optimization workflows before implementation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude Security",
+      "role": "Enforces model-access tiers, connector boundaries, and spend visibility for regulated deployment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Claude Design",
+      "role": "Generates branded slides and first drafts for non-engineering teams using the same controlled platform.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "League feeds evaluation scores, source code, and MCP-connected tool context into Claude Enterprise and Claude Code. Fable explores prompt-improvement strategies, Swarm agents implement changes across codebases, and engineers review the resulting pull requests before release; separate finance and design flows run on the same controlled platform.",
+  "integration_points": [
+    "MCP-connected internal tools",
+    "evaluation scores from League's internal agent system",
+    "code repositories and pull requests",
+    "finance close and payroll processes",
+    "League design system and brand assets"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "League cut product development cycle times in half, pushed Claude adoption from 80% to 98% across the company, automated prompt repair for underperforming agents, and expanded AI-driven automation into finance, design, compliance, and legal workflows without relaxing healthcare-grade controls.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Compliance"
+  ],
+  "metrics": [
+    "98% Claude adoption, up from 80% when League's company-wide rollout began",
+    "Under a quarter for a 12-year-old regulated healthcare company to go company-wide on Claude Enterprise",
+    "roughly 48,000 lines across 271 files",
+    "more than 60 automated processes for month-end, quarter-end, and payroll"
+  ],
+  "architecture_clues": [
+    "League's Swarm layer runs up to 50 parallel Claude Code agents against the same problem.",
+    "The prompt-rewrite system spans four codebases in two languages.",
+    "League merged the implementation as eight stacked pull requests for reviewability."
+  ],
+  "source_url": "https://claude.com/customers/league-qa",
+  "published_date": "2026-08-27",
+  "evidence_quotes": [
+    "roughly 98% of League's code is AI-authored.",
+    "Our engineers do that through Swarm, our own orchestration layer built on Claude Code.",
+    "All eight merged, roughly 48,000 lines across 271 files.",
+    "They now have more than 60 automated processes for month-end, quarter-end, and payroll",
+    "we can tier model access, manage which connectors are available and to whom, and set the boundaries we need."
+  ]
+}

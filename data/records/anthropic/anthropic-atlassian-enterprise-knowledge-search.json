@@ -1,0 +1,89 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-atlassian-enterprise-knowledge-search",
+  "slug": "anthropic-atlassian-enterprise-knowledge-search",
+  "customer_name": "Atlassian",
+  "industry": "Software / SaaS",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Atlassian wanted agents to do consequential work inside Jira, Confluence, and related products, but enterprise customers would only trust long-running automation if the models could follow complex instructions, use internal tools safely, and reason across huge contextual graphs.",
+  "solution_summary": "Atlassian deploys Claude on Google Cloud behind the parts of its Rovo platform where the cost of a wrong answer is highest. Rovo Chat uses Claude as one of its base models to choose tools and skills across Jira, Confluence, and the rest of the suite, while Rovo Max takes a goal, pulls context from Teamwork Graph's billions of objects, and works in a managed environment where admins control packages and network access. The same Claude foundation powers Rovo CLI plus code review and generation flows that can read large repositories or pick up Jira tickets directly. Inside Atlassian, engineering runs heavily on Claude Code and recent pilots brought it to product managers and designers for small code changes and prototypes. This architecture lets Atlassian combine broad enterprise context, tool orchestration, and governed execution in one agent stack.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Code",
+    "Rovo Chat",
+    "Rovo Max",
+    "Teamwork Graph"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Supplies the enterprise model layer behind Atlassian's hardest agent workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Supports internal engineering plus code-review and code-generation experiences for software teams.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Rovo Chat",
+      "role": "Acts as the in-product assistant that chooses tools and skills across Atlassian's suite.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Rovo Max",
+      "role": "Takes a goal rather than a single task and works until it reaches it under managed controls.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Teamwork Graph",
+      "role": "Provides the connected context map of customer data that Rovo Max reasons over.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "A user goal or Jira/Confluence task enters Rovo Chat or Rovo Max, Claude selects tools and context from Teamwork Graph, works through the task in an admin-controlled environment, and returns actions, code, or artifacts back into Atlassian workflows where humans can keep collaborating.",
+  "integration_points": [
+    "Jira",
+    "Confluence",
+    "Google Docs",
+    "Figma",
+    "Jira boards",
+    "code repositories"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Atlassian now runs more than 5 million agents in customer business workflows every month, serves millions of users on Rovo Chat, and uses Claude to automate increasingly complex work while keeping context and trust at the center of the platform.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "5 million+ agents executed in customer business workflows each month",
+    "Millions of users on Rovo Chat"
+  ],
+  "architecture_clues": [
+    "Rovo Max runs inside a managed environment where admins control packages and network access.",
+    "Teamwork Graph maps billions of objects across customer apps.",
+    "Some customers hand a Jira ticket straight to a Claude-powered agent that picks up the work and carries it out."
+  ],
+  "source_url": "https://claude.com/customers/atlassian",
+  "published_date": "2026-08-30",
+  "evidence_quotes": [
+    "5 million+ agents executed in customer business workflows each month",
+    "Rovo Max draws on Teamwork Graph, Atlassian's connected map of the billions of objects that span a customer's apps",
+    "Many of Atlassian's customers are also software and IT teams, and Claude handles their code review and code generation",
+    "Someone handed the agent a Jira board and asked it to \"create me an Instagram reel\"",
+    "The Claude models are better at following complex instructions consistently and handling larger amounts of context without losing important details"
+  ]
+}

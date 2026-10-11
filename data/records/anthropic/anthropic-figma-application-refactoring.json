@@ -1,0 +1,85 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-figma-application-refactoring",
+  "slug": "anthropic-figma-application-refactoring",
+  "customer_name": "Figma",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Figma wanted teams to turn ideas and static designs into interactive software much faster, reduce the friction between design and development, and let non-coders prototype without rebuilding designs by hand.",
+  "solution_summary": "Figma integrated Claude into two creation paths: Figma Sites, where designers describe interaction changes against an existing web design, and Figma Make, where users start from a prompt or an existing Figma design and receive a working prototype or app. Claude generates the underlying code while preserving design intent, animations, responsive behavior, and pixel-level details instead of asking teams to recreate layouts from scratch. Figma continuously evaluates new Claude models and exposes the latest releases through an experimental-models setting, using Claude Sonnet as the model that first made the product viable and Claude Opus 4.6 for more complex, interactive builds. The round-trip between Figma Design and Make lets teams copy designs in, generate code-backed software, then return the result to the canvas for side-by-side iteration.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Sonnet",
+    "Claude Opus 4.6",
+    "Figma Sites",
+    "Figma Make"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the AI foundation Figma uses to translate designs and prompts into interactive software.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Sonnet",
+      "role": "Delivered the code quality and speed that made Figma Make viable for production use.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Opus 4.6",
+      "role": "Generates more complex, highly interactive prototypes and apps in Figma Make.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Figma Sites",
+      "role": "Lets designers add interactivity to existing website designs using natural-language prompts.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Figma Make",
+      "role": "Turns prompts or existing Figma designs into code-backed prototypes and apps.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "A user starts from a prompt or existing Figma design, Claude inside Figma Sites or Figma Make generates the code and interactivity, and the resulting prototype or app can be brought back into Figma Design for further iteration and side-by-side comparison.",
+  "integration_points": [
+    "Figma Design",
+    "existing website designs",
+    "natural-language prompts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Figma now lets designers, developers, and product managers create working prototypes in minutes, enables non-designers to visualize ideas, and shortens the path from mockup to functional software without waiting on a traditional design-to-development handoff.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Working prototypes in minutes",
+    "I spent 30 hours teaching myself React to build my website. With Claude, I refactored and improved all that code in a single day",
+    "I prototyped a new product flow with Figma Make in five minutes."
+  ],
+  "architecture_clues": [
+    "Figma exposes new Claude releases through an experimental-models setting inside Figma Make.",
+    "The workflow supports round-tripping between Figma Design and Make.",
+    "Claude is used both for prompt-first generation and for adding interactivity to existing designs."
+  ],
+  "source_url": "https://claude.com/customers/figma",
+  "published_date": "2026-02-06",
+  "evidence_quotes": [
+    "Claude Sonnet consistently delivered on code quality, design intent, and speed",
+    "The first allows designers working in Figma Sites to add interactivity to existing website designs by describing what they want",
+    "Figma Make is a way to go from idea to real software.",
+    "Claude transforms them into fully functional prototypes with complex logic, animations, and responsive behaviors.",
+    "I prototyped a new product flow with Figma Make in five minutes."
+  ]
+}

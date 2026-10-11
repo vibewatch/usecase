@@ -1,0 +1,87 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-zendesk-customer-service-automation",
+  "slug": "anthropic-zendesk-customer-service-automation",
+  "customer_name": "Zendesk",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Zendesk wanted customer-specific service agents to handle the complex work between a request and its resolution, but one-off automations were expensive to build, hard to localize, and difficult to govern across millions of service interactions.",
+  "solution_summary": "Zendesk built its custom-agent builder on the Claude Platform with a five-person team using Claude Code and the Claude Agent SDK. Customers describe the work in plain English and connect the agent to Zendesk actions plus external tools such as Jira or Google Drive, turning workflows that once needed AI specialists into a roughly 30-minute setup. Zendesk evaluated models on 15 metrics using realistic customer-service agents and selected Claude Sonnet 4.6 because it read PDFs well, reached conclusions in fewer planning turns, and delivered better cost per task. Production runs through Amazon Bedrock in Zendesk's existing AWS regions so data locality and security controls stay inside the environment the company already governs. That architecture lets Zendesk deliver specialist agents for returns, warranty questions, billing exceptions, and other business-specific service work.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Code",
+    "Claude Agent SDK",
+    "Claude Sonnet 4.6",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the base model platform for Zendesk's custom service agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Helped the five-person team build the custom-agent builder from proof of concept to early access.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Agent SDK",
+      "role": "Supplies the agent-building layer behind Zendesk's configurable service workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude Sonnet 4.6",
+      "role": "Runs customer agents that need strong document reading and low planning-turn overhead.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Keeps Claude running inside Zendesk's existing AWS regions for security and data locality."
+    }
+  ],
+  "data_flow": "A Zendesk customer writes instructions in plain English, connects internal Zendesk actions and external tools such as Jira or Google Drive, and the agent then handles the service workflow on Claude Sonnet 4.6 through Amazon Bedrock while humans keep final operational oversight.",
+  "integration_points": [
+    "Zendesk actions",
+    "Jira",
+    "Google Drive",
+    "PDFs",
+    "AWS hosting regions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Zendesk reached 1 million custom-agent executions in the first seven weeks of early access, helped pilot customers cut human handle times by up to 80 percent, raised automated resolution by up to 10 percent, and proved that custom agents can be built with a small central team instead of one-off AI projects.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "1 million custom agent executions in the first seven weeks of early access",
+    "Up to 80% reduction in human handle times",
+    "Raised automated resolution by up to 10%",
+    "99% accuracy in its pilot for duplicate merging"
+  ],
+  "architecture_clues": [
+    "Zendesk scores candidate models on 15 metrics using agents like the ones customers actually write.",
+    "Customers can connect agents to Zendesk actions and external tools in about 30 minutes.",
+    "Claude runs through Amazon Bedrock inside the AWS environment Zendesk already governs."
+  ],
+  "source_url": "https://claude.com/customers/zendesk",
+  "published_date": "2026-10-08",
+  "evidence_quotes": [
+    "Built its custom agent builder with a five-person team, working with Claude Code and the Claude Agent SDK",
+    "Zendesk chose Claude Sonnet 4.6.",
+    "It takes about 30 minutes to set up something that used to take",
+    "Went from zero to 1 million custom agent executions within seven weeks of early access",
+    "Raised automated resolution by up to 10% while cutting human handle times by up to 80% for customers running custom agents"
+  ]
+}

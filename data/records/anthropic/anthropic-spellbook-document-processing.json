@@ -1,0 +1,94 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-spellbook-document-processing",
+  "slug": "anthropic-spellbook-document-processing",
+  "customer_name": "Spellbook",
+  "industry": "unknown",
+  "region": "North America",
+  "company_size": "Mid-market",
+  "business_problem": "Spellbook needed to review, redline, and route very large volumes of contracts fast enough for lawyers and legal teams, while keeping issue spotting consistent and aligning recommendations with each team's preferred review style.",
+  "solution_summary": "Spellbook runs a mostly-Claude contract workflow on the Claude Platform. Contracts can be pulled in from email, Slack, or Salesforce before a lawyer opens them, then Claude-powered agents flag risks, draft redlines inside Microsoft Word, compare terms to market, and feed newer autonomous contract-management flows that move agreements through triage, review, negotiation, storage, and ongoing monitoring. Roughly 15 Claude agent configurations handle the review surface alone, matching model depth to task complexity: Opus 5 and Opus 4.6 on the hardest subtasks, Sonnet 4.6 where speed and tone matter, and Fable 5 as the oracle model in evaluation pipelines. Spellbook judges production quality by user acceptance of suggestions and repeated consistency checks, while its engineering team uses Claude Code with Fable planning and review to keep shipping new legal workflows.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Code",
+    "Fable 5",
+    "Opus 5",
+    "Opus 4.6",
+    "Sonnet 4.6"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the base model platform for contract review, redlining, and autonomous contract-management flows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Supports Spellbook's own engineering workflow as it ships new legal automation features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Fable 5",
+      "role": "Acts as the oracle model in Spellbook's evaluation pipeline and helps plan and review engineering work.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Opus 5",
+      "role": "Handles the most complex contract-review subtasks on the review surface.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Opus 4.6",
+      "role": "Runs demanding review tasks where quality matters more than speed.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Sonnet 4.6",
+      "role": "Covers faster review and conversational tasks where tone and throughput matter.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Contracts arrive from email, Slack, or Salesforce, Spellbook routes them through its Claude review agents to flag issues and draft redlines in Microsoft Word, and the same normalized contract context can continue into triage, negotiation, storage, and monitoring workflows.",
+  "integration_points": [
+    "Microsoft Word",
+    "email",
+    "Slack",
+    "Salesforce",
+    "market term comparisons"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Spellbook now runs about 530,000 contract reviews and more than 700,000 lawyer chat interactions per month, cuts agreement work from roughly 10 hours to about one, and extends the same Claude stack into autonomous contract-management workflows that move agreements through the organization.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "530,000 contract reviews per month",
+    "10x faster agreement turnaround time",
+    "more than 700,000 chat messages from practicing lawyers each month",
+    "roughly 15 Claude agent configurations on its review surface alone"
+  ],
+  "architecture_clues": [
+    "Spellbook measures model quality by how often lawyers actually accept suggestions.",
+    "The review surface uses about 15 different agent configurations matched to subtask complexity.",
+    "Autonomous contract management now moves agreements through triage, review, negotiation, storage, and monitoring."
+  ],
+  "source_url": "https://claude.com/customers/spellbook",
+  "published_date": "2026-08-29",
+  "evidence_quotes": [
+    "Runs its Claude-powered review agents across about 530,000 contracts every month",
+    "Cuts the time to complete an agreement 10x, from roughly 10 hours of lawyer work to about one",
+    "Roughly 15 agent configurations just for reviewing contracts",
+    "We'll use Fable as an oracle model to generate a set of criteria",
+    "Spellbook recently launched autonomous contract management, which moves agreements through an organization"
+  ]
+}

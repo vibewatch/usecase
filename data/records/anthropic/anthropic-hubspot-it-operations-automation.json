@@ -1,0 +1,87 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-hubspot-it-operations-automation",
+  "slug": "anthropic-hubspot-it-operations-automation",
+  "customer_name": "HubSpot",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "HubSpot's engineering, marketing, and customer success teams were spending too much time on migrations, maintenance, content creation, troubleshooting, and personalized follow-ups that did not scale across the organization.",
+  "solution_summary": "HubSpot adopted Claude across multiple departments, with Claude Code doing the deepest integration work. Engineering connects Claude Code to internal services and the distributed codebase through MCP, using it for migrations, maintenance tasks, onboarding, and debugging. The team benchmarked real HubSpot engineering tasks and found Claude consistently needed the least human intervention, with Sonnet 4.5 reducing back-and-forth by asking for more missing context up front. Outside engineering, teams package reusable context in Claude projects and artifacts so marketing can centralize campaign information and create content faster, while customer success managers prepare for escalations, troubleshoot workflows, and generate tailored follow-ups in minutes instead of hours. This turns one-off manual knowledge work into reusable, shared AI workflows backed by HubSpot's own systems.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Code",
+    "Claude projects",
+    "MCP",
+    "Claude Sonnet 4.5"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the model platform HubSpot uses across engineering, marketing, and customer-success teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Connects to HubSpot's internal services and codebase for migrations, debugging, and onboarding.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude projects",
+      "role": "Package reusable context and instructions so marketing and customer-success teams can reuse best practices.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MCP",
+      "role": "Links Claude Code to HubSpot's existing services and internal systems.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Claude Sonnet 4.5",
+      "role": "Improves engineering task flow by gathering more needed information in each interaction.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "HubSpot connects Claude Code to internal services and repositories via MCP for engineering work, while other teams feed campaign context, escalation details, and customer notes into Claude projects so the outputs can return as content drafts, troubleshooting guidance, or follow-up actions.",
+  "integration_points": [
+    "internal services",
+    "distributed codebase",
+    "campaign context",
+    "customer-escalation workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "HubSpot reports productivity gains across engineering, marketing, and customer success, including up to 40 percent productivity improvement, complex troubleshooting cut from three to five days to under an hour, faster onboarding to production, and more strategic customer conversations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Up to 40% productivity increase",
+    "From 3-5 days to under an hour",
+    "Built hundreds of Claude projects across teams"
+  ],
+  "architecture_clues": [
+    "Claude Code connects to HubSpot infrastructure through MCP.",
+    "HubSpot uses hundreds of Claude projects to centralize context and best practices.",
+    "Benchmarks used a battery of engineering tasks from real HubSpot work."
+  ],
+  "source_url": "https://claude.com/customers/hubspot",
+  "published_date": "2026-02-10",
+  "evidence_quotes": [
+    "Achieved up to 40% productivity increases across web development and content creation workflows",
+    "Reduced complex technical troubleshooting from 3-5 days to under an hour",
+    "When Claude Code came out with Model Context Protocol (MCP) first-class citizen support, we were excited to give it a go",
+    "Claude consistently required the least human intervention to reach finished solutions.",
+    "Built hundreds of Claude projects across teams to centralize context and best practices"
+  ]
+}

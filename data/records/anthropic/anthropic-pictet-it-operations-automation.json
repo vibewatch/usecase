@@ -1,0 +1,84 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-pictet-it-operations-automation",
+  "slug": "anthropic-pictet-it-operations-automation",
+  "customer_name": "Pictet",
+  "industry": "Financial Services",
+  "region": "Switzerland",
+  "company_size": "Enterprise",
+  "business_problem": "Pictet wanted more than chat-based assistance: it needed agentic AI that could automate internal engineering, compliance, and business workflows inside a Swiss private bank without breaking data residency, risk, or training obligations.",
+  "solution_summary": "Pictet rolled out Claude Code and Claude Cowork through a staged, persona-based program that began in its 1,500-person technology division and expanded across product and business teams. Artefact ran 25 hands-on workshops to help teams build with the tools rather than just query them. To satisfy banking controls, Pictet put business use cases behind a purpose-built API gateway that keeps processing in the EU or Switzerland and prevents data from persisting for model training. Early MCP connections expose internal systems such as GitHub, Jira, Figma, and the internal wiki, letting Claude participate in engineering, compliance, prototyping, and operational workflows. The same setup supports concrete jobs such as comparing more than 50 directives to current regulations, building alerting systems, creating custom thin-client UIs, and automating weekly marketwatch reports.",
+  "products_used": [
+    "Claude Code",
+    "Claude Cowork",
+    "MCP",
+    "purpose-built API gateway"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Code",
+      "role": "Drives agentic engineering, prototyping, and operational automation inside Pictet's teams.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Cowork",
+      "role": "Extends agentic workflows to product and business users outside engineering.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MCP",
+      "role": "Connects Claude to systems such as GitHub, Jira, Figma, and the internal wiki.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "purpose-built API gateway",
+      "role": "Enforces residency and data-handling policies for sensitive banking use cases.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Users invoke Claude Code or Claude Cowork, MCP pulls in the needed context from GitHub, Jira, Figma, or the wiki, and the purpose-built API gateway keeps sensitive business processing inside the EU or Switzerland while returning prototypes, analyses, or operational outputs back to the team.",
+  "integration_points": [
+    "GitHub",
+    "Jira",
+    "Figma",
+    "internal wiki",
+    "EU data-processing region",
+    "Switzerland-only workloads"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Pictet has given roughly 700 people access to Claude Code and Claude Cowork, trained more than 500 staff, reduced some prototype work from two weeks to two hours, and brought compliance, infrastructure, and business automation tasks into workflows that fit the bank's risk framework.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "700 people with Claude Code and Claude Cowork access",
+    "Trained more than 500 people through 25 hands-on Claude Code workshops with Artefact",
+    "Generated working prototypes in two hours instead of two weeks",
+    "Around 700 people across the group now have access to Claude Code and Claude Cowork"
+  ],
+  "architecture_clues": [
+    "Pictet uses a purpose-built API gateway to keep some workloads in the EU and some only in Switzerland.",
+    "Rollout happens per persona and per kind of use case to simplify risk management.",
+    "Early MCP connections cover GitHub, Jira, Figma, and the internal wiki."
+  ],
+  "source_url": "https://claude.com/customers/pictet",
+  "published_date": "2026-09-04",
+  "evidence_quotes": [
+    "Kept business data processing in the EU and Switzerland behind a purpose-built API gateway",
+    "Trained more than 500 people through 25 hands-on Claude Code workshops with Artefact",
+    "Data can never persist for model training",
+    "One standout application emerged from compliance, where a complex gap analysis—comparing over 50 internal directives against current regulatory standards—was completed in just hours using Claude Code.",
+    "Generated working prototypes in two hours instead of two weeks, with real code behind every screen"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-evenup-document-processing",
+  "slug": "anthropic-evenup-document-processing",
+  "customer_name": "EvenUp",
+  "industry": "unknown",
+  "region": "North America",
+  "company_size": "SMB",
+  "business_problem": "EvenUp needed to turn huge, inconsistent personal-injury case files into accurate demands, summaries, and discovery documents fast enough for smaller firms to compete, without letting polished but incorrect reasoning slip through.",
+  "solution_summary": "EvenUp built AI Drafts on the Claude Platform as a multi-stage document pipeline for personal-injury work. Case files often exceed 1,000 pages and include medical records, billing ledgers, police reports, scanned bills, and checkbox forms. The system climbs a cost ladder: it reads native text first, uses standard OCR where possible, and escalates to Claude vision only for the pages other methods cannot handle. Claude Sonnet and Claude Haiku manage routine extraction, while Claude Opus 4.8 handles the deeper reasoning needed to keep a thirty-page demand internally consistent and legally persuasive. EvenUp layers PI-specific data, routing, verification, and automated workflows on top, so facts get normalized once and then reused across demands, negotiation sheets, and discovery responses. Internally, teams also use Claude Enterprise and Claude Code for forecasting and debugging-agent projects.",
+  "products_used": [
+    "Claude Platform",
+    "Claude Enterprise",
+    "Claude Code",
+    "Claude Sonnet",
+    "Claude Haiku",
+    "Claude Opus 4.8"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Platform",
+      "role": "Provides the base model platform behind EvenUp's legal drafting and review pipeline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Enterprise",
+      "role": "Supports internal teams using Claude for operational and analytical work beyond the product itself.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Helps engineering build internal systems such as forecasting and agent-debugging tools.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Sonnet",
+      "role": "Handles routine extraction work on case documents and records.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Haiku",
+      "role": "Covers lower-cost extraction steps in the drafting pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude Opus 4.8",
+      "role": "Performs the deepest reasoning to keep long legal arguments consistent and complete.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Medical records, billing ledgers, police reports, and scanned forms enter AI Drafts; the pipeline reads native text first, then OCR, then Claude vision when needed, and routes the extracted facts into Claude reasoning layers that assemble demands, negotiation sheets, and discovery documents with reusable structured evidence.",
+  "integration_points": [
+    "medical records",
+    "billing ledgers",
+    "police reports",
+    "scanned bills",
+    "checkbox forms",
+    "PI-specific data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "EvenUp reduced drafting from eight to fifteen hours of skilled legal work per case to finished drafts in about 30 minutes, raised settlement offers by 300 percent, helped customer firms clear backlogs and triple demand output, and improved smaller-case expense accuracy and overall draft completeness.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Documents drafted in minutes, down from 8 to 15 hours of skilled work per case",
+    "300% increase in settlement offers",
+    "Reduced case discovery response time from 5 hours to 30 minutes",
+    "Increased accuracy on past medical expense totals by 14% on smaller cases",
+    "Delivers drafts with 16% greater completeness and fewer missing records"
+  ],
+  "architecture_clues": [
+    "AI Drafts uses a ladder that escalates from native text to OCR to Claude vision only when necessary.",
+    "Opus 4.8 is reserved for the reasoning work where polished legal prose can hide subtle errors.",
+    "Facts are normalized once and then reused across demands, negotiation sheets, and discovery responses."
+  ],
+  "source_url": "https://claude.com/customers/evenup",
+  "published_date": "2026-08-28",
+  "evidence_quotes": [
+    "Documents drafted in minutes, down from 8 to 15 hours of skilled work per case",
+    "Raised settlement offers 300% for firms presenting the full damages picture with cited evidence",
+    "Everyday extraction runs on Sonnet or Haiku. Opus takes the jobs where polish could hide an error",
+    "A case often arrives as 1,000 pages or more",
+    "Drafting that once took 8 to 15 hours of skilled work now returns as finished drafts in about 30 minutes"
+  ]
+}

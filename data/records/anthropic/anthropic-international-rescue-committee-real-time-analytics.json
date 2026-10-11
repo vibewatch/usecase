@@ -1,0 +1,61 @@
+{
+  "vendor": "Anthropic",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "anthropic-international-rescue-committee-real-time-analytics",
+  "slug": "anthropic-international-rescue-committee-real-time-analytics",
+  "customer_name": "International Rescue Committee",
+  "industry": "unknown",
+  "region": "Burkina Faso",
+  "company_size": "Enterprise",
+  "business_problem": "IRC teams needed to analyze frontline health data quickly enough to influence staffing, outreach, and supplies, but the information came from ministry-run facilities in inconsistent paper and Excel formats and often had to be used in low-connectivity environments.",
+  "solution_summary": "IRC used Claude Enterprise to create a lightweight offline analytics workflow instead of trying to standardize every upstream data source. In Burkina Faso, staff compile aggregate facility data into Excel and drag those files into a single HTML dashboard template generated and refined with Claude. The template covers more than 15 core health and reproductive-health indicators, runs locally without coding or internet connectivity, and keeps data off Claude's servers. Because the dashboard is just one portable HTML file, measurement specialists and health teams can adapt it in natural language instead of waiting for engineers. The same locally loaded data then supports cross-facility trend analysis, portfolio-level synthesis, and investigations into service gaps, outreach effects, or emerging infection spikes.",
+  "products_used": [
+    "Claude Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Enterprise",
+      "role": "Generates and iterates the offline HTML dashboard workflow used by frontline health teams.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Facility data moves from paper registers or DHIS-2 into local Excel files, staff drag those files into an HTML dashboard template generated with Claude, and the offline output surfaces indicator trends and anomalies for health teams to discuss and act on locally.",
+  "integration_points": [
+    "paper registers",
+    "DHIS-2",
+    "facility Excel files",
+    "Ministry of Health facilities"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "IRC reduced management-ready analysis from a full working day to under 30 minutes, saved every surveyed pilot user time, and used the dashboards to validate youth outreach, uncover prenatal-care gaps, and catch infection trends early enough to adjust staffing and supplies.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Under 30 minutes to prepare management-ready analysis that previously took a full working day",
+    "4+ hours per month saved by half of surveyed pilot users",
+    "Offline HTML dashboards covering more than 15 core health and reproductive health indicators"
+  ],
+  "architecture_clues": [
+    "The dashboard is a single HTML file that runs locally with no connectivity.",
+    "Claude helps teams customize visualizations without bringing engineers into every change.",
+    "The workflow uses aggregate facility data rather than individual patient records."
+  ],
+  "source_url": "https://claude.com/customers/irc",
+  "published_date": "2026-10-04",
+  "evidence_quotes": [
+    "Offline HTML dashboards covering more than 15 core health and reproductive health indicators",
+    "A drag-and-drop workflow where staff load facility Excel files locally, no connectivity or coding required",
+    "No connectivity or coding is required, and the data is not sent externally or stored on Claude’s servers.",
+    "One program user now prepares analysis and slides for senior management in under 30 minutes, work that previously took a full day.",
+    "Across three health facilities, the dashboard flagged STI consultations among people under 18 jumping from an average of 21 per month to 88"
+  ]
+}
