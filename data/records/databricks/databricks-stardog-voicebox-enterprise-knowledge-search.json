@@ -1,0 +1,69 @@
+{
+  "slug": "databricks-stardog-voicebox-enterprise-knowledge-search",
+  "customer_name": "Stardog",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Stardog needed to remove the specialized-skill barrier for knowledge-graph queries while improving model quality and keeping customer data under tighter privacy and security control than third-party LLM services allowed.",
+  "solution_summary": "Stardog used Databricks to add a conversational AI layer to its enterprise knowledge graph platform through a product called Voicebox. Instead of requiring users to master specialized query languages, Voicebox accepts natural-language questions, identifies the core concepts in each request and maps them to the structured concepts inside Stardog's semantic layer. Databricks Training is used to fine-tune task-specific models for this workload, giving Stardog tighter control over quality, privacy and security than the company found with off-the-shelf or third-party models. The resulting query flow combines the fine-tuned model with a vector-database lookup that aligns user language to enterprise concepts before returning the right knowledge-graph result in real time. Databricks version management and zero-downtime deployment further reduce manual model-serving overhead, so Stardog can iterate faster as it expands Voicebox from early-access customers to the broader cloud user base.",
+  "products_used": [
+    "Stardog Enterprise Knowledge Graph platform",
+    "Voicebox",
+    "Databricks Training"
+  ],
+  "solution_components": [
+    {
+      "name": "Stardog Enterprise Knowledge Graph platform",
+      "role": "Provides the semantic layer that ties enterprise data together in business context for users and applications.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voicebox",
+      "role": "Adds a conversational interface that translates natural-language prompts into knowledge-graph queries and answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Training",
+      "role": "Fine-tunes task-specific models and supports fast iteration, versioning and deployment for Voicebox.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Users submit natural-language prompts to Voicebox, which uses a Databricks-trained model to identify core concepts in the request. Those concepts are aligned with structured enterprise data through the knowledge graph and supporting vector lookup, and the resulting answer is returned to the user in real time.",
+  "integration_points": [
+    "Structured enterprise data sources",
+    "Natural-language user prompts",
+    "Vector database lookup"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Stardog turned knowledge-graph access into a conversational, self-service experience, reduced manual model-serving overhead, sped iteration with zero-downtime deployments and gained enough early customer enthusiasm to expand Voicebox beyond the initial access program.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Uses a fine-tuned smaller model rather than a third-party hosted model.",
+    "Maps query concepts through a vector database before returning knowledge-graph results.",
+    "Relies on version management and zero-downtime deployment in Databricks."
+  ],
+  "source_url": "https://www.databricks.com/customers/stardog",
+  "published_date": "2024-01-08",
+  "evidence_quotes": [
+    "That's why Stardog turned to Databricks to develop Voicebox.",
+    "Using large language models fine-tuned with Databricks, Voicebox acts as a conversational AI semantic layer that better connects users with their data through simple natural language prompts.",
+    "We quickly learned that if you have a smaller model that you fine-tune for a specific task, you can match or exceed the quality of OpenAI, and you have more control over data security and privacy.",
+    "The large language model (LLM) first identifies the core concepts in a user's natural language query and then sends it to a vector database to align those terms with actual concepts in the structured data sources.",
+    "Databricks' version management and zero-downtime deployment capabilities have allowed Stardog to iterate and deploy new versions quickly and effectively."
+  ],
+  "vendor": "Databricks",
+  "id": "databricks-stardog-voicebox-enterprise-knowledge-search",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

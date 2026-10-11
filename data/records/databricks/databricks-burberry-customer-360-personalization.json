@@ -1,0 +1,76 @@
+{
+  "slug": "databricks-burberry-customer-360-personalization",
+  "customer_name": "Burberry",
+  "industry": "Retail",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Burberry's daily clickstream batches arrived too late and its prior warehouse pre-aggregated the data, making it hard to trust granular customer-behavior details or personalize service for webrooming shoppers in time.",
+  "solution_summary": "Burberry paired Snowplow's Behavioral Data Platform with the Databricks Data + AI Platform to replace slow daily clickstream batches from its prior warehouse with a near-real-time customer 360. Clickstream events from Burberry.com flow into Snowplow, where digital-touchpoint behavior is captured and privacy controls, consent tracking and server-side cookies are managed. The data then lands in Databricks, where 40 personalized models recalculate recommendations, propensity scores and lifetime value before sending outputs to the retailer's action system and in-store advisors. Burberry also uses the dbt plug-in for Databricks to enrich referral, consent-banner and server-side cookie data so marketing attribution reflects owned behavioral data instead of coarse pre-aggregations. This architecture lets store staff act on opted-in shoppers' most recent online behavior during the same webrooming journey.",
+  "products_used": [
+    "Snowplow Behavioral Data Platform",
+    "Databricks Data + AI Platform",
+    "dbt plug-in for Databricks"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowplow Behavioral Data Platform",
+      "role": "Captures real-time behavioral data, manages consent-aware tracking and creates Burberry's AI-ready customer 360 foundation.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Hosts the personalized models that recalculate recommendations, propensity scores and lifetime value from behavioral data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "dbt plug-in for Databricks",
+      "role": "Enriches referral, consent-banner and server-side cookie data so marketing attribution can run on owned behavioral datasets."
+    }
+  ],
+  "data_flow": "Burberry.com clickstream events are captured by Snowplow and enriched with consent and server-side cookie data before moving into Databricks. There, 40 personalized models recalculate recommendations and scoring outputs, which are passed to the retailer's action system and surfaced to in-store advisors during the same customer journey.",
+  "integration_points": [
+    "Burberry.com clickstream events",
+    "Referral sources and consent banners",
+    "Action system for in-store personalization",
+    "Client-advisor iPhone and iPad devices"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Burberry reduced clickstream latency by 99%, extended cookie duration 52x from one week to one year, improved marketing attribution and enabled store advisors to personalize service for webrooming customers while there was still time to influence the sale.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "99% Reduction in latency for customer clickstream data",
+    "52x Increase in cookie duration",
+    "40 personalized models",
+    "The average webrooming journey lasts two to six hours",
+    "413 stores worldwide"
+  ],
+  "architecture_clues": [
+    "Supports a real-time AI-Ready Customer 360 from digital touchpoints.",
+    "Runs 40 personalized models for recommendations, propensity scoring and lifetime value.",
+    "Uses server-side cookies to replace browser-limited client-side tracking."
+  ],
+  "source_url": "https://www.databricks.com/customers/burberry-snowplow",
+  "published_date": "2023-11-02",
+  "evidence_quotes": [
+    "By implementing the Databricks Data + AI Platform and Snowplow's Behavioral Data Platform, Burberry formed a complete view of each customer (AI-Ready Customer 360).",
+    "As clickstream data flows in from Burberry.com, the company uses Snowplow BDP to realize real-time AI-Ready Customer 360s from across their digital touchpoints.",
+    "From there, the data travels into the Databricks Data + AI Platform, which contains 40 personalized models covering tasks such as product recommendations, propensity scoring and lifetime value.",
+    "After switching to server-side cookies with Snowplow, Burberry's cookies are now valid for 12 months.",
+    "Our client advisors can pull out their iPad or iPhone devices to gain an instant view of what a customer really wants and which products to recommend."
+  ],
+  "vendor": "Databricks",
+  "id": "databricks-burberry-customer-360-personalization",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

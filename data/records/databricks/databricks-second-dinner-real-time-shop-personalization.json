@@ -1,0 +1,77 @@
+{
+  "slug": "databricks-second-dinner-real-time-shop-personalization",
+  "customer_name": "Second Dinner",
+  "industry": "Media and Entertainment",
+  "region": "global",
+  "company_size": "Mid-market",
+  "business_problem": "Second Dinner relied on manual, heuristic processes for daily shop personalization, so feature iterations took about a month and recommendations lagged behind fast-changing player interests.",
+  "solution_summary": "Second Dinner centralized ingest, processing, warehousing, analytics, dashboarding and machine learning on the Databricks Data + AI Platform so a small team could turn manual shop-personalization workflows into continuously updated recommendations. Player engagement and purchase data are ingested through Delta Lake and used to train ML models in MLflow, with Python logic added through PyFunk to speed experimentation across the data team. The first model produced daily population-level recommendations, then evolved into batch precomputed personalization and real-time recommendations delivered through a low-latency model-serving endpoint. Models are uploaded to the registry, retrained weekly and fed with signals about what players see, when they play and what cards they prefer, allowing the Daily Offer Shop and new bundle triggers to react to recent behavior instead of stale aggregate statistics.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Delta Lake",
+    "MLflow"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Centralizes Second Dinner's ingest, analytics, dashboarding and machine-learning workflows for game personalization.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores the player engagement data that feeds the shop-personalization models.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MLflow",
+      "role": "Tracks, trains and operationalizes recommendation models that are retrained weekly and deployed into production."
+    }
+  ],
+  "data_flow": "Player engagement and purchase signals land in Delta Lake on Databricks, where MLflow-managed models analyze what players see, update or buy. Recommendation outputs are then served back into Marvel Snap through the Daily Offer Shop, precomputed bundles and real-time next-best-action triggers.",
+  "integration_points": [
+    "Marvel Snap Daily Offer Shop",
+    "Player engagement and purchase telemetry",
+    "Globally deployed recommendation surfaces",
+    "In-game bundle and trigger systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Second Dinner moved from only 10 experiments a year to weekly iterations, sped feature launches 400%, cut model development from months to weeks and now delivers personalized shop offers and bundle recommendations that better match player behavior in real time.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "400% faster feature launches, from 10 per year to more than 50",
+    "Months to weeks faster model development and training",
+    "The Daily Offer Shop presents players with eight new card slots daily",
+    "30 to 100 daily card releases",
+    "In less than a week, we set up a relatively personalized system for different segments of players worldwide, updating daily"
+  ],
+  "architecture_clues": [
+    "Progressed from manual heuristics to batch precomputed personalization and real-time recommendations.",
+    "Uses a low-latency model-serving endpoint for globally deployed shop recommendations.",
+    "Retrains models weekly and uses recent player activity to trigger next-best actions."
+  ],
+  "source_url": "https://www.databricks.com/customers/second-dinner",
+  "published_date": "2024-10-28",
+  "evidence_quotes": [
+    "Despite utilizing the Databricks Data + AI Platform for various functions — ingesting, processing, warehousing, analytics, dashboarding and ML — they faced challenges in advancing player personalization for their daily shop experience.",
+    "The manual steps needed to interpret visualizations and continuously push code created numerous opportunities for errors. A single feature iteration could take a month, limiting us to 10 use cases yearly.",
+    "The teams build and ingest customer engagement data through Delta Lake to feed their models.",
+    "The model adapts to player behavior and automatically updates in-game.",
+    "Leveraging these new capabilities in Databricks, Second Dinner has shifted from launching only 10 experiments a year to running them weekly."
+  ],
+  "vendor": "Databricks",
+  "id": "databricks-second-dinner-real-time-shop-personalization",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

@@ -1,0 +1,78 @@
+{
+  "slug": "databricks-allianz-direct-contact-center-agent-assist",
+  "customer_name": "Allianz Direct",
+  "industry": "Financial Services",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Allianz Direct wanted to use generative AI to remove mundane contact-center tasks while keeping customer-service answers trustworthy, compliant and built on the same governed data platform the company already used.",
+  "solution_summary": "Allianz Direct launched its first generative-AI customer-service workflow on the Databricks Data + AI Platform so contact-center agents could spend less time hunting through policy terms and more time helping customers. The team built a RAG-based agent-assist application that loads Allianz Direct's publicly shareable terms and conditions, retrieves the right passages for each policy question and presents grounded answers to a human agent rather than directly to the caller. Agent Bricks Custom Agents provides the core GenAI capability, Databricks Notebooks make workflow changes easy for developers, and Unity Catalog keeps the broader company data estate securely governed as more teams adopt self-service AI. Because the application runs on the same data and AI foundation Allianz Direct already used, the team could prototype quickly, test with a subset of agents and expand from the initial proof of concept toward broader rollouts and additional GenAI use cases.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "Agent Bricks Custom Agents",
+    "Databricks Notebook",
+    "Unity Catalog"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the shared data and AI environment where Allianz Direct builds and runs GenAI contact-center workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Agent Bricks Custom Agents",
+      "role": "Powers the RAG-based agent-assist workflow that surfaces grounded answers to policy questions for human agents."
+    },
+    {
+      "name": "Databricks Notebook",
+      "role": "Makes workflow changes and proof-of-concept iteration simple for Allianz Direct developers."
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Keeps Allianz Direct's broader data estate securely governed as self-service GenAI use grows.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Publicly shareable policy terms and conditions are retrieved into a RAG workflow on Databricks, where Agent Bricks Custom Agents generates grounded responses for human contact-center agents. Developers update the workflow in Databricks Notebooks, and governed platform access remains controlled through Unity Catalog as the use case scales.",
+  "integration_points": [
+    "Policy terms and conditions corpus",
+    "Human contact-center agents",
+    "Customer service conversations"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The new agent-assist workflow improved answer accuracy by 10 to 15%, built agent trust in the tool, reduced time spent searching across multiple systems and gave Allianz Direct a governed foundation for rolling out more GenAI use cases across contact centers.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "15% improved answer accuracy with agent assist tool",
+    "10 to 15% uplift in accuracy"
+  ],
+  "architecture_clues": [
+    "The first use case is a RAG-based agent-assist tool over policy terms and conditions.",
+    "Responses are delivered to human agents instead of directly to customers.",
+    "The platform choice was aided by lakehouse scalability and self-service data access governed through Unity Catalog."
+  ],
+  "source_url": "https://www.databricks.com/customers/allianz-direct",
+  "published_date": "2024-08-15",
+  "evidence_quotes": [
+    "We don't want shorter calls, we're not trying to replace agents with automation — we're getting rid of the mundane stuff agents don't like doing so they can spend more time talking to customers.",
+    "The team built a proof of concept for a RAG-based agent-assist tool.",
+    "This application incorporated all of Allianz Direct products' terms and conditions, intelligently delivering the right information to the agent at the right time.",
+    "Compared with the previous application, the Databricks Agent Bricks Custom Agents-powered use case demonstrated a 10 to 15% uplift in accuracy.",
+    "Thanks to Databricks, everyone in Allianz Direct has access to the data they need to do their job, securely governed via Unity Catalog."
+  ],
+  "vendor": "Databricks",
+  "id": "databricks-allianz-direct-contact-center-agent-assist",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

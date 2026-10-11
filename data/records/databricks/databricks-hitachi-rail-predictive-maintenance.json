@@ -1,0 +1,81 @@
+{
+  "slug": "databricks-hitachi-rail-predictive-maintenance",
+  "customer_name": "Hitachi",
+  "industry": "Manufacturing",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Hitachi needed to replace manual rail-overhead-line inspections and infrequent measurement trains with a scalable way to analyze massive video feeds and catch defects before outages disrupted service.",
+  "solution_summary": "Hitachi built a rail-inspection solution on Databricks Lakehouse to turn video captured from train-mounted cameras into near-real-time maintenance intelligence. Video streams covering roughly 40,000 kilometers of overhead lines are uploaded from trains to the cloud and processed on Databricks, where Delta Lake handles storage and pipelines for the large, mixed data volumes. MLflow manages model training, deployment and experiment tracking for the computer-vision workflows that detect defects and line displacement, while Databricks SQL dashboards surface production alerts, model performance and other operational metrics. Shared workspaces and notebooks let data engineers and scientists collaborate on reusable code and models. As fresh video is analyzed, the system generates alerts that dispatch workers to the affected area, giving rail network owners a predictive maintenance workflow that replaces slow manual inspections and reactive outage response.",
+  "products_used": [
+    "Databricks Lakehouse",
+    "Delta Lake",
+    "MLflow",
+    "Databricks SQL"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Lakehouse",
+      "role": "Provides the managed platform where Hitachi processes train video and runs AI workflows for rail inspections.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores the large video-derived datasets and powers the pipelines that feed the inspection workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MLflow",
+      "role": "Handles model management, training, deployment and experiment tracking for the defect-detection models."
+    },
+    {
+      "name": "Databricks SQL",
+      "role": "Supplies dashboards for alerts in production, model performance and other operational monitoring.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Video from cameras mounted on trains is uploaded to the cloud and processed in Databricks, where Delta Lake stores inspection data and MLflow-managed models analyze frames for overhead-line defects or displacement. Detected issues are surfaced in Databricks SQL dashboards and trigger alerts that send workers to the affected section of track.",
+  "integration_points": [
+    "Train-mounted cameras",
+    "Rail network owners",
+    "Field workers dispatched on alerts"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Hitachi shifted railway customers from reactive outage handling to predictive maintenance, found thousands of equipment risks and line displacements in near real time, sped time to market for new ML solutions and generated millions of pounds in savings for rail operators.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "40,000 km of overhead lines",
+    "What used to take days can now be done in near real-time, remotely",
+    "thousands of equipment risks and line displacements",
+    "millions of pounds in savings"
+  ],
+  "architecture_clues": [
+    "Uploads train video to the cloud for AI inspection.",
+    "Uses shared workspaces and notebooks for code and model reuse.",
+    "Generates production alerts from analyzed video as part of the maintenance workflow."
+  ],
+  "source_url": "https://www.databricks.com/customers/hitachi",
+  "published_date": "2024-03-28",
+  "evidence_quotes": [
+    "Hitachi built an end-to-end solution by installing cameras on trains and uploading the videos to the cloud.",
+    "Hitachi uses Delta Lake — the default storage format for all operations on Databricks — for data storage and pipelines, and MLflow for model management, training and deployment, and tracking experiments.",
+    "The team uses Databricks SQL for monitoring dashboards, which provide stats on alerts in production, model performance and more.",
+    "Now, as video data gets ingested and analyzed, the system seamlessly generates alerts on defects or displacement of overhead lines, and a worker gets sent to the area to fix it.",
+    "Hitachi has been able to discover thousands of equipment risks and line displacements that could be fixed proactively by their clients."
+  ],
+  "vendor": "Databricks",
+  "id": "databricks-hitachi-rail-predictive-maintenance",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

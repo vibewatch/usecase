@@ -1,0 +1,102 @@
+{
+  "slug": "databricks-water-link-smart-meter-operations-automation",
+  "customer_name": "water-link",
+  "industry": "Energy",
+  "region": "Belgium",
+  "company_size": "Enterprise",
+  "business_problem": "water-link needed to centralize and operationalize real-time telemetry from hundreds of thousands of digital water meters so billing, maintenance, leak detection and stakeholder integrations could run automatically instead of through disconnected manual processes.",
+  "solution_summary": "water-link and partner delaware built a central data hub on Microsoft Azure with Databricks at the core so smart-water-meter telemetry could drive operational action instead of sitting in disconnected systems. Job clusters connect to Azure Event Hubs to ingest streams from more than 200,000 digital meters, then enrich those messages with asset and customer data before routing signals to operational teams and downstream platforms. Databricks SQL warehouses and Delta Lake make the curated data broadly consumable across service-desk, field-service and analytics teams, while Power BI provides a 360-degree cockpit and Azure Functions bridges Databricks outputs into the SAP integration stack so ERP workflows can be triggered directly from reports. An OpenAPI-based layer supports internal and future external sharing, and the rule engine prioritizes hundreds of thousands of daily alerts so leak, theft and contamination responses can be automated without human triage.",
+  "products_used": [
+    "Databricks",
+    "Azure Event Hubs",
+    "Delta Lake",
+    "Databricks SQL warehouses",
+    "Power BI",
+    "Azure Functions",
+    "SAP integration stack"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks",
+      "role": "Acts as the central data hub where water-link enriches and operationalizes digital-water-meter streams.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Event Hubs",
+      "role": "Ingests the real-time data streams coming from water-link's digital meters.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Delta Lake",
+      "role": "Stores the curated lakehouse data that powers analytics and operational use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Databricks SQL warehouses",
+      "role": "Provide a simple shared access layer for analytics, ad hoc queries and operational insights.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power BI",
+      "role": "Delivers the 360-degree cockpit and report interfaces used by service-desk and business users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure Functions",
+      "role": "Bridges Databricks outputs into downstream operational processes and ERP flows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "SAP integration stack",
+      "role": "Receives triggered process flows from reports and operational alerts so ERP workflows can execute automatically."
+    }
+  ],
+  "data_flow": "Digital-meter telemetry streams into Azure Event Hubs and is processed by Databricks job clusters, where the data is enriched with asset and customer context and stored in Delta Lake. Databricks SQL and Power BI serve insights to business teams, while Azure Functions passes selected outputs into SAP and other operational systems for automated action.",
+  "integration_points": [
+    "Digital water meters",
+    "Internal and external APIs",
+    "SAP ERP workflows",
+    "Field-service and service-desk teams"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "water-link now supports more than 20 use cases with a single data hub, processes hundreds of thousands of alerts without human triage, enables direct ERP actions from reports and gives consumers and operators faster insight into leaks, contamination risks and service events while lowering operational loss.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "200,000+ Assets connected",
+    "700,000+ Messages and alerts processed daily",
+    "500,000+ Daily API calls",
+    "more than 20 use cases",
+    "over 600,000 households and businesses"
+  ],
+  "architecture_clues": [
+    "Everything runs on Microsoft Azure with a heavy focus on lakehouse concepts and Databricks.",
+    "The API layer is built according to the OpenAPI Specifications (OAS).",
+    "The business rule engine prioritizes and acts on hundreds of thousands of alerts every day."
+  ],
+  "source_url": "https://www.databricks.com/customers/water-link",
+  "published_date": "2023-11-08",
+  "evidence_quotes": [
+    "Everything runs on Microsoft Azure, with a heavy focus on lakehouse concepts and Databricks.",
+    "Job clusters are connected to Azure Event Hubs to ingest the various data streams.",
+    "water-link relies heavily on Databricks SQL warehouses and Delta Lake to democratize data access and consumption throughout their organization.",
+    "Thanks to the Azure Functions integration bridging the Databricks Data + AI Platform toward a SAP integration stack, users can trigger process flows in the ERP directly from a Power BI report.",
+    "The business rule engine allows the data integration platform to prioritize and act on hundreds of thousands of alerts without the need for human intervention every day."
+  ],
+  "vendor": "Databricks",
+  "id": "databricks-water-link-smart-meter-operations-automation",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}
