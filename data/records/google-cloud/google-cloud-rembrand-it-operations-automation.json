@@ -1,0 +1,85 @@
+{
+  "id": "google-cloud-rembrand-it-operations-automation",
+  "slug": "google-cloud-rembrand-it-operations-automation",
+  "vendor": "Google Cloud",
+  "customer_name": "Rembrand",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "DWS on GKE gave us reliable, cost-efficient access to the accelerators we needed, so consolidating our core AI workloads on Google Cloud made sense.",
+  "solution_summary": "DWS on GKE gave us reliable, cost-efficient access to the accelerators we needed, so consolidating our core AI workloads on Google Cloud made sense. In the early days, Rembrand relied on a costly patchwork of cloud providers and neocloud GPU platforms that slowed the team down. AWS supported much of their production layer, and GPU-heavy experiments bounced between Google Kubernetes Engine (GKE) and other… \"For a long time, running across multiple clouds felt unavoidable. Access to high-end GPUs was unpredictable, and we had to take capacity wherever we could,\" said Saad. But when the team found Google Cloud's Dynamic Workload Scheduler (DWS), it immediately… Key components include Dynamic Workload Scheduler (DWS) orchestrates scheduled workflows and service-to-service jobs across the platform; Cloud Storage stores large files, lake data, or static assets that feed downstream analytics and applications; Google Kubernetes Engine (GKE) orchestrates the platform's containerized.",
+  "products_used": [
+    "Dynamic Workload Scheduler (DWS)",
+    "Cloud Storage",
+    "Google Kubernetes Engine (GKE)",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Dynamic Workload Scheduler (DWS)",
+      "role": "Orchestrates scheduled workflows and service-to-service jobs across the platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Stores large files, lake data, or static assets that feed downstream analytics and applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Kubernetes Engine (GKE)",
+      "role": "Orchestrates the platform's containerized services and high-concurrency workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs serverless or virtualized application services with elastic scale for production AI workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Instead of reserving entire eight-GPU machines just to run a single experiment, DWS allocates the exact number of GPUs needed and queues jobs efficiently. For Rembrand, this immediately cut training costs by 45–55% while giving them consistent access to high-end accelerators. \"Accessing high-end GPUs in single-unit slices meant we could experiment constantly without overprovisioning or waiting weeks for capacity,\" Khamis said.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "45–55% reduction in model training costs; Cold starts improved by 99%, from 20 minutes to a few seconds; 5–6× increase in AI team output; Rapid deployment of multi-model 80 GB containers with no re-architecting",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "45–55% reduction in model training costs",
+    "Cold starts improved by 99%, from 20 minutes to a few seconds",
+    "Rapid deployment of multi-model 80 GB containers with no re-architecting",
+    "Instead of reserving entire eight-GPU machines just to run a single experiment, DWS allocates the exact number of GPUs needed and queues jobs efficiently. For Rembrand, this immediately cut training costs by 45–55% while giving them…",
+    "Layering Kubeflow and its PyTorchJob training operator on GKE then gave the team full control over distributed training by orchestrating pipelines and keeping experiments reproducible. \"We could suddenly run 32- or 48-GPU jobs without…",
+    "While training had become smooth on GKE, inference still lagged behind because Rembrand's production stack on AWS couldn't support GPUs in a serverless environment. Every model update meant spinning up dedicated GPU instances and loading…"
+  ],
+  "architecture_clues": [
+    "Rembrand creates AI-powered product placement, inserting brands into finished video so naturally that viewers assume the items were always there. Their technology has to operate at a level of film-level realism most AI…",
+    "In the early days, Rembrand relied on a costly patchwork of cloud providers and neocloud GPU platforms that slowed the team down. AWS supported much of their production layer, and GPU-heavy experiments bounced between…",
+    "This meant data had to be duplicated across systems, GPU performance varied, and the overhead of maintaining different Kubernetes environments became a drag on engineering time. Experimentation lagged because every new…",
+    "Once Rembrand consolidated on Google Cloud, GKE became the backbone of their machine learning pipeline. On other platforms, standing up Kubernetes demanded manual tuning and a heap of add-ons just to achieve basic…",
+    "Instead of reserving entire eight-GPU machines just to run a single experiment, DWS allocates the exact number of GPUs needed and queues jobs efficiently. For Rembrand, this immediately cut training costs by 45–55%…"
+  ],
+  "source_url": "https://cloud.google.com/customers/rembrand",
+  "published_date": "2026-03-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "45–55% reduction in model training costs",
+    "Cold starts improved by 99%, from 20 minutes to a few seconds",
+    "Rapid deployment of multi-model 80 GB containers with no re-architecting",
+    "Google Cloud's GPU-rich platform helped Rembrand cut training costs in half and bring new video capabilities to market faster than ever.",
+    "In the early days, Rembrand relied on a costly patchwork of cloud providers and neocloud GPU platforms that slowed the team down. AWS supported much of their production layer, and GPU-heavy experiments bounced between…",
+    "\"For a long time, running across multiple clouds felt unavoidable. Access to high-end GPUs was unpredictable, and we had to take capacity wherever we could,\" said Saad. But when the team found Google Cloud's Dynamic…"
+  ],
+  "is_sample": false
+}
