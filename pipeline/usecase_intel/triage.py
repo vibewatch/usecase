@@ -321,6 +321,29 @@ def load_decisions(path: Path = TRIAGE_PATH) -> dict[str, dict[str, Any]]:
     return latest
 
 
+# A page date shared by this many pages of one vendor is a site migration or
+# re-publish stamp (e.g. IBM's 2024-05-14), not a publish date.
+BULK_DATE_MIN_PAGES = 15
+
+
+def bulk_dates(decisions: dict[str, dict[str, Any]]) -> set[tuple[str, str]]:
+    counts = Counter(
+        (row.get("vendor"), row.get("published_date"))
+        for row in decisions.values()
+        if row.get("stage") == "post" and row.get("published_source") == "page" and row.get("published_date")
+    )
+    return {key for key, count in counts.items() if count >= BULK_DATE_MIN_PAGES}
+
+
+def date_settled(row: dict[str, Any], bulk: set[tuple[str, str]]) -> bool:
+    """True when the 2023+ cutoff can be trusted for this page."""
+    if row.get("date_checked"):
+        return True
+    if not row.get("published_date"):
+        return False
+    return row.get("published_source") != "page" or (row.get("vendor"), row["published_date"]) not in bulk
+
+
 def _record_urls(records_root: Path) -> set[str]:
     urls: set[str] = set()
     for path in records_root.glob("*/*.json"):
@@ -519,13 +542,14 @@ def enrich_dates(
     """
     counts: Counter[str] = Counter()
     weights = criteria.weights
+    decisions = load_decisions(output_path)
+    bulk = bulk_dates(decisions)
     pending = [
         row
-        for row in load_decisions(output_path).values()
+        for row in decisions.values()
         if row.get("stage") == "post"
         and row.get("decision") == "keep"
-        and not row.get("published_date")
-        and not row.get("date_checked")
+        and not date_settled(row, bulk)  # undated, or carrying a bulk migration date
         and (not vendor_filter or row.get("vendor", "").lower() == vendor_filter.lower())
     ]
     pending.sort(key=lambda row: float(row.get("score") or 0), reverse=True)
@@ -550,6 +574,12 @@ def enrich_dates(
                     continue
                 failures = 0
                 updated = {**row, "date_checked": True, "decided_at": _now()}
+                page_date = row.get("published_date")
+                if first_seen and page_date and page_date <= first_seen:
+                    counts["page_date_earlier"] += 1  # the page's own date is earlier; keep it
+                    out.write(json.dumps(updated, ensure_ascii=False) + "\n")
+                    out.flush()
+                    continue
                 if first_seen:
                     counts["dated"] += 1
                     updated["published_date"] = first_seen
@@ -559,8 +589,9 @@ def enrich_dates(
                         updated["reasons"] = [f"published_before_{criteria.since}"]
                         counts["drop"] += 1
                     else:
-                        bonus = float(weights["recency_by_year"].get(first_seen[:4], 0)) + float(weights["unknown_date_penalty"])
-                        updated["score"] = round(float(row.get("score") or 0) + bonus, 2)
+                        recency = weights["recency_by_year"]
+                        previous = float(recency.get(page_date[:4], 0)) if page_date else -float(weights["unknown_date_penalty"])
+                        updated["score"] = round(float(row.get("score") or 0) + float(recency.get(first_seen[:4], 0)) - previous, 2)
                 else:
                     counts["never_archived"] += 1  # likely new: keep as-is
                 out.write(json.dumps(updated, ensure_ascii=False) + "\n")

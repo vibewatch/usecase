@@ -46,7 +46,7 @@ from .settings import (
     TRIAGE_PATH,
     fetch_options,
 )
-from .triage import load_decisions
+from .triage import bulk_dates, date_settled, load_decisions
 from .utils import load_json, load_jsonl, slugify
 
 PROMPT_TEMPLATE = """You are an extraction agent. Follow the SKILL below exactly and return a single strict JSON object — no markdown fences, no prose.
@@ -196,8 +196,12 @@ def extract_jobs(
 
     decisions = load_decisions(triage_path) if triage_path else {}
     if decisions:
+        bulk = bulk_dates(decisions)
         kept = [row for row in candidates if (decisions.get(row["url"]) or {}).get("stage") == "post"
-                and decisions[row["url"]].get("decision") == "keep"]
+                and decisions[row["url"]].get("decision") == "keep"
+                # The date cutoff must be settled first: undated or bulk-dated pages wait
+                # for `triage --stage dates`.
+                and date_settled(decisions[row["url"]], bulk)]
         counts["skipped_triage"] = len(candidates) - len(kept)
         # Most relevant first so a --limit cap spends extraction on the best stories.
         candidates = sorted(kept, key=lambda r: float(decisions[r["url"]].get("score") or 0), reverse=True)

@@ -6,7 +6,7 @@ const VENDOR_STYLES: Record<string, { color: string; mark: string }> = {
   "Google Cloud": { color: "#4285f4", mark: "GC" },
   Oracle: { color: "#c74634", mark: "OR" },
   "Alibaba Cloud": { color: "#ff6a00", mark: "AC" },
-  Snowflake: { color: "#29b5e8", mark: "SF" },
+  Snowflake: { color: "#29b5e8", mark: "SNW" },
   Databricks: { color: "#ff3621", mark: "DB" },
   IBM: { color: "#0f62fe", mark: "IBM" },
   Salesforce: { color: "#00a1e0", mark: "SF" },
@@ -14,6 +14,12 @@ const VENDOR_STYLES: Record<string, { color: string; mark: string }> = {
   LangChain: { color: "#1c3c3c", mark: "LC" },
   OpenAI: { color: "#10a37f", mark: "OA" },
   Anthropic: { color: "#d97757", mark: "AN" },
+  ServiceNow: { color: "#1f8476", mark: "SN" },
+  MongoDB: { color: "#00684a", mark: "MDB" },
+  Confluent: { color: "#0a3d62", mark: "CF" },
+  SAP: { color: "#0070f2", mark: "SAP" },
+  Mistral: { color: "#fa520f", mark: "MI" },
+  Cohere: { color: "#39594d", mark: "CO" },
 };
 
 export function vendorStyle(vendor: string): { color: string; mark: string } {
