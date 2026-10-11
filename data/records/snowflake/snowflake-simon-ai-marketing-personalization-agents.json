@@ -1,0 +1,110 @@
+{
+  "id": "snowflake-simon-ai-marketing-personalization-agents",
+  "slug": "snowflake-simon-ai-marketing-personalization-agents",
+  "vendor": "Snowflake",
+  "customer_name": "Simon AI",
+  "industry": "Software / SaaS",
+  "region": "New York, New York",
+  "company_size": "Unknown",
+  "business_problem": "replace batch-oriented, fragmented marketing workflows with governed real-time AI that can personalize campaigns without moving sensitive customer data into external services.",
+  "solution_summary": "Simon AI built its agentic marketing platform directly on Snowflake's AI Data Cloud so marketing, data, and AI can operate inside one governed environment. First-, second-, and third-party structured and unstructured data stay in Snowflake instead of moving through reverse ETL or external APIs. Snowflake Cortex AI applies row-level LLM logic across billions of events and millions of profiles, while Snowflake data sharing and Snowflake Marketplace enrich customer records with weather, location, and market signals. Engineers build agents in SQL or Python, deploy them with Snowpark Container Services, and use Snowpark plus Dynamic Tables to keep real-time pipelines current. The resulting blueprints assemble reusable agents for intent detection, sentiment analysis, predictive scoring, and campaign activation so Simon customers can launch cross-channel campaigns faster and target audiences with more precision.",
+  "products_used": [
+    "Snowflake",
+    "Snowflake Cortex AI",
+    "Claude from Anthropic",
+    "Snowpark Container Services",
+    "Snowpark",
+    "Dynamic Tables",
+    "Snowflake data sharing",
+    "Snowflake Marketplace"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the governed AI Data Cloud where customer data, agent logic, and campaign outputs stay together.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Cortex AI",
+      "role": "Applies row-level LLM logic across large datasets for segmentation, reasoning, and agent decisions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude from Anthropic",
+      "role": "Supplies the language model that powers Simon's composable AI agents through Snowflake.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowpark Container Services",
+      "role": "Deploys and scales Simon's agent services inside Snowflake with standard CI/CD practices.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Supports the SQL and Python development model Simon uses to build and run real-time data pipelines for agents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dynamic Tables",
+      "role": "Keeps derived marketing datasets and agent-ready attributes refreshed with the latest signals.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Snowflake data sharing",
+      "role": "Brings governed external and partner data into Simon's workflows without copying it out of Snowflake.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowflake Marketplace",
+      "role": "Supplies third-party weather, location, and market datasets that enrich campaign targeting.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "First-, second-, and third-party customer data land in Snowflake, where Snowflake data sharing and Snowflake Marketplace add weather, location, and market signals. Dynamic Tables and Snowpark keep live datasets current, Cortex AI applies row-level LLM logic, and agents deployed with Snowpark Container Services generate intent, sentiment, and predictive outputs that feed contextual campaign activation.",
+  "integration_points": [
+    "first-party customer data",
+    "second-party data",
+    "third-party data",
+    "support interactions",
+    "weather data",
+    "location data",
+    "market signals"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Simon AI customers launch campaigns faster, target audiences more precisely, build contextually relevant audiences 90% faster, and uncover more than 100 new high-value customer cohorts while keeping customer data in a governed environment.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "90% Less time to build contextually relevant audiences",
+    "100+ Newly identified high-value customer cohorts",
+    "billions of customer events",
+    "millions of profiles"
+  ],
+  "architecture_clues": [
+    "Agents run natively inside Snowflake's AI Data Cloud, eliminating reverse ETL and external APIs.",
+    "Governance includes role-based access controls, lineage tracking, and audit trails.",
+    "Engineers build agents in SQL or Python and deploy them with Snowpark Container Services."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/simon-ai/",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Built with Snowflake Cortex AI and powered by Claude from Anthropic",
+    "run directly in Snowflake's AI Data Cloud",
+    "Snowflake Cortex AI allows our agents to apply LLM logic at the row level, in parallel, across massive datasets",
+    "building contextually relevant audiences 90% faster",
+    "hundreds of newly identified high-value customer cohorts"
+  ]
+}
