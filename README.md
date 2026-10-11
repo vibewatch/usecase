@@ -99,8 +99,7 @@ data/weekly/undated.json          synthetic samples (no collection date)
 A record's week is its earliest successful fetch in `data/fetch_manifest.jsonl`
 (or the build date for brand-new records) and never changes afterwards — the
 committed weekly files are the ledger. The site mirrors this layout as slim,
-per-week JSON shards at `/data/weeks/<week>.json` (manifest:
-`/data/weeks/index.json`). The explorer renders the newest weeks inline and
+per-week JSON shards at `/data/weeks/<week>.json` (not linked from the UI). The explorer renders the newest weeks inline and
 fetches older shards on demand ("Load earlier weeks", or automatically when a
 filter needs the whole archive), so page weight stays flat as the archive
 grows.

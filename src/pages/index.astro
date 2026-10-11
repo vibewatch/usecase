@@ -127,11 +127,11 @@ const BLANK_CARD: CardRecord = {
   search: "",
 };
 
-const pipelineSteps = [
-  { title: "Discover", text: "Walk vendor sitemaps and story indexes for new customer-story URLs, newest first." },
-  { title: "Fetch", text: "Mirror each page with per-host strategies, retries and reader/archive fallbacks." },
-  { title: "Extract", text: "An agent turns each page into a strict record: problem, architecture, products, outcomes, evidence." },
-  { title: "Publish", text: "Records are partitioned by collection week, committed to GitHub and deployed to this site." },
+const methodSteps = [
+  { title: "Track", text: "New customer stories are picked up from leading cloud and AI vendors every day, newest first." },
+  { title: "Read", text: "Each story is read end to end — architecture details, measurable results and customer quotes included." },
+  { title: "Structure", text: "Every story becomes a consistent profile: business problem, solution architecture, products, outcomes and evidence." },
+  { title: "Compare", text: "Profiles are scored for maturity and grouped by week, so you can compare deployments across vendors and industries." },
 ];
 ---
 
@@ -240,7 +240,7 @@ const pipelineSteps = [
             <h2 class="section__title">Browse use cases, week by week</h2>
           </div>
           <p class="section__subtitle">
-            Newest collections first. Older weeks load on demand from per-week data shards, so the page stays fast as the archive grows.
+            Newest additions first. Earlier weeks load as you browse.
           </p>
         </div>
 
@@ -324,7 +324,7 @@ const pipelineSteps = [
           </p>
         </div>
         {sampleCount > 0 && (
-          <p class="footnote">{sampleCount} synthetic sample {sampleCount === 1 ? "record is" : "records are"} kept in the reference set for development and marked “Sample”. They are excluded from insights.</p>
+          <p class="footnote">{sampleCount} illustrative sample {sampleCount === 1 ? "profile is" : "profiles are"} marked “Sample” and excluded from insights.</p>
         )}
 
         <template data-card-template><CaseCard card={BLANK_CARD} /></template>
@@ -340,7 +340,7 @@ const pipelineSteps = [
             <h2 class="section__title">Where vendors prove customer value</h2>
           </div>
           <p class="section__subtitle">
-            Aggregated across {signal.length} extracted stories. Click any bar to filter the explorer.
+            Aggregated across {signal.length} customer stories. Click any bar to filter the explorer.
           </p>
         </div>
 
@@ -448,19 +448,19 @@ const pipelineSteps = [
       </div>
     </section>
 
-    <section class="section" id="pipeline">
+    <section class="section" id="method">
       <div class="container">
         <div class="section__head">
           <div>
-            <p class="eyebrow">How it works</p>
-            <h2 class="section__title">A daily, fully automated collection loop</h2>
+            <p class="eyebrow">Methodology</p>
+            <h2 class="section__title">From customer story to comparable insight</h2>
           </div>
           <p class="section__subtitle">
-            A scheduled GitHub Actions workflow runs every morning (06:00 UTC). New records land in git as weekly partitions and this site redeploys automatically.
+            The library refreshes every day. Each new story is turned into a structured profile, so you can see what was built, with which products, and what it delivered.
           </p>
         </div>
         <ol class="steps">
-          {pipelineSteps.map((step, index) => (
+          {methodSteps.map((step, index) => (
             <li class="step">
               <span class="step__index">{String(index + 1).padStart(2, "0")}</span>
               <h3>{step.title}</h3>
@@ -470,12 +470,12 @@ const pipelineSteps = [
         </ol>
         <div class="cta">
           <div>
-            <h2 class="cta__title">Every record is open data.</h2>
-            <p class="cta__text">Browse the weekly archive in the repository, pull the per-week JSON shards, or add a vendor source and let the daily run pick it up.</p>
+            <h2 class="cta__title">Find proven patterns for your next project.</h2>
+            <p class="cta__text">Search by vendor, industry, use case or product, and go straight to the architecture and outcomes behind each deployment.</p>
           </div>
           <div class="cta__actions">
-            <a class="btn btn--primary" href="https://github.com/vibewatch/usecase/tree/main/data/weekly" target="_blank" rel="noreferrer">Weekly archive</a>
-            <a class="btn btn--glass" href={href("/data/weeks/index.json")}>JSON shards</a>
+            <a class="btn btn--primary" href="#explore">Explore use cases</a>
+            <a class="btn btn--glass" href="#insights">See insights</a>
           </div>
         </div>
       </div>

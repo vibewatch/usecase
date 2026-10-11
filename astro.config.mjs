@@ -6,4 +6,19 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: process.env.SITE_URL || 'https://usecase.genisisiq.com',
   base: process.env.BASE_PATH || '/',
+  build: { assets: 'assets' },
+  // Neutral, hash-only asset names (no framework or component names in URLs).
+  vite: {
+    build: {
+      // Inline page scripts into the HTML (no separately named script files).
+      assetsInlineLimit: 100 * 1024,
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/[hash].js',
+          chunkFileNames: 'assets/[hash].js',
+          assetFileNames: 'assets/[hash][extname]',
+        },
+      },
+    },
+  },
 });
