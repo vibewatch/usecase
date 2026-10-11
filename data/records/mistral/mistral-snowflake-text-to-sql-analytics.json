@@ -1,0 +1,74 @@
+{
+  "id": "mistral-snowflake-text-to-sql-analytics",
+  "slug": "mistral-snowflake-text-to-sql-analytics",
+  "vendor": "Mistral",
+  "customer_name": "Snowflake",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Snowflake needed Cortex Analyst to generate highly accurate SQL against complex enterprise datasets while also explaining answers conversationally for non-technical users and detecting ambiguous questions before bad query results could affect business decisions.",
+  "solution_summary": "Snowflake built Cortex Analyst as a structured-data assistant that turns natural-language questions into trustworthy SQL and then explains the results conversationally to business users. The implementation pairs two Mistral models with a multi-agent generation pattern: Mistral Large and a fine-tuned Codestral create candidate SQL for a user's request, then Codestral synthesizes the final query from those expert outputs. Cortex Analyst serves the final SQL together with explanations and reference material so users can understand how the answer was produced. The workflow is designed to run against complex enterprise datasets, detect ambiguous or unanswerable questions, and keep execution accuracy high enough for decision-critical analytics without forcing non-technical teams to hand-author SQL.",
+  "products_used": [
+    "Cortex Analyst",
+    "Mistral Large",
+    "Codestral"
+  ],
+  "solution_components": [
+    {
+      "name": "Cortex Analyst",
+      "role": "Provides the structured-data assistant interface that returns SQL, context, and conversational explanations to users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Mistral Large",
+      "role": "Handles reasoning and natural-language generation for candidate SQL creation and conversational response quality.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Codestral",
+      "role": "Generates SQL and synthesizes the final SQL response from multiple agent outputs after fine-tuning for the use case.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "A business user asks a natural-language question in Cortex Analyst; Mistral Large and a fine-tuned Codestral generate candidate SQL over structured enterprise data, Codestral synthesizes the final query, and Cortex Analyst returns the SQL with conversational explanation, references, and warnings when a question is ambiguous or unanswerable.",
+  "integration_points": [
+    "structured enterprise datasets",
+    "business users",
+    "reference documentation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Snowflake used Mistral Large and Codestral to raise Cortex Analyst's text-to-SQL accuracy well beyond competing approaches, making self-service analytics faster and more reliable for non-technical users while setting a higher bar for user experience in generative SQL products.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "2X higher accuracy compared to state-of-the-art LLMs",
+    "14% higher accuracy than other competing solutions",
+    "90% or higher accuracy consistently across customer evaluations"
+  ],
+  "architecture_clues": [
+    "Snowflake uses a two-step approach in which multiple agents generate SQL and another agent synthesizes the final SQL.",
+    "Snowflake uses Mistral Large and a finetuned Codestral for initial SQL generation and Codestral again for final synthesis.",
+    "Cortex Analyst is designed to identify ambiguous or unanswerable questions and suggest alternatives."
+  ],
+  "source_url": "https://mistral.ai/customers/snowflake/",
+  "published_date": "2025-06-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"2X higher accuracy compared to state-of-the-art LLMs\"",
+    "\"14% higher accuracy than other competing solutions\"",
+    "\"90% or higher accuracy consistently across customer evaluations\"",
+    "\"Snowflake uses a two-step approach: first, asking multiple agents to generate SQL and then asking another agent to synthesize the final SQL based on the expert responses.\"",
+    "\"Snowflake uses Mistral Large and a finetuned Codestral for the initial SQL generation and uses Codestral for synthesizing the final SQL response.\""
+  ]
+}

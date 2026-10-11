@@ -1,0 +1,74 @@
+{
+  "id": "mistral-european-patent-office-document-processing",
+  "slug": "mistral-european-patent-office-document-processing",
+  "vendor": "Mistral",
+  "customer_name": "European Patent Office",
+  "industry": "Public Sector",
+  "region": "Europe",
+  "company_size": "Public sector",
+  "business_problem": "The European Patent Office needed a near-error-free way to transcribe millions of patent pages into ST36-compliant structured output, but standard OCR tools struggled with the formulas, tables, figures, multilingual text, and high-volume reliability requirements of patent processing.",
+  "solution_summary": "The European Patent Office worked with Mistral on a three-month proof of concept to automate patent transcription without losing the accuracy and standards compliance the grant process requires. At the core is a 1B OCR model fine-tuned on more than 150,000 PDFs representing 50,000 unique patents, so the system can read dense multilingual documents containing tables, formulas, figures, and scientific notation that defeat standard OCR tools. The model feeds a pipeline that converts outputs from Markdown to HTML and then into ST36 XML, producing structured patent data instead of plain extracted text. Mistral and EPO also delivered a scalable, fault-tolerant application ready for on-premises deployment, giving the office a reliable way to process very large document volumes while keeping the workflow aligned to operational and compliance requirements.",
+  "products_used": [
+    "1B OCR model",
+    "Markdown to HTML to ST36 XML pipeline",
+    "scalable, fault-tolerant application"
+  ],
+  "solution_components": [
+    {
+      "name": "1B OCR model",
+      "role": "Transcribes complex patent PDFs and was fine-tuned for the scientific and technical structures common in patent documents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Markdown to HTML to ST36 XML pipeline",
+      "role": "Transforms OCR output into the structured format required by the patent workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "scalable, fault-tolerant application",
+      "role": "Packages the transcription workflow for reliable, compliant operation and on-premises deployment."
+    }
+  ],
+  "data_flow": "Patent PDFs containing text, tables, formulas, figures, and multilingual content are read by the 1B OCR model, converted through a Markdown-to-HTML-to-ST36 XML pipeline, and delivered as structured output for the patent grant process through a scalable application designed for reliable on-premises use.",
+  "integration_points": [
+    "patent PDFs",
+    "ST36 XML",
+    "tables",
+    "formulas",
+    "figures",
+    "multiple European languages"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "The EPO reduced transcription lead times from days to minutes while maintaining less than 1% character recognition error at 400,000 pages per day, giving the office a scalable compliant workflow and freeing expert staff to focus on patent examination rather than manual transcription cleanup.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "400,000 pages/day throughput",
+    "<1% character recognition error rate",
+    "Lead time from up to 5 days down to a few minutes"
+  ],
+  "architecture_clues": [
+    "The OCR model was fine-tuned on over 150,000 PDFs representing 50,000 unique patents.",
+    "The workflow converts patent documents from Markdown to HTML and finally into ST36 XML.",
+    "The delivered application was built for reliability, full compliance, and on-premises deployment."
+  ],
+  "source_url": "https://mistral.ai/customers/epo/",
+  "published_date": "2026-03-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"400,000 pages/day throughput\"",
+    "\"<1% character recognition error rate\"",
+    "\"Lead time from up to 5 days down to a few minutes\"",
+    "\"The core of the solution included a 1B OCR model, specifically fine-tuned on over 150,000 PDFs, representing 50,000 unique patents.\"",
+    "\"The team developed a sophisticated pipeline that successfully converts complex, multifaceted patent documents from Markdown, to HTML, and finally into the required ST36 XML format.\""
+  ]
+}
