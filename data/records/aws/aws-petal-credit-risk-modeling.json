@@ -1,0 +1,79 @@
+{
+  "id": "aws-petal-credit-risk-modeling",
+  "slug": "aws-petal-credit-risk-modeling",
+  "vendor": "AWS",
+  "customer_name": "Petal",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "To fulfill the company's mission, Petal sought to build an infrastructure that could scale and grow with its business. Upon launching its first credit card, the Petal team needed to iterate quickly on its product.",
+  "solution_summary": "Credit card startup Petal is a trailblazer in broadening access to consumer credit. Consumers can use their banking history to qualify for Petal credit cards instead of relying on credit history alone to demonstrate creditworthiness. This transformative approach to credit underwriting, which Petal pioneered, has enabled hundreds of thousands of consumers who would typically be turned away by mainstream card issuers to gain access to credit and build credit history. Petal was born in 2016 after one of its founders experienced challenges acquiring credit in the United States as an international student with no US credit history. This inspired the founders to reimagine the credit decisioning process to better serve those with little or no credit history.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon S3",
+    "Amazon Redshift",
+    "Amazon RDS",
+    "Amazon EKS"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Builds, trains, or deploys the machine learning models behind the risk analysis and decisioning workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores source data, documents, or generated artifacts used by the risk analysis and decisioning workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Serves as the analytics warehouse for the risk analysis and decisioning workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon RDS",
+      "role": "Stores relational data that supports the risk analysis and decisioning workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized services that deliver the risk analysis and decisioning workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "\"By using Amazon S3, we can maintain high availability of our application page for our millions of applicants.\" For data storage, Petal uses Amazon Relational Database Service (Amazon RDS) for PostgreSQL to store its core transactional business data. RDS helped Petal quickly and easily scale its transactional data processing needs during periods of rapid growth. On AWS, Petal's infrastructure easily scales vertically and horizontally as the company has grown from processing a few dozen applications in the beginning to now handling millions of applications.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Petal continues to expand its reach to consumers. After initially launching with one credit card, Petal now offers three cards, Petal 2, Petal 1, and Petal 1 Rise.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "More than 40 percent of these customers approved in the past two years were first denied credit by a major bank."
+  ],
+  "architecture_clues": [
+    "To run its Kubernetes-based workloads on Amazon EC2 in an efficient manner, the company uses Amazon Elastic Kubernetes Service (Amazon EKS), a managed service to run Kubernetes in the cloud and...",
+    "\"By turning to Amazon EKS, we take away a lot of the extra complexity of running and hosting Kubernetes natively for our small team.\" Finally, Petal attributes its success building on AWS to the..."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/petal-case-study/",
+  "published_date": "2024-01-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By leveraging AWS infrastructure, Petal's engineering team was able to focus on creating a smooth application journey and a compelling credit card experience for its customers.",
+    "By building on AWS scalable solutions, the engineering team was also able to avoid many of the scalability pitfalls faced by rapidly growing startups.",
+    "When they did run into engineering challenges, they could simply leverage the AWS platform to scale out their infrastructure or reach out to AWS Support and their AWS account team.",
+    "\"The uptime and scalability of our AWS stack facilitate our ability to focus on our company's mission,\" says John Wang, vice president of engineering at Petal.",
+    "Petal's data-driven infrastructure runs on AWS services, from backend infrastructure to the front-office applications landscape.",
+    "Petal hosts the user interface for these first webpages using Amazon Simple Storage Service (Amazon S3), an object storage service offering industry-leading scalability, data availability, security, and performance."
+  ]
+}

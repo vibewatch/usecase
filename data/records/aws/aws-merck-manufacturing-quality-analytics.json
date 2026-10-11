@@ -1,0 +1,82 @@
+{
+  "id": "aws-merck-manufacturing-quality-analytics",
+  "slug": "aws-merck-manufacturing-quality-analytics",
+  "vendor": "AWS",
+  "customer_name": "Merck",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Merck wanted to reduce false rejects in pharmaceutical manufacturing so it could get life-saving drugs to customers faster while maintaining product safety.",
+  "solution_summary": "Merck built a manufacturing analytics and AI pipeline on AWS to reduce false rejects in pharmaceutical production. Real-time data from manufacturing processes and inspection machines is ingested with Amazon Kinesis, transformed and contextualized with AWS Glue, and loaded into Amazon Redshift for analytics and dashboards in Amazon QuickSight. The company's AI/ML platform on Amazon SageMaker combines harmonized process data with defect images transferred through AWS DataSync so teams can analyze quality signals across sites, investigate anomalies quickly, and support root-cause analysis. This architecture gives Merck a shared data foundation for near-real-time decision-making while improving yield, product availability, and response times for investigations and corrective actions.",
+  "products_used": [
+    "AWS Glue",
+    "Amazon Kinesis",
+    "Amazon Redshift",
+    "Amazon QuickSight",
+    "Amazon SageMaker",
+    "AWS DataSync"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Glue",
+      "role": "Transforms and prepares data used by the monitoring and anomaly-detection workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Kinesis",
+      "role": "Streams near-real-time events into the monitoring and anomaly-detection workflows.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Redshift",
+      "role": "Serves as the analytics warehouse for the monitoring and anomaly-detection workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon QuickSight",
+      "role": "Presents dashboards and analytics for the monitoring and anomaly-detection workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Builds, trains, or deploys the machine learning models behind the monitoring and anomaly-detection workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS DataSync",
+      "role": "Transfers source files and images into the monitoring and anomaly-detection workflows.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Merck ingests real-time manufacturing and inspection-machine data with Amazon Kinesis and AWS Glue, loads harmonized data into Amazon Redshift for dashboards in Amazon QuickSight, and uses Amazon SageMaker with defect images brought in through AWS DataSync to power quality analytics and AI/ML workflows.",
+  "integration_points": [
+    "inspection machines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "By using AWS services, Merck improved product availability and yield while enabling faster investigations, root-cause analysis, and corrective actions across its manufacturing operations.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/merck-customer-video",
+  "published_date": "2023-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Delivering innovative health with generative AI solutions at Merck | Amazon Web Services In this video, learn how Merck uses Amazon Web Services (AWS) to solve a common problem in the pharmaceutical industry—the occurrence of false rejects.",
+    "Merck uses AWS Glue and Amazon Kinesis to ingest, transform, and contextualize near real-time data, run analytics on that data and load the harmonized data into Amazon Redshift, which is then used by its analytics dashboards including...",
+    "Merck's artificial intelligence and machine learning (AI/ML) platform is built on Amazon SageMaker and uses AWS DataSync to ingest defect image data from inspection machines across sites.",
+    "Through the use of AWS services, Merck has improved product availability, increased product yield, enabled rapid response to investigations, and enabled rapid Root Cause Analysis and corrective actions all while providing significant time..."
+  ]
+}

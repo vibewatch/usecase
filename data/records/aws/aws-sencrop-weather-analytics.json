@@ -1,0 +1,65 @@
+{
+  "id": "aws-sencrop-weather-analytics",
+  "slug": "aws-sencrop-weather-analytics",
+  "vendor": "AWS",
+  "customer_name": "Sencrop",
+  "industry": "Consumer Goods",
+  "region": "France",
+  "company_size": "Mid-market",
+  "business_problem": "When building its app, Sencrop needed to find a way to gather and analyze large amounts of data from radar, weather forecasts, and nearly 40,000 in-field sensors, and then present insights to farmers in a readable, easy-to-interpret way.",
+  "solution_summary": "Farmers rely on accurate weather predictions to optimize crop yields and implement sustainable agricultural practices. The problem is that accurate forecasts aren't always so easy to come by; even rainfall predictions are right only 40 percent of the time. Sencrop, a smart agriculture startup based in France, wanted to create a solution that would enhance the accuracy of weather predictions and give farmers access to precise climate condition insights to support data-driven decision-making. Sencrop built its microclimate application on Amazon Web Services (AWS) using core services such as Amazon EMR —a cloud big data solution for petabyte-scale data processing, interactive analytics, and machine learning (ML).",
+  "products_used": [
+    "Amazon Aurora",
+    "Amazon EMR"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Aurora",
+      "role": "Stores application and analytical data used by the streaming analytics and reporting workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon EMR",
+      "role": "Processes large-scale analytical workloads used by the streaming analytics and reporting workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Sencrop uses Amazon EMR to process data in near real time. The data is then stored using Amazon Aurora , a relational database management system built for the cloud. Using AWS, Sencrop's app ingests 1.5 billion data points from weather forecasts daily and processes a total of 80 TB of data in its system.",
+  "integration_points": [],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "To further improve its data analysis to benefit farmers, Sencrop is conducting research and development projects in France using AWS and ML. The company is also planning to expand its solution to new regions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "68% of farmers saved farm vehicle trips",
+    "76% of farmers moved toward sustainable farming",
+    "The problem is that accurate forecasts aren't always so easy to come by; even rainfall predictions are right only 40 percent of the time.",
+    "Using AWS, Sencrop's app ingests 1.5 billion data points from weather forecasts daily and processes a total of 80 TB of data in its system.",
+    "From a representative sample of over 1,000 farmers, 90 percent of vine and potato growers reported reduced chemical spray treatment frequency, 68 percent of farmers saved farm..."
+  ],
+  "architecture_clues": [
+    "\"Using AWS, we can expand to a new region in a new part of the world and keep our architecture exactly the same,\" says Mathieu Despriée, chief technology officer of Sencrop.",
+    "\"We know that there will be good connectivity and that everything will be congruent.\" Using AWS, we can expand to a new region in a new part of the world and keep our architecture exactly the same."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/sencrop-case-study/",
+  "published_date": "2024-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Sencrop built its microclimate application on Amazon Web Services (AWS) using core services such as Amazon EMR —a cloud big data solution for petabyte-scale data processing, interactive analytics, and machine learning (ML).",
+    "Using Sencrop's solution, almost 30,000 farmers across Europe improved sustainability efforts by reducing water use, chemical spray treatment frequency, and tractor and harvester trips.",
+    "Initially, Sencrop used AWS microservices to deploy infrastructure quickly and efficiently, but it has since expanded its use of AWS to take advantage of the broad range of services and low costs of operation and maintenance.",
+    "Sencrop uses Amazon EMR to process data in near real time.",
+    "The data is then stored using Amazon Aurora , a relational database management system built for the cloud.",
+    "Sencrop applies ML to analyze the data as it is collected, using AWS for the compute power needed to handle the enormous amounts of data to train its ML models."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "aws-paynet-settlement-analytics",
+  "slug": "aws-paynet-settlement-analytics",
+  "vendor": "AWS",
+  "customer_name": "PayNet",
+  "industry": "Financial Services",
+  "region": "Malaysia",
+  "company_size": "Enterprise",
+  "business_problem": "Payments Network Malaysia (PayNet) is the national payments network and shared infrastructure for Malaysia's financial markets. The organization is jointly owned by 11 of Malaysia's major banks; the country's central bank, Bank Negara Malaysia (BNM), is the largest shareholder.",
+  "solution_summary": "Payments Network Malaysia Sdn Bhd (PayNet) provides the national payments network for Malaysia. With e-payment volumes accelerating, the organization built a cloud-based data platform on Amazon Web Services (AWS) to improve settlement reporting and unlock value from accumulated data. PayNet implemented Amazon Managed Streaming for Apache Kafka and Amazon Elastic Kubernetes Service to balance the data platform's cost with processing performance. As a result, PayNet supports near real-time views of settlement positions and ingests millions of e-payment transactions daily. PayNet turned to AWS Partner Sourced Group (Sourced), a global cloud consulting firm which PayNet has worked with for over two years.",
+  "products_used": [
+    "Amazon QuickSight",
+    "Amazon EKS",
+    "Amazon MSK"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon QuickSight",
+      "role": "Presents dashboards and analytics for the streaming analytics and reporting workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized services that deliver the streaming analytics and reporting workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon MSK",
+      "role": "Streams event data between services used by the streaming analytics and reporting workflows.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Engineering teams from Sourced and PayNet collaborated to develop the platform's data lake and the multiple extract, transform, and load (ETL) pipelines that serve as reporting and analytics information sources. After subsequent deep dives into the platform's data requirements, PayNet and Sourced engineers created the pipelines to make the ETL highly efficient and streamlined. Kenny Tse, head of Data Lake at PayNet says, \"We knew Sourced is a trusted partner that PayNet could collaborate with to deliver our data analytics goals through its AWS expertise and experience.\" To",
+  "integration_points": [
+    "bank settlement systems"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "By migrating reporting services to a modern data platform on AWS, PayNet can provide views of e-payment settlement positions much faster. This, in turn, is helping accelerate the growth of e-payment transactions, expected to average 400 per person per year by 2026 .",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Currently, it processes over 20 million e-payment transactions daily, with this number continuing to increase."
+  ],
+  "architecture_clues": [
+    "Engineering teams from Sourced and PayNet collaborated to develop the platform's data lake and the multiple extract, transform, and load (ETL) pipelines that serve as reporting and analytics...",
+    "After subsequent deep dives into the platform's data requirements, PayNet and Sourced engineers created the pipelines to make the ETL highly efficient and streamlined.",
+    "Kenny Tse, head of Data Lake at PayNet says, \"We knew Sourced is a trusted partner that PayNet could collaborate with to deliver our data analytics goals through its AWS expertise and experience.\" To...",
+    "Dickson Tung, lead for Data Platform Engineering at PayNet, says, \"The decision to opt for Amazon MSK primarily hinges on cost benefits associated with real-time streaming of transaction data.",
+    "Loi, lead for Data Engineering & Analytics at PayNet, adds, \"As our AWS data lake expands rapidly, implementing the right data platform architecture has effectively managed costs, emphasizing the..."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/paynet/",
+  "published_date": "2024-05-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With e-payment volumes accelerating, the organization built a cloud-based data platform on Amazon Web Services (AWS) to improve settlement reporting and unlock value from accumulated data.",
+    "PayNet implemented Amazon Managed Streaming for Apache Kafka and Amazon Elastic Kubernetes Service to balance the data platform's cost with processing performance.",
+    "As a result, PayNet supports near real-time views of settlement positions and ingests millions of e-payment transactions daily.",
+    "The company decided to design, build, and deploy the data analytics platform on Amazon Web Services (AWS).",
+    "PayNet turned to AWS Partner Sourced Group (Sourced), a global cloud consulting firm which PayNet has worked with for over two years.",
+    "The teams followed AWS best practices, ensuring roles and access permissions were segregated between data producers and consumers."
+  ]
+}

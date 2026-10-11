@@ -1,0 +1,82 @@
+{
+  "id": "aws-bees360-drone-inspections",
+  "slug": "aws-bees360-drone-inspections",
+  "vendor": "AWS",
+  "customer_name": "Bees360",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "As a technology startup, Bees360 has extensive technical expertise in fields such as drones and AI. Its solutions are specifically designed to provide insurance companies with fast, reliable, and accurate drone-assisted property inspections during underwriting and claims processes.",
+  "solution_summary": "In May 2023, with the assistance of the AWS team, Bees360 deployed its infrastructure and the insurance claim and underwriting information exchange solution to the cloud. During this process, the team implemented multiple serverless managed services to reduce the complexity of future operations and improve the solution's flexibility. For the application's container orchestration, Bees360 uses Amazon Elastic Kubernetes Service (Amazon EKS), a managed service to run Kubernetes in the AWS Cloud and on-premises data centers, facilitating efficient resource allocation during peak periods of claim inspections after disasters, such as hurricanes. To meet the high concurrency demands of drone pilots, Bees360 uses Elastic Load Balancing (ELB), which automatically distributes incoming application traffic across multiple targets and virtual appliances.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon S3",
+    "Amazon OpenSearch Service",
+    "Amazon RDS",
+    "AWS Lambda"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Builds, trains, or deploys the machine learning models behind the risk analysis and decisioning workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores source data, documents, or generated artifacts used by the risk analysis and decisioning workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon OpenSearch Service",
+      "role": "Indexes content and powers search or analytics for the risk analysis and decisioning workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon RDS",
+      "role": "Stores relational data that supports the risk analysis and decisioning workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Executes serverless processing and workflow glue for the risk analysis and decisioning workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "During this process, the team implemented multiple serverless managed services to reduce the complexity of future operations and improve the solution's flexibility. The Bees360 development team uses AWS Lambda —a serverless, event-driven compute service—to preprocess house inspection images stored in Amazon Simple Storage Service (Amazon S3), an object storage service offering cutting-edge scalability, data availability, security, and performance. This preprocessing verifies that the images meet the requirements of the detection models in terms of specification and",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "In terms of business continuity, Bees360 uses Amazon EKS to host Kubernetes services, facilitating rolling updates for the Bees360 platform. This service enables Bees360 to deploy software releases more frequently and deliver new features to drone pilots to improve their user experience and operational efficiency.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Customer Stories / Financial Services 2023 Bees360's Drone-Assisted Property Inspection Solution on AWS Helps Insurers Save 30% on Loss Adjustment Expenses Learn how technology..."
+  ],
+  "architecture_clues": [
+    "During this process, the team implemented multiple serverless managed services to reduce the complexity of future operations and improve the solution's flexibility.",
+    "For the application's container orchestration, Bees360 uses Amazon Elastic Kubernetes Service (Amazon EKS), a managed service to run Kubernetes in the AWS Cloud and on-premises data centers,...",
+    "The Bees360 development team uses AWS Lambda —a serverless, event-driven compute service—to preprocess house inspection images stored in Amazon Simple Storage Service (Amazon S3), an object storage...",
+    "\"Embedding various serverless managed services from AWS in our business has simplified the construction process, helping us to achieve our business goals with minimal code,\" said Sunnie Wu, Chief...",
+    "\"Our in-house developed BeesPilot App can directly store the property imagery collected by drones to Amazon S3 and perform preliminary processing in a serverless manner through AWS Lambda."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/bees360-case-study/",
+  "published_date": "2023-11-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "As the number of drones increases, our team has successfully proven that drones can be used as a new tool for insurance inspections,\" says Andy Liu, CEO at Bees360.",
+    "After comparing multiple cloud service providers, Bees360 ultimately chose to adopt AWS to build its service backend and establish a business solution on the cloud.",
+    "\"In this process, the team at AWS has been a critical partner due to their rich experience in serving financial insurance clients, mature security products, and compliance certifications.",
+    "Building our business on AWS was a key factor in winning client confidence.\" In both the underwriting and claims processes, the risk inspection data exchanged between Bees360 and the insurance company is fully encrypted, both during static...",
+    "We use AWS KMS to manage the encryption keys and employ Amazon GuardDuty for intelligent threat detection.",
+    "Additionally, we integrate Amazon Inspector for automated vulnerability management."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "aws-rarejob-technologies-automated-speaking-tests",
+  "slug": "aws-rarejob-technologies-automated-speaking-tests",
+  "vendor": "AWS",
+  "customer_name": "RareJob Technologies",
+  "industry": "Education",
+  "region": "Japan",
+  "company_size": "Mid-market",
+  "business_problem": "The RareJob Group is developing human resource education services for English, such as Smart Method, which is English conversation coaching for corporations, and RareJob English Conversation, which is an English conversation service that has 1 million members, 60 million lessons, and 6,000 instructors.",
+  "solution_summary": "RareJob Technologies is the technical department of RareJob Group, which provides the online English conversation service RareJob English Conversation, and it is responsible for product planning and development. The company adopted Amazon Web Services (AWS) to overcome development bottlenecks. In June 2020, it released the English speaking-ability measurement system PROGOS, which achieves automatic scoring using artificial intelligence (AI). Using Amazon SageMaker , the company improved development efficiency by more than 10 times. The RareJob Group migrated its RareJob English Conversation service from another cloud provider to AWS in 2016. Since then, most of its services have operated on AWS.",
+  "products_used": [
+    "Amazon SageMaker",
+    "Amazon DynamoDB",
+    "AWS Lambda",
+    "AWS Glue",
+    "Amazon EC2"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon SageMaker",
+      "role": "Builds, trains, or deploys the machine learning models behind the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores high-scale application state and metadata for the modernized application workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Executes serverless processing and workflow glue for the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Glue",
+      "role": "Transforms and prepares data used by the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides scalable compute capacity for the modernized application workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "PROGOS consists of two services: the application side, which asks examinees questions and accepts answers, and the scoring side, which stores the voice data from examinees and scores it with AI. \"Also, we use Amazon SQS to achieve preprocessing launched at the same time that the user starts taking the test. For the routine work of retrieving necessary data from cloud services and uploading files to document management tools, the company developed a system that automatically acquires data using AWS Lambda, reducing the workload by approximately 100 hours per month.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "It has been about 7 years since the RareJobs Group began using AWS in 2016. Now, AWS is an essential foundation for business. \"In 7 years, the RareJob Group's sales have almost tripled.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "RareJob Technologies Uses Amazon SageMaker for English Speaking Tests to Speed Up ML Model Development by More Than 10x Learn how RareJob Technologies in education made ML model...",
+    "Key Outcomes reduction in ML training time 25% improvement in ML model development efficiency More than 10x of work saved per month 100 hours",
+    "Using Amazon SageMaker , the company improved development efficiency by more than 10 times.",
+    "\"It is now possible for one developer to simultaneously perform multiple learnings up to the service limit, and learning efficiency has improved by more than 10 times.\" The...",
+    "For the routine work of retrieving necessary data from cloud services and uploading files to document management tools, the company developed a system that automatically acquires...",
+    "The RareJob Group is developing human resource education services for English, such as Smart Method, which is English conversation coaching for corporations, and RareJob English..."
+  ],
+  "architecture_clues": [
+    "\"Since most of the lecturers in RareJob English Conversation are in the Philippines, we also evaluated AWS's region in Singapore as well as its excellent support, technological development, and...",
+    "Both services use containers and serverless, managed services such as Amazon Elastic Container Service (Amazon ECS), AWS Fargate Amazon DynamoDB and AWS Lambda for the runtime environment.",
+    "The company is also working on cost reduction using Amazon SageMaker Serverless Inference , which charges only a time inferences run.."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/rare-job-case-study/",
+  "published_date": "2024-02-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company adopted Amazon Web Services (AWS) to overcome development bottlenecks.",
+    "Using Amazon SageMaker , the company improved development efficiency by more than 10 times.",
+    "The RareJob Group is developing human resource education services for English, such as Smart Method, which is English conversation coaching for corporations, and RareJob English Conversation, which is an English conversation service that...",
+    "The RareJob Group migrated its RareJob English Conversation service from another cloud provider to AWS in 2016.",
+    "Since then, most of its services have operated on AWS.",
+    "\"We decided to migrate to AWS because we judged that the bottleneck of our infrastructure would be a hindrance to our business,\" says Haneda."
+  ]
+}

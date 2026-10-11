@@ -1,0 +1,74 @@
+{
+  "id": "aws-sbi-life-insurance-document-search",
+  "slug": "aws-sbi-life-insurance-document-search",
+  "vendor": "AWS",
+  "customer_name": "SBI Life Insurance",
+  "industry": "Financial Services",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "SBI Life Insurance, an SBI Insurance Group company, provides consumers with products such as an affordable mortality insurance plan, which allows customers to revise the sum insured based on their stage of life; a disability insurance plan that features multiple coverable risks; and a medical insurance plan that covers from inpatient treatment to home care.",
+  "solution_summary": "SBI Life Insurance is responsible for the life insurance services of the SBI Insurance Group . The company creates and delivers insurance products that match modern needs. Using generative artificial intelligence (AI) capabilities from Amazon Web Services (AWS), the company built a document search solution to retrieve procedural documents on their insurance products and policies, launching the solution at its call centers. The solution also features a selfbot for quicker customer support and faster operator training. To help solve these challenges, the Information Systems Department started building a solution that let call center workers easily search for documentation on insurance products and policies.",
+  "products_used": [
+    "Amazon Bedrock",
+    "Amazon S3",
+    "Amazon Kendra",
+    "Amazon OpenSearch Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Runs the foundation model layer for the knowledge search and question-answering workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores source data, documents, or generated artifacts used by the knowledge search and question-answering workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Kendra",
+      "role": "Indexes enterprise content and retrieves source material for the knowledge search and question-answering workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon OpenSearch Service",
+      "role": "Indexes content and powers search or analytics for the knowledge search and question-answering workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Amazon Kendra uses natural language processing technology to read unstructured data in PDF files as a source.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "SBI Life Insurance conducted trials with a small group of operators in July 2023. As of 2024, almost all operators use the new document search solution. In the past, the operators had to search across various types of documents to respond to customer inquiries, but the new search system now empowers them to answer quickly.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "SBI Life Insurance develops a document search solution with Amazon Kendra and generative AI, and streamlines call centers with a selfbot Key metrics months to develop the document...",
+    "It also shortened the training periods by about 30 percent."
+  ],
+  "architecture_clues": [
+    "\"However, adding these functions to Amazon OpenSearch Service would have increased development workloads and impacted the project timeline.\" In February 2023, Amazon Kendra, an intelligent enterprise..."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/sbi-life-case-study/",
+  "published_date": "2024-09-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using generative artificial intelligence (AI) capabilities from Amazon Web Services (AWS), the company built a document search solution to retrieve procedural documents on their insurance products and policies, launching the solution at...",
+    "We therefore decided to migrate our applications to a new technology platform using AWS.\" SBI Life Insurance needed to enhance customer service at its call centers and shorten the training period for operators.",
+    "Initially, the team considered using Amazon OpenSearch Service , a full-text search and analysis engine.",
+    "\"However, adding these functions to Amazon OpenSearch Service would have increased development workloads and impacted the project timeline.\" In February 2023, Amazon Kendra, an intelligent enterprise search service, became generally...",
+    "Amazon Kendra provides the flexibility to search for information in structured and unstructured content that is scattered across multiple locations, easily bringing convenient semantic searches to users who don't have specialized machine...",
+    "The Information Systems Department decided to build a document search system using Amazon Kendra at its core."
+  ]
+}

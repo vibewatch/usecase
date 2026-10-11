@@ -1,0 +1,81 @@
+{
+  "id": "aws-hokkaido-cultural-broadcasting-news-automation",
+  "slug": "aws-hokkaido-cultural-broadcasting-news-automation",
+  "vendor": "AWS",
+  "customer_name": "Hokkaido Cultural Broadcasting",
+  "industry": "Media and Entertainment",
+  "region": "Japan",
+  "company_size": "Unknown",
+  "business_problem": "Established in 1972, Hokkaido Cultural Broadcasting serves its programs to the entire Hokkaido area as an affiliate of the Fuji Television Network .",
+  "solution_summary": "Hokkaido Cultural Broadcasting airs a variety of news and shows that showcase the nature, food, and tourist attractions of Hokkaido, Japan. Expanding its online streaming services, the station used generative artificial intelligence (AI) and text-to-speech from Amazon Web Services (AWS) to streamline production of news scripts and videos, resulting in a low-cost solution to deliver more news. The broadcaster also made news sources easier to search using Amazon DynamoDB —a serverless, NoSQL database service. Sugimoto turned to AWS to streamline the production of news articles. Hokkaido Cultural Broadcasting had converted press releases to PDF format on a multifunction printer and emailed the PDF files to the news team.",
+  "products_used": [
+    "Amazon Bedrock",
+    "Claude 2",
+    "Amazon DynamoDB",
+    "Amazon QuickSight",
+    "Amazon Polly"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Runs the foundation model layer for the document ingestion and extraction workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude 2",
+      "role": "Provides a large language model used by the document ingestion and extraction workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon DynamoDB",
+      "role": "Stores high-scale application state and metadata for the document ingestion and extraction workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon QuickSight",
+      "role": "Presents dashboards and analytics for the document ingestion and extraction workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Polly",
+      "role": "Generates speech output used by the document ingestion and extraction workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Sugimoto turned to AWS to streamline the production of news articles. Sugimoto built a solution to perform optical character recognition on these PDF files and store the text data on Amazon DynamoDB, letting the team view the releases in text on a management screen. Team members can use keywords to search text information stored on Amazon DynamoDB with less effort.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Using AWS to help create articles has had a large effect at Hokkaido Cultural Broadcasting. \"Amazon Bedrock helps us to automatically generate an article in about 2 minutes for only a few extra yen per article,\" says Sugimoto.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "\"Amazon Bedrock helps us to automatically generate an article in about 2 minutes for only a few extra yen per article,\" says Sugimoto.",
+    "We can produce a short video for a single article in minutes, which is less than 20 percent of the old time of 30 minutes to an hour."
+  ],
+  "architecture_clues": [
+    "This mechanism is designed using an AWS serverless environment and has passed internal security regulations.",
+    "The broadcaster also made news sources easier to search using Amazon DynamoDB —a serverless, NoSQL database service."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/uhb",
+  "published_date": "2024-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Expanding its online streaming services, the station used generative artificial intelligence (AI) and text-to-speech from Amazon Web Services (AWS) to streamline production of news scripts and videos, resulting in a low-cost solution to...",
+    "The broadcaster also made news sources easier to search using Amazon DynamoDB —a serverless, NoSQL database service.",
+    "As a solution, Sugimoto created a business intelligence (BI) tool using Amazon QuickSight —which powers data-driven organizations with unified BI at scale—to visualize, aggregate, and analyze the data at a low cost.",
+    "\"We didn't know anything about AWS or the cloud to begin with,\" says Sugimoto.",
+    "\"With support from AWS, we created a BI tool in just a couple of weeks.",
+    "The support and plentiful hands-on materials from AWS made it easier for the beginner to get started.\" Sugimoto's transformative digital data visualization tool was met with great acclaim and won the Japan Commercial Broadcasters..."
+  ]
+}

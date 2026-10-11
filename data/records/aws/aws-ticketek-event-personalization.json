@@ -1,0 +1,66 @@
+{
+  "id": "aws-ticketek-event-personalization",
+  "slug": "aws-ticketek-event-personalization",
+  "vendor": "AWS",
+  "customer_name": "Ticketek",
+  "industry": "Media and Entertainment",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Ticketek has been operating for 40 years, selling 30 million tickets annually. In 2020, Ticketek worked with Snowflake , an AWS Partner , to build a new data warehouse in the cloud for centralized access to customer data.",
+  "solution_summary": "Because Amazon Personalize targets customers more accurately, Ticketek is now giving a greater spotlight to smaller events. With the previous solution, the company primarily highlighted major events in its newsletters because they were more likely to sell out. However, more niche performances were often overlooked. Personalization changes that by matching fans with the events that excite them, no matter how small the events might be. Using Amazon Personalize, Ticketek has increased the diversity of its featured events by 5.2 times, creating opportunities for lesser-known artists to reach new audiences. And sales per email opened have jumped 49 percent with the new solution. After building out the solution, Ticketek ran A/B tests to assess the performance of the previous newsletter against the personalized newsletter.",
+  "products_used": [
+    "Amazon S3",
+    "Amazon Personalize"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Stores source data, documents, or generated artifacts used by the personalization and recommendation workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Personalize",
+      "role": "Generates individualized recommendations for the personalization and recommendation workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "At the end of each day, its Snowflake data warehouse uploads data into the cloud on Amazon Simple Storage Service (Amazon S3)—an object storage solution.",
+  "integration_points": [
+    "Snowflake"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Now that Ticketek is recommending more events that people want to see, the company has increased the value of its newsletter for millions of people. Ticketek intends to keep finding ways to improve the customer experience by personalizing its website, mobile app, and text messages.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "250% conversion rate uplift",
+    "49% boost in purchases for each email opened",
+    "5.2x diversity boost for featured products",
+    "Ticketek Increases Sales per Order by 49% Using Amazon Personalize Learn how global live-event ticketing company Ticketek improved customer engagement and ticket sales using...",
+    "Using Amazon Personalize, Ticketek has increased the diversity of its featured events by 5.2 times, creating opportunities for lesser-known artists to reach new audiences.",
+    "And sales per email opened have jumped 49 percent with the new solution."
+  ],
+  "architecture_clues": [
+    "At the end of each day, its Snowflake data warehouse uploads data into the cloud on Amazon Simple Storage Service (Amazon S3)—an object storage solution."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/ticketek-amazon-personalize-case-study/",
+  "published_date": "2024-01-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Ticketek has been operating for 40 years, selling 30 million tickets annually.",
+    "In 2020, Ticketek worked with Snowflake , an AWS Partner , to build a new data warehouse in the cloud for centralized access to customer data.",
+    "To deliver this project, Ticketek teams met with AWS to move from strategy to implementation.",
+    "Within 2 days, the company had a complete pipeline that preps and transforms Ticketek's data and makes it available for use by the Amazon Personalize service.",
+    "Three months later, Ticketek had a complete personalization solution that takes data from the Snowflake data warehouse and uses Amazon Personalize to generate batch recommendations showing the events that individual subscribers would most...",
+    "To implement recommendations in newsletters, AWS integrated Amazon Personalize with intuitive customer engagement solution capabilities from Braze , also an ."
+  ]
+}

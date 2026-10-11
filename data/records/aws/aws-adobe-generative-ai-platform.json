@@ -1,0 +1,85 @@
+{
+  "id": "aws-adobe-generative-ai-platform",
+  "slug": "aws-adobe-generative-ai-platform",
+  "vendor": "AWS",
+  "customer_name": "Adobe",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Rather than rely on open source models, Adobe decided to train its own foundational generative AI models tailored for creative use cases. \"We want to be in control of the quality and capabilities our models need to have,\" explained Costin.",
+  "solution_summary": "For over four decades, Adobe has been at the forefront of enabling creativity and digital experiences. As a trusted partner to enterprises, small businesses, and creators like graphic designers, illustrators, photographers, videographers, Adobe embraced generative AI to help its customers navigate this technological disruption. By training its own Firefly family of generative AI models, Adobe was able to integrate generative AI into its flagship creative software products, such as Photoshop, to serve creatives where they're working. \"Deep integration is what got us this amazing usage in helping our customers,\" said Alexandru Costin vice president, Generative AI and Sensei at Adobe. Adobe created an AI superhighway on AWS to build an AI training platform and data pipelines to rapidly iterate models.",
+  "products_used": [
+    "Amazon EC2 P5 Instances",
+    "Amazon EKS",
+    "Amazon S3",
+    "Amazon FSx for Lustre",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon EC2 P5 Instances",
+      "role": "Provides GPU compute for the model training behind the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized services that deliver the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores source data, documents, or generated artifacts used by the modernized application workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon FSx for Lustre",
+      "role": "Provides high-throughput file storage for the modernized application workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Runs the foundation model layer for the modernized application workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Adobe created an AI superhighway on AWS to build an AI training platform and data pipelines to rapidly iterate models. Adobe built its solution with Amazon Elastic Compute Cloud (Amazon EC2) P5 and P4d instances powered by NVIDIA GPUs, Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Elastic Block Store (Amazon EBS) Amazon Elastic Fabric Adapter (EFA) . Adobe continuously monitors and synchronizes data across multiple sources, ensuring that its models are trained on the most up-to-date and relevant information.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "family of generative AI models, including models that generate high-quality imagery, graphics, illustrations, designs, layouts, documents, marketing assets, and more.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "20x scale up in model training achieved for enterprise scaling",
+    "As demand spiked, Adobe scaled up training by 20x in six months, aided by Amazon EC2 Reserved Instances ."
+  ],
+  "architecture_clues": [
+    "Adobe built its solution with Amazon Elastic Compute Cloud (Amazon EC2) P5 and P4d instances powered by NVIDIA GPUs, Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Elastic Block Store (Amazon...",
+    "Adobe also used Amazon Simple Storage Service (Amazon S3) to serve as the data lake and primary repository for the vast troves of data.",
+    "Adobe used Amazon FSx for Lustre high-performance file storage, for fast access to data and to make sure GPU resources are never left idle.",
+    "With Firefly, Adobe does continuous testing to mitigate against any harmful biases and provides user feedback mechanisms to remediate concerns in real-time, fostering transparency and accountability.",
+    "They implemented distributed training techniques like pipeline parallelism to efficiently utilize tensor cores."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/adobe-case-study/",
+  "published_date": "2024-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By building on AWS, Adobe could accelerate AI training rather than building from scratch, enabling the company to focus on its differentiators and not the heavy lifting.",
+    "Adobe created an AI superhighway on AWS to build an AI training platform and data pipelines to rapidly iterate models.",
+    "Adobe built its solution with Amazon Elastic Compute Cloud (Amazon EC2) P5 and P4d instances powered by NVIDIA GPUs, Amazon Elastic Kubernetes Service (Amazon EKS), Amazon Elastic Block Store (Amazon EBS) Amazon Elastic Fabric Adapter...",
+    "Adobe also used Amazon Simple Storage Service (Amazon S3) to serve as the data lake and primary repository for the vast troves of data.",
+    "Adobe used Amazon FSx for Lustre high-performance file storage, for fast access to data and to make sure GPU resources are never left idle.",
+    "The result is a cycle of continuous improvement, where human creativity and machine learning work in tandem, each informing and enhancing the other."
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "aws-synthesia-ai-video-generation",
+  "slug": "aws-synthesia-ai-video-generation",
+  "vendor": "AWS",
+  "customer_name": "Synthesia",
+  "industry": "Software / SaaS",
+  "region": "United Kingdom",
+  "company_size": "Mid-market",
+  "business_problem": "Founded in 2017, Synthesia develops AI technology that customers can use to create instructional videos featuring stock or custom AI avatars.",
+  "solution_summary": "Businesses looking to enrich their brand presence and communication with video content have traditionally faced steep production costs and a long process. Artificial intelligence (AI) technology startup Synthesia offers generative AI video creation as a service for customers to create realistic videos from text prompts in just minutes. Synthesia wanted to make its video-generation software as a service (SaaS), Synthesia Studio, even faster by improving its machine learning (ML) models and upgrading its computing infrastructure for training these models. The fast-growing company needed a scalable infrastructure with high performance, so it used NVIDIA GPU–accelerated instances on Amazon Web Services (AWS) to significantly speed up and scale its ML training to support a user base growth of 456 percent.",
+  "products_used": [
+    "Amazon S3",
+    "Amazon EKS",
+    "Amazon EC2",
+    "Amazon EC2 P5 Instances",
+    "Amazon EC2 P4 Instances"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Stores source data, documents, or generated artifacts used by the modernized application workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon EKS",
+      "role": "Runs containerized services that deliver the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Provides scalable compute capacity for the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 P5 Instances",
+      "role": "Provides GPU compute for the model training behind the modernized application workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon EC2 P4 Instances",
+      "role": "Provides GPU compute for the model training behind the modernized application workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "It also uses Amazon EC2 G5 Instances powered by NVIDIA A10G Tensor Core GPUs for data processing and to optimize video rendering runtime. \"We batch process datasets for new experiments, often running up to 100 instances at the same time,\" says Starck.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Synthesia is now working toward near real-time, interactive video rendering for its customers. As the company continues to grow, it plans to create even more advanced 3D avatars using large-scale 3D datasets stored in its data lake.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "30x improvement in ML model training throughput",
+    "456% recent user growth",
+    "The fast-growing company needed a scalable infrastructure with high performance, so it used NVIDIA GPU–accelerated instances on Amazon Web Services (AWS) to significantly speed up...",
+    "The company adopted Amazon EC2 P5 Instances powered by NVIDIA H100 Tensor Core GPUs and Amazon EC2 P4 Instances powered by NVIDIA A100 Tensor Core GPUs accelerated model training...",
+    "For example, the compute-heavy workloads involved in ML model training and inference run on NVIDIA GPUs in AWS Europe Regions, which are powered virtually 100 percent by renewable..."
+  ],
+  "architecture_clues": [
+    "Using these managed services and NVIDIA GPU–powered compute instances, Synthesia reduced ML model training time for smaller voice models from days to hours.",
+    "It also uses NVIDIA CUDA, a GPU-based parallel computing platform and programming model, for video rendering and inference.",
+    "The fast-growing company needed a scalable infrastructure with high performance, so it used NVIDIA GPU–accelerated instances on Amazon Web Services (AWS) to significantly speed up and scale its ML...",
+    "Synthesia is now working toward near real-time, interactive video rendering for its customers.",
+    "As the company continues to grow, it plans to create even more advanced 3D avatars using large-scale 3D datasets stored in its data lake."
+  ],
+  "source_url": "https://aws.amazon.com/solutions/case-studies/synthesia-case-study/",
+  "published_date": "2024-07-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The fast-growing company needed a scalable infrastructure with high performance, so it used NVIDIA GPU–accelerated instances on Amazon Web Services (AWS) to significantly speed up and scale its ML training to support a user base growth of...",
+    "In 2023, it decided to optimize its ML pipeline on AWS.",
+    "Synthesia chose AWS because its fully managed services meet several critical requirements.",
+    "\"AWS has been embedded in our company from the beginning,\" says Jon Starck, CTO of Synthesia.",
+    "AWS provides a wealth of services that we wanted to adopt, and it has key initiatives for startups.\" For example, the company took advantage of the initial free compute capacity that AWS provides.",
+    "The two teams also had regular meetings, and Synthesia saw the value in AWS support as it scaled up rapidly."
+  ]
+}
