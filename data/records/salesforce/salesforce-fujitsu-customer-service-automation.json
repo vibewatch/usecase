@@ -1,0 +1,82 @@
+{
+  "customer_name": "Fujitsu",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Fujitsu's Salesforce support division saw a 120% surge in inquiries, and agents were manually searching release notes, help sites, internal knowledge, and case notes before escalating or prioritizing cases.",
+  "solution_summary": "Fujitsu is rolling out Agentforce as the first line of support for customers and employees by combining it with Experience Cloud, Service Cloud, and the knowledge assets already used by its Salesforce support division. Customers will enter through a branded Experience Cloud site that combines self-service articles, FAQs, case tracking, and Agentforce chat so simple product or feature questions can be answered immediately. When a conversation becomes more complex, Agentforce creates and escalates the case into Service Cloud with the full interaction history attached, allowing reps to continue from the exact point where automation stopped instead of restarting discovery. Supervisors use the same agent layer for concise summaries of escalated cases, and the connected platform lets Fujitsu reason over release notes, knowledge articles, and support history to reduce backlog pressure without adding staff.",
+  "data_flow": "Customers start in Fujitsu's Experience Cloud portal, where Agentforce searches knowledge sources and release notes to answer questions; if the issue is complex, the chat transcript and escalation reason are written into Service Cloud and reused by supervisors through AI-generated summaries.",
+  "integration_points": [
+    "Salesforce Help site",
+    "Internal knowledge base",
+    "VectorDB files",
+    "Branded support portal"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Fujitsu expects faster self-service, lower manual triage effort, quicker supervisor review of escalations, and enough operational leverage to absorb inquiry spikes without proportional headcount growth.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "120% surge in inquiries",
+    "1,700 cases annually",
+    "10% cut in case tracking time",
+    "15% of inquiries resolved autonomously"
+  ],
+  "architecture_clues": [
+    "Agentforce is embedded into a branded Experience Cloud site rather than a separate chatbot surface.",
+    "Escalated cases carry the complete conversation history into Service Cloud.",
+    "Support knowledge includes release notes, internal articles, and vector-searchable files."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/fujitsu/",
+  "published_date": "2025-05-20",
+  "evidence_quotes": [
+    "In the past fiscal year alone, Fujitsu's Salesforce Division saw a 120% surge in inquiries and their support team now handles 1,700 cases annually.",
+    "Customers will be able to get help directly from Agentforce, which will be embedded in Fujitsu's branded Experience Cloud site.",
+    "The entire conversation history ... will be automatically logged into the case.",
+    "Fujitsu expects automated summaries to cut case tracking time by 10%."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Agentforce",
+    "Experience Cloud",
+    "Service Cloud",
+    "Data Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Answers routine support questions, summarizes cases, and routes complex issues for escalation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Experience Cloud",
+      "role": "Hosts Fujitsu's self-service portal with knowledge articles, FAQs, and Agentforce chat.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Receives escalated cases together with the full chat history and case context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data Cloud",
+      "role": "Provides the connected data layer for support knowledge, release notes, and case context.",
+      "layer": "Storage"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-fujitsu-customer-service-automation",
+  "slug": "salesforce-fujitsu-customer-service-automation"
+}

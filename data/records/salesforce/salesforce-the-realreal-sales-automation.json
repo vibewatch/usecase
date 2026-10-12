@@ -1,0 +1,85 @@
+{
+  "customer_name": "The RealReal",
+  "industry": "Retail",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "The RealReal's concierge and inside-sales reps were losing time to appointment prep, manual note entry, pickup coordination, and shipping logistics instead of focusing on consignor relationships and high-value luxury resale opportunities.",
+  "solution_summary": "The RealReal is using Agentforce, Sales Cloud, Data Cloud, Marketing Cloud, and Prompt Builder to automate the admin-heavy steps of luxury consignment while keeping consignor interactions personalized. Agentforce prepares concierge reps for appointments by generating summaries that combine item details, location, prior consignments, and market-demand context, then lets reps dictate notes on the move so the agent can update Sales Cloud opportunities automatically. Prompt Builder and retrieval-augmented generation pull trusted Salesforce details such as VIP status, item value, and shipping address into consignor communications, while ShipEngine and other APIs handle UPS pickup creation, tracking, and warehouse routing. Because those logistics events are written back to the same opportunity record, sales and concierge teams can move goods through pickup, authentication, and follow-up with less manual coordination and more selling time.",
+  "data_flow": "Rep observations, prior consignor history, marketing interactions, and item details are combined in Salesforce, Agentforce uses that context to update Sales Cloud records and trigger shipping workflows, and logistics updates from APIs are written back into the opportunity so both reps and consignors see the same status.",
+  "integration_points": [
+    "Siri",
+    "ShipEngine",
+    "UPS",
+    "External warehousing system"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "The RealReal expects reps to reclaim more selling time, move consignments through pickup and shipping with less friction, and deliver a more VIP-like consignor experience at scale.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "15 luxury consignment offices",
+    "20% of their day back"
+  ],
+  "architecture_clues": [
+    "Prompt Builder uses retrieval-augmented generation to pull trusted consignor and item data into communications.",
+    "Agentforce creates or updates Sales Cloud opportunities directly from dictated mobile notes.",
+    "Shipment routing decisions are informed by an external warehousing system and then logged back to Salesforce."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/the-realreal/",
+  "published_date": "2025-12-28",
+  "evidence_quotes": [
+    "Agentforce will help concierge reps prep for appointments by generating a summary that gives the rep everything they need at a glance.",
+    "Agentforce will take it from there. It will create a new opportunity in Sales Cloud, fill in the details based on the dictated notes, and kick off the consignor's journey.",
+    "Prompt Builder ... uses retrieval-augmented generation to securely pull in details from Salesforce.",
+    "The RealReal expects concierge reps will get 20% of their day back."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Agentforce",
+    "Sales Cloud",
+    "Data Cloud",
+    "Marketing Cloud",
+    "Prompt Builder"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Automates appointment prep, note capture, logistics follow-up, and consignor communications.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Sales Cloud",
+      "role": "Stores opportunities, pickup requests, shipment progress, and rep activity for consignors.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data Cloud",
+      "role": "Adds past transaction and profile context for personalized rep and consignor interactions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Marketing Cloud",
+      "role": "Provides prior outreach context that Agentforce can reuse in personalized follow-up.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Prompt Builder",
+      "role": "Supplies grounded prompt templates for shipping and consignor communications.",
+      "layer": "Orchestration"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-the-realreal-sales-automation",
+  "slug": "salesforce-the-realreal-sales-automation"
+}

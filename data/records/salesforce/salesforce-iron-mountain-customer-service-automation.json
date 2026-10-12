@@ -1,0 +1,83 @@
+{
+  "customer_name": "Iron Mountain",
+  "industry": "unknown",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Iron Mountain's support agents had to swivel between apps and manually search the knowledge base to answer cases, which increased backlog, slowed order handling, and limited the value of large amounts of customer data.",
+  "solution_summary": "Iron Mountain uses Einstein AI inside Service Cloud and the Einstein 1 platform to turn case handling from a manual search-and-response workflow into an AI-assisted service operation. Instead of asking Live Chat agents to gather history and draft every response themselves, Einstein generates case replies from prior cases and the knowledge base, then lets the agent review or lightly edit the response before sending it. The same AI layer automatically creates new knowledge articles from resolved cases, generates work summaries from conversation history, and recommends relevant articles to agents so support improvements compound over time instead of depending on manual documentation. Behind the scenes, MuleSoft helps provide a unified customer view so AI-generated content stays grounded in the right account context, making it possible to reduce repeat calls, lower abandonment, and keep support quality high as case volume grows.",
+  "data_flow": "Customer chats and case details are worked in Service Cloud, Einstein uses prior cases and the knowledge base to draft replies and summaries, new knowledge is generated from completed cases, and MuleSoft-connected context helps ground the response in the correct customer and order history.",
+  "integration_points": [
+    "Live Chat",
+    "Knowledge base",
+    "Past cases",
+    "Conversation transcripts"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Iron Mountain improved reply quality and speed, reduced repeat calls and chat abandonment, and gave agents faster access to grounded knowledge without having to manually build or search documentation for every case.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "80% close rate",
+    "76% of AI-generated responses don't require any editing",
+    "85 percent of service agents rated Generative AI responses as extremely helpful",
+    "8 percent reduction in repeat calls",
+    "70% decrease in chat abandonment from 5% to 1.5%"
+  ],
+  "architecture_clues": [
+    "Resolved cases are turned into new knowledge articles automatically.",
+    "Work Summaries are generated from case data, conversation history, and transcript context.",
+    "MuleSoft provides a unified holistic view of each customer for agents and Einstein."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/iron-mountain-ai-faster-automation/",
+  "published_date": "2026-03-02",
+  "evidence_quotes": [
+    "Einstein automatically generates personalized case replies, based on past cases and the knowledge base, that lead to a 80% close rate.",
+    "76% of AI-generated responses don't require any editing at all.",
+    "With every resolved case, Einstein automatically creates new knowledge articles.",
+    "Due to automation routing, chat abandonment rates decreased 70% from 5% to 1.5%."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Einstein AI",
+    "Service Cloud",
+    "Einstein 1 platform",
+    "MuleSoft"
+  ],
+  "solution_components": [
+    {
+      "name": "Einstein AI",
+      "role": "Generates replies, work summaries, and new knowledge articles from service interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Hosts Iron Mountain's service workflows, chat interactions, and agent execution surface.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Einstein 1 platform",
+      "role": "Provides the integrated data and AI foundation for service automation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MuleSoft",
+      "role": "Helps unify customer context for agents and AI across underlying systems.",
+      "layer": "Ingest"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-iron-mountain-customer-service-automation",
+  "slug": "salesforce-iron-mountain-customer-service-automation"
+}

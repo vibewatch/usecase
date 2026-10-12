@@ -1,0 +1,80 @@
+{
+  "customer_name": "Wiley",
+  "industry": "Education",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Wiley needed to absorb seasonal support spikes from students and other customers without scaling service costs linearly, while giving new agents faster access to the right answers and improving self-service resolution.",
+  "solution_summary": "Wiley is running customer support on Agentforce, Service Cloud, Einstein AI, and Prompt Builder so service work can be shared intelligently between customers, reps, and supervisors. Agentforce is configured against Wiley's knowledge base and trusted CRM context so customers can resolve account access, password, registration, and payment issues through conversational self-service instead of immediately entering the service queue. For human agents, Einstein drafts grounded responses, creates case summaries, and helps new seasonal staff ramp faster, while Prompt Builder gives employees reusable prompt patterns for email outreach, content generation, and other peak-season tasks. The same data exhaust is reused for incident classification and supplier accountability, letting Wiley analyze case trends and improve service operations as volume rises at the start of each academic term.",
+  "data_flow": "Customer issues are resolved directly in Agentforce when possible, otherwise the case continues in Service Cloud with Einstein-generated replies and summaries; prompt templates and case-classification signals are then reused by support, product, and supplier-management teams.",
+  "integration_points": [
+    "Knowledge base",
+    "CRM data",
+    "Supplier issue tracking"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Wiley improved chatbot resolution, accelerated seasonal onboarding, reduced support effort, and gained better insight into service and supplier issues while maintaining support quality during academic peak periods.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "50% faster onboarding of seasonal agents",
+    "213% return on investment",
+    "$230,000 in savings",
+    "Over 40% case resolution in the first few weeks of use"
+  ],
+  "architecture_clues": [
+    "Agentforce is grounded in Wiley's knowledge base and CRM data rather than generic responses.",
+    "Case summaries are reused to spot trends and provide product feedback.",
+    "Einstein case classification is used to trace cases back to supplier issues automatically."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/wiley/",
+  "published_date": "2025-02-12",
+  "evidence_quotes": [
+    "Wiley was able to onboard seasonal agents 50% faster, leading to a 213% return on investment and $230,000 in savings.",
+    "Agentforce is configured to answer questions using Wiley's knowledge base and can automatically resolve account access issues and reset passwords.",
+    "With Agentforce to handle routine inquiries, human agents have more time to focus on complex cases, outperforming Wiley's previous chatbot by over 40% case resolution in the first few weeks of use.",
+    "Wiley is also piloting Prompt Builder."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Agentforce",
+    "Service Cloud",
+    "Einstein AI",
+    "Prompt Builder"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Handles conversational self-service and routine issue resolution for Wiley customers.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Hosts Wiley's support operations, cases, and service-agent workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Einstein AI",
+      "role": "Drafts service replies and summaries using Wiley's knowledge base and CRM context.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Prompt Builder",
+      "role": "Provides reusable prompts for employee outreach and service-content tasks.",
+      "layer": "Orchestration"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-wiley-customer-service-automation",
+  "slug": "salesforce-wiley-customer-service-automation"
+}

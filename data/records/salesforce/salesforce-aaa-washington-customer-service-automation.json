@@ -1,0 +1,84 @@
+{
+  "customer_name": "AAA Washington",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "AAA Washington's roadside operation depended on agents manually pulling information from multiple systems, dispatching help in separate tools, and updating members through disconnected channels, which slowed response times and hurt the 'Keep Me Informed' experience during demand spikes.",
+  "solution_summary": "AAA Washington is rebuilding roadside assistance around Agentforce, Salesforce Field Service, Data Cloud, and MuleSoft so members can get help without waiting on overloaded call centers. MuleSoft connects travel, insurance, roadside, membership, and legacy PDF records into Data Cloud, giving Agentforce a unified profile with membership status, renewals, vehicle history, and prior service activity. When a member asks for help in natural language, Agentforce interprets the issue, queries Field Service for nearby truck location, skills, and availability, dispatches the best technician, and sends proactive SMS updates plus Appointment Assistant tracking. The same connected data gives technicians the context they need in the field, reduces app switching, and lets AAA surface relevant cross-sell or retention offers during service moments.",
+  "data_flow": "Roadside, insurance, travel, and membership records flow through MuleSoft into Data Cloud, where Agentforce reads the unified member profile, queries Field Service for the best truck and technician, and then sends dispatch status and SMS updates back to the stranded member while logging context for technicians and service reps.",
+  "integration_points": [
+    "Roadside assistance records",
+    "Membership PDF forms",
+    "Insurance systems",
+    "SMS updates",
+    "Tow-truck availability data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Platform",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "AAA Washington expects faster dispatching, real-time service visibility for stranded drivers, lower pressure on human service reps, and a projected 5% lift in retention by using unified member data to personalize support and relevant offers.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "1.2 million members",
+    "Nearly 1.5 million roadside assistance requests a year",
+    "Members with 10 or more interactions per year are 5% more likely to renew",
+    "Increase retention rates by 5%"
+  ],
+  "architecture_clues": [
+    "Field Service Appointment Assistant provides member-visible truck tracking.",
+    "Agentforce gives technicians the vehicle issue, location, and remaining tow eligibility before arrival.",
+    "AAA is building a 360-degree member profile across travel, insurance, roadside assistance, and membership data."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/aaa-washington/",
+  "published_date": "2026-03-02",
+  "evidence_quotes": [
+    "They need to manually gather information from multiple systems, switch between platforms to dispatch help, and update members through separate channels.",
+    "Salesforce Field Service captures real-time data about the nearest tow trucks - including their exact location, skills, and availability.",
+    "Members will receive SMS updates from Agentforce such as, 'Your tow truck is five minutes away.'",
+    "Research from the Canadian AAA Club shows that members with 10 or more interactions per year are 5% more likely to renew."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Agentforce",
+    "Salesforce Field Service",
+    "Data Cloud",
+    "MuleSoft"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Understands roadside requests, dispatches work, sends updates, and recommends next-best actions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Salesforce Field Service",
+      "role": "Provides truck location, technician skills, availability, and member-facing appointment tracking.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data Cloud",
+      "role": "Unifies member, vehicle, roadside, and insurance data into a single service profile.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MuleSoft",
+      "role": "Connects AAA Washington's existing applications and older membership documents into the Salesforce data layer.",
+      "layer": "Ingest"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-aaa-washington-customer-service-automation",
+  "slug": "salesforce-aaa-washington-customer-service-automation"
+}

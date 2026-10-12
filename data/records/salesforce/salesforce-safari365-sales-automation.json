@@ -1,0 +1,76 @@
+{
+  "customer_name": "Safari365",
+  "industry": "unknown",
+  "region": "South Africa",
+  "company_size": "SMB",
+  "business_problem": "Safari365 was running a bespoke-travel business on spreadsheets, Word documents, and fragmented tools, which made pricing multi-vendor itineraries, tracking customer context, and removing repetitive advisor work increasingly difficult as the company grew.",
+  "solution_summary": "Safari365 turned Salesforce into its system of record for sales, vendor preferences, and pricing logic before adding Agentforce to automate repetitive itinerary and communication work. The company rebuilt highly complex pricing rules for multiday safaris with thousands of suppliers directly inside Salesforce, so consultants can price long itineraries in minutes instead of stitching together information from disconnected tools. On top of that clean data layer, Agentforce now drafts 'day notes' from detailed trip information, uses historical customer context to personalize follow-up recommendations, and is tested iteratively in Agentforce Testing Center with a human in the loop to prevent internal notes or unsafe suggestions from reaching travelers. External data from a SQL database, Synatic, and Roam feeds the same environment, which gives the CEO and team enough control to refine agents in natural language and deploy new travel-operations automations in weeks rather than months.",
+  "data_flow": "Customer, supplier, and pricing information is consolidated in Salesforce and connected SQL sources, Agentforce uses that history to generate itinerary notes and personalized recommendations, and Testing Center plus human review keep messages safe before they reach travelers.",
+  "integration_points": [
+    "SQL Database",
+    "Synatic",
+    "Roam",
+    "Supplier availability data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Safari365 raised internal efficiency, sped up quoting, reduced repetitive advisor work, and shortened time-to-value for AI deployment by pairing well-structured Salesforce data with directly configurable agents.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "35-person staff",
+    "3,000 suppliers",
+    "Internal efficiency is up 30%",
+    "Two to three quotes a day",
+    "First estimate in 30 minutes",
+    "Six weeks from signing to live"
+  ],
+  "architecture_clues": [
+    "Pricing logic for multiday itineraries was rebuilt directly on Salesforce.",
+    "Agentforce Testing Center and human-in-the-loop review were used to prevent internal notes from leaking into traveler communications.",
+    "Safari365 syncs a SQL database to Salesforce through Synatic and brings in foreign-exchange considerations via Roam."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/safari365-marcus-brain-interview/",
+  "published_date": "2025-08-09",
+  "evidence_quotes": [
+    "Our biggest lift was rebuilding our pricing logic directly on Salesforce.",
+    "This kind of repetitive task is a perfect fit for Agentforce. It saves my team hours.",
+    "Huge. Our internal efficiency is up 30%.",
+    "Being able to build agents and refine them on my own made Agentforce the fastest time-to-value of any Salesforce product we've deployed: just six weeks from signing to live."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Salesforce",
+    "Agentforce",
+    "Agentforce Testing Center"
+  ],
+  "solution_components": [
+    {
+      "name": "Salesforce",
+      "role": "Serves as Safari365's system of record for itinerary data, customer history, and pricing logic.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agentforce",
+      "role": "Generates customer-facing itinerary content and automates low-value travel workflow tasks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Agentforce Testing Center",
+      "role": "Lets Safari365 test and refine agent behavior before customer-facing use.",
+      "layer": "Governance"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-safari365-sales-automation",
+  "slug": "salesforce-safari365-sales-automation"
+}

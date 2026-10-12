@@ -1,0 +1,81 @@
+{
+  "customer_name": "Engine",
+  "industry": "Logistics",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Engine needed a voice-support experience that could answer traveler questions, manage bookings, and handle hotel cancellations at scale without sounding robotic or forcing callers to repeat themselves to human agents.",
+  "solution_summary": "Engine launched a customer-facing voice-support workflow on Salesforce with Agentforce Voice at the front end and Agentforce for Service behind the scenes so high-volume travel calls can be handled conversationally. Because Engine's stack was already described as 'wall-to-wall Salesforce,' the project could use native CRM, customer-record, and service context instead of bolting a separate voice layer onto fragmented systems. NeuraFlash, Engine, and Salesforce iterated rapidly before and after general availability, testing live conversations, refining prompts and voice settings, and rolling traffic out in phases from 10% of calls to 50% and then 75%. When the AI cannot finish the task, the transfer includes a completed transcript and summary inside Agentforce for Service, which shortens handoffs, preserves traveler context, and lets reps focus on exceptions instead of re-collecting information.",
+  "data_flow": "Incoming traveler calls are answered by Agentforce Voice, which uses CRM and Data 360 context to answer questions or complete tasks; if the workflow needs a human, the call is transferred into Agentforce for Service with a full transcript and AI summary already attached.",
+  "integration_points": [
+    "Voice calls",
+    "Bookings",
+    "Hotel cancellations",
+    "Human service reps"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Engine scaled voice support with a more human-sounding agent, rolled the system out to most inbound calls, and simplified rep work by handing off completed voice transcripts and summaries instead of forcing customers to restart the conversation.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Within three months",
+    "10% of calls",
+    "50% of calls",
+    "75% of incoming calls"
+  ],
+  "architecture_clues": [
+    "Engine described its environment as 'wall-to-wall Salesforce,' which reduced integration friction.",
+    "The rollout was deliberately phased from 10% to 50% to 75% of calls.",
+    "Transferred cases arrive with a fully filled out voice transcript and summary in Agentforce for Service."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/neuraflash-tom-hebner-interview/",
+  "published_date": "2026-08-24",
+  "evidence_quotes": [
+    "They were looking for a conversational voice agent that could answer traveler questions, manage bookings, and handle hotel cancellations end to end.",
+    "We started by routing about 10% of calls to Agentforce Voice ... Then we increased usage ... Now we're at 75% of incoming calls.",
+    "When a case gets transferred, reps see a fully filled out voice transcript and summary in Agentforce for Service.",
+    "It's natively integrated with Salesforce CRM, Data 360, and customer records."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Agentforce Voice",
+    "Agentforce for Service",
+    "Salesforce CRM",
+    "Data 360"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce Voice",
+      "role": "Handles natural voice conversations for traveler support, bookings, and cancellations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agentforce for Service",
+      "role": "Receives escalations with transcripts and summaries so human reps can continue the case quickly.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Salesforce CRM",
+      "role": "Provides the underlying customer and service context that powers the voice workflow.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Data 360",
+      "role": "Supplies native customer-record context that makes the voice agent responsive and personalized.",
+      "layer": "Storage"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-engine-customer-service-automation",
+  "slug": "salesforce-engine-customer-service-automation"
+}

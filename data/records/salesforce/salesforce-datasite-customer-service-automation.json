@@ -1,0 +1,91 @@
+{
+  "customer_name": "Datasite",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Datasite needed faster, more accurate support for dealmakers running high-stakes M&A transactions, but its first-generation Einstein chatbot could not transfer chats to humans or keep answers current without manual updates.",
+  "solution_summary": "Datasite evolved its support architecture from a basic Einstein chatbot into a more dynamic Agentforce workflow that lives in Experience Cloud and draws on both operational and knowledge data. The earlier Einstein implementation already used a knowledge base with more than 2,000 articles to resolve common questions, but the handoff to live support and freshness of answers remained a bottleneck for urgent deal workflows. Agentforce now verifies the user's identity and permissions, retrieves the most relevant knowledge for a natural-language question, automatically stays current with new product content, and passes the entire conversation plus account context to a human Assist team member when escalation is needed. Datasite also plans to extend the design by unifying structured knowledge in Snowflake with unstructured chats and emails in Salesforce through Data Cloud so the same agent layer can answer more nuanced product and case-history questions over time.",
+  "data_flow": "Customers start a chat in Experience Cloud, where Agentforce verifies identity, retrieves the best answer from Datasite knowledge content, and either resolves the issue or hands the interaction to the Assist team with a generated summary; over time, structured Snowflake content and Salesforce interactions are meant to converge in Data Cloud for richer answers.",
+  "integration_points": [
+    "Knowledge base",
+    "Customer chats",
+    "Customer emails",
+    "Assist team",
+    "Website chat"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Datasite improved self-service quality for time-sensitive deal support, expects a higher automated resolution rate than its earlier chatbot, and frees the Assist team to spend more time on consultative, high-touch work.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "1.8 million dealmakers",
+    "180 countries",
+    "Knowledge base of over 2,000 articles",
+    "Resolved 50% more cases through self-service",
+    "Resolve 70% of incoming chat queries",
+    "20% more than their Einstein chatbot"
+  ],
+  "architecture_clues": [
+    "Agentforce is embedded in Experience Cloud and performs identity and permission checks before answering.",
+    "Escalations include a summary of the chat and key account details for the Assist team.",
+    "Datasite plans to unify Snowflake knowledge with Salesforce chats and emails in Data Cloud."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/datasite/",
+  "published_date": "2026-03-02",
+  "evidence_quotes": [
+    "Einstein ... tapped into Datasite's knowledge base of over 2,000 articles.",
+    "If a customer needs an Assist team member, Agentforce seamlessly transfers the case with a summary of the chat and key account details.",
+    "Datasite expects to use Agentforce to resolve 70% of incoming chat queries - 20% more than their Einstein chatbot.",
+    "Data Cloud will unify and harmonize this data and make it usable across Datasite's entire tech stack."
+  ],
+  "vendor": "Salesforce",
+  "products_used": [
+    "Einstein",
+    "Agentforce",
+    "Experience Cloud",
+    "Data Cloud",
+    "Snowflake"
+  ],
+  "solution_components": [
+    {
+      "name": "Einstein",
+      "role": "Handled the first generation of self-service chat based on Datasite's knowledge base.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Agentforce",
+      "role": "Provides the new conversational agent that answers questions and transfers context-rich escalations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Experience Cloud",
+      "role": "Hosts the customer chat experience on Datasite's website.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data Cloud",
+      "role": "Will harmonize structured and unstructured support data across the Datasite stack.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Stores structured knowledge that Datasite plans to expose to Agentforce through Data Cloud.",
+      "layer": "Storage"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "salesforce-datasite-customer-service-automation",
+  "slug": "salesforce-datasite-customer-service-automation"
+}
