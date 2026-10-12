@@ -1,0 +1,73 @@
+{
+  "id": "baidu-ai-cloud-liblibai-creative-platform-infrastructure",
+  "slug": "baidu-ai-cloud-liblibai-creative-platform-infrastructure",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "LiblibAI",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "LiblibAI needed stable high-performance infrastructure for large-scale model training, low-cost inference, overseas access, and storage lifecycle management so its AI-creation platform could keep up with user growth and content-generation workloads.",
+  "solution_summary": "LiblibAI built its AI-creation platform on Baidu AI Cloud using BaiGe heterogeneous compute, Qianfan model tooling, CDN services, and supporting storage architecture. The compute layer is designed for large-scale deep-learning workloads, giving model and operations engineers full lifecycle management, train-infer acceleration, fault tolerance, and intelligent diagnostics. For online text-to-image and related creation services, Baidu provides the large GPU footprint, stable high-throughput networking, and RDMA-compatible training environment required by LiblibAI's platform. The solution also addresses global user distribution: CDN and cross-border acceleration help API requests and user uploads move reliably between overseas users and domestic storage. Meanwhile, tiered storage and archival support keep training datasets and inference workloads economical.",
+  "products_used": [
+    "BaiGe Heterogeneous Compute Platform",
+    "Qianfan ModelBuilder",
+    "CDN"
+  ],
+  "solution_components": [
+    {
+      "name": "BaiGe Heterogeneous Compute Platform",
+      "role": "Provides the cloud-native AI compute layer for large-scale training, inference acceleration, and cluster operations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Supplies model-development tooling used alongside the compute platform for AI creation services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CDN",
+      "role": "Accelerates global API access and cross-border content delivery for overseas users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Model-training jobs and inference requests are scheduled on the BaiGe platform, while user uploads and API traffic are accelerated through CDN and cross-border network paths. Tiered storage holds datasets and archives, and the resulting generated-content services are served back to users through the same elastic infrastructure.",
+  "integration_points": [
+    "Training jobs",
+    "Inference workloads",
+    "Overseas API traffic",
+    "Cross-border uploads",
+    "Tiered storage",
+    "Archive storage"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "LiblibAI improved compute efficiency and platform availability, optimized cross-border experience for users, and kept storage and serving costs under better control as the creation platform scaled.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Effective training time reached 98%+."
+  ],
+  "architecture_clues": [
+    "The compute platform supports train-infer acceleration, fault tolerance, intelligent diagnostics, and full task lifecycle management",
+    "The design includes RDMA-compatible multi-node multi-GPU training plus tiered and archival storage",
+    "Global acceleration is used so users in the US West Coast and Southeast Asia can reach domestic services and upload data reliably"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/libiliai.html",
+  "published_date": "2025-06-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "LiblibAI built a one-stop AI creation platform on Baidu's heterogeneous compute platform to support stable training and inference for content creation (original: LiblibAI基于百度智能云异构计算平台构建高性能AI创作系统，实现模型训练与推理业务的高效稳定运行).",
+    "BaiGe gives model and operations experts cluster lifecycle support, train-infer acceleration, fault tolerance, and intelligent diagnostics, with effective training time above 98% (original: 百度百舸异构计算平台…提供全面的集群运维支持和任务全生命周期管理，同时具备训练/推理加速、故障容错、智能故障诊断等高级功能，有效训练时长可达98%以上).",
+    "LiblibAI needed large GPU capacity, stable high-throughput networking, and a mature RDMA multi-node multi-GPU training platform with tiered and archival storage (original: 提供大规模GPU显卡…模型训练需要有稳定的、高吞吐的网络性能…支持英伟达多机多卡RDMA架构的训练平台，并且提供高性能存储和归档存储).",
+    "Baidu also provided global acceleration and cross-border upload acceleration for users in the US West Coast and Southeast Asia (original: 最终用户覆盖在美西和东南亚国家，为客户提供全球加速服务…并且提供跨国回源加速的上传服务能力)."
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,83 @@
+{
+  "id": "baidu-ai-cloud-zhaopin-recruiting-copilot",
+  "slug": "baidu-ai-cloud-zhaopin-recruiting-copilot",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Zhaopin",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Zhaopin needed to move beyond isolated AI features and make large models useful across the full recruiting workflow, from job posting through candidate screening, communication, interviewing, and matching decisions.",
+  "solution_summary": "Zhaopin used Baidu AI Cloud's Qianfan ModelBuilder and Qianfan AppBuilder to rebuild its recruiting workflows around the AI assistant Ailin. The platform applies large-model reasoning to job publishing, resume screening, candidate response, matching, communication, interview support, and AI question generation so HR teams can work from one continuous process instead of disconnected tools. At the core of the deployment is a person-job matching workflow that combines Zhaopin's own industry content with ERNIE-based model calls to generate candidate-fit assessments and decision explanations. The company also extended the same model layer into AI interviewing and personalized question generation, creating more information depth beyond resumes. To improve operating economics, Zhaopin used Qianfan's toolchain to distill a teacher-student model stack, training ERNIE Speed from DeepSeek-R1-derived data so it could retain experience quality at much lower inference cost.",
+  "products_used": [
+    "Qianfan AppBuilder",
+    "Qianfan ModelBuilder",
+    "ERNIE Speed",
+    "DeepSeek-R1"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Organizes the recruiting-assistant workflows spanning posting, screening, communication, and interviewing.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the large-model development and distillation toolchain for recruiting intelligence.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ERNIE Speed",
+      "role": "Acts as the student model used to deliver lower-cost recruiting inference after distillation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DeepSeek-R1",
+      "role": "Serves as the teacher model used to generate distillation data for the student model.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Job descriptions, resumes, and recruiter interactions flow into Ailin's Qianfan-backed workflows, where models score person-job fit, generate reasons, trigger AI interviews, and create personalized questions. Distilled student models then serve those capabilities back to recruiters and candidates at lower runtime cost.",
+  "integration_points": [
+    "Job-posting workflows",
+    "Resume screening",
+    "Recruiter-candidate communication",
+    "AI interview workflows",
+    "Question-generation workflows",
+    "Industry content corpus"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Zhaopin improved person-job matching, reduced HR manual steps, lowered large-model serving costs, and created a more intelligent recruiting flow for both recruiters and job seekers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Person-job matching accuracy reached 93%.",
+    "Inference costs fell 70%.",
+    "HR operating steps were reduced 80%.",
+    "The platform serves more than 374 million users and 14.36 million enterprise customers."
+  ],
+  "architecture_clues": [
+    "The deployment uses an AI assistant to cover the full flow from job posting through interviewing",
+    "The same large-model stack supports matching, interviewing, and AI question generation",
+    "Qianfan toolchain services were used to distill a teacher-student model stack from DeepSeek-R1 into ERNIE Speed"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/zhaopin.html",
+  "published_date": "2025-12-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Zhaopin used the Qianfan large-model platform to rebuild the entire recruiting process, and its AI assistant Ailin reached 93% matching accuracy while cutting inference cost by 70% (original: 智联招聘基于百度智能云千帆大模型平台重构招聘全流程…实现人岗匹配准确率93%，推理成本降低70%).",
+    "Ailin helps HR complete posting, resume screening, quick response, precise recommendation, candidate communication, and interviewing in one continuous flow (original: AI招聘助手“艾琳”…能够协助HR高效完成职位发布—简历筛选—快速响应—精准推荐—与候选人沟通—面试全流程工作).",
+    "The solution applies large models to person-job matching, AI interviewing, and AI question generation so both recruiter and candidate experiences improve (original: 在人岗匹配、AI面试、AI出题等领域…实现招聘的前、中、后流程全面覆盖提效，同步提升C端求职者、B端招聘者用户体验).",
+    "Zhaopin used DeepSeek-R1 as the teacher model and ERNIE Speed as the student model so it could keep the teacher-model experience while reducing inference costs to about 30% of the original level (original: 使用千亿参数的DeepSeek—R1作为“教师模型”…用百亿参数规模的ERNIE Speed作为“学生模型”…整个推理成本下降到了原来的三成)."
+  ],
+  "source_language": "zh"
+}

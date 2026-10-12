@@ -1,0 +1,77 @@
+{
+  "id": "baidu-ai-cloud-shengshu-technology-video-model-training",
+  "slug": "baidu-ai-cloud-shengshu-technology-video-model-training",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Shengshu Technology Co., Ltd. (北京生数科技有限公司)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Shengshu Technology needed a reliable AI infrastructure stack for fast-moving multimodal video-model development because large training jobs required massive compute, strong resource governance, and stable end-to-end support from data preparation through training and inference.",
+  "solution_summary": "Shengshu Technology used Baidu AI Cloud to support Vidu, its multimodal video foundation model, with a training and inference environment built around Qianfan ModelBuilder, Qianfan AppBuilder, and Baidu's BaiGe heterogeneous compute platform. BaiGe unifies heterogeneous compute resources and applies performance optimization, automatic hardware selection, and mixed scheduling so the team can run dense large-model training workloads at scale. The platform also contributes observability, operations tooling, and fault-tolerance features that reduce training interruptions and keep large clusters stable over long runs. On top of that infrastructure, Shengshu can iterate text-to-video and image-to-video capabilities, maintain rapid release cadence, and serve fast inference for end users.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Qianfan AppBuilder",
+    "BaiGe Heterogeneous Compute Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the model-development environment used to train and iterate the Vidu video model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Supports application-layer workflows around Vidu capability delivery and product iteration.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BaiGe Heterogeneous Compute Platform",
+      "role": "Supplies unified heterogeneous compute management, optimization, observability, and fault tolerance for large-scale training and inference.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Training data and model jobs enter Baidu's heterogeneous compute environment, where BaiGe schedules and optimizes large training runs and exposes observability and fault-tolerance controls. The trained multimodal model is then iterated into text-to-video and image-to-video product workflows that feed fast user-facing inference.",
+  "integration_points": [
+    "Training data preparation",
+    "Large-scale model training jobs",
+    "Cluster observability tools",
+    "Text-to-video workflows",
+    "Image-to-video workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Shengshu accelerated Vidu model training and iteration, achieved highly stable large-cluster utilization, and delivered faster public video generation with new multimodal features ahead of many competing tools.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "A 10,000-card cluster achieved more than 98.8% effective training time.",
+    "Linear acceleration and bandwidth effectiveness both exceeded 95%.",
+    "Vidu can generate a 4-second clip in 30 seconds.",
+    "Vidu supports 4-second and 8-second generation options.",
+    "Maximum output resolution reaches 1080P."
+  ],
+  "architecture_clues": [
+    "The infrastructure covers the full chain from data preparation to training to inference",
+    "BaiGe uses automatic hardware selection and mixed scheduling to improve compute efficiency",
+    "Observability and fault-tolerance tools are used to prevent abnormal task termination during long training runs"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/vidu.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu AI Cloud provided AI infrastructure to help Shengshu Technology build the Vidu video large model and achieve efficient 10,000-card training plus industry-leading inference speed (original: 百度智能云通过AI基础设施助力生数科技打造Vidu视频大模型，实现万卡集群高效训练及业界最快推理速度).",
+    "The project required full-chain support from data preparation to model training and then model inference (original: 密集而快节奏的模型训练任务，不仅需要大规模的算力，还需要从数据准备到模型训练、再到模型推理的全链路保障).",
+    "Baidu BaiGe unified heterogeneous compute management and raised effective training time on a 10,000-card cluster above 98.8%, with linear acceleration and bandwidth effectiveness above 95% (original: 百度百舸可以把异构算力进行统一管理…万卡集群上的模型有效训练时长占比超过98.8%，线性加速比和带宽有效性均超过了95%).",
+    "BaiGe also supplied operations, observability, and fault-tolerance capabilities that improved long-running cluster stability and reduced abnormal task termination (original: 百度百舸提供了丰富的运维和可观测工具以及容错保障能力，提升了大规模集群长期运行的稳定性，降低因为故障导致训推任务异常终止的概率).",
+    "Vidu reached the industry's fastest measured inference speed, generating a 4-second clip in 30 seconds (original: Vidu实现了业界最快的实测推理速度，生成一段4秒片段只需30秒)."
+  ],
+  "source_language": "zh"
+}

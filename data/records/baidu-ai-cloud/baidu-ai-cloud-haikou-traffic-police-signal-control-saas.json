@@ -1,0 +1,88 @@
+{
+  "id": "baidu-ai-cloud-haikou-traffic-police-signal-control-saas",
+  "slug": "baidu-ai-cloud-haikou-traffic-police-signal-control-saas",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Haikou Traffic Police Detachment",
+  "industry": "Public Sector",
+  "region": "China",
+  "company_size": "Public sector",
+  "business_problem": "After Typhoon Yagi damaged most field sensing equipment, Haikou traffic police urgently needed to restore signal-control effectiveness without waiting for every radar, camera, and detector to be rebuilt, or the city would remain stuck with outdated fixed-time traffic signaling.",
+  "solution_summary": "Haikou Traffic Police and Baidu AI Cloud rapidly deployed a signal-control SaaS platform to recover urban traffic optimization after severe typhoon damage. Before the disaster, the city had built a video-plus-radar monitoring system with edge-computing units, video detectors, and radar detectors. When the storm damaged 80% of field sensing equipment across hundreds of intersections, Baidu introduced an upgraded SaaS control platform that packages signal-plan identification, diagnosis, optimization, and reporting into a lightweight service. The deployment used 60 downtown pilot intersections and combined internet floating-car data with traffic-flow feature data, plus algorithmic reconstruction and calibration, to rebuild traffic volumes even when normal roadside collection devices were missing.",
+  "products_used": [
+    "Edge Computing Node",
+    "Qianfan AppBuilder",
+    "Qianfan ModelBuilder",
+    "Signal Control SaaS Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Edge Computing Node",
+      "role": "Serves as the field-side computing base in Haikou's smart-traffic sensing system.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Supports application-layer workflows behind the upgraded signal-control SaaS platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides model capabilities used to reconstruct and calibrate traffic-flow data from incomplete inputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Signal Control SaaS Platform",
+      "role": "Delivers signal-plan recognition, problem diagnosis, optimization, and report generation for the traffic team.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Roadside sensing data, floating-car internet data, and traffic-flow feature data are fed into algorithmic reconstruction and calibration workflows. The SaaS platform then generates signal timing analyses, optimization plans, and reports that traffic police validate and use for intersection operations.",
+  "integration_points": [
+    "Video detectors",
+    "Radar detectors",
+    "Floating-car internet data",
+    "Traffic-flow feature data",
+    "Intersection signal plans",
+    "Traffic-engineer validation workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "IoT"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Haikou restored practical traffic-signal optimization quickly after the disaster, reduced pilot-intersection delay, and created a lower-cost operating model that could support day-to-day signal management even before full hardware recovery.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "567 intersections were affected by the typhoon.",
+    "80% of field sensing devices were damaged.",
+    "80% of main-road traffic lights were restored after 7 days of emergency repairs.",
+    "The pilot covered 60 intersections.",
+    "Traffic-flow and direction data error was controlled within 20%.",
+    "Average per-vehicle delay at pilot intersections fell 14.37%."
+  ],
+  "architecture_clues": [
+    "The city originally operated a video-plus-radar fusion monitoring system",
+    "The SaaS platform is positioned as lightweight, fast to deliver, and low investment",
+    "The recovery workflow depended on data reconstruction because many field devices were unavailable"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/haikou.html",
+  "published_date": "2025-06-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Haikou traffic police urgently launched a signal-control SaaS platform with Baidu to recover smart-traffic operations after the typhoon (original: 海口交警紧急联合百度智能云，推出了SaaS信控平台).",
+    "The city had 567 affected intersections and 80% of field sensing equipment was damaged (original: 当晚11点全市共有567个交通路口受到影响，80%外场感知设备受损).",
+    "The pilot used 60 complex downtown intersections and reconstructed flow with 'internet data + algorithm models' plus floating-car and traffic-feature data (original: 项目选择了中心老旧城区的60个路口作为试点…基于“互联网数据+算法模型”的方法，结合互联网浮动车数据、交通流特征数据，进行了交通流量的数据还原与校准).",
+    "The platform kept flow and direction error within 20% and reduced average per-vehicle delay by 14.37% at pilot intersections (original: 确保流量和流向数据误差控制在20%以内…试点路口，车均延误时间更是下降了14.37%)."
+  ],
+  "source_language": "zh"
+}

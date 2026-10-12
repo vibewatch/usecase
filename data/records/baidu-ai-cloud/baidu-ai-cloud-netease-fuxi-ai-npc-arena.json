@@ -1,0 +1,72 @@
+{
+  "id": "baidu-ai-cloud-netease-fuxi-ai-npc-arena",
+  "slug": "baidu-ai-cloud-netease-fuxi-ai-npc-arena",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "NetEase Fuxi",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "NetEase Fuxi needed a way to move beyond rigid scripted NPC dialogue and support richer real-time interaction for a massive player base without sacrificing world consistency or service stability.",
+  "solution_summary": "NetEase Fuxi and Baidu AI Cloud brought ERNIE large-model capabilities into the mobile game Justice to create an in-game AI arena populated by interactive NPCs. The solution uses Qianfan AppBuilder and Qianfan ModelBuilder to provide the application and model layer behind AI characters that can answer free-form player questions, stay aligned with their gender, profession, age, geography, and life history, and respond in ways that fit the open-world setting. ERNIE-Character-Fiction-8K is optimized for space-time and scenario consistency so characters can push storylines forward instead of repeating canned scripts. The same platform supports dynamic scene dialogue, broad topic coverage, and real-time interaction at massive scale, while Baidu's infrastructure provides enough concurrency headroom to handle the QPS demands of a title with more than 100 million active players.",
+  "products_used": [
+    "Qianfan AppBuilder",
+    "Qianfan ModelBuilder",
+    "ERNIE-Character-Fiction-8K"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Organizes the in-game AI interaction flows and application logic for NPC conversations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the model-development layer used to adapt ERNIE capabilities for game NPC behavior.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ERNIE-Character-Fiction-8K",
+      "role": "Drives real-time character dialogue, scenario consistency, and dynamic story progression for AI NPCs.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Player prompts and world context enter the Qianfan-backed NPC system, where the character model interprets context, generates in-character responses, and feeds the interaction back into the live game session. Infrastructure capacity keeps those flows stable even under very high concurrent traffic.",
+  "integration_points": [
+    "Justice mobile game",
+    "NPC interaction system",
+    "Open-world story themes",
+    "Player prompt inputs",
+    "Game concurrency infrastructure"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "NetEase Fuxi delivered a more dynamic game world, expanded what players can ask and do with NPCs, and proved that large-model characters can operate at massive consumer scale.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Justice has more than 100 million active players."
+  ],
+  "architecture_clues": [
+    "The deployment uses a character-specialized ERNIE model optimized for scenario and world consistency",
+    "NPCs can handle free-form questions rather than only preset dialogue branches",
+    "Baidu provided resource guarantees for high-QPS game traffic"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/wangyi.html",
+  "published_date": "2025-06-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "NetEase Fuxi and Baidu AI Cloud used ERNIE large models to build the world's first in-game AI arena for Justice and deliver real-time intelligent NPC interaction (original: 网易伏羲联合百度智能云，基于文心大模型打造全球首个游戏AI竞技场，为《逆水寒》上亿玩家提供智能NPC实时交互体验).",
+    "Traditional NPCs are limited by predefined text, whereas the intelligent-agent approach gives every NPC more realistic personality and thought (original: 传统NPC受限于规定剧情文本的局限性…智能体最大的意义，莫过于赋予每个NPC独一无二的思想、性格).",
+    "The ERNIE character model can cover diverse settings and make stories develop more dynamically while keeping characters believable and fun (original: 文心人设大模型（ERNIE-Character-Fiction-8K）时空和场景优化能力…模型能够理解上下文，并主动推动多样化剧情发展).",
+    "Justice has more than 100 million active players and Baidu provided the resource guarantees needed to handle possible QPS challenges smoothly (original: 目前，逆水寒端手游活跃玩家总数已超过1亿，百度智能云提供了充沛的资源保障，以应对游戏可能遇到的QPS等高并发挑战)."
+  ],
+  "source_language": "zh"
+}

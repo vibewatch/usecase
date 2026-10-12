@@ -1,0 +1,76 @@
+{
+  "id": "baidu-ai-cloud-china-telecom-ai-anti-harassment-assistant",
+  "slug": "baidu-ai-cloud-china-telecom-ai-anti-harassment-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "China Telecom",
+  "industry": "Telecommunications",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "China Telecom needed a differentiated anti-harassment service that could protect subscribers from nuisance calls, preserve privacy and service quality expectations, and scale across a nationwide telecom operation without relying on manual call handling.",
+  "solution_summary": "China Telecom worked with Baidu AI Cloud to build an AI anti-harassment assistant on top of Baidu AI Cloud Intelligent Customer Service. The service intercepts suspicious promotional or nuisance calls, answers them on the user's behalf, identifies the caller's purpose through speech recognition and intent analysis, and compiles a summary for later delivery to the subscriber. The same platform also upgrades missed-call reminders by handling unanswered calls, determining caller intent, and sending structured follow-up information back to the user. Architecturally, the customer-service stack provides the serving layer, speech recognition converts live audio into text, and intent analysis classifies call purpose so the system can decide what to report. Delivery is integrated with official-account and SMS channels, giving customers a less disruptive way to decide whether to call back or ignore the request.",
+  "products_used": [
+    "Baidu AI Cloud Intelligent Customer Service",
+    "Speech Recognition",
+    "Intent Analysis"
+  ],
+  "solution_components": [
+    {
+      "name": "Baidu AI Cloud Intelligent Customer Service",
+      "role": "Runs the anti-harassment call-handling workflows and delivers the user-facing assistant service.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Speech Recognition",
+      "role": "Transcribes intercepted calls so the service can understand what nuisance callers are saying.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Intent Analysis",
+      "role": "Classifies the purpose of incoming calls and helps determine the summary returned to the user.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Incoming suspicious calls are routed into the AI assistant, where speech recognition transcribes the conversation and intent analysis determines why the caller is calling. The platform then generates a summary and delivers it to subscribers through official-account or SMS notifications so they can choose whether to call back or ignore the request.",
+  "integration_points": [
+    "Incoming telecom calls",
+    "Caller numbers",
+    "WeChat official-account notifications",
+    "SMS notifications",
+    "Missed-call reminder service"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "China Telecom expanded an AI-powered call-protection service across multiple provinces, improved harassment-call interception accuracy, and gave subscribers a less disruptive way to manage unwanted calls and missed-call follow-up.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The service supports 8 provinces.",
+    "The service supports 1.5 million users.",
+    "Harassment-call interception rate increased to 98%."
+  ],
+  "architecture_clues": [
+    "The service answers suspected nuisance calls on behalf of users and returns summaries asynchronously",
+    "Missed-call reminders were upgraded so the AI assistant can answer unanswered calls and capture caller intent",
+    "The design balances service differentiation with user-experience and privacy requirements raised by the telecom operator"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/ctc.html",
+  "published_date": "2025-07-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "China Telecom and Baidu AI Cloud built an AI anti-harassment intelligent customer service assistant that uses speech recognition and intent analysis to answer and intercept nuisance calls automatically (original: 中国电信联合百度智能云打造AI防骚扰智能客服，通过语音识别与意图分析技术实现骚扰电话自动应答拦截).",
+    "The service covers 8 provinces and 1.5 million users, and the harassment interception rate rose to 98% (original: 覆盖8省150万用户，骚扰拦截率提升至98%).",
+    "When a number is identified as a promotional or nuisance caller, the assistant answers on the user's behalf, understands the sales content, and summarizes it for later delivery (original: 当判断来电号码为推销/骚扰电话时，代替用户接听电话，了解推销内容概要并汇总).",
+    "The summaries are regularly delivered to users through official-account or SMS messages so they can decide whether to call back or ignore the contact (original: 定期通过公众号/短信的方式将汇总信息发送给用户知晓，进而进行回拨或者忽略).",
+    "The missed-call reminder service was also upgraded so the assistant can answer when the user's phone cannot connect, determine caller intent, and send the result to the user (original: 对『未接通来电提醒』进行服务升级，当用户电话无法接通时，智能客服助手自动接听，智能应答，了解来电方的意图，并发送给用户)."
+  ],
+  "source_language": "zh"
+}

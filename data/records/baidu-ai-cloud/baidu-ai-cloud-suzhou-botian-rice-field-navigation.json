@@ -1,0 +1,74 @@
+{
+  "id": "baidu-ai-cloud-suzhou-botian-rice-field-navigation",
+  "slug": "baidu-ai-cloud-suzhou-botian-rice-field-navigation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Suzhou Botian Automation Technology Co., Ltd. (苏州博田自动化技术有限公司)",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Suzhou Botian needed a robust way to guide tractors and agricultural robots through non-structured rice-field environments where lighting changes, floating plants, missing seedlings, and reflections made traditional image-processing methods too unreliable for precise automated navigation.",
+  "solution_summary": "Suzhou Botian used PaddlePaddle, PaddleSeg, and the BML full-featured AI development platform to build an automatic rice-field navigation-line detection system for agricultural machinery. The workflow starts with image collection across different transplanting stages, times of day, and exposure settings so the model can handle varied brightness and field conditions. Botian then uses the ICNet segmentation model from PaddleSeg to separate seedling rows from the background, extract the outer contour and feature points, and identify the center lines of the middle rows that guide navigation. Training is managed through configurable hyperparameters, image augmentation, and VisualDL-based validation, allowing the team to pick the best model without overfitting. Once deployed, the vision module is paired with GPS so agricultural robots can navigate autonomously from leaving storage through returning after work.",
+  "products_used": [
+    "PaddlePaddle",
+    "PaddleSeg",
+    "BML Full-Featured AI Development Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "PaddlePaddle",
+      "role": "Provides the deep-learning framework used to train the rice-field navigation model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PaddleSeg",
+      "role": "Supplies the segmentation toolkit and ICNet model used to isolate seedling rows and extract navigation lines.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BML Full-Featured AI Development Platform",
+      "role": "Supports model-development and deployment workflows for the agricultural vision system.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Field images collected under different transplanting stages and lighting conditions enter the segmentation workflow, where PaddleSeg isolates seedlings from the background and extracts navigation center lines. Those outputs are combined with GPS and fed into agricultural robots so they can steer automatically across the rice field.",
+  "integration_points": [
+    "Rice-field image collection",
+    "GPS navigation",
+    "Agricultural robots",
+    "Tractors",
+    "VisualDL validation workflow"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Suzhou Botian improved the precision and speed of agricultural-machine vision navigation, reduced manual labor requirements, and created a reusable perception foundation for broader intelligent-agriculture robotics.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Navigation extraction accuracy exceeded 95%.",
+    "Per-frame processing time was about 300 ms.",
+    "Average angle error dropped from 3.27° to 1.65°.",
+    "Large angle errors above 5° were largely avoided even under reflections and missing plants."
+  ],
+  "architecture_clues": [
+    "The training set included 400 images for each of two transplanting stages captured across different times of day and exposure settings",
+    "ICNet was selected because it balanced low memory use, real-time inference, and acceptable accuracy for embedded deployment",
+    "The final deployment combines the visual detector with GPS for end-to-end autonomous navigation"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/botian.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Botian used PaddlePaddle deep-learning technology so tractors and agricultural robots could learn visual navigation and adjust direction based on rice-seedling rows in real time (original: 苏州博田利用百度飞桨(PaddlePaddle)的深度学习技术让拖拉机和农业机器人学会了视觉导航).",
+    "The team built an automatic navigation-line detection system with PaddleSeg's ICNet model to segment seedling rows from the background and extract their center lines accurately (original: 基于百度飞桨(PaddlePaddle)深度学习平台研发了水田导航线自动检测系统…应用飞桨图像分割开发套件PaddleSeg中的ICNet模型将秧苗按列从背景中分割出来).",
+    "The workflow used configurable hyperparameters, data augmentation, and VisualDL to select the best model and avoid overfitting (original: 可以通过修改相关配置文件自定义优化器…飞桨还加入了图像增强模块…采用飞桨的可视化工具VisualDL查看训练…选取在验证集上准确率最高的模型).",
+    "The deployed system reached more than 95% extraction accuracy with about 300 ms per frame and reduced average angle error from 3.27° to 1.65° (original: 提取准确率达到95％以上，处理每帧图像耗费的时间…达到300ms左右…平均角度误差从3.27°降低到了1.65°)."
+  ],
+  "source_language": "zh"
+}

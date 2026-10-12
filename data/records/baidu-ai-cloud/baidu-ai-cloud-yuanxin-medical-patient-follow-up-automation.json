@@ -1,0 +1,62 @@
+{
+  "id": "baidu-ai-cloud-yuanxin-medical-patient-follow-up-automation",
+  "slug": "baidu-ai-cloud-yuanxin-medical-patient-follow-up-automation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Yuanxin Technology Group (北京圆心科技集团股份有限公司)",
+  "industry": "Healthcare",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Yuanxin needed to reduce the time nurses and doctors spent on manual outbound follow-up calls while still giving partner hospitals a reliable way to contact patients, capture recovery information, and manage repeated post-visit outreach as part of continuous care.",
+  "solution_summary": "Yuanxin worked with Baidu AI Cloud to deploy an intelligent outbound-calling workflow for tertiary hospitals using Baidu AI Cloud Intelligent Customer Service. The design relies on API integration with hospital data systems: a hospital triggers an outbound request, the AI calling product places the call, records key details during the conversation, and sends structured results plus recordings back through the interface. Hospital staff then review the returned information, determine patient status, and decide whether a later follow-up is needed, creating a closed loop from visit through discharge. The intelligent service replaces a large amount of repetitive manual calling while preserving traceability for medical return visits. Hospital systems provide patient data and next-action triggers, the intelligent-customer-service layer handles the voice interaction, and the returned records become the basis for care follow-up and later outreach decisions.",
+  "products_used": [
+    "Baidu AI Cloud Intelligent Customer Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Baidu AI Cloud Intelligent Customer Service",
+      "role": "Runs the hospital follow-up outbound-calling workflows and returns structured call results to care teams.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Hospital systems send outbound-call requests through an API to the intelligent service, which contacts patients, captures key information and recordings, and returns the structured results to the hospital. Care teams review the feedback, decide whether another follow-up is needed, and trigger the next outreach cycle when appropriate.",
+  "integration_points": [
+    "Hospital data systems",
+    "API interfaces",
+    "Patient outbound-call workflows",
+    "Call recordings",
+    "Care-team review processes"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Yuanxin helped partner hospitals free up clinical staff time, improve patient contact rates, and complete follow-up information collection more reliably across post-visit care workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Call connection rate improved 80%+.",
+    "Information collection completion rate exceeded 95%."
+  ],
+  "architecture_clues": [
+    "The workflow is API-led and integrated with hospital-side data systems",
+    "Call recordings are returned through the interface together with structured key information",
+    "The design supports repeated follow-up requests based on patient recovery status"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/yuanxinyiliao.html",
+  "published_date": "2025-06-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu Keyue helped improve Yuanxin's outbound-calling efficiency by building intelligent follow-up services for tertiary hospitals and enabling patient medical return visits (original: 百度客悦助圆心外呼增效 与圆心医疗合作，为三甲医院构建智能外呼服务，实现病患医疗回访服务).",
+    "Before the project, pure manual outbound calling was inefficient and consumed a large amount of nurses' and doctors' time (original: 合作前客户纯人工方式外呼效率较低，大量占用护士及医生精力).",
+    "The solution connects with hospital data through APIs, records key information during the call, and returns the recording and results through the interface so the hospital can form a closed-loop feedback process (original: 通过API接口对接方式和院方数据进行对接…智能外呼在通话过程中记录关键信息并形成录音通过接口回传…实现数据闭环反馈).",
+    "Hospitals can decide whether to launch the next outbound request based on the patient's recovery status, covering the process from treatment to discharge follow-up (original: 后院方视患者康复情况决定是否发起下一次外呼请求，完成患者从就诊到出院一系列回访通知工作).",
+    "The case reports an 80%+ connection rate and a 95%+ information-collection completion rate (original: 电话接通率 提升80%+；信息收集完成率95%+)."
+  ],
+  "source_language": "zh"
+}
