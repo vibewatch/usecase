@@ -1,0 +1,72 @@
+{
+  "id": "snowflake-kfc-data-sharing-and-reporting-platform",
+  "slug": "snowflake-kfc-data-sharing-and-reporting-platform",
+  "vendor": "Snowflake",
+  "customer_name": "KFC",
+  "industry": "Retail",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "KFC Australia's legacy SQL database could not keep up with rising data volumes, complex reporting requests, and partner-sharing needs, making analysis slow and limiting how quickly the business could act on operational and customer insight.",
+  "solution_summary": "KFC Australia rebuilt its core analytical database on Snowflake after a single on-premises SQL database could no longer support the volume of operational, delivery, marketing, and supply-chain data needed for reporting. The initial proof of concept reran reports that had previously stalled for hours or days and returned them in 20 seconds, after which Snowflake became the shared platform for more than 2 million transaction records and over 10,000 extractions and reports each day. Instead of copying large datasets into Azure for franchisees and analysts, KFC now shares the same governed Snowflake data with suppliers, agencies, and other external partners, so everyone works from the latest sales and operational view without manual movement or duplication. The platform also centralizes data from the mobile app, website, and in-store point-of-sale terminals to build customer profiles and improve menu and service decisions while reducing database operating costs by 70%.",
+  "products_used": [
+    "Snowflake",
+    "Snowflake Secure Data Sharing"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Hosts KFC Australia's shared analytical database for sales, inventory, marketing, and operational reporting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Secure Data Sharing",
+      "role": "Provides governed data access for franchisees and external partners without copying or anonymizing datasets first.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Operational, delivery, marketing, supply-chain, mobile-app, website, and point-of-sale data is centralized in Snowflake, where KFC generates reports and customer profiles. The same governed datasets are then shared with franchisees, suppliers, agencies, and other partners through Snowflake instead of being copied into separate external environments.",
+  "integration_points": [
+    "mobile app",
+    "KFC website",
+    "in-store point-of-sale terminals",
+    "suppliers",
+    "agencies"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "KFC cut database operating costs by 70%, reduced key report turnaround from hours or days to seconds, expanded secure data sharing from a handful of parties to dozens, and improved how it profiles customers and supports menu and service decisions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "70% fewer database operational costs",
+    "500K+ order transactions processed daily",
+    "more than 700 restaurants",
+    "more than 2 million customers each week",
+    "20 seconds",
+    "more than 10,000 data extractions and reports every day"
+  ],
+  "architecture_clues": [
+    "KFC replaced a single core-data-center SQL database with Snowflake after a proof of concept showed reports could run in 20 seconds.",
+    "The same Snowflake datasets are shared directly with external partners instead of copied into separate Azure instances.",
+    "App, website, and point-of-sale data are combined in Snowflake to support customer profiling and future predictive analytics."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/kfc/",
+  "published_date": "2024-06-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Instead of the reports being delivered in hours or even days, they were generated in just 20 seconds.",
+    "Snowflake’s data sharing capabilities allow KFC to readily make key sales, inventory and operational data available to external parties, such as suppliers and agencies.",
+    "KFC’s data sharing processes changed from taking days to being completed in just seconds.",
+    "The shift to Snowflake has also resulted in a reduction in KFC’s overall database operational costs of around 70%.",
+    "Data is collected securely from a range of sources, including the company's mobile app, the KFC website and in-store point-of-sale terminals."
+  ]
+}

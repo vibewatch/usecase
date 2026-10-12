@@ -1,0 +1,78 @@
+{
+  "id": "snowflake-edf-intelligent-customer-engine",
+  "slug": "snowflake-edf-intelligent-customer-engine",
+  "vendor": "Snowflake",
+  "customer_name": "EDF",
+  "industry": "Energy",
+  "region": "Brighton, U.K.",
+  "company_size": "Enterprise",
+  "business_problem": "EDF's internally built Customer Analytics Zone made secure access to sensitive data and production deployment of machine-learning models too slow, forcing data scientists to wait on extracts and stretching customer-intelligence projects from weeks into months.",
+  "solution_summary": "EDF replaced its bespoke Customer Analytics Zone with the Intelligent Customer Engine on Snowflake to make sensitive customer data available for governed analytics and machine learning. Customer and operational data now lands in Snowflake as a central repository, where data scientists use Snowpark for Python to do feature engineering directly where the data sits instead of waiting on lake-team extracts. Models are then pushed into production on Amazon SageMaker through EDF's AWS setup, giving the company a repeatable path for customer-intelligence workloads. The platform supports use cases such as identifying financially vulnerable customers, targeting the right products and prices, and exposing smart-meter insights through customer-facing energy hub analytics. Because storage and compute scale independently, EDF can keep secure enterprise data accessible, build products in weeks instead of months, and evolve ICE as a shared analytics environment rather than as a one-off ML platform.",
+  "products_used": [
+    "Snowflake",
+    "Snowpark for Python",
+    "Amazon SageMaker"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Acts as EDF's central customer-data repository and governed analytics foundation for its Intelligent Customer Engine.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark for Python",
+      "role": "Enables feature engineering and data-science work to run where EDF's data already resides.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Runs EDF's production machine-learning models as part of the company's customer-intelligence and MLOps workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer and operational data is centralized in Snowflake, where data scientists use Snowpark for Python for feature engineering and model preparation. Amazon SageMaker then runs production ML models that feed EDF's Intelligent Customer Engine, financially vulnerable customer identification workflows, and customer-facing energy-usage analytics.",
+  "integration_points": [
+    "smart meter data",
+    "customer data",
+    "AWS"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "EDF built its Intelligent Customer Engine in two months, accelerated new product delivery from months to three or four weeks, projected up to four times more data products per year, and improved how it supports vulnerable customers and energy-efficiency experiences.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "4x more data products projected per year",
+    "2 months to build a new Intelligent Customer Engine",
+    "four months trying to deploy a single ML model",
+    "three or four weeks",
+    "maybe six new data products over the course of a year",
+    "triple or quadruple that now"
+  ],
+  "architecture_clues": [
+    "Snowpark for Python is used for feature engineering directly where the data sits.",
+    "Amazon SageMaker provides enterprise-grade machine learning operations and production model deployment.",
+    "Snowflake replaced EDF's older Customer Analytics Zone with a shared automated data-science and analytics environment."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/edf/",
+  "published_date": "2024-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Previously, we didn’t have good access to data or a way of deploying our models into production.",
+    "With the Snowpark feature, the benefits of being able to run data science tasks, such as feature engineering, directly where the data sits are massive.",
+    "We’re now able to build products like this in three or four weeks, whereas before it would have taken months at least.",
+    "Our Customer Analytics Zone was about three years in the making, and ultimately we still didn’t have a fully built platform.",
+    "We could support maybe six new data products over the course of a year. I think we could triple or quadruple that now."
+  ]
+}

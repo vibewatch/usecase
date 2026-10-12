@@ -1,0 +1,78 @@
+{
+  "id": "snowflake-auburn-university-one-auburn-data-platform",
+  "slug": "snowflake-auburn-university-one-auburn-data-platform",
+  "vendor": "Snowflake",
+  "customer_name": "Auburn University",
+  "industry": "Education",
+  "region": "Auburn, AL",
+  "company_size": "Public sector",
+  "business_problem": "Auburn's Banner-based reporting environment was inflexible, hard to scale, and too dependent on central IT, making it difficult to answer broad institutional questions securely or give business units self-service access to cross-domain data.",
+  "solution_summary": "Auburn University built One Auburn on Snowflake on Azure to turn fragmented stakeholder reporting into a governed, self-service backbone for institutional analytics. Banner ERP data is replicated into Snowflake, where finance, athletics, alumni, HR, student, and faculty data can be centralized and exposed through role-based access and dynamic data masking instead of one-off flat files. Snowflake Professional Services helped the university co-design the platform, and the open ecosystem lets Auburn connect tools such as Canvas, Ataccama, and Qlik. Institutional Research now joins datasets like student engagement, finance, course information, and academic performance in Snowflake, then serves Qlik dashboards with overnight refreshes so stakeholders can explore retention and performance questions themselves. That architecture cut the time to answer cross-domain questions from weeks or months down to about a week and laid the groundwork for a longer-term student 360 view.",
+  "products_used": [
+    "Banner ERP",
+    "Snowflake",
+    "Qlik"
+  ],
+  "solution_components": [
+    {
+      "name": "Banner ERP",
+      "role": "Supplies the higher-education administrative data that Auburn replicates into One Auburn for broader analytics.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Serves as the central cloud data backbone for One Auburn and the university's governed self-service analytics model.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Qlik",
+      "role": "Presents self-service dashboards that let stakeholders explore broad institutional questions without relying on flat-file extracts.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Banner ERP and other institutional datasets are centralized in Snowflake on Azure, where Auburn combines finance, course, engagement, academic, alumni, and HR data under governed access controls. Qlik dashboards then refresh from that unified store so Institutional Research and campus stakeholders can explore retention and performance questions directly.",
+  "integration_points": [
+    "Azure",
+    "Canvas",
+    "Ataccama",
+    "student engagement data",
+    "course information"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Auburn moved from central-IT-managed report customization to governed self-service analytics, sped up large cross-domain requests from weeks or months to about a week, and created a scalable foundation for stakeholder-wide decision-making and a future student 360 view.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 150 majors",
+    "31,500 students",
+    "5,493 full time employees",
+    "in a week",
+    "overnight refresh rate"
+  ],
+  "architecture_clues": [
+    "One Auburn uses Snowflake on Azure as a single source of truth for finance, athletics, alumni, HR, students, and faculty data.",
+    "Role-based access and dynamic data masking are used because Auburn stores personally identifiable information.",
+    "Snowflake Professional Services helped Auburn co-design platform elements such as data cataloging."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/auburn-university/",
+  "published_date": "2024-06-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We believed that a self-service model, with strong data governance in place, could better service business units to meet their reporting and analytics needs.",
+    "We needed a modern data platform in the cloud that would move Auburn to a future where we can be quick and resilient.",
+    "Before, we were very limited in the custom API integrations to Banner. But now that the data is also available in Snowflake, it's very easy to connect new software within Azure and the process is scalable.",
+    "Now, with Snowflake powering Qlik dashboards, the IR group could quickly fulfill the request in a week.",
+    "The process of combining disparate data sets to provide business value has been sped up by months."
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "snowflake-fireblocks-digital-asset-analytics-agents",
+  "slug": "snowflake-fireblocks-digital-asset-analytics-agents",
+  "vendor": "Snowflake",
+  "customer_name": "Fireblocks",
+  "industry": "Financial Services",
+  "region": "Tel Aviv, Israel",
+  "company_size": "Enterprise",
+  "business_problem": "Fireblocks needed to query billions of rows across 15 data domains, unify customer and internal analytics, and expose digital-asset insights securely without relying on manual analyst workflows or risking data leakage.",
+  "solution_summary": "Fireblocks rebuilt its analytics stack on Snowflake running on AWS so both internal teams and customers can query digital-asset data at scale without exposing one another's data. On-chain telemetry, wallet and asset activity, revenue data, Salesforce analytics, and Zendesk insights are loaded into Snowflake across 15 data domains to create one governed data foundation. On top of that foundation, the team built Fire Genie in a 45-day hackathon so customers can ask natural-language questions about wallets and assets through an API; RBAC and row-level security restrict each tenant to its own data. Fireblocks then reused the same approach internally with Cortex Agents and semantic views so product teams can go from a Jira ticket to the relevant product metrics, while Streamlit apps publish live shared reports instead of screenshots. The result is an AI-assisted analytics environment that scales to billions of rows, preserves security, and frees analysts to focus on deeper insight.",
+  "products_used": [
+    "Snowflake",
+    "Cortex Agents",
+    "Streamlit"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Stores and governs the cross-domain wallet, asset, revenue, and support data that powers Fireblocks analytics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex Agents",
+      "role": "Powers the external Fire Genie assistant and the internal natural-language analytics agent over Fireblocks semantic views.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Streamlit",
+      "role": "Lets internal teams build and share live analytics reports instead of static screenshots.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Asset, wallet, revenue, Salesforce, and Zendesk data from 15 domains flows into Snowflake on AWS, where it is secured with RBAC and row-level security. Cortex Agents with semantic views power Fire Genie and an internal natural-language analytics agent, while Streamlit surfaces live shared reports and APIs return customer-specific answers about wallets, assets, and product behavior.",
+  "integration_points": [
+    "AWS",
+    "Salesforce",
+    "Zendesk",
+    "Jira",
+    "customer APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Fireblocks now handles 40-50% of analysis queries through AI agents, saves the equivalent of two full-time analysts per month, gives customers secure self-service answers about wallets and assets, and strengthens retention with more personalized analytics.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "40-50%",
+    "2 Full-time analysts’ worth of capacity saved per month with AI-powered efficiencies",
+    "$10T transactions",
+    "550M crypto wallets",
+    "15 unique domains",
+    "2,000 analysis queries per month",
+    "200+ users"
+  ],
+  "architecture_clues": [
+    "Fire Genie was built in a 45-day hackathon and exposes customer-specific analytics through an API.",
+    "RBAC and row-level security are used so customers can query only their own data.",
+    "Semantic views help internal agents link product questions and Jira work items back to the right metrics."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/fireblocks/",
+  "published_date": "2026-04-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With billions of rows of data across our platform, asking even basic queries was taking up to 20 minutes.",
+    "At first, I didn’t think we’d be able to do this without a massive risk of data leaks.",
+    "But then in a 45-day hackathon, we developed our AI agent, Fire Genie, on Snowflake.",
+    "Fireblock’s internal agent now powers over 2,000 analysis queries per month, roughly 40-50% of all queries.",
+    "This saves the equivalent of two full time analysts’ worth of capacity every month."
+  ]
+}

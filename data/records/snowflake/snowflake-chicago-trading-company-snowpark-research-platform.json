@@ -1,0 +1,71 @@
+{
+  "id": "snowflake-chicago-trading-company-snowpark-research-platform",
+  "slug": "snowflake-chicago-trading-company-snowpark-research-platform",
+  "vendor": "Snowflake",
+  "customer_name": "Chicago Trading Company",
+  "industry": "Financial Services",
+  "region": "Chicago, Illinois",
+  "company_size": "Enterprise",
+  "business_problem": "Chicago Trading Company was paying heavily to move data out of Snowflake into managed Spark, lacked visibility into per-job costs, and saw too many failures and SLA misses in a nightly research platform that traders depended on before markets opened.",
+  "solution_summary": "Chicago Trading Company moved nightly research-platform processing off managed Spark and onto Snowflake so it could keep compute close to the data, cut costs, and hit pre-market SLAs more reliably. Moving Python-heavy processing into Snowpark eliminated the expensive round trip of exporting data to Spark and reloading results, which alone had cost about $800,000 annually. Thousands of source feeds, trading prices, and third-party datasets are now transformed closer to the data, and Snowflake's job-level cost visibility lets engineers see exactly what each pipeline and dataset consumes. Combined with operational changes, Snowpark reduced ephemeral failures, improved run-to-run consistency, and helped CTC reach its one-hour-before-open delivery target every day for the first time. The simplified platform is easier for a small engineering team to operate and gives the firm headroom to reopen previously retired pipelines and pursue richer analytics.",
+  "products_used": [
+    "Snowflake",
+    "Snowpark"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Holds CTC's core market-data foundation and exposes per-job cost and pipeline visibility for the nightly research platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Runs CTC's Python-heavy processing close to the data so nightly transformations finish more reliably and at lower cost.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Exchange feeds, historical trading prices, and third-party datasets are loaded into Snowflake, where Snowpark transforms tens of thousands of nightly datasets close to the data instead of exporting them to managed Spark. The resulting outputs are delivered back into CTC's research platform so traders, quants, and researchers have the insights they need before markets open.",
+  "integration_points": [
+    "exchange feeds",
+    "historical trading prices",
+    "third-party data"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Migration",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "CTC cut platform costs by 54%, removed about $800K in annual data-movement expense, improved SLA consistency enough to hit its pre-market target every day, and freed a small engineering team to focus on higher-value analytics work.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "54% Cost savings",
+    "$800K Saved annually by eliminating data movement out of Snowflake and back",
+    "more than 700 employees",
+    "tens of thousands of data sets",
+    "seven or more days per month",
+    "one hour before markets open"
+  ],
+  "architecture_clues": [
+    "CTC keeps processing in Snowflake instead of exporting data to managed Spark and reloading results back afterward.",
+    "Snowpark gave the firm more consistent job durations and fewer ephemeral failures across tens of thousands of nightly ETLs.",
+    "The data team now produces SLA scorecards and can attribute costs to specific jobs, pipelines, and lines of business."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/chicago-trading-company/",
+  "published_date": "2024-09-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "CTC was paying $800,000 a year just to move data from Snowflake to managed Spark for processing and back again.",
+    "After moving to Snowflake, we immediately got ahead of these cost problems with the ability to see exactly what each specific grouping of code costs on a per-job run.",
+    "By bringing the compute to the data in Snowpark, CTC has drastically reduced job failures.",
+    "We’re now confident we can hit our SLAs on a regular basis, where we normally would’ve missed seven or more days per month with managed Spark.",
+    "Snowpark performed insanely better. The variance, too, in the Spark job durations was huge, whereas Snowpark is very consistent."
+  ]
+}
