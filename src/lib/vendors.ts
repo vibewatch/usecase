@@ -24,6 +24,7 @@ const VENDOR_STYLES: Record<string, { color: string; mark: string }> = {
   "Baidu AI Cloud": { color: "#2932e1", mark: "BD" },
   "Huawei Cloud": { color: "#c7000b", mark: "HW" },
   BytePlus: { color: "#325ab4", mark: "BP" },
+  "In-house": { color: "#475569", mark: "IN" },
 };
 
 export function vendorStyle(vendor: string): { color: string; mark: string } {

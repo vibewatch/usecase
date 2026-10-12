@@ -32,6 +32,7 @@ REQUIRED_LIST_FIELDS = {
 OPTIONAL_STRING_FIELDS = {
     "data_flow",
     "source_language",  # ISO 639-1 code of a non-English source; the record itself is in English
+    "source_type",  # "company" when published on the adopting company's own website (else a vendor story)
 }
 
 OPTIONAL_LIST_FIELDS = {

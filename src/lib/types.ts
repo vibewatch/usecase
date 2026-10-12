@@ -31,6 +31,8 @@ export interface CaseStudyRecord {
   evidence_quotes: string[];
   /** ISO 639-1 code when the source story is not in English (the record is translated). */
   source_language?: string;
+  /** "company" when the story was published on the adopting company's own website. */
+  source_type?: string;
   is_sample?: boolean;
   /** ISO timestamp of first collection (set by `npm run data:partition`). */
   collected_at?: string | null;

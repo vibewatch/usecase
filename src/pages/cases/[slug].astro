@@ -104,6 +104,7 @@ const searchMeta: Record<string, string> = {
             <span class="chip chip--glass">{record.industry}</span>
             <span class="chip chip--glass">{record.region}</span>
             {translatedFrom && <span class="chip chip--glass" title="This summary was translated to English from the original story">Translated from {translatedFrom}</span>}
+            {record.source_type === "company" && <span class="chip chip--glass" title={`Published by ${record.customer_name} on its own website`}>Company newsroom</span>}
             {record.is_sample && <span class="chip chip--warn">Sample</span>}
           </div>
           <h1 class="detail-hero__title" data-pagefind-meta="title" data-pagefind-weight="10">{record.customer_name}</h1>
