@@ -1,0 +1,60 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "DWP",
+  "industry": "Public Sector",
+  "region": "United Kingdom",
+  "company_size": "Public sector",
+  "business_problem": "DWP needed to keep the Universal Credit welfare platform online and adaptable when pandemic-driven demand pushed traffic to more than 10 times normal levels and millions of citizens urgently needed support.",
+  "solution_summary": "DWP built the Universal Credit platform on MongoDB so it could store diverse welfare data in a microservices architecture and keep the UK’s digital benefits service online through extreme demand spikes. When COVID-19 drove traffic to more than 10 times normal levels, the engineering team expanded the system to eight production clusters with five nodes each across three AWS availability zones. MongoDB’s distributed architecture let the team scale individual nodes in a rolling fashion without taking clusters offline, while schema flexibility allowed urgent service changes without breaking existing microservices. During the crisis, the busiest clusters handled more than 15,000 requests per second and the overall platform grew to 110 TB of uncompressed claim data. DWP carried out 76 urgent changes across the stack in two months, keeping claims and enquiries flowing while the department focused on getting support payments to citizens instead of losing availability to infrastructure stress.",
+  "products_used": [
+    "MongoDB"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB",
+      "role": "Runs the core Universal Credit datastore across DWP’s production clusters and supports the platform’s microservices architecture.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Benefit claims and enquiry data flow into MongoDB-backed microservices, are stored across distributed production clusters, and are served back to Universal Credit applications that calculate payments, manage case data, and support citizen access.",
+  "integration_points": [
+    "AWS"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "DWP kept Universal Credit available during the pandemic, handled huge claims volumes without downtime, and proved a scalable digital-delivery model that supports critical welfare payments for millions of citizens.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Universal Credit experienced traffic at more than 10 times the usual volume during the pandemic.",
+    "The busiest clusters handled more than 15,000 requests per second, and the platform grew to 110 TB of uncompressed claim-related data.",
+    "At peak, DWP handled 100k new claims and over 2.2 million claim enquiries in a single day while keeping on-time payment rates above 88%."
+  ],
+  "architecture_clues": [
+    "The platform expanded to eight production clusters with five nodes each across three AWS availability zones.",
+    "MongoDB’s rolling scaling model let DWP increase capacity without taking clusters offline.",
+    "The Universal Credit platform uses microservices that evolve without predefining a fixed schema.",
+    "DWP carried out 76 urgent changes across the stack in the first two months of the crisis."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/department-for-work-and-pensions",
+  "published_date": "2024-04-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“March 2020 took us by surprise - and that’s an understatement.”",
+    "“For us all, UC failure has real-life consequences and that can mean the difference between paying rent or feeding the family.”",
+    "“At the peak, we managed to handle 100k new claims and over 2.2 million claim enquiries in a single day and keep our on-time payment rates over 88%.”",
+    "“MongoDB has been able to cope with that all the way through and gave us the agility and flexibility we so needed.”"
+  ],
+  "id": "mongodb-dwp-system-migration",
+  "slug": "mongodb-dwp-system-migration"
+}

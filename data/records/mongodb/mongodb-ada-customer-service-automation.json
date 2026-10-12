@@ -1,0 +1,74 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Ada",
+  "industry": "Software / SaaS",
+  "region": "Canada",
+  "company_size": "Mid-market",
+  "business_problem": "Ada needed a flexible data platform for omnichannel customer-service automation so it could use unstructured data securely, train AI models, and keep shipping new products quickly as channels and modalities changed.",
+  "solution_summary": "Ada uses MongoDB Atlas as the core data platform behind its AI automation products so it can ingest unstructured data from many channels, train models, and release capabilities quickly. The company adopted Atlas early to avoid spending engineering effort on database administration and to keep one data store flexible enough for changing channels and product ideas. Atlas stores the conversational and operational data that Ada queries to build and improve generative AI features, and the team says this allows it to ship new products in only a few months. Ada later adopted Change Streams to keep an internal data lake synchronized while powering distributed event processing for bots and analytics. The company is also exploring Queryable Encryption so it can learn from feedback and encrypted conversations without exposing sensitive customer records. Together, these capabilities let Ada push generative AI deeper into customer-service workflows without losing security or iteration speed.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Change Streams",
+    "Queryable Encryption"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Ada’s conversational and operational data and serves as the main platform for its AI automation products.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Change Streams",
+      "role": "Keeps Ada’s internal data lake synchronized while powering distributed event processing for bots and analytics.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Queryable Encryption",
+      "role": "Allows Ada to explore model learning from encrypted conversations without exposing sensitive customer records.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Conversational data from many service channels is stored in MongoDB Atlas, synchronized through Change Streams into Ada’s internal data lake, and then used by bots, analytics, and generative AI features while encryption preserves privacy for sensitive conversations.",
+  "integration_points": [
+    "internal data lake",
+    "customer-service channels",
+    "bot-manager feedback"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Ada kept its AI stack flexible, accelerated product delivery, and created a safer path to using conversational data for generative AI improvements across customer-service automation.",
+  "outcome_category": [
+    "Speed to Market",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Ada had around 300 customers including Meta, Verizon, and AT&T.",
+    "The company says it can ship new products in just a few months with MongoDB.",
+    "Ada has used MongoDB Atlas as part of its platform since the startup’s early growth after being founded in 2016."
+  ],
+  "architecture_clues": [
+    "Atlas serves as the single flexible data store across changing channels and modalities.",
+    "Change Streams power a distributed event-processing system for bots and analytics.",
+    "Queryable Encryption is being explored to protect conversation data during AI training.",
+    "The architecture is designed to reduce dependency on any single central cloud vendor."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ada",
+  "published_date": "2024-05-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We wanted to focus on our business of automating customer service inquiries, not on administering Mongo. This was a huge ‘unlock’ for us in terms of velocity.”",
+    "“Using MongoDB means we’re not limited in how we source data if we want to build something new.”",
+    "“With MongoDB, we’re able to ship new products in just a few months.”",
+    "“We’re super excited to be working with MongoDB Atlas, and can’t wait to see what else is in store.”"
+  ],
+  "id": "mongodb-ada-customer-service-automation",
+  "slug": "mongodb-ada-customer-service-automation"
+}

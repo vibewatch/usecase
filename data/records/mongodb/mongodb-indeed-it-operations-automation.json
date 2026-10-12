@@ -1,0 +1,67 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Indeed",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Indeed needed to bring down sharply higher database infrastructure costs after moving more than 500 TB of platform data onto AWS and MongoDB Atlas without degrading reliability or user experience.",
+  "solution_summary": "Indeed worked with MongoDB Atlas Technical Services to optimize the 600 Atlas clusters supporting its employment platform after cloud migration costs rose more than expected. The team identified that 85% of spending was concentrated in specific clusters and then tuned the most expensive workloads first. Engineers increased storage tiers and moved from provisioned IOPS to standard storage volumes where that was more cost effective, reducing one cluster’s storage spend by more than 30%. They also lowered replica counts in multiregional deployments, removed idle resources, and later replaced third-party backup storage with Atlas cross-region data transfer. Atlas network compression further reduced transfer costs while keeping the same performance, support, and storage characteristics. Rather than redesigning the application, Indeed used Atlas features and expert guidance to systematically optimize how clusters were sized and operated so the platform could stay efficient at large scale.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Technical Services"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the cloud database clusters Indeed optimized for lower storage, replica, backup, and transfer costs.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Technical Services",
+      "role": "Helped Indeed analyze cost concentration across clusters and prioritize the highest-impact optimizations.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Application data remains in MongoDB Atlas on AWS, where cluster sizing, storage tiers, replicas, backups, and network transfer settings are continuously tuned to lower the cost of moving and storing platform data at scale.",
+  "integration_points": [
+    "AWS",
+    "third-party backup storage"
+  ],
+  "technical_area": [
+    "Cost Optimization",
+    "DevOps",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Indeed reduced overall Atlas costs by 27% in six months, exceeded its original savings goal, and kept the same platform performance while simplifying backup and transfer architecture.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Indeed’s platform is built on more than 500 TB of data.",
+    "The company worked with the team to analyze its 600 clusters and found that 85% of Atlas costs came from specific clusters.",
+    "In just six months, the company reduced its total costs by 27%, exceeding its original 19% goal."
+  ],
+  "architecture_clues": [
+    "Indeed optimized Atlas costs by changing storage tiers and moving from provisioned IOPS to standard storage volumes.",
+    "The team reduced replica counts in multiregional clusters and removed idle resources.",
+    "MongoDB Atlas cross-region data transfer replaced third-party backup storage.",
+    "Network compression is used to lower transfer costs without sacrificing performance."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/indeed",
+  "published_date": "2024-11-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We scaled IOPS through storage, and that was more cost-effective than going with the provisioned IOPS.”",
+    "Indeed found that 85% of its MongoDB Atlas costs came from specific clusters.",
+    "In one example, the company’s storage spending shrunk by more than 30%.",
+    "“We switched from our custom solutions to doing it all within MongoDB Atlas.”"
+  ],
+  "id": "mongodb-indeed-it-operations-automation",
+  "slug": "mongodb-indeed-it-operations-automation"
+}

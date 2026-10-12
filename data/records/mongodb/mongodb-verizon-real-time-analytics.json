@@ -1,0 +1,81 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Verizon",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Verizon needed a data layer that could run at the network edge so 5G and IoT applications could avoid regional-cloud bottlenecks and keep data synchronized with minimal latency across mobile zones.",
+  "solution_summary": "Verizon is working with MongoDB to create a reference architecture for data at the edge of its 5G network. The company extends AWS compute and storage into Verizon service-access points through AWS Wavelength, then overlays MongoDB Atlas and Realm so applications can keep operational data close to users instead of routing everything through distant cloud regions. Verizon first validated the idea by installing MongoDB Community at the edge of a Wavelength zone and measuring a 47% throughput improvement. The production design adds Atlas Functions to direct clients to the closest database instance through Verizon’s edge discovery service, while Atlas Device Sync and Realm keep data synchronized among devices, edge virtual machines, and the cloud without developers having to manage conflict resolution. The full architecture can be stood up in minutes across 19 AWS Wavelength zones and gives Verizon a platform for low-latency mobile, IoT, and machine-learning use cases at the network edge.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Device Sync",
+    "MongoDB Realm",
+    "Atlas Functions"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the managed database layer Verizon uses to persist and serve edge data across its 5G footprint.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Device Sync",
+      "role": "Synchronizes data automatically between edge instances, the cloud, and connected devices without custom conflict-resolution logic.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MongoDB Realm",
+      "role": "Extends data persistence and application logic to Verizon’s mobile edge compute footprint.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Atlas Functions",
+      "role": "Works with Verizon’s edge discovery service to route mobile clients to the nearest database instance.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Device and application data are routed to the nearest edge database instance, stored through Atlas and Realm in AWS Wavelength zones, synchronized with Atlas Device Sync across edge and cloud environments, and then analyzed or served back to mobile and IoT applications with lower latency.",
+  "integration_points": [
+    "AWS Wavelength",
+    "Kubernetes",
+    "Verizon edge discovery service",
+    "mobile and IoT devices"
+  ],
+  "technical_area": [
+    "IoT",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Verizon gained a lower-latency edge data architecture that can improve user experiences, reduce networking costs, and accelerate new 5G applications that depend on synchronized operational data at the edge.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Verizon has over 140 million retail connections and is deploying across 19 AWS Wavelength zones.",
+    "The initial proof of concept showed a 47% improvement in throughput compared to the existing network path.",
+    "The reference architecture can be stood up in minutes across all 19 AWS Wavelength Zones."
+  ],
+  "architecture_clues": [
+    "Atlas Functions integrate with Verizon’s edge discovery service to route clients to the closest database.",
+    "Atlas Device Sync hides conflict resolution for developers running across edge zones.",
+    "Realm instances run on virtual machines across AWS Wavelength zones.",
+    "The design supports mobile, IoT, and machine-learning workloads that keep data at the network edge."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/verizon",
+  "published_date": "2024-05-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“And what we found in that race with over a thousand examples was a 47% improvement.”",
+    "“What I love about Device Sync is, as a developer, I don't have to deal with conflict resolution. It's just done for me.”",
+    "“Together, they have created a reference architecture with full automation which can be stood up in minutes at each of the 19 AWS Wavelength Zones.”",
+    "“We're super excited to continue our collaboration with MongoDB and look forward to taking advantage of data at the edge.”"
+  ],
+  "id": "mongodb-verizon-real-time-analytics",
+  "slug": "mongodb-verizon-real-time-analytics"
+}

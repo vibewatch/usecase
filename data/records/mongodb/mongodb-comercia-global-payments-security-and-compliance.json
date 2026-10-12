@@ -1,0 +1,68 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Comercia Global Payments",
+  "industry": "Financial Services",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "Comercia needed to build its own payment gateway with six-nines resilience and strict PCI/GDPR controls after legacy provider dependencies and a single-cloud outage showed that its payment data layer was too risky.",
+  "solution_summary": "Comercia built its new payment platform on MongoDB Atlas to create a single consistent cluster that spans multiple clouds while meeting stringent uptime, consistency, and compliance requirements. Rather than rely on legacy provider dependencies or custom dual-write logic, the engineering team designed an active-active architecture with Atlas running as one unified replica set across two Azure regions, Google Cloud as a secondary active-active provider, and an AWS tie-breaker node. Atlas manages replication, elections, encryption, cross-cloud networking, and consistency guarantees so transaction data stays available even if an entire provider goes down. MongoDB Professional Services and solution architects worked alongside Comercia’s team to optimize the design. The result is a payment data layer that can fail over in seconds, absorb maintenance without application-level custom logic, and give Comercia a safer foundation for new payment features across Europe.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Professional Services"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs Comercia’s active-active multicloud payment data layer and manages replication, elections, encryption, and failover across providers.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Professional Services",
+      "role": "Extended Comercia’s engineering team with design and optimization expertise for the high-availability multicloud architecture.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Payment transactions are written to a single MongoDB Atlas replica set stretched across Azure, Google Cloud, and AWS, where Atlas synchronizes state and fails over automatically so payment applications can continue serving traffic with consistent data.",
+  "integration_points": [
+    "Microsoft Azure",
+    "Google Cloud",
+    "AWS"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Comercia achieved a resilient multicloud payment gateway with near-zero-downtime operations, faster market expansion, and far less exposure to outages or provider lock-in when launching new payment services.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Comercia processes 3.6 billion transactions and €113 billion in volume across 58 countries annually.",
+    "The platform operates under a 99.9999% availability SLA, and failover happens within two to three seconds.",
+    "Zero-downtime operations have been proven over the past 30 months of operation."
+  ],
+  "architecture_clues": [
+    "The active-active deployment spans two Azure regions, one Google Cloud region, and one AWS tie-breaker region.",
+    "All nodes operate as a single unified replica set coordinated by MongoDB Atlas.",
+    "Atlas handles cross-cloud replication, elections, encryption, and consistency guarantees natively.",
+    "Traffic can be shifted proactively for maintenance or index builds without impacting production."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/comercia-global-payments",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“MongoDB Atlas was the only database service that allowed us to create a cluster where the nodes are distributed not only across different cloud regions, but also across different clouds.”",
+    "“One minute of downtime can generate 20,000 denials, that is, 20,000 sales that failed on our terminals.”",
+    "Failover happens within two to three seconds, fast enough that customers barely notice.",
+    "“MongoDB Atlas has been a game-changer for us.”"
+  ],
+  "id": "mongodb-comercia-global-payments-security-and-compliance",
+  "slug": "mongodb-comercia-global-payments-security-and-compliance"
+}

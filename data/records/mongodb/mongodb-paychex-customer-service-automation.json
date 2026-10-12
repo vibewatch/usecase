@@ -1,0 +1,70 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Paychex",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Paychex needed a secure way to help call-center representatives answer complex payroll, benefits, and compliance questions faster while using feedback and interaction data to keep improving its new AI assistant.",
+  "solution_summary": "Paychex launched a beta AI copilot for HR service representatives on MongoDB Atlas so it could unify knowledge retrieval, feedback capture, and model improvement in one operational store. The assistant uses ChatGPT to query a broad knowledge base that combines call and chat transcripts, internal databases, government regulations, and third-party datasets, helping representatives answer complex customer questions more accurately. Atlas stores the generated interaction data and user feedback so the team can iteratively retrain the out-of-the-box models, measure adoption, analyze question patterns, track response speed, and build visualizations for continuous tuning. The system also preserves conversational context to improve follow-up answers. Atlas was deployed in less than a month, and Paychex can roll out full datasets across data centers in as little as 27 minutes while keeping MongoDB central to its cloud-first AI strategy.",
+  "products_used": [
+    "MongoDB Atlas",
+    "ChatGPT"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Paychex’s AI assistant interaction data, feedback loops, and operational knowledge needed to improve representative responses.",
+      "layer": "Storage"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "Generates representative-facing answers from Paychex’s unified knowledge base during call-center interactions.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Call and chat transcripts, internal data, government regulations, and third-party datasets are queried through ChatGPT, the responses and feedback are stored in MongoDB Atlas, and Paychex uses that stored interaction data to retrain models, build visualizations, and improve future answers.",
+  "integration_points": [
+    "call transcripts",
+    "chat transcripts",
+    "internal databases",
+    "government regulations",
+    "third-party datasets"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Paychex improved representative productivity and response quality, created a differentiating client experience, and built an AI feedback loop that can keep improving accuracy as the company expands its cloud-first strategy.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Paychex serves more than 745,000 clients and processes more than one million payrolls in a single day.",
+    "The company manages 800 instances across 140 applications, with 100 instances hosted on premises.",
+    "MongoDB Atlas was deployed in less than one month and can help Paychex deploy a full dataset across data centers in as little as 27 minutes."
+  ],
+  "architecture_clues": [
+    "The AI copilot queries a unified knowledge base spanning transcripts, internal systems, regulations, and third-party data.",
+    "Atlas stores user feedback and interaction telemetry to retrain models iteratively.",
+    "The solution remembers previous interactions to improve follow-up responses.",
+    "Paychex uses MongoDB automation to deploy full datasets across data centers in 27 minutes."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/paychex",
+  "published_date": "2024-12-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We’re using our AI copilot solution, powered by MongoDB Atlas, to better support our service representatives.”",
+    "“As with anything that’s data driven, the quality of the data and how it’s curated to solve the problems at hand will define the results.”",
+    "When users provide feedback on the quality of the model’s responses, the data stored in MongoDB Atlas iteratively retrains the out-of-the-box models.",
+    "“Anything you can do to help make individual workers more productive is a win.”"
+  ],
+  "id": "mongodb-paychex-customer-service-automation",
+  "slug": "mongodb-paychex-customer-service-automation"
+}

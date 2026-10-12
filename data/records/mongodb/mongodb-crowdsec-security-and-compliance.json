@@ -1,0 +1,86 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "CrowdSec",
+  "industry": "Software / SaaS",
+  "region": "France",
+  "company_size": "Mid-market",
+  "business_problem": "CrowdSec needed a more agile data platform than PostgreSQL so it could evolve threat-intelligence schemas quickly, avoid downtime-heavy upgrades, and turn growing cyber-threat telemetry into searchable and AI-ready products.",
+  "solution_summary": "CrowdSec moved core cyber-threat intelligence and telemetry workloads onto MongoDB so it could iterate faster and turn security data into a richer product. Its open source engines detect attacks on host machines, remediate them locally, and send the resulting events to CrowdSec’s cloud platform, where AI and machine-learning models classify malicious IP addresses and publish curated blocklists. As the company grew, PostgreSQL schema migrations and version upgrades slowed development, so CrowdSec shifted increasing volumes of API and CTI data to MongoDB Atlas, added Atlas Search for fast queries, adopted Atlas Vector Search to cluster IPs with similar behavior, and used Time Series collections for high-volume engine telemetry. Data Federation exports colder data for deeper analysis, and Professional Services helped tune indexing and collection design. This integrated architecture lets CrowdSec search, enrich, and analyze huge threat datasets without breaking developer velocity.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search",
+    "MongoDB Atlas Vector Search",
+    "MongoDB Time Series collections",
+    "MongoDB Data Federation"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores CrowdSec’s API, CTI, and security blocklist data as the main operational threat-intelligence platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Makes CrowdSec’s CTI datasets quickly searchable for user-facing threat exploration.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Clusters IPs with similar behavior so the team can detect related or emerging threat actors.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Time Series collections",
+      "role": "Stores high-volume telemetry from active security engines efficiently over time.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Data Federation",
+      "role": "Exports and queries colder data so data scientists can analyze it without stressing live operational clusters.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Host engines detect attacks and send telemetry to CrowdSec’s cloud, Atlas stores CTI and blocklist data, Atlas Search and Vector Search expose that intelligence for queries and similarity analysis, and Data Federation moves colder data into deeper analytical workflows.",
+  "integration_points": [
+    "PostgreSQL",
+    "open source detection engines",
+    "data science workflows"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "CrowdSec improved developer velocity, removed painful upgrade downtime, expanded its threat-intelligence product set, and created a more scalable security-data platform for customer-facing CTI services.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "CrowdSec has more than 110,000 live engines sending data regularly.",
+    "The company ingests 900 million telemetry documents every 30 days.",
+    "The startup was launched in France in 2020 and has expanded its CTI offerings significantly over the last year and a half."
+  ],
+  "architecture_clues": [
+    "CrowdSec retains PostgreSQL only with a limited perimeter while moving CTI and API data into MongoDB.",
+    "Atlas Search and Vector Search are both used directly on customer-facing CTI datasets.",
+    "Time Series collections capture telemetry from over 100,000 active engines.",
+    "Data Federation is used to move colder data into data-science analysis without exploring live data directly."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/crowdsec",
+  "published_date": "2025-07-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Our first motivation was developer velocity.”",
+    "“With more than 110,000 live engines sending data regularly, we know a lot of things about a lot of IPs.”",
+    "“With MongoDB, we can truly leverage our data to power AI algorithms on data all in one place.”",
+    "“From an operations standpoint, MongoDB is a no-brainer. It’s there, it works, there’s no headache.”"
+  ],
+  "id": "mongodb-crowdsec-security-and-compliance",
+  "slug": "mongodb-crowdsec-security-and-compliance"
+}

@@ -1,0 +1,68 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Meltwater",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Meltwater needed a faster way to understand user behavior and guide product decisions as it broke down a monolithic media-listening platform into cloud-based microservices.",
+  "solution_summary": "Meltwater used MongoDB Atlas and MongoDB Charts to make product development more data-driven while the company transitioned from a monolith to a cloud-first microservices architecture on AWS. The Cosmos team built a tracking service on Atlas to capture how users interact with the application, especially around homepage onboarding and global search. MongoDB Charts sits directly on that Atlas data so product owners and engineers can run complex aggregations, visualize usage patterns, and answer detailed UX questions without exporting data to RedShift or waiting on BI teams. That tight integration is central to Meltwater’s operating model: developers can provision services quickly in Atlas, use the same operational store for analytics, and iterate on dashboards in minutes as product questions arise. By putting behavioral telemetry and visualization in one workflow, Meltwater turned product instrumentation into an everyday engineering tool rather than a separate reporting project.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Charts"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Meltwater’s product-usage tracking data and supports the cloud-first microservices environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Charts",
+      "role": "Visualizes user-journey and feature-usage data so product and engineering teams can make decisions from live metrics.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User interaction events are captured into MongoDB Atlas by Meltwater’s tracking service, queried with aggregations, and surfaced through MongoDB Charts dashboards that product owners and engineers use to drive roadmap and UX decisions.",
+  "integration_points": [
+    "AWS",
+    "RedShift",
+    "BI and analytics teams"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "DevOps",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Meltwater moved from releasing features every six months to multiple times per day, created dashboards in less than a day, and gave product teams immediate access to the metrics they need for faster UX and roadmap decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Meltwater serves 30,000 customers in over 120 countries and has over 2,000 employees.",
+    "Meltwater went from releases every six months to multiple releases per day.",
+    "Once the tracking service was connected to Atlas, it took less than a day to create the two primary dashboards."
+  ],
+  "architecture_clues": [
+    "The company used MongoDB and AWS to move from a monolith to a microservices environment.",
+    "MongoDB Charts runs directly on Atlas without moving or duplicating data.",
+    "Product teams use aggregation queries in Charts instead of depending on RedShift exports or BI requests.",
+    "The Cosmos team uses user-journey telemetry to tune onboarding and search experiences."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/meltwater",
+  "published_date": "2024-05-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“As our product matured and the market matured we undertook initiatives to become a DevOps company and move things into the cloud—MongoDB Atlas helped us make that transition.”",
+    "“Charts helps us drive roadmap and feature decisions, but it also helps with micro-decisions too.”",
+    "“The ability to dump the data in Atlas and have a full visualization library directly connected to the database without having to do anything was the reason we chose MongoDB Charts, and subsequently Atlas.”",
+    "“We’ve gone from releases every six months to multiple releases per day.”"
+  ],
+  "id": "mongodb-meltwater-real-time-analytics",
+  "slug": "mongodb-meltwater-real-time-analytics"
+}

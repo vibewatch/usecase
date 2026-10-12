@@ -1,0 +1,62 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Electrolux",
+  "industry": "Consumer Goods",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "Electrolux needed to replace disconnected monolithic backends so it could connect millions of appliances, launch as-a-service offerings, and process global IoT data with lower latency and stronger localization controls.",
+  "solution_summary": "Electrolux consolidated multiple IoT platforms onto MongoDB Atlas to support connected appliances, subscription-style services, and a more service-oriented relationship with customers. The platform spans AWS and Microsoft Azure and geo-shards data so it stays in the region where it was generated, while replication across three nodes maintains continuity if one area fails. Atlas handles 12 million events per hour from 14 million appliance components and supports a single view of devices across the world through global clusters. Electrolux uses the flexible document model to manage different appliance types and service models, from pay-per-square-meter vacuuming to filter lifecycle monitoring for air purifiers. Deduplication and central API access make the data usable across offerings, and autoscaling helps the team pay only for needed resources. The result is a shared IoT foundation that can support more than six million connected appliances and future time-series workloads.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Electrolux’s connected-appliance data and powers the geo-sharded, multi-cloud IoT platform behind its new service offerings.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Connected appliances send events into MongoDB Atlas, geo-sharded clusters keep regional data local, global clusters expose a unified device view, and central APIs serve downstream billing, service, and customer-experience applications.",
+  "integration_points": [
+    "AWS",
+    "Microsoft Azure",
+    "customer smartphone applications"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "Electrolux created a scalable global IoT platform that supports subscription-style services, improves time to market, and lets the company use appliance data to deliver more proactive and valuable customer experiences.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Electrolux produces 60 million products every year and employs around 51,000 people.",
+    "MongoDB Atlas handles 12 million events per hour from 14 million appliance components.",
+    "The platform supports more than six million connected appliances and reduces development overheads by up to three times."
+  ],
+  "architecture_clues": [
+    "The IoT platform spans both AWS and Microsoft Azure with geo-sharded data placement.",
+    "Replication across three nodes protects continuity during regional failures.",
+    "Global clusters provide a single view of connected devices worldwide.",
+    "Event deduplication is used to support many appliance and component types on one platform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/electrolux-iot",
+  "published_date": "2024-07-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We were impressed by the flexible data model, high performance, and how quickly we could implement MongoDB Atlas.”",
+    "“MongoDB Atlas handles 12 million events per hour from 14 million appliance components, and there have been no incidents to date.”",
+    "“MongoDB Atlas reduces development overheads up to three times compared to our previous approach.”",
+    "“We now have a solution to accelerate time to market and support future ventures as we expand into the direct-to-consumer market.”"
+  ],
+  "id": "mongodb-electrolux-predictive-maintenance",
+  "slug": "mongodb-electrolux-predictive-maintenance"
+}

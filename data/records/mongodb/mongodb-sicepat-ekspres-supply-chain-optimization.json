@@ -1,0 +1,75 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "SiCepat Ekspres",
+  "industry": "Logistics",
+  "region": "Indonesia",
+  "company_size": "Enterprise",
+  "business_problem": "SiCepat Ekspres needed to replace a monolithic SQL Server logistics platform that struggled with real-time order and delivery data as Indonesia’s e-commerce growth drove a rapid increase in package volume.",
+  "solution_summary": "SiCepat Ekspres moved key logistics workloads from a monolithic SQL Server architecture on AWS to MongoDB Atlas so it could support microservices, real-time tracking, and rapid feature delivery across its nationwide logistics network. Atlas now manages nearly a third of the company’s data, including the core application that coordinates orders from e-commerce partners, pickups, branches, and drivers in real time. The team uses MongoDB indexing to keep operational queries fast, Atlas Online Archive to move older delivery records into lower-cost object storage while keeping them queryable, and continuous cloud backups for localized recovery. MongoDB Realm supports the mobile side of the application, and the company is exploring Atlas Device Sync to keep device and server data aligned. Atlas has also become the default for new innovations such as an executive chatbot that answers daily operational questions from live company data.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Online Archive",
+    "MongoDB Realm"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the core logistics application and stores the operational order, driver, and delivery data used across SiCepat’s business.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Online Archive",
+      "role": "Archives colder delivery data to lower-cost storage while keeping it available for analytics and queries.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Realm",
+      "role": "Supports the mobile-side application logic for delivery workflows running on end-user devices.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Order and billing data from e-commerce partners, branches, and drivers are written to MongoDB Atlas, operational queries are accelerated through indexes, older delivery records are moved to Atlas Online Archive, and mobile workflows are served through MongoDB Realm.",
+  "integration_points": [
+    "AWS",
+    "e-commerce partners",
+    "mobile applications",
+    "executive chatbot"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Migration",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "SiCepat scaled deliveries to two million packages per day, cut processing time from hours to minutes, supported 40 million monthly deliveries, and freed engineers to keep modernizing logistics systems across the wider group.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "SiCepat has 1,300 branches and 31,000 delivery drivers.",
+    "The business has been able to quadruple the number of packages it is capable of delivering to as many as two million per day.",
+    "Processing time was reduced by more than 98% from three hours to around two minutes."
+  ],
+  "architecture_clues": [
+    "Nearly a third of SiCepat’s data is managed on MongoDB Atlas hosted on AWS.",
+    "Atlas Online Archive is used to keep only delivery-hot data on primary storage.",
+    "MongoDB Realm powers the device-side portion of the logistics application.",
+    "The team is exploring Atlas Device Sync for automatic conflict resolution and synchronization."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/sicepat-ekspres",
+  "published_date": "2024-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Data is everything for us – from day-to-day business decision making, through to customer experience and on the ground operations.”",
+    "“We’d heard good things about MongoDB’s fully managed Atlas service, so we decided to test this for our partners' order data and some billing applications. It was an immediate success.”",
+    "“MongoDB has been fantastic and really delivered for us operationally.”",
+    "The business has been able to quadruple the number of packages it is capable of delivering to as many as two million per day."
+  ],
+  "id": "mongodb-sicepat-ekspres-supply-chain-optimization",
+  "slug": "mongodb-sicepat-ekspres-supply-chain-optimization"
+}

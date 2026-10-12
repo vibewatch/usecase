@@ -1,0 +1,71 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Cognigy",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Cognigy needed a scalable conversational AI data platform that could integrate with enterprise systems and channels while letting the product evolve quickly without painful schema migrations or latency spikes.",
+  "solution_summary": "Cognigy built its conversational AI platform on MongoDB so it could combine flexible document storage, microservices scalability, and file management for enterprise customer-service agents. The platform integrates with CRMs, ERPs, ticketing systems, and multiple messaging channels, which means data models and traffic patterns change constantly. Cognigy addressed that by designing more than 30 microservices orchestrated with Kubernetes and backed by MongoDB replica sets across three availability zones. Indexing and caching improve query performance, while MongoDB’s JSON document model aligns with the TypeScript-heavy application stack and reduces migration friction when schemas evolve. Cognigy also uses MongoDB GridFS to store custom-trained intent models with better consistency and availability than a plain file system. This architecture gives the company a composable, low-code foundation for scaling voice and chat experiences without sacrificing latency or deployment flexibility.",
+  "products_used": [
+    "MongoDB",
+    "MongoDB GridFS"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB",
+      "role": "Stores conversational AI data for Cognigy’s microservices platform and provides the scalable document model behind the product.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB GridFS",
+      "role": "Stores custom-trained intent models with higher consistency and availability than a plain file system.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Data from CRMs, ERPs, ticketing systems, and messaging channels flows into Cognigy microservices, is stored in MongoDB, and is retrieved by low-code voice and chat agents while GridFS holds trained intent-model artifacts.",
+  "integration_points": [
+    "CRMs",
+    "ERPs",
+    "ticketing systems",
+    "Facebook Messenger",
+    "Line",
+    "WhatsApp"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Cognigy gained a flexible and scalable core for voice and chat automation, enabling higher throughput, rapid model evolution, and easier deployment of multilingual customer-service experiences.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Cognigy designed over 30 specialized microservices orchestrated through Kubernetes.",
+    "Its MongoDB production replica set handles around 1000 database operations per second during peak-load scenarios.",
+    "The platform manages over 1 TB of data on larger systems."
+  ],
+  "architecture_clues": [
+    "MongoDB replica sets are distributed across three availability zones.",
+    "The platform uses sophisticated indexing and caching strategies for query performance.",
+    "Around 80% of the platform is coded in TypeScript and uses a JSON-aligned document model.",
+    "GridFS stores large binary files such as custom-trained intent models."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/cognigy",
+  "published_date": "2024-04-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“To achieve this, they designed over 30 specialized microservices, which they adeptly orchestrated through Kubernetes.”",
+    "“A significant 80% of the Cognigy.AI platform is coded in Typescript.”",
+    "“GridFS offers advantages over plain file systems, particularly in terms of data consistency and availability.”",
+    "“MongoDB has been instrumental in bringing Cognigy.AI ... to life, enabling us to handle hundreds of queries per second.”"
+  ],
+  "id": "mongodb-cognigy-customer-service-automation",
+  "slug": "mongodb-cognigy-customer-service-automation"
+}

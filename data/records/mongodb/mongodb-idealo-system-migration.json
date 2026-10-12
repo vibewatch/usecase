@@ -1,0 +1,64 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "idealo",
+  "industry": "Retail",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "idealo needed to move its offer-store workloads off a self-hosted data center because rapidly growing traffic and billions of merchant offers were pushing its on-premises MongoDB environment to physical and operational limits.",
+  "solution_summary": "idealo migrated its massive offer-store platform to MongoDB Atlas so it could keep ingesting and updating billions of product offers from 50,000 merchants without expanding its data center. The service receives hourly CSV and XML feeds, filters relevant updates, applies discounts, stores the latest offer records, and serves downstream consumers that present price changes to more than 70 million shoppers. On premises, the workload had already grown to 160,000 requests per second and required 21 shards with 72 CPU cores per node for the offer store alone. Atlas became the managed backbone for bulk reads and updates, allowing idealo to process thousands of documents in one batch, complete its cloud migration before Black Friday, and then optimize the platform for efficiency and security. After the move, idealo decommissioned its data center, cut shards from 25 to 12, reduced node size by two-thirds, and gave developers a faster way to change infrastructure and ship improvements.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores idealo’s large-scale offer data and powers the managed read/write path for bulk offer updates and shopper-facing queries.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Merchants send hourly CSV and XML offer feeds to idealo, Atlas stores and updates the offer-store records in bulk, discounts are applied, and downstream consumers use the latest data to present price changes and product offers to shoppers.",
+  "integration_points": [
+    "CSV feeds",
+    "XML feeds",
+    "Amazon",
+    "eBay",
+    "downstream consumers"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "idealo eliminated data-center limits, reduced infrastructure footprint, improved performance at very high query rates, and gave developers faster access to the resources they need to keep innovating.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "idealo consolidates offers from 50,000 merchants for over 70 million monthly shoppers.",
+    "Traffic increased six times in four years, and the on-premises system processed 160,000 requests per second.",
+    "After migration, idealo reduced shards from 25 to 12 and can support up to 200,000 queries per second and 60,000 updates per second."
+  ],
+  "architecture_clues": [
+    "Atlas is used for large batch reads and bulk update operations across huge offer datasets.",
+    "The offer store consumes hourly CSV and XML merchant feeds.",
+    "The migration was completed before Black Friday and enabled idealo to decommission its data center.",
+    "The new cloud setup sustained more than 150,000 queries per second for 14 consecutive hours."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/idealo",
+  "published_date": "2025-07-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“With billions of offers to keep up to date and traffic growing quickly, it became clear we would not be able to grow any further without expanding our data center.”",
+    "“With MongoDB Atlas we can read thousands of documents in a single batch, perform a bulk update operation, and write all the updates back in one operation.”",
+    "idealo is now 100% in the cloud.",
+    "“We can now innovate in minutes rather than weeks or months.”"
+  ],
+  "id": "mongodb-idealo-system-migration",
+  "slug": "mongodb-idealo-system-migration"
+}

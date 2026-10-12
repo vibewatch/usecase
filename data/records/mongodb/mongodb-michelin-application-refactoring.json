@@ -1,0 +1,69 @@
+{
+  "vendor": "MongoDB",
+  "customer_name": "Michelin",
+  "industry": "Manufacturing",
+  "region": "France",
+  "company_size": "Enterprise",
+  "business_problem": "Michelin needed to replace a costly, slow SaaS master-data management system that delayed new features, slowed incident resolution, and made its global supply-chain product repository hard to evolve.",
+  "solution_summary": "Michelin re-platformed its PS9 supply-chain master-data management application onto MongoDB Atlas to regain control over the product and services repository used by more than 60 internal applications. The team adopted a document-driven model so it could move faster than the old SaaS environment, where feature changes could take up to two years and even small incidents could take more than 20 days to fix. MongoDB’s native Kafka connector lets Michelin stream logistics and product events in real time, including data tied to 67 factories and warehouses in 171 countries, while Atlas collections give users a simpler way to manage evolving records. The migration was executed on a 10-month deadline, with data transferred between environments in hours, and Atlas now underpins a responsive platform for custom collections, faster calculations, and immediate issue analysis without shadow IT workarounds.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Kafka"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Michelin’s PS9 product and service repository and provides the managed document database for the redesigned supply-chain application.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Kafka",
+      "role": "Streams logistics and repository events into the new MongoDB-based architecture in real time.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Supply-chain and product repository data are moved into MongoDB Atlas, Kafka feeds real-time logistics events from factories and warehouses, and PS9 collections serve operational updates, issue analysis, and downstream application queries across the business.",
+  "integration_points": [
+    "Kafka",
+    "60 internal applications",
+    "67 factories",
+    "warehouses in 171 countries"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Michelin cut core PS9 processing from hours to seconds, reduced feature delivery from years to days, improved incident response, lowered costs, and created a more scalable data foundation for future AI work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "PS9 powers Michelin’s central Products and Services Repository, used by over 60 applications across the organization.",
+    "Feature requests that once took up to two years to implement are now completed in just 20 days.",
+    "Processing times and calculations have been reduced from 8 hours to a mere 24 seconds."
+  ],
+  "architecture_clues": [
+    "Michelin adopted a document-driven architecture for the PS9 supply-chain application.",
+    "MongoDB provides a native connector for Kafka to manage real-time events.",
+    "PS9 users can create custom document collections through the new interface.",
+    "The migration was completed under a 10-month deadline and transferred data between environments in hours."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/michelin",
+  "published_date": "2025-07-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“I had 10 months to migrate everything and make it work.”",
+    "“We were able to transfer all the information from one environment to another in just a few hours and without the slightest problem.”",
+    "“We have a responsiveness that is mind blowing.”",
+    "Feature requests that once took up to two years to implement are now completed in just 20 days, while processing times and calculations have been reduced from 8 hours to a mere 24 seconds."
+  ],
+  "id": "mongodb-michelin-application-refactoring",
+  "slug": "mongodb-michelin-application-refactoring"
+}
