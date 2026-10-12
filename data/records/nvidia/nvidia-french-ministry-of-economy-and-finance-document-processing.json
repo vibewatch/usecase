@@ -1,0 +1,104 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-french-ministry-of-economy-and-finance-document-processing",
+  "slug": "nvidia-french-ministry-of-economy-and-finance-document-processing",
+  "customer_name": "French Ministry of Economy and Finance",
+  "industry": "Public Sector",
+  "region": "France",
+  "company_size": "Public sector",
+  "business_problem": "French public servants needed to answer citizen requests against more than 100 million documents per year while maintaining legal accuracy, security, confidentiality, and compliance, but manual retrieval and analysis of PDFs, scans, and other records was too slow and costly.",
+  "solution_summary": "ThinkDeep and NVIDIA built DeepBrain as an on-prem, multi-agent document and knowledge platform for the French administration. The system connects to many data sources, ingests millions of PDFs, scanned images, schemas, and videos, and builds domain-specific knowledge bases so public servants can cross-reference legal and operational information securely. On the infrastructure side, DeepBrain uses NVIDIA AI Enterprise with H100 and H200 GPU resources plus the NVIDIA DGX platform to keep data on customer-controlled infrastructure. NVIDIA NIM packages and serves the latest LLMs on premises, NVIDIA NeMo Retriever grounds agents in current documentation, NVIDIA NeMo Guardrails enforces safer behavior, and NVIDIA Dynamo helps optimize inference speed for advanced reasoning models. That stack allows ministries to run fraud-detection, legal-document, and cross-domain assistants that return sourced answers in minutes instead of days while preserving sovereignty over highly sensitive data.",
+  "products_used": [
+    "DeepBrain",
+    "NVIDIA AI Enterprise",
+    "NVIDIA NIM",
+    "NVIDIA NeMo Retriever",
+    "NVIDIA NeMo Guardrails",
+    "NVIDIA DGX platform",
+    "NVIDIA Dynamo"
+  ],
+  "solution_components": [
+    {
+      "name": "DeepBrain",
+      "role": "Provides the multi-agent assistant layer that builds domain knowledge bases and serves ministry workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Supplies the software platform for building and operating DeepBrain on customer-controlled infrastructure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Packages and deploys the latest LLMs on premises for DeepBrain agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Retriever",
+      "role": "Grounds DeepBrain agents in current ministry documents and knowledge bases.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA NeMo Guardrails",
+      "role": "Applies safety controls to reduce biased or harmful outputs in regulated workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA DGX platform",
+      "role": "Provides the on-prem GPU infrastructure required to serve large user populations securely.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Optimizes inference speed for advanced reasoning models used in the agent workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Government records from PDFs, scans, schemas, videos, and other internal sources flow into DeepBrain knowledge bases, NIM-served models and NeMo Retriever agents analyze and cross-reference them, Guardrails constrain the outputs, and public servants receive sourced answers or fraud-detection insights on ministry-controlled infrastructure.",
+  "integration_points": [
+    "PDF documents",
+    "scanned images",
+    "schemas",
+    "videos",
+    "French legal documentation",
+    "ministry knowledge bases"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Fraud Detection",
+    "Security and Compliance"
+  ],
+  "business_outcome": "DeepBrain cut document retrieval from two days to two minutes, saved a typical 100-user deployment about 1,000 work hours per month, and helped the Ministry of Finance save €2 million when deployed at scale for 10,000 employees, while requiring only about one week to set up and connect.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "More than 100 million documents handled annually",
+    "Document retrieval improved from two days to two minutes",
+    "1,000 work hours saved per month for a typical 100-user deployment",
+    "€2 million saved for the French public at 10,000 Ministry of Finance employees",
+    "One week to set up DeepBrain and configure connectors"
+  ],
+  "architecture_clues": [
+    "The deployment keeps data on customer infrastructure at all times to meet security and sovereignty requirements.",
+    "DeepBrain builds domain-specific knowledge bases and a graph methodology for searching across millions of files and relationships.",
+    "The platform was designed to satisfy confidentiality needs and compliance with the European AI Act."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/thinkdeep-sovereign-ai-agents-automate-public-services/",
+  "published_date": "2025-06-27",
+  "evidence_quotes": [
+    "Together, ThinkDeep and NVIDIA worked to develop DeepBrain AI agents, capable of processing information from millions of PDF documents, scanned images, schemas, and videos.",
+    "The French administration annually handles over 100 million documents to provide tailored responses to citizen inquiries.",
+    "The DeepBrain agent’s unique data confidentiality approach guarantees the data stays on the customer infrastructure at all times.",
+    "Customers were able to automate the document retrieval process, improving from two days to two minutes.",
+    "The Ministry of Finance has saved €2 million by deploying DeepBrain at scale for 10,000 employees."
+  ]
+}

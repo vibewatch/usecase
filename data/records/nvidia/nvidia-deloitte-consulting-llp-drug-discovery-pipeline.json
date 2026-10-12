@@ -1,0 +1,121 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-deloitte-consulting-llp-drug-discovery-pipeline",
+  "slug": "nvidia-deloitte-consulting-llp-drug-discovery-pipeline",
+  "customer_name": "Deloitte Consulting LLP",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Deloitte needed to integrate large multimodal biomedical datasets, train custom protein and chemistry language models, and assemble drug-discovery pipelines far faster than manual infrastructure work allowed, because traditional drug development is slow, costly, and prone to failure.",
+  "solution_summary": "Deloitte built Quartz Atlas AI on NVIDIA DGX Cloud running on Oracle Cloud Infrastructure to turn multimodal drug-discovery research into a scalable, reusable pipeline. Atlas AI combines LLM-powered knowledge graphs, NVIDIA BioNeMo microservices, and Deloitte’s proprietary generative models to ingest sources such as PubMed, UniProt, antibody datasets, and small-molecule datasets into a 12-million-node, 97-million-edge graph totaling 5 TB of raw data. The platform uses AlphaFold2, OpenFold, and ESMFold for structure prediction, MegaMolBART and MolMIM for molecule generation, and DGX Cloud-based multi-node training to fine-tune protein and chemistry models such as a 15B-parameter ESM2 variant. NIM microservices then serve those models at scale so researchers can rank compounds, refine proteins, run inference loops, and generate comprehensive reports without manually wiring infrastructure or debugging bespoke pipelines for every experiment.",
+  "products_used": [
+    "Quartz Atlas AI",
+    "NVIDIA DGX Cloud",
+    "Oracle Cloud Infrastructure",
+    "NVIDIA BioNeMo",
+    "NVIDIA NIM",
+    "AlphaFold2",
+    "OpenFold",
+    "ESMFold",
+    "MegaMolBART",
+    "MolMIM"
+  ],
+  "solution_components": [
+    {
+      "name": "Quartz Atlas AI",
+      "role": "Acts as Deloitte’s generative AI drug-discovery accelerator and multimodal knowledge-graph environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Provides the scalable multi-node training and experimentation environment for Deloitte’s models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure",
+      "role": "Hosts the DGX Cloud deployment and low-latency fabric used for the training cluster.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA BioNeMo",
+      "role": "Supplies structure-prediction, molecule-generation, and model-training building blocks for the pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Serves BioNeMo and Deloitte models for scalable inference and pipeline orchestration.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AlphaFold2",
+      "role": "Performs protein structure prediction inside the Atlas AI workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenFold",
+      "role": "Provides additional protein-folding inference inside the structure-prediction stack.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ESMFold",
+      "role": "Adds protein-structure modeling capacity within Deloitte’s multimodal pipeline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MegaMolBART",
+      "role": "Supports molecule generation and mapping inside the solution space.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MolMIM",
+      "role": "Generates and optimizes novel compounds against user-defined molecular scoring targets.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Scientific literature, protein, antibody, and small-molecule datasets are loaded into Quartz Atlas AI, DGX Cloud trains BioNeMo and Deloitte models on the multimodal graph, NIM serves structure and molecule models such as AlphaFold2 and MolMIM, and researchers receive ranked compounds, predicted properties, and generated reports for downstream wet-lab decisions.",
+  "integration_points": [
+    "PubMed",
+    "UniProt dataset",
+    "antibody datasets",
+    "small-molecule datasets",
+    "wet-lab experiments",
+    "scientific literature"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Deloitte boosted developer productivity by 50 percent, saved 7–10 months of multi-node infrastructure work, reduced training runs from four weeks to eight hours, and shrank pipeline assembly from 4–6 weeks to a few clicks while enabling richer molecular ranking and generation workflows for drug discovery.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Drug discovery typically spans 10–15 years and costs $1–2 billion per new drug with a 90 percent failure rate",
+    "12 million nodes and 97 million connection edge links in the Atlas AI graph",
+    "5 terabytes of raw multimodal data searchable within seconds",
+    "50% improvement in developer productivity",
+    "7–10 months saved by eliminating manual setup for multi-node training",
+    "Training reduced from four weeks to eight hours",
+    "Drug discovery pipeline assembly reduced from 4–6 weeks to a few clicks"
+  ],
+  "architecture_clues": [
+    "Atlas AI loads over a dozen multimodal biomedical datasets into a large generative knowledge graph.",
+    "Deloitte fine-tuned a 15-billion-parameter ESM2 model on DGX Cloud for protein-property prediction.",
+    "The pipeline mixes structure prediction, molecule generation, and inference loops so researchers can iteratively refine candidates."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/generative-ai-in-drug-discovery/",
+  "published_date": "2024-06-19",
+  "evidence_quotes": [
+    "We created a robust generative AI-powered knowledge graph with Atlas AI, loading over a dozen datasets, which amounts to 12 million nodes and 97 million connection edge links, totalling 5 terabytes in raw volume, searchable within seconds.",
+    "Deloitte is using NVIDIA BioNeMo models, available as NVIDIA NIM microservices, including AlphaFold2, OpenFold, and ESMFold for protein structure prediction, alongside MegaMolBART and MolMIM for molecule generation.",
+    "By enabling us to easily run more concurrent experiments compared to our previous solution ... DGX Cloud has boosted developer productivity by 50 percent.",
+    "With DGX Cloud, multi-node training is now as easy as clicking a button, saving us seven to 10 months of infrastructure and tooling work.",
+    "Our training runs have been reduced from four weeks to just eight hours."
+  ]
+}

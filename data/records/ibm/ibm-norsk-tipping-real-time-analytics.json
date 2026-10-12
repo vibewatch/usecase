@@ -1,0 +1,66 @@
+{
+  "industry": "Media and Entertainment",
+  "region": "Norway",
+  "company_size": "Public sector",
+  "business_problem": "Norsk Tipping needed to move from slow batch analytics to event-driven processing so it could respond faster to lottery activity and responsible-gaming signals for millions of customers.",
+  "solution_summary": "Norsk Tipping adopted IBM Event Streams to modernize how gaming and customer events are processed. Previously, pulling data from the warehouse for responsible-gaming analysis took 24 hours, and batch processing of lottery subscriptions took 8 to 9 hours, which limited responsiveness and personalization. Event Streams introduced an event-driven architecture in which activity is processed in motion rather than waiting for large batch windows. The platform supports user-facing services such as lottery subscriptions and is also intended to accelerate responsible-gaming interventions by processing betting and profile signals much closer to real time. IBM Cloud provides the environment for this streaming stack. By shifting from batch to event flows, Norsk Tipping created a more responsive digital service model that improves the customer experience while also strengthening the timeliness of socially responsible gaming controls.",
+  "solution_components": [
+    {
+      "name": "IBM Event Streams",
+      "role": "Processes gaming and subscription events in motion so Norsk Tipping can respond faster than with batch analytics.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the event-streaming environment used for the modernized processing architecture.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Gaming and subscription events stream through IBM Event Streams instead of waiting for data-warehouse batches, enabling user services and responsible-gaming analytics to act on fresher signals with lower latency.",
+  "integration_points": [
+    "Data warehouse",
+    "Lottery subscription processing",
+    "Responsible-gaming analytics",
+    "User profile updates"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Norsk Tipping sped up subscription processing dramatically and laid the groundwork for more timely responsible-gaming interventions and personalized customer experiences.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "6X faster",
+    "8 – 9 hours down to 1.5 hours",
+    "24 hours"
+  ],
+  "architecture_clues": [
+    "State-owned operator serving more than two million customers",
+    "Designed to support responsible-gaming interventions closer to real time",
+    "Event-driven replacement for warehouse batch processing"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/norsk-tipping",
+  "published_date": "2023-03-15",
+  "evidence_quotes": [
+    "Pulling data from the data warehouse in batches and analyzing it for responsible gaming insights takes 24 hours.",
+    "Processing lottery subscriptions under Event Streams is 6X faster than before.",
+    "Before, batch processing the subscription list took 8 – 9 hours. Now, it takes 1.5 hours, a 6X improvement."
+  ],
+  "id": "ibm-norsk-tipping-real-time-analytics",
+  "slug": "ibm-norsk-tipping-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "Norsk Tipping",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM Event Streams",
+    "IBM Cloud"
+  ]
+}

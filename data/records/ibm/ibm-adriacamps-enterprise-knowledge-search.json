@@ -1,0 +1,65 @@
+{
+  "industry": "Consumer Goods",
+  "region": "Croatia",
+  "company_size": "Mid-market",
+  "business_problem": "AdriaCamps needed to help support agents answer complex accommodation questions faster because product information was fragmented across databases and PDF brochures spanning hundreds of campsites and amenities.",
+  "solution_summary": "AdriaCamps and IBM Business Partner Deegloo built a minimum viable customer-service assistant on IBM watsonx.ai to unify fragmented booking knowledge. The company manages accommodation data for more than 250 campsites and had support agents switching between multiple databases and large collections of PDF brochures to answer customer questions. The MVP assistant converses in English and German, brings together information from five sources and uses retrieval-augmented generation to supplement model knowledge with authoritative external content. Deegloo also added a confidence score so agents can judge how reliable a response is before using it. In the resulting flow, customer or agent questions are interpreted in natural language, supporting content is retrieved from structured and unstructured sources, and the assistant returns an answer that can either help an agent respond faster or eventually power customer-facing self-service.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the generative AI environment for AdriaCamps’ multilingual customer-service assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Deegloo RAG workflow",
+      "role": "Retrieves supporting information from multiple authoritative sources to ground the assistant’s answers.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Questions are submitted to the watsonx.ai-based assistant, relevant content is retrieved from five structured and unstructured information sources through the RAG workflow, and grounded responses with confidence scores are returned to agents or future self-service channels.",
+  "integration_points": [
+    "Five internal information sources",
+    "PDF brochures",
+    "Customer-service agent workflows",
+    "English and German language support"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "AdriaCamps proved it could consolidate booking knowledge into a multilingual assistant that improves response speed today and can support expansion into new markets without adding headcount proportionally.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 250 campsites",
+    "two-month-long project",
+    "team of fifteen customer service agents"
+  ],
+  "architecture_clues": [
+    "Assistant combines information from five sources",
+    "Uses retrieval-augmented generation plus confidence scoring",
+    "Initial rollout supports English and German"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/adriacamps",
+  "published_date": "2025-02-27",
+  "evidence_quotes": [
+    "AdriaCamps chose to build a minimum viable product (MVP) using IBM® watsonx.ai™ studio.",
+    "This assistant brings together information from five sources and presents it intelligently in response to natural language queries.",
+    "Deegloo implemented a retrieval-augmented generation (RAG) technique to bring in additional information from authoritative sources outside of the training data."
+  ],
+  "id": "ibm-adriacamps-enterprise-knowledge-search",
+  "slug": "ibm-adriacamps-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "AdriaCamps",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx.ai",
+    "Deegloo RAG workflow"
+  ]
+}

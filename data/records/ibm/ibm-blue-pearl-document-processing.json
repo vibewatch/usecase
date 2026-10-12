@@ -1,0 +1,70 @@
+{
+  "industry": "Software / SaaS",
+  "region": "South Africa",
+  "company_size": "Mid-market",
+  "business_problem": "Blue Pearl needed to shorten hiring cycles and improve candidate matching because manual job-description creation and keyword-based screening were slow, inconsistent and often produced poor matches.",
+  "solution_summary": "Blue Pearl worked with IBM Client Engineering to build a generative-AI recruitment workflow around its blueapp.blue platform. IBM watsonx.ai analyzes structured and unstructured HR data such as job descriptions and résumés, while IBM Granite models provide deeper semantic understanding so the platform can generate detailed job descriptions and match candidates beyond simple keyword overlap. In the implemented flow, customer requirements and applicant documents are processed by the AI layer, which produces higher-quality job postings and candidate shortlists for recruiters to review. Those results are then surfaced through Blue Pearl’s existing platform so companies can move directly into screening and interview steps with less manual triage. The architecture transforms recruitment from document-heavy, error-prone workflow handling into an AI-assisted pipeline that is faster, more consistent and better aligned with both employer needs and candidate capabilities.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Analyzes job and candidate data and generates tailored job descriptions and matching outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Provides semantic analysis that helps understand job and résumé meaning beyond keyword matching.",
+      "layer": "Compute"
+    },
+    {
+      "name": "blueapp.blue",
+      "role": "Serves as the customer-facing recruitment platform where AI-generated descriptions and matches are consumed.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Job requirements and résumé data enter blueapp.blue, are processed by watsonx.ai and Granite models to generate job descriptions and ranking signals, and then return to recruiters as shortlists and screening guidance.",
+  "integration_points": [
+    "Job descriptions",
+    "Résumés",
+    "Recruiter screening workflows",
+    "blueapp.blue platform"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Blue Pearl sharply reduced hiring time and screening effort while improving candidate quality and overall recruitment effectiveness for customers using its platform.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "85% reduction in the average time to fill vacancies, from ~21 days to under 3 days",
+    "97% reduction in screening time, from ~90 minutes to ~3 minutes per candidate",
+    "3x increase in shortlist rate, from 1 in 10 to 1 in 3 candidates shortlisted for interviews"
+  ],
+  "architecture_clues": [
+    "Analyzes both structured and unstructured HR data",
+    "Automates job-description generation and candidate ranking",
+    "Built as a proof of concept with IBM Client Engineering"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/blue-pearl",
+  "published_date": "2024-08-16",
+  "evidence_quotes": [
+    "The proof of concept (POC) used large language models (LLMs) from the IBM watsonx.ai enterprise studio for AI builders to analyze structured and unstructured HR data, including job descriptions and résumés.",
+    "Leveraging IBM Granite, a tool for advanced semantic analysis, the team developed a job-matching engine.",
+    "The new system reduced the average time to fill vacancies by over 85%, down from 21 days to under 3 days."
+  ],
+  "id": "ibm-blue-pearl-document-processing",
+  "slug": "ibm-blue-pearl-document-processing",
+  "vendor": "IBM",
+  "customer_name": "Blue Pearl",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Granite",
+    "blueapp.blue"
+  ]
+}

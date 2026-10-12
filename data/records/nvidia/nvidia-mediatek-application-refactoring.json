@@ -1,0 +1,111 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-mediatek-application-refactoring",
+  "slug": "nvidia-mediatek-application-refactoring",
+  "customer_name": "MediaTek",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "MediaTek needed a scalable, secure AI factory that could sustain thousands of monthly training iterations, billions of inference tokens, and proprietary R&D workloads such as code completion and documentation without relying on less controllable local or cloud-only setups.",
+  "solution_summary": "MediaTek built an on-prem AI factory around NVIDIA DGX SuperPOD to centralize model training, inference, operations, and developer experimentation for semiconductor R&D. Blackwell-based DGX infrastructure gives the company the scale to train 480B-parameter traditional-Chinese models within a week, process tens of billions of inference tokens each month, and host a high-demand internal API that later distills smaller models to edge and mobile use cases. NVIDIA Mission Control streamlines provisioning, deployment, health checks, and resource monitoring across the DGX cluster, while NVIDIA NeMo fine-tunes domain-specific models. For serving, MediaTek uses NVIDIA NIM with TensorRT-LLM to lift inference speed and token throughput, and NVIDIA Riva accelerates ASR and TTS in its agentic voice-control flows. The same platform also powers AI-assisted code completion and documentation generation, reducing engineering friction while keeping proprietary data on local systems.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA Blackwell",
+    "NVIDIA Mission Control",
+    "NVIDIA NeMo",
+    "NVIDIA NIM",
+    "NVIDIA TensorRT-LLM",
+    "NVIDIA Riva",
+    "NVIDIA DGX Spark"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides MediaTek’s centralized on-prem infrastructure for large-scale training and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Blackwell",
+      "role": "Supplies the GPU architecture MediaTek chose to scale its AI factory cost-effectively.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Mission Control",
+      "role": "Consolidates provisioning, deployment, system health checks, and resource monitoring for the DGX cluster.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Fine-tunes MediaTek’s domain-specific language models for engineering use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Serves MediaTek’s models in production and improves inference efficiency on DGX.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes model inference to increase speed and throughput on MediaTek’s DGX infrastructure.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Riva",
+      "role": "Accelerates ASR and TTS for MediaTek’s agentic voice-control experiences.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX Spark",
+      "role": "Lets teams explore newer models locally without exposing proprietary data.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Engineering data and model-development workloads run on MediaTek’s on-prem DGX SuperPOD, Mission Control provisions and monitors the cluster, NeMo tunes domain models, NIM and TensorRT-LLM serve them through centralized APIs, and the outputs flow into code-completion, documentation, inference, and voice-agent workflows.",
+  "integration_points": [
+    "internal R&D workflows",
+    "AI-assisted code completion",
+    "technical documentation generation",
+    "centralized internal API",
+    "edge and mobile model deployment"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "MediaTek now processes about 60 billion inference tokens per month, completes more than 24,000 model-training iterations monthly, trains 480B-plus-parameter models within one week, improved inference speed by 40 percent, raised token throughput by 60 percent, and cut documentation work from weeks to days.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "60 billion tokens processed monthly for inference",
+    "Over 24,000 model-training iterations completed every month",
+    "480 billion+ parameter models trained within one week",
+    "40% improvement in inference speed",
+    "60% increase in token throughput with TensorRT-LLM",
+    "Documentation time reduced from weeks to days",
+    "Nearly two billion connected devices enabled annually"
+  ],
+  "architecture_clues": [
+    "MediaTek designed new data centers around the DGX SuperPOD reference architecture to handle rack density, power, and cooling needs.",
+    "Mission Control provides consistent provisioning, system health checks, and real-time GPU and CPU observability.",
+    "MediaTek uses large centralized models for R&D and high-demand APIs, then distills smaller variants for edge and mobile deployment."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/mediatek-ai-factory/",
+  "published_date": "2026-02-18",
+  "evidence_quotes": [
+    "With DGX SuperPOD, we’ve gone from training 7-billion-parameter models in a week to training models exceeding 480 billion parameters in the same timeframe—a dramatic leap that has accelerated our AI capabilities.",
+    "Thanks to NVIDIA NIM and TensorRT-LLM running on DGX, we've seen a 40% improvement in inference speed and a 60% increase in token throughput.",
+    "Our AI factory, powered by DGX SuperPOD, processes approximately 60 billion tokens per month for inference and completes thousands of model-training iterations every month.",
+    "This agent can now produce technical documentation in days, compared to weeks earlier.",
+    "NVIDIA Mission Control ... saves the company’s engineers invaluable time daily by consolidating GPU provisioning, Linux cluster deployment, and system monitoring into one powerful tool."
+  ]
+}

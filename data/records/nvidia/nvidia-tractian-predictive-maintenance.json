@@ -1,0 +1,122 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-tractian-predictive-maintenance",
+  "slug": "nvidia-tractian-predictive-maintenance",
+  "customer_name": "Tractian",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Tractian needed to turn terabytes of industrial sensor signals into real-time maintenance guidance at global scale, but legacy monitoring approaches left data trapped in clipboards, spreadsheets, and anomaly-only tools that could not explain failures or recommend next actions.",
+  "solution_summary": "Tractian built a physical AI factory on NVIDIA’s stack to ingest machine telemetry, train multimodal models, and serve specialized maintenance agents at production scale. Its 4-in-1 sensors capture vibration, temperature, ultrasound, and RPM data from 200,000 machines, while NVIDIA CUDA-X libraries such as cuFFT accelerate the low-level signal processing that converts waveforms into anomaly indicators. The company trains multimodal models on 3.5 billion sensor samples across NVIDIA GB300 NVL72, H200, and H100 systems with NCCL, prototypes new models on NVIDIA DGX Spark, and then scales them to Oracle Cloud Infrastructure bare-metal GPU clusters orchestrated with Kubernetes. In production, NVIDIA TensorRT and NVIDIA Dynamo run 50 specialized agents for failure detection, severity classification, root cause analysis, repair guidance, and energy optimization across 500 GPUs.",
+  "products_used": [
+    "Tractian sensors",
+    "NVIDIA CUDA-X",
+    "cuFFT",
+    "NVIDIA GB300 NVL72, H200, and H100 systems",
+    "NVIDIA Collective Communications Library (NCCL)",
+    "NVIDIA DGX Spark",
+    "Oracle Cloud Infrastructure",
+    "Kubernetes",
+    "NVIDIA TensorRT",
+    "NVIDIA Dynamo"
+  ],
+  "solution_components": [
+    {
+      "name": "Tractian sensors",
+      "role": "Capture vibration, temperature, ultrasound, and RPM data from industrial machines.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA CUDA-X",
+      "role": "Accelerates the low-level signal-processing pipelines used to prepare machine telemetry for AI models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "cuFFT",
+      "role": "Runs the real-time FFT processing that converts vibration waveforms into anomaly indicators.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA GB300 NVL72, H200, and H100 systems",
+      "role": "Provide the distributed GPU training environment for Tractian’s multimodal physical AI models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Collective Communications Library (NCCL)",
+      "role": "Coordinates distributed training across the multimodal GPU cluster.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DGX Spark",
+      "role": "Lets ML engineers prototype new physical AI models and agents locally before cluster scale-out.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure",
+      "role": "Hosts the bare-metal GPU environment where Tractian scales training and inference in hybrid cloud.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Kubernetes",
+      "role": "Orchestrates Tractian’s hybrid-cloud GPU workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes Tractian’s models for low-latency production inference.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Manages multi-model deployment across 500 GPUs for Tractian’s specialized AI agents.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Tractian sensors stream machine signals into CUDA-X and cuFFT pipelines, multimodal models trained on large GPU clusters classify failures and root causes, TensorRT-optimized agents serve recommendations through Dynamo-managed deployments, and technicians receive natural-language maintenance guidance in real time.",
+  "integration_points": [
+    "industrial machinery across 1,500 manufacturers",
+    "Oracle Cloud Infrastructure bare-metal GPU instances",
+    "Kubernetes-orchestrated hybrid cloud environment",
+    "maintenance technicians and operators"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "Tractian cut model training time by 35 percent, reduced inference latency by 50 percent, lowered inference costs by 15 percent, achieved 6x–12x ROI with about $6,000 in annual savings per monitored machine, and now helps prevent a machine failure roughly every 15 minutes across its installed base.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "200,000 heavy industry machines monitored across 1,500 manufacturers",
+    "500 million inference requests daily through 50 specialized agents",
+    "35% reduction in model training time",
+    "50% reduction in inference latency",
+    "15% reduction in inference costs",
+    "6x–12x ROI and $6,000 in annual savings per monitored machine",
+    "A machine failure prevented roughly every 15 minutes across the installed base",
+    "3.5 billion collected sensor samples used for multimodal model training"
+  ],
+  "architecture_clues": [
+    "The platform trains multimodal physical AI models on 3.5 billion sensor samples.",
+    "The production environment spans 500 GPUs and 50 specialized agents for failure detection, root cause analysis, repair guidance, and energy optimization.",
+    "The hybrid cloud workflow moves from DGX Spark developer workstations to Oracle Cloud Infrastructure bare-metal GPU instances orchestrated by Kubernetes."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/tractian/",
+  "published_date": "2026-06-23",
+  "evidence_quotes": [
+    "Built on NVIDIA’s accelerated computing platform, Tractian’s platform processes terabytes of sensor data from 200,000 heavy industry machines across 1,500 U.S. and global manufacturers, running 500 million inference requests daily through 50 specialized agents.",
+    "35% reduction in model training time on a mixture of NVIDIA GB300 NVL72, H200, and H100 systems, enabling faster iteration on new physical AI models and agents.",
+    "50% reduction in inference latency and 15% reduction in inference costs, supporting 500 million daily AI inferences across 50 agents with real-time responses.",
+    "Tractian trained its multimodal physical AI models on 3.5 billion collected sensor samples using distributed compute clusters with NVIDIA GB300 NVL72, H200, and H100 and NVIDIA Collective Communications Library (NCCL).",
+    "NVIDIA Dynamo manages multi-model deployments across 500 GPUs to deliver 500 million AI inference requests daily."
+  ]
+}

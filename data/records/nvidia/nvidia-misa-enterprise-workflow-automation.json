@@ -1,0 +1,115 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-misa-enterprise-workflow-automation",
+  "slug": "nvidia-misa-enterprise-workflow-automation",
+  "customer_name": "MISA",
+  "industry": "Software / SaaS",
+  "region": "Vietnam",
+  "company_size": "Enterprise",
+  "business_problem": "MISA needed to move from expensive, externally hosted LLM APIs to a self-hosted Vietnamese AI stack that could protect sensitive data, reduce latency and operating cost, and support many concurrent public-service and enterprise automation workloads.",
+  "solution_summary": "MISA built an on-premises AI factory on NVIDIA infrastructure so it could own the full lifecycle of Vietnamese domain models and AI agents. The core cluster uses eight NVIDIA DGX H200 systems linked with NVIDIA Quantum InfiniBand networking, while NVIDIA A40 GPUs handle smaller specialized tasks such as eKYC and router LLMs. NVIDIA Run:ai virtualizes the cluster and enables fractional GPU sharing, which increased concurrent experimentation dramatically. On top of that hardware, MISA uses NVIDIA NeMo for domain-specific tuning, NVIDIA Dynamo and NVIDIA NIM for production-scale serving, and FP8 quantization to raise inference throughput for real-time agent interactions. The AI factory powers more than 50 prebuilt agents and hundreds of templates, including MISA AVA, MISA AMIS OneAI, Support, Mail, and Recruitment assistants, so accounting, tax, HR, sales, and public-administration workflows can run securely on self-hosted infrastructure instead of external APIs.",
+  "products_used": [
+    "NVIDIA DGX H200",
+    "NVIDIA Quantum InfiniBand Networking",
+    "NVIDIA A40 GPUs",
+    "NVIDIA Run:ai",
+    "NVIDIA NeMo",
+    "NVIDIA Dynamo",
+    "NVIDIA NIM",
+    "MISA AVA"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX H200",
+      "role": "Provide the main training and inference cluster for MISA’s self-hosted AI factory.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum InfiniBand Networking",
+      "role": "Connects the DGX nodes into a high-speed cluster for large model training and serving.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA A40 GPUs",
+      "role": "Handle smaller, specialized workloads such as eKYC and router LLM tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Run:ai",
+      "role": "Virtualizes the cluster and enables fractional GPU sharing for concurrent experiments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Supports Vietnamese and domain-specific model fine-tuning for enterprise and public-service use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Serves models at production scale for real-time AI agent interactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Provides microservice-based inference endpoints for MISA’s AI applications.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MISA AVA",
+      "role": "Delivers the business-facing AI assistant embedded into MISA’s management platform and agent workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business and public-service data enter MISA’s self-hosted AI factory, DGX H200 clusters and NeMo fine-tune domain models, Dynamo and NIM serve those models to AVA and other agents, and the outputs automate accounting, HR, sales, support, and public-administration tasks inside customer workflows.",
+  "integration_points": [
+    "MISA AMIS platform",
+    "accounting workflows",
+    "tax workflows",
+    "sales workflows",
+    "HR and recruitment workflows",
+    "public administrative service centers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "MISA cut fine-tuning time by 4x, increased throughput from 1,200 to 4,500 TPS per model, saved about $200,000 per month, automated recruiting workflows in minutes with up to 90 percent HR time savings, and now uses the platform to support more than 450,000 organizations and over 1.1 million daily LLM requests.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "8 NVIDIA DGX H200 systems with 64 NVIDIA H200 GPUs",
+    "10–20 concurrent experiments per week versus one or two previously",
+    "Inference throughput increased from 1,200 to 4,500 TPS per model",
+    "$200,000 in monthly cost savings",
+    "More than 50 pre-built AI agents and over 500 customizable templates",
+    "2.5 million daily feature usages",
+    "More than 450,000 organizations served",
+    "Over 1.1 million LLM requests processed daily",
+    "Up to 90% of HR processing time saved"
+  ],
+  "architecture_clues": [
+    "The on-prem cluster trains and serves models ranging from 8B to 235B parameters.",
+    "NVIDIA Run:ai is used for GPU virtualization and fractional sharing across the DGX cluster.",
+    "MISA keeps “Core AI” in-house and offloads smaller workloads such as eKYC to NVIDIA A40 GPUs."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/misa-ai-factory-enterprise-workflow-automation-vietnam/",
+  "published_date": "2026-07-06",
+  "evidence_quotes": [
+    "By building an on-premise AI factory based on NVIDIA technologies, MISA aims to gain full technological ownership, reduce high operational costs, and deploy domain-specific AI agents capable of automating complex public services and enterprise workflows with low latency and high data security.",
+    "MISA deployed an on-premise cluster featuring 8 NVIDIA DGX™ H200 systems connected with NVIDIA Quantum InfiniBand networking.",
+    "By leveraging FP8 quantization, inference throughput has increased from 1,200 to 4,500 TPS per model.",
+    "By deploying an end-to-end NVIDIA-accelerated full-stack architecture ... MISA reduced fine-tuning times by 4x and achieved $200,000 in monthly cost savings.",
+    "With AI, the entire workflow—from CV intake and screening to evaluation and data extraction—is 100% automated within minutes, saving up to 90% of HR processing time."
+  ]
+}

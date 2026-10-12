@@ -1,0 +1,70 @@
+{
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Harvard’s Calmon Lab needed more accessible high-end GPU infrastructure so it could run large-model AI safety experiments without long waits that slowed research progress.",
+  "solution_summary": "Harvard’s Calmon Lab partnered with IBM to move AI safety experimentation onto a high-performance IBM Cloud environment. The lab provisioned two NVIDIA HGX H100 8-GPU servers inside a secured virtual private cloud, each backed by large memory, high-IOPS block storage, fast network file sharing and IBM Cloud Object Storage for data transfer. Red Hat Enterprise Linux 9, the Anaconda platform and vLLM were used to stand up model-serving and training environments quickly. This infrastructure removed the scheduling bottlenecks that had limited the team’s work on model alignment and chain-of-thought reasoning. Instead of waiting for oversubscribed internal cluster resources, researchers could train and deploy models such as DeepSeek and Llama on demand, collaborate through shared storage and push experiments faster. IBM’s role here was not application AI but the cloud platform and storage architecture that made frontier AI-safety research operationally practical.",
+  "solution_components": [
+    {
+      "name": "IBM Cloud",
+      "role": "Provides the secured GPU infrastructure and networking environment for large-model training and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Object Storage",
+      "role": "Supports high-speed data transfer and shared access to research data and models.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Red Hat Enterprise Linux 9",
+      "role": "Forms the operating-system layer for the lab’s model-serving and training environment.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Research datasets and models are stored and transferred through IBM Cloud Object Storage, loaded onto GPU-backed IBM Cloud servers, and served or trained through the lab’s Linux and vLLM environment for AI safety experiments.",
+  "integration_points": [
+    "NVIDIA HGX H100 servers",
+    "Virtual private cloud",
+    "Anaconda platform",
+    "vLLM model serving"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The lab eliminated key infrastructure bottlenecks, accelerated experimentation and gained a more scalable foundation for AI safety and model-alignment research.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 2,000 tokens per second",
+    "two NVIDIA HGX H100 8-GPU servers",
+    "within a week"
+  ],
+  "architecture_clues": [
+    "Runs inside a secured virtual private cloud",
+    "Includes high-IOPS block storage and fast network file sharing",
+    "Supports on-demand training and deployment of large models"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/harvard",
+  "published_date": "2025-08-14",
+  "evidence_quotes": [
+    "Using IBM Cloud®, they provisioned two NVIDIA HGX H100 8-GPU servers, within a secured virtual private cloud (VPC).",
+    "Within a week, the team was running inference at over 2,000 tokens per second and training models without delays.",
+    "The setup included ... IBM Cloud Object Storage for seamless data transfer."
+  ],
+  "id": "ibm-harvard-john-a-paulson-school-of-engineering-and-applied-sciences-ai-safety-research",
+  "slug": "ibm-harvard-john-a-paulson-school-of-engineering-and-applied-sciences-ai-safety-research",
+  "vendor": "IBM",
+  "customer_name": "Harvard John A. Paulson School of Engineering and Applied Sciences",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM Cloud",
+    "IBM Cloud Object Storage",
+    "Red Hat Enterprise Linux 9"
+  ]
+}

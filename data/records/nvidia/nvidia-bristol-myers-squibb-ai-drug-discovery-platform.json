@@ -1,0 +1,89 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-bristol-myers-squibb-ai-drug-discovery-platform",
+  "slug": "nvidia-bristol-myers-squibb-ai-drug-discovery-platform",
+  "customer_name": "Bristol Myers Squibb",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "BMS needed a shared AI environment that could help scientists reason over huge biological, chemical, imaging, and clinical datasets across global R&D, because isolated compute and manual analysis slowed target discovery, lead optimization, imaging research, and clinical insight generation.",
+  "solution_summary": "BMS established an AI factory on NVIDIA DGX SuperPOD to unify computational science across target identification, molecular design, imaging, and clinical development. The platform connects research sites and lets scientists shift resources among large language model training, deep learning, imaging, and inference workloads on one hybrid environment managed with Equinix and Mark III Systems. BMS uses the platform to expand its CELMoD compound library, apply its Predict First methodology to lead optimization, and integrate the NVIDIA BioNeMo Agent Toolkit into broader biological and agentic AI workflows. In imaging, teams process CT and MRI data with NVIDIA MONAI and DGX SuperPOD, masking 80–90 percent of scans during self-supervised learning to build foundation models that match human lesion and tumor detection while also quantifying muscle, fat, and bone density. BMS is also applying transformers to clinical-trial data and expanding the environment with a second DGX SuperPOD powered by DGX Vera Rubin NVL72 systems to make the platform globally accessible across R&D.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA DGX Vera Rubin",
+    "NVIDIA BioNeMo Agent Toolkit",
+    "NVIDIA MONAI",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides the shared AI infrastructure that underpins BMS research and clinical-development workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX Vera Rubin",
+      "role": "Expands the existing AI factory with higher-performance infrastructure for growing workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA BioNeMo Agent Toolkit",
+      "role": "Supports biological and agentic AI workflows across the R&D pipeline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA MONAI",
+      "role": "Processes and transforms CT and MRI data for oncology foundation-model training.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Supplies the enterprise software layer for training, inference, and AI operations in the BMS environment.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Biological, chemical, imaging, and clinical-trial data flow into the centralized AI factory, DGX SuperPOD resources train or fine-tune models for target identification, molecule design, imaging, and patient-response prediction, and the outputs are fed back into scientist decisions and globally shared R&D programs.",
+  "integration_points": [
+    "public cloud resources",
+    "clinical trial data",
+    "CT and MRI datasets",
+    "CELMoD compound library",
+    "research programs in Lawrenceville and San Diego"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BMS reports 55 percent overall cost savings versus its prior computing model, weeks of manual work eliminated in target identification, new targets and potential medicines opened through AI-assisted CELMoD expansion, and imaging and clinical models that give scientists higher-conviction signals faster across a globally shared AI platform.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "55% overall cost savings compared with the prior computing model",
+    "Up to 10x higher performance per megawatt with the new systems",
+    "Weeks of manual work saved through AI-enabled target identification",
+    "400-fold higher protein expression for an mRNA and protein generative model",
+    "80%–90% of CT scans masked during self-supervised training",
+    "Second DGX SuperPOD powered by eight NVIDIA DGX Vera Rubin NVL72 systems"
+  ],
+  "architecture_clues": [
+    "BMS uses a hybrid platform that can connect to public cloud resources while keeping a shared central AI environment.",
+    "The oncology imaging workflow uses self-supervised learning and mask image modeling on CT scans processed with MONAI.",
+    "BMS plans to combine both DGX SuperPOD systems into a common data plane accessible from every site."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/computational-science-accelerates-research-innovation-at-bristol-myers-squibb/",
+  "published_date": "2025-06-09",
+  "evidence_quotes": [
+    "55% overall cost savings compared with BMS’s prior computing model",
+    "AI-enabled target identification saves scientists weeks of manual work.",
+    "The team used NVIDIA MONAI to process and transform the data, then trained the model on DGX SuperPOD to automatically segment lesions, tumors, and organs in standard CT scans.",
+    "Training combined internal clinical data, public datasets, and scientific literature. Using DGX SuperPOD, BMS models outperformed standard baseline transformers.",
+    "BMS plans to combine its existing and expanded resources into a unified environment with a common data plane accessible from every BMS site."
+  ]
+}

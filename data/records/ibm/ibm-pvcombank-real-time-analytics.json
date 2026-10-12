@@ -1,0 +1,77 @@
+{
+  "industry": "Financial Services",
+  "region": "Vietnam",
+  "company_size": "Enterprise",
+  "business_problem": "PVcomBank needed a more scalable and reliable notification architecture because semi-real-time processing created delays and errors during peak digital-banking periods.",
+  "solution_summary": "PVcomBank adopted IBM Event Automation to create a centralized event-driven integration layer for customer notifications and banking events. IBM Event Streams handles high volumes of core transaction events, IBM MQ provides guaranteed delivery when required and IBM webMethods Integration ties the event capabilities into broader enterprise integration patterns. This replaced a slower semi-real-time architecture with one capable of near-real-time delivery for transaction alerts, balance updates and service notifications. In the new design, banking events are published once, routed through the streaming backbone, enriched or filtered according to customer preferences and then delivered to the right channels with lower latency. The platform also establishes a reusable event fabric that PVcomBank can extend into real-time risk monitoring, fraud signals and AI-driven analytics, making it a foundational modernization of both customer communication and bank integration operations.",
+  "solution_components": [
+    {
+      "name": "IBM Event Automation",
+      "role": "Provides the event-driven integration platform that centralizes notification processing and automation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Event Streams",
+      "role": "Processes high volumes of transaction events for near-real-time notification delivery.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM MQ",
+      "role": "Supports guaranteed delivery for banking workflows that require stronger messaging assurance.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM webMethods Integration",
+      "role": "Connects event-driven processing to the bank’s broader integration estate.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Core banking events are streamed through IBM Event Streams, routed and automated by IBM Event Automation and webMethods, and delivered through channel-specific workflows with IBM MQ used where guaranteed delivery is required.",
+  "integration_points": [
+    "Core banking systems",
+    "Transaction alerts",
+    "Balance updates",
+    "Customer preference handling",
+    "Digital banking channels"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "PVcomBank improved customer trust and scalability by delivering notifications in near real time and building an integration foundation for future risk and analytics use cases.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "5 million transaction and service notifications per day",
+    "113 transaction offices"
+  ],
+  "architecture_clues": [
+    "Centralized event-driven integration layer",
+    "Supports future real-time risk monitoring and fraud signals",
+    "Selected over self-managed open-source Kafka for enterprise governance and reliability"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/pvcombank",
+  "published_date": "2026-02-27",
+  "evidence_quotes": [
+    "PVcomBank adopted IBM® Event Automation to create a centralized, event-driven integration layer for real-time banking notifications.",
+    "IBM Event Streams was used to process high volumes of transaction events from core banking systems, while IBM MQ supported guaranteed delivery where required.",
+    "With IBM Event Automation, PVcomBank now processes approximately 5 million transaction and service notifications per day with near real-time delivery."
+  ],
+  "id": "ibm-pvcombank-real-time-analytics",
+  "slug": "ibm-pvcombank-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "PVcomBank",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM Event Automation",
+    "IBM Event Streams",
+    "IBM MQ",
+    "IBM webMethods Integration"
+  ]
+}

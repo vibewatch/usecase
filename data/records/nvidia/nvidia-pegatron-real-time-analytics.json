@@ -1,0 +1,132 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-pegatron-real-time-analytics",
+  "slug": "nvidia-pegatron-real-time-analytics",
+  "customer_name": "Pegatron",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Pegatron needed to improve factory planning, quality control, and operational efficiency across large manufacturing sites, but manual line design, fragmented agent development, scarce defect data, and labor-intensive compliance checks limited how quickly it could scale industrial AI.",
+  "solution_summary": "Pegatron built PEGAVERSE as a combined digital-twin and AI-factory platform to optimize manufacturing before and during production. The system uses NVIDIA Omniverse, Isaac Sim, and the NVIDIA Metropolis Video Search and Summarization blueprint to model production lines, simulate bottlenecks, and run visual AI agents over live factory data. Pegatron also created an internal AI factory on NVIDIA DGX and NVIDIA AI Enterprise so teams can train and deploy LLM- and VLM-based agents for assembly guidance, warehouse operations, machine-health monitoring, and quality inspection instead of building isolated tools. VSS-powered agents monitor assembly steps in real time and issue corrective alerts, while NVIDIA physical AI skill for Defect Image Generation, NVIDIA Cosmos, and Isaac Sim generate synthetic defect data to improve visual-inspection models. Pegatron is extending the platform with NVIDIA Factory Operations Blueprint and NemoClaw so a factory manager agent can orchestrate specialized agents, robots, and workflows across the plant.",
+  "products_used": [
+    "PEGAVERSE",
+    "NVIDIA Omniverse",
+    "NVIDIA Isaac Sim",
+    "NVIDIA Metropolis Blueprint for Video Search and Summarization",
+    "NVIDIA Metropolis",
+    "NVIDIA DGX",
+    "NVIDIA AI Enterprise",
+    "NVIDIA physical AI skill for Defect Image Generation",
+    "NVIDIA Cosmos",
+    "NVIDIA Factory Operations Blueprint (FOX)",
+    "NVIDIA NemoClaw"
+  ],
+  "solution_components": [
+    {
+      "name": "PEGAVERSE",
+      "role": "Acts as Pegatron’s digital-twin and AI-factory platform for factory planning and optimization.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Runs the digital twins Pegatron uses to simulate production lines and new factories.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Supplies factory and robot simulation data for agent training and defect-image generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Metropolis Blueprint for Video Search and Summarization",
+      "role": "Powers visual AI agents that monitor assembly processes and summarize incidents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Metropolis",
+      "role": "Provides the video analytics foundation for Pegatron’s live camera-based factory monitoring.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX",
+      "role": "Accelerates development and deployment of Pegatron’s AI agents and factory models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the software stack for building, customizing, and deploying Pegatron’s AI agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA physical AI skill for Defect Image Generation",
+      "role": "Creates controllable synthetic defect data for visual inspection workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Cosmos",
+      "role": "Supports high-fidelity synthetic defect and world-model generation inside Pegatron’s workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Factory Operations Blueprint (FOX)",
+      "role": "Orchestrates factory manager-agent workflows across specialized agents and equipment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NemoClaw",
+      "role": "Extends the factory manager agent to coordinate complex operations and machine communication.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Digital-twin plans and live factory camera or sensor data flow into PEGAVERSE, Omniverse and Isaac Sim simulate or enrich operations, VSS-based agents analyze assembly and defect conditions, and FOX-orchestrated manager agents dispatch insights or actions back to workers, robots, and factory systems.",
+  "integration_points": [
+    "factory camera infrastructure",
+    "robots and glue-dispensing machines",
+    "warehouse operations",
+    "quality inspection workflows",
+    "machine-to-machine communication",
+    "CAD drawings, BOMs, and historical defect data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Pegatron reports a 40 percent drop in new-factory construction time, 7 percent lower labor cost per assembly line, 67 percent fewer defects, 400 percent faster AI-agent development, 67 percent shorter visual-inspection model deployment timelines, 10 percent less operational effort, and an estimated 15 percent cut in redundant factory assets through manager-agent orchestration.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "40% decrease in new factory construction time",
+    "7% reduction in labor costs per assembly line",
+    "67% decrease in defect rates",
+    "400% acceleration in AI agent development over four years",
+    "Six virtual factories deployed in parallel with physical facilities",
+    "67% reduction in AI visual inspection model deployment timelines",
+    "10% decrease in operational effort",
+    "15% estimated reduction in asset redundancy costs",
+    "Kinsus improved analysis accuracy from 76% to nearly 95% and reduced defect-analysis time from days to near zero"
+  ],
+  "architecture_clues": [
+    "Pegatron uses six virtual factories that mirror physical production facilities before real-world implementation.",
+    "Defect image generation converts CAD drawings, BOMs, and historical data into synthetic defects using NVIDIA Cosmos and Isaac Sim.",
+    "The glue-dispensing agent is fine-tuned in a PEGAVERSE data flywheel until it can self-evaluate and adjust machine parameters in real time."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/pegatron-scales-factory-operations-with-visual-ai-digital-twins/",
+  "published_date": "2025-05-20",
+  "evidence_quotes": [
+    "This is expected to help reduce construction time for a new factory by 40%.",
+    "By augmenting the assembly process with this AI agent, Pegatron is seeing a 7% reduction in labor costs per assembly line and a 67% decrease in defect rates.",
+    "Pegatron has accelerated the development of AI agents across the company by 400% over the last four years.",
+    "Pegatron reduced AI visual inspection model deployment timelines by 67%, while operational effort decreased by 10%.",
+    "With the factory manager agent, Pegatron can orchestrate robot utilization more efficiently and reduce the need for expensive standby equipment, with an estimated 15% reduction in asset redundancy costs."
+  ]
+}

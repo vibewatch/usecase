@@ -1,0 +1,85 @@
+{
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "UFC needed to scale fight insight generation across more than 40 live events a year without depending solely on manual research and domain experts to analyze fast-changing performance data.",
+  "solution_summary": "IBM and UFC built the UFC Insights Engine to automate how fight stories and statistics are generated for broadcast, digital and social teams. IBM watsonx Orchestrate sits at the center as the pre-fight insights agent and routing layer, enabling researchers to ask natural-language questions through a unified conversational interface. Behind that experience, IBM built text-to-SQL pipelines for structured queries and retrieval-augmented generation pipelines using IBM Granite and Llama models for grounded responses. IBM watsonx.ai helps identify the key performance indicators that influence fight outcomes, while watsonx.data provides vectorized storage and retrieval and watsonx.governance supports explainability, relevance scoring and transparency. Terraform automates deployment of UI and API components. Together, these components transform fight statistics, athlete profiles and event history into reusable insight workflows that scale content creation across the UFC calendar.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Acts as the orchestration and conversational layer for UFC’s pre-fight insights agent.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Extracts and generates contextual fight insights from historical data and matchup statistics.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Provides one of the grounded LLM options used in the RAG pipelines behind the Insights Engine.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Stores and retrieves vectorized fight and athlete data used to ground responses.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.governance",
+      "role": "Adds explainability, relevance scoring and transparency to AI-generated responses.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Historical fight statistics, athlete profiles and event outcomes are queried through text-to-SQL and RAG pipelines, grounded in watsonx.data, and then routed by watsonx Orchestrate to generate insights and narratives for UFC content teams.",
+  "integration_points": [
+    "Fight statistics",
+    "Athlete profiles",
+    "Event outcomes",
+    "UI and API deployment pipeline",
+    "Terraform"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "UFC reduced the time needed to generate insights, tripled the volume of available content signals and gave its editorial teams a scalable way to enrich fan storytelling across events.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "3x estimated increase in insight volume",
+    "40% estimated reduction in query generation time",
+    "more than 40 live events annually"
+  ],
+  "architecture_clues": [
+    "Uses both text-to-SQL and RAG pipelines",
+    "Supports broadcast, digital and social workflows from a single interface",
+    "Deployment pipeline automates UI and API infrastructure"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ufc",
+  "published_date": "2025-07-08",
+  "evidence_quotes": [
+    "At the core of the solution is IBM® watsonx Orchestrate® , which begins with a pre-fight insights agent that facilitates the process.",
+    "This orchestration integrates advanced tools, such as text-to-SQL pipelines for structured data queries and retrieval-augmented generation (RAG) pipelines powered by ... IBM Granite® and Llama.",
+    "Time to generate insights was reduced by an estimated 40%."
+  ],
+  "id": "ibm-ufc-real-time-analytics",
+  "slug": "ibm-ufc-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "UFC",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx Orchestrate",
+    "IBM watsonx.ai",
+    "IBM Granite",
+    "IBM watsonx.data",
+    "IBM watsonx.governance"
+  ]
+}

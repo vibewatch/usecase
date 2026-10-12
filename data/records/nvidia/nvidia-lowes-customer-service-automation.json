@@ -1,0 +1,122 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-lowes-customer-service-automation",
+  "slug": "nvidia-lowes-customer-service-automation",
+  "customer_name": "Lowe’s",
+  "industry": "Retail",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Lowe’s needed to close product-expertise gaps for project-based shoppers and store associates, gain better visibility inside large stores, and modernize slow, expensive merchandising and planogram processes across its massive retail network.",
+  "solution_summary": "Lowe’s built a three-part retail AI platform that combines customer-facing assistants, associate tools, computer vision, and digital twins on NVIDIA technology. Mylow runs inside the Lowe’s app and website, where OpenAI models fine-tuned on Lowe’s proprietary data use retrieval-augmented generation and NVIDIA NeMo Guardrails to answer home-improvement questions with project steps, product recommendations, and real-time inventory context. The same engine powers Mylow Companion for store associates. At the physical layer, Lowe’s runs GPUs and micro-data centers built on Dell PowerEdge XR servers across stores so computer vision can spot when customers need help and alert nearby staff in real time. For planning and merchandising, NVIDIA Omniverse, OpenUSD, RTX workstations, the USD Search API, and Hyper3D.ai’s Rodin support digital twins of 1,750+ stores, AI-assisted 3D asset creation, and scenario testing for localized planograms before physical changes are made.",
+  "products_used": [
+    "Mylow",
+    "Mylow Companion",
+    "NVIDIA Omniverse",
+    "NVIDIA NeMo Guardrails",
+    "NVIDIA DeepStream",
+    "NVIDIA RTX Workstations",
+    "NVIDIA USD Search API",
+    "Hyper3D.ai’s Rodin",
+    "Dell PowerEdge XR Series servers"
+  ],
+  "solution_components": [
+    {
+      "name": "Mylow",
+      "role": "Provides the customer-facing generative AI assistant in Lowe’s app and website.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Mylow Companion",
+      "role": "Extends the same AI assistant capabilities to store associates on the floor.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Powers the digital twin environment used to model, visualize, and optimize stores and planograms.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Guardrails",
+      "role": "Keeps Mylow’s AI-generated answers reliable and protected.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA DeepStream",
+      "role": "Supports the computer-vision pipelines that detect when customers need in-aisle assistance.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA RTX Workstations",
+      "role": "Drive digital twin simulation and rendering in Lowe’s Digital Design Center.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA USD Search API",
+      "role": "Accelerates digital-asset discovery inside Lowe’s 3D merchandising workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Hyper3D.ai’s Rodin",
+      "role": "Converts 2D product images into 3D models for the store digital twins.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dell PowerEdge XR Series servers",
+      "role": "Host low-latency micro-data-center inference inside stores.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer and associate questions flow into Mylow and Mylow Companion, which use guarded RAG responses tied to Lowe’s product and inventory data, while in-store camera and edge systems drive computer-vision alerts, and the resulting operational data feeds Omniverse-based digital twins for merchandising and layout optimization.",
+  "integration_points": [
+    "Lowe’s app and website",
+    "Lowe’s YouTube content",
+    "store cameras",
+    "product inventory systems",
+    "OpenUSD-based 3D workflows",
+    "Autodesk AutoCAD",
+    "Maya",
+    "Revit",
+    "Trimble SketchUp"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Lowe’s reports 98 percent neutral-to-positive customer reactions to Mylow, 8,000 AI-assisted engineering code reviews per week, a 30,000-plus-item 3D asset catalog at under $1 per model, digitally updated twins for more than 1,750 stores, and faster, cheaper planogram experimentation that reduces physical reset work.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "98% neutral-to-positive customer reactions to Mylow",
+    "8,000 AI-assisted engineering code reviews completed weekly",
+    "30,000+ item 3D asset catalog",
+    "Less than $1 per generated 3D model",
+    "1,750+ stores with digital twins updated throughout the day",
+    "More than 50,000 in-store items available to associates through AI support",
+    "300,000 associates across the retail network"
+  ],
+  "architecture_clues": [
+    "Micro-data centers with rugged Dell PowerEdge XR servers are deployed in hundreds of stores for low-latency inference.",
+    "Lowe’s digital twins are updated daily and sometimes in real time across the 1,750+ store network.",
+    "Cloud streaming lets users access Omniverse-powered retail applications through web browsers instead of local workstations."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/lowes/",
+  "published_date": "2026-02-02",
+  "evidence_quotes": [
+    "98% neutral-to-positive customer reactions achieved with Mylow, Lowe’s AI-powered home improvement virtual advisor",
+    "Mylow uses a hybrid approach ... combining OpenAI commercial models fine-tuned on Lowe’s proprietary data. NVIDIA NeMo Guardrails ensure protected and reliable AI-generated responses.",
+    "Store cameras automatically notify the nearest associate when customers dwell in aisles without support, enabling proactive assistance.",
+    "Lowe’s built physically accurate digital twins of all 1,750+ stores in its network.",
+    "This process transforms 2D product images into precise, high-quality 3D models within minutes—at a cost of less than $1 per model."
+  ]
+}

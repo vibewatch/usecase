@@ -1,0 +1,67 @@
+{
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Mid-market",
+  "business_problem": "Shorthills AI needed to make legal research more comprehensive and trustworthy across very large corpora without forcing users to accept incomplete, hallucinated or weakly sourced answers.",
+  "solution_summary": "Shorthills AI collaborated with IBM to build a production-grade legal search platform on IBM watsonx.data. The architecture combines hybrid retrieval methods—keyword, vector and graph-based search—behind a routing layer that sends each query to the most appropriate strategy. Documents are ingested into a secure data lake, chunked intelligently and enriched with entities such as judge names, case types and citations. Embeddings are stored in watsonx.data so the system can perform semantic retrieval at scale, while Langflow helps compose the modular search workflow. The platform then reranks results and returns citation-backed answers rather than partial or opaque outputs. By treating search as a governed, multi-method retrieval problem rather than a simple chatbot prompt, Shorthills built a secure, on-premises-capable legal-research engine that improves recall, comprehensiveness and the diversity of legal reasoning for enterprise clients.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx.data",
+      "role": "Stores embeddings and underpins the hybrid search platform with scalable retrieval and governance.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Langflow",
+      "role": "Helps compose the modular routing and retrieval workflow used by the legal search platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Legal documents are ingested into a secure data lake, chunked and entity-enriched, embedded in watsonx.data and then searched through a routing layer that selects keyword, vector or graph retrieval before results are reranked and returned with citations.",
+  "integration_points": [
+    "Secure data lake",
+    "Keyword search",
+    "Vector search",
+    "Graph-based search",
+    "On-premises deployments"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Shorthills AI delivered broader, more reliable legal research results with better recall and reasoning diversity while preserving the security posture required by regulated clients.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "4X increase in comprehensiveness",
+    "9X increase in diversity of legal arguments",
+    "over 60% improvement in recall and precision"
+  ],
+  "architecture_clues": [
+    "Uses a modular hybrid search architecture",
+    "Entity extraction enriches documents with judge names, case types and citations",
+    "Suitable for on-premises deployment in regulated environments"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/shorthills",
+  "published_date": "2026-03-28",
+  "evidence_quotes": [
+    "Shorthills AI collaborated with IBM to build a production-ready hybrid search platform using IBM® watsonx.data® and Langflow.",
+    "The team designed a modular architecture combining keyword, vector and graph-based search.",
+    "With IBM watsonx.data, Shorthills AI delivered measurable improvements: a 4X increase in comprehensiveness, a 9X increase in diversity of legal arguments and over 60% improvement in recall and precision."
+  ],
+  "id": "ibm-shorthills-ai-enterprise-knowledge-search",
+  "slug": "ibm-shorthills-ai-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Shorthills AI",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx.data",
+    "Langflow"
+  ]
+}

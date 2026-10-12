@@ -1,0 +1,90 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-deepl-document-processing",
+  "slug": "nvidia-deepl-document-processing",
+  "customer_name": "DeepL",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "DeepL needed to scale high-quality, context-aware translation for millions of daily users and hundreds of thousands of business customers without sacrificing latency, accuracy, or the ability to train larger models for new features like voice translation.",
+  "solution_summary": "DeepL deployed its “Arion” AI infrastructure on an NVIDIA DGX SuperPOD built from DGX GB200 systems to remove the trade-offs between model size, training speed, and translation latency. The Blackwell-based cluster links 72 GPUs into one unit, then DeepL pairs that hardware with NVIDIA TensorRT-LLM and Transformer Engine so both training and inference can move from 16-bit to 8-bit floating-point formats while staying highly optimized down to the kernel level. DeepL also uses Mixture-of-Experts architectures, synthetic data generation that increases training volume by 1,000x, and EcoDataCenter’s liquid-cooled facility to sustain efficient large-scale operation. The result is a platform that can serve millions of users with near-real-time multilingual inference, power products like DeepL Voice and Clarify, and keep larger language models responsive enough for production deployment.",
+  "products_used": [
+    "Arion",
+    "NVIDIA DGX SuperPOD",
+    "DGX GB200 systems",
+    "NVIDIA TensorRT-LLM",
+    "NVIDIA Transformer Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Arion",
+      "role": "Serves as DeepL’s production AI infrastructure for large-scale multilingual training and inference.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides the supercomputing platform that links DeepL’s Blackwell-based translation infrastructure into one system.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DGX GB200 systems",
+      "role": "Supply the Blackwell GPU nodes that run DeepL’s training and real-time translation workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes DeepL’s inference path to reduce latency without sacrificing translation quality.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Transformer Engine",
+      "role": "Enables 8-bit floating-point training and inference to improve throughput and efficiency.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Translation requests reach Arion, GB200-based models process the multilingual context, TensorRT-LLM and Transformer Engine keep inference and training efficient on the DGX SuperPOD, and DeepL returns low-latency translations or voice outputs to end users and business workflows.",
+  "integration_points": [
+    "EcoDataCenter liquid-cooled data center",
+    "DeepL Voice",
+    "Clarify",
+    "multilingual business translation workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "With Arion, DeepL cut translation processing roughly 10x, reducing a full-internet translation estimate from 193 days to about 18 days and dropping Oxford English Dictionary translation time from 39 seconds to 3.72 seconds while sustaining near-real-time multilingual inference for millions of users and nearly 200,000 businesses.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "10x faster translation processing",
+    "Entire Internet translated in approximately 18 days versus 193 days previously",
+    "Oxford English Dictionary translation reduced from 39 seconds to 3.72 seconds",
+    "Nearly 200,000+ businesses served with lower-latency inference",
+    "72 Blackwell GPUs linked as a single unit",
+    "Synthetic data generation boosts data volume by a factor of 1,000"
+  ],
+  "architecture_clues": [
+    "DeepL was the first organization in Europe to deploy an NVIDIA DGX SuperPOD with DGX GB200 systems.",
+    "The cluster links 72 Blackwell GPUs as a single unit.",
+    "DeepL moved training and inference from 16-bit to 8-bit floating-point using NVIDIA Transformer Engine and TensorRT-LLM.",
+    "EcoDataCenter planned for liquid cooling and green power to host the deployment."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/deepl/",
+  "published_date": "2026-02-15",
+  "evidence_quotes": [
+    "The company’s AI infrastructure, named “Arion”—powered by an NVIDIA DGX SuperPOD with DGX GB200 systems—enables millions of daily users across dozens of languages to receive accurate translations with near-zero latency.",
+    "Arion can translate the entire Internet in approximately 18 days compared to 193 days with the previous system.",
+    "Oxford English Dictionary, which took 39 seconds previously, now takes just 3.72 second—a 10X speedup.",
+    "DeepL's engineering team embraced floating-point optimization, moving from 16-bit to 8-bit floating-point training and inference using NVIDIA's Transformer Engine and TensorRT-LLM.",
+    "DeepL also developed sophisticated synthetic data generation techniques that boost data volume by a factor of 1,000."
+  ]
+}

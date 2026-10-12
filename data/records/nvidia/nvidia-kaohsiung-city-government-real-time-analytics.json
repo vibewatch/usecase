@@ -1,0 +1,102 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-kaohsiung-city-government-real-time-analytics",
+  "slug": "nvidia-kaohsiung-city-government-real-time-analytics",
+  "customer_name": "Kaohsiung City Government",
+  "industry": "Public Sector",
+  "region": "Taiwan",
+  "company_size": "Public sector",
+  "business_problem": "Kaohsiung needed citywide situational awareness across transportation, flooding, disaster response, and public-safety workflows, but departmental silos and traditional computer vision left agencies unable to interpret abnormal events or share information quickly enough.",
+  "solution_summary": "Linker Vision built Kaohsiung’s smart-city platform on NVIDIA’s three-computer strategy so video AI could move from isolated detections to city-scale operational intelligence. The deployment starts by converting satellite and aerial imagery into OpenUSD scenes and running a city digital twin on NVIDIA Omniverse and NVIDIA OVX servers. NVIDIA Cosmos generates synthetic video for hard-to-capture scenarios such as flooding or infrastructure damage, while NVIDIA NeMo Curator and nv-grounding-dino help curate and label real and synthetic data for VLM fine-tuning. At runtime, NVIDIA Metropolis Blueprint for Video Search and Summarization combines vision pipelines and Cosmos VLMs on NVIDIA DGX servers so AI agents can analyze thousands of live camera feeds, describe incidents, alert agencies and citizens, and feed those outputs back into an interactive command center. That architecture lets Kaohsiung coordinate cross-department responses in real time instead of relying on isolated municipal systems.",
+  "products_used": [
+    "NVIDIA Omniverse",
+    "NVIDIA OVX",
+    "NVIDIA Cosmos",
+    "NVIDIA NeMo Curator",
+    "nv-grounding-dino",
+    "NVIDIA Metropolis Blueprint for Video Search and Summarization",
+    "NVIDIA DGX"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Hosts the city digital twin used to visualize and respond to urban events.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA OVX",
+      "role": "Provides the infrastructure on which Linker Vision runs Kaohsiung’s digital twin workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Cosmos",
+      "role": "Generates synthetic video data and supports scene understanding for complex urban scenarios.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Curates and prepares real-world and synthetic data for vision-language model tuning.",
+      "layer": "Governance"
+    },
+    {
+      "name": "nv-grounding-dino",
+      "role": "Supports annotation and labeling of city video and image data for model training.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Metropolis Blueprint for Video Search and Summarization",
+      "role": "Provides the runtime blueprint for video analytics agents that detect and summarize incidents across camera feeds.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX",
+      "role": "Runs Cosmos-based VLM inference for production smart-city event understanding.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "City camera streams feed VSS-based AI agents, VLMs interpret traffic, flooding, and safety events, alerts and summaries are sent to the relevant agencies and citizens, and the outputs are visualized inside an Omniverse-based digital twin command center for coordinated response.",
+  "integration_points": [
+    "30,000 city camera streams",
+    "Water Resources Bureau",
+    "Transportation Bureau",
+    "city emergency responders",
+    "citizen alert workflows",
+    "OpenUSD digital twin scenes"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Kaohsiung’s vision AI platform reduced development effort by 85 percent, cut response times by up to 80 percent, enabled richer incident reports, and now supports city-scale coordination across transportation, water management, healthcare, logistics, and more than 300 urban scenarios through a unified video-intelligence layer.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "85% reduction in development efforts using the VSS blueprint",
+    "Up to 80% reduction in response times",
+    "30,000 diverse smart city camera streams integrated",
+    "More than 10 major urban and enterprise domains covered",
+    "300+ scenarios supported across city operations"
+  ],
+  "architecture_clues": [
+    "The system creates OpenUSD city scenes from satellite and aerial imagery and runs them on NVIDIA OVX servers.",
+    "NVIDIA Cosmos generates synthetic video to cover flooding, infrastructure damage, and other long-tail corner cases.",
+    "The production deployment connects video analytics outputs back into a real-time Omniverse command center and is expanding through AI-GRID and NemoClaw."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/linker-vision-ai-smart-city-solutions/",
+  "published_date": "2025-05-24",
+  "evidence_quotes": [
+    "Reduced development efforts by 85% using the VSS blueprint to build visual AI agents.",
+    "Reduced response times by up to 80%, enabling emergency services to reach sites faster.",
+    "It uses the NVIDIA VSS Blueprint to build video analytics AI agents that can process thousands of live camera streams around the city and deliver deeper insights into traffic incidents.",
+    "Linker Vision is integrating 30,000 diverse smart city camera streams, all managed in a city-scale 3D digital twin platform.",
+    "The system is trained to understand more than ten major urban and enterprise domains ... and 300+ scenarios such as traffic accidents, disaster response, public safety, and infrastructure management."
+  ]
+}

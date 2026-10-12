@@ -1,0 +1,142 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-fpt-smart-cloud-customer-service-automation",
+  "slug": "nvidia-fpt-smart-cloud-customer-service-automation",
+  "customer_name": "FPT Smart Cloud",
+  "industry": "Software / SaaS",
+  "region": "Vietnam",
+  "company_size": "Enterprise",
+  "business_problem": "FPT Smart Cloud needed more natural, multilingual virtual assistants and more scalable employee upskilling systems, but high speech-synthesis training costs, long processing times, and the need for personalized knowledge delivery limited how far those AI services could scale.",
+  "solution_summary": "FPT Smart Cloud built two NVIDIA-accelerated application stacks: FPT AI Engage for customer-service virtual assistants and FPT AI Mentor for workforce development. FPT AI Engage combines LLMs, NLP, ASR, and TTS with NVIDIA software pipelines to automate inbound and outbound calling, IVR, telesales, reminders, and FAQ resolution. The deployment uses NVIDIA GPU Operator and MIG support in Kubernetes for multi-tenant scale, then optimizes inference with NVIDIA TensorRT and NVIDIA Triton Inference Server using dynamic batching. For model training, FPT moved speech-synthesis and LLM workloads from A100-based systems to NVIDIA H100 and DGX H100 nodes, alongside NVIDIA NGC, PyTorch, and NVIDIA-powered RAG workflows. That stack lets FPT build more human-like voices in 18 languages, personalize microlearning through AI Mentor, generate situational Q&A from enterprise knowledge bases, and deliver both call-center automation and staff training from a common accelerated AI foundation.",
+  "products_used": [
+    "FPT AI Engage",
+    "FPT AI Mentor",
+    "NVIDIA H100 Tensor Core GPUs",
+    "NVIDIA A100 Tensor Core GPUs",
+    "NVIDIA GPU Operator",
+    "Multi-Instance GPU (MIG)",
+    "Kubernetes",
+    "NVIDIA TensorRT",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA DGX H100",
+    "NVIDIA NGC",
+    "PyTorch"
+  ],
+  "solution_components": [
+    {
+      "name": "FPT AI Engage",
+      "role": "Provides virtual assistants for call-center automation, IVR, outbound calls, and customer support.",
+      "layer": "Serving"
+    },
+    {
+      "name": "FPT AI Mentor",
+      "role": "Delivers personalized learning content, quizzes, and knowledge graphs for workforce development.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA H100 Tensor Core GPUs",
+      "role": "Accelerate advanced speech-synthesis and LLM training for Engage and Mentor.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Supported the earlier generation of speech and training workloads before the H100 upgrade.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA GPU Operator",
+      "role": "Helps FPT deploy and manage GPU resources at cloud scale.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Multi-Instance GPU (MIG)",
+      "role": "Enables efficient multi-tenant GPU partitioning for large-scale virtual-assistant deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kubernetes",
+      "role": "Orchestrates the cloud-native deployment of FPT’s AI assistants.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes inference for virtual-assistant workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves models with dynamic batching to lower compute usage at production scale.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX H100",
+      "role": "Hosts the LLM infrastructure behind AI Mentor’s content generation workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NGC",
+      "role": "Supplies container and software support for FPT’s model development workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "PyTorch",
+      "role": "Supports training of Mentor’s large language models on DGX H100.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer calls and enterprise knowledge enter FPT AI Engage and Mentor, speech, language, and retrieval models run on Kubernetes-managed GPU infrastructure, TensorRT and Triton optimize the serving path, and the systems return virtual-agent responses, quizzes, summaries, or recommendations back into customer-service and workforce workflows.",
+  "integration_points": [
+    "call center inbound and outbound calls",
+    "interactive voice response workflows",
+    "Home Credit Vietnam",
+    "Long Chau",
+    "enterprise knowledge bases",
+    "smartphone-based employee training"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "Across Engage and Mentor, FPT reports 3x lower data processing, 4x faster speech-synthesis processing, 100x richer speech-model output, 55 percent better agent knowledge quality, 80 percent lower training-resource requirements, 30x faster LLM training, and production-scale customer-service deployments that lifted productivity by 50 percent while cutting operating expense by 67 percent.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "3X reduction in data processing for FPT AI Engage",
+    "4X faster speech synthesis processing",
+    "100X improvement in speech synthesis model output in dimension and aptitude across 18 languages",
+    "55% improvement in knowledge quality for customer agents",
+    "80% reduction in training resources for AI Mentor",
+    "30X faster LLM training than the previous generation",
+    "5,120 virtual assistants deployed",
+    "More than 200 million interactions per month",
+    "16 million end users served",
+    "50% increase in productivity and 67% reduction in operating expenses",
+    "Home Credit Vietnam scaled from 5,000,000 to 12,000,000 calls per month and achieved a 98 percent call success rate",
+    "Home Credit Vietnam increased service-to-sales volume by 2X"
+  ],
+  "architecture_clues": [
+    "FPT uses NVIDIA GPU Operator and MIG support in Kubernetes to scale virtual assistants.",
+    "Inference is optimized with NVIDIA TensorRT and served through NVIDIA Triton Inference Server with dynamic batching.",
+    "AI Mentor uses NVIDIA DGX H100, NVIDIA NGC, PyTorch, and NVIDIA-powered RAG workflows to generate personalized training content and knowledge graphs."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/fpt-smart-cloud-levels-up-customer-service-operations/",
+  "published_date": "2024-09-21",
+  "evidence_quotes": [
+    "FPT Smart Cloud, an NVIDIA Cloud Partner and leading AI provider in Vietnam, is using FPT AI Engage to accelerate their speech synthesis models by 4X.",
+    "Trusted by more than 100 enterprises in 15 countries, FPT AI Engage has enabled, on average, a 50 percent increase in productivity and a 67 percent reduction in operating expenses.",
+    "The deployment is optimized using NVIDIA® TensorRT™ and served in NVIDIA Triton™ Inference Server with dynamic batching, saving up to 20 percent of high-performance computing resources for the same quality of model output.",
+    "This advanced approach has improved knowledge quality for the workforce by 55 percent while reducing required training resources by 80 percent.",
+    "The H100 can speed up LLM training by 30X over the previous generation."
+  ]
+}

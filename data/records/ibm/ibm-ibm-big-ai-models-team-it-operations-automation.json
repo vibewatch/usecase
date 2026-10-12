@@ -1,0 +1,59 @@
+{
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM’s Big AI Models team needed to stop overprovisioning GPU-backed inference infrastructure so it could support more research workloads without wasting scarce and expensive accelerator capacity.",
+  "solution_summary": "The IBM Big AI Models (BAM) team deployed IBM Turbonomic to manage resource allocation for LLM inference servers running on Kubernetes. As more generative-AI projects entered testing, the team saw that fixed instance sizing and manual monitoring were leaving GPU resources underused while also consuming staff time. Turbonomic ingests real-time performance data from the application environment and generates AI-driven recommendations for scaling CPU, memory and GPU-backed resources up or down. The BAM team configured those actions so the platform could right-size inference servers automatically, improving cluster efficiency while preserving performance for development workloads. In effect, the solution turned infrastructure management into a continuous optimization loop, freeing engineers from manual tuning and making more idle GPU capacity available for additional model experiments.",
+  "solution_components": [
+    {
+      "name": "IBM Turbonomic",
+      "role": "Continuously analyzes utilization and automates resource actions to right-size LLM inference workloads on Kubernetes.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Runtime telemetry from LLM inference servers feeds IBM Turbonomic, which analyzes demand in real time and triggers scaling actions that rebalance Kubernetes resources and free GPU capacity for additional workloads.",
+  "integration_points": [
+    "LLM Kubernetes instances",
+    "Inference servers",
+    "GPU resource pools"
+  ],
+  "technical_area": [
+    "Cost Optimization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "The BAM team reduced manual performance monitoring, reclaimed GPU capacity and improved the efficiency of its research and development environment for generative AI testing.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "5.3 times increase in idle GPU resources",
+    "from 3 to 16 idle GPU resources",
+    "2x"
+  ],
+  "architecture_clues": [
+    "Optimizes resource allocation for LLM inference servers on Kubernetes",
+    "Uses AI-driven recommendations and automated actions",
+    "Applied inside IBM’s primary R&D environment for generative AI projects"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-bam-turbonomic",
+  "published_date": "2025-08-06",
+  "evidence_quotes": [
+    "To optimize their GPU resources and manage their LLM Kubernetes instances, the IBM BAM team deployed IBM Turbonomic®.",
+    "Using real-time data, Turbonomic generated AI-driven recommendations for automated actions to optimize resource utilization and efficiency.",
+    "By scaling down overprovisioned instances, the team show the ability to increase the idle GPU resources from 3 to 16 (5.3 times)."
+  ],
+  "id": "ibm-ibm-big-ai-models-team-it-operations-automation",
+  "slug": "ibm-ibm-big-ai-models-team-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM Big AI Models team",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM Turbonomic"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Digital Office Company needed to classify large volumes of documents faster and with deeper content awareness so customers could avoid manual review, metadata gaps and downstream GDPR risk.",
+  "solution_summary": "Digital Office Company collaborated with IBM technical teams on a six-week pilot that combined traditional machine learning and generative AI for document understanding. The implemented pipeline uses IBM Watson Discovery as the backbone of the data and retrieval flow, while IBM watsonx.ai and the Mixtral-8x7B large language model add generative reasoning on top of custom classifiers and metadata enrichment. The pilot focused on real-estate documents, where customers faced diverse formats and strict regulatory requirements. Documents enter the pipeline, are classified with custom models, enriched with labels and metadata, and then passed through generative AI to extract additional insight from content rather than relying on superficial tags alone. By combining deterministic classification with LLM-based interpretation, DOC improved both speed and document understanding while preserving the structure required for downstream compliance and business workflows.",
+  "solution_components": [
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Provides the document pipeline and retrieval foundation used to classify and enrich large document sets.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Adds generative AI capabilities that interpret document content and enrich classification outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mixtral-8x7B",
+      "role": "Supplies the large language model used in the generative document-understanding workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Incoming documents are classified with custom models in a Watson Discovery-backed pipeline, enriched with labels and metadata, and then processed with watsonx.ai and Mixtral-8x7B to extract deeper content understanding for downstream use.",
+  "integration_points": [
+    "Real-estate document repositories",
+    "Metadata enrichment workflows",
+    "Downstream compliance and business tasks"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "The pilot reduced document classification time from minutes to seconds while improving document insight quality and addressing metadata and compliance challenges for customers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "2.4 seconds",
+    "Time to classify a document reduced from a few minutes to 2.4 seconds"
+  ],
+  "architecture_clues": [
+    "Six-week co-creation pilot",
+    "Focused first on real-estate documents",
+    "Combines traditional machine learning with LLM-based enrichment"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/digital-office-company",
+  "published_date": "2024-07-16",
+  "evidence_quotes": [
+    "DOC collaborated with the IBM Ecosystem Engineering Build Lab, IBM Client Engineering and IBM Technology Expert Labs to develop a pilot that leverages a combination of traditional machine learning and generative AI.",
+    "DOC developed an IBM Watson Discovery platform-powered data pipeline solution that uses custom machine learning models alongside Mistral AI’s Mixtral-8x7B LLM.",
+    "Time to classify a document reduced from a few minutes to 2.4 seconds."
+  ],
+  "id": "ibm-digital-office-company-document-processing",
+  "slug": "ibm-digital-office-company-document-processing",
+  "vendor": "IBM",
+  "customer_name": "Digital Office Company",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM Watson Discovery",
+    "IBM watsonx.ai",
+    "Mixtral-8x7B"
+  ]
+}

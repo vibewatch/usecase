@@ -1,0 +1,88 @@
+{
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "The USTA needed to turn massive volumes of match, player and fan data into engaging digital experiences for a global audience while keeping the US Open’s app and web platforms resilient under extreme traffic spikes.",
+  "solution_summary": "IBM and the United States Tennis Association built the US Open digital platform on a hybrid multicloud and AI architecture. Match and player telemetry—more than 800 data points per point, sampled 50 times per second—streams through IBM Confluent into automated workflows that feed IBM watsonx.data, the event’s lakehouse for structured and unstructured sources. On top of that data foundation, IBM watsonx.ai, IBM watsonx Orchestrate and IBM Granite models help the editorial team generate AI-powered features such as Live Updates, Match Chat and Key Moments with human oversight. Red Hat OpenShift provides portability across clouds, while IBM Instana, IBM Terraform and IBM Apptio keep the experience observable, automated and cost-aware. The end-to-end design lets the USTA convert live match signals into real-time fan content and resilient digital operations.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx.data",
+      "role": "Centralizes structured and unstructured tournament data to support AI features and real-time insight generation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Drives AI-powered editorial features and helps transform live match data into fan-facing insights.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Coordinates agentic AI workflows that scale content production and digital experiences.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Granite",
+      "role": "Provides generative models used in AI-powered fan features with editorial oversight.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Red Hat OpenShift",
+      "role": "Runs applications and workloads consistently across the US Open’s hybrid multicloud environments.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Live event telemetry streams through IBM Confluent into watsonx.data, where curated structured and unstructured tournament data is used by watsonx.ai, Granite and orchestrated AI workflows to generate fan content and power app and web experiences in real time.",
+  "integration_points": [
+    "US Open app",
+    "US Open website",
+    "IBM Confluent event streams",
+    "IBM Instana observability",
+    "IBM Terraform automation",
+    "IBM Apptio cost management"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The USTA delivered richer fan engagement features at scale, sustained extremely high availability during tournament play and created a technical foundation that can continue evolving year over year.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "more than 14 million fans around the globe",
+    "more than 1.2 billion data points",
+    "traffic spikes in excess of 5,000%",
+    "99.999% uptime during tournament play"
+  ],
+  "architecture_clues": [
+    "Each point generates more than 800 data points captured 50 times per second",
+    "Hybrid multicloud architecture supports app and website experiences",
+    "AI features are produced with editorial oversight"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/us-open",
+  "published_date": "2024-08-02",
+  "evidence_quotes": [
+    "The USTA uses the IBM® watsonx.data® data store, a hybrid, open data lakehouse built to support AI workloads.",
+    "Using IBM watsonx.ai® AI studio, the agentic AI of the IBM watsonx Orchestrate® platform, and the generative AI capabilities of IBM Granite® models, the USTA editorial team now produces AI-powered features at scale.",
+    "Each point played at the US Open generates more than 800 data points ... contributing to more than 1.2 billion data points collected and analyzed over the course of the tournament."
+  ],
+  "id": "ibm-united-states-tennis-association-real-time-analytics",
+  "slug": "ibm-united-states-tennis-association-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "United States Tennis Association",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx.data",
+    "IBM watsonx.ai",
+    "IBM watsonx Orchestrate",
+    "IBM Granite",
+    "Red Hat OpenShift"
+  ]
+}

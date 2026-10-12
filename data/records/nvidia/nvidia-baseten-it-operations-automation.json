@@ -1,0 +1,112 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-baseten-it-operations-automation",
+  "slug": "nvidia-baseten-it-operations-automation",
+  "customer_name": "Baseten",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Baseten needed to orchestrate a global, multi-cloud GPU fleet for increasingly large reasoning models while improving latency, throughput, and cost efficiency enough to keep real-time AI inference practical for enterprise customers.",
+  "solution_summary": "Baseten built its inference platform around a unified global GPU pool and then upgraded the serving layer with NVIDIA Blackwell hardware and NVIDIA’s open inference stack. The company aggregates GPUs from more than 10 cloud providers across dozens of regions, uses its multi-cloud capacity management layer to provision thousands of GPUs in under five minutes, and abstracts away regional latency differences for customers. On Google Cloud A4 VMs and NVIDIA HGX B200 systems, Baseten combines NVIDIA CUDA, NVIDIA Dynamo, and NVIDIA TensorRT-LLM with open-source engines such as SGLang to run frontier reasoning models like DeepSeek-R1, Llama 4, and gpt-oss. That architecture supports disaggregated serving, LLM-aware routing, KV-cache offload, and custom model compilation, so Baseten can serve public model APIs and dedicated customer deployments with much higher throughput and lower latency than its previous generation.",
+  "products_used": [
+    "Baseten Inference Stack",
+    "NVIDIA Blackwell",
+    "Google Cloud A4 VMs",
+    "NVIDIA HGX B200",
+    "NVIDIA CUDA",
+    "NVIDIA Dynamo",
+    "NVIDIA TensorRT-LLM",
+    "SGLang"
+  ],
+  "solution_components": [
+    {
+      "name": "Baseten Inference Stack",
+      "role": "Provides the orchestration and serving layer that unifies Baseten’s global GPU infrastructure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Blackwell",
+      "role": "Supplies the latest GPU architecture that improved reasoning-model throughput, memory headroom, and cost efficiency.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud A4 VMs",
+      "role": "Host Baseten’s early Blackwell-based production deployments for frontier inference workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA HGX B200",
+      "role": "Runs large reasoning models with the memory and interconnect performance Baseten needed for production-scale inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Provides the software foundation that makes GPU nodes across providers and regions behave like a unified pool.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Handles distributed inference features such as disaggregated serving, LLM-aware routing, and KV-cache offloading.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes model compilation and runtime performance for frontier and custom LLMs on NVIDIA GPUs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "SGLang",
+      "role": "Adds open-source inference optimizations that Baseten integrates alongside NVIDIA’s serving stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer traffic hits Baseten’s global GPU pool, the inference stack routes requests to Blackwell-backed endpoints, Dynamo applies distributed serving and cache optimizations, TensorRT-LLM and SGLang execute the selected model efficiently, and the platform returns lower-latency results from public or dedicated deployments.",
+  "integration_points": [
+    "more than 10 cloud providers",
+    "dozens of global regions",
+    "Google Cloud AI Hypercomputer architecture",
+    "DeepSeek-R1",
+    "Llama 4",
+    "gpt-oss",
+    "Writer Palmyra LLMs"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Generative AI / LLM",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Baseten now serves five times as many requests on the same number of GPUs, improved price-performance for frontier reasoning models by up to 225 percent, reduced latency by up to 38 percent for large LLMs, can provision thousands of GPUs in under five minutes, and boosted throughput by over 60 percent for Writer’s Palmyra models.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "5× higher throughput for high-traffic endpoints",
+    "Up to 225% better cost performance for high-throughput inference",
+    "25% better cost performance for latency-sensitive inference",
+    "Up to 38% lower latency for large LLM serving",
+    "Provision thousands of GPUs in less than five minutes",
+    "More than 10 cloud providers across dozens of regions unified into one GPU pool",
+    "Over 60% throughput boost for Writer’s Palmyra LLMs"
+  ],
+  "architecture_clues": [
+    "Baseten’s multi-cloud capacity management layer provisions thousands of GPUs from a global pool in under five minutes.",
+    "The platform relies on disaggregated serving, LLM-aware routing, and KV-cache offloading in NVIDIA Dynamo.",
+    "Baseten combines TensorRT-LLM with other open-source engines such as SGLang and also built a custom model builder for faster compilation."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/baseten-cloud-scaling-ai-inference/",
+  "published_date": "2026-02-13",
+  "evidence_quotes": [
+    "Baseten can now serve five times as many user requests for custom models with the same number of GPUs.",
+    "Baseten reduced latency for serving the largest LLMs like DeepSeek-R1 by up to 38%.",
+    "Baseten developed multi-cloud capacity management (MCM), with the capability to provision thousands of GPUs within less than five minutes.",
+    "At the core of this success was Basten’s integration of NVIDIA Dynamo, a low-latency distributed inference serving platform that supports advanced inference optimization techniques such as disaggregated serving, LLM-aware routing, and KV cache offloading to storage.",
+    "These efforts have boosted throughput by over 60% for Writer’s Palmyra LLMs."
+  ]
+}

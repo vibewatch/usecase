@@ -1,0 +1,81 @@
+{
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "MyLÚA Health needed an enterprise-ready way to deliver culturally attuned maternal support between appointments while protecting sensitive health information and identifying risk earlier in underserved populations.",
+  "solution_summary": "MyLÚA Health partnered with IBM to build a multi-agent maternal-wellness platform that combines support, personalization and risk detection. IBM watsonx.ai provides the governed multilingual AI environment used to personalize responses and apply responsible AI controls, while IBM watsonx Orchestrate coordinates specialized agents across emotional, physical and social support domains. The platform runs on IBM Cloud with IBM Cloud Code Engine using FastAPI, Postgres and Redis so it can scale securely for regulated workloads. Users interact with the LÚA experience through mobile channels, and the agents translate those requests into check-ins, reminders, education and local resource activation. The same platform also supports structured summaries for doulas and care coordinators and early identification of postpartum-depression risk, all while keeping personally identifiable and protected health information away from large language models.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the governed multilingual AI environment used to personalize maternal-wellness guidance and risk detection.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Coordinates specialized agents that turn user intent into check-ins, reminders, summaries and resource actions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the secure regulated environment for the multi-agent maternal-wellness platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Code Engine",
+      "role": "Runs the application services and agent workloads that support secure scaling.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User interactions flow into the IBM Cloud-hosted LÚA platform, where watsonx.ai interprets context, watsonx Orchestrate coordinates specialized agents and application services return guidance, reminders, summaries and resource actions while keeping sensitive data outside LLM prompts.",
+  "integration_points": [
+    "Apple App Store",
+    "Google Play",
+    "Care-team summaries",
+    "Local resource activation workflows",
+    "FastAPI",
+    "Postgres",
+    "Redis"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "MyLÚA validated early clinical and engagement results, improved trust with users and created a scalable platform for maternal support that can reduce risk and administrative burden.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 90% accuracy in identifying postpartum depression risk during the first trimester",
+    "79% of mothers said they felt comfortable sharing sensitive health information",
+    "48% of participants completed proactive wellness activities"
+  ],
+  "architecture_clues": [
+    "Runs on IBM Cloud Code Engine with FastAPI, Postgres and Redis",
+    "Coordinates specialized agents across emotional, physical and social domains",
+    "Designed so PII and PHI are not sent to large language models"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/mylua-health",
+  "published_date": "2026-04-01",
+  "evidence_quotes": [
+    "MyLÚA partnered with IBM to design, test and deploy its multi-agent maternal-wellness platform underpinned by IBM watsonx.ai®, IBM watsonx Orchestrate®, IBM Cloud® and IBM Cloud Code Engine.",
+    "IBM watsonx Orchestrate coordinates specialized agents across emotional, physical and social domains.",
+    "The platform’s privacy-preserving design further supports healthcare-grade governance and scalability because personally identifiable information and protected health information are not sent to large language models."
+  ],
+  "id": "ibm-myl-a-health-maternal-health-risk-management",
+  "slug": "ibm-myl-a-health-maternal-health-risk-management",
+  "vendor": "IBM",
+  "customer_name": "MyLÚA Health",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Orchestrate",
+    "IBM Cloud",
+    "IBM Cloud Code Engine"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "CXReview needed to automate quality-control and compliance analysis across high-volume call center conversations because manual review covered only a small fraction of calls and slowed coaching and remediation.",
+  "solution_summary": "CXReview extended its conversation-analytics platform with IBM AI services to automate call review and make large call datasets easier for clients to interrogate. The company had already introduced IBM Watson Discovery to monitor conversations and surface near-real-time performance and infraction signals for quality-control managers. It then piloted IBM watsonx.ai to summarize selected call transcripts and remove the need for agents to write manual dispositions, while planning IBM watsonx Assistant as a chat interface over the stored conversation data. In the target architecture, transcripts and monitoring data are indexed, summarized and exposed through a conversational layer so supervisors and clients can find issues faster, coach agents sooner and strengthen compliance coverage without scaling manual effort linearly.",
+  "solution_components": [
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Indexes and monitors call content so managers can receive near-real-time quality and compliance insights.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Summarizes call transcripts and automates disposition-style documentation for agents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides a conversational interface for clients to query conversation datasets and summaries.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Call transcripts are collected into CXReview’s conversation analytics platform, indexed and monitored with Watson Discovery, summarized with watsonx.ai, and then exposed through watsonx Assistant so managers and clients can search, review and act on conversation insights.",
+  "integration_points": [
+    "Call center conversation datasets",
+    "Quality-control workflows",
+    "Compliance management workflows",
+    "Agent coaching processes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Security and Compliance"
+  ],
+  "business_outcome": "The pilot reduced manual after-call work, expanded the practical reach of quality monitoring and positioned CXReview to improve compliance oversight while saving substantial agent time each day.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Only 2% of calls are reviewed for quality and compliance",
+    "A manual QC check typically takes four times longer than the call itself",
+    "Estimated to save around 23 hours in total per day"
+  ],
+  "architecture_clues": [
+    "Conversation analytics platform supports quality control and compliance management",
+    "Near-real-time updates enable faster coaching after a call ends",
+    "Watsonx Assistant is intended to sit on top of summarized conversation data"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/cxreview-ai",
+  "published_date": "2024-10-02",
+  "evidence_quotes": [
+    "Previously, the firm was using traditional processes to monitor and audit calls for quality and identify instances of noncompliance.",
+    "The first phase of the pilot, which used watsonx.ai to summarize call transcripts in selected projects, has shown encouraging early results.",
+    "This phase of the pilot is estimated to save around 23 hours in total per day for the agents using the service."
+  ],
+  "id": "ibm-cxreview-customer-service-automation",
+  "slug": "ibm-cxreview-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "CXReview",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM Watson Discovery",
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant"
+  ]
+}

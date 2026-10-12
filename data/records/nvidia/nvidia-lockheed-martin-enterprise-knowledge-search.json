@@ -1,0 +1,106 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-lockheed-martin-enterprise-knowledge-search",
+  "slug": "nvidia-lockheed-martin-enterprise-knowledge-search",
+  "customer_name": "Lockheed Martin",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Lockheed Martin needed a secure, centralized AI platform that could replace fragmented compute, tooling, and workflows, keep sensitive and classified data on premises, and let thousands of engineers build trustworthy AI faster without trading off cost or security.",
+  "solution_summary": "Lockheed Martin built an internal AI factory on NVIDIA DGX SuperPOD to centralize training, inference, MLOps, and generative AI for high-assurance workloads. The platform gives developers secure GPU environments in minutes instead of weeks, hosts open-source LLMs internally, and uses retrieval-augmented generation against proposal repositories and other sensitive data without moving that information to public APIs. The factory combines DGX SuperPOD infrastructure with Lockheed Martin’s customized MLOps platform, NVIDIA Triton Inference Server, NVIDIA NeMo Framework, CUDA, and NVIDIA AI Enterprise so teams can fine-tune models, run enterprise knowledge tools such as Text Navigator, and support internal chatbots and coding assistants. Lockheed Martin also keeps burst capacity for non-classified cloud work, but the on-prem platform handles tokenization, training, and deployment in-house, which reduces external token fees and creates a repeatable path from prototype to production across many programs.",
+  "products_used": [
+    "Lockheed Martin AI Factory",
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA NeMo Framework",
+    "NVIDIA AI Enterprise",
+    "CUDA",
+    "Lockheed Martin Text Navigator"
+  ],
+  "solution_components": [
+    {
+      "name": "Lockheed Martin AI Factory",
+      "role": "Provides the centralized platform for secure AI development, deployment, and best-practice reuse across the company.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Supplies the on-prem accelerated infrastructure for training, inference, tokenization, and RAG workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves internal models and AI applications at production scale.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Framework",
+      "role": "Supports training and fine-tuning of language models for internal applications.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the enterprise software layer and pre-integrated tooling used in the AI factory stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "CUDA",
+      "role": "Accelerates the underlying GPU workloads for Lockheed Martin’s AI applications.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Lockheed Martin Text Navigator",
+      "role": "Acts as an internal chat interface for summarization, research analysis, strategy generation, and code support.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Sensitive internal data stays on approved on-prem infrastructure, DGX SuperPOD-backed models are trained or fine-tuned through the AI factory, RAG connects proposal and other repositories to internal LLMs, and tools like Text Navigator return secure answers or generated content to engineers and proposal teams.",
+  "integration_points": [
+    "proposal repository",
+    "classified environments",
+    "internal chatbots",
+    "coding assistants",
+    "burst-scaling cloud environments for non-classified workloads"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cybersecurity",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Lockheed Martin reduced secure environment setup from weeks to minutes, cut training cycles from weeks to days, processes more than one billion tokens per week on premises, supports 7,000 engineers and developers with millions of weekly API requests, and has consolidated more than 30 models while avoiding escalating public-cloud token fees.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "122,000 employees globally",
+    "Over one billion tokens processed per week",
+    "7,000 engineers and developers supported",
+    "Millions of weekly API requests",
+    "More than 1,100 trainees completed NVIDIA Deep Learning Institute training",
+    "30+ models consolidated on on-prem infrastructure",
+    "Environment setup reduced from weeks to minutes",
+    "Training reduced from weeks to days"
+  ],
+  "architecture_clues": [
+    "The AI factory keeps sensitive data on premises and within classified environments while still allowing burst-scaling for non-classified workloads.",
+    "Lockheed Martin uses retrieval-augmented generation over proposal repositories and hosts open-source LLMs internally on DGX SuperPOD.",
+    "The organization codified reusable components, pipelines, and playbooks as part of the centralized AI factory."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/lockheed-martin-ai-factory-with-dgx-superpod/",
+  "published_date": "2024-09-26",
+  "evidence_quotes": [
+    "Developers can now securely access GPU resources and have their environments up and running in minutes and reduce training times from weeks to days.",
+    "Our DGX SuperPOD helps us process over one billion tokens per week, enabling fine-tuning, retrieval augmented generation (RAG), or inference on our large language models (LLMs).",
+    "Today, 7,000 engineers and developers access Lockheed Martin’s AI Factory, powered by DGX SuperPOD.",
+    "This allows us to rapidly generate new proposals with generative AI, summarizing past work and creating new content.",
+    "Lockheed Martin Text Navigator is used by thousands of employees for daily productivity tasks."
+  ]
+}

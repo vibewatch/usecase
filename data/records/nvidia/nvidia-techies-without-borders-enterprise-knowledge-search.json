@@ -1,0 +1,89 @@
+{
+  "vendor": "NVIDIA",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "nvidia-techies-without-borders-enterprise-knowledge-search",
+  "slug": "nvidia-techies-without-borders-enterprise-knowledge-search",
+  "customer_name": "Techies Without Borders",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Healthcare workers in low- and middle-income countries needed current, evidence-based medical guidance despite limited connectivity, scarce localized content, language barriers, and heavy frontline workloads.",
+  "solution_summary": "Techies Without Borders built CMES-AI as a medical knowledge assistant that combines generative AI with NVIDIA edge and inference tooling to deliver answers inside resource-constrained clinics. The team began by training and fine-tuning clinical LLMs on an NVIDIA T4 Tensor Core GPU, then deployed the runtime to the NVIDIA Jetson Nano Developer Kit so clinics could run the assistant locally even when connectivity is poor. TWB added a preferred orchestration of NVIDIA NIM inference microservices and powered retrieval and response quality with NVIDIA Nemotron Rerank, Embed, and Instruct NIM microservices. That stack lets clinicians ask natural-language questions against a continuously updated knowledge base, receive evidence-based answers in their own language, and use the system as a practical point-of-care assistant instead of relying on slow manual search or tag-based workflows.",
+  "products_used": [
+    "CMES-AI",
+    "NVIDIA T4 Tensor Core GPU",
+    "NVIDIA Jetson Nano Developer Kit",
+    "NVIDIA NIM",
+    "NVIDIA Nemotron Rerank, Embed, and Instruct NIM microservices"
+  ],
+  "solution_components": [
+    {
+      "name": "CMES-AI",
+      "role": "Provides the clinician-facing assistant and knowledge access workflow used in training centers and clinics.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA T4 Tensor Core GPU",
+      "role": "Handles model training and fine-tuning for the clinical LLM stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Jetson Nano Developer Kit",
+      "role": "Runs the assistant locally in clinics so care teams can use it even with limited connectivity.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Supplies the inference microservice layer that speeds up query execution and response delivery.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Nemotron Rerank, Embed, and Instruct NIM microservices",
+      "role": "Power retrieval, ranking, embedding, and answer generation for natural-language medical queries.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "A clinician submits a natural-language question to CMES-AI, the platform retrieves relevant medical knowledge, NVIDIA Nemotron Rerank, Embed, and Instruct NIM microservices refine and answer the request through NVIDIA NIM, and the Jetson-based clinic deployment returns an evidence-based response locally.",
+  "integration_points": [
+    "medical knowledge base",
+    "clinic and training-center deployments",
+    "natural-language clinician queries",
+    "local-language healthcare content"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "CMES-AI now supports more than 17,000 healthcare practitioners across 19 countries and improves care for 20 million people each year, while cutting query time from 5 minutes to 2 seconds and increasing token throughput 22x so clinicians can make faster decisions at the point of care.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "17,000+ healthcare practitioners supported across 19 countries",
+    "Improving care for 20 million people each year",
+    "Query response time dropped from 5 minutes to 2 seconds",
+    "Token processing speed increased 22x from 0.83 to 18.23 tokens per second",
+    "26% gain in context recall compared to OpenAI",
+    "32.5% gain in latency compared to the MedLLaMA3-v20 model with NVIDIA Tesla T4 GPU"
+  ],
+  "architecture_clues": [
+    "CMES-AI is being tested in six sites across The Gambia, Papua New Guinea, and Ecuador.",
+    "The clinic deployment uses Jetson hardware so the assistant can keep running even in limited-connectivity environments.",
+    "The system moved from tag-based processing to natural-language queries after the NVIDIA acceleration work."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/techies-without-borders/",
+  "published_date": "2026-06-23",
+  "evidence_quotes": [
+    "CMES supports over 17,000 healthcare practitioners across 19 low- and middle-income countries, improving care for 20 million people each year.",
+    "Powered by NVIDIA NIM™, query response time dropped from 5 minutes to just 2 seconds.",
+    "Token processing speed also jumped 22x—from 0.83 to 18.23 tokens per second—delivering faster, richer medical insights.",
+    "Powered by NVIDIA Nemotron™ Rerank, Embed, and Instruct NIM microservices, CMES slashed query processing time from 5 minutes to just 2 seconds.",
+    "By minimizing latency while maximizing referential accuracy, CMES-AI moved from “tag-based processing” to “natural language queries,” enabling caregivers to access richer insights at the point of care."
+  ]
+}

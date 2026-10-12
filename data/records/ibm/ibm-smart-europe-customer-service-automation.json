@@ -1,0 +1,78 @@
+{
+  "industry": "Automotive",
+  "region": "Europe",
+  "company_size": "Enterprise",
+  "business_problem": "smart Europe needed to automate case handling in its customer engagement center because Salesforce-based workflows were manual, inconsistent and too slow for its direct-to-consumer sales and after-sales model.",
+  "solution_summary": "smart Europe, IBM Consulting and IBM Client Engineering built a generative-AI customer-service MVP inside Salesforce. IBM watsonx.ai runs on IBM Cloud and processes incoming tickets before any human action, automatically summarizing, categorizing and prioritizing cases. IBM Watson Discovery resolves standard queries directly so answers remain consistent and on brand, while a Salesforce UI component shows agents the system-generated decisions and recommended next steps. The design converts customer inquiries into structured support actions early in the lifecycle, reducing manual triage and improving routing quality. Because the solution is compatible with Salesforce, ServiceNow, Adobe and additional use cases, it can be scaled beyond the first deployment into other regions and departments. The architecture therefore improves the immediate customer-service workflow while also creating a reusable automation pattern for smart Europe’s broader D2C operating model.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Automates summarization, categorization and prioritization of incoming customer cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Answers standard customer queries automatically and provides consistent knowledge retrieval.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Salesforce",
+      "role": "Hosts the customer-case workflow and the UI component that surfaces AI-generated decisions to agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Provides the runtime environment for the ticket-processing solution.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer cases enter Salesforce, are processed by watsonx.ai for summary and prioritization, routed to Watson Discovery for standard-question resolution where possible, and then returned to agents through a Salesforce UI for follow-up.",
+  "integration_points": [
+    "Salesforce CRM",
+    "ServiceNow",
+    "Adobe",
+    "Customer Engagement Center workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "smart Europe improved case accuracy and resolution speed while making it easier for agents to deliver personalized support as online vehicle sales interactions increased.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "30% improvement in the accuracy of case categorization and prioritization",
+    "3 times faster resolution time for recurring issues",
+    "60% increase in first contact resolution",
+    "97% agent acceptance rate"
+  ],
+  "architecture_clues": [
+    "Processes tickets before any human action",
+    "Built as a Salesforce-embedded MVP for a D2C business model",
+    "Can be extended across languages and departments"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/smart-europe",
+  "published_date": "2024-08-20",
+  "evidence_quotes": [
+    "The team integrated IBM® watsonx.ai® Salesforce to automatically prioritize and classify incoming customer cases and provide streamlined response support.",
+    "The system answers and automatically resolves standard queries using IBM Watson® Discovery.",
+    "The MVP demonstrated: 30% improvement in the accuracy of case categorization and prioritization."
+  ],
+  "id": "ibm-smart-europe-customer-service-automation",
+  "slug": "ibm-smart-europe-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "smart Europe",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Watson Discovery",
+    "Salesforce",
+    "IBM Cloud"
+  ]
+}

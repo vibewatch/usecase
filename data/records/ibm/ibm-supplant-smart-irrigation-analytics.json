@@ -1,0 +1,71 @@
+{
+  "industry": "unknown",
+  "region": "Global",
+  "company_size": "Mid-market",
+  "business_problem": "SupPlant needed to make its irrigation intelligence accessible to smaller farms that could not afford in-field hardware while still delivering personalized, actionable agronomy guidance at scale.",
+  "solution_summary": "SupPlant used IBM technology to turn its crop and irrigation knowledge into a sensor-less digital agronomy service called Plant ;). The company already had proprietary algorithms and a large agronomic datastore, but it needed a delivery model that would work for farms without field sensors or large technical teams. SupPlant selected IBM watsonx Orchestrate together with DataStax Astra DB within IBM watsonx.data to coordinate the new service. Satellite imagery, weather context and SupPlant’s existing agronomy data are combined to produce personalized irrigation guidance, twice-weekly recommendations and ad hoc alerts for plant stress or extreme weather. The system also supports interactive follow-up from farmers, extending the experience beyond static advice and helping SupPlant scale digital guidance to a much broader market of small and mid-sized farms.",
+  "solution_components": [
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Coordinates the workflows that turn SupPlant’s agronomy data and satellite signals into personalized farmer guidance.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Provides the data foundation for storing and retrieving the information used by Plant ;).",
+      "layer": "Storage"
+    },
+    {
+      "name": "DataStax Astra DB",
+      "role": "Stores the application’s data so personalized recommendations and alerts can be generated at scale.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Satellite images, weather context and SupPlant’s existing agronomy data flow into the watsonx.data foundation and Astra DB, where orchestrated workflows generate personalized irrigation recommendations, alerts and follow-up interactions for farmers.",
+  "integration_points": [
+    "Satellite images",
+    "Weather data",
+    "Farmer messaging workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "SupPlant launched a lower-friction digital agronomy service that expanded reach to tens of thousands of farmers, increased engagement and supported crop productivity without requiring sensor installation.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Around 50,000 farmers worldwide",
+    "500-1,000 new users joining every day",
+    "80% user satisfaction rate"
+  ],
+  "architecture_clues": [
+    "Plant ;) delivers recommendations twice a week plus ad hoc alerts",
+    "Designed specifically for small and medium-sized farms without field hardware",
+    "Built on SupPlant’s existing proprietary algorithms and datastore"
+  ],
+  "source_url": "https://www.ibm.com/case-studies/supplant",
+  "published_date": "2026-02-26",
+  "evidence_quotes": [
+    "SupPlant selected IBM® watsonx Orchestrate® and IBM DataStax® Astra DB within IBM watsonx.data® as the basis for its new offering, called Plant ;).",
+    "Plant ;) uses satellite images of plots to give farmers personalized weather and irrigation information twice a week, as well as ad hoc alerts for extreme weather and plant stress.",
+    "Today, around 50,000 farmers worldwide are using Plant ;), and SupPlant is seeing 500-1,000 new users joining every day."
+  ],
+  "id": "ibm-supplant-smart-irrigation-analytics",
+  "slug": "ibm-supplant-smart-irrigation-analytics",
+  "vendor": "IBM",
+  "customer_name": "SupPlant",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "products_used": [
+    "IBM watsonx Orchestrate",
+    "IBM watsonx.data",
+    "DataStax Astra DB"
+  ]
+}

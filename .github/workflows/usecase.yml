@@ -244,7 +244,7 @@ jobs:
           # ledgers merge line-by-line (.gitattributes merge=union); for any
           # other overlap (a story both runs extracted) the pushed version wins.
           # Weekly files are then regenerated from the merged records.
-          for attempt in 1 2 3 4 5; do
+          for attempt in $(seq 1 20); do
             git reset -q --hard HEAD   # drop rebuilt artifacts; all results are committed
             git fetch -q origin "$BRANCH"
             if ! git rebase -q -X ours "origin/$BRANCH"; then
@@ -260,9 +260,9 @@ jobs:
               exit 0
             fi
             echo "Push rejected (another run landed); retrying." >&2
-            sleep $((attempt * 10))
+            sleep $(( (RANDOM % 30) + attempt * 3 ))   # jitter so parallel runs stop colliding in lockstep
           done
-          echo "Could not push after 5 attempts." >&2
+          echo "Could not push after 20 attempts." >&2
           exit 1
 
       - name: Collect new data/records files
