@@ -1,0 +1,72 @@
+{
+  "id": "nvidia-weider-probiotics-customer-service-automation",
+  "slug": "nvidia-weider-probiotics-customer-service-automation",
+  "vendor": "NVIDIA",
+  "customer_name": "WEIDER Probiotics",
+  "industry": "Consumer Goods",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "WEIDER Probiotics needed to provide instant, personalized product guidance without the wait times, staffing overhead, or impersonal interactions that came with traditional customer-service teams and basic chatbots.",
+  "solution_summary": "WEIDER Probiotics and MagV CO built an always-on virtual product expert on NVIDIA Avatar Cloud Engine so customers can ask detailed health and product questions at any time. The deployment combines high-fidelity 3D-scanned avatars, custom Mandarin language models, real-time facial animation, and secure cloud delivery into a single conversational service grounded in WEIDER's proprietary research and product documentation. NVIDIA ACE 5.0 acts as the modular microservice layer tying the avatar runtime and model services together, while NVIDIA L4 GPUs provide the low-latency inference capacity needed for responsive multiuser sessions. That stack turns brand knowledge into a human-like digital ambassador that can scale to more languages, products, and markets without rebuilding the core experience or staffing a larger human support operation.",
+  "products_used": [
+    "NVIDIA ACE 5.0",
+    "Custom Mandarin language models",
+    "NVIDIA L4 GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA ACE 5.0",
+      "role": "Provides the modular microservice platform that coordinates avatar interaction, model services, and cloud delivery.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Custom Mandarin language models",
+      "role": "Interpret customer questions and generate grounded responses from WEIDER's product and research content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA L4 GPUs",
+      "role": "Supply the inference capacity for low-latency, multiuser conversational sessions.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer questions are passed into the ACE-based service, where custom Mandarin models use WEIDER's proprietary research and product documentation to generate answers. The platform renders those answers through a 3D avatar with real-time facial animation, and NVIDIA L4 GPUs keep the cloud-hosted service responsive for concurrent users.",
+  "integration_points": [
+    "WEIDER proprietary research",
+    "WEIDER product documentation",
+    "MagV CO avatar-production workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "WEIDER lowered customer-service operating overhead, delivered responses in less than two seconds, and created a support channel that can serve users continuously while scaling to additional languages, products, and markets.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "less than 2 seconds of latency",
+    "Each NVIDIA L4 GPU supports multiple simultaneous users"
+  ],
+  "architecture_clues": [
+    "Uses high-fidelity 3D scanning to create lifelike avatars",
+    "Real-time facial animation is part of the response path",
+    "Answers are delivered through secure, cloud-powered infrastructure",
+    "The platform is being extended toward lighter-weight browser-side rendering"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/weider-probiotics-ai-customer-experience/",
+  "published_date": "2026-03-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Customers enjoy responses with less than 2 seconds of latency, ensuring quick and engaging interactions.",
+    "Each NVIDIA L4 GPU supports multiple simultaneous users, allowing WEIDER to flexibly expand service to new markets, languages, and products on demand.",
+    "Underpinning it all is NVIDIA ACE 5.0-a modular, open microservice platform that integrates custom Mandarin language models, real-time facial animation, and secure, cloud-powered delivery.",
+    "Answers are delivered instantly, informed by WEIDER's proprietary research and product documentation."
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "nvidia-texas-a-and-m-university-drug-discovery-screening",
+  "slug": "nvidia-texas-a-and-m-university-drug-discovery-screening",
+  "vendor": "NVIDIA",
+  "customer_name": "Texas A&M University",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Texas A&M needed to give researchers across seven institutions access to shared GPU infrastructure for AI and simulation, but isolated workstations, slow grant-funded clusters, and long queues were limiting drug-discovery throughput and broader scientific competitiveness.",
+  "solution_summary": "Texas A&M built VISION as a shared DGX SuperPOD environment so frontier-scale compute is available as a university service instead of a lab-by-lab exception. The platform combines nearly 760 NVIDIA Hopper GPUs with DDN storage, Base Command Manager for cluster operations, DCGM telemetry for utilization visibility, Slurm scheduling, an 11-tier quality-of-service model, and dedicated Kubernetes nodes for inference. Research data and jobs from across the Texas A&M system land in the same environment, where labs can scale from interactive debugging to 240-GPU runs lasting up to 72 hours. That architecture let Dr. Reid Powell launch a 10.4 million-compound virtual screen within minutes of receiving access, and it gives the wider university a repeatable way to support drug discovery, genomics, AI training, and classroom workloads at production scale.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA Hopper GPUs",
+    "NVIDIA Base Command Manager",
+    "Slurm",
+    "DDN high-performance storage"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides the shared high-performance cluster architecture behind the VISION research platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Hopper GPUs",
+      "role": "Supply the large-scale accelerated compute used for virtual screening, AI training, and other university workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Base Command Manager",
+      "role": "Handles cluster provisioning, lifecycle management, and operational visibility for the shared environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Slurm",
+      "role": "Schedules diverse interactive and large-scale batch jobs across the university's GPU resources.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "DDN high-performance storage",
+      "role": "Feeds the GPU cluster with the data throughput needed for large, multi-institution workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "University projects and datasets are staged into DDN storage, scheduled through Slurm and the quality-of-service framework, and executed on the DGX SuperPOD across Hopper GPUs. Results flow back to researchers for compound triage, inference, education, and follow-on experiments across the Texas A&M system.",
+  "integration_points": [
+    "Texas A&M System's seven institutions",
+    "Kubernetes inference nodes",
+    "NVIDIA Data Center GPU Manager telemetry",
+    "World Wide Technology deployment support"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "VISION identified more than 22,000 drug candidates in one week versus roughly 120 from earlier efforts, raised validation hit rates from 1 percent to 10 percent up to 80 percent to 90 percent, runs at 95 percent to 98 percent utilization, and can support 500 to 1,500 concurrent users while avoiding more than $1 million of cloud cost on a single project.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "22,000+ drug candidates",
+    "~120 in all prior efforts combined",
+    "1%–10% to 80%–90%",
+    "95%–98% utilization",
+    "500–1,500 concurrent users",
+    "$1M saved on a single project",
+    "10.4 million virtual compound screen"
+  ],
+  "architecture_clues": [
+    "Uses an 11-tier quality-of-service framework with allocations up to 240 GPUs for 72 hours",
+    "Dedicated Kubernetes nodes support containerized inference workloads",
+    "Powell pre-staged Slurm scripts and launched a full run within 15 minutes of receiving access",
+    "A beta cohort of 118 projects across six partner institutions is waiting to be provisioned"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/texas-a-m-university/",
+  "published_date": "2026-08-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "22,000+ drug candidates identified in a single week versus ~120 in all prior efforts combined",
+    "Validation hit rates jumping from 1%-10% to 80%-90% by running high-precision AI models on NVIDIA DGX SuperPOD",
+    "The DGX SuperPOD operates at 95%-98% utilization with nearly 760 NVIDIA Hopper GPUs.",
+    "Powell's first run on VISION completed 10.4 million molecular simulations in roughly one week-a workload he estimates would have cost over $1 million in rented cloud-based technology."
+  ]
+}

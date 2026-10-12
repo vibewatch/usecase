@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-pacbio-long-read-sequencing-acceleration",
+  "slug": "nvidia-pacbio-long-read-sequencing-acceleration",
+  "vendor": "NVIDIA",
+  "customer_name": "PacBio",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "PacBio needed to raise the throughput and accuracy of its long-read sequencing instruments without increasing system footprint, power draw, or cost, but CPU-based base calling and consensus generation had become the bottleneck.",
+  "solution_summary": "PacBio redesigned the Revio long-read sequencer around NVIDIA A100 Tensor Core GPUs so core analysis stages could run inside the instrument rather than waiting on slow CPU-only workflows. The A100-based stack accelerates base calling and circular consensus sequencing, while CUDA optimizations keep those GPU kernels efficient enough to meet instrument-throughput targets in the same device footprint. Once CCS became fast enough, PacBio added the transformer-based DeepConsensus model on the same GPUs to improve HiFi read accuracy without new hardware. Downstream, customers can hand the resulting reads to NVIDIA Parabricks for GPU-accelerated alignment and variant calling, extending the faster in-instrument pipeline into secondary analysis. Together these layers make Revio a higher-throughput, more affordable long-read system for genomics and clinical research workloads.",
+  "products_used": [
+    "NVIDIA A100 Tensor Core GPUs",
+    "NVIDIA CUDA",
+    "DeepConsensus",
+    "NVIDIA Parabricks"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Provide the in-instrument compute that accelerates base calling, consensus generation, and downstream deep-learning workflows on Revio.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Optimizes PacBio's sequencing software so GPU-accelerated analysis can meet instrument throughput targets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DeepConsensus",
+      "role": "Improves HiFi read accuracy by adding a transformer-based polishing step on the same GPU infrastructure.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Parabricks",
+      "role": "Extends the accelerated workflow into alignment and variant-calling for downstream genomic analysis.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Raw long-read signals are base-called and processed through circular consensus sequencing on A100 GPUs inside Revio, DeepConsensus refines the resulting HiFi reads, and customers can then pass those reads into Parabricks for GPU-accelerated alignment and variant calling.",
+  "integration_points": [
+    "Revio sequencing instrument",
+    "DeepVariant in Parabricks",
+    "HiFi whole-genome sequencing workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "PacBio raised Revio compute power 20x over Sequel IIe, cut circular consensus sequencing from more than 15 hours to 2.5 hours, improved HiFi read generation from 30 hours to 24 hours, and scaled the system to 1,300 human genomes per year at 99.9 percent accuracy.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "20X greater",
+    "50 percent reduction in consumables",
+    "less than $1,000",
+    "1,300 human whole genomes annually at 30X coverage",
+    "from over 15 hours to 2.5 hours",
+    "99.9 percent accuracy"
+  ],
+  "architecture_clues": [
+    "Revio is PacBio's first sequencer to feature NVIDIA GPUs",
+    "DeepConsensus is an encoder-only transformer optimized on A100 GPUs",
+    "Parabricks enables GPU-accelerated alignment and variant calling after primary analysis",
+    "A 35x coverage HiFi whole-genome sequencing run drops from 313 minutes on CPU to eight minutes with DeepVariant in Parabricks"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/long-read-sequencing/",
+  "published_date": "2024-02-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "PacBio incorporated the NVIDIA A100 Tensor Core GPU into their Revio system to accelerate the speed and accuracy of long-read sequencing, while minimizing costs.",
+    "WIth Revio using NVIDIA GPUS, PacBio was able to reduce the CCS process from over 15 hours to 2.5 hours.",
+    "This achieved a shorter time to high-accuracy HiFi reads-from 30 hours on the CPU-based Sequel IIe to 24 hours on the Revio.",
+    "Revio can scale up to 1,300 human genomes per year."
+  ]
+}

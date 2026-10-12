@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-kawasaki-heavy-industries-track-maintenance-optimization",
+  "slug": "nvidia-kawasaki-heavy-industries-track-maintenance-optimization",
+  "vendor": "NVIDIA",
+  "customer_name": "Kawasaki Heavy Industries",
+  "industry": "Manufacturing",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Kawasaki needed to modernize railroad inspection and maintenance planning, but manual visual inspections, disconnected sensor data, and hand-built repair schedules made safety improvements and large-scale optimization too slow and labor intensive.",
+  "solution_summary": "Kawasaki built the Track Maintenance Platform to combine edge AI, optimization, and field data into a single digital workflow for rail maintenance. Cameras, lasers, gyrometric sensors, and existing inspection data feed the platform, where machine-learning models on Jetson AGX Orin analyze conditions near the track edge and produce a unified operational view. cuOpt then turns those findings into repair and shutdown schedules by solving routing and scheduling problems that are too complex for manual planning. Because the platform preserves institutional knowledge instead of replacing it, maintenance managers can use AI-generated priorities, crew assignments, and material plans alongside domain expertise. The same architecture gives Kawasaki a reusable software-and-data business model it can extend into other lines such as robotics and hydrogen rather than keeping rail maintenance as a one-off hardware engagement.",
+  "products_used": [
+    "Kawasaki Track Maintenance Platform",
+    "NVIDIA cuOpt",
+    "NVIDIA Jetson AGX Orin 64G"
+  ],
+  "solution_components": [
+    {
+      "name": "Kawasaki Track Maintenance Platform",
+      "role": "Aggregates inspection data, analytics, and maintenance workflows into one operational planning environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA cuOpt",
+      "role": "Optimizes repair schedules, shutdown coordination, and crew routing for complex rail-maintenance operations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Jetson AGX Orin 64G",
+      "role": "Runs edge AI workloads that process sensor data from inspection devices near the track.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Inspection data from cameras, lasers, gyrometric sensors, and existing rail records flows into the Track Maintenance Platform, where Jetson-backed models analyze conditions and flag problems. cuOpt uses those outputs to generate optimized shutdown, crew, and repair schedules that maintenance teams review and execute in the field.",
+  "integration_points": [
+    "Digital cameras",
+    "Lasers",
+    "Gyrometric sensors",
+    "Rail-maintenance scheduling teams",
+    "Slalom consulting support"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "Kawasaki's approach points to major safety and efficiency gains, including an estimated 26,000 manager hours saved per year and $218.4 million in annual inspection savings while giving rail operators faster, data-driven maintenance scheduling.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "26,000 hours saved per year",
+    "$218.4M saved per year",
+    "5 hours per week",
+    "150 inspectors per company",
+    "over 140,000 miles"
+  ],
+  "architecture_clues": [
+    "The platform interfaces with digital cameras, lasers, and gyrometric sensors at the edge",
+    "Machine-learning models are retrained and improved inside the maintenance workflow",
+    "The unified view helps teams browse all rail data sources in one place",
+    "Kawasaki intends to extend the digital strategy into robotics and hydrogen businesses"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/reinventing-maintenance-operations-with-ai/",
+  "published_date": "2024-03-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With NVIDIA cuOpt and NVIDIA Jetson Orin, Kawasaki partnered with Slalom, Inc. to transform its track maintenance and inspection capabilities.",
+    "The platform allows users to leverage all existing data and analytics, and automated training intelligently improves machine learning models at the edge.",
+    "26,000 hours saved per year = Estimated annual manager of track maintenance (MTM) hours saved per company.",
+    "$218.4M saved per year = Estimated annual cost savings from automating inspections."
+  ]
+}

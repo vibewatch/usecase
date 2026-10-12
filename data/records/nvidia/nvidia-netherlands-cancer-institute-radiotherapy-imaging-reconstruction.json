@@ -1,0 +1,74 @@
+{
+  "id": "nvidia-netherlands-cancer-institute-radiotherapy-imaging-reconstruction",
+  "slug": "nvidia-netherlands-cancer-institute-radiotherapy-imaging-reconstruction",
+  "vendor": "NVIDIA",
+  "customer_name": "The Netherlands Cancer Institute",
+  "industry": "Healthcare",
+  "region": "Netherlands",
+  "company_size": "Unknown",
+  "business_problem": "The Netherlands Cancer Institute needed faster, higher-resolution cone-beam CT reconstruction so clinicians could adapt radiotherapy to a patient's current anatomy, but memory-heavy 3D reconstruction models and CPU-era infrastructure made clinical turnaround too slow.",
+  "solution_summary": "NKI evaluated whether modern AI reconstruction could run on virtualized infrastructure rather than isolated bare-metal systems by combining NVIDIA AI Enterprise, VMware vSphere, and NVIDIA A100 80GB GPUs. The research team developed CBCT reconstruction models in both older RTX 8000-based environments and newer Ampere-based virtual machines, then used the larger A100 memory footprint to fine-tune high-resolution 1 mm models that previously required downsampling. vSphere pooled CPU and GPU resources into centrally managed infrastructure, while AI Enterprise provided the software foundation for training and serving the models. That stack let NKI reconstruct 2 mm diagnostic images in as little as 60 seconds and 1 mm images in about five minutes, bringing clinically relevant, AI-driven image reconstruction closer to routine adaptive radiotherapy planning.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "VMware vSphere",
+    "NVIDIA A100 80GB GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the software environment NKI uses to train and deploy AI reconstruction models on virtualized GPU infrastructure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "VMware vSphere",
+      "role": "Pools CPU and GPU servers into centrally managed infrastructure that can provision VMs and containers for imaging workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA A100 80GB GPUs",
+      "role": "Supply the memory and compute needed to fine-tune and run high-resolution CBCT reconstruction models.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Projection data from CBCT scans is fed into AI reconstruction models running in vSphere-managed virtual machines. NVIDIA AI Enterprise and A100 GPUs process the volumes at diagnostic resolution, and the reconstructed 3D images are returned to clinicians for more accurate tumor targeting and treatment planning.",
+  "integration_points": [
+    "Cone-beam CT scanners",
+    "Radiotherapy treatment-planning workflows",
+    "Virtual machines and containers on vSphere"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "NKI reduced 1 mm CBCT reconstruction time from 14 minutes on a bare-metal RTX 8000 system to five minutes on a single A100, rendered 2 mm images in about 60 seconds, and created a more maintainable shared GPU environment for future radiotherapy AI workloads.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "60 seconds at 2mm resolution",
+    "five minutes at 1mm resolution",
+    "14 minutes on the bare-metal RTX 8000 machine",
+    "approximately one month"
+  ],
+  "architecture_clues": [
+    "A single 1mm CBCT volume plus gradients can consume about 1GB of memory",
+    "The low-resolution model was trained on eight RTX 8000 cards and the high-resolution model was fine-tuned on two A100 80GB GPUs",
+    "vSphere centralizes both CPU and GPU resources for on-demand provisioning",
+    "The research team used virtualized infrastructure instead of a fixed bare-metal setup"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/ai-in-cancer-research/",
+  "published_date": "2024-10-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "NVIDIA AI Enterprise software and NVIDIA A100 GPUs were used in a VMware vSphere environment.",
+    "Diagnostic images could be rendered in as little as 60 seconds at 2mm resolution and in as little as five minutes at 1mm resolution.",
+    "The inference speed at 1mm resolution was also greatly improved by moving to the A100: A full volume at 1mm resolution took just five minutes to reconstruct on a single GPU, compared to 14 minutes on the bare-metal RTX 8000 machine.",
+    "With AI models and hardware from two or three years ago, we'd have to down-step the resolution to free up memory for training."
+  ]
+}

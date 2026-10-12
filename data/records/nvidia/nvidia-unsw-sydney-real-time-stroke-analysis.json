@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-unsw-sydney-real-time-stroke-analysis",
+  "slug": "nvidia-unsw-sydney-real-time-stroke-analysis",
+  "vendor": "NVIDIA",
+  "customer_name": "UNSW Sydney",
+  "industry": "Healthcare",
+  "region": "Australia",
+  "company_size": "Public sector",
+  "business_problem": "UNSW Sydney and the NSW Telestroke Service needed fast, quantitative stroke imaging for regional hospitals, but manual hemorrhage and infarct segmentation took too long and made it hard to guide treatment decisions in real time.",
+  "solution_summary": "UNSW Sydney and the NSW Telestroke Service moved stroke quantification from a slow research workflow into routine care by wiring MONAI Label and Auto3DSeg into a secure AWS eHealth cloud pipeline. CT and MRI studies from the statewide image repository and Telestroke PACS are pushed into XNAT, which triggers GPU-accelerated inference to segment hemorrhage and ischemic lesions, calculate volumes, and generate DICOM segmentations, overlays, and PDF reports. Those outputs flow back to clinicians for immediate review through the statewide repository, while tools such as OHIF and 3D Slicer support visualization and correction. Corrected segmentations are fed back for active learning and retraining, so the same platform can continuously improve while serving 23 regional hospitals with real-time imaging support during live consultations.",
+  "products_used": [
+    "MONAI Label",
+    "Auto3DSeg",
+    "NVIDIA GPUs on AWS",
+    "XNAT"
+  ],
+  "solution_components": [
+    {
+      "name": "MONAI Label",
+      "role": "Runs the interactive inference service that segments stroke lesions and returns quantitative results during consultations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Auto3DSeg",
+      "role": "Automates the lesion-segmentation workflow that the Telestroke team uses for hemorrhage and infarct analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA GPUs on AWS",
+      "role": "Provide the accelerated cloud compute that makes near-real-time medical-image inference practical across the statewide network.",
+      "layer": "Compute"
+    },
+    {
+      "name": "XNAT",
+      "role": "Stores imaging studies and orchestrates the handoff that triggers MONAI inference and returns structured outputs to care teams.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "CT and MRI scans move from the statewide repository and Telestroke PACS into XNAT, which triggers MONAI Label and Auto3DSeg on NVIDIA GPUs in AWS. The system returns segmentations, lesion volumes, overlays, and PDF reports for consultant review, and corrected annotations are fed back into the active-learning loop for retraining.",
+  "integration_points": [
+    "Statewide image repository",
+    "Telestroke PACS",
+    "3D Slicer",
+    "OHIF",
+    "ITK Snap",
+    "23 regional hospitals"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The platform reduced hemorrhage-volume analysis from 20 minutes to seconds, automated lesion segmentation across 23 regional hospitals, and gave clinicians shared quantitative imaging during live stroke consultations instead of after-the-fact manual review.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "20 minutes to seconds",
+    "23 regional hospitals statewide"
+  ],
+  "architecture_clues": [
+    "Runs in a secure AWS enterprise eHealth cloud environment",
+    "Generates DICOM segmentation objects, bounding boxes, PNG overlays, and PDF reports",
+    "Uses active learning to correct, retrain, and redeploy models inside the clinical workflow",
+    "Approved models are published through the MONAI Model Zoo"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/unsw-sydney/",
+  "published_date": "2026-02-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using MONAI Label and NVIDIA GPUs, NSW Telestroke Service reduced hemorrhage volume analysis time from 20 minutes to seconds.",
+    "Powered by NVIDIA GPU-accelerated MONAI Label with Auto3DSeg, NSW Telestroke Service automated lesion segmentation across 23 regional hospitals statewide.",
+    "Images from the statewide repository, including the Telestroke PACS, are pushed to XNAT, automatically triggering MONAI Label for inference.",
+    "Thanks to MONAI and NVIDIA, we can now generate accurate hemorrhage volumes in seconds-something that used to take up to 20 minutes."
+  ]
+}

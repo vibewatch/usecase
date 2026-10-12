@@ -1,0 +1,74 @@
+{
+  "id": "nvidia-parabole-ai-industrial-process-optimization",
+  "slug": "nvidia-parabole-ai-industrial-process-optimization",
+  "vendor": "NVIDIA",
+  "customer_name": "Parabole AI",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Parabole AI needed to make causal industrial optimization practical at scale, but CPU-based causal analysis and brute-force optimization made complex production and energy-planning scenarios too slow to support near-real-time decision making.",
+  "solution_summary": "Parabole built the TRAIN platform as a causal-first layer in front of industrial optimization engines so customers can shrink enormous decision spaces before mixed-integer optimization begins. TRAIN continuously ingests cross-functional operational data, scientific models, company knowledge, and expert input, then constructs contextual causal graphs that validate hypotheses, isolate the variables that truly drive outcomes, and hand refined scenarios to Gurobi for mathematical optimization. To make that workflow near real time, Parabole parallelized core text-processing, graph-generation, and causal-analysis steps across NVIDIA GH200 Grace Hopper Superchips, using accelerated memory movement and large CUDA-parallel batches to keep latency low as model complexity grows. The result is an adaptive optimization stack that can generate minute-level production plans, respond to disruptions, and optimize across machine health, maintenance, quality, and waste.",
+  "products_used": [
+    "Parabole TRAIN",
+    "NVIDIA GH200 Grace Hopper Superchip",
+    "Gurobi Optimization Solver"
+  ],
+  "solution_components": [
+    {
+      "name": "Parabole TRAIN",
+      "role": "Builds contextual causal graphs, refines hypotheses, and prepares optimization problems from heterogeneous industrial data.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA GH200 Grace Hopper Superchip",
+      "role": "Provides the accelerated compute platform for large-batch causal analysis, text processing, and graph generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gurobi Optimization Solver",
+      "role": "Solves the refined mixed-integer linear programming models that produce executable industrial plans.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Cross-functional operational data and expert input flow into TRAIN, which generates and refines causal graphs to reduce the search space. The selected variables and scenarios are sent to Gurobi for optimization on GH200-backed infrastructure, and the resulting plans are returned to operators for disruption response and production control.",
+  "integration_points": [
+    "Cross-functional enterprise data",
+    "Expert input",
+    "Industrial production-planning workflows",
+    "Gurobi optimization engine"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Parabole cut end-to-end causal analysis from roughly 10 hours to under one minute, improved MILP model generation and execution by 1.5x to 2.5x, delivered 5 percent natural-gas savings in one refinery deployment, and improved overall equipment effectiveness by 66 percent.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "1,000x speedup",
+    "from approximately 10 hours to under 1 minute",
+    "1.5x to 2.5x speed or efficiency improvement",
+    "5% natural gas savings",
+    "66% overall equipment effectiveness (OEE) boost"
+  ],
+  "architecture_clues": [
+    "Parallelizes core causal modeling into thousands of large computation batches",
+    "Uses contextual combined causal graphs to reduce load on optimization models",
+    "Leverages NVLink chip-to-chip data movement for rapid CPU-GPU transfer",
+    "Reduced a weekly production-planning problem with 40+ million decision points to a few minutes"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/parabole-ai/",
+  "published_date": "2026-01-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Overall causal analysis achieved a 1,000x speedup (from approximately 10 hours to under 1 minute) in moving from CPU to NVIDIA GH200 Grace Hopper Superchip.",
+    "The process of building and running optimization models using Mixed Integer Linear Programming (MILP) has seen a 1.5x to 2.5x speed or efficiency improvement.",
+    "Using contextual combined causal graphs, Parabole achieved 10x improvements in speed and relevance to reduce the load on optimization models.",
+    "This novel optimization enabled 5% natural gas savings at a large refinery through real-time energy rule generation and delivered a 66% overall equipment effectiveness (OEE) boost."
+  ]
+}

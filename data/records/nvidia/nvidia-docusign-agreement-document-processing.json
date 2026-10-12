@@ -1,0 +1,79 @@
+{
+  "id": "nvidia-docusign-agreement-document-processing",
+  "slug": "nvidia-docusign-agreement-document-processing",
+  "vendor": "NVIDIA",
+  "customer_name": "Docusign",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Docusign needed to extract and operationalize data trapped inside agreements for its Intelligent Agreement Management platform, but CPU-based inference and fragmented serving infrastructure made it hard to scale throughput while controlling latency and cloud cost.",
+  "solution_summary": "Docusign standardized its agreement-AI stack on NVIDIA's inference platform so the same serving layer could support multiple agreement-understanding scenarios without bespoke deployment work. Triton Inference Server became the unified runtime for models that extract parties, terms, dates, and other agreement metadata, replacing framework-specific servers that were harder to manage at scale. As usage grew, Docusign migrated those models from on-premises CPU servers to Azure-based NVIDIA GPUs, then began compiling them with TensorRT and moving toward A100 Tensor Core GPUs to drive still lower latency. This architecture turned model serving into a reusable platform capability for Intelligent Agreement Management: documents and agreement text are processed by GPU-backed inference services, outputs are passed into IAM applications, and product teams can optimize throughput and cost centrally instead of scenario by scenario.",
+  "products_used": [
+    "NVIDIA Triton Inference Server",
+    "NVIDIA TensorRT",
+    "NVIDIA A100 Tensor Core GPUs",
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Provides the unified inference layer Docusign uses across multiple AI frameworks and agreement scenarios.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Compiles models for lower-latency agreement inference in production.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Supply the GPU capacity Docusign is adopting on Azure for higher-throughput model serving.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Hosts the cloud GPU environment that now runs Docusign's AI agreement services.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Agreement documents enter Docusign IAM applications, where Triton-served models extract parties, terms, dates, and other metadata. TensorRT and Azure-hosted GPUs optimize the inference path, and the resulting structured data is fed back into Docusign's agreement-management workflows for review, insights, and action.",
+  "integration_points": [
+    "Docusign Intelligent Agreement Management",
+    "On-premises CPU environments",
+    "Microsoft Azure cloud"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Docusign moved agreement AI into a reusable GPU-backed serving platform, accelerated its main scenarios several times over, and reduced the engineering burden of running many different AI models as the company scaled intelligent agreement management to a global customer base.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "over 1.5 million customers globally",
+    "more than a billion people in over 180 countries",
+    "several times faster"
+  ],
+  "architecture_clues": [
+    "Docusign migrated from on-premises CPU servers to Azure-hosted NVIDIA GPUs",
+    "Triton is used as a unified inference server across multiple frameworks",
+    "TensorRT is being adopted to reduce latency further",
+    "The AI scenarios surface identities, terms and conditions, and start and end dates from agreements"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/docusign-accelerates-agreement-management-with-inference-platform/",
+  "published_date": "2024-05-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Docusign helps organizations analyze and extract more meaning from their agreements by unlocking and surfacing data and metadata stuck in agreements like identities of parties, terms and conditions, start and end dates, and more-without tedious, manual work.",
+    "We leverage Triton as a unified inference server for all AI frameworks.",
+    "Recently, the company embarked on compiling their models for inference using NVIDIA TensorRT to further reduce latency and is transitioning to more powerful NVIDIA A100 Tensor Core GPUs.",
+    "Docusign's main scenarios are executed several times faster by leveraging NVIDIA GPUs and Triton Inference Server."
+  ]
+}

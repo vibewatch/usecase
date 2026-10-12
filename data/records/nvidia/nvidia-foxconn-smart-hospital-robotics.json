@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-foxconn-smart-hospital-robotics",
+  "slug": "nvidia-foxconn-smart-hospital-robotics",
+  "vendor": "NVIDIA",
+  "customer_name": "Foxconn",
+  "industry": "Manufacturing",
+  "region": "Taiwan",
+  "company_size": "Enterprise",
+  "business_problem": "Foxconn needed to reduce nurse burnout and repetitive transport work in hospitals, but deploying autonomous clinical robots required safe simulation, real-time edge perception, and dependable navigation inside busy wards.",
+  "solution_summary": "Foxconn built Nurabot with the NVIDIA Isaac for Healthcare framework so hospitals could shift repetitive transport and logistics work away from nurses. The solution starts in digital twin hospital environments created with Isaac Sim and Omniverse, where Foxconn tests workflows, navigation, and model behavior before field deployment. Once validated, Nurabot runs in wards on Jetson AGX Orin edge compute, using multimodal perception, natural-language interaction, and real-time sensor processing to move medication, specimens, and supplies autonomously. The broader stack also uses Holoscan for real-time data handling and Cosmos-based scheduling and route optimization, while DGX infrastructure supports training for tasks such as audio classification and action recognition. That architecture let Foxconn move from simulation-driven validation into live pilots at Taichung Veterans General Hospital and then extend the model toward broader smart-hospital rollouts.",
+  "products_used": [
+    "NVIDIA Isaac for Healthcare",
+    "NVIDIA Jetson AGX Orin",
+    "NVIDIA Isaac Sim",
+    "NVIDIA Omniverse"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Isaac for Healthcare",
+      "role": "Provides the robotics framework Foxconn uses to build and integrate Nurabot into hospital workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Jetson AGX Orin",
+      "role": "Runs Nurabot's edge AI workloads for autonomous navigation, sensing, and interaction inside the ward.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Enables virtual training and validation of robot behavior before real-world deployment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Supports the digital twin environments Foxconn uses for hospital simulation and workflow design.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Hospital workflow requirements are modeled in Omniverse and Isaac Sim, where Foxconn trains and validates Nurabot behaviors. The resulting models are deployed onto Jetson AGX Orin-powered robots that process ward sensor data locally, navigate autonomously, and return operational feedback that informs wider hospital rollouts.",
+  "integration_points": [
+    "Taichung Veterans General Hospital",
+    "Cardinal Tien Hospital",
+    "Baishatun Tung-Mazu Hospital",
+    "Hospital medication and specimen transport workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Industry Cloud"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Foxconn reduced nurse workload by 30 percent, saved nurses two to three hours per day on transport tasks, cut deployment time by 40 percent through simulation-driven validation, and achieved 98 percent navigation accuracy in smart-hospital pilots.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "2-3 hours a day",
+    "30% reduction in nurse workload",
+    "40% deployment-time reduction",
+    "98% accuracy"
+  ],
+  "architecture_clues": [
+    "Nurabot is virtually trained in digital twin hospital environments before deployment",
+    "The robot combines natural language communication, multimodal perception, and real-time environmental modeling",
+    "Foxconn is expanding the platform to multilingual communication and patient mobility support",
+    "The stack is being rolled out to multiple medical centers in Taiwan"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/foxconn/",
+  "published_date": "2026-03-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Nurses saved 2-3 hours a day on transport-related tasks.",
+    "Deployment time was cut by 40% using simulation-driven validation.",
+    "Navigation tasks were performed with 98% accuracy.",
+    "The implementation of Foxconn's Nurabot, powered by Isaac for Healthcare, resulted in a 30% reduction in nurse workload."
+  ]
+}

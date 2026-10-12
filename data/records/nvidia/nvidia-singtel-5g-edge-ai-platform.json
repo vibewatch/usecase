@@ -1,0 +1,79 @@
+{
+  "id": "nvidia-singtel-5g-edge-ai-platform",
+  "slug": "nvidia-singtel-5g-edge-ai-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Singtel",
+  "industry": "Telecommunications",
+  "region": "Singapore",
+  "company_size": "Enterprise",
+  "business_problem": "Singtel needed to make its 5G enterprise offering compelling for AI-heavy customers, but real-time video analytics, AR/VR, and chatbot workloads required low-latency edge compute, shared GPU capacity, and production-ready AI software that ordinary network infrastructure could not provide.",
+  "solution_summary": "Singtel built its multi-access edge compute environment around NVIDIA AI Enterprise so enterprise customers can run AI and graphics-heavy applications directly on the 5G edge instead of shipping them back to centralized cloud regions. The MEC stack combines T4 and A40 GPUs with GPU virtualization so multiple tenants can share accelerated infrastructure, while the Singtel Paragon platform provides the orchestration layer for deploying and managing those services. On top of that base, Singtel uses tools such as Riva and NeMo to prototype conversational experiences and exposes frameworks like DeepStream and PyTorch for customer video analytics workloads. That architecture gives customers one path from pilot to production across chatbots, edge video processing, and immersive applications, while letting Singtel extend validated 5G plus AI patterns beyond its home market through Paragon's global rollout.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "NVIDIA T4 GPUs",
+    "NVIDIA A40 GPUs",
+    "Singtel Paragon Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the software stack and GPU virtualization Singtel uses to package AI services for edge deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA T4 GPUs",
+      "role": "Run low-latency AI and graphics workloads on Singtel's MEC infrastructure.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A40 GPUs",
+      "role": "Expand edge GPU capacity for concurrent enterprise AI and graphics applications.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Singtel Paragon Platform",
+      "role": "Acts as the orchestration layer that exposes and manages the AI-enabled 5G edge services.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Enterprise applications are deployed through the Paragon platform onto MEC infrastructure backed by T4 and A40 GPUs. AI Enterprise virtualizes and manages the accelerated runtime, while services such as chatbots and video analytics process data at the 5G edge and return results locally with low latency.",
+  "integration_points": [
+    "NVIDIA Riva",
+    "NVIDIA NeMo",
+    "NVIDIA DeepStream",
+    "PyTorch",
+    "5G MEC services"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Singtel created a repeatable edge-AI platform for 5G customers, shortened experimentation with chatbot and video workloads, and built a production path for low-latency enterprise services that can be replicated by regional telcos as Paragon expands globally.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "GPU virtualization is used to share MEC capacity across multiple concurrent users",
+    "Riva and NeMo were used to build a multilingual chatbot demo during platform evaluation",
+    "Customers are already using DeepStream and PyTorch for edge video analytics",
+    "Singtel plans to extend Paragon-enabled capabilities to customers outside the region"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/5g-enterprise-services/",
+  "published_date": "2024-05-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The MEC infrastructure leverages NVIDIA accelerated compute and NVIDIA AI Enterprise to support AI and graphics-intensive use cases.",
+    "To handle multiple concurrent users, Singtel turned to GPU virtualization with NVIDIA AI Enterprise to effectively share GPU resources across a broad range of AI applications.",
+    "Singtel's MEC platform includes NVIDIA T4 Tensor Core and A40 GPUs.",
+    "For example, customers are already leveraging NVIDIA DeepStream, PyTorch libraries-included in NVIDIA AI Enterprise-for video analytics applications."
+  ]
+}

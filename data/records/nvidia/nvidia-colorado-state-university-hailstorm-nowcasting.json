@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-colorado-state-university-hailstorm-nowcasting",
+  "slug": "nvidia-colorado-state-university-hailstorm-nowcasting",
+  "vendor": "NVIDIA",
+  "customer_name": "Colorado State University",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Colorado State University needed a practical way to forecast severe hailstorms earlier and across multiple radar systems, but traditional nowcasting approaches were largely limited to 30- to 60-minute windows and difficult to generalize across networks.",
+  "solution_summary": "CSU built a specialized severe-hail version of NVIDIA Earth-2 StormScope so its radar-meteorology researchers could move from short-horizon advection models to AI-assisted operational nowcasting. The team trained the model on NEXRAD composite data for the Colorado-Wyoming region, integrated auxiliary CHIVO radar observations through the open StormScope architecture in PhysicsNeMo, and used Earth2Studio libraries plus H100 and A100 GPUs for deployment and inference. That stack let CSU generate forecasts in minutes rather than hours, preserve a high-resolution composite-radar workflow, and ship a working regional model within only a few months. Because the composite technique can ingest different radar systems, the same architecture gives CSU a deployable path to other US, European, and Asian radar networks rather than confining the work to one local installation.",
+  "products_used": [
+    "NVIDIA Earth-2 StormScope",
+    "NVIDIA PhysicsNeMo",
+    "Earth2Studio",
+    "NVIDIA H100 and A100 GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Earth-2 StormScope",
+      "role": "Provides the nowcasting model architecture CSU adapted for severe hail prediction.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA PhysicsNeMo",
+      "role": "Supplies the training libraries and open architecture used to specialize the model on CSU's radar data.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Earth2Studio",
+      "role": "Handles the inference pipeline and deployment path for the operational nowcasting service.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA H100 and A100 GPUs",
+      "role": "Run the forecast model inference and support the training pipeline for CSU's regional deployment.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Composite NEXRAD and auxiliary CHIVO radar data are used to train the specialized StormScope model through PhysicsNeMo. Forecast jobs then run through Earth2Studio on H100 and A100 GPU infrastructure, and the resulting nowcasts are served back to CSU's operational severe-weather workflows across the Colorado-Wyoming region.",
+  "integration_points": [
+    "NEXRAD composite data",
+    "CHIVO weather radar",
+    "Colorado Wyoming Engines program",
+    "Multiple radar networks"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "CSU moved operational hailstorm nowcasting from 30- to 60-minute horizons to skillful ensemble forecasts with 2- to 3-hour lead times, delivered a regional deployment within a few months, and created a model that can be rolled out across multiple radar networks.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "2-3-hour lead time",
+    "30- to 60-minute time scale",
+    "a few months"
+  ],
+  "architecture_clues": [
+    "The model integrates auxiliary CHIVO observations into NEXRAD-based training data",
+    "Earth2Studio provides the deployment path for fast operational inference",
+    "CSU's composite radar technique is designed to work across multiple radar networks",
+    "The team is already preparing deployments at additional sites"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/colorado-state-university/",
+  "published_date": "2026-05-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The CSU team trained and implemented a version of NVIDIA Earth-2 StormScope Nowcasting built on the StormScope architecture that targets severe hailstorm prediction.",
+    "The inference pipeline in Earth2Studio helps generate forecasts in minutes rather than hours.",
+    "Now, the new model generates skillful ensemble forecasts for severe hailstorm prediction with a 2- to 3-hour lead time.",
+    "CSU's composite radar technique is flexible and easily integrates different radar systems, making the solution deployable across multiple radar networks."
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "id": "nvidia-delta-electronics-manufacturing-digital-twins",
+  "slug": "nvidia-delta-electronics-manufacturing-digital-twins",
+  "vendor": "NVIDIA",
+  "customer_name": "Delta Electronics",
+  "industry": "Manufacturing",
+  "region": "Taiwan",
+  "company_size": "Enterprise",
+  "business_problem": "Delta Electronics needed to reconfigure complex production lines and train inspection models quickly, but manual position-switch changes, fragmented 3D tools, and slow hand-labeled image collection were driving downtime and limiting flexibility.",
+  "solution_summary": "Delta built a manufacturing digital-twin workflow on NVIDIA Omniverse, OpenUSD, Isaac Sim, and Omniverse Replicator so line design, simulation, and computer-vision training could happen before production changes hit the floor. The company aggregates 3D assets from tools such as Autodesk 3ds Max, FlexSim, and Visual Components into a unified USD stage, where teams collaborate in one environment instead of shuttling files between incompatible applications. Once the digital twin is assembled, Delta runs what-if simulations to validate layout changes and uses Replicator to create photorealistic synthetic images for tray and product detection models. Those images then feed vision models and Isaac Sim camera simulations for automated optical inspection and production-line optimization. The result is a single pipeline for design, validation, and AI training that reduces reconfiguration downtime and makes high-accuracy inspection models faster to build.",
+  "products_used": [
+    "NVIDIA Omniverse Libraries",
+    "OpenUSD",
+    "NVIDIA Isaac Sim",
+    "NVIDIA Omniverse Replicator"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Omniverse Libraries",
+      "role": "Provide the shared digital-twin environment where Delta aggregates and collaborates on production-line data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenUSD",
+      "role": "Carries 3D assets and live updates from multiple design tools into one synchronized production twin.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Simulates robotic and camera behavior so Delta can validate inspection and production-line changes before deployment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse Replicator",
+      "role": "Generates synthetic inspection data at scale for Delta's computer-vision models.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "3D production-line assets are brought into OpenUSD and synchronized in Omniverse, where Delta runs simulations to validate layouts and failure points. Replicator then generates synthetic inspection images that feed computer-vision models and Isaac Sim camera tests before the final configurations are pushed to the physical line.",
+  "integration_points": [
+    "Autodesk 3ds Max",
+    "FlexSim",
+    "Visual Components",
+    "Automated optical inspection workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Delta cut the time to generate 1,000 labeled training images from two days to 10 minutes, increased synthetic-data generation by more than 100x, achieved about 90 percent object-detection accuracy with synthetic data, and reduced production downtime during line reconfiguration.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "100X faster AI training with synthetic data",
+    "90% object model detection accuracy with synthetic data",
+    "more than 30 minutes",
+    "two days for 1000 images",
+    "10 minutes"
+  ],
+  "architecture_clues": [
+    "OpenUSD and Omniverse connectors keep third-party design tools synchronized into one USD stage",
+    "Digital twins are used to test position-switch alternatives before physical changes",
+    "Replicator-generated data replaces much of the manual labeling effort",
+    "Isaac Sim is also used to simulate inspection-camera performance"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/delta-electronics-industrial-innovation/",
+  "published_date": "2024-02-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using Isaac Sim and Omniverse Replicator has allowed us to significantly increase our synthetic data generation capabilities by over 100X.",
+    "Now, in just 10 minutes, they can generate the same amount of labeled images that would take two days manually.",
+    "The team also achieves a 90% accuracy with synthetic data, similar to real data.",
+    "Delta built a physically accurate digital twin of their production lines."
+  ]
+}

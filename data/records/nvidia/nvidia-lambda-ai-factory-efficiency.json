@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-lambda-ai-factory-efficiency",
+  "slug": "nvidia-lambda-ai-factory-efficiency",
+  "vendor": "NVIDIA",
+  "customer_name": "Lambda",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Lambda needed to raise token throughput and improve AI-cloud economics, but fixed rack and facility power budgets were leaving GPU capacity stranded and limiting how many nodes could run safely at once.",
+  "solution_summary": "Lambda validated NVIDIA's DSX AI Factory Platform as an operational layer for power-constrained AI clusters rather than just a benchmark feature. On a five-rack HGX B200 environment, DSX MaxLPS and its Dynamic Power Software monitored GPU and rack-level draw in real time, then redistributed available power so more nodes could run under the same facility ceiling. Operators set policy targets such as 80 or 85 percent of maximum node draw without modifying active workloads, which allowed Lambda to pack additional inference and training nodes into the same footprint while keeping visibility through power-observability dashboards. Because mixed inference and training jobs have different power curves, the system could reclaim capacity that static provisioning leaves idle. That architecture turns power shaping into a control plane for AI-factory utilization, not just a hardware setting, and gives Lambda a path to lower cost per token as clusters scale.",
+  "products_used": [
+    "NVIDIA DSX AI Factory Platform",
+    "NVIDIA DSX MaxLPS",
+    "NVIDIA HGX B200 GPU servers",
+    "Dynamic Power Software"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DSX AI Factory Platform",
+      "role": "Provides the broader design, simulation, and operations framework Lambda uses to improve AI-factory efficiency.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DSX MaxLPS",
+      "role": "Applies policy-based power shaping so Lambda can run more cluster nodes within a fixed budget.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA HGX B200 GPU servers",
+      "role": "Host the training and inference workloads whose power envelopes are optimized by the DSX stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dynamic Power Software",
+      "role": "Monitors rack and GPU power draw in real time and reallocates capacity to maximize throughput.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Training and inference workloads are scheduled onto HGX B200 nodes, where Dynamic Power Software tracks live consumption and DSX MaxLPS applies per-policy power targets. The adjusted node budgets let Lambda run additional servers, and throughput and observability metrics feed back into cluster operations for ongoing tuning.",
+  "integration_points": [
+    "MLPerf inference and training workloads",
+    "Five-rack cluster",
+    "Power-observability dashboards"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cost Optimization",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Lambda increased cluster-wide token throughput by 24 percent, improved performance per watt by 23 percent, raised hybrid inference throughput by 20 percent, and lifted hybrid training throughput by 17 percent without expanding the facility power budget.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "+24% Cluster-Wide Token Throughput",
+    "+23% Performance per Watt",
+    "+20% Hybrid Inference Throughput",
+    "+17% Hybrid Training Throughput",
+    "19 nodes instead of 16"
+  ],
+  "architecture_clues": [
+    "Lambda tested DSX MaxLPS across a five-rack, 19-node cluster of HGX B200 systems",
+    "Policies were evaluated at 80% and 85% of maximum per-node draw",
+    "The platform uses rack-level observability dashboards refined through Lambda's feedback",
+    "Mixed training and inference workloads are used to reclaim stranded power headroom"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/lambda/",
+  "published_date": "2026-10-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using NVIDIA DSX MaxLPS, Lambda ran 19 nodes instead of 16 within the same power budget, increasing cluster-wide token throughput by 24% and GPU capacity by 19%.",
+    "NVIDIA DSX MaxLPS increased cluster-wide throughput per watt by 23% while operating within the same fixed power budget.",
+    "NVIDIA DSX MaxLPS enabled Lambda to add two inference nodes within the same power budget, increasing throughput by 20% in concurrent inference and training configurations.",
+    "Dynamic Power Software (DPS) monitors GPU and rack-level consumption in real time, reallocating power to where it is needed to maximize token throughput within fixed budgets."
+  ]
+}

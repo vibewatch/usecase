@@ -1,0 +1,83 @@
+{
+  "id": "nvidia-hippocratic-ai-patient-engagement-agents",
+  "slug": "nvidia-hippocratic-ai-patient-engagement-agents",
+  "vendor": "NVIDIA",
+  "customer_name": "Hippocratic AI",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Hippocratic AI needed to scale safe, empathetic patient outreach and follow-up without adding clinician workload, but real-time voice inference, safety review, and HIPAA-sensitive operations created demanding latency and infrastructure constraints.",
+  "solution_summary": "Hippocratic AI built a patient-engagement platform and AI Agent App Store around a safety-first inference stack rather than a single monolithic model. Clinician-authored scripts are validated through licensure checks, development testing, and clinical review, then deployed as voice agents for workflows such as postpartum monitoring, wound care, diabetes screening, and emergency outreach. At runtime, the company's Polaris constellation uses more than 25 task-specific language models together with a 400B speaking model and supervising models to keep conversations safe and empathetic. Those models run on NVIDIA H200 Tensor Core GPUs through Amazon SageMaker HyperPod, while TensorRT-LLM lowers latency and cost so thousands of real-time patient interactions can be served inside a multi-account, multi-cluster AWS architecture that separates production and development for privacy and control.",
+  "products_used": [
+    "Polaris constellation architecture",
+    "NVIDIA H200 Tensor Core GPUs",
+    "Amazon SageMaker HyperPod",
+    "TensorRT-LLM"
+  ],
+  "solution_components": [
+    {
+      "name": "Polaris constellation architecture",
+      "role": "Coordinates the ensemble of specialized models that supervise, validate, and generate patient-facing conversations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA H200 Tensor Core GPUs",
+      "role": "Provide the high-throughput inference infrastructure for real-time voice interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SageMaker HyperPod",
+      "role": "Hosts the production-scale GPU environment used to run the Polaris model constellation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "TensorRT-LLM",
+      "role": "Optimizes model serving so voice interactions stay fast and efficient at scale.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Clinicians author scripts that pass through validation and clinical review before deployment. During patient calls, voice interactions are processed by the Polaris model constellation on H200 GPUs through SageMaker HyperPod, TensorRT-LLM accelerates inference, and the resulting responses are delivered back in real time through the patient-engagement platform.",
+  "integration_points": [
+    "AI Agent App Store",
+    "Clinical review network",
+    "AWS multi-account and multi-cluster environment",
+    "Patient engagement workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Hippocratic AI enabled clinicians to publish more than 300 validated agents across 25 specialties, contacted 100,000 patients in a single day during a hurricane, and created a low-latency outreach platform that helps relieve burnout while scaling preventative and follow-up care.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "100,000 patients in one day",
+    "over 300 AI agents",
+    "25 medical specialties",
+    "over 6,000 nurses and 300 physicians",
+    "4.2 trillion parameters each time"
+  ],
+  "architecture_clues": [
+    "Uses a multi-account, multi-cluster AWS strategy to separate production from development workloads",
+    "The speaking model is supervised by multiple additional models for safety",
+    "The AI Agent App Store lets clinicians build agents in under 30 minutes without coding",
+    "Real-time patient interactions are designed for HIPAA-sensitive environments"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/hippocratic-ai/",
+  "published_date": "2026-03-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Scales Preventative Care: Enables large-scale patient outreach for preventative care, as demonstrated by contacting 100,000 patients in one day during an emergency.",
+    "The App Store debuts with over 300 AI agents spanning 25 medical specialties.",
+    "These models-totaling over a trillion parameters-run on NVIDIA H200 Tensor Core GPUs using Amazon SageMaker HyperPod, delivering ultra-low latency and deeply empathetic conversations.",
+    "Hippocratic AI leverages TensorRT-LLM to optimize its Polaris constellation of models, making them faster, smaller, and more efficient."
+  ]
+}

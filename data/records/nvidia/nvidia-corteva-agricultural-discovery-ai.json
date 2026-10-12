@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-corteva-agricultural-discovery-ai",
+  "slug": "nvidia-corteva-agricultural-discovery-ai",
+  "vendor": "NVIDIA",
+  "customer_name": "Corteva",
+  "industry": "unknown",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Corteva needed to evaluate billions of host-pathogen protein interactions and massive metabolomics datasets faster, but early-stage agricultural discovery pipelines were too computationally expensive to prioritize hypotheses quickly or refresh natural-product analyses often enough.",
+  "solution_summary": "Corteva built two accelerated discovery workflows on NVIDIA software rather than treating crop research as one monolithic HPC job. For seed innovation, BioNeMo Boltz-2 NIM running on H200 GPUs predicts and verifies host-pathogen interactions, allowing the team to map disease-related protein networks in weeks instead of years while keeping biological fidelity. For crop protection, Corteva and the Wang Bioinformatics Lab rebuilt metabolomics analysis around RAPIDS cuML and cuVS so mass-spectral clustering, embeddings, and molecular networking can run at much higher cadence across growing natural-product libraries. Those two paths share a common pattern: proprietary biological data is filtered and prioritized on accelerated infrastructure first, then researchers use the resulting interaction maps and molecular networks to decide which candidates deserve scarce wet-lab and field resources downstream.",
+  "products_used": [
+    "BioNeMo Boltz-2 NIM",
+    "NVIDIA H200 GPUs",
+    "NVIDIA cuML",
+    "NVIDIA cuVS"
+  ],
+  "solution_components": [
+    {
+      "name": "BioNeMo Boltz-2 NIM",
+      "role": "Predicts and prioritizes protein interactions for Corteva's seed-innovation discovery pipeline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA H200 GPUs",
+      "role": "Provide the compute used to benchmark and scale protein-interaction inference at production size.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA cuML",
+      "role": "Accelerates clustering in Corteva's natural-products metabolomics workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA cuVS",
+      "role": "Speeds embedding and molecular-networking steps that prioritize crop-protection candidates.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Pathogen and host-protein data are filtered and passed through BioNeMo Boltz-2 NIM on H200 GPUs to produce interaction maps for seed research. Separately, mass-spectrometry data enters a cuML and cuVS pipeline that clusters, embeds, and networks metabolites so researchers can prioritize natural-product candidates for crop-protection follow-up.",
+  "integration_points": [
+    "University of California, Riverside",
+    "Wang Bioinformatics Lab",
+    "Mass-spectrometry datasets",
+    "Corteva R&D pipeline"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Corteva cut host-pathogen interaction mapping from years to weeks, made BioNeMo Boltz-2 NIM 4.15x faster than the open-source baseline, accelerated mass-spectral clustering 80x to 100x, and moved metabolomics runs from quarterly to monthly so more candidates can be evaluated earlier.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "4.15x faster",
+    "weeks instead of years",
+    "80x to 100x speedup",
+    "50x to 60x speedup",
+    "15-fold",
+    "quarterly to monthly"
+  ],
+  "architecture_clues": [
+    "The workflow separates seed-innovation interaction mapping from crop-protection metabolomics analysis",
+    "H200 GPUs benchmark BioNeMo Boltz-2 NIM for large protein-interaction maps",
+    "cuML and cuVS are paired with algorithmic work from the Wang Lab",
+    "Accelerated outputs are used to focus scarce lab and field capacity on higher-confidence candidates"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/corteva/",
+  "published_date": "2026-09-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "BioNeMo Boltz-2 NIM is 4.15x faster than the open-source model.",
+    "This increase in speed and scaling enables mapping the protein interaction network in weeks instead of years.",
+    "NVIDIA cuML and cuVS enable 80x to 100x speedup in mass spectral clustering and a 50x to 60x speedup in embedding.",
+    "Enabled by the acceleration, the Corteva team can now run the workflow more frequently, from quarterly to monthly."
+  ]
+}

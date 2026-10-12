@@ -1,0 +1,83 @@
+{
+  "id": "nvidia-ohio-state-university-biodiversity-foundation-model",
+  "slug": "nvidia-ohio-state-university-biodiversity-foundation-model",
+  "vendor": "NVIDIA",
+  "customer_name": "The Ohio State University",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "The Ohio State University needed enough compute and data-engineering capacity to assemble a global biodiversity dataset and train a foundation model that could identify species across nearly a million taxa, which was impractical on smaller research infrastructure.",
+  "solution_summary": "Ohio State researchers built BioCLIP 2 around a pipeline that starts with TreeOfLife-200M, a 214 million-image biodiversity corpus assembled from sources including GBIF, Encyclopedia of Life, BIOSCAN-5M, and FathomNet. TaxonoPy standardizes noisy taxonomic hierarchies and distributed download tools place the curated data on HPC file systems, where GPU clusters can keep training fed at scale. The team then trains and evaluates BioCLIP 2 across a mix of NVIDIA A100 and H100 systems, from NAIRR allocations at the Ohio and Pittsburgh supercomputing centers to a 32-H100 primary run for the final model. That architecture gives the researchers a repeatable way to ingest massive ecological datasets, learn species representations across almost one million taxa, and then run recognition and zero-shot identification workloads that outperform prior biodiversity models.",
+  "products_used": [
+    "TreeOfLife-200M",
+    "TaxonoPy",
+    "NVIDIA A100 GPUs",
+    "NVIDIA H100 GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "TreeOfLife-200M",
+      "role": "Serves as the large-scale biodiversity dataset that feeds BioCLIP 2 training and evaluation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "TaxonoPy",
+      "role": "Standardizes noisy taxonomic hierarchies so disparate biodiversity data sources can be trained as one corpus.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA A100 GPUs",
+      "role": "Provide large-batch training capacity for dataset curation experiments and full model training runs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Accelerate the primary BioCLIP 2 training and ablation runs at production scale.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Images and taxonomy data from major biodiversity repositories are normalized with TaxonoPy and stored in TreeOfLife-200M. Training jobs then stream the curated corpus onto A100 and H100 GPU clusters, which produce the BioCLIP 2 model used for large-scale species classification and zero-shot ecological recognition.",
+  "integration_points": [
+    "GBIF",
+    "Encyclopedia of Life",
+    "BIOSCAN-5M",
+    "FathomNet",
+    "Ohio Supercomputer Center",
+    "Pittsburgh Supercomputing Center"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BioCLIP 2 delivered best or top-two species-identification performance across almost one million taxa, improved average species-classification accuracy by 18 percent over BioCLIP, and gave conservation researchers a scalable foundation model trained on the largest biodiversity dataset assembled to date.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "214 million images",
+    "1.36 million noisy taxonomic hierarchies",
+    "952,000 unique taxa",
+    "64 NVIDIA A100 GPUs for 290 hours",
+    "32 NVIDIA H100 GPUs for 10 days",
+    "18.0% average improvement in species classification accuracy over BioCLIP"
+  ],
+  "architecture_clues": [
+    "Distributed-downloader tools and HPC file systems feed the training pipeline",
+    "Ablation studies ran on TreeOfLife-10M using 8 H100 GPUs",
+    "The model targets species identification and zero-shot recognition across almost one million taxa",
+    "The project was supported through the NAIRR pilot program"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/ohio-state-ai-bioclip2-conservation-biodiversity/",
+  "published_date": "2026-04-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Trained on the world's largest biology dataset, comprising 214 million images, using NVIDIA GPUs.",
+    "As part of the US National Science Foundation National AI Research Resource (NAIRR) pilot program, the team used a combined allocation at the Ohio Supercomputer Center and the Pittsburgh Supercomputing Center, running 64 NVIDIA A100 GPUs for 290 hours.",
+    "The primary training run for the final BioCLIP 2 model was conducted on 32 NVIDIA H100 GPUs for 10 days.",
+    "18.0% average improvement in species classification accuracy over BioCLIP"
+  ]
+}

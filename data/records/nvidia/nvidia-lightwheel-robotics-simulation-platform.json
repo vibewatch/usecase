@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-lightwheel-robotics-simulation-platform",
+  "slug": "nvidia-lightwheel-robotics-simulation-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Lightwheel",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Lightwheel needed a way to overcome slow real-world robotics data collection and the sim-to-real gap so customers could train and deploy embodied AI systems without months of physical prototyping and expensive on-robot testing.",
+  "solution_summary": "Lightwheel built the Lightwheel Simulation Platform as a simulation-first embodied-AI workflow on NVIDIA Isaac Sim, Isaac Lab, Omniverse libraries, and the GR00T N1.5 vision-language-action foundation model. SimReady assets encoded in USD and MJCF let teams assemble accurate digital twins quickly, while VR headsets, exoskeleton controls, and teleoperation tools capture demonstrations inside simulation instead of on production robots. Lightwheel then combines MimicGen and DexMimicGen with those synthetic scenes to expand training diversity by 100 to 1000 times before fine-tuning GR00T N1.5 for specific robot morphologies such as Unitree H1. During prototyping, RTX 4090 GPUs provide local compute for embodiment adaptation and task optimization, and the same pipeline has already been used to deploy humanoid robots in Geely's live automotive environment.",
+  "products_used": [
+    "NVIDIA Isaac Sim",
+    "Isaac Lab",
+    "NVIDIA Omniverse libraries",
+    "Isaac GR00T N1.5"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Hosts the physically accurate robotic simulation environments used for training, validation, and deployment rehearsal.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Isaac Lab",
+      "role": "Provides the embodied-AI training framework used to build and iterate robotic policies inside simulation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Omniverse libraries",
+      "role": "Support the USD-based digital-twin pipeline and scene assembly behind Lightwheel's simulation workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Isaac GR00T N1.5",
+      "role": "Serves as the vision-language-action foundation model Lightwheel fine-tunes with simulation-generated data for real robots.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "SimReady assets, scene metadata, and teleoperation demonstrations are assembled in Isaac Sim and Omniverse-based environments, then expanded with MimicGen and DexMimicGen into large synthetic datasets. Those data are used to fine-tune GR00T N1.5, and the resulting policies are deployed onto robots such as Unitree H1 in live industrial settings.",
+  "integration_points": [
+    "OpenUSD",
+    "MJCF assets",
+    "Apple Vision Pro",
+    "Meta Quest",
+    "Unitree H1 robots",
+    "Geely factory deployment"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Lightwheel shortened robotics development cycles from months to weeks, achieved a 100:1 simulated-to-real data ratio, and demonstrated factory deployment of GR00T N1.5-powered humanoid robots at Geely while supporting partners such as AgiBot, ByteDance, and Figure.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "100:1 simulated-to-real data ratio",
+    "100 to 1000 times",
+    "from months to weeks"
+  ],
+  "architecture_clues": [
+    "Uses VR headsets, Space Mouse, and exoskeleton controls for teleoperation data capture",
+    "Fine-tunes GR00T N1.5 with RGB images, joint states, task descriptions, and scene metadata",
+    "RTX 4090 GPUs are used during local prototyping and embodiment adaptation",
+    "Quality assurance combines automated realism checks with manual behavioral review"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/lightwheel/",
+  "published_date": "2026-02-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "100:1 simulated-to-real data ratio, eliminating expensive real-world data collection while maintaining physically realistic training environments",
+    "Powered by OpenUSD, the Lightwheel Simulation Platform delivers a complete embodied AI pipeline, from SimReady asset generation to cloud-based simulation and collection of teleoperation data in virtual reality.",
+    "The platform combines MimicGen, DexMimicGen with Lightwheel's SimReady assets, environments, and Isaac Sim to generalize teleoperated simulation data, scaling the value of synthetic data by 100 to 1000 times.",
+    "Lightwheel successfully deployed GR00T N1.5 foundation models in Unitree H1 humanoid robots at Geely's live automotive factory."
+  ]
+}

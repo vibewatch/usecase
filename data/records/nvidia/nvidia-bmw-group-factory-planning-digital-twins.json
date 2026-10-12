@@ -1,0 +1,85 @@
+{
+  "id": "nvidia-bmw-group-factory-planning-digital-twins",
+  "slug": "nvidia-bmw-group-factory-planning-digital-twins",
+  "vendor": "NVIDIA",
+  "customer_name": "BMW Group",
+  "industry": "Automotive",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "BMW Group needed to plan and reconfigure large factories years before production starts, but disconnected CAD tools, manual coordination, and expensive change orders made it hard for planners to collaborate and validate layouts, logistics, and robotics safely at scale.",
+  "solution_summary": "BMW built FactoryExplorer as an internal industrial-metaverse platform on NVIDIA Omniverse, OpenUSD, and the Omniverse Kit SDK so planners can work inside live digital twins of factories instead of static design files. CAD, building, logistics, and process data from tools such as Autodesk Revit, Bentley Microstation, ipolog, and ema are aggregated into structured OpenUSD projects, published into a centralized twin, and then explored through custom collision-detection, filtering, navigation, launcher, and measuring extensions. That same stack lets planners collaborate on layered factory states without destructive edits, identify robot placement issues before construction, and rehearse layout changes across plants covering more than a million square meters. BMW also extends the environment with Omniverse Replicator, Isaac Sim, and DGX systems to create synthetic defect data and train inspection models before production lines go live.",
+  "products_used": [
+    "NVIDIA Omniverse",
+    "OpenUSD",
+    "Omniverse Kit SDK",
+    "FactoryExplorer"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Hosts BMW's digital-twin environment for collaborative factory planning and simulation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenUSD",
+      "role": "Carries factory geometry, layout, and process data from multiple source systems into a shared digital-twin model.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Omniverse Kit SDK",
+      "role": "Lets BMW build the custom extensions and application logic used by its planning teams.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "FactoryExplorer",
+      "role": "Provides the planner-facing digital twin application for layout, logistics, and robotics workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Factory geometry, equipment, logistics, and process data from BMW's design systems are converted into OpenUSD projects and published into FactoryExplorer on Omniverse. Planners collaborate on layered digital twins, run placement and collision checks, and then extend the same environment with simulation and synthetic-data workflows before physical factory changes are made.",
+  "integration_points": [
+    "Autodesk Revit",
+    "Bentley Microstation",
+    "ipolog",
+    "ema",
+    "Omniverse Replicator",
+    "Isaac Sim",
+    "SORDI.ai"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "BMW projected 30 percent savings from optimized factory planning, reduced change orders and capital investments, improved cross-team collaboration, increased launch stability, and used the same simulation stack to bring quality-control workflows weeks ahead of schedule.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "over 1 million square meters",
+    "roughly 140 football fields",
+    "Projected 30% savings from optimized factory planning and highly efficient processes",
+    "over 800,000 photorealistic images spanning 80 categories"
+  ],
+  "architecture_clues": [
+    "Uses layered OpenUSD composition so multiple planners can work without destructive edits",
+    "Custom extensions include collision detection, factory filters, launchers, navigation, and measuring tools",
+    "Digital twins support autonomous robot and vision AI development before real-world deployment",
+    "DGX systems with Hopper architecture train synthetic-data models behind SORDI.ai"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/bmw-group-develop/",
+  "published_date": "2023-12-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "BMW Group is redefining automotive factory planning and optimization in production with digital twins built with NVIDIA Omniverse and OpenUSD.",
+    "The BMW team used OpenUSD and the Omniverse Kit SDK to develop FactoryExplorer, a digital twin platform that enables factory planners to collaborate in real time.",
+    "Projected 30% savings from optimized factory planning and highly efficient processes",
+    "With NVIDIA Omniverse Replicator and Isaac Sim, the BMW team built a synthetic data pipeline that generates thousands of photorealistic training images with the click of a button."
+  ]
+}

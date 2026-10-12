@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-wealthsimple-ai-inference-platform",
+  "slug": "nvidia-wealthsimple-ai-inference-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Wealthsimple",
+  "industry": "Financial Services",
+  "region": "Canada",
+  "company_size": "Enterprise",
+  "business_problem": "Wealthsimple needed a standardized way to deploy and serve machine-learning models for fraud, transaction routing, onboarding, and personalization, but framework-specific inference stacks were taking months to ship and causing outages that hurt customer transfers.",
+  "solution_summary": "Wealthsimple turned its fragmented model-serving environment into an internal ML-as-a-service platform by standardizing on NVIDIA Triton Inference Server and GPU-backed deployment on AWS. Triton replaced bespoke, framework-specific servers with a single inference layer that could run on both CPUs and GPUs, while A10G instances and the NVIDIA GPU-Optimized AWS Machine Image gave the company a repeatable runtime for production serving. On top of that platform, Wealthsimple now runs more than 30 models across fraud detection, suspicious-transaction analysis, customer recommendations, onboarding, and institutional-transfer routing. Because the serving layer is standardized, model developers can deploy without waiting on a separate engineering team, and the platform organization can focus on shared reliability and cost tuning instead of one-off integrations for each model family.",
+  "products_used": [
+    "NVIDIA Triton Inference Server",
+    "NVIDIA A10G GPUs",
+    "NVIDIA GPU-Optimized AWS Machine Image",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Provides Wealthsimple's unified production inference layer across multiple machine-learning frameworks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A10G GPUs",
+      "role": "Run the production inference workloads that power customer-facing models on AWS.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA GPU-Optimized AWS Machine Image",
+      "role": "Supplies the repeatable cloud runtime Wealthsimple uses to deploy GPU-backed model-serving environments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Adds enterprise-grade security, stability, and support around the Triton-based inference platform.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Feature data from onboarding, transaction, and recommendation workflows flows into models served by Triton on A10G-backed AWS environments. Predictions are returned to Wealthsimple's product systems for fraud detection, transfer routing, and personalization, while the shared platform lets new models move into production without bespoke serving work.",
+  "integration_points": [
+    "Amazon Web Services",
+    "Institutional transfer workflows",
+    "Fraud and suspicious-transaction systems",
+    "Recommendation engines"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Wealthsimple reduced model delivery time from months to under 15 minutes, raised inference uptime from 95 percent to 99.999 percent, cut serving latency by 20 percent, and delivered 145 million predictions over 12 months with no IT tickets tied to AI inferencing.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "145 million predictions",
+    "over 30 AI models",
+    "several months to under 15 minutes",
+    "95% uptime to 99.999% uptime",
+    "20% latency reduction",
+    "3 million Canadians"
+  ],
+  "architecture_clues": [
+    "The platform can run inference workloads on both GPUs and CPUs",
+    "Model developers deployed their first ML model without engineering support",
+    "Wealthsimple uses ML-as-a-service to share inference with other internal teams",
+    "An alternative native framework previously caused delays of up to several weeks for 5% of electronic transfers"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/machine-learning-models-and-inference/",
+  "published_date": "2024-02-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Today, Wealthsimple, which manages over C$30 billion in assets, supports over 30 AI models that generated over 145 million predictions in the past 12 months.",
+    "Following the change, model delivery time has been slashed from months to under 15 minutes-a game-changing advancement for the organization.",
+    "Triton Inference Server changed the game, delivering an impressive 99.999% uptime.",
+    "Today, Wealthsimple runs models powered by NVIDIA A10G GPUs on the AWS cloud, tapping into the NVIDIA GPU-Optimized AWS Machine Image to drive efficiency and innovation."
+  ]
+}

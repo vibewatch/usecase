@@ -1,0 +1,82 @@
+{
+  "id": "nvidia-vinuesalab-urban-flow-simulation",
+  "slug": "nvidia-vinuesalab-urban-flow-simulation",
+  "vendor": "NVIDIA",
+  "customer_name": "VinuesaLab at the University of Michigan",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "VinuesaLab needed high-fidelity, city-scale urban airflow simulation for planning and resilience work, but traditional CFD workflows were too slow, too resource intensive, and largely constrained to 2D approximations.",
+  "solution_summary": "VinuesaLab built Diff-SPORT as an AI-driven urban-flow framework on NVIDIA PhysicsNeMo so the team could move from slow, 2D turbulence studies to scalable 3D reconstruction and real-time environmental emulation. The system combines generative models, physics-informed machine learning, and computational fluid-dynamics knowledge to reconstruct wind behavior, pollutant hotspots, and temperature changes across complex city layouts. RTX GPU acceleration speeds local training and experimentation, while an NVIDIA Academic Grant supplied A100 Tensor Core GPUs and 16,000 compute hours for larger runs and multi-node scaling. Because PhysicsNeMo supports distributed execution, the team can train on larger domains, integrate real city layouts, and reuse the same framework for collaborations in Europe and the United States instead of rebuilding separate simulation stacks for each deployment.",
+  "products_used": [
+    "Diff-SPORT",
+    "NVIDIA PhysicsNeMo",
+    "RTX GPUs",
+    "NVIDIA A100 Tensor Core GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "Diff-SPORT",
+      "role": "Implements the generative urban-flow simulation framework researchers use to reconstruct and emulate turbulent city environments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA PhysicsNeMo",
+      "role": "Provides the physics-informed machine-learning framework that underpins training and scaling of the simulation models.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "RTX GPUs",
+      "role": "Accelerate local model training and experimentation for rapid iteration on urban-flow workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Provide larger-scale training capacity for high-resolution, multi-node research runs.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Urban geometry, CFD context, and sensor observations are fed into Diff-SPORT on top of PhysicsNeMo, where GPU-accelerated training learns 3D flow reconstructions and real-time emulators. The resulting models generate wind, pollution, and temperature predictions that planners can visualize and test across full metropolitan layouts.",
+  "integration_points": [
+    "University of Michigan research workflows",
+    "NVIDIA Academic Grant Program",
+    "NVIDIA AI Technology Center",
+    "Real city-layout collaborations in Europe and the US"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "VinuesaLab achieved 10x faster training, progressed from 2D analysis to interactive 3D urban-flow simulations, and built a real-time emulator that supports data-driven planning for wind, pollution, and urban-heat resilience studies.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "10x Faster Training",
+    "hours to seconds",
+    "4.2 million premature deaths annually",
+    "3 to 5 degrees Celsius warmer",
+    "16,000 compute hours"
+  ],
+  "architecture_clues": [
+    "PhysicsNeMo supports seamless multi-node runs for larger metropolitan models",
+    "The project used eight A100 GPUs granted through NVIDIA's academic program",
+    "The team's work has been integrated back into the PhysicsNeMo repository",
+    "The framework is being extended to real city layouts in Barcelona and Southampton"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/vinuesalab-urban-flow-ai/",
+  "published_date": "2026-02-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Achieved a tenfold speedup in model training using NVIDIA PhysicsNeMo and RTX GPU acceleration, reducing processing time from hours to seconds.",
+    "Developed a real-time emulator capable of visualizing wind patterns, pollutant hotspots, and temperature changes.",
+    "NVIDIA has continued to support this project through the NVIDIA Academic Grant Program, which awarded the team eight NVIDIA A100 Tensor Core GPUs, accessed through 16,000 compute hours.",
+    "We recognized that GPU acceleration was essential to make high-resolution 3D urban flow reconstruction practical, rather than purely theoretical."
+  ]
+}

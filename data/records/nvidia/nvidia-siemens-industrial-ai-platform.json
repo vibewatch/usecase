@@ -1,0 +1,88 @@
+{
+  "id": "nvidia-siemens-industrial-ai-platform",
+  "slug": "nvidia-siemens-industrial-ai-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Siemens",
+  "industry": "Manufacturing",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens needed to bring AI, simulation, and digital-twin capabilities into industrial software products fast enough to offset labor shortages, shorten design cycles, and help manufacturing customers optimize complex assets without multiplying infrastructure cost.",
+  "solution_summary": "Siemens is weaving NVIDIA technologies into multiple layers of its industrial software stack rather than treating AI as an add-on. Teamcenter uses NVIDIA Omniverse libraries to stream photorealistic, bill-of-materials-driven digital twins from centralized cloud GPU clusters, while Simcenter STAR-CCM+ uses CUDA acceleration to run massive CFD workloads natively on GPUs with CPU-consistent results. For knowledge work, the Siemens Industrial Copilot applies NIM and NeMo microservices to generate and explain operational guidance inside manufacturing workflows. On the physical-AI side, Siemens also uses Isaac Sim, Isaac Lab, Jetson Thor, and DGX systems to simulate, train, and deploy robotics and inspection scenarios before they reach the plant floor. Together these layers turn engineering data, simulation outputs, and shop-floor workflows into a reusable industrial AI platform.",
+  "products_used": [
+    "NVIDIA Omniverse libraries",
+    "NVIDIA CUDA",
+    "NVIDIA NIM",
+    "NVIDIA NeMo",
+    "NVIDIA Isaac Sim"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Omniverse libraries",
+      "role": "Power Siemens digital-twin and visualization features inside Teamcenter and related industrial workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates Siemens simulation workloads such as CFD so engineering teams can solve larger models faster on GPU infrastructure.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Serves the inference layer behind copilots and AI services embedded in Siemens applications.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Supports the enterprise AI microservices Siemens uses to customize and run industrial copilot capabilities.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Provides the simulation environment Siemens uses for robotics and physical-AI workflows before deployment.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Engineering data and BOM-managed CAD assets flow into Teamcenter's Omniverse-backed digital twins, simulation workloads are processed through CUDA-accelerated solver paths, and enterprise process data is fed into NIM/NeMo-based copilots. For robotics scenarios, simulated assets and behaviors are validated in Isaac Sim before operators use them in live production settings.",
+  "integration_points": [
+    "Siemens Teamcenter",
+    "Simcenter STAR-CCM+",
+    "Siemens Industrial Copilot",
+    "Siemens Xcelerator Cloud Service",
+    "PepsiCo Digital Twin Composer"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Siemens reported 10 percent to 15 percent capital-expenditure reductions, a 25 percent reduction in reactive maintenance time, a 20 percent increase in throughput on initial digital-twin deployments, and early copilot pilots that improved productivity by about 30 percent with potential to reach 50 percent.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "10%–15% reductions in capital expenditure",
+    "25% reduction in reactive maintenance time",
+    "20% increase in throughput",
+    "30% increase in productivity, with the potential to reach up to 50%",
+    "performance is equivalent to over 10,000 CPU cores"
+  ],
+  "architecture_clues": [
+    "Teamcenter Digital Reality Viewer is hosted in Siemens Xcelerator Cloud Service and powered by a centralized GPU cluster",
+    "Simcenter STAR-CCM+ can run a 458-million-cell aerodynamics case on a B200 GPU node",
+    "The Industrial Copilot is built on NIM and NeMo microservices",
+    "Siemens uses simulation and physical-AI tooling to validate robotic workflows before deployment"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/siemens-accelerates-product-development-and-innovation-with-industrial-ai/",
+  "published_date": "2025-06-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "To bring AI into the real world and enable faster innovation and continuous optimization, Siemens is integrating NVIDIA technologies across offerings, including Siemens Teamcenter, Simcenter STAR-CCM+, and the Siemens Industrial Copilot.",
+    "Siemens' Simcenter STAR-CCM+ CFD software now runs natively on both CPUs and GPUs, ensuring consistent results regardless of hardware while enabling GPU acceleration.",
+    "Using Digital Twin Composer and computer vision, PepsiCo teams can recreate every machine, conveyor, pallet route, and operator path with physics-level accuracy.",
+    "In early pilots, Siemens has reported a 30% increase in productivity, with the potential to reach up to 50%."
+  ]
+}

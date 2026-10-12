@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-yotta-sovereign-ai-cloud",
+  "slug": "nvidia-yotta-sovereign-ai-cloud",
+  "vendor": "NVIDIA",
+  "customer_name": "Yotta Data Services Private Limited",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Yotta needed to deliver affordable, sovereign AI infrastructure inside India so startups and enterprises could build local-language models without depending on overseas compute platforms that lacked India-specific capacity and economics.",
+  "solution_summary": "Yotta built Shakti Cloud as a localized AI infrastructure platform on NVIDIA's full-stack ecosystem so Indian customers can train and serve models on domestic infrastructure. The platform combines H100 and A100 GPU capacity today, planned B200 expansion, NVLink and Quantum-X800 InfiniBand reference networking, AI Enterprise software, and NVIDIA Cloud Functions for serverless inference. Around that stack, Yotta exposes a self-service orchestration layer and pay-per-use commercial model that lets customers consume GPU clusters, pretrained software, and scalable inference services without building their own AI platform. That architecture turns sovereign compute, networking, model-serving, and operational tooling into one cloud product that supports Indian-language LLMs and SLMs while giving Yotta room to scale from its current footprint toward a much larger national AI supercloud.",
+  "products_used": [
+    "NVIDIA H100 Tensor Core GPUs",
+    "NVIDIA AI Enterprise",
+    "NVIDIA Cloud Functions",
+    "NVIDIA Quantum-X800 InfiniBand"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA H100 Tensor Core GPUs",
+      "role": "Provide the large-scale training and inference capacity behind Shakti Cloud's current production footprint.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Supplies production-grade containers, pretrained models, and software services for customer workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Cloud Functions",
+      "role": "Enables scalable serverless inference services for customers deploying AI applications on Shakti Cloud.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Quantum-X800 InfiniBand",
+      "role": "Connects the GPU infrastructure with high-speed networking that reduces training bottlenecks and inference latency.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer training and inference jobs are provisioned through Yotta's orchestration layer onto Shakti Cloud GPU clusters, where InfiniBand and NVLink-backed infrastructure move data across accelerated nodes. AI Enterprise provides optimized software images, and Cloud Functions exposes serverless inference endpoints for applications built on the same platform.",
+  "integration_points": [
+    "Shakti Cloud self-service portal",
+    "Rudra platform",
+    "Sarvam AI deployments",
+    "Kubernetes autoscaling workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Yotta created India's first adapted AI infrastructure platform, scaled Shakti Cloud to more than 16,000 H100 GPUs, improved training and inference efficiency through NVIDIA networking, and enabled customers such as Sarvam AI to improve model-serving throughput by 20 percent to 100 percent.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 16,000 H100 GPUs",
+    "20%–100% improvement in throughput",
+    "1.4 billion people",
+    "over 300 distinct languages and dialects",
+    "over 32,768 GPUs"
+  ],
+  "architecture_clues": [
+    "Shakti Cloud uses NVLink and Quantum-X800 InfiniBand to remove data-transfer bottlenecks",
+    "NVIDIA Cloud Functions provide serverless low-latency inference on the platform",
+    "Yotta accepts flexible commercial models including equity in place of cash",
+    "The company plans to scale Telangana AI infrastructure to more than 32,768 GPUs"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/yotta-built-india-sovereign-ai-infrastructure-shakti-cloud/",
+  "published_date": "2026-02-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Overall, Shakti Cloud has over 16,000 H100 GPUs, with more on the way, including NVIDIA B200 Tensor Core GPUs.",
+    "Furthermore, NVIDIA Cloud Functions (NVCF), a serverless API to deploy and manage AI workloads, has enabled scalable, low-latency inference services.",
+    "India has 1.4 billion people and over 300 distinct languages and dialects.",
+    "Sarvam has realized a 20%-100% improvement in throughput compared to open-source options alone for serving AI models."
+  ]
+}

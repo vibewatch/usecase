@@ -1,0 +1,84 @@
+{
+  "id": "nvidia-cyran-ai-geospatial-edge-inference",
+  "slug": "nvidia-cyran-ai-geospatial-edge-inference",
+  "vendor": "NVIDIA",
+  "customer_name": "CYRAN AI Solutions",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "CYRAN needed to deliver interactive geospatial intelligence in air-gapped and sovereign environments, but JPEG 2000 decode latency on large satellite scenes was the bottleneck that kept edge analytics from being practical.",
+  "solution_summary": "CYRAN reworked the slowest stage of its SpatialFuse geospatial pipeline around NVIDIA DGX Spark rather than trying to push ever-larger scenes through traditional CPU or discrete-GPU workstations. The company built PixelFlux on top of nvJPEG2000 so compressed satellite imagery can be decoded directly on the GPU, and DGX Spark's unified memory means those buffers are immediately available to the CPU and downstream analytics without PCIe copy overhead. SpatialFuse then uses the decoded scenes for edge inference across orbit, air, and ground data sources in secure environments where cloud round-trips are not acceptable. DALI integration keeps the GPU fed from local storage for training and inference pipelines, and the same architecture now gives CYRAN a path from local edge validation to larger Blackwell-based cloud or data-center deployments without rewriting the core geospatial stack.",
+  "products_used": [
+    "SpatialFuse",
+    "NVIDIA DGX Spark",
+    "PixelFlux",
+    "NVIDIA nvJPEG2000"
+  ],
+  "solution_components": [
+    {
+      "name": "SpatialFuse",
+      "role": "Acts as CYRAN's sensor-fusion platform for turning decoded satellite, airborne, and ground data into geospatial intelligence.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX Spark",
+      "role": "Provides unified-memory edge compute that removes transfer bottlenecks from large-scene geospatial processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PixelFlux",
+      "role": "Implements CYRAN's GPU-accelerated JPEG 2000 decode path for interactive scene preparation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA nvJPEG2000",
+      "role": "Supplies the GPU image-decoding primitives on which PixelFlux is built.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Compressed satellite scenes enter PixelFlux, which uses nvJPEG2000 on DGX Spark to decode large JPEG 2000 imagery directly into unified memory. SpatialFuse then fuses those decoded scenes with other sensor inputs and serves geospatial analysis locally in air-gapped or forward-deployed environments.",
+  "integration_points": [
+    "IIT Delhi",
+    "NVIDIA DALI",
+    "Sentinel-2",
+    "USGS",
+    "Maxar"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "CYRAN cut decode time on a 26 GB satellite scene from more than five minutes to just over two minutes, outperformed a CPU baseline by about 3x and a discrete GPU workstation by up to 2x, and made genuinely interactive geospatial analysis possible on local hardware without cloud dependency.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "3x Faster",
+    "2x Faster",
+    "5+ minutes to just over 2 minutes",
+    "26 GB satellite scene",
+    "Zero Cloud"
+  ],
+  "architecture_clues": [
+    "DGX Spark's unified LPDDR5X memory removes host-copy overhead after decode",
+    "PixelFlux is built on nvJPEG2000 and returns decoded image data ready for immediate use",
+    "DALI is used to keep the GPU fed from local storage in training pipelines",
+    "The same approach is being explored for on-orbit inference and space payloads"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/cyran-iit-delhi/",
+  "published_date": "2026-08-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By combining the unified memory architecture of NVIDIA DGX Spark with GPU-accelerated JPEG 2000 processing through its new PixelFlux library, CYRAN cut the decode time on a 26 GB satellite scene from over five minutes to just over two.",
+    "Interactive large-scene analysis runs entirely on local hardware-enabling air-gapped and sovereign intelligence deployments.",
+    "The first was GPU-accelerated JPEG 2000 decode. NVIDIA nvJPEG2000 moves the most computationally demanding stages of image decoding off the CPU and onto the GPU.",
+    "On NVIDIA DGX Spark, the GPU and CPU share the same memory pool, so decoded image data is immediately available without any transfer step."
+  ]
+}

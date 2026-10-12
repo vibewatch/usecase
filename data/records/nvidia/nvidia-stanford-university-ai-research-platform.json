@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-stanford-university-ai-research-platform",
+  "slug": "nvidia-stanford-university-ai-research-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Stanford University",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Stanford needed a campus-wide GPU platform that could support interdisciplinary AI research at production scale without forcing labs to depend on fragmented clusters, complex allocations, or external resources for large multi-node training jobs.",
+  "solution_summary": "Stanford designed Marlowe as a DGX SuperPOD-based research platform that complements its Sherlock cluster and gives researchers a clear path from small experiments to large, non-preemptible training runs. The system uses DGX SuperPOD infrastructure with 248 NVIDIA Hopper GPUs, Base Command Manager for cluster provisioning and administration, and Quantum-2 InfiniBand networking so multi-node workloads can scale the way industry-scale model training requires. Researchers apply for access, begin with smaller jobs, and then expand to larger allocations as experiments mature, all on the same governed architecture. That shared platform has already supported work in world models, vision-language alignment, protein folding, and biological foundation models, and it gives Stanford a durable operating model for turning campus research ideas into repeatable, high-throughput AI programs.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA Hopper GPUs",
+    "NVIDIA Base Command Manager",
+    "NVIDIA Quantum-2 InfiniBand"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides the integrated cluster architecture behind Stanford's Marlowe research platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Hopper GPUs",
+      "role": "Supply the GPU capacity researchers use for large-scale training, fine-tuning, and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Base Command Manager",
+      "role": "Handles cluster provisioning, administration, and day-to-day operational control for Marlowe.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Quantum-2 InfiniBand",
+      "role": "Provides the high-speed interconnect that lets Stanford researchers scale jobs across hundreds of GPUs.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Research datasets and training jobs move from Stanford labs into the Marlowe platform, where Base Command Manager provisions DGX resources and Quantum-2 InfiniBand connects multi-node runs across Hopper GPUs. Results then flow back into research groups for model evaluation, publication, and follow-on experimentation across the wider Stanford ecosystem.",
+  "integration_points": [
+    "Stanford Sherlock Computing Cluster",
+    "Mark III Systems deployment support",
+    "Stanford Data Science",
+    "Stanford Research Computing"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Marlowe now supports more than 500 active research accounts, contributes to over 18 million GPU hours across Stanford's compute ecosystem each year, and enabled outcomes such as 90x faster Gaussian-splat fitting and publication-scale world-model research that previously would have been much harder to run on campus.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "248 NVIDIA Hopper GPUs",
+    "over 500 active research accounts",
+    "18 million GPU hours",
+    "over 90x faster fitting",
+    "around 97% GPU utilization"
+  ],
+  "architecture_clues": [
+    "Researchers can graduate from basic access to medium and large non-preemptible allocations on the same platform",
+    "Marlowe complements Sherlock rather than replacing it",
+    "The platform is designed for large-scale AI model training while still supporting fine-tuning and inference",
+    "Stanford uses Marlowe to support projects ranging from world models to GaussianVision"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/stanford-marlowe/",
+  "published_date": "2026-07-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Marlowe DGX SuperPOD provides hundreds of NVIDIA Hopper GPUs and supports over 500 active research accounts.",
+    "More than 18 million GPU hours are delivered annually across Stanford's compute ecosystem.",
+    "The NVIDIA Quantum-2 InfiniBand networking platform capabilities built into the DGX SuperPOD architecture have proven transformational for these users.",
+    "Using Marlowe, the team developed a scalable 2D Gaussian splatting (2DGS) pipeline, achieving over 90x faster fitting and around 97% GPU utilization compared to prior implementations."
+  ]
+}
