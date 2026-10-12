@@ -1,0 +1,73 @@
+{
+  "id": "ibm-asteria-sales-automation",
+  "slug": "ibm-asteria-sales-automation",
+  "vendor": "IBM",
+  "customer_name": "Asteria",
+  "industry": "Software / SaaS",
+  "region": "Sweden",
+  "company_size": "SMB",
+  "business_problem": "Asteria wanted to reduce the manual effort banks spend advising SME customers on loans and product options because relationship staff had to perform costly, time-consuming individualized analysis before recommending the right financial services.",
+  "solution_summary": "Asteria used IBM's FintechX program to prototype a banking advisor that combines conversational AI, retrieval, and generative summarization. In a four-week MVP pilot, Asteria built the Asteria Smart Finance Advisor with IBM watsonx Assistant as the front end, IBM Watson Discovery for data querying, and IBM watsonx.ai for summarization and content generation. The advisor is designed to sit inside each bank's online portal, prompt SME users with updates about business health such as overdrafts or low cash balances, answer questions, and recommend relevant products. Behind the scenes, the system pulls customer and product context through Discovery and uses watsonx.ai to automate profile analysis and recommendation logic that had previously required manual advisor effort. The pilot showed that the early loan-advisory steps could be largely automated while preserving a path for bankers to focus on higher-value relationship work.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the conversational front end for the Asteria Smart Finance Advisor inside bank portals.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Queries the data sources that support customer-specific product and advisory responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Generates summaries and recommendations that automate parts of SME profile analysis and product matching.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "SME financial context and bank product information are queried through Watson Discovery, watsonx.ai generates summaries and recommendations, and watsonx Assistant presents the insights in a portal-based advisor that can answer questions and suggest next-best products.",
+  "integration_points": [
+    "online banking portals",
+    "SME financial-health data",
+    "loan application advisory process"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Asteria showed that gen AI could automate the most time-intensive steps of SME financial advisory, reduce advisory effort, and help partner banks market relevant services with a more personalized digital experience.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "33% reduction in time spent on loan application advisory process",
+    "average of three hours",
+    "four-week minimum viable product (MVP) pilot"
+  ],
+  "architecture_clues": [
+    "The advisor is intended to run 24x7 inside a bank's online banking portal.",
+    "The system can prompt users with business-health signals such as high overdrafts or low cash balances.",
+    "The pilot targeted customer profile analysis and product recommendation as the first automation steps."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/asteria-stockholm",
+  "published_date": "2024-04-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The front end is powered by IBM watsonx Assistant technology. The data querying capabilities are powered by the IBM Watson Discovery solution, and the summarization and content generation processes are driven by the IBM watsonx.ai AI studio.",
+    "When users from an SME log in, they will receive a prompt from the advisor that shares an update on the financial health of the business.",
+    "the customer profile analysis and product recommendation steps of the process could, with the help of IBM watsonx, be fully automated.",
+    "This would reduce the time spent on a loan application advisory process by 33%, as demonstrated by the pilot",
+    "bank advisors spent an average of three hours evaluating the SME's business"
+  ]
+}

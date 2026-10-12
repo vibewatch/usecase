@@ -1,0 +1,74 @@
+{
+  "id": "ibm-landratsamt-augsburg-enterprise-knowledge-search",
+  "slug": "ibm-landratsamt-augsburg-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Landratsamt Augsburg",
+  "industry": "Public Sector",
+  "region": "Germany",
+  "company_size": "Public sector",
+  "business_problem": "Caseworkers in Landratsamt Augsburg's Youth Welfare Office had to manually research legal references, citizen-submitted documents, and other records before working a case, making the process slow, labor intensive, and prone to errors during a staffing shortage.",
+  "solution_summary": "Landratsamt Augsburg teamed with IBM Client Engineering and IBM Consulting to prototype a generative-AI case-research assistant for youth welfare staff. After workshops and a three-day hackathon, the joint team built a customized web application integrated with IBM watsonx Assistant, IBM watsonx.ai, and IBM Watson Discovery. The application queries multiple disparate sources defined by the client, retrieves supporting material, and summarizes findings for each welfare case so staff can compile the legal and financial context faster. Watson Discovery provides retrieval across the various references and submitted documents, watsonx.ai performs summarization, and watsonx Assistant supplies the conversational interface for the web app. The pilot showed that a workflow that could take up to an hour to compile manually could be reduced to a few minutes, giving the office a safer path to using gen AI in a sensitive public-sector process.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM watsonx.ai",
+    "IBM Watson Discovery"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the conversational interface for the customized web application used by caseworkers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Summarizes retrieved case material and supports the generative-AI workflow for compiling case data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Queries the legal references, citizen documents, and other disparate sources used to research each case.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Legal references, citizen-submitted documents, and supplementary records are queried through Watson Discovery, the retrieved material is summarized by watsonx.ai, and caseworkers interact with the results through a watsonx Assistant-powered web application for each welfare case.",
+  "integration_points": [
+    "online legal references",
+    "documents submitted by citizens",
+    "supplementary documentation",
+    "customized web application"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "The pilot materially reduced case-compilation time, improved the quality of generated summaries, and showed Landratsamt Augsburg how gen AI could free caseworkers to focus more on citizens and less on repetitive research work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "up to 91% improvement in the time required to compile case data",
+    "up to one hour",
+    "as few as five minutes",
+    "8-10 engineers"
+  ],
+  "architecture_clues": [
+    "The prototype was built during a three-day hackathon after discovery workshops with IBM.",
+    "The application queries multiple disparate data sources defined by the client.",
+    "The project was framed as a cautious gen-AI pilot because of the sensitive nature of youth welfare casework."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/landratsamt-augsburg",
+  "published_date": "2024-04-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "these individuals conduct extensive research from a variety of different data sources, such as online legal references, documents submitted by citizens and other supplementary documentation",
+    "During the three-day event, 8-10 engineers came together to build a customized web-application that was integrated with IBM watsonx Assistant and supported by IBM watsonx.ai and IBM Watson Discovery.",
+    "It was designed to query multiple disparate data sources set forth by the client and summarize findings for each case.",
+    "The tests conducted during the event demonstrated an up to 91% improvement in the time required to compile case data.",
+    "before the pilot, it could take up to one hour ... whereas during the pilot ... as few as five minutes"
+  ]
+}

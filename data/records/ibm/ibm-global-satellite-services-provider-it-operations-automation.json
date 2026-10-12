@@ -1,0 +1,79 @@
+{
+  "id": "ibm-global-satellite-services-provider-it-operations-automation",
+  "slug": "ibm-global-satellite-services-provider-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "Global satellite services provider",
+  "industry": "Telecommunications",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "The provider's Network Operations team struggled to collect, normalize, and analyze non-standard satellite and IoT performance data, forcing staff to manually assemble information from multiple subsystems before they could diagnose customer-impacting issues.",
+  "solution_summary": "The satellite provider modernized network-operations monitoring by using IBM SevOne as the ingestion and normalization layer for performance data that traditional SNMP-centric tools could not handle. Kafka streams carrying satellite-specific and IoT telemetry feed IBM SevOne, which consolidates the disparate formats into a unified operational view. That normalized data then flows into IBM Netcool Operations Insight and IBM Cloud Pak for Watson AIOps, where the IT and NetOps teams correlate alerts, enrich alarms, and visualize cross-domain operational conditions in one dashboard. The company extended the design with a two-way ServiceNow integration so incidents can be created, tracked, and reported automatically from the same event flow. The resulting closed-loop architecture gives the provider one place to analyze global network health, automate ticketing, and support both operations and customer-facing reporting from a common performance-data foundation.",
+  "products_used": [
+    "IBM SevOne",
+    "IBM Cloud Pak for Watson AIOps",
+    "IBM Netcool Operations Insight",
+    "ServiceNow"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM SevOne",
+      "role": "Ingests Kafka streams and normalizes non-standard satellite and IoT performance data into a consolidated monitoring view.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "IBM Cloud Pak for Watson AIOps",
+      "role": "Correlates, enriches, and consolidates operational alerts and alarms across the provider's environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Netcool Operations Insight",
+      "role": "Provides advanced analytics and visualization on the normalized performance data flowing out of SevOne.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ServiceNow",
+      "role": "Automatically generates and tracks incident tickets and reports from the AIOps event stream.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Satellite-specific and IoT telemetry is streamed through Kafka into IBM SevOne, SevOne normalizes the data for Netcool Operations Insight and Cloud Pak for Watson AIOps, and the resulting events and insights trigger automated ServiceNow tickets and reporting workflows.",
+  "integration_points": [
+    "Kafka streams",
+    "satellite-specific formats",
+    "IoT data",
+    "operational support systems"
+  ],
+  "technical_area": [
+    "IoT",
+    "DevOps",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "The provider consolidated previously fragmented network-performance data, accelerated incident handling through automated ticketing, improved service reliability, and even enabled sales teams to create customer-usage reports that support subscription growth.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "billions of individuals across the world"
+  ],
+  "architecture_clues": [
+    "Kafka is used as the middle-ground transport for non-standard telemetry before SevOne normalization.",
+    "The company had already invested in IBM Cloud Pak for Watson AIOps and extended that environment rather than replacing it.",
+    "A two-way ServiceNow integration closes the loop from monitoring to incident creation and reporting."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/satellite-services-provider-sevone",
+  "published_date": "2023-02-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "the team too often had to manually cobble together data from different subsystems in order to correlate it to a particular device or other network resource.",
+    "Using a Kafka-based resource as a middle ground, IBM SevOne was able to take in a range of Kafka streams containing data in non-standard forms, including satellite-specific formats and IoT data.",
+    "it could be ported it into IBM Netcool Operations Insight software ... seamlessly for rapid advances analysis and action.",
+    "ServiceNow could automatically generate incident tickets, track open and closed tickets and generate reports automatically.",
+    "This seamless integration of IBM SevOne, IBM Cloud Pak for Watson AIOps and ServiceNow got us right where we wanted to be."
+  ]
+}
