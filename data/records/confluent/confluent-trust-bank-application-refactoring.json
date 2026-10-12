@@ -1,0 +1,83 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-trust-bank-application-refactoring",
+  "slug": "confluent-trust-bank-application-refactoring",
+  "customer_name": "Trust Bank",
+  "industry": "Financial Services",
+  "region": "Singapore",
+  "company_size": "Enterprise",
+  "business_problem": "Trust Bank needed a cloud-native banking architecture that could deliver real-time customer experiences, integrate with the FairPrice ecosystem, and satisfy security and regulatory requirements without the operational complexity of self-managing Kafka.",
+  "solution_summary": "Trust Bank built its digital banking platform around an event-driven architecture that combines Thought Machine's real-time ledger with Apache Kafka delivered through Confluent for Kubernetes. Customer and product events move in and out of the core ledger in real time, then become reusable, governed data products that domain teams across marketing, fraud, cards, and lending can publish, share, and consume. Schema Registry supplies schema compatibility, version control, and quality controls so teams can connect new services without tight inter-service dependencies, while Confluent for Kubernetes packages the platform with simpler operations on top of Trust's Kubernetes foundation. The result is a cloud-native, modular system that Trust can extend in building blocks instead of rewiring the bank for each new experience. Confluent's governance and operational tooling reduce Kafka complexity, support regulatory obligations, and let small teams evolve resilient banking services quickly.",
+  "products_used": [
+    "Confluent for Kubernetes",
+    "Apache Kafka",
+    "Schema Registry",
+    "Thought Machine"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent for Kubernetes",
+      "role": "Operates Trust's streaming platform with enterprise-grade configurations and easier cluster deployment on Kubernetes.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Apache Kafka",
+      "role": "Carries banking events between Trust's modular services and its real-time core ledger."
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Maintains schema compatibility, version control, and quality assurance across shared data streams.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Thought Machine",
+      "role": "Provides the modular real-time ledger that transmits banking data in and out of the core system in real time.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer and product events move in and out of Thought Machine's real-time ledger through Apache Kafka on Confluent for Kubernetes; Schema Registry governs the contracts, and downstream domain teams across marketing, fraud, cards, and lending subscribe to the streams to build notifications and new digital-banking experiences.",
+  "integration_points": [
+    "FairPrice Group ecosystem",
+    "marketing",
+    "fraud",
+    "cards",
+    "lending"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Trust gained a scalable and resilient digital-banking platform, reduced the operational complexity and cost of running Kafka, embedded governance for compliance, and made it easier for small teams to launch and extend real-time customer experiences across the bank.",
+  "outcome_category": [
+    "Customer Experience",
+    "Compliance",
+    "Risk Reduction",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "deploy clusters in minutes"
+  ],
+  "architecture_clues": [
+    "Trust is integrated with the FairPrice Group ecosystem as part of its digital banking experience.",
+    "A modular Thought Machine ledger sits at the center of the bank's streaming architecture.",
+    "Trust runs its streaming platform on Kubernetes and uses Confluent for Kubernetes to simplify deployment and operations.",
+    "Schema Registry is used as a data-contract control point to avoid inter-service bottlenecks."
+  ],
+  "source_url": "https://www.confluent.io/customers/trust-bank/",
+  "published_date": "2023-05-25",
+  "evidence_quotes": [
+    "\"Trust is cloud-native and integrated with the FairPrice Group ecosystem ... built on a foundation of real-time data.\"",
+    "\"To ensure banks are constantly pushing boundaries when it comes to delivering real-time customer experiences, it's important to leverage a decoupled architecture.\"",
+    "\"The system consists of a real-time ledger ... And all data is transmitted in and out of the ledger in real time.\"",
+    "\"With Schema Registry, we are able to eliminate inter-service bottlenecks, so developers can seamlessly connect to any data system while maintaining schema compatibility, version control, and quality assurance.\"",
+    "\"Confluent for Kubernetes ... enabling them to deploy clusters in minutes.\""
+  ]
+}

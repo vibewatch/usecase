@@ -1,0 +1,63 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-booking-com-application-refactoring",
+  "slug": "confluent-booking-com-application-refactoring",
+  "customer_name": "Booking.com",
+  "industry": "Retail",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Booking.com needed to reduce the engineering burden and scalability risk of its self-managed Apache Kafka deployment as growing global demand increased the amount of streaming data behind booking and analytics workflows.",
+  "solution_summary": "Booking.com replaced a self-managed Apache Kafka estate with Confluent Platform as the common streaming layer for individual business-unit clusters. The implementation shifts operational responsibility from homegrown cluster engineering to Confluent's enterprise-ready platform so teams can spend less time maintaining brokers and more time building customer-facing and analytical services. Streams that support Booking.com's booking experience are now managed with better reliability and built-in data-management capabilities, while governed data products on Confluent are shared with analysts plus finance and data-security teams. The same platform underpins connected-trip and personalization initiatives, where flight, accommodation, car-rental, and experience data can be combined more easily. Because the platform is cloud-native, the migration also gives Booking.com a clean runway for its next step: moving the streaming estate to the public cloud.",
+  "products_used": [
+    "Confluent Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Platform",
+      "role": "Runs Booking.com's enterprise streaming platform and replaces the company's self-managed Kafka clusters."
+    }
+  ],
+  "data_flow": "Streaming data from Booking.com's business units flows through Confluent Platform instead of separate self-managed Kafka clusters, where it is governed into shared data products and consumed by analysts plus downstream connected-trip, personalization, finance, and data-security workloads.",
+  "integration_points": [
+    "analytical workflows",
+    "connected trip experience",
+    "finance teams",
+    "data security teams"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Booking.com improved reliability, streamlined development, freed engineering resources for innovation, and created a governed streaming foundation for connected-trip, analytics, personalization, finance, and security use cases while preparing for public-cloud migration.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "220 countries",
+    "45 languages"
+  ],
+  "architecture_clues": [
+    "Each Booking.com business unit transitioned its streaming clusters onto Confluent Platform.",
+    "The platform produces governed data products that are shared beyond engineering with finance and data-security teams.",
+    "Booking.com completed its move from open source Kafka to Confluent Platform before planning a later public-cloud migration."
+  ],
+  "source_url": "https://www.confluent.io/customers/booking-com/",
+  "published_date": "2024-10-03",
+  "evidence_quotes": [
+    "\"Serving 220 countries, in 45 languages, its mobile app is the most downloaded travel agency app globally.\"",
+    "\"The company's self-managed deployment of Apache Kafka required significant resources to maintain, especially as the demands of the business continued to grow.\"",
+    "\"The team chose Confluent Platform and transitioned each business unit's clusters onto the data streaming platform.\"",
+    "\"Enabled by Confluent, Booking.com is deploying a 'connected trip' experience, allowing customers to seamlessly book flights, accommodations, car rentals, and experiences in one visit.\"",
+    "\"Cloud migration 'will serve as a significant enabler for integration and development acceleration.'\""
+  ]
+}
