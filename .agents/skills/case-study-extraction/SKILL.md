@@ -45,7 +45,8 @@ Use this skill when the user asks to:
 3. Normalize to the project taxonomy.
    - Read `taxonomy.json` when available.
    - Use taxonomy values for `industry`, `technical_area`, `use_case_category`, `outcome_category`, and `solution_components[].layer`.
-   - If no taxonomy value fits, use `unknown` or an empty array and mention the taxonomy gap separately if the user requested analysis.
+   - `industry` is the customer organization's own industry and is never `unknown`: always pick the closest `taxonomy.json` industry (e.g. a law firm or consultancy → `Commercial and Professional Services`, a hotel group → `Travel and Hospitality`, a property developer → `Real Estate and Construction`).
+   - For the other taxonomy fields, if no taxonomy value fits, use `unknown` or an empty array and mention the taxonomy gap separately if the user requested analysis.
 
 4. Build a deep solution view (the part most extractions get wrong).
    - `solution_summary` must be **600–1000 characters** and cover the implementation across the layers the source describes: how data is ingested, processed, stored, and served, plus the key integration patterns. Mention each major component by name with its role.
@@ -84,7 +85,7 @@ Use this skill when the user asks to:
   "slug": "stable-url-slug",
   "vendor": "AWS | Microsoft | Google Cloud | Salesforce | Snowflake | Databricks | NVIDIA | Oracle | Alibaba Cloud | IBM | Tencent Cloud | Baidu AI Cloud | … (see taxonomy.json vendors)",
   "customer_name": "customer organization",
-  "industry": "taxonomy industry or unknown",
+  "industry": "closest taxonomy industry (never unknown)",
   "region": "country, region, global, or unknown",
   "company_size": "Enterprise | Mid-market | SMB | Public sector | Unknown",
   "business_problem": "factual problem from the source",
