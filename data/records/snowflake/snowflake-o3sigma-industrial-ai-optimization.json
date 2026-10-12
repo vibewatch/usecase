@@ -1,0 +1,97 @@
+{
+  "id": "snowflake-o3sigma-industrial-ai-optimization",
+  "slug": "snowflake-o3sigma-industrial-ai-optimization",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "O3sigma",
+  "industry": "Manufacturing",
+  "region": "Saudi Arabia",
+  "company_size": "Mid-market",
+  "business_problem": "build and distribute an industrial AI platform that could combine factory data, manufacturing context, and advanced models quickly enough to improve efficiency and compete globally.",
+  "solution_summary": "O3sigma uses Snowflake, Apache Iceberg, Microsoft Azure Blob Storage, Cortex AI, Cortex Analyst, RelationalAI, and Snowflake Marketplace to deliver a native industrial AI application for factories. Manufacturing data stored in Apache Parquet tables and Azure Blob is connected through Apache Iceberg into a single Snowflake data lake, where semantic context and AI services support composite models across equipment and process data instead of isolated point solutions. Cortex AI, Cortex Analyst, and RelationalAI power natural-language search and explainable user-facing insights on top of the centralized data, while Snowflake Marketplace gives O3sigma a distribution channel for its native app. The same foundation supported early pilots such as NASA C-MAPSS benchmarking and customer deployments across more than 40 factories, helping the team fine-tune models quickly and turn optimization results into new revenue.",
+  "products_used": [
+    "Snowflake",
+    "Apache Iceberg",
+    "Microsoft Azure Blob Storage",
+    "Cortex AI",
+    "Cortex Analyst",
+    "RelationalAI",
+    "Snowflake Marketplace"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Azure Blob Storage",
+      "role": "Holds upstream manufacturing data that is connected into the Snowflake environment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Apache Iceberg",
+      "role": "Connects Parquet tables and Azure Blob data into a unified Snowflake-backed data lake.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Serves as the central industrial AI data platform and native application runtime.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Provides AI capabilities for search, reasoning, and user-facing manufacturing insights.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cortex Analyst",
+      "role": "Helps translate manufacturing questions into grounded analytical responses on the centralized data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "RelationalAI",
+      "role": "Adds advanced reasoning capabilities to user-facing AI workflows on top of Snowflake data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowflake Marketplace",
+      "role": "Distributes O3sigma’s native app to a broader manufacturing audience.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Manufacturing data in Parquet and Azure Blob is connected into Snowflake through Apache Iceberg, where the unified corpus is enriched with semantic context. Cortex AI, Cortex Analyst, and RelationalAI operate on the centralized data to generate search and optimization insights, and the native app is distributed through Snowflake Marketplace.",
+  "integration_points": [
+    "Apache Parquet tables",
+    "NASA C-MAPSS data set",
+    "native app distribution",
+    "more than 40 factories"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "O3sigma fine-tuned world-class models in two weeks, generated more than $100,000 in new client revenue from equipment optimization, and expanded its industrial AI platform across more than 40 factories.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2 weeks To fine-tune models that rank in the global top three against twenty years of benchmarks",
+    "$100K+ New revenue from AI-driven equipment optimizations",
+    "more than 40 factories across the globe"
+  ],
+  "architecture_clues": [
+    "Apache Iceberg is used to connect Parquet tables and Azure Blob storage into one Snowflake-based lake.",
+    "O3sigma built a native app on Snowflake and uses Snowflake Marketplace for go-to-market reach.",
+    "The platform combines manufacturing context with AI models rather than analyzing one machine or task in isolation."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/o3sigma/",
+  "published_date": "2026-02-12",
+  "evidence_quotes": [
+    "2 weeks To fine-tune models that rank in the global top three against twenty years of benchmarks",
+    "$100K+ New revenue from AI-driven equipment optimizations",
+    "more than 40 factories across the globe",
+    "connected Apache Parquet tables and Microsoft Azure Blob storage to Snowflake through Apache Iceberg"
+  ]
+}

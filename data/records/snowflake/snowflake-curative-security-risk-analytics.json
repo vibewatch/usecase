@@ -1,0 +1,66 @@
+{
+  "id": "snowflake-curative-security-risk-analytics",
+  "slug": "snowflake-curative-security-risk-analytics",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Curative",
+  "industry": "Healthcare",
+  "region": "Austin, TX",
+  "company_size": "Enterprise",
+  "business_problem": "aggregate and enrich large volumes of security and operational data so risk posture, investigations, and remediation priorities could be analyzed without rigid purpose-built tooling or spreadsheet exports.",
+  "solution_summary": "Curative uses a Snowflake security data lake and Snowpark to unify cybersecurity, operational, and business-context data for faster risk analysis and executive reporting. Logs, infosec tool outputs, inventory data, employee records, mobile device management data, vulnerability feeds, and VPC traffic are aggregated in Snowflake instead of being handled through isolated, purpose-built tools or exported to spreadsheets. Security analysts and data scientists then use Snowpark, notebooks, and BI tools to enrich the data, build bespoke analyses, and visualize KPIs such as risk posture, speed to patch, endpoint exposure, and access history. Keeping parsing, correlation, and context enrichment in one governed environment lets the team ask deeper questions than a traditional SIEM alone, reduce manual effort, and communicate risks more clearly to company leadership.",
+  "products_used": [
+    "Snowflake",
+    "Snowpark"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Hosts the security data lake that combines operational, cybersecurity, and business-context data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Runs tailored Python-based analysis and enrichment directly where Curative’s security data resides.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Security-tool outputs, operational records, inventory information, employee data, device-management details, vulnerability data, and VPC traffic are ingested into Snowflake. Snowpark-based analysis and downstream BI views then expose risk posture, endpoint vulnerability, alert context, and remediation trends to security teams and leadership.",
+  "integration_points": [
+    "infosec tools",
+    "inventory management",
+    "mobile data management solution",
+    "employee records",
+    "Chrome vulnerability data",
+    "VPC traffic and alerting"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Curative improved investigation speed, gave security leaders clearer risk posture reporting, and enabled deeper, more collaborative analysis than its earlier purpose-built workflow allowed.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The Snowflake security data lake ingests logs for retention, complex parsing, and correlation work the team could not do in its SIEM.",
+    "Security and data teams collaborate by using familiar notebooks and BI tools on top of the shared Snowflake foundation.",
+    "The platform supports daily vulnerability and near-real-time VPC traffic monitoring with added business context."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/curative/",
+  "published_date": "2024-10-14",
+  "evidence_quotes": [
+    "We needed the ability to add additional context and enrichment to our data",
+    "This helps us prioritize a remediation strategy around areas that we think are the highest risk",
+    "Snowflake enables us to cut out the manual work and easily create dashboards to monitor",
+    "we can do things that go above and beyond what any traditional SIEM is capable of doing"
+  ]
+}

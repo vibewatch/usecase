@@ -1,0 +1,69 @@
+{
+  "id": "snowflake-autodesk-customer-360-analytics",
+  "slug": "snowflake-autodesk-customer-360-analytics",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Autodesk",
+  "industry": "Software / SaaS",
+  "region": "San Francisco, CA",
+  "company_size": "Enterprise",
+  "business_problem": "replace a costly, maintenance-heavy Spark and Athena ecosystem so customer 360 analytics, BI, and data science users could get reliable self-service insight.",
+  "solution_summary": "Autodesk uses Snowflake and Snowflake Marketplace as the core of its Customer 360 Analytics Data Platform, replacing a brittle Spark and Athena ecosystem with a more scalable BI and data science foundation. Ingestion and transformation workloads now run natively in Snowflake with standard SQL, connectors, drivers, and bidirectional sync to Autodesk’s cloud object storage, which simplifies pipeline development and reduces homegrown code. Snowflake Marketplace adds ready-to-query datasets for behavior analysis without heavy ETL, while the platform’s multi-cluster architecture gives product teams and business users reliable performance for dashboards, customer experience analysis, churn prediction, and opportunity discovery. The rearchitected platform reduced maintenance work, improved governance, and expanded self-service analytics without the performance and trust problems that had pushed teams toward shadow environments.",
+  "products_used": [
+    "Snowflake",
+    "Snowflake Marketplace"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the multi-cluster data platform for ingestion, transformation, BI, and data science workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Marketplace",
+      "role": "Supplies ready-to-query external datasets that accelerate customer and behavior analysis without new ETL work.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Customer and operational data syncs between Autodesk’s cloud object storage and Snowflake, where ingestion and transformation run in a single platform. Ready-to-query external datasets from Snowflake Marketplace enrich the environment, and curated datasets are consumed by BI, CX, and analyst teams for self-service insight.",
+  "integration_points": [
+    "Spark",
+    "Athena",
+    "cloud object storage",
+    "BI dashboards",
+    "customer experience analysis",
+    "churn prediction workflows"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Autodesk cut staffing needs for the data lake by 3x, accelerated ingestion and transformation 10x, and gave more teams a reliable foundation for customer 360, BI, and analytics use cases.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "3x fewer staff needed to support data lake",
+    "10x faster data ingestion and transformation",
+    "ETL processes now run in minutes, not hours"
+  ],
+  "architecture_clues": [
+    "Snowflake’s multi-cluster shared data architecture resolved dashboard performance issues.",
+    "The team enabled an end-to-end pipeline entirely in Snowflake with native SQL and broad connectivity.",
+    "A bidirectional sync to cloud object storage accelerated adoption of the new architecture."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/autodesk/",
+  "published_date": "2024-10-03",
+  "evidence_quotes": [
+    "3x fewer staff needed to support data lake",
+    "10x faster data ingestion and transformation",
+    "Our goal was to enable that end-to-end pipeline entirely in Snowflake",
+    "Snowflake Marketplace offered a convenient way to access ready-to-query data sets"
+  ]
+}

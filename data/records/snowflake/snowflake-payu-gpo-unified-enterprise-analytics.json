@@ -1,0 +1,90 @@
+{
+  "id": "snowflake-payu-gpo-unified-enterprise-analytics",
+  "slug": "snowflake-payu-gpo-unified-enterprise-analytics",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "PayU GPO",
+  "industry": "Financial Services",
+  "region": "Amsterdam, Netherlands",
+  "company_size": "Enterprise",
+  "business_problem": "unify a fractured analytics landscape created by acquisitions so teams across subsidiaries could work from shared definitions, faster pipelines, and lower-cost models.",
+  "solution_summary": "PayU GPO uses Snowflake, dbt, Tableau, Airflow, and Dynamic Tables to unify analytics across a federated payments business built through acquisitions. More than 800 pipelines funnel subsidiary data into Snowflake, where the central team standardizes terminology, global metrics, certified reports, and shared data models without forcing every local team to abandon its preferred tools or languages. dbt, Tableau, Airflow, REST APIs, Java, and Python workflows continue to operate around the Snowflake core, while Dynamic Tables and architectural tuning recommended by Snowflake reduce refresh overhead for selected models. The platform gives roughly 350 active users a shared view of operations, faster ingestion, fresher calculations, and materially lower run costs, creating a more scalable operating model for company-wide insight.",
+  "products_used": [
+    "Snowflake",
+    "dbt",
+    "Tableau",
+    "Airflow",
+    "Dynamic Tables"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the centralized analytics core for subsidiary data, shared definitions, and certified reporting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "dbt",
+      "role": "Builds global models and metrics on top of the unified Snowflake data foundation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Tableau",
+      "role": "Surfaces certified dashboards and reporting views for business and operations users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Airflow",
+      "role": "Orchestrates data workflows that feed the Snowflake-based analytics environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Dynamic Tables",
+      "role": "Optimizes recurring model refreshes and lowers processing overhead for selected workloads.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Subsidiary data is funneled into Snowflake through hundreds of pipelines, then standardized through shared models and terminology. Orchestrated workflows and Dynamic Tables keep the data fresh, and curated outputs are served through dashboards and reports to business, marketing, sales, and operations teams.",
+  "integration_points": [
+    "REST APIs",
+    "Java",
+    "Python",
+    "dbt",
+    "Tableau",
+    "Airflow"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "PayU GPO improved data ingestion by 83%, lowered selected model costs by as much as 94%, reduced total cost of ownership, and created a shared data language across the company.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "83% faster data ingestion",
+    "94% lower costs for selected data models",
+    "800 pipelines",
+    "about 350 active Snowflake users",
+    "36% initial reduction in TCO",
+    "almost three and a half hours to complete now take only 40 minutes"
+  ],
+  "architecture_clues": [
+    "Snowflake separated storage and compute so models could run faster without replatforming every local tool choice.",
+    "Dynamic Tables were used to optimize processing logic and reduce refresh frequency.",
+    "The shared environment preserves local team autonomy while enforcing global terms and certified dashboards."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/payu-gpo/",
+  "published_date": "2025-03-22",
+  "evidence_quotes": [
+    "83% faster data ingestion",
+    "94% lower costs for selected data models",
+    "The company built 800 pipelines to funnel data into Snowflake",
+    "daily model calculations that previously took almost three and a half hours to complete now take only 40 minutes"
+  ]
+}

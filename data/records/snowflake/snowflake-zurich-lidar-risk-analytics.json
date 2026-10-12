@@ -1,0 +1,69 @@
+{
+  "id": "snowflake-zurich-lidar-risk-analytics",
+  "slug": "snowflake-zurich-lidar-risk-analytics",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Zurich",
+  "industry": "Financial Services",
+  "region": "London, England",
+  "company_size": "Enterprise",
+  "business_problem": "process huge external lidar datasets fast enough to improve underwriting decisions and pricing transparency without repeated failures in older Python and SQL workflows.",
+  "solution_summary": "Zurich uses Snowflake and Snowpark to turn massive external lidar datasets into underwriting intelligence for its UK insurance operations. Around 6,500 government lidar files, roughly 10 TB and more than 300 billion data points, are ingested and processed in Snowflake alongside existing underwriting data instead of being retried through slower Python and general SQL server workflows. Snowpark lets the team apply familiar Python libraries and custom algorithms directly in the platform, while native geospatial functions help analysts understand building height, nearby trees, flood risk, wind exposure, and other physical characteristics that affect pricing. The resulting datasets help consumer and enterprise underwriters assess properties faster, explain policy pricing more clearly, and make fairer risk decisions with less operational friction.",
+  "products_used": [
+    "Snowflake",
+    "Snowpark"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Hosts Zurich’s external lidar and underwriting datasets at the scale needed for large geospatial analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Runs Python-based augmentation and risk-analysis logic directly on the Snowflake-resident lidar data.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Government lidar files and Zurich underwriting data are processed in Snowflake, where Snowpark and geospatial logic augment the raw points into usable property-risk features. Curated outputs are then consumed by underwriters to assess buildings, flood risk, wind exposure, and pricing decisions.",
+  "integration_points": [
+    "UK government national lidar data",
+    "consumer underwriting workflows",
+    "enterprise underwriting workflows",
+    "Python libraries"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Zurich processed a 10 TB lidar dataset in 100 hours, improved its understanding of physical risk, and enabled underwriters to make faster and more transparent pricing decisions.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "300 billion data points",
+    "10 TB of government lidar data",
+    "6,500 files",
+    "100 Hours to process everything"
+  ],
+  "architecture_clues": [
+    "Native geospatial support was essential for processing building and surrounding-environment data.",
+    "Snowpark let the team push familiar Python-based algorithms into Snowflake.",
+    "Snowflake’s logging and resumability made it practical to work with a data set that had failed on prior infrastructure."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/zurich/",
+  "published_date": "2024-11-24",
+  "evidence_quotes": [
+    "300 billion data points",
+    "10 TB of government lidar data",
+    "100 Hours to process everything",
+    "The native geospatial support was essential"
+  ]
+}

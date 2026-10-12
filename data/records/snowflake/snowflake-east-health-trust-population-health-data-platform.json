@@ -1,0 +1,80 @@
+{
+  "id": "snowflake-east-health-trust-population-health-data-platform",
+  "slug": "snowflake-east-health-trust-population-health-data-platform",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "East Health Trust PHO",
+  "industry": "Healthcare",
+  "region": "New Zealand, ANZ",
+  "company_size": "Public sector",
+  "business_problem": "modernize a legacy healthcare warehouse so data from many practice-management systems could be validated, standardized, and reported faster under tight budget and staffing constraints.",
+  "solution_summary": "East Health Trust PHO uses Snowflake, Medicly Eightwire data exchange, Coalesce, and Qlik Sense to modernize primary-care data management and reporting for East Auckland and Franklin. Data from multiple practice management systems used by 19 general practices flows through Medicly into Snowflake, where the organization validates, transforms, and standardizes it instead of maintaining complex on-prem processes. Coalesce automates transformation work, while Qlik Sense exposes business intelligence views for clinicians, pharmacists, finance teams, and other users. The Snowflake-based environment aligns with Health New Zealand’s National Data Platform, improves security and scalability, and creates room to add immunization, screening, census, and socio-economic datasets over time. The result is a future-proof population-health warehouse that cuts long processing jobs to about an hour and supports richer, more timely care reporting.",
+  "products_used": [
+    "Snowflake",
+    "Medicly Eightwire data exchange",
+    "Coalesce",
+    "Qlik Sense"
+  ],
+  "solution_components": [
+    {
+      "name": "Medicly Eightwire data exchange",
+      "role": "Moves data from general-practice management systems into East Health Trust PHO’s Snowflake environment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Provides the cloud data warehouse where healthcare datasets are validated, standardized, and queried.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Coalesce",
+      "role": "Automates data transformation work on top of the Snowflake platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qlik Sense",
+      "role": "Delivers analytics and business intelligence views to clinicians and operational teams.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Practice-management-system data is brought into Snowflake through Medicly Eightwire, then validated, transformed, and standardized with Coalesce. The resulting datasets are served through Qlik Sense and reporting workflows to clinicians, pharmacists, finance teams, and wider health collaborators.",
+  "integration_points": [
+    "Health New Zealand National Data Platform",
+    "general practice management systems",
+    "New Zealand Aotearoa Immunization Register",
+    "National Cervical Screening Register",
+    "Health Safe regional collaborative"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "East Health Trust PHO reduced some data processing work from most of a day to an hour, achieved near-100% warehouse availability, and built a more scalable reporting foundation for population-health decision-making.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "from most of a day to an hour",
+    "19 general practices",
+    "about 122,000"
+  ],
+  "architecture_clues": [
+    "The Snowflake platform aligns with Health New Zealand’s National Data Platform.",
+    "East Health planned a phased cutover from its on-prem warehouse during 2024.",
+    "The organization intends to extend the warehouse with registry, census, and socio-economic data shares."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/east-health-trust/",
+  "published_date": "2024-11-11",
+  "evidence_quotes": [
+    "from most of a day to an hour",
+    "19 general practices",
+    "we can validate, transform and standardize our data",
+    "We are now using the Medicly Eightwire data exchange to bring data directly from the practice management systems used by GPs into Snowflake"
+  ]
+}

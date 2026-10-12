@@ -1,0 +1,84 @@
+{
+  "id": "snowflake-open-insurance-data-self-service-platform",
+  "slug": "snowflake-open-insurance-data-self-service-platform",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Open Insurance",
+  "industry": "Financial Services",
+  "region": "Australia",
+  "company_size": "Mid-market",
+  "business_problem": "replace time-consuming, siloed insurance data management with a secure self-service platform that could scale analytics, mask sensitive data, and accelerate partner and acquisition integration.",
+  "solution_summary": "Open Insurance uses Snowflake, Streamlit, dbt Labs, and ChatGPT to turn fragmented insurance, customer, and partner data into a governed self-service analytics platform. Transactional data, product information, and inputs from Customer.io, Stripe, CRM systems, and about 10 UK third-party sources are centralized in Snowflake, where common definitions and reusable models are built so teams can query a single source of truth. Streamlit applications replace custom-coded BI dashboards and expose role-based views that mask personally identifiable information, while GPT-powered query experiences translate natural language into SQL and help staff explore data without waiting on the data team. The platform supports partner data sharing, rapid acquisition integration, and faster dashboard delivery across finance, commercial, and leadership teams.",
+  "products_used": [
+    "Snowflake",
+    "Streamlit",
+    "dbt Labs",
+    "ChatGPT"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the centralized and governed data platform where insurance, transaction, and partner data are stored and queried.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Streamlit",
+      "role": "Delivers self-service applications that let staff query and visualize governed data without custom dashboard code.",
+      "layer": "Serving"
+    },
+    {
+      "name": "dbt Labs",
+      "role": "Standardizes common requests and consistent definitions by modeling data directly in Snowflake.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "Supports natural-language query experiences that turn user questions into SQL and summarize results for business users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer transactions, product data, and partner-system feeds from tools such as Customer.io, Stripe, CRM platforms, and UK third-party sources land in Snowflake. dbt Labs models the data into consistent business definitions, and Streamlit plus ChatGPT-powered workflows surface governed self-service analytics and dashboard experiences to employees and partner teams.",
+  "integration_points": [
+    "Customer.io",
+    "CRM systems",
+    "Stripe",
+    "internal analytics tools and SDKs",
+    "partner businesses",
+    "about 10 third-party systems for UK operations"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Open Insurance achieved 70% data self-service across the business, cut BI dashboard delivery time by 50%, reduced BI request volume by nearly a third, and integrated 16 acquisition data sources in one month.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "70% data self-service across the business",
+    "1 month to integrate 16 data sources from an acquired company",
+    "50% less time creating BI dashboards",
+    "the number of BI requests at Open has also fallen by nearly a third"
+  ],
+  "architecture_clues": [
+    "PII is masked so only selected users can access sensitive information.",
+    "The platform uses multiple working data warehouses to support self-service and Streamlit development.",
+    "Open integrated internal analytics tools and SDKs plus roughly 10 third-party systems for UK operations."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/open-insurance/",
+  "published_date": "2024-09-16",
+  "evidence_quotes": [
+    "70% data self-service across the business",
+    "integrated a UK insurtech ... in just one month",
+    "By using Streamlit, Open spends 50% less time creating BI dashboards",
+    "created a lightweight GPT model that could convert queries into natural language on SQL"
+  ]
+}

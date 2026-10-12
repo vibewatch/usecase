@@ -1,0 +1,88 @@
+{
+  "id": "snowflake-orchid-security-identity-risk-analytics",
+  "slug": "snowflake-orchid-security-identity-risk-analytics",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Orchid Security",
+  "industry": "Software / SaaS",
+  "region": "Tel Aviv, Israel",
+  "company_size": "Mid-market",
+  "business_problem": "analyze identity access across huge enterprise application estates fast enough to expose unmanaged accounts, support remediation, and keep pace with AI-driven identity complexity.",
+  "solution_summary": "Orchid Security uses Snowflake, dbt, Dynamic Tables, Snowpark, and Metabase to analyze identity risk across huge enterprise application estates. Customer application data, authorized accounts, authentication flows, groups, and permissions are ingested into Snowflake at high frequency, where dbt models, Dynamic Tables, and Snowpark-based analysis keep pipelines refreshed and let the team compute complex identity graphs without moving data to separate environments. The platform feeds dashboards and Metabase-style self-service views that expose security coverage, unsecured applications, and the riskiest identities, while natural-language exploration helps both customers and internal users investigate findings quickly. By keeping computation close to hundreds of millions of accounts and thousands of applications, Orchid shortened analysis cycles from hours to minutes and gave customers a near-real-time picture of identity risk.",
+  "products_used": [
+    "Snowflake",
+    "dbt",
+    "Dynamic Tables",
+    "Snowpark",
+    "Metabase"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Stores and serves Orchid Security’s client application, identity, and access datasets at large scale.",
+      "layer": "Storage"
+    },
+    {
+      "name": "dbt",
+      "role": "Transforms ingested identity and application data into modeled risk datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dynamic Tables",
+      "role": "Automates scheduled refreshes so identity-analysis pipelines stay current.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Runs Python-based analysis directly on identity graph data without exporting it elsewhere.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Metabase",
+      "role": "Gives internal users a natural-language-friendly dashboard layer for business insight and investigation.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Application, identity, and access data is ingested into Snowflake, modeled with dbt, and kept current with Dynamic Tables. Snowpark performs deeper graph-style analysis in place, and the resulting risk views are delivered through dashboards and Metabase to both Orchid teams and customers.",
+  "integration_points": [
+    "client applications",
+    "authentication flows",
+    "groups and permissions",
+    "customer dashboards",
+    "natural-language exploration"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Orchid Security accelerated analysis by 80%, examined more than 1 million user identities, and gave customers a near-real-time view of identity risk across thousands of applications.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "80% Faster analysis keeps clients ahead of evolving vulnerabilities",
+    "1M+ Number of user identities analyzed to reduce security risks",
+    "ingest data every 30 minutes",
+    "anywhere from 30% to over 60% of identities aren’t managed"
+  ],
+  "architecture_clues": [
+    "Dynamic Tables automate background updates so customers can receive refreshed security views every 30 minutes.",
+    "Snowpark keeps graph-style identity analysis inside Snowflake and avoids previous memory-limit issues.",
+    "The platform spans millions of accounts and thousands of applications for large enterprise customers."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/orchid-security/",
+  "published_date": "2026-10-09",
+  "evidence_quotes": [
+    "80% Faster analysis keeps clients ahead of evolving vulnerabilities",
+    "1M+ Number of user identities analyzed to reduce security risks",
+    "ingest data every 30 minutes",
+    "anywhere from 30% to over 60% of identities aren’t managed by the stack that’s supposed to manage them"
+  ]
+}

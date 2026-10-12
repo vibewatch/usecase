@@ -1,0 +1,67 @@
+{
+  "id": "snowflake-order-co-analytics-modernization",
+  "slug": "snowflake-order-co-analytics-modernization",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Order.co",
+  "industry": "Software / SaaS",
+  "region": "New York, NY, USA",
+  "company_size": "Mid-market",
+  "business_problem": "replace a warehouse where development workloads, production pipelines, ad hoc analytics, and real-time traffic competed for the same resources, creating operational risk and scaling complexity.",
+  "solution_summary": "Order.co uses Snowflake as its unified analytics platform, with dbt transformations and AI-assisted migration tooling, to replace a resource-constrained warehouse and support customer-facing data products, analytics, and machine-learning workloads. Production pipelines, ad hoc analysis, real-time traffic, and large JSON objects are consolidated onto Snowflake so separate compute can run without the contention that previously put customer data products at risk. dbt models power enterprise transformations, while Snowflake AIM and Snowflake CoCo helped one engineer convert and validate nearly 9,000 dashboards during the migration. With fewer platforms to maintain and faster queries across more than 200 business users, the data team can focus on compute efficiency and future conversational analytics experiences instead of tuning queues and clusters.",
+  "products_used": [
+    "Snowflake",
+    "dbt"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the unified analytics platform with independent compute for production pipelines, ad hoc analysis, and customer-facing data products.",
+      "layer": "Storage"
+    },
+    {
+      "name": "dbt",
+      "role": "Runs the company’s transformation logic on Snowflake to support enterprise analytics and data-product workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Operational data, large JSON objects, analytics workloads, and customer-facing data-product pipelines are consolidated in Snowflake, where dbt transformations prepare curated datasets. Business users then consume faster dashboards and analytics while the team validates migrations and prepares future conversational AI experiences.",
+  "integration_points": [
+    "legacy Redshift environment",
+    "customer-facing data products",
+    "large JSON objects",
+    "dashboard migration workflows"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Order.co improved analytics query speed by 2x to 7x, migrated nearly 9,000 dashboards in two months, and gave more than 200 users faster access to reliable analytics on one platform.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2 - 7x Faster analytics queries",
+    "9,000 Dashboards migrated in 2 months",
+    "more than 200 business users"
+  ],
+  "architecture_clues": [
+    "Snowflake replaced a design where separate clusters and queue tuning were needed to isolate workloads.",
+    "Snowflake AIM migration agents and Snowflake CoCo were used to automate dashboard conversion and data validation.",
+    "The company consolidated two separate systems onto Snowflake because native JSON processing simplified development."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/order-co/",
+  "published_date": "2026-09-11",
+  "evidence_quotes": [
+    "2 - 7x Faster analytics queries",
+    "9,000 Dashboards migrated in 2 months",
+    "After moving to Snowflake, we saw query performance improve by two to seven times",
+    "The AIM migration agent in Snowflake CoCo saved us a tremendous amount of time"
+  ]
+}

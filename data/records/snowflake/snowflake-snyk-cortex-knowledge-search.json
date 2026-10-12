@@ -1,0 +1,80 @@
+{
+  "id": "snowflake-snyk-cortex-knowledge-search",
+  "slug": "snowflake-snyk-cortex-knowledge-search",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Snyk",
+  "industry": "Software / SaaS",
+  "region": "London, England",
+  "company_size": "Enterprise",
+  "business_problem": "make large volumes of security, product, and support knowledge quickly accessible to internal teams without forcing them to search scattered documentation and data sources manually.",
+  "solution_summary": "Snyk uses Snowflake, Cortex AI, Cortex Search, and Slack to turn scattered technical documents and security knowledge into an internal natural-language support and insight system. Daily ingestion processes collect unstructured content such as Slack threads, internal documentation, blogs, articles, and Snyk Learn lessons into Snowflake, which serves as the central governed store for reporting and AI retrieval. Cortex Search retrieves the right passages and Cortex AI interprets user questions so employees can ask for product, sales, and customer-support guidance through a Slack chatbot instead of searching across multiple repositories. By keeping vector search, retrieval, and enterprise data inside Snowflake, Snyk simplified security boundaries, accelerated rollout, and created a reusable knowledge platform that answers thousands of questions each month.",
+  "products_used": [
+    "Snowflake",
+    "Cortex AI",
+    "Cortex Search",
+    "Slack"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Stores Snyk’s governed internal datasets and unstructured corpora in one central environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Interprets natural-language questions and generates grounded answers for internal users.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cortex Search",
+      "role": "Retrieves relevant passages from the Snowflake-resident knowledge base for chatbot responses.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Slack",
+      "role": "Provides the user-facing chatbot interface for product, sales, and support questions.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Slack threads, documentation, blogs, articles, and Snyk Learn content are ingested into Snowflake each day. Cortex Search retrieves relevant context, Cortex AI interprets the question, and the resulting answer is returned to employees through a Slack chatbot.",
+  "integration_points": [
+    "Slack threads",
+    "internal documentation",
+    "blogs",
+    "articles",
+    "Snyk Learn lessons"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cybersecurity",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Snyk’s chatbot now answers about 2,500 questions each month, saves roughly 1,250 hours of human time, and gives internal teams product and customer insight in less than a minute.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "2,500 Monthly questions answered by chatbots across customer support, sales, developers, and product managers",
+    "approximately 1,250 hours of human time",
+    "return answers in less than a minute"
+  ],
+  "architecture_clues": [
+    "A daily ingestion application sweeps unstructured content into Snowflake.",
+    "The solution keeps search and vector-style retrieval inside Snowflake for easier security management.",
+    "Snyk originally planned to build the capability in-house before choosing Cortex AI and Cortex Search."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/snyk/",
+  "published_date": "2025-09-18",
+  "evidence_quotes": [
+    "Using Snowflake and Cortex AI, Snyk has built an AI chatbot within Slack",
+    "2,500 answers a month",
+    "saving approximately 1,250 hours of human time",
+    "With the Cortex Agents, we can return answers in less than a minute"
+  ]
+}

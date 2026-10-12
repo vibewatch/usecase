@@ -1,0 +1,82 @@
+{
+  "id": "snowflake-vay-remote-driving-analytics",
+  "slug": "snowflake-vay-remote-driving-analytics",
+  "vendor": "Snowflake",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "customer_name": "Vay",
+  "industry": "Automotive",
+  "region": "Berlin, Germany",
+  "company_size": "Mid-market",
+  "business_problem": "replace a slow, resource-constrained data lake approach so telemetry, support, and operational data could be analyzed fast enough to improve urban remote-driving operations and customer support.",
+  "solution_summary": "Vay uses Snowflake, Snowpipe, Amazon S3, and Cortex AI to analyze remote-driving operations and customer interactions across its urban mobility service. Telemetry and live video metadata from Remote Driving Stations, app events, CRM data, and customer support inputs land in Amazon S3 and are ingested into Snowflake through Snowpipe so diverse semi-structured sources can be queried from one engine. Teams use Snowflake’s compute and geospatial capabilities to explore roughly 80 data sources, track demand, and refine routes and vehicle operations in near real time. Vay also applies Cortex AI and AI_TRANSCRIBE to transcribe, summarize, and categorize support calls, helping customer service teams spot issues in the app or vehicles without manual review. The unified platform replaced an error-prone data lake approach and accelerated experimentation.",
+  "products_used": [
+    "Amazon S3",
+    "Snowpipe",
+    "Snowflake",
+    "Cortex AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon S3",
+      "role": "Holds upstream remote-driving and application data that feeds Vay’s Snowflake environment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowpipe",
+      "role": "Loads diverse, evolving upstream data into Snowflake with schema-agnostic ingestion.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Provides the central analytics engine for operational, geospatial, and customer-service analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Transcribes, summarizes, and categorizes customer calls so support teams can spot issues and trends faster.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Remote Driving Station telemetry, app activity, CRM data, and support-call artifacts land in Amazon S3 and are ingested into Snowflake through Snowpipe. Snowflake powers geospatial and operational analysis, while Cortex AI processes call audio and summaries for customer service and product-improvement workflows.",
+  "integration_points": [
+    "Remote Driving Stations",
+    "mobile application",
+    "CRM systems",
+    "customer call audio",
+    "geospatial demand and route data"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Vay achieved 12x faster compute across 80 data sources, saved customer service agents more than 300 hours through AI-assisted call analysis, and migrated all workloads to Snowflake in three months.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "12x Faster compute on 80 data sources",
+    "Over 300 Hours saved for customer service agents",
+    "migrated all of its data workloads into the AI Data Cloud in just three months"
+  ],
+  "architecture_clues": [
+    "The previous data lake suffered from out-of-resource errors and long query times.",
+    "Snowflake geospatial capabilities are used to track demand and follow vehicles in near real time.",
+    "Cortex AI classifies support calls and uses AI_TRANSCRIBE-based transcripts to identify trends."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/vay/",
+  "published_date": "2025-10-07",
+  "evidence_quotes": [
+    "12x Faster compute on 80 data sources",
+    "saved customer service agents over 300 hours",
+    "Today, the company uses Snowpipe to ingest data into Snowflake from an Amazon S3 storage environment",
+    "Using Snowflake’s AI_TRANSCRIBE feature, Vay can automatically transcribe audio files of its customer calls"
+  ]
+}
