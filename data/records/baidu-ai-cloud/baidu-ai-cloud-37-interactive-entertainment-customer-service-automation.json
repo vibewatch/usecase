@@ -1,0 +1,80 @@
+{
+  "id": "baidu-ai-cloud-37-interactive-entertainment-customer-service-automation",
+  "slug": "baidu-ai-cloud-37-interactive-entertainment-customer-service-automation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "37 Interactive Entertainment",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "37 Interactive Entertainment's legacy intelligent customer service stack struggled to understand gaming slang and fast-changing subculture knowledge, forcing agents to search fragmented knowledge bases manually and miss service-level targets.",
+  "solution_summary": "37 Interactive Entertainment rebuilt its game-support stack on Baidu AI Cloud using large models and retrieval-augmented generation. Qianfan ModelBuilder was used to tune prompts and semantic understanding for gaming slang and subculture terms, while Qianfan AppBuilder orchestrated RAG flows that combined the existing service knowledge base with player behavior data and a dynamic knowledge graph. Baidu AI Cloud Keyue Intelligent Customer Service became the frontline support layer, binding common intents such as password recovery or event-rule questions to standard prompt templates for fast answers. More complex issues, including bug and recharge cases, triggered multi-turn dialogues to collect device and scenario details before the system called technical-team interfaces to create tickets. Unresolved conversations were clustered and reviewed so prompts, constraints, and tone controls could be updated continuously.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Qianfan AppBuilder",
+    "Baidu AI Cloud Keyue Intelligent Customer Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the large-model and prompt-iteration environment used to improve semantic understanding for gaming-specific language and workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Orchestrates the RAG customer-service flows that combine prompts, knowledge retrieval, and multi-turn issue handling.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Baidu AI Cloud Keyue Intelligent Customer Service",
+      "role": "Runs the frontline game-support experience that answers common requests and escalates complex cases to downstream teams.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Player questions enter Baidu AI Cloud Keyue, where Qianfan AppBuilder routes them through RAG workflows that retrieve the customer-service knowledge base, player behavior data, and the dynamic knowledge graph. Qianfan ModelBuilder-backed prompts then generate answers, while complex issues trigger multi-turn clarification and ticket creation through technical-team interfaces.",
+  "integration_points": [
+    "Customer service knowledge base",
+    "Player behavior data",
+    "Dynamic knowledge graph",
+    "Technical team ticketing interface"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The rebuilt assistant delivered more human-like answers, reduced manual escalations on unclear player requests, and lifted SLA attainment from 61% to 99.3% while improving complex-issue diversion accuracy.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Complex-issue diversion accuracy increased 2.4x.",
+    "SLA attainment increased 38.3 percentage points to 99.3%.",
+    "The original semantic-understanding accuracy for gaming-community language was 62.3%.",
+    "New customer service hires previously needed hundreds of hours of specialized training.",
+    "Response delays caused by retrieval mistakes reached 2300+ minutes per month."
+  ],
+  "architecture_clues": [
+    "RAG-based intelligent customer service system",
+    "Dynamic knowledge graph combines customer-service knowledge with player behavior data",
+    "High-frequency intents are bound to prompt templates for near-instant responses",
+    "Complex issues trigger multi-turn dialogue and technical-team ticket creation",
+    "Unresolved-session clustering is used to revise prompts and constraints"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/sanqihuyu.html",
+  "published_date": "2025-06-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "37 Interactive Entertainment rebuilt its intelligent customer service system with Baidu AI Cloud large models plus RAG technology (original: 三七互娱基于百度智能云大模型+RAG技术重构智能客服系统).",
+    "Complex-issue diversion accuracy increased by 2.4x and SLA attainment rose to 99.3% (original: 实现游戏垂直领域语义理解准确率从62.3%提升至行业领先水平，SLA达成率跃升38.3个百分点至99.3%).",
+    "The model combines customer-service domain knowledge with player behavior data to build a dynamically updated knowledge graph (original: 将游戏客服领域的专业知识…与玩家行为数据结合，构建动态更新的知识图谱).",
+    "High-frequency questions are bound to prompt templates for second-level responses, while complex issues trigger multi-turn dialogues and technical-team ticket interfaces (original: 将高频问题…与提示词模板绑定，实现秒级响应；对复杂问题…再调用技术团队接口生成工单).",
+    "The system adds empathy constraints such as 'player-centered' and 'friendly tone' so AI responses balance professionalism and affinity (original: 通过添加“以玩家为中心”“语气友好”等提示词约束，平衡AI回答的专业性与亲和力).",
+    "Service SLA attainment improved from 61% to 99.3% (original: 服务SLA达成率从61%提升至99.3%)."
+  ],
+  "source_language": "zh"
+}
