@@ -1,0 +1,95 @@
+{
+  "id": "nvidia-agility-robotics-humanoid-robot-control",
+  "slug": "nvidia-agility-robotics-humanoid-robot-control",
+  "vendor": "NVIDIA",
+  "customer_name": "Agility Robotics",
+  "industry": "Manufacturing",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Agility Robotics needed a reliable way to train whole-body control for humanoid robots that could work in human-built warehouses and factories without costly facility redesigns or risky trial-and-error learning on the production floor.",
+  "solution_summary": "Agility Robotics built a simulation-first training stack for Digit by combining NVIDIA Isaac Sim, Isaac Lab, NVIDIA Omniverse, OpenUSD, and GPU-accelerated reinforcement learning. Engineers model Digit's chassis and contact surfaces in Isaac Sim, then ingest customer CAD and BIM data into shared OpenUSD scenes that capture aisle widths, floor friction, lighting, and shove forces. These digital-twin scenarios flow into Isaac Lab, where millions of parallel reinforcement-learning episodes train a whole-body controller on NVIDIA GPUs and keep perception tightly coupled with motion planning. Agility then validates the same policy in a containerized MuJoCo pipeline to expose simulator-specific corner cases before deployment to real robot hardware. This end-to-end workflow lets Digit learn balance recovery, obstacle avoidance, and material-handling behavior in simulation so trained controllers transfer into live warehouse and manufacturing operations without lengthy manual retuning.",
+  "products_used": [
+    "NVIDIA Isaac Sim",
+    "Isaac Lab",
+    "NVIDIA Omniverse",
+    "OpenUSD",
+    "NVIDIA GPUs",
+    "MuJoCo"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Hosts the physics-based robot and facility simulations used to model Digit and its operating environments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Isaac Lab",
+      "role": "Runs large-scale reinforcement-learning training to refine Digit's whole-body control policies.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Provides the simulation platform foundation for Agility's digital-twin training workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OpenUSD",
+      "role": "Keeps robot geometry, joint data, and customer facility models in a shared scene graph for simulation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA GPUs",
+      "role": "Supply the accelerated compute needed for billions of simulation interactions and fast controller training.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MuJoCo",
+      "role": "Serves as a second, containerized physics environment to validate policies against simulator-specific corner cases.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Robot geometry plus customer CAD and BIM data are modeled in Isaac Sim and OpenUSD scenes, simulation episodes flow into Isaac Lab for GPU-accelerated reinforcement learning, validated policies are cross-checked in MuJoCo, and the resulting controllers are deployed onto Digit robots in warehouse and manufacturing environments.",
+  "integration_points": [
+    "customer CAD data",
+    "BIM data",
+    "GXO Logistics fulfillment center",
+    "Schaeffler Cheraw plant",
+    "containerized MuJoCo pipeline"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Agility Robotics cut controller iteration cycles from weeks to days, trained Digit across billions of simulated interactions, and transferred whole-body control policies from digital twins into live warehouse and manufacturing operations with better stability, higher reliability, and faster deployment readiness.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "billions of simulation steps",
+    "reduced from weeks to days",
+    "millions of parallel reinforcement-learning episodes",
+    "years of real-world learning for Digit in just hours"
+  ],
+  "architecture_clues": [
+    "Agility uses a simulation-first workflow that keeps perception and motion coupled during training.",
+    "OpenUSD scenes preserve every joint, mass, and contact surface while also incorporating customer CAD and BIM data.",
+    "The team validates the same controller policy in a containerized MuJoCo pipeline before deploying to real robot hardware.",
+    "Production deployments cited in the story include a Georgia fulfillment center and Schaeffler's Cheraw, South Carolina plant."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/agility-robotics-digit-humanoid-robot/",
+  "published_date": "2026-02-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Engineers begin by modeling the robot's chassis in Isaac Sim, using OpenUSD to preserve every joint, mass, and contact surface.",
+    "Digital twin simulations flow into Isaac Lab, where millions of parallel reinforcement-learning episodes refine Digit's whole-body controller.",
+    "NVIDIA GPUs push training into the billions of interactions that true dexterity demands.",
+    "Iteration cycles for developing and testing new controllers are reduced from weeks to days through multi-GPU physics-based simulation before real-world deployment.",
+    "Isaac Sim running on NVIDIA GPUs lets us simulate years of real-world learning for Digit in just hours."
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "nvidia-eeve-lawn-care-home-security-robotics",
+  "slug": "nvidia-eeve-lawn-care-home-security-robotics",
+  "vendor": "NVIDIA",
+  "customer_name": "EEVE",
+  "industry": "Consumer Goods",
+  "region": "Unknown",
+  "company_size": "Unknown",
+  "business_problem": "EEVE needed a practical personal robot that could autonomously handle lawn care and home security, make decisions in real time, and support continuous feature expansion without forcing customers to manage separate specialized devices.",
+  "solution_summary": "EEVE built Willow as an edge AI personal robot on the NVIDIA Jetson Nano platform, combining the company's eOS robot operating system with TensorFlow, OpenCV, NVIDIA CUDA Toolkit, and cuDNN to run lawn-care and home-security functions on-device. Sensor and night-vision inputs are processed locally on Jetson Nano so Willow can navigate, avoid obstacles, and make real-time decisions without relying on remote inference. The same embedded stack drives the Toadi mowing attachment for grass cutting, while computer-vision and autonomous-navigation models coordinate patrol, transport, sweeping, and future weeding tasks. eOS orchestrates the robot's AI features and hardware integration, letting EEVE ship one multi-purpose platform rather than separate products for mowing and security. By keeping compute at the edge and using GPU-accelerated deep-learning frameworks, EEVE can continuously extend Willow's capabilities while maintaining a consumer-friendly experience for deployed robots.",
+  "products_used": [
+    "Willow",
+    "NVIDIA Jetson Nano",
+    "EEVE Robot Operating System (eOS)",
+    "TensorFlow",
+    "OpenCV",
+    "NVIDIA CUDA Toolkit",
+    "NVIDIA cuDNN"
+  ],
+  "solution_components": [
+    {
+      "name": "Willow",
+      "role": "Provides the consumer-facing robotic platform for mowing, security monitoring, transport, and related tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Jetson Nano",
+      "role": "Supplies the embedded edge compute that runs Willow's AI-driven features in real time.",
+      "layer": "Compute"
+    },
+    {
+      "name": "EEVE Robot Operating System (eOS)",
+      "role": "Coordinates Willow's hardware integration and AI feature orchestration across the robot platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "TensorFlow",
+      "role": "Supports the deep-learning models behind Willow's computer-vision and autonomous-navigation functions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenCV",
+      "role": "Processes visual inputs that help Willow understand its surroundings and react to obstacles.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA CUDA Toolkit",
+      "role": "Accelerates the GPU-enabled algorithms used by Willow's embedded AI stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA cuDNN",
+      "role": "Optimizes neural-network inference for Willow's edge AI workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Visual and sensor inputs are captured on Willow, OpenCV and TensorFlow process them on Jetson Nano under eOS control, CUDA and cuDNN accelerate inference for navigation and security logic, and the robot drives mowing, patrol, and other actions directly at the edge.",
+  "integration_points": [
+    "Toadi mowing tool",
+    "night vision",
+    "embedded AI capabilities"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Willow gave EEVE a single AI-powered personal robot for lawn care and home security, helped the company deploy more than 2,500 robots, delivered an easy-to-use consumer experience, and created a platform the team can keep extending with new capabilities such as weeding and patio sweeping.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 2,500 EEVE robots deployed"
+  ],
+  "architecture_clues": [
+    "Jetson Nano keeps Willow's AI processing on-device for real-time decisions at the edge.",
+    "eOS is EEVE's proprietary control layer for integrating mowing, security, and other robotic functions.",
+    "The platform combines night-vision security behavior with autonomous mowing in one robot."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/ai-powered-lawn-care-home-security-robot/",
+  "published_date": "2024-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Built on the EEVE Robot Operating System (eOS) and powered by the NVIDIA Jetson Nano platform, Willow uses advanced hardware, customized software, and AI to help customers effortlessly maintain their lawns, protect their properties at night, and so much more.",
+    "Its edge computing capabilities also enable the robot to make decisions in real time and respond to changes in its environment.",
+    "GPU acceleration and deep learning frameworks, such as TensorFlow, make it easier to develop complex algorithms for computer vision and autonomous navigation.",
+    "With over 2,500 EEVE robots deployed, the integration of the platform has been crucial to EEVE's success in the personal robotics market."
+  ]
+}

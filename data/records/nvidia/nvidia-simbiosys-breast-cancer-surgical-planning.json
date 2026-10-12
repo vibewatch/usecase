@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-simbiosys-breast-cancer-surgical-planning",
+  "slug": "nvidia-simbiosys-breast-cancer-surgical-planning",
+  "vendor": "NVIDIA",
+  "customer_name": "SimBioSys",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Traditional breast-cancer presurgical planning relied on grayscale MRI images and short radiology summaries, which made tumor geometry hard to interpret, contributed to variable surgical decisions and unnecessary mastectomies, and left recurrence-risk analysis slow enough to delay treatment planning.",
+  "solution_summary": "SimBioSys built TumorSight Viz as a cloud-based medical-imaging workflow on NVIDIA infrastructure to turn routine breast MRIs into interactive 3D surgical models. MRI volumes move through a MONAI-driven preprocessing and segmentation pipeline, where AI models are pretrained on NVIDIA A100 Tensor Core GPUs and accelerated with NVIDIA CUDA-X libraries. The system then renders color-coded volumetric views of tumors, veins, and healthy tissue, and calculates measurements such as tumor volume and tumor-to-nipple distance for surgeons. SimBioSys uses CUDA-X drop-in libraries such as cuCIM, cuML, and cuBLAS to speed processing with minimal code changes, and packages model artifacts for clinical delivery. The result is a production workflow that plugs into standard imaging pipelines, produces clinically usable 3D views in minutes, and also supports in-development recurrence-risk analysis that returns results in hours instead of weeks.",
+  "products_used": [
+    "TumorSight Viz",
+    "NVIDIA A100 Tensor Core GPUs",
+    "MONAI",
+    "NVIDIA CUDA-X"
+  ],
+  "solution_components": [
+    {
+      "name": "TumorSight Viz",
+      "role": "Delivers interactive 3D tumor models and surgical measurements to clinicians for presurgical planning.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Provide cloud GPU compute for pretraining and running SimBioSys' medical-imaging models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MONAI",
+      "role": "Supports preprocessing, model development, validation, and packaging across the medical-imaging pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA-X",
+      "role": "Accelerates training, high-resolution inference, and imaging workloads with GPU-optimized libraries.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Routine breast MRI scans enter SimBioSys' imaging pipeline, MONAI and CUDA-X accelerate segmentation models on A100 GPUs, and TumorSight Viz converts the outputs into color-coded 3D models and measurements that surgeons review inside existing radiology and surgical workflows.",
+  "integration_points": [
+    "routine breast MRI scans",
+    "standard imaging pipelines",
+    "radiology workflows",
+    "surgical planning workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "TumorSight Viz gave surgeons clearer anatomical visibility, supported more confident breast-conserving decisions, reduced uncertainty in presurgical planning, and helped SimBioSys compress in-development recurrence-risk analysis from weeks to hours while demonstrating reliable performance across multi-site retrospective validation.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "over 2.3 million patients annually",
+    "above 20 percent",
+    "in hours instead of weeks",
+    "more than 1,600 retrospective cases",
+    "over nine institutions"
+  ],
+  "architecture_clues": [
+    "SimBioSys pretrains medical-imaging models on NVIDIA A100 Tensor Core GPUs in the cloud.",
+    "The workflow takes routine breast MRIs as input and returns interactive, color-coded volumetric models for surgical planning.",
+    "CUDA-X replacements such as cuCIM, cuML, and cuBLAS accelerated processing with essentially no code changes."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/simbiosys/",
+  "published_date": "2026-04-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Leveraging NVIDIA A100 Tensor Core GPUs in the cloud, SimBioSys pretrains its advanced medical imaging models and deploys AI-powered 3D segmentation using the MONAI and NVIDIA CUDA-X libraries.",
+    "TumorSight Viz integrates with standard imaging pipelines, taking routine breast MRIs as input and delivering interactive 3D models without disrupting radiology or surgical workflows.",
+    "SimBioSys' in-development AI-powered cancer recurrence risk analysis also delivers results in hours instead of weeks, accelerating treatment planning and lowering costs.",
+    "TumorSight Viz has demonstrated strong concordance with radiologist annotations, accurate delineation of tumor size relative to breast volume, and consistent performance across more than 1,600 retrospective cases spanning over nine institutions.",
+    "NVIDIA GPUs allow SimBioSys to generate interactive, color-coded 3D models in minutes rather than hours."
+  ]
+}
