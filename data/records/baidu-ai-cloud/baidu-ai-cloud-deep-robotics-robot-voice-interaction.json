@@ -1,0 +1,80 @@
+{
+  "id": "baidu-ai-cloud-deep-robotics-robot-voice-interaction",
+  "slug": "baidu-ai-cloud-deep-robotics-robot-voice-interaction",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Deep Robotics",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Deep Robotics needed dependable long-distance voice interaction for its quadruped robots, but far-field use in noisy, reverberant 2-5 meter environments made wake-word detection and instruction accuracy difficult.",
+  "solution_summary": "Deep Robotics used Baidu AI Cloud to harden the voice-interaction stack inside the Jueying Lite3 robot. The implementation pairs Baidu's Qianfan model-development and speech stack with an end-to-end speech-language model optimized for intelligent hardware. The voice layer is tuned for far-field human-robot interaction, where low signal-to-noise ratios, moving microphones and variable robot orientation would otherwise break recognition quality. Baidu supplied acoustic-structure optimization, wake-word customization and cloud content integration so Lite3 could support voice wake-up, natural dialogue, body-following scenarios and consumer-style content requests in a single robot experience. In operation, user speech is captured by the robot's microphone array, processed through Baidu's speech and localization pipeline, then passed to the robot interaction logic and connected cloud content services. This let Deep Robotics focus on product behavior and service design while outsourcing the hardest parts of the speech front end to a stack already proven in deployed devices.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "End-to-End Speech-Language Model",
+    "Speech Technology",
+    "Voice Wake-Up and Sound Source Localization"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Supports the model-development environment behind the robot's language and interaction capabilities.",
+      "layer": "Compute"
+    },
+    {
+      "name": "End-to-End Speech-Language Model",
+      "role": "Processes spoken commands in far-field scenarios and improves the accuracy of instructions sent to downstream logic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Speech Technology",
+      "role": "Provides the core recognition, wake-up and conversational speech stack for the robot.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voice Wake-Up and Sound Source Localization",
+      "role": "Detects user activation commands and pinpoints where the speaker is located around the robot.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Voice commands are captured by the robot in 2-5 meter far-field conditions, run through Baidu's speech and localization pipeline for wake-up and recognition, then passed to robot interaction logic and cloud content services so Lite3 can answer, react and guide follow-on behaviors.",
+  "integration_points": [
+    "Robot microphone array",
+    "Robot interaction logic",
+    "Cloud content services",
+    "Wake-word customization"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Deep Robotics improved the realism and reliability of robot interaction, gained stronger wake-word and localization performance in noisy environments, and reduced the amount of internal effort required for acoustic optimization.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Wake-word recognition exceeded 90% under high background noise.",
+    "The robot supports 360-degree far-field sound-source localization.",
+    "Within 5 meters, sound-source localization reaches ±15 degrees precision."
+  ],
+  "architecture_clues": [
+    "The speech stack is optimized for 2-5 meter far-field interaction",
+    "Baidu supplied acoustic-structure design optimization in addition to software",
+    "Cloud content services can return music, stories and other content",
+    "Wake-word customization is used to match the robot's character and IP"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/deep.html",
+  "published_date": "2025-06-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "In the Jueying Lite3 voice-interaction scenario, the typical distance is 2 to 5 meters, creating low signal-to-noise, background-noise and reverberation challenges (original: 在与绝影Lite3机器人的语音交互场景中，通常是2~5米的远场场景，这带来了一系列的复杂挑战).",
+    "Baidu AI Cloud provided a far-field human-robot voice-interaction solution for the Jueying Lite3 series (original: 百度智能云为云深处科技绝影Lite3系列供远场人机语音交互方案).",
+    "Under high background noise, wake-up recognition exceeds 90% and 5-meter localization reaches ±15 degrees (original: 在高背噪工况下，语音唤醒识别率高于90%，并具备360度远场声源定位，在5米范围内可实现±15度高精度定位).",
+    "Baidu's acoustic-structure design optimization lets the robotics team focus more on product-function definition (original: 百度提供的声学结构设计优化技术支持，让云深处机器人产品享有业界领先的声学效果，云深处科技研发团队可更聚焦于产品功能定义)."
+  ],
+  "source_language": "zh"
+}

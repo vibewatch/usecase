@@ -1,0 +1,74 @@
+{
+  "id": "baidu-ai-cloud-vivo-real-time-mobile-assistant",
+  "slug": "baidu-ai-cloud-vivo-real-time-mobile-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "vivo",
+  "industry": "Consumer Goods",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "vivo wanted its BlueLM-powered phone assistant to answer general questions while also retrieving current and authoritative information without forcing users to open browsers or other apps.",
+  "solution_summary": "vivo integrated Baidu AI Cloud's Qianfan platforms into the BlueLM and BlueLM Assistant stack so its phone assistant could mix model reasoning with fresh web knowledge. The core architectural change was the introduction of a retrieval-augmented generation path connected to Baidu Search. When users ask about weather, stocks, exchange rates, policy changes, travel or current affairs, BlueLM Assistant can invoke Baidu Search-sourced retrieval components rather than relying only on a static device model. The result is a hybrid design in which vivo keeps its own BlueLM device-side experience and assistant persona, while Baidu provides model services and the RAG pathway that grounds answers on recent information with source traceability. The same collaboration also explores a broader phone-agent ecosystem, positioning the assistant as a front door for more specialized mobile intelligence rather than only a chat interface.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Qianfan Application Platform",
+    "RAG with Baidu Search",
+    "BlueLM Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Supports the large-model integration and optimization work behind BlueLM Assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan Application Platform",
+      "role": "Packages the application workflows that connect assistant requests to model services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "RAG with Baidu Search",
+      "role": "Retrieves current, sourceable information for time-sensitive assistant questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BlueLM Assistant",
+      "role": "Provides the user-facing intelligent-assistant experience on vivo phones.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Phone-assistant questions are routed through BlueLM Assistant; when a topic needs timely information, RAG with Baidu Search retrieves fresh results, which the model stack summarizes and returns inside the phone assistant without forcing a browser handoff.",
+  "integration_points": [
+    "Phone assistant",
+    "Baidu Search",
+    "Policy and news sources",
+    "Travel and finance queries"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "vivo upgraded its assistant from a general-purpose model interface to a real-time service surface that saves users time, improves accuracy and strengthens the brand's AI-phone positioning.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The design explicitly uses RAG components connected to Baidu Search",
+    "The assistant delivers results without requiring users to switch into a browser",
+    "The collaboration also explores broader mobile-agent ecosystems"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/vivo.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The challenge was enabling BlueLM Assistant to fetch the latest internet information while preserving general Q&A abilities (original: 首先面临的主要挑战是如何让“蓝心小V”在保持通用问答的基础上，实现实时获取互联网最新资讯和权威内容的能力).",
+    "vivo used Qianfan together with the RAG with Baidu Search components to connect to Baidu Search-sourced real-time content (original: 通过RAG with Baidu Search系列组件接入与百度搜索同源的实时联网内容).",
+    "The solution improves retrieval for weather, stocks, exchange rates, policy, travel and current events without requiring users to open a browser (original: 针对天气、股票、汇率、政策、出行、时事新闻等领域迅速、准确地为用户提供所需信息，无需跳转浏览器)."
+  ],
+  "source_language": "zh"
+}

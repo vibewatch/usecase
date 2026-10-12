@@ -1,0 +1,81 @@
+{
+  "id": "baidu-ai-cloud-samsung-electronics-china-mobile-ai-assistant",
+  "slug": "baidu-ai-cloud-samsung-electronics-china-mobile-ai-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Samsung Electronics China",
+  "industry": "Consumer Goods",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Samsung needed to bring reliable generative-AI capabilities into its China smartphone lineup, covering typing, office work, voice assistance and call handling while reducing hallucinations and unstable output formatting.",
+  "solution_summary": "Samsung Electronics China worked with Baidu AI Cloud to embed large-model services inside Galaxy AI experiences on mobile devices. Baidu's Qianfan model-development stack and ERNIE-based reasoning were used to support several user-facing workflows: the Samsung keyboard now rewrites and expands text in different tones, office functions transform recordings, webpages and documents into structured summaries, and Bixby gains stronger natural-language understanding for fast, current answers. The call assistant adds preconfigured call-management behavior so the phone can answer common delivery or courier calls with context-appropriate language. In practice, the architecture routes user prompts from typing, meetings, browsing and voice interactions into model inference and retrieval logic, then returns formatted results through Galaxy AI interfaces, helping Samsung deploy more consistent, multi-scenario AI assistance without rebuilding each feature separately.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Voice Translation",
+    "Bixby",
+    "Galaxy AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the large-model development and optimization environment behind Samsung's phone AI features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Voice Translation",
+      "role": "Supports multilingual and call-related voice interactions inside the mobile experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Bixby",
+      "role": "Acts as the upgraded voice-assistant surface for natural-language queries and command execution.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Galaxy AI",
+      "role": "Packages Samsung's cross-scenario AI functions for writing, office, assistant and call experiences.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "User prompts from the keyboard, meeting recordings, webpages, documents, voice commands and phone calls are sent into Galaxy AI workflows, where Qianfan-backed models interpret intent, generate rewrites or summaries, and return results to Bixby, the keyboard and call-assistant interfaces.",
+  "integration_points": [
+    "Samsung keyboard",
+    "Meeting recordings",
+    "Web pages",
+    "Documents",
+    "Phone-call workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "Samsung expanded Galaxy AI across text, office, voice and call scenarios, improved assistant comprehension and gave users a more practical, current and personalized mobile AI experience.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Voice-assistant comprehension improved 50%."
+  ],
+  "architecture_clues": [
+    "The deployment spans input, office, voice assistant and call-assistant scenarios on smartphones",
+    "The office workflow extracts summaries from recordings, webpages and documents",
+    "The call assistant applies different tones and scripts based on preconfigured scenarios",
+    "The implementation focused on reducing hallucinations and unstable formatting"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/samsung.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Samsung and Baidu AI Cloud worked together in China to comprehensively build AI scenarios while dealing with hallucinations and unstable output formats (original: 在中国市场，百度智能云与中国三星深入合作，面对大模型幻觉、格式输出不稳定等多重挑战，不断打磨、优化效果，全面打造AI场景).",
+    "The upgraded Samsung input method offers grammar correction, tone conversion and scene-based expansion (original: 升级三星输入法，为用户提供语法修正与校对、包括随意风格在内的多种语气转换、根据场景进行扩写等功能).",
+    "The office scenario can intelligently typeset meeting minutes and summarize recordings, webpages and documents (original: 不仅可以将会议纪要进行智能排版，对录音、网页、文档等内容还可以提取摘要与总结).",
+    "Bixby is upgraded through natural-language interaction to provide highly timely information and execute owner commands (original: 升级Bixby语音助手。通过自然语言的交互，为用户提供高时效性的可用信息，执行机主指令).",
+    "The assistant's understanding improved by 50% (original: 语音助手理解力提升50%)."
+  ],
+  "source_language": "zh"
+}

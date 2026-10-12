@@ -1,0 +1,77 @@
+{
+  "id": "baidu-ai-cloud-nio-cockpit-ai-partner",
+  "slug": "baidu-ai-cloud-nio-cockpit-ai-partner",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "NIO",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "NIO wanted to bring large-model capabilities into its smart cockpit so drivers could get richer open-domain Q&A, travel guidance and emotional interaction without sacrificing the in-car user experience.",
+  "solution_summary": "NIO and Baidu AI Cloud used ERNIE and Baidu's model infrastructure to turn NOMI into a cloud-connected cockpit AI partner across the NT2.0 and 2.2 vehicle platforms. The architecture adds a new NOMI GPT interface layer that can render generated content more naturally, while the large-model service underneath supports encyclopedia Q&A, travel guidance, creative learning, unlimited chatting, expressive mood interactions and vehicle-use questions. One especially cockpit-specific feature is the 'magic atmosphere' workflow, which uses large-model reasoning to map user intents into millions of ambient-light combinations so the car can translate language into a physical cabin effect. The system also uses Baidu's heterogeneous-compute and large-model stack to keep the assistant responsive at vehicle scale. In practice, driver or passenger prompts enter NOMI, pass through cloud-side inference and retrieval logic, and return as multimodal responses inside the cabin interface.",
+  "products_used": [
+    "BaiGe Heterogeneous Compute Platform",
+    "Qianfan Large Model Platform",
+    "NOMI GPT",
+    "ERNIE Large Model"
+  ],
+  "solution_components": [
+    {
+      "name": "BaiGe Heterogeneous Compute Platform",
+      "role": "Provides the compute backbone for large-model services behind the cockpit assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan Large Model Platform",
+      "role": "Hosts and manages the model capabilities integrated into NIO's cockpit assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NOMI GPT",
+      "role": "Acts as the user-facing intelligent cockpit partner with a new generative interface.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ERNIE Large Model",
+      "role": "Supplies the reasoning and generation used for Q&A, guidance and emotional interaction.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User prompts inside the vehicle enter the NOMI interface, are sent to the cloud large-model stack for inference and reasoning, and then return as encyclopedic answers, trip guidance, ambient settings or vehicle-help responses inside the cabin UI.",
+  "integration_points": [
+    "NT2.0 vehicles",
+    "NT2.2 vehicles",
+    "In-cabin ambient lighting",
+    "Vehicle information and owner-service functions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "NIO launched a more capable in-car AI partner that broadened cockpit scenarios, deepened emotional interaction and showed how large models can differentiate the smart-cabin experience.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "The first release was pushed to nearly 200,000 vehicles.",
+    "The system can choose among more than 16.7 million ambient-light combinations."
+  ],
+  "architecture_clues": [
+    "The feature launched across NIO's NT2.0 and 2.2 vehicle platforms",
+    "The assistant combines open-domain Q&A with vehicle-specific knowledge and cabin control",
+    "Ambient-light orchestration is driven by language reasoning rather than fixed presets"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/weilai.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu AI Cloud and NIO built a cockpit AI partner with ERNIE and launched it across all NT2.0 and 2.2 vehicles, with nearly 200,000 cars already pushed (original: 借助文心大模型共同打造蔚来座舱AI伙伴,首批上线蔚来NT2.0/2.2平台所有车型，目前已推送近20万台车).",
+    "NOMI GPT supports encyclopedia Q&A, travel planning, learning and creation, unlimited chat and vehicle-use Q&A (original: 百科问答……出行攻略……学习创作……无限趣聊……用车问答).",
+    "The assistant can choose suitable ambient lighting from more than 16.7 million combinations based on user intent (original: 在1670多万种氛围灯搭配中，找到适合用户表达的氛围搭配)."
+  ],
+  "source_language": "zh"
+}

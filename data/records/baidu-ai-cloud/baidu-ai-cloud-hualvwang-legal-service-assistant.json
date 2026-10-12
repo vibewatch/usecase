@@ -1,0 +1,81 @@
+{
+  "id": "baidu-ai-cloud-hualvwang-legal-service-assistant",
+  "slug": "baidu-ai-cloud-hualvwang-legal-service-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Hualvwang",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Hualvwang needed a way to help ordinary users describe legal issues more precisely, retrieve relevant legal knowledge faster and scale personalized legal-service triage across a very large user base.",
+  "solution_summary": "Hualvwang used Baidu AI Cloud's Qianfan large-model platform to build two tightly related legal-service features on top of its huge legal corpus. The first is the 'recommended questions' flow, which uses Baidu's generation, understanding, logic and memory capabilities to refine vague user requests into clearer legal-service intents and then steer users toward the right area of law, knowledge and follow-up services. The second is the 'Xiaolvxia' legal adviser, which can generate legal-opinion content from real-time consultations and follow-up questionnaire responses. Under the hood, the platform relies on more than two decades of Hualvwang knowledge assets, more than 900 million legal-knowledge entries and large-scale consultation data to ground model outputs in the site's own domain material. This turns the model from a generic chat interface into a two-sided platform asset: it improves user-side discovery and simultaneously helps the business assess lead value, connect people with appropriate legal experts and strengthen the site's content ecosystem.",
+  "products_used": [
+    "Qianfan AppBuilder",
+    "Qianfan ModelBuilder",
+    "Recommended Questions",
+    "Xiaolvxia Legal Adviser"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Packages the legal-consultation application flows that sit on top of Baidu's large models.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the model-development environment for legal-intent understanding and content generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Recommended Questions",
+      "role": "Helps users narrow vague legal issues into clearer needs and service directions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Xiaolvxia Legal Adviser",
+      "role": "Generates legal-opinion content and structured assessments from user consultations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User legal questions enter the recommended-questions workflow, which uses domain knowledge and model reasoning to refine intent and retrieve relevant legal content; follow-up answers then feed the Xiaolvxia adviser, which generates legal opinions and assessment forms for downstream service routing.",
+  "integration_points": [
+    "Legal consultation workflows",
+    "Lawyer matching",
+    "Assessment questionnaires",
+    "Legal knowledge base"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Hualvwang improved legal-intent discovery, accelerated access to relevant knowledge and services and created a higher-volume, better-targeted legal-service funnel on top of its content assets.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "Daily ERNIE invocation peaks exceeded 10 million.",
+    "The platform has more than 900 million high-quality legal knowledge entries.",
+    "Issue-to-expert matching accuracy reached 97%."
+  ],
+  "architecture_clues": [
+    "The deployment uses Hualvwang's 20-plus years of legal data as the grounding layer",
+    "Questionnaire generation is used to collect structured follow-up information",
+    "The system evaluates lead value as part of the consultation flow"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/hualvwang.html",
+  "published_date": "2025-12-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Hualvwang used Baidu AI Cloud's Qianfan platform and ERNIE to build the 'recommended questions' feature from zero and create the 'Xiaolvxia' legal adviser (original: 基于百度智能云千帆大模型平台调用百度文心大模型，聚焦法律咨询场景，帮助客户从0到1搭建「推荐问」功能……同时，大模型助力客户打造「小律侠」法律顾问).",
+    "The platform has more than 900 million legal-knowledge entries and more than 20 years of high-quality legal support (original: 平台沉淀优质法律知识超9亿条……基于华律网超大规模的用户数据以及超过20年沉淀的优质法律支持).",
+    "Daily model invocations exceeded 10 million at peak (original: 文心大模型日均调用量峰值超过1000万).",
+    "The model can help connect users to the right legal experts with 97% accuracy (original: 帮助对接到该细分领域的法律专家，准确率达到97%)."
+  ],
+  "source_language": "zh"
+}

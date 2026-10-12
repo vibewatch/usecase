@@ -1,0 +1,84 @@
+{
+  "id": "baidu-ai-cloud-hangzhou-meteorological-bureau-real-time-weather-observation",
+  "slug": "baidu-ai-cloud-hangzhou-meteorological-bureau-real-time-weather-observation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Hangzhou Meteorological Bureau",
+  "industry": "Public Sector",
+  "region": "China",
+  "company_size": "Public sector",
+  "business_problem": "The bureau needed to replace slow, subjective manual observations of cloud shape, cloud amount, frost and other weather phenomena with a more continuous and accurate observation process.",
+  "solution_summary": "Hangzhou Meteorological Bureau built an AI observation workflow around field imaging and Baidu's EasyDL stack. High-definition fisheye cameras at the top of observation poles collect all-sky images, while ground-facing cameras capture grassland and surface conditions at the climate station. Those image streams are sent through APIs to custom EasyDL models trained on more than a million source images and a curated labeled set covering cloud forms, cloud amount, weather conditions, frost, rime and tea-frost scenarios. The bureau used PaddlePaddle-based hardware and Baidu's no-code AI development platform to package the recognition pipeline so it can run in real time and feed results directly into the meteorological information system. Instead of relying on observers to interpret conditions by eye, the bureau now has a repeatable image-driven process that supports forecast operations and moves weather observation toward full automation.",
+  "products_used": [
+    "PaddlePaddle All-in-One Appliance",
+    "EasyDL No-Code AI Development Platform",
+    "All-Sky Fisheye Camera",
+    "Meteorological Information System"
+  ],
+  "solution_components": [
+    {
+      "name": "PaddlePaddle All-in-One Appliance",
+      "role": "Provides the packaged AI hardware environment for the bureau's observation models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "EasyDL No-Code AI Development Platform",
+      "role": "Hosts the customized weather-recognition models and serves inference results through APIs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "All-Sky Fisheye Camera",
+      "role": "Captures high-definition sky imagery for cloud and weather-condition recognition.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Meteorological Information System",
+      "role": "Receives AI recognition outputs for forecasting and operational meteorological services.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "All-sky and ground images from 28 weather stations are captured by field cameras, sent by API to EasyDL recognition models running on the PaddlePaddle environment, and the returned labels for cloud, frost and weather conditions are written into the meteorological information system for forecasting use.",
+  "integration_points": [
+    "All-sky cameras",
+    "Ground cameras",
+    "API-based model calls",
+    "Meteorological information system",
+    "Weather app distribution"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The bureau created a practical AI weather-observation workflow that raised recognition accuracy high enough for operational use, reduced dependence on manual observers and opened a path to fully automated ground meteorological observation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "The bureau collected image data from 28 meteorological stations.",
+    "More than 1 million source images were collected and 11,000+ were selected for training.",
+    "Overall model recognition accuracy exceeded 85%.",
+    "Cloud-form recognition covered 20+ classes with accuracy above 80%.",
+    "Cloud-amount recognition covered 12 classes with accuracy above 80%."
+  ],
+  "architecture_clues": [
+    "Observation points use both all-sky fisheye cameras and ground-facing cameras",
+    "Inference is invoked through APIs in real time",
+    "Recognition outputs feed an existing meteorological information system",
+    "The training set includes cloud, frost, rime and tea-frost scenarios"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/hangzhouqixiang.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Traditional manual observation could not meet the modern need for high-precision meteorological services (original: 传统人工气象观测已经无法满足高节奏的现代社会对高精度气象服务的需求).",
+    "High-definition all-sky fisheye cameras and ground cameras collect images on a schedule, then call Baidu EasyDL model APIs for intelligent recognition (original: 图像数据通过API方式调用，实时调取百度大脑EasyDL模型接口进行智能识别).",
+    "The bureau used image data from 28 stations, selected more than 11,000 images from over 1 million originals, and trained models for cloud, weather, frost and tea-frost recognition (original: 运用高清视频摄像机在28个气象站采集大量全天空、草面、树林、茶叶等图像数据，从100多万张原始图像中精选了11000多张).",
+    "Model recognition accuracy generally exceeded 85%, and cloud-form and cloud-amount recognition also passed 80% (original: 模型识别准确率普遍超过85%以上，其中包含20多个分类的云状识别及12个分类的云量识别准确率也在80%以上)."
+  ],
+  "source_language": "zh"
+}

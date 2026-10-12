@@ -1,0 +1,81 @@
+{
+  "id": "baidu-ai-cloud-tianmai-juyuan-media-asset-search-and-clipping",
+  "slug": "baidu-ai-cloud-tianmai-juyuan-media-asset-search-and-clipping",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Tianmai Juyuan",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Tianmai Juyuan needed to organize and search a massive broadcast-video archive quickly enough to support timely publishing, short-video creation and intelligent content retrieval.",
+  "solution_summary": "Tianmai Juyuan used Baidu AI Cloud to transform a giant broadcast archive into a searchable, production-ready media asset platform. The foundation is Baidu's MCA media-content-analysis service, which applies multimodal recognition across video, speech, text, public figures, objects and scenes and then outputs structured tags. Those tags power Yunsou, Tianmai's cloud media-asset search tool, and make it possible to search live and archived content precisely across domestic mainstream media. Baidu also supported a production path beyond search: the micro-editing workflow can ingest live TV streams, automatically clip them, transcode them and publish short videos within minutes. From an architectural standpoint, object storage retains the large video corpus, speech recognition and content analysis extract searchable structure, and the clipping layer turns tagged assets into publishable short-form content. That gives Tianmai a combined archive, search and production stack rather than just a passive content repository.",
+  "products_used": [
+    "Media Content Analysis (MCA)",
+    "Real-Time Speech Recognition",
+    "BOS Object Storage",
+    "Micro-Editing Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Media Content Analysis (MCA)",
+      "role": "Extracts structured tags from video, audio and visual content for search and editing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Real-Time Speech Recognition",
+      "role": "Converts spoken program content into searchable text within the media workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BOS Object Storage",
+      "role": "Stores the very large video archive used for search and clipping workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Micro-Editing Platform",
+      "role": "Ingests live streams, clips them automatically and publishes short-form video outputs.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Broadcast video and live streams are stored in BOS, analyzed by MCA and speech-recognition services to generate structured tags, then surfaced in Yunsou search and fed into the micro-editing workflow for clipping, transcoding and distribution.",
+  "integration_points": [
+    "Broadcast channels",
+    "Live TV streams",
+    "Short-video publishing workflows",
+    "Cloud media-asset search"
+  ],
+  "technical_area": [
+    "Media and Content",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Tianmai Juyuan gained a combined search-and-production platform that speeds asset discovery, improves tagging quality and makes it much easier to turn live broadcast content into short video quickly.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "The archive includes 500+ broadcast channels, more than 10 years of content, 20 million hours, 200 million clips and 6 PB of data.",
+    "Structured-tag counts increased about 10x.",
+    "MCA analysis efficiency improved 3-5x over manual tagging.",
+    "New TV programs can be turned into short videos and published within 3 minutes."
+  ],
+  "architecture_clues": [
+    "The platform combines archive storage, search and short-video production on one stack",
+    "Multimodal tags include scenes, people, places, entities and keywords",
+    "Live-stream ingestion and clipping are built into the production path"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/tianmaijuyuan.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Tianmai Juyuan stores more than 500 channels, 10 years of programs, 20 million hours, 200 million items and 6PB of content (original: 收录全球500多套国内外电视频道，存储了超过10年、2000万小时、2亿多条、6PB的全量节目库和精华片段库).",
+    "MCA analyzes video, speech, text, public figures, objects and scenes and outputs structured tag information (original: MCA能提供音视频内容分析能力。能从视频、语音、文字、公众人物、物体、场景等多个维度进行识别……输出精准的结构化标签信息).",
+    "Compared with manual tagging, MCA improved analysis efficiency by 3-5 times and structured-tag volume by about 10 times (original: 对比人工视频标注，MCA的分析效率提升了3-5倍，结构化标签数量提升了10倍左右).",
+    "Micro-editing can ingest, clip, transcode and publish new TV content into short videos within 3 minutes (original: 通过微剪能进行实时快速收录和剪辑，自动化拆条、转码，3分钟内就能将新播出的电视节目创作成短视频并发布)."
+  ],
+  "source_language": "zh"
+}

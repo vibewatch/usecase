@@ -1,0 +1,77 @@
+{
+  "id": "baidu-ai-cloud-kingsoft-office-wps-ai-document-productivity",
+  "slug": "baidu-ai-cloud-kingsoft-office-wps-ai-document-productivity",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Kingsoft Office",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Kingsoft Office wanted to launch a domestic AI office product quickly, but needed a Chinese-first large-model stack, strong content-safety controls and an operating model for continuously tuning prompts and training data across office scenarios.",
+  "solution_summary": "Kingsoft Office connected WPS AI to Baidu AI Cloud's Qianfan model platform to create a broad document- and presentation-assistance layer across WPS Office and WPS 365. The technical pattern is a multi-loop operating model rather than a simple API connection. First, an AI-technology middle layer handles large-model API integration, parameters, error codes and quality monitoring. On top of that, prompt engineering defines roles, instruction scopes and chain-of-thought patterns that adapt the model to office tasks. A second loop uses labeled bad cases and SFT data from text, slides and spreadsheets to keep improving output quality. Together those inner and outer loops let Kingsoft co-build and tune office scenarios such as drafting, rewriting, summarizing, polishing, translation and PPT generation, while Qianfan's content-safety controls form a safety boundary around production use. The result is a model-driven office copilot that serves multiple file types and creation stages rather than a single feature.",
+  "products_used": [
+    "Qianfan Large Model Platform",
+    "Qianfan AppBuilder",
+    "WPS AI",
+    "Prompt Engineering Loop"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan Large Model Platform",
+      "role": "Provides the large-model infrastructure behind WPS AI's writing and presentation features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Packages the office-assistant experiences across WPS products.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "WPS AI",
+      "role": "Delivers user-facing drafting, rewriting, summarization and PPT-generation capabilities.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Prompt Engineering Loop",
+      "role": "Continuously tunes instructions and data to improve office-task quality and safety.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "User document, slide and spreadsheet requests flow through WPS AI into the Qianfan model stack, where prompt engineering and labeled training data optimize generation quality before results are returned to office applications.",
+  "integration_points": [
+    "WPS Office",
+    "WPS 365",
+    "Documents",
+    "Presentations",
+    "Spreadsheets"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Kingsoft launched a domestic AI office assistant that covers multiple content formats, improves user productivity and created an iterative quality-and-safety operating model around office AI.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "WPS AI addresses more than 30 common office needs."
+  ],
+  "architecture_clues": [
+    "The design uses inner and outer optimization loops for prompts and labeled data",
+    "The same assistant covers text, presentations and spreadsheets",
+    "Qianfan safety controls are part of the production architecture"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/jinshanbangong.html",
+  "published_date": "2025-02-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Kingsoft connected WPS AI to Baidu's Qianfan platform and quickly launched the first AI office application in China's collaborative-office market (original: 第一时间通过百度智能云千帆大模型平台接入了文心一言，快速推出了 “WPS AI”，这是中国协同办公赛道首个智能办公应用).",
+    "The delivery model includes API integration, prompt engineering and labeled-data loops for continuous optimization (original: 第一步是 AI 技术中台接入……第二步是 Prompt 提示词工程……第三步是精标数据驱动).",
+    "WPS AI covers drafting, rewriting, summarizing, polishing, translation and PPT generation (original: 包括起草、改写、总结、润色、翻译、续写等……WPS AI 可协助从 PPT 大纲生成、PPT 制作、模板选择、内容修改的全过程)."
+  ],
+  "source_language": "zh"
+}

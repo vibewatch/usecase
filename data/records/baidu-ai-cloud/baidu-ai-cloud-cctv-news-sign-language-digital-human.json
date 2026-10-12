@@ -1,0 +1,81 @@
+{
+  "id": "baidu-ai-cloud-cctv-news-sign-language-digital-human",
+  "slug": "baidu-ai-cloud-cctv-news-sign-language-digital-human",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "CCTV News",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "CCTV News needed a scalable way to produce sign-language news for hearing-impaired audiences despite a severe shortage of professional interpreters and the linguistic gap between spoken Chinese and sign language.",
+  "solution_summary": "CCTV News and Baidu AI Cloud's Xiling team built an AI sign-language anchor to make large-scale news broadcasting accessible to hearing-impaired viewers. The implementation follows a three-stage pipeline: spoken audio is first recognized as Chinese text through Baidu speech recognition, that text is then translated into sign-language code that accounts for sign-language syntax rather than spoken-Chinese word order, and finally a digital-human motion engine turns those codes into synchronized sign gestures, lip movements and body language. Baidu worked with teachers and students from Tianjin University of Technology's deaf college to label specialist corpora and refine the translation layer through repeated iterations, while computer-vision motion learning and AIGC techniques generated the final sign performance. The result runs on Baidu AI Cloud's Xiling digital-human infrastructure, which was mature enough to broadcast more than 200 news items and multiple live sessions during the Beijing Winter Olympics.",
+  "products_used": [
+    "Xiling Intelligent Digital Human Platform",
+    "Custom TTS Voice Library",
+    "Keyue.ONE",
+    "AI_REC Intelligent Search and Recommendation Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Xiling Intelligent Digital Human Platform",
+      "role": "Provides the digital-human production and delivery environment for the sign-language anchor.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Custom TTS Voice Library",
+      "role": "Supports synchronized voice-related timing and audiovisual output in the anchor workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Keyue.ONE",
+      "role": "Supplies supporting conversational and service infrastructure from the Baidu AI Cloud digital-human stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI_REC Intelligent Search and Recommendation Engine",
+      "role": "Contributes platform intelligence used across Baidu's broader digital-human environment.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Broadcast speech is converted into text, translated into sign-language codes, rendered into body and lip motions by the digital-human engine, and then delivered through the Xiling platform as synchronized accessible news output.",
+  "integration_points": [
+    "CCTV News broadcast workflows",
+    "Sign-language corpus labeling",
+    "Expert review",
+    "Live-streaming and news-broadcast channels"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "CCTV News created an accessible digital broadcaster that delivered high-volume sign-language news coverage for major events, while proving a repeatable digital-human workflow for other public-service scenarios.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "The anchor broadcast more than 200 news stories.",
+    "Total viewing volume exceeded 100 million.",
+    "ASR accuracy reached above 98%.",
+    "Sign-language comprehensibility exceeded 85% after six iterations.",
+    "Lip-generation accuracy exceeded 98.5%."
+  ],
+  "architecture_clues": [
+    "The workflow converts speech to text, text to sign-language code and sign-language code to motion",
+    "Baidu co-created the corpus with deaf teachers and students",
+    "Expert review is required after technical optimization",
+    "The same digital-human infrastructure is reused across different public-service scenarios"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/aishouyuzhubo.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "CCTV News and Baidu AI Cloud Xiling jointly launched the first AI sign-language anchor (original: 由央视新闻与百度智能云曦灵联合打造的首个AI手语主播正式上线).",
+    "The workflow requires three layers: turn speech into Chinese text, text into sign-language code, and sign-language code into sign-language movements (original: 首先是最底层，需把健听人说的语音翻译成汉语文本；其次是中层，需将汉语文本通过翻译引擎转换为手语码；最后是上层，通过数字人的动作融合算法，将手语码转换为手语).",
+    "Baidu's ASR model reached over 98% accuracy, and sign-language comprehensibility exceeded 85% after six iterations (original: 在“听得清”上，百度智能云研发的ASR语音识别模型，准确性达到98%以上……经过6次迭代，相关手语可懂度达到85%以上).",
+    "The anchor had already broadcast more than 200 news items and accumulated more than 100 million views (original: 目前，她已经播报了超过200条的新闻资讯，进行了数场直播，总观看次数超过1亿次)."
+  ],
+  "source_language": "zh"
+}

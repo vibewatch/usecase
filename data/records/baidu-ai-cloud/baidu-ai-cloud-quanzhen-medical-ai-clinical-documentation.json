@@ -1,0 +1,83 @@
+{
+  "id": "baidu-ai-cloud-quanzhen-medical-ai-clinical-documentation",
+  "slug": "baidu-ai-cloud-quanzhen-medical-ai-clinical-documentation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Hangzhou Quanzhen Medical Technology Co., Ltd.",
+  "industry": "Healthcare",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Quanzhen Medical needed a strong Chinese foundation model, an integrated training-and-inference toolchain and a private-delivery path so it could commercialize large-model healthcare applications for hospitals with high data-security requirements.",
+  "solution_summary": "Quanzhen Medical and Baidu AI Cloud built a two-path healthcare large-model delivery architecture around ERNIE Speed and the Qianfan platform. In the public-cloud path, Quanzhen trains and validates its domain model on Qianfan so new clinical scenarios can be tested quickly. In the private path, Baidu supplies the servers and training-inference software for a joint all-in-one appliance, while Quanzhen contributes the healthcare large model and delivers the combined system into hospitals that need stronger data control. The resulting platform supports electronic medical-record generation, pre-consultation note creation and other clinical language tasks rather than just acting as a demo chatbot. Because the model stack is wrapped with both public-cloud and appliance delivery modes, Quanzhen can serve county-level organizations and tertiary hospitals from the same product family while keeping the clinical language model, tuning loop and deployment tooling consistent.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Qianfan AppBuilder",
+    "ERNIE Speed",
+    "Joint All-in-One Appliance"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Supports model training, tuning and evaluation for Quanzhen's healthcare large model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Packages healthcare application workflows on top of the model stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ERNIE Speed",
+      "role": "Provides the Chinese foundation model used to build Quanzhen's clinical AI services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Joint All-in-One Appliance",
+      "role": "Delivers the private hospital deployment path for security-sensitive customers.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Clinical data and language tasks are processed through the Quanzhen healthcare model on Qianfan or the private appliance, which generates EMR drafts and pre-consultation records and returns them to hospital workflows.",
+  "integration_points": [
+    "Hospital EMR workflows",
+    "Pre-consultation systems",
+    "Public-cloud model validation",
+    "Private hospital deployments"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Quanzhen created a healthcare-specific large-model product line that improves medical documentation speed and quality while supporting both public-cloud and private hospital delivery.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance"
+  ],
+  "metrics": [
+    "Electronic medical records can be generated in 2-3 seconds.",
+    "Medical-record writing time is reduced by 75%.",
+    "Record compliance reaches 95% and consistency 85%.",
+    "Record quality improves 45%.",
+    "Patient service volume increases 1.5x.",
+    "The platform generates about 150,000 case drafts and 10,000 pre-consultation records per day."
+  ],
+  "architecture_clues": [
+    "The product has both public-cloud and private-appliance delivery paths",
+    "Baidu supplies the appliance hardware and train-infer software while Quanzhen supplies the model",
+    "The system is already deployed at Changzhou First People's Hospital"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/quanzhentong.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu provides ERNIE Speed as the Chinese foundation model and Qianfan as the public-cloud training and validation platform (original: 提供Ernie Speed基座大模型……提供百度智能云千帆公有云平台).",
+    "The two sides built a joint all-in-one appliance for tertiary hospitals and landed it at Changzhou First People's Hospital (original: 百度智能云和全诊医学打造全诊大模型联合一体机方案……该联合一体机方案已经在常州市第一人民医院落地).",
+    "The platform generates electronic medical records in 2-3 seconds and reduces writing time by 75% (original: 2-3秒生成电子病历……75%节省病历书写时间).",
+    "It now generates about 150,000 medical-record drafts and 10,000 pre-consultation records per day (original: 每日生成病例草稿达到150,000份；每日生成的预问诊记录达到10,000份)."
+  ],
+  "source_language": "zh"
+}

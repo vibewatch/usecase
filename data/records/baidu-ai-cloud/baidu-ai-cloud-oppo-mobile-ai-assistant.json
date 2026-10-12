@@ -1,0 +1,79 @@
+{
+  "id": "baidu-ai-cloud-oppo-mobile-ai-assistant",
+  "slug": "baidu-ai-cloud-oppo-mobile-ai-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "OPPO",
+  "industry": "Consumer Goods",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "OPPO needed to bring trustworthy real-time information, personalization, multimodal understanding and developer tooling into its AI-phone strategy while still protecting user data and keeping assistant experiences responsive.",
+  "solution_summary": "OPPO combined its Andes large model and ColorOS strategy with Baidu AI Cloud's Qianfan platforms to add cloud-side reasoning and retrieval to its mobile AI assistant. Baidu's ERNIE-based services help the assistant decide when a request needs live internet access, then fetch and summarize current content from Baidu Search-aligned information feeds so users can ask about weather, stock prices, exchange rates, policies, travel or news without leaving the phone experience. The same stack adds multimodal image understanding so the assistant can identify image content and return encyclopedia information, and it supports the broader agent ecosystem that OPPO wants developers to build on top of the phone. At runtime, user prompts from voice, images and assistant sessions are routed through OPPO's device-side experience and Baidu's cloud inference and retrieval services, producing a hybrid architecture that blends on-device intelligence with high-accuracy online responses.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Qianfan AppBuilder",
+    "ERNIE Large Model",
+    "Baidu Search-Sourced Retrieval"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Supports OPPO's large-model integration and tuning for mobile assistant scenarios.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Helps package and orchestrate assistant and agent workflows on top of the phone experience.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ERNIE Large Model",
+      "role": "Provides intent analysis, generation and multimodal understanding for the mobile assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Baidu Search-Sourced Retrieval",
+      "role": "Supplies real-time internet content and traceable results for questions that require fresh information.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Voice, text and image prompts from OPPO users pass through the assistant, where intent logic decides whether live retrieval is needed; Baidu's search-sourced retrieval and ERNIE inference then return summaries, image understanding and personalized answers back into the phone assistant experience.",
+  "integration_points": [
+    "ColorOS",
+    "Andes large model",
+    "Baidu Search-aligned information feeds",
+    "Multimodal image inputs",
+    "Developer agent ecosystem"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "OPPO improved real-time search, multimodal understanding and personalized assistant experiences while establishing a cloud-supported architecture for broader AI-phone and agent scenarios.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The design uses OPPO's 1+N open large-model structure with device-cloud collaboration",
+    "Intent logic decides when to call live search rather than answer from the model alone",
+    "The implementation supports both assistant features and developer-facing agent capabilities",
+    "Image understanding is part of the same assistant stack"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/oppo.html",
+  "published_date": "2025-06-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "OPPO entered the AI-phone era and used an open '1+N' large-model structure with device-cloud coordination (original: 采用1+N的开放式大模型结构，智能分流，实现端云协同，高效部署).",
+    "The challenge was to keep information current and accurate for content such as weather, stocks, exchange rates, news, film and television, travel and policy interactions (original: 如何在具备大模型能力的同时保证信息的实效性、准确性，例如天气、股票、汇率、新闻、影视、出行、政策等交互内容).",
+    "ERNIE judges whether the user's question needs live internet access, links to high-quality information in real time and summarizes the results (original: 文心大模型精确的意图判断能力，策略分析当前的用户问题是否需要联网获取最新的信息，实时链接海量的优质信息，检索相关信息，并进行综合总结输出回复).",
+    "The platform also provides strong image-understanding capabilities and returns encyclopedia information in real time (original: 文心大模型平台提供强大的图像内容理解大模型能力，准确识别图像中的内容、识万物，并且实时返回对应的百科信息内容)."
+  ],
+  "source_language": "zh"
+}

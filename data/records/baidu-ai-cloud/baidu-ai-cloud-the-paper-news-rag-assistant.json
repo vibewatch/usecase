@@ -1,0 +1,76 @@
+{
+  "id": "baidu-ai-cloud-the-paper-news-rag-assistant",
+  "slug": "baidu-ai-cloud-the-paper-news-rag-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "The Paper",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "The Paper wanted to use generative AI in news products, but needed a way to answer readers' questions without hallucinations while preserving the accuracy standards of professional journalism.",
+  "solution_summary": "The Paper used Baidu AI Cloud's Qianfan platform and ERNIE capabilities to build an AI Q&A assistant grounded in its own newsroom archives. The key design choice was retrieval-augmented generation rather than free-form generation: more than 27 million articles and roughly 35 billion characters of high-quality original reporting were turned into the retrieval corpus that the assistant uses to answer user questions. When readers ask about hot topics, the system analyzes the context of the request, finds related reporting and source material inside The Paper's content ecosystem, and then generates a personalized answer with supporting topic coverage and news provenance. This lets the newsroom extend its editorial assets into an interactive product without accepting the failure modes of an unguided model. Architecturally, Qianfan supplies the model and orchestration layer while The Paper's content base acts as the grounding and evidence layer, producing a reader-facing assistant tuned for trustworthy news explanation rather than generic chat.",
+  "products_used": [
+    "Qianfan ModelBuilder",
+    "Qianfan AppBuilder",
+    "AI Q&A Assistant",
+    "RAG"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Provides the model capabilities used to build the newsroom assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Packages the interactive assistant application on top of the model layer.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI Q&A Assistant",
+      "role": "Delivers reader-facing conversational answers and related topic coverage.",
+      "layer": "Serving"
+    },
+    {
+      "name": "RAG",
+      "role": "Grounds generated responses in The Paper's own reporting archive to reduce hallucinations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Reader questions are analyzed by the AI assistant, which retrieves relevant reporting from The Paper's article archive through a RAG layer and returns grounded answers, related stories and topic context to the user interface.",
+  "integration_points": [
+    "News archive",
+    "Reader Q&A interface",
+    "Topic pages",
+    "Source-reporting links"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The Paper turned its reporting archive into a conversational news product that answers reader questions interactively while preserving trust through source-grounded generation.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "The assistant is grounded on more than 27 million articles and nearly 35 billion characters of original reporting."
+  ],
+  "architecture_clues": [
+    "The design uses a newsroom-scale RAG corpus rather than pure generation",
+    "The assistant returns related topic coverage and source reporting",
+    "The product is part of The Paper's broader 'AI plus' strategy across creation, distribution and interaction"
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/pengpai.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The main challenge was controlling hallucinations in professional news production (original: 专业新闻报道对内容严谨、准确度有极高要求，需要解决大模型内容生成存在的幻觉问题).",
+    "The Paper used more than 27 million articles and nearly 35 billion characters of original news content to co-create the AI Q&A assistant (original: 基于澎湃新闻十年来沉淀的超2700万篇文章，近350亿字的海量原创优质新闻内容生态，百度智能云千帆平台提供文心大模型能力，共创“AI问答助手”功能).",
+    "The assistant can understand user context, answer real-time hotspot questions and provide related reports or source material (original: “AI问答助手”可以针对用户提问进行上下文理解和分析，更好地回答各类用户关切的新闻实时热点问题，并提供相关新闻专题报道或者舆情事件信源)."
+  ],
+  "source_language": "zh"
+}
