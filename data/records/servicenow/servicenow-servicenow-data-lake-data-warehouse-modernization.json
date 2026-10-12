@@ -1,0 +1,80 @@
+{
+  "id": "servicenow-servicenow-data-lake-data-warehouse-modernization",
+  "slug": "servicenow-servicenow-data-lake-data-warehouse-modernization",
+  "vendor": "ServiceNow",
+  "customer_name": "ServiceNow",
+  "industry": "Software / SaaS",
+  "region": "California, United States",
+  "company_size": "Enterprise",
+  "business_problem": "ServiceNow procurement teams had to search across separate systems for insights, and rear-view dashboards delayed decisions because data was fragmented and analytics were too slow.",
+  "solution_summary": "ServiceNow rebuilt internal analytics on the ServiceNow AI Platform with a two-part architecture that separates data speed from data connectivity. RaptorDB Pro became the high-performance operational database, delivering much faster query execution on procurement and operational data. Workflow Data Fabric became the federation layer that unifies structured and unstructured information from systems such as Workday, SAP, and Okta without duplicating it. Zero Copy Connectors accelerate those links so teams can query live enterprise data instead of maintaining copied extracts or waiting on DaaS APIs. With analytics dashboards operating on that shared model, users no longer hop across disconnected systems to find information; they get real-time visibility inside the workflow environment and can act on the insight immediately.",
+  "products_used": [
+    "ServiceNow AI Platform",
+    "RaptorDB Pro",
+    "Workflow Data Fabric",
+    "Zero Copy Connectors"
+  ],
+  "solution_components": [
+    {
+      "name": "ServiceNow AI Platform",
+      "role": "Provides the shared workflow environment on which the analytics stack is delivered to business teams.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "RaptorDB Pro",
+      "role": "Runs high-speed operational queries so teams can analyze current enterprise data in real time.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Workflow Data Fabric",
+      "role": "Unifies structured and unstructured enterprise data into a shared model without replication.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Zero Copy Connectors",
+      "role": "Bring source-system data into Workflow Data Fabric without creating duplicated copies.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Operational data from Workday, SAP, Okta, and other sources is linked through Zero Copy Connectors into Workflow Data Fabric, which exposes a unified source without duplication. RaptorDB Pro executes fast queries on that shared data so dashboards can surface real-time insights back to procurement teams.",
+  "integration_points": [
+    "Workday",
+    "SAP",
+    "Okta"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "ServiceNow made operational queries 27 times faster, sped up enterprise data connections sixfold, cut integration costs by 70%, and gave teams real-time visibility so they could act on procurement insights immediately instead of working from delayed dashboards.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "+27X Faster processing queries with RaptorDB",
+    "6X Faster data connections with WDF",
+    "70% Reduction in integration costs with WDF"
+  ],
+  "architecture_clues": [
+    "Workflow Data Fabric uses zero-copy federation rather than duplicating enterprise data.",
+    "The analytics stack combines a fast operational database with a separate connectivity layer.",
+    "The first business team called out in the story is procurement."
+  ],
+  "source_url": "https://www.servicenow.com/customers/now-on-now-raptordb.html",
+  "published_date": "2026-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "our procurement teams found themselves moving from system to system, searching for insights and information across separated sources.",
+    "RaptorDB Pro is our new proprietary database, achieving query responses that are 27 times faster than our previous system.",
+    "Workflow Data Fabric is the intelligent connectivity layer that brings together structured and unstructured data from across our enterprise-including systems like Workday, SAP, and Okta-without requiring data duplication.",
+    "Zero Copy Connectors deliver data connections that are 6 times faster than DaaS APIs, and we've seen a 70% reduction in integration costs as a result.",
+    "we now have real-time visibility into our operations with the ability to act immediately on the information we discover."
+  ]
+}
