@@ -1,0 +1,75 @@
+{
+  "id": "nvidia-siemens-energy-autonomous-power-plant-inspections",
+  "slug": "nvidia-siemens-energy-autonomous-power-plant-inspections",
+  "vendor": "NVIDIA",
+  "customer_name": "Siemens Energy",
+  "industry": "Energy",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens Energy needed to automate leak and abnormal-noise inspections across complex power plants so sites would not depend on constant expert walk-throughs or full-time staffing for every inspection scenario.",
+  "solution_summary": "Siemens Energy is building toward autonomous power plants by running multiple deep-learning inspection models through NVIDIA Triton Inference Server on AWS-backed GPU infrastructure. Streaming data from plant cameras and sensors feeds the inference stack in real time, where Triton standardizes deployment of different model frameworks and coordinates model ensembles that can include image pre-processing steps such as person anonymization. The same architecture works in the public cloud and on premises, which matters when inspection data must remain inside plant environments or when edge analytics are required. Rather than stand up a separate deployment pattern for each safety use case, Siemens uses Triton as a common serving layer for liquid, steam, oil-leak, and abnormal-noise detection. That gives the company one scalable inspection platform that can extend toward hundreds of inspection types across power-generation assets.",
+  "products_used": [
+    "NVIDIA Triton Inference Server",
+    "NVIDIA GPUs on AWS",
+    "Model ensembles"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves and coordinates multiple deep-learning inspection models across power-plant safety workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA GPUs on AWS",
+      "role": "Provide the accelerated compute used for real-time inspection inference in Siemens Energy's deployment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Model ensembles",
+      "role": "Chain together inspection models and pre-processing steps such as person anonymization.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Streaming camera and sensor data from power plants flows into Triton-served deep-learning models on AWS GPUs, model ensembles apply pre-processing such as anonymization, and the resulting inspection signals are returned for leak, noise, and safety monitoring in cloud or edge environments.",
+  "integration_points": [
+    "Amazon Web Services (AWS)",
+    "Plant cameras",
+    "Plant sensors",
+    "On-premises power-plant environments"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Risk Management"
+  ],
+  "business_outcome": "Siemens Energy standardized multi-framework model deployment across cloud and on-premises environments, proved the platform can scale to millions of sensors and massive input streams, and created a path to automating hundreds of inspection types as part of its autonomous-power-plant strategy.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Millions of sensors",
+    "Hundreds of inspection types",
+    "Massive input streams"
+  ],
+  "architecture_clues": [
+    "The same Triton-based model stack can run in the cloud or at the edge depending on plant data constraints.",
+    "Model ensembles are used to add image pre-processing such as person anonymization before inference.",
+    "The inspection platform processes streaming data rather than periodic offline batches."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/siemens-energy-simplifies-safety-inspections-with-nvidia-triton-inference-server/",
+  "published_date": "2023-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Siemens Energy automates detection of leaks and abnormal noises in power plants with AI.",
+    "Siemens Energy runs multiple deep learning models using NVIDIA Triton™ Inference Server on Amazon Web Services (AWS).",
+    "These models process streaming data from cameras and sensors at the power plants for real-time inference of various safety inspections.",
+    "Model ensembles enabled by Triton Inference Server also allow for additional pre-processing of images, such as person anonymization.",
+    "The solution has proven capable of handling millions of sensors and massive input streams."
+  ]
+}

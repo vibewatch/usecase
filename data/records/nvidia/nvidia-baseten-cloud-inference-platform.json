@@ -1,0 +1,90 @@
+{
+  "id": "nvidia-baseten-cloud-inference-platform",
+  "slug": "nvidia-baseten-cloud-inference-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Baseten",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Baseten needed to offer customers a cloud inference platform that could scale from sporadic traffic to high-volume real-time demand while keeping cold starts, infrastructure costs, and operational complexity low.",
+  "solution_summary": "Baseten built its managed inference platform on NVIDIA GPU instances in AWS and paired that compute layer with NVIDIA TensorRT-LLM to speed up large-model serving. Customers can bring their own models or deploy pretrained ones through Baseten's open-source Truss framework, which packages the models and routes them onto autoscaling GPU infrastructure. NVIDIA A100 and A10-class instances supply the accelerated runtime, while TensorRT-LLM provides optimizations such as tensor parallelism to improve LLM throughput and cost efficiency. NVIDIA AI Enterprise gives Baseten access to the production-grade TensorRT-LLM stack, and the platform's autoscaling controls adjust replicas as traffic changes. Together, those pieces let Baseten turn model deployment into an on-demand service with fast startup times and less manual infrastructure tuning.",
+  "products_used": [
+    "Truss",
+    "NVIDIA TensorRT-LLM",
+    "NVIDIA A100 Tensor Core GPU",
+    "NVIDIA A10 Tensor Core GPU",
+    "NVIDIA AI Enterprise",
+    "Amazon EC2"
+  ],
+  "solution_components": [
+    {
+      "name": "Truss",
+      "role": "Packages customer or pretrained models and deploys them onto Baseten's managed inference platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes and accelerates large-model inference, including tensor parallelism for production serving.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPU",
+      "role": "Provides high-performance GPU capacity for demanding real-time inference workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A10 Tensor Core GPU",
+      "role": "Supplies an additional GPU option for customer inference deployments on the platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Delivers the production-grade software stack that includes TensorRT-LLM for enterprise deployments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon EC2",
+      "role": "Hosts the GPU-backed cloud infrastructure that Baseten scales up and down for inference demand.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customers package models with Truss or choose pretrained ones, Baseten deploys them onto autoscaling EC2 GPU instances, TensorRT-LLM serves the optimized inference path on A100 or A10 hardware, and results are returned through the managed platform as traffic expands or contracts.",
+  "integration_points": [
+    "Amazon EC2",
+    "Baseten dashboard",
+    "Customer-provided models"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Baseten reduced cold starts from up to five minutes to roughly 5-10 seconds, delivered 30-60x faster startup behavior, and boosted one customer's LLM inference performance by 2x while keeping the platform elastic enough for real-time workloads.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "5-10 seconds to get the model up and running",
+    "Cold starts previously took up to five minutes",
+    "30-60X speedup on cold starts",
+    "2X inference performance boost for a customer's LLM deployment"
+  ],
+  "architecture_clues": [
+    "The platform automatically scales replicas up and down based on traffic and service-level agreements.",
+    "TensorRT-LLM is served through Baseten's open-source Truss framework on AWS.",
+    "Baseten exposes multiple NVIDIA GPU instance options, including A100 and A10-class hardware."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/baseten/",
+  "published_date": "2024-03-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baseten leverages NVIDIA GPUs and NVIDIA® TensorRT™-LLM to provide machine learning infrastructure that's high-performance, scalable, and cost-effective.",
+    "With Baseten, organizations have what they need to deploy and serve ML models performantly, scalably, and cost-effectively for real-time applications.",
+    "Baseten's infrastructure, powered by NVIDIA GPUs on AWS EC2 instances, only takes 5-10 seconds to get the model up and running.",
+    "This is an incredible speedup on cold starts, which previously took up to five minutes—a speedup of 30-60X.",
+    "Using the TensorRT-LLM feature of tensor parallelism served on AWS, Baseten boosted inference performance for a customer's LLM deployment by 2X through their open-source Truss framework."
+  ]
+}

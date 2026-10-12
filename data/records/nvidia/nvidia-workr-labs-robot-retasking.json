@@ -1,0 +1,99 @@
+{
+  "id": "nvidia-workr-labs-robot-retasking",
+  "slug": "nvidia-workr-labs-robot-retasking",
+  "vendor": "NVIDIA",
+  "customer_name": "Workr Labs",
+  "industry": "Manufacturing",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Workr needed to make robot automation practical for high-mix, low-volume manufacturers where each new part or cell layout traditionally required weeks of expert programming, calibration, and fixture design.",
+  "solution_summary": "Workr built an edge AI robotics stack on NVIDIA technology so factory operators can retask industrial robots in under five minutes. The workflow starts with NVIDIA Omniverse Isaac Sim, which Workr uses to create a digital twin of each robot cell and generate targeted synthetic training data instead of collecting huge real-world datasets. In deployment, the full stack runs locally on two NVIDIA RTX PRO 6000 Blackwell Max-Q GPUs attached to a robot cell, where customized RAFT-Stereo and Detectron2 models handle depth and segmentation, NVIDIA Isaac FoundationPose estimates 6-DOF part pose, and NVIDIA Isaac cuMotion generates CUDA-accelerated collision-free motion plans. Operators interact through a tablet and can refine missed parts with Segment Anything 2, feeding corrections back into the model within minutes. This architecture removes cloud dependencies, preserves privacy, and turns robot configuration into an on-site workflow rather than a long engineering project.",
+  "products_used": [
+    "NVIDIA Omniverse Isaac Sim",
+    "NVIDIA RTX PRO 6000 Blackwell Max-Q",
+    "RAFT-Stereo",
+    "Detectron2",
+    "NVIDIA Isaac FoundationPose",
+    "NVIDIA Isaac cuMotion",
+    "Segment Anything 2"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Omniverse Isaac Sim",
+      "role": "Creates digital twins and synthetic training data for each robot cell before deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA RTX PRO 6000 Blackwell Max-Q",
+      "role": "Provides the edge GPU compute that runs the entire training and inference stack directly at the robot cell.",
+      "layer": "Compute"
+    },
+    {
+      "name": "RAFT-Stereo",
+      "role": "Generates low-noise depth maps from RGB+D imagery for robot perception.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Detectron2",
+      "role": "Performs industrial-part segmentation that can be quickly customized with synthetic data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac FoundationPose",
+      "role": "Provides robust 6-DOF pose estimation for parts in the bin-picking workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac cuMotion",
+      "role": "Computes collision-free robot motion plans using CUDA-accelerated planning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Segment Anything 2",
+      "role": "Lets operators correct missed parts through the tablet interface during cell commissioning.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Operators scan a part and define infeed and outfeed zones, synthetic-data models built in Isaac Sim are loaded onto edge RTX systems, perception models infer depth, segmentation, and pose locally, cuMotion plans the robot path, and tablet-based corrections are fed back into the model for rapid on-site refinement.",
+  "integration_points": [
+    "Industrial RGB+D cameras",
+    "Tablet UI",
+    "Robot-cell digital twins",
+    "Yuasa International",
+    "Haas Alfex"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Workr cut robot retasking from weeks to under five minutes, enabled flexible automation for high-mix manufacturers without cloud dependencies, and made it practical to target the large share of manufacturing that remains unautomated.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Under five minutes to retask robots",
+    "Weeks of traditional programming eliminated",
+    "2x NVIDIA RTX PRO 6000 Blackwell Max-Q's attached to any robot cell",
+    "Almost 90% of manufacturing still remains unautomated"
+  ],
+  "architecture_clues": [
+    "The entire stack runs on the edge to eliminate networking requirements and data-privacy concerns.",
+    "Synthetic training data is generated from a digital twin of each robot cell rather than from massive real-world collections.",
+    "A human-in-the-loop tablet workflow adds missed parts back into the training set during commissioning."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/robot-retasking-in-high-mix-manufacturing-with-workr-labs/",
+  "published_date": "2026-03-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using NVIDIA Omniverse Isaac Sim, and accelerated computing, Workr is enabling on-site operators to retask industrial robots in under five minutes, eliminating weeks of traditional programming.",
+    "The entire software stack runs on the edge using 2x NVIDIA RTX PRO 6000 Blackwell Max-Q's attached to any robot cell, eliminating networking requirements and data privacy concerns critical to manufacturing environments.",
+    "Workr leverages multiple AI models in its pipeline, including a customized variant of RAFT-Stereo ... Detectron2 ... NVIDIA Isaac FoundationPose ... and NVIDIA Isaac cuMotion.",
+    "By creating a detailed digital twin of each robot cell, Workr generates physically accurate, labeled synthetic data that closely resembles the real-world environment.",
+    "Operators select any parts the system may have missed in the bin using Segment Anything 2 model to interpret clicks on the tablet."
+  ]
+}

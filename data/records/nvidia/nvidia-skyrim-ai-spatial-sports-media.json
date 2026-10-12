@@ -1,0 +1,111 @@
+{
+  "id": "nvidia-skyrim-ai-spatial-sports-media",
+  "slug": "nvidia-skyrim-ai-spatial-sports-media",
+  "vendor": "NVIDIA",
+  "customer_name": "Skyrim.AI",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Skyrim.AI needed to deliver real-time, broadcast-quality spatial media for sports, but volumetric capture from dozens of cameras created interoperability, reconstruction, networking, and data-throughput challenges that traditional broadcast stacks could not handle efficiently.",
+  "solution_summary": "Skyrim.AI built its Atlas platform as a software-defined spatial media stack on NVIDIA networking, capture, and inference technologies. Live camera data is sent directly into GPUs with GPUDirect and NVIDIA Rivermax using SMPTE 2110 low-latency transport and PTP synchronization, while NVIDIA Quantum InfiniBand, NVLink, and GPU clustering scale 3D reconstruction across distributed systems. For AI services, the company uses NIM microservices, Maxine NIM, and Instant NeRF-style workflows together with proprietary radiance-field models to reconstruct and render spatial scenes in real time. RTX 6000 Ada GPUs handle camera-to-GPU capture and current inference, while L40S and H100-class GPUs support rendering and future large-scale training. This architecture allows Atlas to deliver broadcast and in-venue experiences from the same spatial capture pipeline while keeping the platform adaptable for OTT, fantasy sports, and interactive fan experiences.",
+  "products_used": [
+    "Atlas platform",
+    "NIM",
+    "NVIDIA Quantum InfiniBand Networking",
+    "NVLink",
+    "NVIDIA Rivermax",
+    "GPUDirect Storage",
+    "NVIDIA RTX 6000 Ada Generation GPUs",
+    "NVIDIA L40S",
+    "NVIDIA H100"
+  ],
+  "solution_components": [
+    {
+      "name": "Atlas platform",
+      "role": "Acts as Skyrim.AI's software-defined spatial media stack for capture, reconstruction, and delivery.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NIM",
+      "role": "Provides interoperable AI microservices that help power inference across the spatial media pipeline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Quantum InfiniBand Networking",
+      "role": "Transfers 3D data across GPU clusters for large-scale, distributed reconstruction.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVLink",
+      "role": "Supplies high-bandwidth interconnect between GPUs inside the reconstruction stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Rivermax",
+      "role": "Optimizes the low-latency capture pipeline from synchronized cameras into GPU processing.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "GPUDirect Storage",
+      "role": "Moves camera data into GPU processing paths without CPU bottlenecks.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA RTX 6000 Ada Generation GPUs",
+      "role": "Handle camera-to-GPU capture and current inference workloads for the platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA L40S",
+      "role": "Supports 3D rendering and planned future NIM inference workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100",
+      "role": "Provides the higher-end GPU tier Skyrim.AI uses or plans to use for large-model training.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "More than two dozen 8K cameras stream synchronized data through Rivermax and GPUDirect into GPUs, reconstruction and radiance-field pipelines process the volumetric data across NVLink and InfiniBand-connected clusters, and Atlas delivers broadcast, venue, and interactive spatial outputs to downstream media experiences.",
+  "integration_points": [
+    "OTT platforms",
+    "Fantasy sports platforms",
+    "Social media platforms",
+    "In-venue displays",
+    "SMPTE 2110"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Skyrim.AI cut development time by a full year, lowered infrastructure costs by replacing specialized hardware with software-defined workflows, and created a platform that supports new revenue streams, richer content production, and personalized sports experiences for global audiences.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Reduced development time by a full year",
+    "More than two dozen 8K cameras",
+    "120 frames per second",
+    "Over a terabit of data moved through the pipeline"
+  ],
+  "architecture_clues": [
+    "Skyrim.AI uses a software-defined spatial media stack rather than hardware-bound broadcast workflows.",
+    "The capture path relies on PTP sync and SMPTE 2110 to keep multi-camera data tightly aligned.",
+    "Different GPU tiers are assigned to capture, rendering, inference, and future training tasks."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/skyrim-ai-sports-media-spatial-experiences/",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "NVIDIA's AI and GPU technologies, including NVIDIA NIM™ microservices, NVIDIA Quantum InfiniBand networking, and NVIDIA NVLink™, have enabled Skyrim.AI to build a scalable, high-performance infrastructure with real-time, broadcast-quality spatial media integration.",
+    "NVIDIA® Rivermax® to enhance the capture pipeline, significantly reducing development time and costs.",
+    "NVIDIA® GPUDirect® enables efficient data transfer from cameras to GPUs, bypassing the CPU.",
+    "Delivering real-time, broadcast-quality volumetric video involves moving over a terabit of data from more than two dozen 8K cameras at 120 frames per second via SMPTE 2110 directly into GPUs with GPU Direct.",
+    "By leveraging standardized solutions like Rivermax, development time has been significantly reduced by a full year."
+  ]
+}

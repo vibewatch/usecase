@@ -1,0 +1,107 @@
+{
+  "id": "nvidia-shopee-multilingual-ecommerce-llms",
+  "slug": "nvidia-shopee-multilingual-ecommerce-llms",
+  "vendor": "NVIDIA",
+  "customer_name": "Shopee",
+  "industry": "Retail",
+  "region": "Southeast Asia",
+  "company_size": "Enterprise",
+  "business_problem": "Shopee needed large language models that could handle multilingual ecommerce tasks across Southeast Asia, Taiwan, and Brazil, but general-purpose frontier models degraded sharply on regional languages, shopping concepts, fraud workflows, and customer-service use cases.",
+  "solution_summary": "Shopee built its own ecommerce LLM stack, centered on the Compass family of models, on top of NVIDIA AI Factory infrastructure. The company pretrained Compass-v3 as a 245B-parameter mixture-of-experts model on 12 trillion tokens of curated multilingual corpora and synthetic ecommerce instructions, using NVIDIA Megatron-Core for distributed pretraining across NVIDIA A100, H100, and RTX PRO 6000 Blackwell GPU fleets. In post-training, Shopee uses NVIDIA NeMo for instruction tuning, preference alignment, and agentic reinforcement learning methods such as OTPO and SPEC-RL. NVIDIA TensorRT-LLM then serves Compass models in production across search, recommendations, fraud detection, customer service, and logistics. This gives Shopee one domain-built platform that connects large-scale training, multilingual alignment, and production inference for regional commerce workloads.",
+  "products_used": [
+    "Compass v3.5",
+    "NVIDIA Megatron-Core",
+    "NVIDIA NeMo",
+    "NVIDIA TensorRT-LLM",
+    "NVIDIA A100 GPUs",
+    "NVIDIA H100 GPUs",
+    "NVIDIA RTX PRO 6000 Blackwell GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "Compass v3.5",
+      "role": "Acts as Shopee's in-house multilingual ecommerce model for production AI traffic.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Megatron-Core",
+      "role": "Handles distributed pretraining for Shopee's large mixture-of-experts foundation models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Supports instruction tuning, preference alignment, and post-training of ecommerce-specific behaviors.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Serves the Compass models efficiently in production across commerce use cases.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A100 GPUs",
+      "role": "Provide large-scale GPU capacity for training and inference of Shopee's specialized models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Expand the high-performance GPU foundation used for growing training and inference demands.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RTX PRO 6000 Blackwell GPUs",
+      "role": "Extend the AI factory's compute pool for model development and serving.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Shopee curates multilingual ecommerce corpora and proprietary marketplace data into the Compass training pipeline, Megatron-Core and NeMo produce aligned domain models on large GPU fleets, TensorRT-LLM serves those models in production, and the outputs feed search, recommendations, fraud, logistics, and customer-service experiences across regional markets.",
+  "integration_points": [
+    "EcomEval benchmark",
+    "Product titles",
+    "Reviews",
+    "Ratings",
+    "Search and recommendations",
+    "Fraud detection",
+    "Customer service"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Fraud Detection",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Shopee scaled Compass API usage from 3 billion to 340 billion monthly tokens in eight months, delivered 50x faster fraud detection at 90 percent lower cost, outperformed frontier models on regional ecommerce benchmarks, and expanded AI across conversion, ads, logistics, and multilingual customer interactions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "113x growth from 3 billion to 340 billion monthly tokens",
+    "50x faster fraud detection",
+    "90% lower fraud-processing cost",
+    "94% on Ecom QA versus 85% for GPT-4o",
+    "92% on Shopping Concept versus 82%",
+    "84% on User Understanding versus 76%"
+  ],
+  "architecture_clues": [
+    "Compass-v3 is a 245B-parameter mixture-of-experts model with 71B active parameters per token.",
+    "Shopee's five-stage training pipeline spans pretraining, annealing, instruction following, preference alignment, and agentic reinforcement learning.",
+    "OTPO and SPEC-RL are proprietary alignment methods layered on top of the NVIDIA training stack."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/shopee/",
+  "published_date": "2026-08-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Shopee’s AI team pretrained Compass-v3, a vertical-domain mixture-of-experts model with 245B total parameters and 71B active per token.",
+    "NVIDIA Megatron-Core handles distributed pretraining at scale.",
+    "For the post-training phase ... the team uses the NVIDIA NeMo framework for instruction tuning and preference alignment.",
+    "At inference, NVIDIA TensorRT-LLM serves the Compass models in production.",
+    "Monthly API tokens grew from 3 billion to 340 billion in eight months—a 113x increase."
+  ]
+}

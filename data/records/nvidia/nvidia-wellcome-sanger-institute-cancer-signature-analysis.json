@@ -1,0 +1,76 @@
+{
+  "id": "nvidia-wellcome-sanger-institute-cancer-signature-analysis",
+  "slug": "nvidia-wellcome-sanger-institute-cancer-signature-analysis",
+  "vendor": "NVIDIA",
+  "customer_name": "Wellcome Sanger Institute",
+  "industry": "Healthcare",
+  "region": "United Kingdom",
+  "company_size": "Public sector",
+  "business_problem": "The Wellcome Sanger Institute needed to analyze mutational signatures across large cancer datasets, but the non-negative matrix factorization workloads in its pipeline were so compute-intensive on CPUs that results took days or weeks and limited the number and complexity of experiments researchers could run.",
+  "solution_summary": "The Wellcome Sanger Institute accelerated its cancer-signature research by moving the heavy portions of its SigProfiler pipeline onto an NVIDIA DGX-1 Server. The mutational-signature workflow uses non-negative matrix factorization to process tumor DNA profiles, so NVIDIA and the Mutographs teams offloaded the most time-consuming parts of the code to the DGX-1's eight NVIDIA V100 Tensor Core GPUs connected by NVIDIA NVLink. The remaining application logic continues on CPUs, but the GPU platform becomes the core engine for the computational bottleneck. In benchmark and real-life runs, the institute compared the DGX-1 against 60-core OpenStack CPU virtual machines to execute the same pipeline faster, enabling researchers to work through larger datasets and run more ambitious cancer-signature experiments.",
+  "products_used": [
+    "SigProfiler",
+    "NVIDIA DGX-1 Server",
+    "NVIDIA V100 Tensor Core GPUs",
+    "NVIDIA NVLink"
+  ],
+  "solution_components": [
+    {
+      "name": "SigProfiler",
+      "role": "Runs the mutational-signature analysis and non-negative matrix factorization workflow used by researchers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX-1 Server",
+      "role": "Provides the integrated AI system that executes the institute's accelerated cancer-signature pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA V100 Tensor Core GPUs",
+      "role": "Handle the most computationally intensive matrix-factorization steps in the pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NVLink",
+      "role": "Connects the DGX-1 GPUs so the workload can scale across all eight accelerators efficiently.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Tumor DNA mutation profiles are fed into SigProfiler, the NMF-heavy steps are offloaded onto the DGX-1's V100 GPU cluster over NVLink, the rest of the application continues on CPUs, and the resulting mutational signatures are returned to researchers for downstream cancer analysis.",
+  "integration_points": [
+    "Mutographs project",
+    "OpenStack virtual machines",
+    "University of California, San Diego"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Running the pipeline on NVIDIA DGX-1 delivered an average 30x acceleration, reduced a real-life analysis from roughly twenty days to sixteen hours, and let researchers run more and more complex experiments that could improve cancer research and treatment discovery.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "30X acceleration",
+    "Sixteen hours instead of twenty days",
+    "5,000 patients with five cancer types"
+  ],
+  "architecture_clues": [
+    "The accelerated workload centers on non-negative matrix factorization in the SigProfiler pipeline.",
+    "The DGX-1 configuration uses eight NVIDIA V100 Tensor Core GPUs connected with NVIDIA NVLink.",
+    "Only the most time-consuming code paths were moved to GPUs while the rest of the application remained on CPUs."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/unlocking-the-mysteries-of-mutational-signatures-of-cancer-with-nvidia-accelerated-solutions/",
+  "published_date": "2023-09-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Sanger Institute uses the NVIDIA DGX server to power its mutational cancer signature analysis pipeline—improving performance by 30x.",
+    "This work requires the solution of a computationally intensive machine learning problem known as non-negative matrix factorization (NMF).",
+    "NVIDIA GPUs accelerate the scientific application by offloading the most time-consuming parts of the code.",
+    "An average of 30X acceleration was observed when the pipeline jobs were executed on the DGX-1 platform compared to those on CPU hardware.",
+    "The DGX-1 delivered accurate results in sixteen hours for an equivalent CPU job that usually took twenty days in a real-life analysis."
+  ]
+}

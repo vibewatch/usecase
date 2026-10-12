@@ -1,0 +1,130 @@
+{
+  "id": "nvidia-mprs-legal-ai-agents",
+  "slug": "nvidia-mprs-legal-ai-agents",
+  "vendor": "NVIDIA",
+  "customer_name": "Public Ministry of Rio Grande do Sul (MPRS)",
+  "industry": "Public Sector",
+  "region": "Brazil",
+  "company_size": "Public sector",
+  "business_problem": "MPRS needed to manage rising legal caseloads, archived police inquiries, and public-service requests more efficiently, but the volume of legal documents and the need for compliant, locally controlled analysis made traditional manual and standard RAG workflows too slow and unreliable.",
+  "solution_summary": "WideLabs built the Justice Intelligence platform for MPRS on NVIDIA's NeMo stack to support investigations and citizen-facing legal access. TORI Investigation Assistant uses NVIDIA NeMo Retriever for embedding, reranking, and hybrid search inside retrieval-augmented generation pipelines deployed as NVIDIA NIM microservices against legal databases. Archiving Intelligence Assistant applies natural-language analysis to police inquiries and archiving decisions, while the Citizen Access Agent uses NeMo Guardrails for secure routing, case-type determination, document management, and appointment scheduling. Under the hood, NVIDIA AI Enterprise provides the managed software foundation, NeMo Curator preprocesses tens of thousands of documents for retrieval, and NeMo Customizer plus NeMo Aligner adapt models to the local legal domain. The result is a locally controlled, compliance-oriented legal AI platform that combines RAG, guardrails, and curated data pipelines for prosecutors and the public.",
+  "products_used": [
+    "Justice Intelligence platform",
+    "TORI Investigation Assistant",
+    "Archiving Intelligence Assistant (AIA)",
+    "Citizen Access Agent",
+    "NVIDIA NIM",
+    "NVIDIA NeMo Retriever",
+    "NVIDIA NeMo Curator",
+    "NVIDIA AI Enterprise",
+    "NVIDIA NeMo Guardrails",
+    "NVIDIA NeMo Customizer",
+    "NVIDIA NeMo Aligner"
+  ],
+  "solution_components": [
+    {
+      "name": "Justice Intelligence platform",
+      "role": "Acts as the main legal AI environment used by MPRS for investigations and public-service workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "TORI Investigation Assistant",
+      "role": "Provides prosecutors and analysts with natural-language access to legal data and investigation records.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Archiving Intelligence Assistant (AIA)",
+      "role": "Analyzes police inquiry archiving decisions and explains them in accessible language.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Citizen Access Agent",
+      "role": "Guides citizens through secure legal-service access, routing, and scheduling workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Deploys the RAG and agent models efficiently as scalable microservices.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Retriever",
+      "role": "Powers embedding, reranking, hybrid search, and document chunking for legal retrieval.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Preprocesses large and growing legal-document collections for high-quality retrieval.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the locally controlled software foundation needed to manage the legal AI stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo Guardrails",
+      "role": "Enforces safe and deterministic behavior for citizen and investigator interactions.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA NeMo Customizer",
+      "role": "Adapts models to the MPRS legal domain and local requirements.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo Aligner",
+      "role": "Improves domain understanding for specialized legal and auditing terminology.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Legal records, police inquiries, and citizen requests enter the Justice Intelligence platform, NeMo Curator prepares the document base, NeMo Retriever and NIM drive RAG search and agent responses, Guardrails governs routing and safe interaction, and the results are returned to prosecutors, analysts, or citizens through investigation and access assistants.",
+  "integration_points": [
+    "TORI database",
+    "Existing legal databases",
+    "Document management system",
+    "Appointment scheduling system",
+    "Citizen-facing justice portal"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search",
+    "Security and Compliance"
+  ],
+  "business_outcome": "The platform moved investigations that could last months or years to less than a day, improved transparency and access for more than 8 million citizens across 497 municipalities, and created a compliant AI foundation for corruption analysis, case archiving, and public legal assistance.",
+  "outcome_category": [
+    "Compliance",
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "More than 8 million citizens",
+    "497 municipalities",
+    "Over 82 million pending legal cases in Brazil",
+    "About 60,000 police inquiries archived each year in Rio Grande do Sul",
+    "Around 39,000 public service requests annually",
+    "Procedures and investigations resolved or advanced in less than a day"
+  ],
+  "architecture_clues": [
+    "Local control over data and models was a design requirement due to legal and regulatory constraints.",
+    "The platform uses enhanced RAG with hybrid search, reranking, advanced chunking, and legal-domain model customization.",
+    "MPRS runs separate agent experiences for investigators and citizens on top of the same NeMo-based foundation."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/widelabs-ai-makes-legal-services-accessible-brazil/",
+  "published_date": "2026-03-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Justice Intelligence platform developed by WideLabs for MPRS consists of two sophisticated AI agents designed to revolutionize how prosecutors, attorneys, analysts, and assistants at MPRS handle cases and investigations.",
+    "Natural language query capability for complex database searches, achieved using advanced retrieval-augmented generation (RAG) pipelines built with NVIDIA NeMo™ Retriever ... and deployed efficiently as NVIDIA NIM™ microservices.",
+    "NVIDIA NeMo Guardrails work to ensure consistent information retrieval and behavior.",
+    "A scalable, GPU-accelerated pipeline for document preprocessing was developed with NVIDIA NeMo Curator.",
+    "\"Procedures and investigations that could last months or years can be resolved or advanced in less than a day.\""
+  ]
+}

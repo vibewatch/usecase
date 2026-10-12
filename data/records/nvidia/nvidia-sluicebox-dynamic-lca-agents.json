@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-sluicebox-dynamic-lca-agents",
+  "slug": "nvidia-sluicebox-dynamic-lca-agents",
+  "vendor": "NVIDIA",
+  "customer_name": "Sluicebox",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Sluicebox needed to turn fragmented bills of materials, supplier records, PDFs, CAD files, and emissions inventories into timely product carbon assessments, but manual life-cycle-analysis work was slow, expensive, and often arrived too late to influence design decisions.",
+  "solution_summary": "Sluicebox rebuilt the most labor-intensive parts of product carbon accounting around NVIDIA Nemotron 3 Ultra so its AI agents could generate dynamic life-cycle assessments instead of retrospective reports. The company's workflows ingest multimodal records and convert them into a structured carbon graph linking components, materials, suppliers, manufacturing processes, and transport information. Three AI workflows sit at the center: component classification across a roughly 100-node taxonomy, supplier part-data extraction from emails and documents, and emission-factor matching against an inventory with more than 10,000 entries. Lucy, Sluicebox's supplier AI agent, uses those results to collect and validate primary data in conversation. By swapping its prior model for NVIDIA Nemotron 3 Ultra, Sluicebox kept or improved accuracy while lowering inference cost and response time enough to support more products, suppliers, and pre-production decision scenarios.",
+  "products_used": [
+    "NVIDIA Nemotron 3 Ultra",
+    "Lucy",
+    "carbon graph"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Nemotron 3 Ultra",
+      "role": "Powers Sluicebox's core AI workflows for component classification, supplier-data extraction, and emission-factor matching.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Lucy",
+      "role": "Acts as the supplier-facing AI agent that gathers and validates primary emissions data through conversation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "carbon graph",
+      "role": "Stores the structured model connecting components, suppliers, materials, and manufacturing data for dynamic LCA analysis.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Bills of materials, emails, PDFs, CAD files, and factory records are ingested into Sluicebox's carbon graph, Nemotron 3 Ultra classifies components and extracts supplier data, emission-factor matching maps the results to inventory records, and Lucy uses the structured output to collect or validate missing primary data with suppliers.",
+  "integration_points": [
+    "Bills of materials",
+    "PDFs",
+    "CAD files",
+    "Supplier emails",
+    "Factory records",
+    "Emission-factor inventories"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Document Processing"
+  ],
+  "business_outcome": "Sluicebox raised supplier-data extraction accuracy to 87.7 percent, improved component classification and emission-factor matching accuracy, cut inference costs by 51-80 percent, and made product carbon analysis fast enough to guide supplier and design decisions before products reach market.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "87.7% supplier-data extraction accuracy",
+    "83.5% component-classification accuracy",
+    "72.0% good-match rate for emission factors",
+    "51-80% lower inference costs",
+    "Matching completed in 5.3 seconds",
+    "90%+ primary data coverage of suppliers in weeks instead of years"
+  ],
+  "architecture_clues": [
+    "The platform converts product and supplier information into a structured carbon graph instead of leaving assessments as document-centric workflows.",
+    "Lucy treats supplier data collection as an interactive conversation rather than a one-time questionnaire.",
+    "The operational goal is to make LCA a pre-production design input rather than a retrospective reporting exercise."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/sluicebox/",
+  "published_date": "2026-09-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Sluicebox built its AI agents to create a structured model of a product and its supply chain. The agent connects components, materials, suppliers, manufacturing processes, and transportation data in a carbon graph.",
+    "Sluicebox evaluated NVIDIA Nemotron 3 Ultra for these workflows.",
+    "Nemotron 3 Ultra processed the context needed to classify parts, structure supplier records, and select emission factors while delivering 51-80% lower inference costs, improved accuracy, and response times equal to or faster than the company's prior production model.",
+    "Lucy guides suppliers through information requests, identifies missing fields, and checks whether values fall outside expected ranges.",
+    "Companies can get primary data coverage of 90%+ of their suppliers in weeks instead of years."
+  ]
+}

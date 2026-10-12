@@ -1,0 +1,91 @@
+{
+  "id": "nvidia-raleigh-smart-city-traffic-analytics",
+  "slug": "nvidia-raleigh-smart-city-traffic-analytics",
+  "vendor": "NVIDIA",
+  "customer_name": "City of Raleigh",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Raleigh needed to improve congestion management, mobility, and street safety as the city grew, but manual traffic counts and disconnected sensor repositories made it hard to visualize conditions, respond to incidents quickly, or plan infrastructure changes proactively.",
+  "solution_summary": "Raleigh combined NVIDIA smart-city AI with its geospatial digital twin to create a real-time traffic and urban-operations platform. NVIDIA DeepStream, part of the NVIDIA Metropolis suite, performs video analytics for vehicle counts, trajectory tracking, and other traffic observations at key intersections. Those live signals are integrated with Esri ArcGIS on Microsoft Azure, which powers the city's digital twin and lets engineers visualize traffic, pedestrian, and bicycle flows inside a 3D map for scenario simulation and event planning. The city is also testing NVIDIA Blueprint for video search and summarization to automate incident understanding through vision-language agents that detect hazards and generate text descriptions under live video feeds. Together, these layers connect sensor data, geospatial context, and AI alerting so Raleigh can move from reactive operations to predictive, citywide traffic and safety management.",
+  "products_used": [
+    "NVIDIA Metropolis",
+    "NVIDIA DeepStream",
+    "NVIDIA Blueprint for video search and summarization (VSS)",
+    "Esri ArcGIS",
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Metropolis",
+      "role": "Provides the broader smart-city vision AI suite behind Raleigh's traffic and safety analytics.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DeepStream",
+      "role": "Runs real-time video analytics for vehicle counting, trajectory tracking, and intersection monitoring.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Blueprint for video search and summarization (VSS)",
+      "role": "Enables AI agents to interpret incidents and generate live textual summaries from video feeds.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Esri ArcGIS",
+      "role": "Powers the city's geospatial digital twin and interactive visualization environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Hosts the ArcGIS-based digital twin and cloud analytics operations platform used to scale city services.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Traffic video and sensor feeds are analyzed by DeepStream and related AI agents, the resulting vehicle and incident signals are pushed into Raleigh's ArcGIS digital twin on Azure, and planners and operators use the live 3D map to visualize congestion, simulate scenarios, and trigger faster operational responses.",
+  "integration_points": [
+    "Esri digital twin",
+    "Microsoft Azure Cloud",
+    "Traffic cameras",
+    "Pedestrian and bicycle traffic data",
+    "Incident maps"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Raleigh achieved 95 percent vehicle-detection accuracy, boosted a 2.5-person traffic-engineering team's analytical capacity by 4x, identified a path to save commuters an estimated $9.7 million annually, and built a scalable city platform that will expand with 1,000 more cameras and broader public-safety use cases.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "95% vehicle detection and trajectory accuracy",
+    "4x faster analytics and insights",
+    "$9.7 million annually in time and fuel costs",
+    "55,000 vehicles a day at peak",
+    "Additional 1,000 cameras planned over the next 12 to 24 months"
+  ],
+  "architecture_clues": [
+    "Raleigh uses a digital twin on ArcGIS and Azure as the central visualization layer for traffic intelligence.",
+    "DeepStream-generated vehicle counts and trajectories are merged with geospatial context rather than analyzed in isolation.",
+    "The city is extending the same platform to flood detection, parking utilization, asset conditions, and other civic domains."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/raleigh-smart-city/",
+  "published_date": "2026-01-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Following the NVIDIA Blueprint for smart city AI, alongside Esri's ArcGIS geospatial platform that powers the city's digital twin on Microsoft Azure, Raleigh is transforming real-time urban management.",
+    "Raleigh adopted NVIDIA DeepStream, part of the NVIDIA Metropolis suite of vision AI tools.",
+    "DeepStream achieving 95% accuracy in vehicle detection for turning movement counts.",
+    "It also boosts the analytical capabilities of Raleigh's team of just 2.5 dedicated staff by 4x.",
+    "Potential to save commuters an estimated $9.7 million annually in time and fuel costs."
+  ]
+}

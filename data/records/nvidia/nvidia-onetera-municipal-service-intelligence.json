@@ -1,0 +1,98 @@
+{
+  "id": "nvidia-onetera-municipal-service-intelligence",
+  "slug": "nvidia-onetera-municipal-service-intelligence",
+  "vendor": "NVIDIA",
+  "customer_name": "Onetera",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "Onetera needed to help more than 90 municipalities turn fragmented regulations, zoning maps, permit rules, and legacy documents into fast resident-facing services without imposing heavy IT overhead or expensive manual processing on city partners.",
+  "solution_summary": "Onetera built its Government Intelligence Agent as a local-inference stack for municipal data using NVIDIA RTX PRO 6000 Blackwell Workstation Edition GPUs and NVIDIA TensorRT-LLM. The platform preprocesses unstructured public data from PDFs, city websites, county databases, and other records on premises so it can serve reliable conversational experiences at runtime. Onetera combines open models such as GPT OSS 20B and Llama 4 with LangGraph-driven agent flows, where each agent has defined goals, tool-calling paths, and access to quality-controlled context. For more complex workflows, including permit agents and spatial-AI use cases, the system chains multiple capabilities while keeping humans in the loop for validation. This architecture gives Onetera a reusable municipal AI foundation that can launch new city programs quickly while controlling cost and maintaining legal accuracy.",
+  "products_used": [
+    "Government Intelligence Agent",
+    "NVIDIA RTX PRO 6000 Blackwell Workstation Edition GPUs",
+    "NVIDIA TensorRT-LLM",
+    "GPT OSS 20B",
+    "Llama 4",
+    "LangGraph"
+  ],
+  "solution_components": [
+    {
+      "name": "Government Intelligence Agent",
+      "role": "Acts as the central AI service layer that powers business guides, permit assistance, and other municipal workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA RTX PRO 6000 Blackwell Workstation Edition GPUs",
+      "role": "Provide the local accelerated compute used to preprocess municipal data and run inference at city scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes large-model inference so Onetera can keep municipal workloads affordable and responsive on premises.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT OSS 20B",
+      "role": "Supplies one of the open models used for specialized municipal tasks on the local inference server.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Llama 4",
+      "role": "Provides another open-model option that Onetera tailors to municipality-specific requirements.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangGraph",
+      "role": "Defines agent flow, tool calling, and multi-step workflow logic for the municipal AI assistants.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Municipal data from PDFs, websites, county databases, zoning maps, and permit logs is preprocessed locally on RTX PRO systems, LangGraph routes tasks through the Government Intelligence Agent and open models such as GPT OSS 20B or Llama 4, and the resulting structured guidance is returned through resident and staff service experiences.",
+  "integration_points": [
+    "PDFs",
+    "City websites",
+    "County databases",
+    "Business Service Guide",
+    "ADU Permit Agent",
+    "Spatial AI analysis"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "Onetera reduced end-to-end municipal program processing time by about 40 percent, cut per-run costs by 88 percent, increased throughput 1.7x, supported dozens of municipalities simultaneously, and shortened program launches from months to days for services such as permits and business guides.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "~40% reduction in end-to-end processing time",
+    "88% cost savings per run",
+    "1.7x increase in data throughput",
+    "More than 90 cities",
+    "Programs that once took months to launch can now be deployed in days"
+  ],
+  "architecture_clues": [
+    "Onetera primarily uses local inference for preprocessing unstructured public data before runtime interactions.",
+    "The platform keeps a human in the loop during validation phases for legal and service accuracy.",
+    "LangGraph defines conditional agent logic and tool-calling across workflows such as permit assistance and business service guides."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/ai-powered-smarter-municipal-operations/",
+  "published_date": "2026-03-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Onetera's Government Intelligence Agent, which provides AI-powered support for accessing critical government services, streamlines complex processes, accelerates inference, and enables rapid deployment of critical programs at scale.",
+    "By preprocessing scattered municipal data (across PDFs, city websites, county databases, etc.), Onetera can more efficiently and reliably serve conversational AI experiences at runtime.",
+    "Onetera's local inference server uses a variety of open-source models for different tasks, such as GPT OSS 20B and Llama 4.",
+    "For the Business Service Guide and related government use cases, Onetera uses LangGraph as its framework to define agent flow and tool-calling.",
+    "Programs that once took months to launch can now be deployed in days."
+  ]
+}

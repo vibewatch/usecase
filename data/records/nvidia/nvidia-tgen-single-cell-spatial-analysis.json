@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-tgen-single-cell-spatial-analysis",
+  "slug": "nvidia-tgen-single-cell-spatial-analysis",
+  "vendor": "NVIDIA",
+  "customer_name": "TGen",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "TGen needed to analyze rapidly growing single-cell and spatial multi-omics datasets, but standard tertiary analysis workflows took 10-14 hours per run and became prohibitive when researchers needed to iterate across datasets containing millions of cells.",
+  "solution_summary": "TGen reworked its spatial-omics analysis pipeline around NVIDIA RAPIDS so researchers could process far larger datasets without waiting half a day for each analytical pass. The institute captures large cell-level datasets from instruments such as the 10x Genomics Xenium Analyzer and Vizgen MERSCOPE, then uses the RAPIDS implementation of Scanpy to accelerate tertiary analysis, principal-component analysis, clustering, and iterative parameter tuning on GPUs. This GPU path complements the Xenium system's onboard analysis and turns workflows that had become a bottleneck for 3-4 million-cell datasets into something researchers can rerun repeatedly during active investigation. By pushing the computationally heavy data-science stages onto RAPIDS, TGen can study rare cell types, build larger 3D atlases, and scale toward tens or hundreds of millions of cells without abandoning the single-cell and spatial detail that drives translational discovery.",
+  "products_used": [
+    "NVIDIA RAPIDS",
+    "Scanpy",
+    "10x Genomics Xenium Analyzer",
+    "Vizgen MERSCOPE"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA RAPIDS",
+      "role": "Accelerates the data-science and AI pipeline used for tertiary analysis of multi-omics datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Scanpy",
+      "role": "Provides the single-cell analysis workflow that TGen runs through the RAPIDS implementation on GPUs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "10x Genomics Xenium Analyzer",
+      "role": "Generates large spatial-omics datasets and performs onboard analysis before downstream GPU processing.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Vizgen MERSCOPE",
+      "role": "Supplies additional commercial spatial-platform data that feeds TGen's GPU-accelerated analytics workflow.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Spatial and single-cell data is captured on Xenium Analyzer and MERSCOPE instruments, common output files move into TGen's RAPIDS implementation of Scanpy for PCA, clustering, and repeated parameter tuning on GPUs, and the resulting cell-level insights feed translational genomics research on pulmonary fibrosis, cancer, and other diseases.",
+  "integration_points": [
+    "10x Genomics Xenium Analyzer",
+    "Vizgen MERSCOPE",
+    "Single-cell RNA sequencing workflows",
+    "Spatial multi-omics datasets"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "TGen cut analysis time on 4 million-cell datasets from 10 hours to three minutes, turned an unoptimized first RAPIDS run into a 10-hour-to-10-minute improvement, and unlocked the ability to iterate on increasingly large single-cell and spatial datasets that now reach into the tens of millions of cells.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "4 million-cell datasets from 10 hours to three minutes",
+    "10 hours to 10 minutes on the first RAPIDS run",
+    "10-14 hours for prior standard workflows",
+    "30,000-50,000 cells per sample",
+    "Over 2 million cells in a single Xenium run"
+  ],
+  "architecture_clues": [
+    "TGen uses the RAPIDS implementation of Scanpy rather than only CPU-based single-cell analytics.",
+    "The workflow depends on repeated reruns for clustering parameter tuning, making interactive GPU turnaround especially important.",
+    "Spatial-omics data volume is large enough that a few instrument runs exceed historical atlas-scale datasets."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/reduce-single-cell-spatial-analysis-from-hours-to-minutes/",
+  "published_date": "2024-06-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using NVIDIA CUDA-X™ Data Science (RAPIDS), TGen was able to cut the analysis time on 4 million-cell datasets from 10 hours to three minutes.",
+    "\"Our very first run with RAPIDS, without any optimization at all, took us from 10 hours to 10 minutes. With a little additional tuning, we were down to three minutes to process this data.\"",
+    "The Xenium Analyzer instrument, powered by NVIDIA, accelerates time to results by performing on-board analysis and outputting common file formats for use in third-party tools.",
+    "TGen uses leading commercial spatial platforms, including the Vizgen MERSCOPE and 10x Genomics Xenium Analyzer.",
+    "\"Scalability across datasets of that size is only possible because we've been able to use this RAPIDS implementation.\""
+  ]
+}

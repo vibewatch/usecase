@@ -1,0 +1,92 @@
+{
+  "id": "nvidia-astellas-pharma-antibody-language-models",
+  "slug": "nvidia-astellas-pharma-antibody-language-models",
+  "vendor": "NVIDIA",
+  "customer_name": "Astellas Pharma Inc.",
+  "industry": "Healthcare",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Astellas needed to shorten early-stage drug discovery by predicting antibody properties and generating candidate molecular structures faster, but generic protein language models and conventional conformational screening methods were too inaccurate or too slow for antibody-specific research.",
+  "solution_summary": "Astellas built an antibody-focused generative AI workflow on NVIDIA BioNeMo to support a broader human-in-the-loop drug-discovery platform. The company created its own antibody language model, astABpLM, by using BioNeMo's ESM-1nv model as the starting point, preprocessing 2.4 billion antibody sequences from the OAS database with NVIDIA RAPIDS, and training separate heavy-chain and light-chain models on an NVIDIA DGX A100 system. In parallel, the company used generative AI with torsional diffusion to create diverse 3D compound structures for low- and mid-molecular-weight molecules, including PROTACs, and is extending the work through the Tokyo-1 innovation hub's DGX H100 environment. This architecture lets Astellas combine sequence modeling, molecular-structure generation, and robotics-ready drug-discovery workflows without spending research time on low-level algorithm or parameter tuning.",
+  "products_used": [
+    "NVIDIA BioNeMo",
+    "ESM-1nv",
+    "NVIDIA RAPIDS",
+    "NVIDIA DGX A100",
+    "NVIDIA DGX H100",
+    "astABpLM"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA BioNeMo",
+      "role": "Provides the generative AI framework Astellas uses to build antibody and small-molecule drug-discovery models.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ESM-1nv",
+      "role": "Acts as the GPU-optimized base protein language model that Astellas adapted for antibody modeling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RAPIDS",
+      "role": "Preprocesses the 2.4 billion-sequence antibody dataset used to train Astellas' model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX A100",
+      "role": "Provides the hardware used to train Astellas' heavy-chain and light-chain antibody models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX H100",
+      "role": "Extends the compute environment through Tokyo-1 for broader drug-discovery innovation workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "astABpLM",
+      "role": "Serves as Astellas' antibody-specific language model for predicting antibody physical properties in discovery workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Antibody sequences from OAS are preprocessed with RAPIDS, BioNeMo's ESM-1nv is trained into astABpLM on DGX A100 systems, the resulting model predicts antibody properties for candidate selection, and separate generative models produce 3D compound structures to feed the wider human-in-the-loop drug-discovery process.",
+  "integration_points": [
+    "Observed Antibody Space (OAS) database",
+    "Tokyo-1 innovation hub",
+    "Human-in-the-loop drug discovery platform",
+    "Robotics workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Astellas improved antibody-property prediction accuracy, trained heavy- and light-chain models in about 65 and 37 hours, and increased molecular conformational screening speed by 50-60x, reducing jobs that once took hours to a day down to as little as 15 seconds.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "2.4 billion sequences",
+    "65 hours for heavy-chain training",
+    "37 hours for light-chain training",
+    "50- to 60-fold increase in speed",
+    "Results in as little as 15 seconds"
+  ],
+  "architecture_clues": [
+    "Astellas trained heavy-chain and light-chain antibody models separately to maximize the value of OAS data.",
+    "The company uses BioNeMo for both antibody language modeling and broader small-molecule workflows such as MegaMolBART.",
+    "Tokyo-1 acts as an external DGX H100-based drug-discovery hub connected to the program."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/astellas-antibody-language-model-with-bionemo/",
+  "published_date": "2025-03-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Astellas Pharma Inc. has developed its own antibody language model, astABpLM, utilizing NVIDIA's generative AI framework for drug discovery, BioNeMo, to efficiently predict the properties of new antibodies.",
+    "The data size was 2.4 billion sequences, which were preprocessed using NVIDIA's RAPIDS™ suite for data science to prepare the dataset for training.",
+    "One NVIDIA DGX A100 is used as the hardware. The heavy chain model astABpLM_VH and light chain model astABpLM_VL completed training in approximately 65 and 37 hours, respectively.",
+    "The company's proprietary workflow for molecular conformational screening of compounds has enabled a 50- to 60-fold increase in speed compared to conventional methods.",
+    "\"We now get results in as little as 15 seconds, compared to the previous environment, which took several hours to a day.\""
+  ]
+}

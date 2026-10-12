@@ -1,0 +1,102 @@
+{
+  "id": "nvidia-worley-engineering-knowledge-assistant",
+  "slug": "nvidia-worley-engineering-knowledge-assistant",
+  "vendor": "NVIDIA",
+  "customer_name": "Worley",
+  "industry": "Energy",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Worley needed to unlock more than 50 years of engineering knowledge across over 100,000 documents, but fragmented tools, isolated repositories, and slow document retrieval caused engineers to waste time and made it hard to get accurate answers quickly.",
+  "solution_summary": "Worley built Worley AI.Assist as a unified engineering knowledge assistant on NVIDIA's enterprise AI stack. NVIDIA NIM microservices provide the layer for deploying and managing multiple LLMs and embedding models across Worley's global infrastructure, while NVIDIA Triton Inference Server lets the assistant serve several model types simultaneously with lower latency. For retrieval, NVIDIA NeMo Retriever converts both queries and source documents into vector embeddings so the system can find the most relevant engineering information, and a GPU-accelerated Milvus vector database performs similarity search across 100,000-plus document embeddings. Above that stack, Worley supports conversational search, uploaded-document question answering, temporary document snapshots, and agentic routing to specialized analysis tools, with results for some workflows stored in Microsoft Azure. Together, these layers turn a fragmented engineering corpus into a governed, scalable virtual assistant.",
+  "products_used": [
+    "Worley AI.Assist",
+    "NVIDIA AI Enterprise",
+    "NVIDIA NIM microservices",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA NeMo Retriever",
+    "Milvus",
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "Worley AI.Assist",
+      "role": "Provides the user-facing assistant that unifies engineering knowledge search and document analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the enterprise software foundation for Worley's secure and scalable AI platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NIM microservices",
+      "role": "Manage and deploy multiple generative AI and embedding models across Worley's infrastructure.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves multiple language and embedding models simultaneously for responsive query handling.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Retriever",
+      "role": "Creates rich vector embeddings for user queries and knowledge-base documents to improve retrieval precision.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Milvus",
+      "role": "Stores and searches Worley's engineering document embeddings at low latency.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Stores results for specialized document-analysis workflows routed through the assistant.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "User questions or uploaded engineering files enter Worley AI.Assist, NeMo Retriever embeds both queries and documents, Milvus returns relevant knowledge-base matches, Triton and NIM serve the language and embedding models, and specialized document-analysis workflows can route results into Azure while the assistant returns cited answers to engineers.",
+  "integration_points": [
+    "CAD models",
+    "Vendor datasheets",
+    "Compliance reports",
+    "Microsoft Azure",
+    "Specialized engineering analysis tools"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Worley cut document-delivery and reading tasks from more than 15 minutes to under 5 minutes, is scaling toward 50,000 employees and 100,000-plus documents with 350 concurrent users, and targets 99.99 percent uptime for a secure knowledge platform that improves engineering productivity.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Compliance"
+  ],
+  "metrics": [
+    "From 15+ minutes to less than 5 minutes",
+    "Approximately 50,000 users",
+    "100,000+ documents",
+    "350 concurrent users",
+    "99.99% uptime during business hours"
+  ],
+  "architecture_clues": [
+    "The assistant supports conversational search, uploaded-document Q&A, and specialized routing for drawings and quality files.",
+    "Milvus is the vector database behind more than 100,000 document embeddings.",
+    "Worley uses a secure, modular environment designed to protect data privacy and intellectual property."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/worley/",
+  "published_date": "2026-01-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "This new solution, Worley AI.Assist, brings together all of Worley's engineering knowledge and best practices into a single, scalable virtual assistant.",
+    "At the heart of the platform are NVIDIA NIM™ microservices, which provide secure, production-ready environments for deploying generative AI models at scale.",
+    "For high-precision search and contextual understanding, Worley relies on NVIDIA NeMo™ Retriever.",
+    "Supporting this intelligence is a GPU-accelerated vector database, Milvus, which enables lightning-fast similarity search across more than 100,000 document embeddings.",
+    "What once took users more than 15 minutes ... can now take less than 5 minutes with Worley AI.Assist."
+  ]
+}

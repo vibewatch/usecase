@@ -1,0 +1,88 @@
+{
+  "id": "nvidia-university-of-florida-navigator-campus-ai-platform",
+  "slug": "nvidia-university-of-florida-navigator-campus-ai-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "University of Florida",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "The University of Florida wanted a campus-wide AI platform that could serve students, faculty, staff, and researchers with many models and assistants while controlling cost, preserving data privacy, and keeping sensitive academic and research data on premises when needed.",
+  "solution_summary": "UF built NaviGator as a centrally managed, private AI platform on top of its HiPerGator supercomputer so campus users could access a broad catalog of models without each department building its own stack. NVIDIA NIM microservices and Llama NIM serve and scale models such as NVIDIA Nemotron inside NaviGator, giving the university a controlled inference layer that optimizes GPU utilization while preserving on-premises control. HiPerGator remains the core AI factory for private workloads, but the platform is designed as a hybrid service that can also reach AWS, Google Cloud, and Azure when different models or economics make sense. This architecture lets central IT map each task to the right model, keep sensitive student and research data local when necessary, and expose tutors, assistants, and self-service AI tools through one governed platform.",
+  "products_used": [
+    "NaviGator",
+    "HiPerGator",
+    "NVIDIA NIM microservices",
+    "Llama NIM",
+    "NVIDIA Nemotron"
+  ],
+  "solution_components": [
+    {
+      "name": "NaviGator",
+      "role": "Provides the self-service multi-model AI platform used by students, faculty, and staff across the university.",
+      "layer": "Serving"
+    },
+    {
+      "name": "HiPerGator",
+      "role": "Acts as the university's on-premises AI factory and supercomputing backbone for private workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NIM microservices",
+      "role": "Supply the managed inference layer used to serve and scale AI models efficiently inside NaviGator.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Llama NIM",
+      "role": "Serves open models on HiPerGator as part of the university's controlled campus AI environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Nemotron",
+      "role": "Provides one of the core model families served within NaviGator for campus AI experiences.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Students, faculty, and staff submit prompts or datasets through NaviGator, NIM microservices and Llama NIM serve models such as Nemotron on HiPerGator, the platform keeps sensitive workloads on premises when required, and other jobs can burst to AWS, Google Cloud, or Azure through the same centrally governed service.",
+  "integration_points": [
+    "AWS",
+    "Google Cloud",
+    "Azure",
+    "University IT department",
+    "NaviGator Tutor"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "UF drove broad adoption with nearly 24,000 unique NaviGator Chat users, more than 1,500 unique ToolKit uses, and 20 available LLMs while creating a cost-predictable, privacy-aware platform that can support tutoring, research, and future agentic campus workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "Nearly 24,000 unique users for NaviGator Chat",
+    "1,500+ unique uses of NaviGator ToolKit",
+    "52% of ToolKit uses coming from university staff",
+    "20 LLMs available in NaviGator"
+  ],
+  "architecture_clues": [
+    "NaviGator is centrally managed by UF's IT department rather than by individual colleges.",
+    "The platform is intentionally hybrid, combining on-premises HiPerGator with AWS, Google Cloud, and Azure.",
+    "UF uses on-prem-only open models for tasks involving sensitive research data or student PII."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/university-of-florida/",
+  "published_date": "2026-04-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The university uses NVIDIA NIM™ microservices and Llama NIM on its HiPerGator supercomputer to efficiently serve and scale AI models like NVIDIA Nemotron™ within NaviGator.",
+    "NaviGator is one of the first self-service, multi-model AI platforms among U.S. higher education institutions.",
+    "The key motivations for building NaviGator as a private, in-house platform were cost predictability and data privacy.",
+    "For certain tasks, the university can keep data on premises with HiPerGator or use open source models only to ensure privacy, security, and compliance related to sensitive research data or student personally identifiable information (PII).",
+    "NaviGator is a true hybrid service that incorporates the on-premises HiPerGator infrastructure with access to AWS, Google Cloud, and Azure."
+  ]
+}

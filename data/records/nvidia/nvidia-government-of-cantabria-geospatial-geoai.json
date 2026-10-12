@@ -1,0 +1,98 @@
+{
+  "id": "nvidia-government-of-cantabria-geospatial-geoai",
+  "slug": "nvidia-government-of-cantabria-geospatial-geoai",
+  "vendor": "NVIDIA",
+  "customer_name": "Government of Cantabria",
+  "industry": "Public Sector",
+  "region": "Spain",
+  "company_size": "Public sector",
+  "business_problem": "Cantabria's small six-person GIS team needed to produce more environmental and infrastructure mapping output with limited staff, but manual cartography and legacy stereo-mapping workflows were too slow and too expensive for regional-scale geospatial analysis.",
+  "solution_summary": "The Government of Cantabria modernized geospatial analysis by running Esri ArcGIS Pro with GeoAI on NVIDIA RTX workstations and CUDA-accelerated computer vision workflows. The team uses ArcGIS GeoAI together with open models such as U-Net, MaskRCNN, adversarial networks, and VGG-16 to segment land cover, enhance aerial imagery, detect invasive species, and restore historical surveys. NVIDIA RTX 4000 Ada Generation GPUs provide on-premises acceleration for both fine-tuning and inference, which means the GIS office can iterate rapidly on large raster blocks without relying on cloud or data-center infrastructure. The same stack also supports Esri raster analytics pipelines with perceptual-loss feedback loops so analysts can improve color balance, recover shadowed areas, and preserve pixel-level geospatial fidelity. This turns complex earth-observation tasks into workstation-scale workflows that a small public-sector team can operate directly.",
+  "products_used": [
+    "Esri ArcGIS Pro",
+    "GeoAI",
+    "NVIDIA CUDA",
+    "NVIDIA RTX 4000 Ada Generation GPUs",
+    "U-Net",
+    "MaskRCNN",
+    "VGG-16"
+  ],
+  "solution_components": [
+    {
+      "name": "Esri ArcGIS Pro",
+      "role": "Provides the geospatial analysis environment that hosts Cantabria's GPU-accelerated mapping workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GeoAI",
+      "role": "Supplies the AI computer-vision capabilities used for segmentation, super-resolution, and land-cover analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates the AI and raster-analytics workloads that process large geospatial imagery datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RTX 4000 Ada Generation GPUs",
+      "role": "Deliver the on-premises workstation compute used for training and inference without cloud infrastructure.",
+      "layer": "Compute"
+    },
+    {
+      "name": "U-Net",
+      "role": "Supports image-transformation and segmentation tasks in Cantabria's geospatial workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MaskRCNN",
+      "role": "Handles object segmentation across diverse terrain and mapping classes.",
+      "layer": "Compute"
+    },
+    {
+      "name": "VGG-16",
+      "role": "Evaluates perceptual quality when restoring historical aerial imagery.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Satellite and aerial imagery enters ArcGIS Pro, GeoAI models running on CUDA and RTX GPUs segment land cover and enhance raster blocks, specialized models restore or classify imagery, and the resulting maps are published for government planning, biodiversity monitoring, and wildfire-related analysis.",
+  "integration_points": [
+    "Esri",
+    "Raster analytics pipeline",
+    "Satellite imagery",
+    "Aerial imagery",
+    "Historical 1950s aerial surveys"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Cantabria reduced one mapping project's production time by more than 98 percent, saved over €1.2 million versus legacy stereo mapping, and turned work that once required dozens of professionals and up to a year into workflows a single data scientist can complete in days.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Over 98 percent reduction in production time",
+    "From 12 months to under one week",
+    "Saved over €1.2 million",
+    "1:5,000-scale mapping completed in just three days"
+  ],
+  "architecture_clues": [
+    "The team runs the full workflow on-premises with workstation GPUs instead of cloud or data-center infrastructure.",
+    "Perceptual-loss feedback loops are used to validate large image-block enhancements.",
+    "The same GeoAI stack is used for land-cover mapping, historical image restoration, invasive-species detection, and crop-field classification."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/next-gen-geospatial-insights-with-cuda-and-gpu-acceleration/",
+  "published_date": "2026-01-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Government of Cantabria is transforming geospatial analysis by using Esri ArcGIS Pro with GeoAI, powered by NVIDIA RTX Workstation™ GPUs and CUDA®.",
+    "The team was able to accelerate AI fine-tuning and inference cycles without the need for data center or cloud infrastructure.",
+    "The integration of NVIDIA CUDA with Esri ArcGIS GeoAI has empowered Cantabria's geospatial team to generate high-resolution cartographic displays with unprecedented speed and precision.",
+    "Reduced production time for one project by over 98 percent, from 12 months to under one week.",
+    "Saved over €1.2 million using NVIDIA RTX Workstation™, compared to legacy stereo mapping solutions."
+  ]
+}

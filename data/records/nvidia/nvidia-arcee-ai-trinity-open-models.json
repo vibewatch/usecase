@@ -1,0 +1,106 @@
+{
+  "id": "nvidia-arcee-ai-trinity-open-models",
+  "slug": "nvidia-arcee-ai-trinity-open-models",
+  "vendor": "NVIDIA",
+  "customer_name": "Arcee AI",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "Arcee AI needed to build an open reasoning model for long-running agents that could rival closed frontier systems, but doing so required frontier-scale training, reinforcement-learning post-training, and low-cost inference for a roughly 400B-parameter sparse MoE architecture.",
+  "solution_summary": "Arcee trained and served the Trinity model family on a frontier NVIDIA stack built for large open-weight models. Trinity Large was trained on 2,048 NVIDIA Blackwell Ultra GPUs, using HGX B300 systems with NVLink and NVLink Switch fabric plus NVIDIA Quantum InfiniBand to keep expert-parallel MoE training efficient across thousands of GPUs. For data and post-training, Arcee used NVIDIA NeMo Data Designer for pretraining preparation and NVIDIA NeMo RL for reinforcement-learning stages, then combined NVIDIA Dynamo with vLLM, CUDA optimizations, fused MoE kernels, speculative decoding, and KV-cache-aware routing for production inference. This created a repeatable pipeline that spans pretraining, RL, and API serving for Trinity-Large-Thinking, while keeping token costs low enough for long-horizon agents and tool-using workflows where reasoning depth directly affects total cost.",
+  "products_used": [
+    "Trinity-Large-Thinking",
+    "NVIDIA Blackwell Ultra GPUs",
+    "NVIDIA HGX B300",
+    "NVIDIA Quantum InfiniBand",
+    "NVIDIA NeMo Data Designer",
+    "NVIDIA NeMo RL",
+    "NVIDIA Dynamo",
+    "vLLM"
+  ],
+  "solution_components": [
+    {
+      "name": "Trinity-Large-Thinking",
+      "role": "Serves as Arcee's open reasoning model for long-running agent and tool-use workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Blackwell Ultra GPUs",
+      "role": "Provide the GPU scale used to train frontier open-weight MoE models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA HGX B300",
+      "role": "Supplies the memory bandwidth and NVLink-based scale-up fabric behind Arcee's training cluster.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum InfiniBand",
+      "role": "Connects the Trinity training cluster so MoE communication overhead stays low at scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Data Designer",
+      "role": "Prepares pretraining data for Arcee's large-model training pipeline.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo RL",
+      "role": "Supports reinforcement-learning post-training for Trinity variants.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Manages the production vLLM serving stack for API inference.",
+      "layer": "Serving"
+    },
+    {
+      "name": "vLLM",
+      "role": "Runs optimized production inference for Trinity-family models.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Training data is prepared with NeMo Data Designer, large-scale MoE pretraining runs on Blackwell Ultra HGX clusters over InfiniBand, NeMo RL post-trains Trinity models for agentic reasoning, and Dynamo plus vLLM serve the resulting models through Arcee's API and partner distribution channels.",
+  "integration_points": [
+    "Prime Intellect",
+    "OpenRouter",
+    "OpenClaw",
+    "Hermes Agent",
+    "Kilo Code"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Arcee cut inference pricing to about $0.90 per million output tokens, roughly 20x below leading closed reasoning models, served 3.37 trillion tokens in two months on OpenRouter, and established Trinity-Large-Thinking as a competitive open model for long-horizon agentic workloads.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Revenue Growth",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2,048 NVIDIA Blackwell Ultra GPUs",
+    "$0.90 per 1M output tokens",
+    "Around 20x cheaper than leading closed reasoning models",
+    "3.37 trillion tokens served in the first two months",
+    "55.2 billion tokens generated on Kilo Code"
+  ],
+  "architecture_clues": [
+    "The model architecture is a sparse MoE system with roughly 400B parameters and about 13B active per token.",
+    "Production inference uses custom CUDA optimizations, fused MoE kernels, speculative decoding, and KV-cache-aware routing.",
+    "Arcee is building a repeatable AI-factory-style pipeline rather than a one-off training run."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/arcee-ai/",
+  "published_date": "2026-07-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Arcee trained Trinity Large on 2,048 NVIDIA Blackwell Ultra GPUs, then post-trained Trinity-Large-Thinking with extended chain-of-thought and agentic reinforcement learning (RL) using NVIDIA NeMo open libraries.",
+    "NVIDIA Quantum InfiniBand networking was used across the Trinity cluster to keep MoE communication overhead low and maintain training efficiency.",
+    "The training pipeline incorporated NVIDIA NeMo™ Data Designer for pretraining data preparation and NVIDIA NeMo RL for RL post-training.",
+    "Arcee combined NVIDIA Blackwell Ultra with NVIDIA Dynamo and vLLM for optimized inference.",
+    "Inference via Arcee's API costs around $0.90 per 1M output tokens, around 20x cheaper than leading closed reasoning models."
+  ]
+}

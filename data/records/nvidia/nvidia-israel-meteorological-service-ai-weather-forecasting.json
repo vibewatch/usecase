@@ -1,0 +1,77 @@
+{
+  "id": "nvidia-israel-meteorological-service-ai-weather-forecasting",
+  "slug": "nvidia-israel-meteorological-service-ai-weather-forecasting",
+  "vendor": "NVIDIA",
+  "customer_name": "Israel Meteorological Service",
+  "industry": "Public Sector",
+  "region": "Israel",
+  "company_size": "Public sector",
+  "business_problem": "The Israel Meteorological Service needed to produce faster and more localized weather forecasts for floods, fire seasons, and other severe conditions, but conventional numerical weather prediction required large CPU clusters and hours of runtime that limited operational responsiveness.",
+  "solution_summary": "IMS built a sovereign AI forecasting stack around NVIDIA Earth-2 to create F3, a high-resolution precipitation-prediction system tailored to Israel. The service uses NVIDIA Earth-2 Corrector Diffusion (CorrDiff), a neural network model trained to emulate IMS's regional high-resolution ICON forecasts while taking lower-resolution input from ECMWF IFS. NVIDIA PhysicsNeMo supports the Earth-2 modeling workflow, and the combined software stack runs on GPUs rather than large CPU clusters, allowing IMS to issue probabilistic, 2.5-kilometer forecasts four times a day. Because the system is operated as a full in-house hardware-and-software capability, IMS can keep the forecasting environment sovereign while delivering fast guidance to municipalities and emergency agencies that need localized flood and storm information within minutes instead of hours.",
+  "products_used": [
+    "NVIDIA Earth-2",
+    "NVIDIA Earth-2 Corrector Diffusion (CorrDiff)",
+    "NVIDIA PhysicsNeMo"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Earth-2",
+      "role": "Provides the overall AI weather-modeling platform used to build IMS's F3 forecasting system.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Earth-2 Corrector Diffusion (CorrDiff)",
+      "role": "Improves low-resolution weather inputs into high-resolution precipitation forecasts for Israel.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA PhysicsNeMo",
+      "role": "Supports the physics-informed AI modeling workflow behind IMS's Earth-2 forecast stack.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Low-resolution ECMWF IFS forecasts and local weather context feed CorrDiff inside the Earth-2 stack, the model generates high-resolution probabilistic weather fields, and IMS distributes 2.5-kilometer forecasts to municipal and emergency agencies for planning and flood response.",
+  "integration_points": [
+    "ECMWF IFS",
+    "ICON model",
+    "Israeli Police",
+    "National Fire and Rescue Authority",
+    "Ministry of Transportation",
+    "National Road Company"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "IMS cut compute costs by 90 percent, delivered high-resolution forecasts in minutes rather than hours, achieved 2.5-kilometer hyperlocal resolution, and helped the Tel Aviv-Yafo Municipality save 20-30 percent of its preparedness budget while giving agencies faster flood-response guidance.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "90 percent computational savings",
+    "2.5-kilometer resolution forecasts",
+    "Saved 20-30 percent of the Tel Aviv-Yafo Municipality's preparedness budget",
+    "High-resolution forecast four times a day"
+  ],
+  "architecture_clues": [
+    "F3 is a sovereign forecasting capability built across IMS's own hardware and software stack.",
+    "CorrDiff is trained to emulate the regional ICON model using low-resolution ECMWF IFS inputs.",
+    "The Earth-2 platform generates multiple possible weather fields for probabilistic analysis."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/israel-meteorological-service/",
+  "published_date": "2026-01-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IMS adopted NVIDIA Earth-2 to develop a high-resolution weather forecasting system specifically designed for precipitation prediction, known as F3.",
+    "It has 90 percent lower computational costs compared to non-AI systems while delivering answers in minutes instead of hours.",
+    "IMS specifically utilized NVIDIA Earth-2 Corrector Diffusion (CorrDiff), a neural network model that improves the resolution of weather forecasts without sacrificing accuracy.",
+    "The team trained CorrDiff to emulate their regional high-resolution ICON model with low-resolution input from the European Centre for Medium-Range Weather Forecasts' Integrated Forecasting System (ECMWF IFS).",
+    "They’re now able to issue hyperlocal 2.5-kilometer resolution forecasts."
+  ]
+}

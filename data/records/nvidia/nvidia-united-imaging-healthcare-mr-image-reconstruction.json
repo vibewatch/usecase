@@ -1,0 +1,77 @@
+{
+  "id": "nvidia-united-imaging-healthcare-mr-image-reconstruction",
+  "slug": "nvidia-united-imaging-healthcare-mr-image-reconstruction",
+  "vendor": "NVIDIA",
+  "customer_name": "United Imaging Healthcare",
+  "industry": "Healthcare",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "United Imaging Healthcare needed to speed up compute-intensive MR image acquisition and reconstruction so hospitals could shorten scan times, improve image quality, and make MR procedures available to more patients.",
+  "solution_summary": "United Imaging Healthcare built an AI-enabled MR imaging stack on NVIDIA accelerated computing to move reconstruction from a slow HPC bottleneck into a practical clinical workflow. Streaming sensor data from its MR systems is fed into proprietary reconstruction algorithms that run on NVIDIA data center GPUs, while the NVIDIA CUDA Toolkit is used to optimize those algorithms across environments. The team also uses cuSolver to accelerate the matrix-heavy image-reconstruction steps that previously took too long for clinical needs. NVIDIA AI Enterprise provided enterprise software support, DevTech guidance, and migration help as United Imaging product teams brought the scanner to market. Combined with the company's AI-assisted compressed sensing approach, this architecture cuts reconstruction time dramatically while preserving image quality and supporting broader access to MR imaging.",
+  "products_used": [
+    "NVIDIA data center GPUs",
+    "NVIDIA CUDA Toolkit",
+    "cuSolver",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA data center GPUs",
+      "role": "Supply the accelerated compute used to run United Imaging's proprietary MR reconstruction algorithms.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA Toolkit",
+      "role": "Optimizes and deploys the MR imaging algorithms across the company's accelerated environments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "cuSolver",
+      "role": "Accelerates the matrix-computation routines required for MR image reconstruction.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides enterprise software support and deployment assistance for the AI-enabled MR platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Streaming MR sensor data enters United Imaging's proprietary reconstruction pipeline, GPU-accelerated algorithms and cuSolver process the matrix-heavy workloads, optimized CUDA-based code generates reconstructed images faster, and the results are delivered back to clinical teams with shorter patient time in the scanner.",
+  "integration_points": [
+    "AI-assisted compressed sensing MR system",
+    "Clinical MR workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "United Imaging reduced MR image reconstruction time by nearly 95 percent, increased computational speed by more than 10x with additional 3x algorithm acceleration, and enabled clinical teams to shorten patient time in scanners while expanding access to MR procedures.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Image reconstruction time under one minute",
+    "More than 10X computational speed increase",
+    "Nearly 95 percent reduction in image construction time",
+    "Further accelerated algorithms by 3X"
+  ],
+  "architecture_clues": [
+    "The solution combines proprietary reconstruction algorithms with AI-assisted compressed sensing.",
+    "United Imaging uses GPUs for streaming sensor data pipelines rather than only offline reconstruction.",
+    "NVIDIA DevTech engineers and solution architects supported code analysis and GPU migration."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/united-imaging-healthcare/",
+  "published_date": "2024-08-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "They deployed NVIDIA AI and accelerated computing solutions in an AI-enabled magnetic resonance (MR) scanner to reduce patient time in MR machines while increasing access to MR procedures.",
+    "Using NVIDIA data center GPUs, their products and engineering teams increased the performance and speed of their HPC algorithms, necessary for streaming sensor data to image pipelines.",
+    "United Imaging Health also used cuSolver, NVIDIA's high-performance matrix computation library, to accelerate the reconstruction of MR images.",
+    "NVIDIA engineers tailored an algorithm that increased computational speed by more than 10X and significantly reduced the time required for MR reconstruction.",
+    "United Imaging Healthcare's team reduced image construction time by nearly 95 percent."
+  ]
+}

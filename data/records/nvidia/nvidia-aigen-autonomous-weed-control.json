@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-aigen-autonomous-weed-control",
+  "slug": "nvidia-aigen-autonomous-weed-control",
+  "vendor": "NVIDIA",
+  "customer_name": "Aigen",
+  "industry": "Manufacturing",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "Aigen needed to train field-robot perception and control systems for highly variable agricultural environments, but collecting and labeling enough real-world crop and weed data was too slow, seasonal, and expensive to scale autonomous chemical-free weeding.",
+  "solution_summary": "Aigen built Alchemy as an outdoor world model on NVIDIA Cosmos to replace slow field-data collection with synthetic training generation for agricultural robotics. The company post-trained NVIDIA Cosmos 3, and earlier Cosmos Transfer 2.5, on fleet-captured RGB and depth clips so the model could generate realistic variations in crops, weeds, soil, lighting, and depth for perception training. That synthetic-data pipeline lets Aigen train field-weeding models with only 1 percent real-world data while expanding coverage to scenarios the team has not physically collected. On the robots themselves, Aigen uses three NVIDIA Jetson Orin NX modules for perception, navigation, and mechanical control, reducing onboard compute utilization from roughly 100 percent to about 30 percent and staying within a solar-power budget. This pairing of synthetic-data generation and efficient edge AI gives Aigen a path to scale autonomous, herbicide-free weed control across more crops and field conditions.",
+  "products_used": [
+    "Alchemy",
+    "NVIDIA Cosmos 3",
+    "Cosmos Transfer 2.5",
+    "NVIDIA Jetson Orin NX"
+  ],
+  "solution_components": [
+    {
+      "name": "Alchemy",
+      "role": "Generates the outdoor synthetic training data Aigen uses to expand crop and weed perception coverage.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Cosmos 3",
+      "role": "Provides the base world model Aigen post-trains for agricultural environment generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cosmos Transfer 2.5",
+      "role": "Supports earlier post-training and action-conditioned data generation for synthetic agricultural scenarios.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Jetson Orin NX",
+      "role": "Runs perception, navigation, and mechanical control directly on the solar-powered robots.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Fleet-captured RGB and depth clips seed Alchemy and Cosmos training, the world model generates labeled synthetic crop and weed scenarios, perception models are trained from that data, and Jetson Orin NX modules run the resulting perception and control stack onboard Aigen's solar-powered field robots.",
+  "integration_points": [
+    "RGB clips",
+    "Depth clips",
+    "Solar-powered Element robots",
+    "Agricultural perception models"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Aigen trained production weed-control models with 99 percent synthetic data, reduced onboard compute utilization to about 30 percent, shrank onboard hardware from five compute devices to three Jetson modules, and compressed model turnaround from seasons to hours so new crops can be deployed in the same season.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "99% synthetic data and 1% real-world data",
+    "One million hours of action-video data in months",
+    "Compute utilization reduced from roughly 100% to about 30%",
+    "Reduced hardware from five devices to three modules",
+    "Normally takes three to four years ... model turnaround is hours instead of seasons"
+  ],
+  "architecture_clues": [
+    "The robots keep full perception, navigation, and control on-device to stay inside a solar-power budget.",
+    "Alchemy uses post-trained world models rather than manual annotation to create labeled agricultural data.",
+    "The same edge-compute platform is intended to support capabilities beyond weeding as the fleet expands."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/aigen/",
+  "published_date": "2026-09-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Aigen built Alchemy, an outdoor world model that generates realistic synthetic variations in crops, weeds, soil, lighting, and depth.",
+    "Aigen's newest robots use three NVIDIA Jetson Orin NX modules for energy-efficient perception, navigation, and mechanical control.",
+    "Using synthetic training data from Alchemy, Aigen achieved autonomous field weeding with a perception model trained on 1% real-world data and 99% synthetic data.",
+    "\"Normally that takes three to four years of collecting data, labeling it, and training models ... model turnaround is hours instead of seasons.\"",
+    "During development testing, Aigen reports that the Jetson-based architecture operated at approximately 30% compute utilization."
+  ]
+}

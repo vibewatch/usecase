@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-amazon-real-time-search-spell-check",
+  "slug": "nvidia-amazon-real-time-search-spell-check",
+  "vendor": "NVIDIA",
+  "customer_name": "Amazon",
+  "industry": "Retail",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Amazon needed to correct misspelled product-search queries in real time so shoppers could find products quickly without sacrificing latency, throughput, or the time required to tune inference configurations for production.",
+  "solution_summary": "Amazon implemented AI-driven spell correction for product search by deploying the T5 natural language processing model on GPUs in Amazon Web Services and optimizing the serving stack with NVIDIA inference software. Search-bar queries are routed into a T5 text-to-text model, while NVIDIA Triton Inference Server provides the production serving layer and NVIDIA TensorRT accelerates deep-learning inference so corrections can be returned fast enough for interactive shopping. Amazon also used Triton Model Analyzer to tune and validate the best inference configuration instead of spending weeks on manual experimentation. The result is a production architecture where the model, serving runtime, and tuning tools work together to keep search responsive while scaling higher query throughput for a global retail workload.",
+  "products_used": [
+    "T5",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA TensorRT",
+    "Triton Model Analyzer",
+    "Amazon Web Services (AWS)"
+  ],
+  "solution_components": [
+    {
+      "name": "T5",
+      "role": "Performs the natural-language spelling correction for product-search queries.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves the spell-correction model in production and manages high-throughput inference on GPUs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes the T5 model for low-latency deep-learning inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Triton Model Analyzer",
+      "role": "Finds the optimal production inference configuration without prolonged manual tuning.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon Web Services (AWS)",
+      "role": "Hosts the GPU infrastructure used to run Amazon's spell-correction inference stack.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A shopper's search query enters Amazon's search bar, the T5 model generates corrected text on AWS GPUs, TensorRT and Triton handle optimized low-latency inference, and the corrected query is returned to the retail search experience before results are displayed.",
+  "integration_points": [
+    "Amazon product-search bar",
+    "Amazon Web Services (AWS)"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Amazon achieved real-time spell correction with under-50-millisecond latency and 5x throughput for the T5 model, while Triton Model Analyzer reduced configuration work from weeks to hours so teams could improve search quality faster.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "5X inference speedup",
+    "Real-time (<50ms) inference",
+    "Optimal inference configuration reduced from weeks to hours"
+  ],
+  "architecture_clues": [
+    "The production spell-correction workflow uses the T5 NLP model rather than rule-based search correction.",
+    "Inference runs on NVIDIA GPUs in AWS.",
+    "Triton Model Analyzer is part of the deployment workflow for finding the best serving configuration."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/amazon-accelerates-customer-satisfaction-with-nvidia-triton-inference-server-and-nvidia-tensorrt/",
+  "published_date": "2023-10-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Amazon improves the customer experience with ai-driven, real-time spell check for product search.",
+    "To achieve the desired results, Amazon uses the Text-To-Text Transfer Transformer (T5) natural language processing (NLP) model for spelling correction.",
+    "To accelerate text correction, they leverage NVIDIA AI inference software, including NVIDIA Triton™ Inference Server, and NVIDIA® TensorRT™.",
+    "The NVIDIA solutions respectively delivered under 50ms of inference latency and 5X the throughput for the T5 model, using NVIDIA GPUs on Amazon Web Services (AWS).",
+    "The Triton Model Analyzer also reduced the time needed to find optimal inference configuration from weeks to hours."
+  ]
+}

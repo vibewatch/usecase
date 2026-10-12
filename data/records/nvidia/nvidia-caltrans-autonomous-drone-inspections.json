@@ -1,0 +1,93 @@
+{
+  "id": "nvidia-caltrans-autonomous-drone-inspections",
+  "slug": "nvidia-caltrans-autonomous-drone-inspections",
+  "vendor": "NVIDIA",
+  "customer_name": "California Department of Transportation (Caltrans)",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Caltrans needed to inspect and monitor roughly 1,200 active transportation projects more frequently and safely, but manual site visits were slow, inconsistent, and risky for staff working around traffic, bridges, and remote infrastructure.",
+  "solution_summary": "Caltrans modernized inspections through its SOAR program by deploying autonomous, dock-based Skydio drones equipped with NVIDIA Jetson Orin for edge AI and remote operations. The drones capture aerial imagery in the field, then Caltrans processes the data in a hybrid architecture that spans edge systems and on-premises GPU workstations. Esri ArcGIS provides the NVIDIA-accelerated GIS and geospatial analytics layer, while Trimble uses NVIDIA Omniverse and GPU acceleration libraries to create digital-twin views and 3D project coordination workflows. NVIDIA CUDA and RTX-based acceleration handle photogrammetry, inference, and high-resolution model generation quickly enough for routine operations. This end-to-end stack turns raw flight data into engineering-grade maps, 3D models, and operational insight without requiring staff to physically traverse every inspection site.",
+  "products_used": [
+    "NVIDIA Jetson Orin",
+    "Esri ArcGIS",
+    "Trimble",
+    "NVIDIA Omniverse",
+    "NVIDIA CUDA",
+    "NVIDIA RTX Technology"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Jetson Orin",
+      "role": "Provides the edge AI compute inside autonomous inspection drones used by the SOAR program.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Esri ArcGIS",
+      "role": "Serves as the GIS and geospatial analytics platform for deep-learning analysis of captured inspection data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Trimble",
+      "role": "Delivers digital-twin visualization and infrastructure coordination workflows for Caltrans teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Powers the 3D digital-twin capabilities embedded in Caltrans' Trimble-based workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates photogrammetry and AI inference workloads that convert drone imagery into operational outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RTX Technology",
+      "role": "Supports high-resolution graphics and accelerated processing for 3D models and orthomosaics.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Skydio drones collect aerial imagery and site data, Jetson Orin handles edge processing during remote operations, captured data is processed on edge and on-prem GPU systems, ArcGIS and Trimble convert it into geospatial analytics and digital-twin views, and Caltrans teams review the results from command centers instead of hazardous field positions.",
+  "integration_points": [
+    "Skydio autonomous drones",
+    "Trimble digital-twin workflows",
+    "Esri ArcGIS",
+    "Caltrans command centers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Caltrans reduced inspection-processing cycles from days or weeks to hours, enabled operators to manage drones from command centers up to 100 miles away, improved worker safety by reducing dangerous site visits, and created a scalable model for persistent infrastructure monitoring.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Processes that once took days or weeks are now completed in hours",
+    "Remote operations up to 100 miles",
+    "Roughly 1,200 active projects"
+  ],
+  "architecture_clues": [
+    "The deployment uses a hybrid processing model spanning the edge and on-premises GPU workstations.",
+    "The SOAR program relies on dock-based autonomous drones rather than ad-hoc manual drone flights.",
+    "CUDA and GPU acceleration libraries generate 3D models and orthomosaics from aerial data."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/caltrans/",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Caltrans launched the Scalable Operations and Advanced Remote Technologies (SOAR) program to deploy autonomous Skydio drones equipped with NVIDIA Jetson Orin.",
+    "In a hybrid deployment model, captured aerial data is processed both at the edge and on on-premises GPU workstations.",
+    "Esri ArcGIS serves as the NVIDIA-accelerated GIS platform, powering GPU-accelerated deep learning and geospatial analytics.",
+    "Trimble leverages NVIDIA Omniverse™ and GPU acceleration libraries to deliver digital-twin capabilities.",
+    "Processes that once took days or weeks are now completed in hours."
+  ]
+}

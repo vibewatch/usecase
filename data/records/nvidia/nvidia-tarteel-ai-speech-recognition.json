@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-tarteel-ai-speech-recognition",
+  "slug": "nvidia-tarteel-ai-speech-recognition",
+  "vendor": "NVIDIA",
+  "customer_name": "Tarteel.ai",
+  "industry": "Education",
+  "region": "Global",
+  "company_size": "SMB",
+  "business_problem": "Tarteel.ai needed to give Muslims who are learning Quran recitation real-time, high-accuracy Arabic speech feedback even though many users do not speak Arabic and do not have easy access to qualified instructors.",
+  "solution_summary": "Tarteel built its Quran-recitation assistant on NVIDIA speech AI components instead of a generic transcription stack. Audio recitations from the application are processed by an Arabic automatic speech recognition pipeline fine-tuned with NVIDIA NeMo and served through NVIDIA Riva so users can receive correction while they recite. The team trains and optimizes the models with the NVIDIA CUDA Toolkit on NVIDIA A100 and V100 Tensor Core GPU systems, giving it the GPU-accelerated compute needed to improve accuracy and keep latency low as usage grows. This architecture keeps the model specialized for Quranic Arabic, supports live feedback instead of delayed batch review, and lets Tarteel scale the service across individual learners, instructors, schools, content creators, and researchers.",
+  "products_used": [
+    "NVIDIA Riva",
+    "NVIDIA NeMo",
+    "NVIDIA CUDA Toolkit",
+    "NVIDIA A100 Tensor Core GPU",
+    "NVIDIA V100 Tensor Core GPU"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Riva",
+      "role": "Serves the production speech AI layer that delivers live Quran-recitation transcription and feedback.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Provides the framework Tarteel uses to build and fine-tune its Quranic Arabic speech-recognition models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA Toolkit",
+      "role": "Optimizes and accelerates the training and deployment workloads behind Tarteel's speech models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPU",
+      "role": "Supplies high-performance GPU compute for training and running the speech-recognition pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA V100 Tensor Core GPU",
+      "role": "Supports GPU-accelerated model development and inference for the speech AI stack.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Users submit Quran recitations through Tarteel, the audio is transcribed by Arabic ASR models built with NeMo, Riva serves the low-latency inference path for live feedback, and the corrected text and recitation guidance are returned in real time inside the application.",
+  "integration_points": [
+    "Tarteel Quran-recitation application"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Tarteel delivered what it describes as the world's first Quranic Arabic ASR system, achieving a 4 percent word-error rate while giving thousands of users live recitation feedback that improves learning and accessibility.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "4 percent word-error rate (WER)",
+    "Live feedback to recitations",
+    "Thousands of users"
+  ],
+  "architecture_clues": [
+    "The stack is built around Arabic automatic speech recognition rather than generic transcription.",
+    "Tarteel fine-tuned NVIDIA Riva ASR for Quranic Arabic.",
+    "NVIDIA NeMo is used as the model-building and training framework behind the production service."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/automating-real-time-arabic-speech-recognition/",
+  "published_date": "2023-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Provide real-time recitation feedback and correction for Muslims studying the Quran",
+    "Tarteel used NVIDIA speech AI tools, including NVIDIA Riva, the GPU-accelerated SDK for building customized speech applications, and NVIDIA NeMo, the open-source framework that enables developers to build and train state-of-the-art conversational AI models.",
+    "The platform achieves state-of-the-art results with a 4 percent word-error rate (WER).",
+    "\"By fine-tuning NVIDIA® Riva automatic speech recognition (ASR) for the Arabic language, we've achieved state-of-the-art WER of 4 percent for Arabic transcription and are able to provide live feedback to recitations, enabling thousands of users to easily learn the Quran.\""
+  ]
+}

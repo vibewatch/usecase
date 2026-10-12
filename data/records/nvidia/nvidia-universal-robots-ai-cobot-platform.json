@@ -1,0 +1,97 @@
+{
+  "id": "nvidia-universal-robots-ai-cobot-platform",
+  "slug": "nvidia-universal-robots-ai-cobot-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Universal Robots",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Universal Robots needed to move collaborative robots beyond static programmed tasks so manufacturers in dynamic, high-mix environments could deploy cobots for adaptive assembly and machine-tending work without complex manual reprogramming.",
+  "solution_summary": "Universal Robots built its AI Accelerator on the NVIDIA Isaac robotics platform to create a physical-AI stack for adaptive cobots. The platform runs on NVIDIA Jetson AGX Orin at the edge and combines NVIDIA Isaac Manipulator components such as cuMotion, FoundationPose, and FoundationStereo with Isaac ROS, Isaac Lab, and NITROS integration for ROS 2 environments. In production, the cobot stack handles real-time object recognition, 3D pose estimation, motion planning, and low-latency perception-to-control handoff without depending on the cloud. In development, Universal Robots uses Isaac Lab and simulated training with domain randomization to build reinforcement-learning policies that transfer to real assembly tasks without manual fine-tuning. This architecture lets the company package advanced AI perception and motion into an accessible cobot platform instead of forcing each customer to build custom robotics pipelines from scratch.",
+  "products_used": [
+    "AI Accelerator",
+    "NVIDIA Isaac",
+    "NVIDIA Jetson AGX Orin",
+    "NVIDIA Isaac Manipulator",
+    "NVIDIA Isaac ROS",
+    "NVIDIA Isaac Lab",
+    "NVIDIA Isaac Transport for ROS (NITROS)"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Accelerator",
+      "role": "Serves as Universal Robots' packaged physical-AI platform for adaptive cobot development and deployment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Isaac",
+      "role": "Provides the overall robotics platform with simulation, application frameworks, and AI models for the cobot stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Jetson AGX Orin",
+      "role": "Supplies the embedded edge compute required for low-latency inference on industrial cobots.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac Manipulator",
+      "role": "Adds advanced perception and motion-planning modules such as cuMotion and FoundationPose to the cobot workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac ROS",
+      "role": "Provides modular, production-ready robotics components and ROS-native integration for deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Isaac Lab",
+      "role": "Supports simulation-based reinforcement-learning training and sim-to-real transfer for assembly policies.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac Transport for ROS (NITROS)",
+      "role": "Accelerates robot data transport and processing inside ROS 2 environments.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Sensors and cameras feed perception into the AI Accelerator on Jetson AGX Orin, Isaac Manipulator modules estimate pose and plan motion, ROS-based control loops execute adaptive robot actions, and simulation-trained policies from Isaac Lab move into real cobot tasks with minimal extra tuning.",
+  "integration_points": [
+    "ROS 2.0",
+    "PolyScope X",
+    "FoundationPose",
+    "FoundationStereo",
+    "cuMotion"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Universal Robots achieved up to 100x faster motion planning, enabled accurate 3D pose estimation with minimal training, shortened partner time to market for AI-powered cobot solutions, and opened new application categories and revenue streams across industrial automation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Up to 100x speed-up in motion planning",
+    "Accurate 3D pose estimation with minimal training",
+    "Eight-year collaboration between Universal Robots and NVIDIA"
+  ],
+  "architecture_clues": [
+    "The production deployment keeps inference on the edge to avoid cloud latency and data-security concerns.",
+    "Universal Robots combines simulation training, domain randomization, and reinforcement learning to bridge sim-to-real assembly tasks.",
+    "The AI Accelerator is designed as a partner ecosystem platform rather than a single-purpose robotic application."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/universal-robots-accelerates-cobot-development-with-nvidia/",
+  "published_date": "2025-07-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Universal Robots addressed these challenges by introducing the AI Accelerator, a platform for physical AI development that enables robots to perceive and interact with their environment and solve complex problems that were previously beyond their static capabilities.",
+    "Universal Robots integrated key components of the Isaac platform, such as AI models and libraries, into their AI Accelerator solution powered by NVIDIA Jetson AGX™.",
+    "NVIDIA Jetson AGX Orin™ for low-latency, high-accuracy edge AI without cloud dependencies.",
+    "Using NVIDIA Isaac Lab and Isaac ROS, Universal Robots has delivered a sim-to-real workflow for reinforcement learning training and real-world execution.",
+    "\"With the AI Accelerator, we're empowering our partners to bring AI-powered cobot solutions to market faster and with greater flexibility.\""
+  ]
+}

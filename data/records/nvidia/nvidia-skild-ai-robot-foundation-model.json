@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-skild-ai-robot-foundation-model",
+  "slug": "nvidia-skild-ai-robot-foundation-model",
+  "vendor": "NVIDIA",
+  "customer_name": "Skild AI",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "SMB",
+  "business_problem": "Skild AI needed a way to train robots that can adapt across many bodies, tasks, and environments, but collecting enough real-world robotics data was too slow and expensive to produce robust general-purpose physical AI.",
+  "solution_summary": "Skild AI built the Skild Brain as an omni-bodied robot foundation model on NVIDIA accelerated computing and simulation tools so it could train physical AI without depending on massive real-world robot fleets. The company uses NVIDIA Omniverse libraries and NVIDIA Isaac Lab to create large-scale physics simulations across thousands of robot embodiments and environments, while NVIDIA Cosmos Transfer augments those datasets with varied lighting and visual conditions. This synthetic pipeline is paired with human videos from the internet to teach robots how objects afford actions, giving the model broader behavioral coverage than teleoperation data alone. In deployment, the Skild Brain consumes raw camera images and proprioceptive signals and directly outputs low-level motor commands, enabling zero- or minimal-post-training adaptation to new robots. The result is a robotics stack that learns through scalable simulation and data augmentation rather than narrowly programmed behaviors.",
+  "products_used": [
+    "Skild Brain",
+    "NVIDIA Omniverse",
+    "NVIDIA Isaac Lab",
+    "NVIDIA Cosmos Transfer"
+  ],
+  "solution_components": [
+    {
+      "name": "Skild Brain",
+      "role": "Acts as the omni-bodied robot foundation model that drives decision-making and motor control across robot types.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Provides simulation libraries used to generate large-scale synthetic robotics data.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Isaac Lab",
+      "role": "Creates the physics-based simulation scenarios used for reinforcement-learning training at scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Cosmos Transfer",
+      "role": "Augments training datasets with diverse visual and environmental variations to improve robustness.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Synthetic robot scenarios and internet-scale human videos are fed into Skild AI's training pipeline, Isaac Lab and Omniverse generate scalable simulation experience, Cosmos Transfer augments the data, and the resulting Skild Brain turns vision and proprioception into low-level motor commands for new robot bodies in real-world tasks.",
+  "integration_points": [
+    "Human videos from the internet",
+    "Humanoids",
+    "Quadrupeds",
+    "Robotic arms"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Skild AI achieved 60-80 percent task performance within hours of data collection, enabled robots to carry payloads up to 1.5x body weight, reduced total cost of ownership by 10x compared with traditional systems, and demonstrated recovery from jams and limb failures through in-context adaptation rather than reprogramming.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "60%-80% task performance within hours of data collection",
+    "Payloads up to 1.5x the robot's body weight",
+    "10x reduction in total cost of ownership",
+    "$4,000-$15,000 systems versus $250,000+ traditional systems",
+    "Recovering from jammed wheels within 2-3 seconds"
+  ],
+  "architecture_clues": [
+    "The model is designed to work across multiple robot embodiments instead of a single form factor.",
+    "Training relies on synthetic simulation and video-derived affordances rather than only teleoperated robot data.",
+    "The deployment path connects high-level action selection and low-level motor control in one end-to-end model."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/skild-ai/",
+  "published_date": "2026-01-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company uses NVIDIA Omniverse™ libraries and open frameworks such as NVIDIA Isaac™ Lab for advanced physics simulation and NVIDIA Cosmos™ for data augmentation and generation to train its foundation model.",
+    "Skild AI built a true robotics foundation model called the Skild Brain.",
+    "This multi-pronged simulation approach enables Skild AI to acquire a millennium of experience within days.",
+    "The model demonstrates remarkable adaptability to mechanical changes, recovering from jammed wheels within 2-3 seconds.",
+    "\"NVIDIA Isaac Lab and Cosmos technologies allow us to create massive and scalable data sources necessary for robots to truly learn from experience across diverse scenarios and embodiments.\""
+  ]
+}

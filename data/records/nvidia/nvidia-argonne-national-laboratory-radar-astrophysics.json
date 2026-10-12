@@ -1,0 +1,104 @@
+{
+  "id": "nvidia-argonne-national-laboratory-radar-astrophysics",
+  "slug": "nvidia-argonne-national-laboratory-radar-astrophysics",
+  "vendor": "NVIDIA",
+  "customer_name": "Argonne National Laboratory",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Argonne and its collaborators needed to coordinate gravitational-wave and radio follow-up across observatories without moving proprietary datasets, but CPU-bound processing, siloed data-sharing policies, and slow cross-site workflows limited timely multi-messenger discovery.",
+  "solution_summary": "Argonne and partner institutions built RADAR as an event-driven, federated framework for multi-messenger astrophysics and ran it on NVIDIA-accelerated supercomputing systems. Site-local AI inference processes advanced LIGO data and matches detections to public LIGO-Virgo-KAGRA superevents before Octopus publishes a trigger across the workflow, often using ProxyStore to move large intermediate results securely. RADAR then uses an AI parser to convert unstructured GCN circulars into structured metadata and combines those public alerts with private observatory measurements while keeping raw data local. Downstream, Dingo-BNS performs gravitational-wave parameter estimation and afterglowpy models federated radio afterglows. NVIDIA A100, A40, and GH200 GPU systems on Polaris, Delta, and DeltaAI supply the compute layer that makes this privacy-preserving inference and coordination pipeline fast enough for real-time follow-up.",
+  "products_used": [
+    "RADAR",
+    "Octopus",
+    "ProxyStore",
+    "Dingo-BNS",
+    "afterglowpy",
+    "NVIDIA A100 Tensor Core GPUs",
+    "NVIDIA A40 GPUs",
+    "NVIDIA GH200 GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "RADAR",
+      "role": "Coordinates the federated multi-messenger workflow across observatories while preserving data locality.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Octopus",
+      "role": "Acts as the cloud-hosted messaging fabric that publishes event triggers across the workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ProxyStore",
+      "role": "Moves large intermediate results efficiently and securely between RADAR workflow stages.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Dingo-BNS",
+      "role": "Performs gravitational-wave parameter estimation inside the federated inference pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "afterglowpy",
+      "role": "Models federated radio afterglows so the system can refine source parameters from follow-up observations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Provide accelerated compute for site-local AI inference and large-scale astrophysics processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A40 GPUs",
+      "role": "Support the accelerated supercomputing environments used by the RADAR workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA GH200 GPUs",
+      "role": "Extend the framework's high-performance GPU capacity for next-generation astrophysics workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "RADAR performs site-local AI inference on LIGO data, matches detections with public superevents, sends triggers through Octopus and ProxyStore, parses GCN circulars into structured metadata, combines those alerts with local observatory measurements, and runs Dingo-BNS plus afterglowpy to refine source parameters without moving raw proprietary data.",
+  "integration_points": [
+    "LIGO-Virgo-KAGRA superevents",
+    "GCN circulars",
+    "Polaris supercomputer",
+    "Delta supercomputer",
+    "DeltaAI supercomputer",
+    "Observatory-local datasets"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "RADAR enabled privacy-preserving observatory coordination, processed 4,096 seconds of advanced LIGO data in under 4.5 minutes, and achieved a 5-10x speedup versus CPU workloads so researchers can respond faster to multi-messenger events without breaking data-sharing rules.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Processed 4,096 seconds of advanced LIGO data in under 4.5 minutes",
+    "5-10x speedup compared to CPU workloads"
+  ],
+  "architecture_clues": [
+    "RADAR is explicitly designed as a federated, privacy-enhancing workflow rather than a centralized data lake.",
+    "The framework parses unstructured GCN circulars into structured machine-readable metadata.",
+    "Public alerts and local observatory measurements are combined without requiring raw-data transfer between institutions."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/argonne-ai-cosmic-discovery/",
+  "published_date": "2026-02-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Researchers at Argonne National Laboratory and collaborating institutions have developed RADAR, a federated, privacy-enhancing framework that enables observatories to coordinate gravitational-wave and radio follow-up without moving or exposing proprietary data.",
+    "When a matching superevent is found, RADAR publishes a trigger to Octopus—a cloud-hosted, event-driven messaging fabric—often using ProxyStore to handle large intermediate results efficiently and securely.",
+    "Subsequently, RADAR integrates information across messengers by running Dingo-BNS for gravitational-wave parameter estimation and afterglowpy for federated radio afterglow modeling.",
+    "Integrating NVIDIA GPUs on the Polaris, Delta, and DeltaAI supercomputers, the framework's AI module for signal detection processed over an hour—4,096 seconds—of advanced LIGO data in under 4.5 minutes.",
+    "This translates to a speedup of 5-10x compared to the initial timeframe when running on CPU workloads."
+  ]
+}

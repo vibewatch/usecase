@@ -1,0 +1,63 @@
+{
+  "id": "nvidia-arup-structural-simulation-optimization",
+  "slug": "nvidia-arup-structural-simulation-optimization",
+  "vendor": "NVIDIA",
+  "customer_name": "Arup",
+  "industry": "unknown",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Arup needed to evaluate far more structural design options early in projects so engineers could optimize performance, material use, and embodied carbon, but traditional FEM simulations were too slow and queue-bound to support near-real-time iteration.",
+  "solution_summary": "Arup sped up its structural design workflow by replacing repeated full finite element method runs with graph neural network (GNN) surrogate models trained and deployed on NVIDIA DGX Spark. Engineers generate many building-massing or other structural options through parametric modeling, then use the GNN models to predict structural performance much faster than classical simulation so they can compare trade-offs earlier in the design cycle. DGX Spark supplies the local accelerated compute for both model execution and training, which lets Arup keep project data on site while shortening feedback loops from hours to minutes. The result is a practical two-stage architecture in which conventional FEM establishes the reference behavior, GNN surrogates provide fast iterative screening, and engineers use those AI-derived predictions to narrow the design space before making final structural decisions.",
+  "products_used": [
+    "Graph neural network (GNN) surrogate models",
+    "NVIDIA DGX Spark"
+  ],
+  "solution_components": [
+    {
+      "name": "Graph neural network (GNN) surrogate models",
+      "role": "Predict structural performance quickly enough for engineers to iterate through many low-carbon design options.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX Spark",
+      "role": "Provides the local accelerated compute used to train and run the surrogate models in Arup's workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Arup generates structural options through parametric modeling, runs those options through GNN surrogate models on DGX Spark to predict performance in minutes, and uses the results to compare cost, carbon, and engineering trade-offs before narrowing designs for deeper analysis.",
+  "integration_points": [
+    "Parametric modeling workflows",
+    "Finite element method (FEM) simulations",
+    "Tsinghua University"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Arup reduced structural simulation evaluation from hours to minutes, achieved 90-95 percent accuracy against FEM baselines, and ran GNN execution and training up to 50 percent faster, allowing teams to make lower-carbon design decisions earlier and with better quantitative support.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Structural simulation evaluation time from hours to minutes",
+    "Up to 95% prediction accuracy",
+    "Up to 50% faster GNN model execution and training"
+  ],
+  "architecture_clues": [
+    "Arup keeps the workflow local on DGX Spark for secure data handling.",
+    "The AI workflow complements rather than replaces FEM by using surrogate models for rapid early-stage exploration.",
+    "The implementation focuses on early-stage design studies where thousands of structural schemes must be screened quickly."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/arup/",
+  "published_date": "2026-07-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By training and deploying graph neural network (GNN)-based surrogate models on NVIDIA DGX Spark™, Arup reduced structural simulation evaluation time from hours to minutes while achieving up to 95% accuracy.",
+    "DGX Spark delivered up to 50% faster GNN model execution and training compared to alternative platforms.",
+    "With GNN-based predictions running on DGX Spark, thousands of structural schemes can now be evaluated efficiently.",
+    "Running locally, DGX Spark maintains secure data handling while supporting faster project delivery and more sustainable design outcomes."
+  ]
+}

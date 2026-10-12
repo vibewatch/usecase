@@ -1,0 +1,90 @@
+{
+  "id": "nvidia-rafiqspace-bahasa-indonesia-speech-intelligence",
+  "slug": "nvidia-rafiqspace-bahasa-indonesia-speech-intelligence",
+  "vendor": "NVIDIA",
+  "customer_name": "Rafiqspace.ai",
+  "industry": "Software / SaaS",
+  "region": "Indonesia",
+  "company_size": "SMB",
+  "business_problem": "Rafiqspace.ai needed to deliver compliance-grade Bahasa Indonesia transcription and speaker attribution for government and regulated-enterprise meetings, but manual transcription was slow and inaccurate and commercial speech tools were not tuned for Indonesia's regulatory vocabulary or multi-speaker environments.",
+  "solution_summary": "Rafiqspace.ai built a fine-tuned speech-intelligence platform on NVIDIA Nemotron models and NVIDIA accelerated computing to handle transcription, diarization, and post-processing for official meeting records. The company fine-tuned the Parakeet-CTC ASR model on a proprietary dataset covering parliamentary proceedings, internal meetings, lectures, and broadcast talk shows using NVIDIA H100 GPUs. In production, NVIDIA L40S GPUs run inference either on premises or in hybrid deployments with GCP and AWS. Speaker attribution is handled with NVIDIA NeMo ClusterDiarizer, which combines Silero VAD, TitaNet-Large embeddings, and two-stage agglomerative clustering, while bidirectional gRPC streaming delivers sub-300 millisecond interim transcription results and a punctuation-capitalization model converts raw output into readable records. The result is an end-to-end Indonesian speech pipeline built specifically for government compliance and enterprise documentation needs.",
+  "products_used": [
+    "NVIDIA Nemotron",
+    "Parakeet-CTC ASR",
+    "NVIDIA H100 GPUs",
+    "NVIDIA L40S GPUs",
+    "NVIDIA NeMo ClusterDiarizer"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Nemotron",
+      "role": "Provides the underlying speech model family Rafiqspace.ai uses for Bahasa Indonesia transcription.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Parakeet-CTC ASR",
+      "role": "Acts as the fine-tuned automatic speech-recognition model for government meeting transcription.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Provide the training and fine-tuning compute used to adapt the speech models to Bahasa Indonesia.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA L40S GPUs",
+      "role": "Power production inference for on-premises and hybrid government deployments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo ClusterDiarizer",
+      "role": "Handles speaker diarization and attribution for multi-speaker meeting records.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Meeting audio from parliamentary, health, and enterprise sessions is streamed into the fine-tuned Parakeet ASR service, H100-trained models and L40S inference generate transcriptions, ClusterDiarizer assigns speakers, and a punctuation-capitalization model converts the raw output into structured meeting records delivered in real time or batch mode.",
+  "integration_points": [
+    "GCP",
+    "AWS",
+    "Lintasarta",
+    "Parliamentary proceedings",
+    "National health institutions"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Rafiqspace.ai achieved 97.7 percent Bahasa Indonesia transcription accuracy, reached 569x real-time batch transcription, cut per-hour transcription cost by 90 percent, reduced manual effort by 95 percent, and enabled same-day meeting records for public-sector clients that previously waited days.",
+  "outcome_category": [
+    "Compliance",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "97.7% transcription accuracy",
+    "2.3% word error rate",
+    "569x real-time batch transcription",
+    "1.65x real-time streaming",
+    "95% reduction in manual transcription effort",
+    "90% reduction in per-hour transcription cost"
+  ],
+  "architecture_clues": [
+    "Production inference can run on premises or in hybrid form while sensitive records remain in controlled environments.",
+    "The diarization stack combines Silero VAD, TitaNet-Large speaker embeddings, and two-stage agglomerative clustering.",
+    "Bidirectional gRPC streaming is used to keep interim transcription latency below 300 milliseconds."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/transcription-accuracy-with-nemotron/",
+  "published_date": "2026-06-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By fine-tuning an open NVIDIA Nemotron™ speech, Parakeet ASR model on NVIDIA H100 and L40S GPUs, Rafiqspace.ai achieved 97.7% transcription accuracy, or 2.3% word error rate (WER).",
+    "NVIDIA L40S GPUs for production inference, deployed on premise or in hybrid configurations with GCP and AWS.",
+    "NVIDIA NeMo™ ClusterDiarizer for speaker diarization, combining Silero VAD, TitaNet-Large speaker embeddings, and two-stage agglomerative clustering.",
+    "Bidirectional gRPC streaming for sub-300 ms interim transcription results.",
+    "Per-hour transcription cost reduced from up to $50 (outsourced) to approximately $5—a 90% reduction."
+  ]
+}

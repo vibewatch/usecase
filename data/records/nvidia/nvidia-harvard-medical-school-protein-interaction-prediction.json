@@ -1,0 +1,83 @@
+{
+  "id": "nvidia-harvard-medical-school-protein-interaction-prediction",
+  "slug": "nvidia-harvard-medical-school-protein-interaction-prediction",
+  "vendor": "NVIDIA",
+  "customer_name": "Harvard Medical School",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "The Walter Lab at Harvard Medical School needed to map protein-protein interactions at proteome scale to study DNA repair and disease mechanisms, but manual structural biology work and false-positive model predictions made the project too slow and too large for traditional computing resources.",
+  "solution_summary": "Harvard Medical School's Walter Lab built a multi-step AI pipeline for protein interaction discovery and scaled it on NVIDIA DGX Cloud. The workflow first uses a machine-learning tool called KIRC to identify protein pairs that merit deeper analysis, then applies a second model, the Structure Predictions and Omics-Informed Classifier (SPOC), to separate true and false protein-protein interaction predictions. To execute the structure-prediction stage at massive scale, the team ran ColabFold on the full NVIDIA DGX Cloud stack, using 32-node DGX clusters with 256 A100 GPUs obtained through the NAIRR pilot. This dedicated cloud environment gave the lab enough configurable GPU capacity to move from tens of thousands of predictions to 1.7 million PPI runs in three months, turning an otherwise years-long discovery process into a tractable research workflow.",
+  "products_used": [
+    "KIRC",
+    "Structure Predictions and Omics-Informed Classifier (SPOC)",
+    "NVIDIA DGX Cloud",
+    "NVIDIA A100 GPUs",
+    "ColabFold"
+  ],
+  "solution_components": [
+    {
+      "name": "KIRC",
+      "role": "Selects protein pairs that are worth deeper structural analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Structure Predictions and Omics-Informed Classifier (SPOC)",
+      "role": "Filters predicted interactions by separating true and false protein-protein interaction candidates.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Provides the configurable large-scale GPU environment used to run the lab's end-to-end protein AI workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A100 GPUs",
+      "role": "Supply the 256-GPU accelerated cluster capacity that made proteome-scale inference practical.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ColabFold",
+      "role": "Executes the large-scale protein interaction predictions inside the DGX Cloud deployment.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "KIRC first narrows the candidate protein pairs, SPOC filters the resulting predictions, ColabFold runs large-scale structure prediction on DGX Cloud A100 clusters, and the resulting interaction map feeds the lab's structural interactome and downstream disease-research hypotheses.",
+  "integration_points": [
+    "NAIRR pilot program",
+    "The Walter Lab",
+    "Protein-protein interaction datasets"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The Walter Lab produced nearly 1.7 million protein interaction predictions in three months, generated 40,000 high-confidence interactions among 300 genome-maintenance proteins, and created a practical path to broader structural interactome research that would otherwise have taken years or longer.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "1.7 million protein interaction predictions in three months",
+    "40,000 high-confidence protein-protein interactions",
+    "32-node DGX clusters with 256 A100 GPUs"
+  ],
+  "architecture_clues": [
+    "The workflow separates candidate-pair selection, false-positive classification, and large-scale structure prediction into distinct stages.",
+    "DGX Cloud was provisioned through the NAIRR pilot as a dedicated cloud resource the team could configure for its own use.",
+    "The project uses ColabFold rather than a purely manual structural biology process for the main prediction stage."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/harvard-medical-school/",
+  "published_date": "2026-02-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Walter Lab conquered these limitations by developing a multi-step pipeline.",
+    "The researchers created a machine learning tool named KIRC, which identifies protein pairs that are worth in-depth analysis by AlphaFold.",
+    "The team then designed a second machine learning tool known as the Structure Predictions and Omics-Informed Classifier (SPOC), which is capable of separating true and false predictions of PPIs.",
+    "The team adopted NVIDIA Accelerated Computing infrastructure and the full NVIDIA DGX Cloud stack—consisting of 32-node DGX clusters with 256 A100 GPUs.",
+    "This NVIDIA solution allowed researchers to run 1.7 million PPI predictions on ColabFold in the span of three months."
+  ]
+}
