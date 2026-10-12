@@ -1,0 +1,85 @@
+{
+  "id": "in-house-merck-clinical-study-report-generation",
+  "slug": "in-house-merck-clinical-study-report-generation",
+  "vendor": "In-house",
+  "customer_name": "Merck",
+  "industry": "Healthcare",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Merck needed to remove complexity and manual effort from the clinical trial process, where medical writers spent months reviewing thousands of pages of clinical data to produce regulatory-quality clinical study reports.",
+  "solution_summary": "Merck built an internal generative AI platform to accelerate authoring of clinical study reports (CSRs) within its clinical development process. The implementation combines advanced table pre-processing with large language models (LLMs) and a proprietary gen-AI authoring platform. Clinical study data and tables are mapped, extracted, styled, and validated before the LLM-driven authoring step generates a high-quality first draft for qualified medical writers to review. Merck also changed its operating model around the platform, training teams in prompt engineering and data pipelines so they could supervise outputs and manage the workflow safely. The system is designed for rigorous human oversight rather than autonomous submission, and it has already been used across multiple studies and in live CSR submissions. Merck is now scaling the platform across its late-phase pipeline.",
+  "products_used": [
+    "large language models (LLMs)",
+    "new proprietary platform",
+    "advanced table pre-processing",
+    "gen AI authoring"
+  ],
+  "solution_components": [
+    {
+      "name": "large language models (LLMs)",
+      "role": "They generate first drafts of clinical study reports from pre-processed clinical content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "new proprietary platform",
+      "role": "It orchestrates CSR draft generation and applies the AI workflow within Merck's clinical reporting process.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "advanced table pre-processing",
+      "role": "It prepares table mapping, data extraction, styling, and validation before report generation.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "gen AI authoring",
+      "role": "It produces the report draft content that medical writers then review.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Clinical study data and tables are ingested into Merck's proprietary platform, where advanced table pre-processing handles mapping, extraction, styling, and validation. That prepared content is passed to LLM-based gen AI authoring to generate a CSR first draft, which is then reviewed by qualified medical writers before use in Merck's clinical study reporting workflow.",
+  "integration_points": [
+    "Clinical study data",
+    "Clinical data tables",
+    "Medical writers",
+    "Clinical study reports (CSRs)",
+    "Late-phase clinical pipeline"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Merck shortened the creation of fully human-reviewed first drafts of clinical study reports, improved draft quality, and accelerated the path to making medicines available to health care providers and patients.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "from two to three weeks to just three to four days",
+    "Reduced the time to create a fully human reviewed CSR first draft from an average of 180 hours to 80 hours",
+    "reducing the number of errors by 50%",
+    "In as little as five minutes, it can deliver a high-quality first draft"
+  ],
+  "architecture_clues": [
+    "Built as an internal generative-AI-powered platform",
+    "Designed to operate with rigorous oversight by qualified medical writers",
+    "Team of more than 80 data science, AI, life science technologists and medical experts worked across three continents",
+    "Platform is being scaled across Merck's late phase pipeline by the end of the year"
+  ],
+  "source_url": "https://www.merck.com/news/merck-expands-innovative-internal-generative-ai-solutions-helping-to-deliver-medicines-to-patients-faster/",
+  "published_date": "2025-06-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Merck has implemented a new internal generative-AI-powered platform that significantly reduces the time needed to produce critical-path clinical study documents\"",
+    "\"Merck technologists and clinical trial experts have developed new solutions leveraging large language models (LLMs) to expedite the creation of first drafts of clinical study reports (CSRs)\"",
+    "\"Reduced the time to create a fully human reviewed CSR first draft from an average of 180 hours to 80 hours.\"",
+    "\"Increased the quality of CSR drafts – as measured by reducing the number of errors by 50%\"",
+    "\"the co-developed platform integrates advanced table pre-processing with gen AI authoring\"",
+    "\"In as little as five minutes, it can deliver a high-quality first draft, managing table mapping, data extraction, styling and validation.\""
+  ],
+  "source_type": "company"
+}

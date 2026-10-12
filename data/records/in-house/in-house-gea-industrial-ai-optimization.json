@@ -1,0 +1,141 @@
+{
+  "id": "in-house-gea-industrial-ai-optimization",
+  "slug": "in-house-gea-industrial-ai-optimization",
+  "vendor": "In-house",
+  "customer_name": "GEA",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Industrial operators using GEA equipment need to increase output while consuming less energy and generating less waste under changing process conditions, tighter environmental standards, and talent scarcity. GEA also needed a secure way for employees to access internal knowledge faster for service, sales, R&D, and documentation work.",
+  "solution_summary": "GEA is layering AI onto its base of IIoT-connected industrial equipment and internal knowledge workflows. Machine sensors feed operating data from spray dryers, wastewater decanters, brewhouse systems, and milking environments into GEA Cloud, where software services analyze conditions and either auto-adjust control parameters or recommend operator actions. GEA OptiPartner functions as an autopilot-style optimization and maintenance service for process equipment; GEA Intellicant combines a sensor package with the virtual machine operator (VMO) to react automatically to wastewater variability; GEA InsightPartner Brewery adds predictive AI and dashboards for mid-brew optimization; and CattleEye applies computer-vision-style movement analysis to score cow mobility. Internally, GEA BetterBot AI grounds OpenAI's ChatGPT through Microsoft's Azure OpenAI Service on GEA data and serves employees securely via the GEA Cloud, while GEA Portal exposes machine data and collaboration workflows to customers.",
+  "products_used": [
+    "GEA OptiPartner",
+    "GEA Intellicant",
+    "virtual machine operator (VMO)",
+    "GEA InsightPartner Brewery",
+    "CattleEye",
+    "GEA X Control",
+    "GEA BetterBot AI",
+    "OpenAI's ChatGPT",
+    "Microsoft's Azure OpenAI Service",
+    "GEA Cloud",
+    "GEA Portal"
+  ],
+  "solution_components": [
+    {
+      "name": "GEA OptiPartner",
+      "role": "Optimizes machine processes and maintenance by adjusting process parameters in real time with less manual intervention.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GEA Intellicant",
+      "role": "Delivers an AI-powered, cloud-based decanter optimization service for sludge dewatering under changing conditions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "virtual machine operator (VMO)",
+      "role": "Acts as the software brain that reacts automatically and intelligently to incoming wastewater process data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GEA InsightPartner Brewery",
+      "role": "Provides real-time monitoring, predictive AI suggestions, and dashboards for brewing-process optimization.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CattleEye",
+      "role": "Analyzes cow movement patterns and assigns mobility scores so farmers can identify lame or sick animals quickly.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GEA X Control",
+      "role": "Collects and analyzes centrifuge data faster and prepares systems for customized, self-learning control functions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GEA BetterBot AI",
+      "role": "Gives employees a secure company-wide chatbot for fast access to GEA-related information and support tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI's ChatGPT",
+      "role": "Provides the foundation model capability behind GEA BetterBot AI.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft's Azure OpenAI Service",
+      "role": "Supplies the managed model service used to run GEA BetterBot AI with enterprise controls.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GEA Cloud",
+      "role": "Collects, stores, secures, and further processes data from connected GEA machines and hosts BetterBot AI.",
+      "layer": "Storage"
+    },
+    {
+      "name": "GEA Portal",
+      "role": "Provides customers with access to machine data and digital engagement workflows through personalized GEA-ID access.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Sensors on connected GEA machines and Intellicant decanters capture process variables such as solids concentration, centrate turbidity, dry substance, energy use, and heat-recovery data. These streams are sent to GEA Cloud, where VMO and other AI or analytics functions optimize parameters or generate suggestions for OptiPartner and InsightPartner Brewery. Results are surfaced through machine controls, dashboards, GEA Portal, and application interfaces used by operators, farmers, and employees.",
+  "integration_points": [
+    "Machine sensors on IIoT-ready GEA equipment",
+    "Wastewater sludge intake, centrate, and sludge cake measurements",
+    "Brewhouse energy-consumption and heat-recovery data",
+    "Milking-parlor exit camera feeds",
+    "GEA-internal data",
+    "OpenAI's ChatGPT",
+    "Microsoft's Azure OpenAI Service"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM",
+    "Data Analytics",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "GEA reports higher productivity, lower manual intervention, better energy efficiency, reduced sludge waste and disposal costs, faster employee access to internal knowledge, and broader cloud-based visibility across connected machines.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "energy efficiency gains averaging 8 percent",
+    "equivalent to the energy utilized by 200 German households annually",
+    "users have reported productivity gains of between five and eight percent",
+    "reduce the amount of sewage sludge by some 400 metric tons per year",
+    "reduces disposal costs by up to 60,000 euros per year",
+    "More than 6,000 GEA machines are connected to GEA Cloud",
+    "connect an additional 2,000 machines to the cloud in 2024",
+    "50% connection rate of new IIoT-ready installations by the end of the year"
+  ],
+  "architecture_clues": [
+    "GEA Intellicant uses a sensor package plus the virtual machine operator (VMO).",
+    "The Intellicant sensor package monitors solids concentration, centrate turbidity, and sludge cake dry substance in real time.",
+    "GEA BetterBot AI is fed with GEA-internal data and runs securely in the GEA Cloud.",
+    "GEA Cloud is described as a single platform linking IIoT-ready machines worldwide.",
+    "GEA Portal uses a personalized GEA-ID for customer access.",
+    "GEA X Control uses the latest microcontroller and processor technology for higher connectivity."
+  ],
+  "source_url": "https://www.gea.com/en/stories/ai-drives-sustainability-for-gea-and-customers",
+  "published_date": "2024-02-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"GEA uses AI to add a layer of intelligence to existing sensor technology, data and analytics.\"",
+    "\"Smart software combined with automation work together to adjust process parameters in real time while reducing the need for manual intervention.\"",
+    "\"The system consists of a sensor package plus GEA software known as virtual machine operator (VMO).\"",
+    "\"GEA Intellicant is already helping wastewater plants in Germany and Denmark achieve significant efficiency gains in sludge dewatering to minimize waste and improve cost efficiency.\"",
+    "\"users have reported productivity gains of between five and eight percent.\"",
+    "\"GEA BetterBot AI, which is based on OpenAI's ChatGPT as well as Microsoft's Azure OpenAI Service.\"",
+    "\"Launched in 2023, GEA BetterBot AI is fed with GEA-internal data and runs securely in the GEA Cloud.\"",
+    "\"More than 6,000 GEA machines are connected to GEA Cloud\""
+  ],
+  "source_type": "company"
+}
