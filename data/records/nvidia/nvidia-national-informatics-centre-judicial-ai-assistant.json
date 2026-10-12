@@ -1,0 +1,119 @@
+{
+  "id": "nvidia-national-informatics-centre-judicial-ai-assistant",
+  "slug": "nvidia-national-informatics-centre-judicial-ai-assistant",
+  "vendor": "NVIDIA",
+  "customer_name": "National Informatics Centre",
+  "industry": "Public Sector",
+  "region": "India",
+  "company_size": "Public sector",
+  "business_problem": "NIC needed to reduce judicial backlog and improve accessibility in a court system with massive case volumes and many official languages, while giving judges faster ways to search and summarize legal material.",
+  "solution_summary": "NIC is modernizing India's court system with a two-part AI stack that handles both speech processing and legal retrieval. For court proceedings, streaming ASR models trained with NVIDIA NeMo and deployed with NVIDIA Riva transcribe English and seven Indic languages, while a Triton-hosted neural machine translation service extends access across all 22 Indic languages. For research workflows, Supreme Court judgments are embedded with the NVIDIA NeMo Embedding microservice, stored in a GPU-accelerated vector database, retrieved with NeMo Retriever, reranked, and passed to a TensorRT-LLM-optimized model served through NVIDIA NIM on NVIDIA DGX A100 infrastructure with NVIDIA AI Enterprise. The resulting platform supports transcription, translation, verdict search, and summarization, giving judges and court staff faster access to multilingual proceedings and relevant precedents while creating a base for system-wide rollout.",
+  "products_used": [
+    "NVIDIA Riva",
+    "NVIDIA NeMo",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA NeMo Embedding microservice",
+    "NVIDIA NeMo Retriever microservice",
+    "NeMo Reranking microservice",
+    "TensorRT-LLM",
+    "NVIDIA NIM",
+    "NVIDIA DGX A100 Tensor Core GPUs",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Riva",
+      "role": "Runs the streaming ASR service for court-proceeding transcription.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Trains the Indic language ASR models and supplies retrieval microservices for the legal-search stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Hosts the neural machine translation service for multilingual court proceedings.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Embedding microservice",
+      "role": "Converts Supreme Court judgments into embeddings for the judicial-search assistant.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA NeMo Retriever microservice",
+      "role": "Retrieves relevant verdict information from the vector database during question answering.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NeMo Reranking microservice",
+      "role": "Refines retrieved results before they are passed to the response model.",
+      "layer": "Serving"
+    },
+    {
+      "name": "TensorRT-LLM",
+      "role": "Optimizes the large language model used in the judicial assistant.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Serves the optimized LLM that generates answers from the retrieved legal context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX A100 Tensor Core GPUs",
+      "role": "Provide the accelerated infrastructure for the retrieval and language-model workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the enterprise software stack used for embeddings, reranking, and inference.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Court audio is transcribed with Riva and NeMo-based ASR, translated through Triton-hosted NMT, and stored for access, while judgments are embedded, retrieved, reranked, and passed to an NIM-served TensorRT-LLM model to answer legal-search and summarization requests.",
+  "integration_points": [
+    "Supreme Court judgments",
+    "GPU-accelerated vector database",
+    "District court proceedings",
+    "Judicial search and summarization workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "NIC improved accessibility for multilingual court proceedings, accelerated legal research for judges, and created an AI platform that can support 18,000 daily district court sessions and scale to the wider Indian judicial system.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "nearly 50,000 cases",
+    "over a million cases",
+    "22 officially recognized languages",
+    "18,000 daily district court sessions",
+    "English and seven Indic languages"
+  ],
+  "architecture_clues": [
+    "The translation service supports all 22 Indic languages while ASR currently supports eight languages including English",
+    "The RAG stack uses embeddings, retrieval, reranking, and a TensorRT-LLM-optimized model on DGX A100 GPUs",
+    "NIC also built extractive and abstractive summarization for pleadings"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/role-of-nic-modernizing-indian-judiciary-using-ai/",
+  "published_date": "2024-11-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The streaming automatic speech recognition (ASR) service can transcribe speech in English and seven Indic languages.",
+    "The neural machine translation (NMT) service supports the translation of court proceedings in all 22 Indic languages.",
+    "Results are refined with the NeMo Reranking microservice and fed into a TensorRT-LLM-optimized large language model deployed using LLM NIM.",
+    "The ASR/NMT solution will assist over 18,000 daily district court sessions after full rollout."
+  ]
+}

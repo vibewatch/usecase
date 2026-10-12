@@ -1,0 +1,70 @@
+{
+  "id": "nvidia-microsoft-live-caption-transcription",
+  "slug": "nvidia-microsoft-live-caption-transcription",
+  "vendor": "NVIDIA",
+  "customer_name": "Microsoft",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Microsoft needed to deliver accurate live captions and real-time meeting transcripts in many languages for Teams while keeping inference latency low and compute costs under control at massive user scale.",
+  "solution_summary": "Microsoft built Teams live captioning and transcription on Azure speech infrastructure that combines Azure Cognitive Services, NVIDIA GPUs on Azure, and NVIDIA Triton Inference Server. Meeting audio is sent from the Teams client to speech models tuned to recognize names, jargon, and meeting context across 28 languages. Triton manages low-latency inference and keeps GPU resources saturated, while Azure packages the service into production-ready captioning and transcript features for massive hybrid-work traffic. The architecture lets Microsoft serve real-time subtitles and transcripts at global scale without overprovisioning compute, so accessibility features remain responsive for daily meetings while keeping throughput high and infrastructure use efficient.",
+  "products_used": [
+    "Microsoft Azure Cognitive Services",
+    "NVIDIA GPUs on Azure",
+    "NVIDIA Triton Inference Server"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Azure Cognitive Services",
+      "role": "Hosts the speech models and application services that power Teams captioning and transcription.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA GPUs on Azure",
+      "role": "Provide the accelerated compute used to run Microsoft speech models in real time.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves speech-recognition inference with low latency while maximizing GPU utilization.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Teams sends meeting audio into Azure Cognitive Services, speech models run on NVIDIA GPUs with Triton managing inference, and the resulting captions and transcripts are returned to meeting participants in real time.",
+  "integration_points": [
+    "Microsoft Teams",
+    "Meeting audio streams",
+    "Accessibility captioning and transcript features"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Microsoft delivers cost-efficient, accurate live captioning and transcription across 28 languages for Teams, using Triton to improve throughput and reduce the computational resources needed for real-time speech services.",
+  "outcome_category": [
+    "Customer Experience",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "28 languages",
+    "nearly 250 million active monthly users"
+  ],
+  "architecture_clues": [
+    "Speech models recognize jargon, names, and meeting context",
+    "Triton ensures models use GPUs to their full potential inside Azure Cognitive Services"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/live-captions-and-transcription-services-for-microsoft-teams/",
+  "published_date": "2023-10-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Microsoft Teams is a collaboration app with nearly 250 million active monthly users.",
+    "This enables them to leverage advanced language models that recognize jargon, names, and other meeting context, to deliver highly accurate, personalized speech-to-text results-in real time-with very low latency.",
+    "Using Triton Inference Server in Azure Cognitive Services seamlessly enables live transcription and captions with state of the art speech models in 28 languages.",
+    "This reduces the cost to customers by delivering higher throughput using fewer computational resources."
+  ]
+}

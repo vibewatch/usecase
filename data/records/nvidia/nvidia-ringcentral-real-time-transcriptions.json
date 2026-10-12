@@ -1,0 +1,76 @@
+{
+  "id": "nvidia-ringcentral-real-time-transcriptions",
+  "slug": "nvidia-ringcentral-real-time-transcriptions",
+  "vendor": "NVIDIA",
+  "customer_name": "RingCentral",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "RingCentral needed a transcription platform that could handle hundreds of thousands of concurrent meeting users, different accents, specialized vocabulary, and noisy audio while still producing real-time results.",
+  "solution_summary": "RingCentral modernized its transcription stack by taking pretrained NVIDIA speech models and adapting them with proprietary meeting data in NVIDIA NeMo, then deploying the resulting speech-recognition service with NVIDIA Riva for production use. NVIDIA DGX A100 systems provide the accelerated environment for training and experimentation, while NVIDIA Triton Inference Server supports scalable inference across large numbers of simultaneous audio streams. The end-to-end pipeline is built to handle diverse accents, domain-specific jargon, and noisy meeting conditions so transcripts arrive in real time and remain useful for downstream tasks. Those transcripts feed collaboration features such as live captioning, meeting summaries, and sentiment-oriented analysis, allowing RingCentral to support more than a billion meeting minutes without sacrificing speed or accuracy.",
+  "products_used": [
+    "NVIDIA DGX A100",
+    "NVIDIA NeMo",
+    "NVIDIA Riva",
+    "NVIDIA Triton Inference Server"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX A100",
+      "role": "Provides the training infrastructure RingCentral uses to adapt speech models on proprietary data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Fine-tunes pretrained ASR models so they handle accents, jargon, and noisy meeting audio more accurately.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Riva",
+      "role": "Runs the production speech-recognition service for real-time transcription.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Helps scale inference for large numbers of concurrent transcription streams.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Meeting audio is processed by NeMo-tuned ASR models trained on DGX A100 systems, Riva serves live transcription in production, and the resulting transcripts flow into captioning, summarization, and sentiment-analysis features.",
+  "integration_points": [
+    "Video conferencing sessions",
+    "Meeting summarization workflows",
+    "Sentiment analysis for video conferencing and call center sessions"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "RingCentral improved transcription accuracy by more than 10 percent, supported over a billion minutes of meetings for 200,000 concurrent users, and raised the quality of downstream summarization and sentiment-analysis tasks.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "over a billion minutes of meetings",
+    "200,000 concurrent users",
+    "Accuracy increased by more than 10 percent"
+  ],
+  "architecture_clues": [
+    "The platform supports live captioning and meeting summarizations",
+    "Transcripts are used downstream for sentiment analysis of video conferencing and call center sessions"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/world-class-speech-ai-for-the-best-video-conferencing-experience/",
+  "published_date": "2023-09-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "RingCentral, a leading provider of unified-communications-as-a-service (UCaaS) solutions, transcribes over a billion minutes of meetings for 200,000 concurrent users on their platform.",
+    "RingCentral fine-tuned NVIDIA's state-of-the-art, pretrained speech recognition models on proprietary custom data with NVIDIA NeMo.",
+    "The models were deployed in production using NVIDIA Riva-a GPU-accelerated SDK for deploying world-class AI-based speech applications.",
+    "Accuracy increased by more than 10 percent"
+  ]
+}

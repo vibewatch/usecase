@@ -1,0 +1,77 @@
+{
+  "id": "nvidia-insider-video-dubbing",
+  "slug": "nvidia-insider-video-dubbing",
+  "vendor": "NVIDIA",
+  "customer_name": "Insider",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Insider needed a faster and more cost-effective way to localize video content for non-English-speaking audiences because traditional dubbing was too slow and expensive and subtitles delivered lower engagement.",
+  "solution_summary": "Insider localized its video catalog by plugging Papercup's AI dubbing platform into existing publishing workflows instead of relying on slow studio dubbing or subtitles alone. Papercup trains and serves its speech models on NVIDIA A100 GPUs, using GPU acceleration for both model training and production voice synthesis. As clips move through the workflow, Papercup automatically translates dialogue, segments audio, generates human-sounding AI voice tracks, and routes the output through quality-control steps with human translators before release. NVIDIA Triton Inference Server is being adopted to raise synthesis throughput, simplify support for inference frameworks such as ONNX and TensorRT, and improve end-to-end latency and GPU utilization. This architecture let Insider dub back-catalog news videos quickly enough to keep content relevant while expanding distribution into Spanish, Latin American, and European channels.",
+  "products_used": [
+    "Papercup AI dubbing platform",
+    "NVIDIA A100 GPUs",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA TensorRT"
+  ],
+  "solution_components": [
+    {
+      "name": "Papercup AI dubbing platform",
+      "role": "Automates translation, segmentation, AI voice generation, and quality-control workflows for dubbed videos.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA A100 GPUs",
+      "role": "Accelerate Papercup's training and inference workloads for AI dubbing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Improves synthesis throughput, inference flexibility, and end-to-end latency in production voice generation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Supports inference optimization as part of Papercup's production speech stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Existing Insider videos enter Papercup's dubbing workflow, dialogue is translated and segmented, AI voices are generated on NVIDIA GPU infrastructure, human translators verify quality, and localized videos are published to regional channels.",
+  "integration_points": [
+    "YouTube",
+    "Facebook",
+    "Human translator quality-control workflows",
+    "Existing Insider content creation process"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Insider reached hundreds of millions of additional viewers, gained 100 million views on its Spanish YouTube channel within weeks, and expanded international audience engagement with dubbed content that sometimes outperformed the English originals.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "5-10X training workload speedups",
+    "hundreds of millions of additional viewers",
+    "100 million views"
+  ],
+  "architecture_clues": [
+    "Papercup's AI voices are verified by human translators before release",
+    "Voice synthesis in production takes place on NVIDIA GPUs in the cloud",
+    "The workflow targets faster localization of back-catalog news and informational video content"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/accelerating-the-language-dubbing-process-with-nvidia-powered-ai-solutions/",
+  "published_date": "2023-12-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Insider uses Papercup's AI solution, which runs on NVIDIA A100 GPUs, to localize news and existing videos in a quick and cost-effective way.",
+    "Papercup's AI solution helps make videos watchable in any language, using AI voices trained through their own machine learning algorithms.",
+    "Moving their models in production to the Triton Inference Server is a key part of the strategy towards improved performance, flexibility, and utilization of GPUs during voice synthesis.",
+    "In a matter of weeks, Insider gained 100 million views on its Spanish YouTube channel."
+  ]
+}

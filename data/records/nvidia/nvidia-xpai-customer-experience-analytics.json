@@ -1,0 +1,88 @@
+{
+  "id": "nvidia-xpai-customer-experience-analytics",
+  "slug": "nvidia-xpai-customer-experience-analytics",
+  "vendor": "NVIDIA",
+  "customer_name": "XPAI",
+  "industry": "Software / SaaS",
+  "region": "Unknown",
+  "company_size": "SMB",
+  "business_problem": "XPAI needed a privacy-preserving way to measure how people use and perceive physical spaces so brands and event operators could optimize offline experiences with real-time evidence instead of intuition.",
+  "solution_summary": "XPAI built an edge-based measurement stack for physical spaces so brands and event teams could understand how visitors use and perceive offline experiences without exporting personally identifiable data. AVAI One Sensor captures millions of data points per second from rooms and installations, while a Jetson Orin-powered processing engine uses the DeepStream SDK and TensorRT to refine visitor data in real time. XPAI AI analyzes perception and engagement signals, and the XPAI Heartbeat analytics layer turns them into live dashboards and feedback loops. Because the platform establishes a baseline for each environment and returns results instantly, operators can run A/B tests on music, lighting, or product placement and see how audiences respond while the experience is still underway. A GDPR-compliant architecture keeps only anonymized data leaving the system.",
+  "products_used": [
+    "AVAI One Sensor",
+    "XPAI AI",
+    "XPAI Heartbeat",
+    "NVIDIA Jetson Orin",
+    "NVIDIA DeepStream SDK",
+    "NVIDIA TensorRT"
+  ],
+  "solution_components": [
+    {
+      "name": "AVAI One Sensor",
+      "role": "Captures physical-space signals and raw audience data for the measurement platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "XPAI AI",
+      "role": "Processes engagement and perception data so operators can understand how audiences respond to physical experiences.",
+      "layer": "Compute"
+    },
+    {
+      "name": "XPAI Heartbeat",
+      "role": "Serves real-time analytics and experience insights to operators.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Jetson Orin",
+      "role": "Runs the edge processing engine close to the sensor data source.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DeepStream SDK",
+      "role": "Accelerates the processing pipeline for large streams of visitor and environment data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes the AI processing engine for faster real-time inference.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "AVAI One Sensor captures room activity, Jetson Orin processes the signals with DeepStream and TensorRT, XPAI AI derives perception and engagement measures, and XPAI Heartbeat returns real-time insights for operators to adjust the physical experience.",
+  "integration_points": [
+    "Physical rooms and event spaces",
+    "A/B testing of music, lighting, and product placement",
+    "GDPR-compliant anonymization workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "XPAI helps businesses identify non-performing elements, compare events, run live A/B tests, and personalize physical experiences with instant feedback while keeping audience data anonymized.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "millions of data points per second"
+  ],
+  "architecture_clues": [
+    "The system establishes a baseline for each experience and returns instant feedback when physical features change",
+    "Only anonymized data leaves the GDPR-compliant core",
+    "The stack combines edge sensing, AI processing, and analytics serving in three distinct components"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/measurement-solution-for-physical-spaces/",
+  "published_date": "2024-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AVAI One Sensor, a smart sensor that captures millions of data points per second from the physical world",
+    "XPAI AI, a GDPR-compliant AI that processes data across perception and engagement",
+    "XPAI Heartbeat, the analytics platform with real-time insights",
+    "The only data leaving the system is completely anonymized."
+  ]
+}

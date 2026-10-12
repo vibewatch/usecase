@@ -1,0 +1,104 @@
+{
+  "id": "nvidia-vnpt-traffic-safety-video-analytics",
+  "slug": "nvidia-vnpt-traffic-safety-video-analytics",
+  "vendor": "NVIDIA",
+  "customer_name": "Vietnam Post and Telecommunications Group (VNPT)",
+  "industry": "Telecommunications",
+  "region": "Vietnam",
+  "company_size": "Enterprise",
+  "business_problem": "VNPT needed a high-performance traffic-monitoring system that could analyze thousands of camera feeds and hundreds of thousands of AI service requests to improve congestion management and road safety at busy intersections.",
+  "solution_summary": "VNPT AI built a traffic-monitoring platform on NVIDIA AI Enterprise so it could analyze thousands of camera feeds and handle hundreds of thousands of AI service requests across busy Vietnamese intersections. Video streams are ingested through NVIDIA Metropolis and the NVIDIA DeepStream SDK, where pretrained models, TensorRT optimization, and containerized AI Enterprise components detect vehicles and pedestrians, interpret traffic signals, and classify potential hazards. Training runs on NVIDIA DGX A100 systems, while inference is split between NVIDIA Jetson devices at the edge and on-premises servers equipped with NVIDIA T4 and A30 GPUs to balance low-latency roadside processing with centralized multi-stream analytics. The result is a hybrid edge-plus-datacenter architecture that feeds real-time congestion and safety insights to response teams and gives VNPT a reusable base for future AI services.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "NVIDIA Metropolis",
+    "NVIDIA DeepStream SDK",
+    "NVIDIA TensorRT",
+    "NVIDIA DGX A100",
+    "NVIDIA Jetson",
+    "NVIDIA T4",
+    "NVIDIA A30"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the containerized software layer, pretrained models, frameworks, and support VNPT uses to build and deploy the traffic solution.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Metropolis",
+      "role": "Supplies the end-to-end video analytics framework VNPT uses to process traffic-camera feeds.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA DeepStream SDK",
+      "role": "Runs the real-time video analytics pipeline that detects and classifies road users and events.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes VNPT's vision models for higher-performance inference.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA DGX A100",
+      "role": "Handles AI model training for VNPT's traffic-monitoring workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Jetson",
+      "role": "Supports edge deployment where roadside systems interpret signals and track objects near the cameras.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA T4",
+      "role": "Runs backend inference workloads for concurrent multi-stream video processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A30",
+      "role": "Runs backend inference workloads for concurrent multi-stream video processing.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Traffic-camera feeds are processed with Metropolis and DeepStream, edge systems with Jetson interpret signals and track road users, backend T4 and A30 servers aggregate multiple streams, and the resulting alerts and congestion insights are delivered to authorities and response teams.",
+  "integration_points": [
+    "Thousands of cameras across Vietnam",
+    "VMware vSphere",
+    "VNPT AI services",
+    "Traffic-response teams and authorities"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "VNPT reduced model-training time from weeks to days, improved traffic-flow visibility, and built a safer road-monitoring system that can help authorities respond to incidents more quickly and efficiently.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "hundreds of thousands of AI service requests",
+    "thousands of cameras",
+    "Reduced training time from weeks to days"
+  ],
+  "architecture_clues": [
+    "The deployment uses both edge Jetson systems and on-premises T4 and A30 GPU servers",
+    "The models detect cars, motorcycles, bicycles, and pedestrians and interpret traffic signals",
+    "VNPT used NVIDIA Enterprise Support to resolve performance issues and optimize infrastructure"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/vnpt-advances-traffic-safety-with-ai-enterprise/",
+  "published_date": "2024-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "they needed extremely accurate, high-performance AI models to handle hundreds of thousands of AI service requests on thousands of cameras across Vietnam.",
+    "VNPT used NVIDIA Metropolis to process and analyze multiple video feeds from strategically placed cameras around some of the most traffic-heavy intersections in major cities.",
+    "The video analytics applications are deployed at the edge with NVIDIA Jetson or on premises with T4 and A30 GPUs.",
+    "Reduced training time from weeks to days"
+  ]
+}

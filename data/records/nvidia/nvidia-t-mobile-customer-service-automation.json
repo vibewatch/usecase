@@ -1,0 +1,71 @@
+{
+  "id": "nvidia-t-mobile-customer-service-automation",
+  "slug": "nvidia-t-mobile-customer-service-automation",
+  "vendor": "NVIDIA",
+  "customer_name": "T-Mobile",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "T-Mobile needed more accurate, lower-latency call transcripts so its Expert Assist software could recommend answers in real time without making customers repeat themselves in noisy service interactions.",
+  "solution_summary": "T-Mobile embedded NVIDIA speech AI into its Expert Assist workflow so frontline agents could see reliable transcripts and recommendations while calls were still in progress. Audio from customer conversations is processed on NVIDIA A100 Tensor Core GPUs with NVIDIA Riva handling low-latency automatic speech recognition. T-Mobile engineers used NVIDIA NeMo to fine-tune speech models on proprietary customer-care data so the system could recognize product jargon, accents, and noisy call-center conditions. The live transcripts feed Expert Assist, which recommends next-best actions and helps agents resolve issues faster. The stack is designed for thousands of concurrent users, combining custom model training with GPU-accelerated inference to keep accuracy high while maintaining real-time responsiveness in production.",
+  "products_used": [
+    "NVIDIA A100 Tensor Core GPU",
+    "NVIDIA NeMo",
+    "NVIDIA Riva"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA A100 Tensor Core GPU",
+      "role": "Provides the accelerated compute used to run T-Mobile's speech models for live customer-care workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Lets T-Mobile fine-tune ASR models on custom customer-service data so jargon and noisy environments are handled more accurately.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Riva",
+      "role": "Runs low-latency speech recognition in production so Expert Assist can transcribe calls in real time.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer-call audio is processed by Riva on NVIDIA GPUs, custom NeMo-tuned ASR models generate transcripts, and Expert Assist uses those transcripts to surface recommendations to frontline agents during the conversation.",
+  "integration_points": [
+    "Expert Assist",
+    "Customer Experience Centers",
+    "Live customer-care call audio"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "T-Mobile improved transcript accuracy by 10 percent, reduced latency by 10X, and delivered real-time speech assistance for thousands of concurrent users while preserving its customer-service experience.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "10 percent higher accuracy",
+    "10X overall latency improvement",
+    "thousands of concurrent users"
+  ],
+  "architecture_clues": [
+    "ASR models were fine-tuned on custom datasets to interpret customer jargon across noisy environments",
+    "Live transcripts drive recommendations inside Expert Assist for frontline agents"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/speech-ai-for-award-winning-customer-care/",
+  "published_date": "2023-10-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "This AI-based software transcribes real-time customer conversations and recommends solutions to thousands working on the frontline.",
+    "These NVIDIA tools enabled T-Mobile engineers to fine-tune ASR models on their custom datasets and interpret customer jargon accurately across noisy environments.",
+    "10 percent higher accuracy",
+    "10X overall latency improvement"
+  ]
+}

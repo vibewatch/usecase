@@ -1,0 +1,92 @@
+{
+  "id": "nvidia-siemens-healthineers-radiation-therapy-ai",
+  "slug": "nvidia-siemens-healthineers-radiation-therapy-ai",
+  "vendor": "NVIDIA",
+  "customer_name": "Siemens Healthineers",
+  "industry": "Healthcare",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens Healthineers needed to speed up radiation-oncology model development and reduce the time clinicians spend contouring organs at risk so treatment planning could scale with rising cancer demand.",
+  "solution_summary": "Siemens Healthineers uses its Sherlock AI supercomputer to industrialize machine-learning development for radiation oncology, especially the organ-contouring step that slows treatment planning. Sherlock combines NVIDIA HGX-1 and HGX-2 servers loaded with NVIDIA Tesla V100 GPUs, NVLink interconnects, 3 petabytes of NVMe storage, and a 100 Gbps Mellanox InfiniBand fabric so researchers can keep GPUs saturated and run more than 600 deep-learning experiments each day. The cluster trains AI models behind syngo.via RT Image Suite, including AutoContouring models built on more than 4.5 million images. Once trained, those models automatically outline 47 organs for radiation-oncology workflows, giving clinicians faster starting points for therapy planning while the same platform supports more than 45 approved AI applications across the broader imaging portfolio.",
+  "products_used": [
+    "syngo.via RT Image Suite",
+    "NVIDIA HGX-1",
+    "NVIDIA HGX-2",
+    "NVIDIA Tesla V100 Tensor Core GPUs",
+    "NVIDIA NVLink",
+    "Mellanox InfiniBand"
+  ],
+  "solution_components": [
+    {
+      "name": "syngo.via RT Image Suite",
+      "role": "Delivers the AI-assisted AutoContouring workflow radiation oncologists use in treatment planning.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA HGX-1",
+      "role": "Provides part of the Sherlock supercomputer used for model training and experimentation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA HGX-2",
+      "role": "Provides part of the Sherlock supercomputer used for model training and experimentation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Tesla V100 Tensor Core GPUs",
+      "role": "Accelerate deep-learning training for contouring and broader medical-imaging models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NVLink",
+      "role": "Supports high-bandwidth communication inside the GPU training servers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mellanox InfiniBand",
+      "role": "Connects the Sherlock cluster with high-speed low-latency networking.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Curated medical images and related clinical data are used to train AutoContouring models on the Sherlock cluster, and the trained models are delivered through syngo.via RT Image Suite to automatically outline organs during radiation-therapy planning.",
+  "integration_points": [
+    "Radiology reports",
+    "Clinical and genomic data",
+    "Radiation-oncology planning workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Siemens Healthineers automated organ contouring in radiation therapy, helped clinicians focus on other patient-care tasks, and built a training platform that supports hundreds of daily experiments and more than 45 approved AI applications.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "24 PetaFlops of processing performance",
+    "3 PetaBytes of NVMe storage",
+    "100 Gbps Mellanox InfiniBand network",
+    "over 600 deep learning experiments daily",
+    "over 4.5 million images",
+    "47 organs",
+    "more than 45 AI-powered applications"
+  ],
+  "architecture_clues": [
+    "Sherlock uses NVMe storage and high-speed switching to keep GPU servers highly utilized",
+    "AutoContouring models were trained on more than 4.5 million images",
+    "The broader AI program learns from a data lake of over 900 million curated images plus radiology, clinical, and genomic data"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/streamlining-cancer-radiation-therapy-with-ai/",
+  "published_date": "2023-09-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The system provides 24 PetaFlops of processing performance and 3 PetaBytes of NVMe storage, connected over a high-speed 100 Gbps Mellanox InfiniBand network, and is used to run over 600 deep learning experiments daily.",
+    "Trained on over 4.5 million images using the Sherlock supercomputer, the AI tool automatically outlines 47 organs.",
+    "AI-assisted AutoContouring helps save time and improve standardization in organs-at-risk contouring.",
+    "So far, Sherlock has led to the development of more than 45 AI-powered applications approved for clinical use."
+  ]
+}

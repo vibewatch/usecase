@@ -1,0 +1,85 @@
+{
+  "id": "nvidia-scaleway-sovereign-ai-cloud",
+  "slug": "nvidia-scaleway-sovereign-ai-cloud",
+  "vendor": "NVIDIA",
+  "customer_name": "Scaleway",
+  "industry": "Software / SaaS",
+  "region": "Europe",
+  "company_size": "Unknown",
+  "business_problem": "Scaleway needed a secure, scalable AI infrastructure that would let European customers train large models inside the EU while meeting data-sovereignty, privacy, and efficiency requirements.",
+  "solution_summary": "Scaleway assembled its sovereign AI cloud around the Nabu supercomputer so European customers could train frontier models inside the EU without handing data control to non-European hyperscalers. The environment is built from 127 NVIDIA DGX H100 systems and 1,016 NVIDIA H100 Tensor Core GPUs, with NVIDIA NVLink handling intra-node bandwidth and Quantum-2 InfiniBand providing low-latency cluster communication. Hosted in Scaleway's DC5 data center in Paris, the platform gives customers a managed environment for training LLMs and other transformer workloads while staying aligned with GDPR and local data-sovereignty requirements. Scaleway used the same stack to support projects such as Mistral AI's Mixtral and Kyutai's Moshi, while its smaller Jero system extends the model to additional workloads. Energy-efficient data-center cooling reduces electricity and water usage, so the architecture pairs scale-out AI training with compliance and sustainability goals.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA DGX H100",
+    "NVIDIA H100 Tensor Core GPUs",
+    "NVIDIA NVLink",
+    "NVIDIA Quantum-2 InfiniBand"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides the overall AI supercomputing architecture behind Scaleway's Nabu environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DGX H100",
+      "role": "Supplies the system building blocks for large-scale model training in Scaleway's cloud.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 Tensor Core GPUs",
+      "role": "Deliver the accelerated compute used to train LLMs and transformer models for customers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NVLink",
+      "role": "Provides high-bandwidth communication between GPUs inside the training systems.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum-2 InfiniBand",
+      "role": "Connects the cluster with low-latency networking for large distributed-training jobs.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer model-training jobs are submitted into Scaleway's DGX-based cloud, GPUs and NVLink handle node-level training, Quantum-2 InfiniBand connects the cluster for distributed runs, and completed models remain inside EU-hosted infrastructure for downstream customer use.",
+  "integration_points": [
+    "Mistral AI",
+    "Kyutai",
+    "Free Pro",
+    "DC5 data center in Paris"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Scaleway stood up its Nabu supercomputer in two months, gave European AI companies a sovereign alternative for large-model training, and paired that scale with GDPR-aligned hosting and lower-power, lower-water data-center operations.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Compliance"
+  ],
+  "metrics": [
+    "just two months",
+    "1,016 NVIDIA H100 Tensor Core GPUs",
+    "127 NVIDIA DGX H100 systems",
+    "30-40%",
+    "9-10X less water"
+  ],
+  "architecture_clues": [
+    "Nabu is hosted in Scaleway's DC5 data center in Paris",
+    "The platform supports LLM and transformer-model training inside EU data-sovereignty boundaries",
+    "Jero 2023 is used as a smaller version of Nabu for additional workloads"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/transforming-europe-ai-landscape/",
+  "published_date": "2025-02-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The company built the Nabuchodonosor 2023 AI supercomputer-known as Nabu-in just two months.",
+    "Powered by 1,016 NVIDIA H100 Tensor Core GPUs and 127 NVIDIA DGX H100 systems, Nabu offers European businesses access to a turnkey solution capable of supporting the most demanding machine learning tasks.",
+    "Its AI infrastructure complies with stringent data protection laws, like the EU's General Data Protection Regulation (GDPR).",
+    "DC5 uses advanced adiabatic cooling systems, reducing electricity consumption by 30-40% and using 9-10X less water than traditional data centers."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "nvidia-alsemy-semiconductor-modeling",
+  "slug": "nvidia-alsemy-semiconductor-modeling",
+  "vendor": "NVIDIA",
+  "customer_name": "Alsemy",
+  "industry": "Manufacturing",
+  "region": "South Korea",
+  "company_size": "SMB",
+  "business_problem": "Alsemy needed to replace slow, expert-only semiconductor device-modeling workflows that required months or years of manual physics fitting before chip teams could move on new process nodes.",
+  "solution_summary": "Alsemy rebuilt semiconductor device modeling around physics-informed AI so customers no longer have to wait months or years for experts to hand-fit SPICE and T-CAD models. Its Alsis platform learns transistor behavior directly from I-V and C-V datasets, while Alsphere extends the approach to structural and process modeling, including a display-focused variant co-developed with LG Display. Model development runs on NVIDIA RTX 3090 GPUs with NVIDIA PhysicsNeMo and CUDA-accelerated PyTorch across a hybrid on-premises and cloud environment, letting a small team iterate quickly on pretrained Retarget and C-V models. Once trained, the models can be fine-tuned with customer data and then deployed for CPU-based inference inside customer environments, so fabs keep sensitive data on-premises while still benefiting from GPU-accelerated training and rapid experimentation.",
+  "products_used": [
+    "Alsis",
+    "Alsphere",
+    "NVIDIA RTX 3090 GPUs",
+    "NVIDIA PhysicsNeMo",
+    "CUDA-accelerated PyTorch"
+  ],
+  "solution_components": [
+    {
+      "name": "Alsis",
+      "role": "Builds physics-informed device models from semiconductor electrical data for customer-specific chip development.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Alsphere",
+      "role": "Extends Alsemy's AI modeling approach into structural and process prediction workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA RTX 3090 GPUs",
+      "role": "Accelerate training for Alsemy's large physics-informed models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA PhysicsNeMo",
+      "role": "Provides reusable physics-informed AI building blocks for model development and experimentation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CUDA-accelerated PyTorch",
+      "role": "Supports GPU-accelerated model training and iteration across Alsemy's research workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "I-V and C-V measurements plus real silicon data feed PhysicsNeMo and PyTorch training on RTX GPUs, pretrained and customer-specific models are refined in Alsis and Alsphere, and the resulting models are delivered for CPU-based inference inside customer R&D and fab environments.",
+  "integration_points": [
+    "Amazon Web Services",
+    "Google Cloud Platform",
+    "SK hynix",
+    "LG Display",
+    "National Nano Fab Center"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Alsemy cut device-modeling cycles from years of physics work and months of manual fitting to weeks of GPU training, one-second inference, and 10-minute customer tuning, helping semiconductor R&D teams move faster with lower cost and expert-level accuracy.",
+  "outcome_category": [
+    "Speed to Market",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "a few weeks of GPU training",
+    "one-second inference",
+    "10-minute customer-specific tuning",
+    "six-person (and growing) AI research and engineering team"
+  ],
+  "architecture_clues": [
+    "Models are trained in a hybrid on-premises and cloud environment but often deployed for CPU-based inference in customer sites",
+    "Pretrained models and customer-specific models can run side by side in production flows",
+    "The workflow blends neural networks with explicit physical constraints"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/alsemy/",
+  "published_date": "2026-06-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Alsemy helps chipmakers replace year-long SPICE or T-CAD model development cycles with workflows measured in minutes or days.",
+    "The team trains large pretrained models, including a Retarget model and a C-V model, using NVIDIA RTX 3090 GPUs in a hybrid infrastructure.",
+    "Alsis models are typically deployed for CPU-based inference in customer environments.",
+    "a few weeks of GPU training, plus one-second inference and 10-minute customer-specific tuning"
+  ]
+}

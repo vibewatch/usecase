@@ -1,0 +1,105 @@
+{
+  "id": "nvidia-noble-machines-industrial-robot-development",
+  "slug": "nvidia-noble-machines-industrial-robot-development",
+  "vendor": "NVIDIA",
+  "customer_name": "Noble Machines",
+  "industry": "Manufacturing",
+  "region": "Unknown",
+  "company_size": "SMB",
+  "business_problem": "Noble Machines needed to train, evaluate, and deploy a general-purpose industrial robot fast enough for real customer environments without relying on slow, physical-only testing or cloud-dependent inference.",
+  "solution_summary": "Noble Machines uses the NVIDIA Isaac GR00T stack as the backbone for developing Moby, its general-purpose industrial robot, across simulation, training, evaluation, and onboard deployment. Engineers import mechanical designs and customer facility twins into NVIDIA Isaac Sim, use the Newton Physics Engine to model contact-rich behaviors such as grasping and lifting, and scale policy training with Isaac Lab plus VR teleoperation data. Pretraining runs on NVIDIA H100 GPUs, post-training and scene simulation use NVIDIA RTX 6000 PRO and GeForce RTX 5090 GPUs, and thousands of digital Moby instances can run in parallel before policies ever reach hardware. On the robot itself, NVIDIA Jetson Thor processes camera and sensor data and runs foundation-model inference locally, while partners such as ADLINK, Solomon, and Schaeffler help ruggedize hardware and adapt workflows for semiconductor facilities.",
+  "products_used": [
+    "NVIDIA Isaac GR00T 1.7",
+    "NVIDIA Isaac Sim",
+    "NVIDIA Isaac Lab",
+    "Newton Physics Engine",
+    "NVIDIA H100 GPUs",
+    "NVIDIA RTX 6000 PRO GPUs",
+    "NVIDIA GeForce RTX 5090 GPUs",
+    "NVIDIA Jetson Thor"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Isaac GR00T 1.7",
+      "role": "Provides the vision-language-action foundation model Noble Machines refines for Moby's behavior.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Hosts the digital robot and customer-facility environments used for simulation and workflow design.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac Lab",
+      "role": "Supports whole-body-control training and sim-to-real deployment workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Newton Physics Engine",
+      "role": "Simulates contact-rich actions such as lifting, grasping, and moving objects before deployment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Accelerate pretraining for Moby's robotics models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RTX 6000 PRO GPUs",
+      "role": "Support post-training and large-scale simulation workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 5090 GPUs",
+      "role": "Run high-volume simulation jobs depending on scene complexity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Jetson Thor",
+      "role": "Processes sensor data and runs robotics foundation-model inference onboard the physical robot.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Digital facility models and teleoperation examples feed Isaac Sim and Isaac Lab training workflows, large GPU clusters refine policies across thousands of simulated Mobys, and the trained models are deployed onto Jetson Thor for real-time perception and control on the physical robot.",
+  "integration_points": [
+    "Customer digital twins",
+    "VR-based teleoperation",
+    "ADLINK ruggedized industrial edge systems",
+    "Solomon semiconductor material-handling workflows",
+    "Schaeffler humanoid actuators"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Noble Machines cut its development timeline by nearly 3x, shipped Moby to Asia within 18 months of founding, and achieved that pace with a team of about 15 people instead of a much larger conventional robotics program.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "nearly 3x",
+    "four years",
+    "18 months",
+    "15 people",
+    "50 people",
+    "thousands of digital Moby instances"
+  ],
+  "architecture_clues": [
+    "Jetson Thor keeps inference onboard so Moby does not rely on external communication for decisions",
+    "The stack combines simulation, teleoperation data, policy evaluation, and sim-to-real deployment",
+    "Moby is being adapted to semiconductor material-handling workflows and future construction use cases"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/noble-machines/",
+  "published_date": "2026-08-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Accelerated Moby's development timeline by nearly 3x, from an expected four years to 18 months.",
+    "Isaac Sim and Isaac Lab let Noble Machines run thousands of digital Moby instances in parallel.",
+    "NVIDIA Jetson Thor processes sensor data and runs robotics foundation-model inference onboard.",
+    "Achieve these milestones with a team of about 15 people, versus a conventional approach that would require at least 50 people."
+  ]
+}

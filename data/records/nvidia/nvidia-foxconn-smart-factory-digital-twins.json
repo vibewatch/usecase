@@ -1,0 +1,105 @@
+{
+  "id": "nvidia-foxconn-smart-factory-digital-twins",
+  "slug": "nvidia-foxconn-smart-factory-digital-twins",
+  "vendor": "NVIDIA",
+  "customer_name": "Foxconn",
+  "industry": "Manufacturing",
+  "region": "Taiwan",
+  "company_size": "Enterprise",
+  "business_problem": "Foxconn needed a faster way to design, replicate, and optimize complex global factory operations because traditional facility planning, robotics programming, and environmental analysis were too slow, siloed, and expensive.",
+  "solution_summary": "Foxconn's Fii Omniverse Digital Twin platform connects factory design data, production systems, robotics workflows, and operational telemetry so the company can simulate and optimize plants before and after equipment is installed. Built on NVIDIA Omniverse libraries and OpenUSD, FODT creates reusable virtual factory assets that Foxconn can migrate across global sites, while dashboards ingest MES, SFC, and automation data for real-time KPI monitoring. NVIDIA PhysicsNeMo accelerates CFD analysis inside the twin, shrinking thermal simulations from hours to minutes, and NVIDIA Isaac Sim, Isaac Lab, FoundationPose, and NVIDIA cuMotion are used to model robot workcells and AGV logistics before physical deployment. Foxconn also layers NVIDIA Metropolis video analytics agents onto the environment so managers can query factory footage, generate reports, and respond faster to issues across smart-manufacturing operations.",
+  "products_used": [
+    "NVIDIA Omniverse",
+    "Universal Scene Description (OpenUSD)",
+    "NVIDIA PhysicsNeMo",
+    "NVIDIA Isaac Sim",
+    "NVIDIA Isaac Lab",
+    "FoundationPose",
+    "NVIDIA cuMotion",
+    "NVIDIA Metropolis"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Provides the digital-twin foundation for building and operating Foxconn's virtual factories.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Universal Scene Description (OpenUSD)",
+      "role": "Standardizes the reusable factory assets Foxconn migrates across production sites.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA PhysicsNeMo",
+      "role": "Accelerates CFD and thermal analysis inside the digital twin.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac Sim",
+      "role": "Simulates robot workcells and AI-powered robotics before physical deployment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Isaac Lab",
+      "role": "Supports training and validation workflows for robotics inside the virtual factory.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "FoundationPose",
+      "role": "Helps refine complex robotic perception tasks in simulated workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA cuMotion",
+      "role": "Plans collision-free robot motion for manufacturing tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Metropolis",
+      "role": "Powers video analytics agents that monitor factory activity and generate operational insights.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Factory design assets are modeled in OpenUSD and Omniverse, MES, SFC, automation, and video feeds are connected into the digital twin, PhysicsNeMo and Isaac workflows simulate thermal and robotic behavior, and the resulting insights are pushed to managers for planning and real-time operations.",
+  "integration_points": [
+    "Manufacturing execution systems (MES)",
+    "Shop floor control (SFC)",
+    "Automation systems",
+    "Cadence CFD solvers",
+    "Video analytics AI agents"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Foxconn reduced CFD simulation time by as much as 150x, expects factory setup and planning time to drop by about 50 percent, and gained faster production-line replication, KPI monitoring, and issue response across smart factories.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "150x faster computational fluid dynamics (CFD) simulations",
+    "about 50%",
+    "minutes vs. hours"
+  ],
+  "architecture_clues": [
+    "FODT embeds dashboards with KPIs from MES, SFC, and automation systems",
+    "Foxconn connects AI simulation, robot planning, AGV logistics, and video analytics inside one twin platform",
+    "The same approach is being used for factories producing NVIDIA GB200 Grace Blackwell Superchip systems"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/foxconn-develops-physical-ai-enabled-smart-factories-with-digital-twins/",
+  "published_date": "2025-05-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Fii Omniverse Digital Twin (FODT) platform utilizes NVIDIA Omniverse libraries to create comprehensive virtual replicas of its factories.",
+    "The FODT platform connects virtual factories to real-world operational data, embedding dashboards with key metrics from manufacturing execution systems (MES), shop floor control (SFC), and automation systems.",
+    "CFD simulations up to 150x faster than traditional methods.",
+    "we believe that we can cut that down by about 50%"
+  ]
+}
