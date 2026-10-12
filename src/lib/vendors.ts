@@ -20,6 +20,10 @@ const VENDOR_STYLES: Record<string, { color: string; mark: string }> = {
   SAP: { color: "#0070f2", mark: "SAP" },
   Mistral: { color: "#fa520f", mark: "MI" },
   Cohere: { color: "#39594d", mark: "CO" },
+  "Tencent Cloud": { color: "#0052d9", mark: "TC" },
+  "Baidu AI Cloud": { color: "#2932e1", mark: "BD" },
+  "Huawei Cloud": { color: "#c7000b", mark: "HW" },
+  BytePlus: { color: "#325ab4", mark: "BP" },
 };
 
 export function vendorStyle(vendor: string): { color: string; mark: string } {

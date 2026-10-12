@@ -24,12 +24,15 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable, Optional
-from urllib.parse import urlencode, urljoin
+from urllib.parse import quote, urlencode, urljoin
 from xml.etree import ElementTree
 
 from .fetch_client import FetchClient
 from .settings import DISCOVERED_URLS_PATH, HTTP_CACHE_DIR, SOURCES_PATH, fetch_options
 from .utils import load_json, load_jsonl
+
+# Characters left as-is when percent-encoding discovered links ("Fortal Studio" -> "Fortal%20Studio").
+URL_SAFE = ":/?#[]@!$&'()*+,;=%~"
 
 SITEMAP_NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
@@ -203,13 +206,22 @@ def _extract_index_links(client: FetchClient, index_url: str) -> list[str]:
         print(f"  index fetch failed: {index_url} -> {exc}", file=sys.stderr, flush=True)
         return []
     parser = _LinkExtractor(index_url)
+    html = result.body.decode("utf-8", errors="replace")
     try:
-        parser.feed(result.body.decode("utf-8", errors="replace"))
+        parser.feed(html)
     except Exception as exc:  # noqa: BLE001
         print(f"  index parse failed: {index_url} -> {exc}", file=sys.stderr, flush=True)
         return []
-    print(f"  index links: {len(parser.links)}", file=sys.stderr, flush=True)
-    return parser.links
+    # Client-rendered catalogs (e.g. Tencent Cloud China) keep story links in embedded
+    # JSON rather than <a href>; the source's url_patterns weed out non-story paths.
+    unescaped = html.replace("\\u002F", "/").replace("\\/", "/")
+    embedded = [
+        urljoin(index_url, path)
+        for path in re.findall(r"""["'](https?://[^"'\s<>]+|/[^"'\s<>/][^"'\s<>]*)["']""", unescaped)
+    ]
+    links = list(dict.fromkeys(quote(link, safe=URL_SAFE) for link in parser.links + embedded))
+    print(f"  index links: {len(links)}", file=sys.stderr, flush=True)
+    return links
 
 
 def _filter_urls(

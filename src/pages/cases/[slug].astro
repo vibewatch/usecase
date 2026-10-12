@@ -41,6 +41,11 @@ const published = isParseableDate(record.published_date) ? formatDate(record.pub
 const collected =
   record.collected_week && record.collected_week !== "undated" ? `Week of ${weekLabel(record.collected_week)}` : "Reference set";
 const dots = [0, 1, 2, 3, 4, 5];
+const sourceLanguage = record.source_language?.trim().toLowerCase();
+const translatedFrom =
+  sourceLanguage && sourceLanguage !== "en"
+    ? (new Intl.DisplayNames(["en"], { type: "language" }).of(sourceLanguage) ?? sourceLanguage)
+    : "";
 
 // Search index (Pagefind): filters, sort keys and the fields result cards need.
 const card = toCardRecord(record);
@@ -98,6 +103,7 @@ const searchMeta: Record<string, string> = {
             </span>
             <span class="chip chip--glass">{record.industry}</span>
             <span class="chip chip--glass">{record.region}</span>
+            {translatedFrom && <span class="chip chip--glass" title="This summary was translated to English from the original story">Translated from {translatedFrom}</span>}
             {record.is_sample && <span class="chip chip--warn">Sample</span>}
           </div>
           <h1 class="detail-hero__title" data-pagefind-meta="title" data-pagefind-weight="10">{record.customer_name}</h1>

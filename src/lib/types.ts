@@ -29,6 +29,8 @@ export interface CaseStudyRecord {
   confidence_score: number;
   maturity_score: number;
   evidence_quotes: string[];
+  /** ISO 639-1 code when the source story is not in English (the record is translated). */
+  source_language?: string;
   is_sample?: boolean;
   /** ISO timestamp of first collection (set by `npm run data:partition`). */
   collected_at?: string | null;

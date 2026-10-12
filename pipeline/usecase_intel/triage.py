@@ -81,6 +81,11 @@ DATELINE_RE = re.compile(
     rf"\b(?:published|posted|updated|date)\b[:\s]*(?:on\s+)?((?:\d{{1,2}}\s+)?(?:{MONTH_NAMES})\.?\s+(?:\d{{1,2}},?\s*)?20\d{{2}})",
     re.IGNORECASE,
 )
+# Chinese pages: 2024年5月13日 / 2024.05.13 / 2024/05/13, and datelines like 发布时间：2024-05-13.
+CN_DATE_RE = re.compile(r"(20\d{2})\s*[年./]\s*(\d{1,2})\s*[月./]\s*(\d{1,2})\s*日?")
+CN_MONTH_RE = re.compile(r"(20\d{2})\s*年\s*(\d{1,2})\s*月")
+CN_DATELINE_RE = re.compile(r"(?:发布时间|发布日期|发布于|发表于|日期|时间)\s*[:：]?\s*(20\d{2}\s*[年./-]\s*\d{1,2}\s*[月./-]\s*\d{1,2}\s*日?)")
+CJK_RE = re.compile(r"[㐀-䶿一-鿿]")
 WAYBACK_CDX = "https://web.archive.org/cdx/search/cdx"
 
 
@@ -96,6 +101,13 @@ class Criteria:
     arch_res: list[re.Pattern[str]]
     weights: dict[str, Any]
     wayback: bool
+    # Chinese-language sources (vendor option "language": "zh"); records are still written in English.
+    cjk_chars_per_word: float
+    zh_topic_res: list[re.Pattern[str]]
+    zh_metric_re: re.Pattern[str]
+    zh_arch_res: list[re.Pattern[str]]
+    latin_topic_res: list[re.Pattern[str]]
+    latin_arch_res: list[re.Pattern[str]]
 
     @classmethod
     def load(cls, path: Path, since_override: Optional[str] = None) -> "Criteria":
@@ -106,8 +118,13 @@ class Criteria:
         def words(terms: list[str]) -> list[re.Pattern[str]]:
             return [re.compile(rf"\b(?:{term})\b", re.IGNORECASE) for term in terms]
 
+        def latin(terms: list[str]) -> list[re.Pattern[str]]:
+            # In Chinese text "使用LLM" has no \b before "LLM"; bound on Latin letters instead.
+            return [re.compile(rf"(?<![A-Za-z])(?:{term})(?![A-Za-z])", re.IGNORECASE) for term in terms]
+
         topic = config["topic"]
         depth = config["depth"]
+        chinese = config["chinese"]
         return cls(
             since=since_override or config["since"],
             min_words=int(config["min_words"]),
@@ -119,6 +136,12 @@ class Criteria:
             arch_res=words(depth["architecture_terms"]),
             weights=config["score_weights"],
             wayback=bool(config.get("wayback_date_fallback", True)),
+            cjk_chars_per_word=float(chinese["cjk_chars_per_word"]),
+            zh_topic_res=[re.compile(term) for term in chinese["topic_terms"]],
+            zh_metric_re=re.compile(chinese["metric_pattern"]),
+            zh_arch_res=[re.compile(term) for term in chinese["architecture_terms"]],
+            latin_topic_res=latin(topic["terms"]),
+            latin_arch_res=latin(depth["architecture_terms"]),
         )
 
 
@@ -137,6 +160,8 @@ def parse_date_value(value: str) -> Optional[str]:
     """Normalize one date string (ISO, US numeric, or month-name forms) to YYYY-MM-DD."""
     if match := ISO_DATE_RE.search(value):
         return _iso(int(match[1]), int(match[2]), int(match[3]))
+    if match := CN_DATE_RE.search(value):
+        return _iso(int(match[1]), int(match[2]), int(match[3]))
     if match := US_DATE_RE.search(value):
         return _iso(int(match[3]), int(match[1]), int(match[2]))
     if match := MONTH_DAY_YEAR_RE.search(value):
@@ -145,13 +170,18 @@ def parse_date_value(value: str) -> Optional[str]:
         return _iso(int(match[3]), MONTHS[match[2].lower()], int(match[1]))
     if match := re.search(rf"\b({MONTH_NAMES})\.?\s+(20\d{{2}})\b", value, re.IGNORECASE):
         return _iso(int(match[2]), MONTHS[match[1].lower()])
+    if match := CN_MONTH_RE.search(value):
+        return _iso(int(match[1]), int(match[2]))
     return None
 
 
-def detect_published_date(raw_html: str, text: str) -> Optional[str]:
-    """Best-effort publish date: structured metadata, a date standing alone in the
-    first lines (e.g. Microsoft's "January 19, 2024" above the title), then a
-    keyword dateline ("Published May 2024") near the top."""
+def detect_published_date(raw_html: str, text: str, date_pattern: Optional[re.Pattern[str]] = None) -> Optional[str]:
+    """Best-effort publish date: a vendor-specific pattern (first match), structured
+    metadata, a date standing alone in the first lines (e.g. Microsoft's
+    "January 19, 2024" above the title), then a keyword dateline ("Published May
+    2024", "发布时间：2024-05-13") near the top."""
+    if date_pattern and (match := date_pattern.search(raw_html)) and (value := parse_date_value(match[1])):
+        return value
     meta = [parse_date_value(value) for value in META_DATE_RE.findall(raw_html) + TIME_TAG_RE.findall(raw_html)]
     meta = [value for value in meta if value and "2000" <= value[:4] <= "2100"]
     if meta:
@@ -159,14 +189,14 @@ def detect_published_date(raw_html: str, text: str) -> Optional[str]:
     for line in [line.strip() for line in text.splitlines() if line.strip()][:5]:
         if len(line) <= 24 and _is_whole_date(line) and (value := parse_date_value(line)):
             return value
-    match = DATELINE_RE.search(text[:2000])
+    match = DATELINE_RE.search(text[:2000]) or CN_DATELINE_RE.search(text[:2000])
     return parse_date_value(match[1]) if match else None
 
 
 def _is_whole_date(line: str) -> bool:
     return any(
         pattern.fullmatch(line.rstrip("."))
-        for pattern in (ISO_DATE_RE, US_DATE_RE, MONTH_DAY_YEAR_RE, DAY_MONTH_YEAR_RE)
+        for pattern in (ISO_DATE_RE, CN_DATE_RE, US_DATE_RE, MONTH_DAY_YEAR_RE, DAY_MONTH_YEAR_RE)
     )
 
 
@@ -227,7 +257,8 @@ def wayback_first_capture(url: str, timeout: float = 30.0, attempts: int = 3) ->
 
 
 def _fingerprint(text: str) -> str:
-    normalized = re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()[:3000]
+    # CJK characters count too, or every Chinese page would share one fingerprint.
+    normalized = re.sub(r"[^a-z0-9㐀-䶿一-鿿]+", " ", text.lower()).strip()[:3000]
     return hashlib.sha1(normalized.encode("utf-8")).hexdigest()
 
 
@@ -250,28 +281,36 @@ def evaluate_text(
 
     `vendor_options` (from data/sources.json): `always_on_topic` skips the topic
     check for AI-native vendors; `lastmod_is_published` trusts the discovery date
-    (e.g. AWS's API `sortDate`) as the publish date. `date_fallback` is called
-    only for otherwise-passing pages with no known date (Wayback first capture).
+    (e.g. AWS's API `sortDate`) as the publish date; `language: "zh"` accepts
+    Chinese pages (length counted in CJK characters, Chinese topic terms);
+    `date_pattern` is a regex whose first match (group 1) is the publish date.
+    `date_fallback` is called only for otherwise-passing pages with no known
+    date (Wayback first capture).
     """
     options = vendor_options or {}
+    chinese = options.get("language") == "zh"
     reasons: list[str] = []
     tokens = re.findall(r"[A-Za-z']+", text.lower())
-    words = len(tokens)
-    published = detect_published_date(raw_html, text)
+    cjk = len(CJK_RE.findall(text)) if chinese else 0
+    words = len(tokens) + int(cjk / criteria.cjk_chars_per_word)
+    date_pattern = re.compile(options["date_pattern"]) if options.get("date_pattern") else None
+    published = detect_published_date(raw_html, text, date_pattern)
     published_source = "page" if published else None
     if not published and lastmod and options.get("lastmod_is_published"):
         published, published_source = lastmod, "discovery"
 
     if words < criteria.min_words:
         reasons.append(f"thin_{words}_words")
-    elif sum(1 for token in tokens if token in STOPWORDS) / max(words, 1) < criteria.min_stopword_ratio:
+    elif cjk < criteria.min_words and sum(1 for token in tokens if token in STOPWORDS) / max(len(tokens), 1) < criteria.min_stopword_ratio:
+        # Mostly-Latin text must read as English; substantially Chinese text passes for "zh" sources.
         reasons.append("not_english")
 
     haystack = f"{title}\n{text}"
     if story_cues is not None and not story_cues.search(haystack):
         reasons.append("not_a_customer_story")
 
-    hits = [len(pattern.findall(haystack)) for pattern in criteria.topic_res]
+    topic_res = criteria.latin_topic_res + criteria.zh_topic_res if chinese else criteria.topic_res
+    hits = [len(pattern.findall(haystack)) for pattern in topic_res]
     distinct = sum(1 for count in hits if count)
     total_hits = sum(hits)
     if not options.get("always_on_topic") and (distinct < criteria.min_distinct or total_hits < criteria.min_hits):
@@ -290,6 +329,9 @@ def evaluate_text(
     weights = criteria.weights
     metrics = len(criteria.metric_re.findall(text))
     architecture = sum(1 for pattern in criteria.arch_res if pattern.search(text))
+    if chinese:
+        metrics += len(criteria.zh_metric_re.findall(text))
+        architecture = sum(1 for pattern in criteria.latin_arch_res + criteria.zh_arch_res if pattern.search(text))
     year = (published or "")[:4]
     score = (
         distinct * float(weights["topic_distinct"])
@@ -371,7 +413,7 @@ def load_vendor_rules(sources_path: Path) -> dict[str, VendorRules]:
         rules[source["vendor"]] = VendorRules(
             story_cues=re.compile(cues, re.IGNORECASE) if cues else None,
             include=[re.compile(pattern) for pattern in source.get("url_patterns", [])],
-            options={key: source[key] for key in ("always_on_topic", "lastmod_is_published") if key in source},
+            options={key: source[key] for key in ("always_on_topic", "lastmod_is_published", "language", "date_pattern") if key in source},
         )
     return rules
 
