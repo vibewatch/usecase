@@ -1,0 +1,82 @@
+{
+  "slug": "snowflake-emirates-insurance-ai-claims-and-broker-analytics",
+  "customer_name": "Emirates Insurance",
+  "vendor": "Snowflake",
+  "industry": "Financial Services",
+  "region": "Abu Dhabi, United Arab Emirates",
+  "company_size": "Unknown",
+  "business_problem": "Legacy on-premises systems required heavy manual work, limited visibility into broker and customer behavior, and could not support the automation Emirates Insurance needed for profitable growth.",
+  "solution_summary": "Emirates Insurance replaced fragmented on-premises systems with a Snowflake-based platform running on Azure so customer, broker, policy, and claims data could support both governed analytics and AI-driven automation. Data lands in Snowflake, where dbt standardizes transformations, Dagster orchestrates recurring pipelines, and Qlik serves customer, broker, and portfolio dashboards to business teams. The same foundation supports AI-assisted document handling: police incident reports, identity documents, and vehicle license plates are ingested and interpreted to speed claims registration and quote intake while reducing manual transcription and data-quality issues. Because Snowflake is deployed locally in the UAE, Emirates Insurance can keep analytics and AI workflows inside a governed environment that also simplifies data-sovereignty compliance. The result is fresher trusted data, broader customer and broker visibility, and a reusable base for future chatbot and quoting use cases.",
+  "products_used": [
+    "Snowflake",
+    "dbt",
+    "Dagster",
+    "Qlik"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Centralizes customer, broker, policy, and claims data while hosting the governed analytics and AI foundation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "dbt",
+      "role": "Transforms raw insurance data into trusted analytical models for broker, customer, and portfolio reporting.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dagster",
+      "role": "Orchestrates recurring data pipelines and analytics workloads across the Snowflake environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qlik",
+      "role": "Delivers analytics dashboards and business insights on top of the modeled Snowflake data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer, broker, policy, and claims data are centralized in Snowflake on Azure, transformed with dbt, orchestrated with Dagster, and served to business users through Qlik. Unstructured claims documents are ingested into the same platform so AI-assisted workflows can accelerate claims and quoting.",
+  "integration_points": [
+    "Microsoft Azure",
+    "police incident reports",
+    "customer identity documents",
+    "vehicle license plate images"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Emirates Insurance automated 380 hours of work over three months, cut motor-claims registration times by 30-40%, improved broker and customer visibility, and created a compliant foundation for expanding AI-driven claims and quoting services.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "30-40% Faster motor claims registration with AI",
+    "380 Hours of work automated over 3 months"
+  ],
+  "architecture_clues": [
+    "Snowflake runs on Azure and uses local UAE deployment options to simplify data-sovereignty compliance.",
+    "dbt handles transformations, Dagster orchestrates workloads, and Qlik delivers dashboards on top of the Snowflake foundation.",
+    "AI-assisted OCR workflows process police reports, identity documents, and license plates for claims and quoting."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/Emirates/",
+  "published_date": "2026-06-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "30-40% Faster motor claims registration with AI",
+    "380 Hours of work automated over 3 months",
+    "The AI Data Cloud integrates with Qlik for analytics workloads, data build tool (dbt) for transformations and Dagster for orchestration to unify insights and streamline workloads.",
+    "Documentation processes that used to take days of back and forth are now instant.",
+    "By unifying policy data in Snowflake, Emirates Insurance can now analyze policies in specific locations to assess overall portfolio risk in the case of localized storm or flood events, for example."
+  ],
+  "id": "snowflake-emirates-insurance-ai-claims-and-broker-analytics"
+}

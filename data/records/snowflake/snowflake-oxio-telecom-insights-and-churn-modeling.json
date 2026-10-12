@@ -1,0 +1,82 @@
+{
+  "slug": "snowflake-oxio-telecom-insights-and-churn-modeling",
+  "customer_name": "OXIO",
+  "vendor": "Snowflake",
+  "industry": "Telecommunications",
+  "region": "New York, NY",
+  "company_size": "Unknown",
+  "business_problem": "OXIO needed a scalable way to centralize streaming telecom and application data so it could deliver fresher subscriber analytics, brand intelligence, and churn models without high ingestion latency or custom monitoring overhead.",
+  "solution_summary": "OXIO uses Snowflake as the central data layer for its telecom-as-a-service platform, bringing subscriber, connectivity, and application data into one governed foundation for client analytics and data products. Streaming and batch telecom data are ingested through Apache Kafka into Snowflake, where dbt-ready modeling and built-in monitoring reduce the burden of keeping pipelines current. Data scientists use the unified data to build churn models and other AI/ML workflows, while client-facing reporting surfaces telecom and brand insights such as connectivity quality, wireless spend, engagement, and movement patterns. OXIO's BrandIQ offering sits on the same foundation to convert mobile-signal and behavioral data into privacy-centric intelligence for brands. By centralizing storage, modeling, and analytics in Snowflake, OXIO improved runtime performance, cut ingestion latency, and created a base for future sharing through client-owned Snowflake environments and Snowpark-enabled workloads.",
+  "products_used": [
+    "Snowflake",
+    "Apache Kafka",
+    "dbt",
+    "BrandIQ"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Stores unified subscriber, connectivity, and application data that powers OXIO analytics and AI workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Apache Kafka",
+      "role": "Streams large volumes of telecom event data into the Snowflake environment for downstream analysis.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "dbt",
+      "role": "Shapes raw telecom data into reusable analytical models for dashboards, brand intelligence, and churn analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BrandIQ",
+      "role": "Serves privacy-centric brand analytics and behavioral insights built from the curated Snowflake data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Streaming telecom and application data are ingested through Apache Kafka into Snowflake, modeled with dbt, and surfaced through dashboards and BrandIQ. The same unified data also feeds AI/ML churn models and operational insights for OXIO clients.",
+  "integration_points": [
+    "mobile virtual network operators (MVNOs)",
+    "consumer-brand applications",
+    "device connectivity data",
+    "factory units",
+    "payment terminals"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "OXIO doubled runtime performance, reduced data-ingestion latency by 20%, gave clients unified telecom and brand insights, and freed data scientists to deliver churn models and retention workflows faster.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "2X improvement in runtime performance",
+    "20% reduction in data ingestion latency vs. previous solution"
+  ],
+  "architecture_clues": [
+    "Snowflake monitoring replaced a custom monitoring system for warehouse capacity and pipeline health.",
+    "BrandIQ converts mobile session and movement data into privacy-centric BI for consumer brands.",
+    "OXIO is evaluating Snowpark and client-owned Snowflake sharing to expand distribution of analytics products."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/oxio/",
+  "published_date": "2024-11-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "2X improvement in runtime performance",
+    "20% reduction in data ingestion latency vs. previous solution",
+    "Snowflake works with a wide array of industry-leading tools and technologies, such as Apache Kafka and dbt, making it easier for OXIO to ingest and analyze large amounts of streaming telecom data.",
+    "BrandIQ is OXIO’s privacy-centric BI solution for visualizing mobile signals and patterns.",
+    "With much of our data in Snowflake, as a centralized source, it allows us to build machine-learning solutions that have a broad reach and quick development cycle."
+  ],
+  "id": "snowflake-oxio-telecom-insights-and-churn-modeling"
+}
