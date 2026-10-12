@@ -1,0 +1,80 @@
+{
+  "id": "salesforce-pearson-customer-service-automation",
+  "slug": "salesforce-pearson-customer-service-automation",
+  "vendor": "Salesforce",
+  "customer_name": "Pearson",
+  "industry": "Education",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Pearson needed to answer learner questions, returns, and order requests more intuitively as customer expectations shifted toward conversational support across chat and voice.",
+  "solution_summary": "Pearson built a learner support layer on Agentforce to give students, teachers, and administrators self-service help across digital channels. The Pearson Virtual Assistant handles FAQs, returns, order tracking, invoices, and account questions in web and mobile chat, while Agentforce Voice extends the same experience to phone support. Requests are routed to specialized subagents that use trusted enterprise context rather than generic answers: Service Cloud stores the knowledge articles and support content, and Data 360 joins order and customer context so each interaction reflects the learner's current situation. For order-related questions, the assistant can also reach data held in Google BigQuery through zero-copy access. When a request falls outside the agent's scope, the conversation is handed to a human rep with the full context preserved so support continues without forcing the learner to start over.",
+  "products_used": [
+    "Agentforce",
+    "Agentforce Voice",
+    "Service Cloud",
+    "Data 360"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Runs the AI agent workflows that answer learner questions, process returns, and track orders across chat and voice.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Agentforce Voice",
+      "role": "Extends agentic support into voice channels used to answer learner questions, process returns, and track orders across chat and voice.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Stores cases, knowledge, and service context that supports teams as they answer learner questions, process returns, and track orders across chat and voice.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data 360",
+      "role": "Unifies enterprise and behavioral data so teams can answer learner questions, process returns, and track orders across chat and voice with current context.",
+      "layer": "Storage"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Pearson reported 225k questions answered since August 2025, 70% resolution in its UK Schools division, and a voice-support design expected to handle about 2,500 calls per month.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "225k questions answered since August 2025",
+    "70% of questions resolved in Pearson’s UK Schools division",
+    "2,500 calls expected to be handled per month"
+  ],
+  "architecture_clues": [
+    "Agentforce routes requests to specialized subagents instead of one generic bot.",
+    "Zero-copy access to Google BigQuery is used for order-related answers.",
+    "Conversation context is preserved when cases escalate from self-service to a human rep."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/pearson/",
+  "published_date": "2026-09-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Pearson keeps learning on track with support from Agentforce Agentic support uses trusted context to answer questions, process returns, and track orders across chat and voice, with service reps available when needed.",
+    "225k questions answered since August 2025",
+    "70% of questions resolved in Pearson’s UK Schools division",
+    "2,500 calls expected to be handled per month"
+  ],
+  "data_flow": "Learner questions enter via chat or voice, Agentforce routes each request to the right subagent, Service Cloud and Data 360 provide knowledge and customer context, BigQuery contributes order data, and resolved actions or escalations are passed to human reps with the conversation state intact.",
+  "integration_points": [
+    "Google BigQuery",
+    "Web chat",
+    "Mobile chat",
+    "Voice support"
+  ]
+}

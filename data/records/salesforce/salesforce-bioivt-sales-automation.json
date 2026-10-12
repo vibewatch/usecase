@@ -1,0 +1,67 @@
+{
+  "id": "salesforce-bioivt-sales-automation",
+  "slug": "salesforce-bioivt-sales-automation",
+  "vendor": "Salesforce",
+  "customer_name": "BioIVT",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "BioIVT had to prepare more than 25,000 complex research quotes a year while balancing quote creation with regulatory documentation, shipment tracking, and customer support.",
+  "solution_summary": "BioIVT started its agentic AI rollout in quoting, where service teams already process more than 25,000 complex requests each year for research specimens with specific disease states, donor counts, and shipping constraints. The company built Ivy on Agentforce as a task-oriented quoting agent that reads each opportunity, interprets the requested products and fulfillment requirements, and compares them against more than 15,000 product codes held in a Data 360 catalog. For standard catalog quotes, a case is assigned to Ivy, a short pause allows human intervention if needed, and then the agent selects the right items, adds them to the opportunity, creates the quote, and routes it to customer service for a final check. Because the agent works from a unified catalog and existing Salesforce opportunity context, BioIVT moved quoting from days to minutes and freed reps to spend far more time on exceptions and high-value customer work.",
+  "products_used": [
+    "Agentforce",
+    "Data 360"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Runs the AI agent workflows that read opportunities, assemble catalog quotes, and route them for review.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Data 360",
+      "role": "Unifies enterprise and behavioral data so teams can read opportunities, assemble catalog quotes, and route them for review with current context.",
+      "layer": "Storage"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "BioIVT moved standard quoting from days to minutes and gave service reps 43% more time for high-value work by automating the repeatable parts of quote assembly.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "25,000 quotes per year",
+    "15,000 product codes in the Data 360 catalog",
+    "43% more time for high-value tasks",
+    "From days to minutes"
+  ],
+  "architecture_clues": [
+    "Ivy pauses for about a minute before acting so staff can pull a case from the queue if needed.",
+    "The quoting agent works against a 15,000-product Data 360 catalog.",
+    "Standard catalog quotes are auto-generated and then routed to customer service for review."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/bioivt-larae-bennett-interview/",
+  "published_date": "2026-05-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "From idea to reality in four months",
+    "25,000 quotes per year",
+    "15,000 product codes in the Data 360 catalog",
+    "43% more time for high-value tasks",
+    "From days to minutes"
+  ],
+  "data_flow": "Customer requirements enter the opportunity, Agentforce parses products, quantities, and shipping details, Data 360 supplies the catalog context, the quote is generated automatically, and customer service receives the finished quote for review and release.",
+  "integration_points": [
+    "Opportunity records",
+    "Quote workflow"
+  ]
+}
