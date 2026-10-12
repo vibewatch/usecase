@@ -1,0 +1,66 @@
+{
+  "id": "mongodb-paylocity-application-refactoring",
+  "slug": "mongodb-paylocity-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "Paylocity",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Paylocity's Community collaboration platform was growing faster than expected, and its previous database became rigid, expensive, slow, and operationally heavy as user and content volumes increased.",
+  "solution_summary": "Paylocity migrated its Community employee-collaboration platform onto MongoDB Atlas on AWS to replace a rigid incumbent database with a fully managed document store. Because the original platform already used a MongoDB API, the team could reuse much of its existing code, build a five-node Atlas deployment, and add a feature-flag system that switched traffic between the old and new databases during the cutover. Atlas stores Community posts, attachments, comments, and company content for millions of active users while reducing maintenance work for the engineering team. Atlas dashboards and MongoDB Atlas Charts provide monitoring, alerts, analytics, and visualizations so engineers can study query behavior and tune performance over time. That architecture delivered faster response times without changing the product model for users, and it gave Paylocity the operational visibility needed to forecast growth and keep the collaboration experience responsive as adoption continued to climb.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Charts"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Community posts, attachments, comments, and collaboration data in a fully managed document database on AWS.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Charts",
+      "role": "Provides visualizations and dashboard-based insight into query behavior and application performance for the Community platform.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Community posts, attachments, comments, and company information are written into MongoDB Atlas, operational dashboards and Atlas Charts expose alerts and query data, and the application serves a faster collaboration experience back to millions of users.",
+  "integration_points": [
+    "AWS"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "MongoDB Atlas made Community five times faster than its predecessor, cut database costs to roughly one fifth of the prior level, and gave Paylocity the visibility to scale comfortably as user growth continued.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "\"Benchmarking shows that MongoDB Atlas is a groundbreaking five times faster than its predecessor, while costing just a fifth of the amount - equivalent to $100k savings each year.\"",
+    "\"In total, there are over 30 different dashboard fields, providing unprecedented insight and analysis.\"",
+    "\"With growth predictions of 60 percent, Atlas gives us peace of mind that we can scale comfortably and affordably.\""
+  ],
+  "architecture_clues": [
+    "Paylocity built a five-node MongoDB Atlas database on AWS.",
+    "A feature-flag system switched traffic between the legacy and Atlas databases during migration.",
+    "Atlas dashboards and Atlas Charts are used for monitoring, alerts, and visualizations."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/paylocity",
+  "published_date": "2024-05-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We had kept an eye on the market and knew Atlas was enterprise-ready with a zero-maintenance, fully managed, low-cost, high-performance solution.\"",
+    "\"It took a couple of hours to export the data from the old platform ... it only took ten minutes to import it all into Atlas.\"",
+    "\"Benchmarking shows that MongoDB Atlas is a groundbreaking five times faster than its predecessor, while costing just a fifth of the amount - equivalent to $100k savings each year.\"",
+    "\"With growth predictions of 60 percent, Atlas gives us peace of mind that we can scale comfortably and affordably.\""
+  ]
+}

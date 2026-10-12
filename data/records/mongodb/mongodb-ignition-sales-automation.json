@@ -1,0 +1,60 @@
+{
+  "id": "mongodb-ignition-sales-automation",
+  "slug": "mongodb-ignition-sales-automation",
+  "vendor": "MongoDB",
+  "customer_name": "Ignition",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Ignition needed to automate the go-to-market lifecycle and support retrieval-augmented generation without keeping operational data and vector indexes in separate systems that were harder to synchronize and slower to ship.",
+  "solution_summary": "Ignition built its AI-driven go-to-market platform on MongoDB Atlas and MongoDB Atlas Vector Search so operational data and retrieval infrastructure live in one place. Atlas is the company's primary database for plan documentation, tasks, assets, and other unstructured JSON data that powers its AI product manager. As the team expanded into retrieval-augmented generation, it first used a separate vector database, but then moved to Atlas Vector Search so embeddings and transactional data could stay in the same database and be synchronized without custom plumbing. That architecture lets Ignition use Atlas to store product-launch context, retrieve the most relevant vectors and records for prompts, and then serve generated outputs back into the product workflow. By keeping both operational and retrieval data in MongoDB, the small team reduced infrastructure work and accelerated product delivery while preserving a developer-friendly document model.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Ignition's operational product, planning, and asset data for its AI-driven go-to-market application.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Indexes and retrieves vectorized context so Ignition's retrieval-augmented generation workflows can use operational data in place.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Product-launch plans, tasks, and assets are stored in MongoDB Atlas, vector embeddings are indexed with Atlas Vector Search in the same database, and Ignition retrieves that context during RAG workflows to generate go-to-market outputs back into the application.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "MongoDB let Ignition launch its AI product manager quickly, unify retrieval and operational data in one database, and shrink a product launch workflow from almost 90 days to as little as 90 seconds.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "\"You can literally take a process that takes almost 90 days, like a product launch process, and then get it done in as little as 90 seconds basically within one click of a button.\""
+  ],
+  "architecture_clues": [
+    "Operational data and vector indexes run in the same MongoDB database.",
+    "Ignition moved off a separate vector database to simplify synchronization.",
+    "The document model is used to store unstructured JSON data."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ignition",
+  "published_date": "2024-09-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We are building the world's first AI product manager.\"",
+    "\"We always use MongoDB Atlas for all our operational data-it's our primary database.\"",
+    "\"Now that we are using Atlas Vector Search, we have both the vector search and the operational data in the same database.\"",
+    "\"You can literally take a process that takes almost 90 days ... and then get it done in as little as 90 seconds.\""
+  ]
+}

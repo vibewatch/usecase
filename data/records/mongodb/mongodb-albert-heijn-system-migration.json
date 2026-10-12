@@ -1,0 +1,66 @@
+{
+  "id": "mongodb-albert-heijn-system-migration",
+  "slug": "mongodb-albert-heijn-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Albert Heijn",
+  "industry": "Retail",
+  "region": "Netherlands",
+  "company_size": "Enterprise",
+  "business_problem": "Albert Heijn needed to move dozens of customer-facing MongoDB-backed microservices from localized, on-premises deployments into Azure, automate database operations, and support fast-growing digital-receipts and order-tracking workloads without adding operational headcount.",
+  "solution_summary": "Albert Heijn standardized its retail microservices on MongoDB Atlas as it migrated from localized, on-premises MongoDB deployments into a Microsoft Azure environment. Working with MongoDB Professional Services, the team moved the databases, integrated the Atlas control plane with Terraform, and used MongoMirror to synchronize production so infrastructure provisioning and cutover no longer depended on manual scripting. Atlas now serves both as a staging area for other data and as the operational database for services such as Track and Trace and Digital Receipts. Receipt and order data are written into Atlas, automatically scaled and backed up, and then exposed to customer applications that provide real-time and historical purchase views. With autoscaling, backup, and cluster administration managed by Atlas, development teams can run many more clusters while staying focused on product delivery rather than maintenance.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs Albert Heijn's customer-facing microservices, stages operational data, and automates scaling, backup, and administration for digital retail workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer orders and receipt events are ingested by retail microservices, synchronized into MongoDB Atlas during migration, stored in Atlas for operational use, and served to applications such as Digital Receipts and Track and Trace for real-time and historical customer views.",
+  "integration_points": [
+    "Microsoft Azure",
+    "Terraform",
+    "MongoMirror",
+    "Track and Trace"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "MongoDB Atlas lowered maintenance and DBA overhead, scaled Digital Receipts to more than one million transactions per day, and helped Albert Heijn save around 25% per year while bringing new services online faster.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "\"Migration was simple. It took just two weeks to get the infrastructure set up and then we were able to sync each of our databases in a single morning.\"",
+    "\"Digital Receipts is 30 times the size of regular microservices databases accounts for over 300GB and handles over one million transactions every day.\"",
+    "\"We used to run ten MongoDB instances, which was easy to manage, but now we are up to 60 clusters.\"",
+    "\"By avoiding the need for investing in additional resources, AH is saving around 25% per year.\""
+  ],
+  "architecture_clues": [
+    "Atlas control panel is integrated with Terraform for infrastructure as code.",
+    "MongoMirror was used to synchronize production data during migration.",
+    "Atlas acts both as a staging area for other data and as the host for applications such as Track and Trace.",
+    "Autoscaling and auto backup eliminate manual resizing and backup work."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/albert-heijn",
+  "published_date": "2024-05-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Having worked with MongoDB for so long and been impressed by its capabilities, Atlas was the natural choice.\"",
+    "\"Migration was simple. It took just two weeks to get the infrastructure set up and then we were able to sync each of our databases in a single morning.\"",
+    "\"Now, we use MongoDB Atlas as both a staging area for other data and as a host for specific applications, such as Track and Trace which allows customers to follow their order status.\"",
+    "\"Digital Receipts is 30 times the size of regular microservices databases accounts for over 300GB and handles over one million transactions every day.\""
+  ]
+}

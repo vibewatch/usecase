@@ -1,0 +1,61 @@
+{
+  "id": "mongodb-novo-nordisk-document-processing-2",
+  "slug": "mongodb-novo-nordisk-document-processing-2",
+  "vendor": "MongoDB",
+  "customer_name": "Novo Nordisk",
+  "industry": "Healthcare",
+  "region": "Denmark",
+  "company_size": "Enterprise",
+  "business_problem": "Novo Nordisk needed to shorten the slow and error-prone process for producing clinical study reports while keeping document generation deterministic and regulator-friendly in a tightly controlled pharmaceutical environment.",
+  "solution_summary": "Novo Nordisk built NovoScribe on MongoDB Atlas to support structured authoring for clinical study reports. Atlas stores approved text snippets, vectors, and case-specific trial data such as tables, lists, statistical outputs, and analytical results. The application uses a prompt-search-retrieval loop built around large language models and retrieval-augmented generation: Atlas retrieves relevant approved passages, the system presents five candidate text options to a human reviewer, and the chosen language is written back to the database before the next document section is assembled. That pattern keeps a human in the loop while still automating repetitive authoring work in a regulated setting where deterministic output matters. By combining reusable content modules with study-specific data inside Atlas, NovoScribe can build long CSR drafts section by section in minutes instead of weeks while reducing manual rework and keeping scientific staff focused on higher-value review work.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores approved text, vectors, and study data and supports the retrieval workflow that assembles clinical study reports.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Approved text snippets and trial data are stored in MongoDB Atlas, the application retrieves relevant context for each prompt, a human reviewer selects from five candidate passages, and NovoScribe assembles report sections into a complete clinical study report.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "MongoDB helped Novo Nordisk cut report-writing times by 90%, reduce staffing required for CSR creation, and produce regulator-friendly drafts far faster while keeping humans in control.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Compliance",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "\"to achieve its target of 1,000% growth by 2030\"",
+    "\"a document that can be up to 300 pages long\"",
+    "\"can take the company up to 19 weeks\"",
+    "\"MongoDB has helped us cut writing times by 90%\"",
+    "\"one staff writer would produce around 2.3 CSRs in a full year\"",
+    "\"just three full-time staff instead of 42\""
+  ],
+  "architecture_clues": [
+    "NovoScribe uses LLMs, vectors, and retrieval-augmented generation on top of MongoDB Atlas.",
+    "Human reviewers choose from five candidate passages before content is committed.",
+    "Structured authoring reuses approved text snippets across documents."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/novo-nordisk-atlas",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"LLMs are probabilistic models, but pharmaceuticals [are] very tightly regulated, so we can't just assume that the model does the right thing.\"",
+    "\"We need deterministic and clear outcomes, so we introduced an intermediate step where a human reviews five possible pieces of text and chooses the best one.\"",
+    "\"MongoDB has helped us cut writing times by 90%.\"",
+    "\"There are plenty of other parts of the process that still need human thought and scientific input, so it's great to be able to pass the repetitive tasks on to computers.\""
+  ]
+}

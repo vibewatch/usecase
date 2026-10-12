@@ -1,0 +1,61 @@
+{
+  "id": "mongodb-shopline-application-refactoring",
+  "slug": "mongodb-shopline-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "SHOPLINE",
+  "industry": "Software / SaaS",
+  "region": "Asia",
+  "company_size": "Enterprise",
+  "business_problem": "SHOPLINE needed a database architecture that could handle highly variable merchant data and scale through extreme retail peaks such as Black Friday and 11/11 without downtime or an increasingly complex operations burden.",
+  "solution_summary": "SHOPLINE built its smart-commerce platform on MongoDB's flexible document model so it could keep up with changing orders, products, and product variations from the beginning. As scale increased, the engineering team sharded the MongoDB deployment to distribute data across servers and preserve read and write throughput, storage capacity, and high availability during major retail events. In 2019 the company moved that data layer to MongoDB Atlas as a managed service, completing the migration with zero downtime while keeping the same flexible model. Atlas now supports more than 20 clusters across multiple shards and provides operational monitoring, one-click updates, security controls, backups, point-in-time restoration, and automatic scaling. That architecture means developers can provision new databases in minutes, focus on features instead of maintenance, and continue serving ecommerce, social commerce, and point-of-sale workloads for hundreds of thousands of merchants across Asia.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs SHOPLINE's sharded commerce data platform with managed scaling, security, monitoring, and backup for merchant workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Merchant orders, products, and variations are stored across sharded MongoDB Atlas clusters, operational monitoring and security run in the managed service, and the platform serves ecommerce, social commerce, and POS experiences back to merchants and shoppers.",
+  "integration_points": [
+    "AWS"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "System Migration"
+  ],
+  "business_outcome": "MongoDB Atlas gave SHOPLINE zero-downtime migration, scalable operations across more than 20 clusters, and much faster provisioning for developers while supporting hundreds of thousands of merchants.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "\"SHOPLINE has helped over 350,000 merchants reach more than 680 million customers\"",
+    "\"SHOPLINE now has more than 20 clusters spread across multiple shards on Atlas.\"",
+    "\"creating a new database for a developer to build or trial something new previously took more than half a day, now it's done in three minutes.\""
+  ],
+  "architecture_clues": [
+    "The deployment uses sharding for horizontal scale and high availability.",
+    "MongoDB Atlas provides backups and point-in-time restoration down to the specific minute.",
+    "Automatic scale is especially important around large retail dates like 11/11."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/shopline",
+  "published_date": "2024-05-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our biggest challenge when starting out in e-commerce was keeping up with merchants requiring the flexibility to change orders, add new products or product variations.\"",
+    "\"Our ability to embrace sharding with MongoDB was a breakthrough for us ... We needed to feel confident our database could handle increased load to a nearly unlimited degree.\"",
+    "\"The team were able to make the migration with zero downtime.\"",
+    "\"Creating a new database for a developer to build or trial something new previously took more than half a day, now it's done in three minutes.\""
+  ]
+}
