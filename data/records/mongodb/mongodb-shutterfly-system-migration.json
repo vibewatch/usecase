@@ -1,0 +1,71 @@
+{
+  "id": "mongodb-shutterfly-system-migration",
+  "slug": "mongodb-shutterfly-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Shutterfly",
+  "industry": "Retail",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Shutterfly needed to move massive photo-content workloads off rigid, expensive relational databases so it could scale billions of assets and seasonal peaks more flexibly and at lower cost.",
+  "solution_summary": "Shutterfly standardized on MongoDB Atlas on AWS to support the brands that store, edit, and serve billions of customer photos and personalized products. The company recreated its existing multi-dataset topology in Atlas, with clusters up to six terabytes in size, and used Mongomirror to synchronize the legacy environment with Atlas while production applications kept running. That approach let the team cut over a multi-terabyte estate in minutes with minimal downtime. Atlas now handles thousands of transactions per minute, gives Shutterfly a document model that is easier to evolve than its former relational schemas, and lets engineers scale up for seasonal events such as Christmas and Valentine's Day before scaling back down again. The same platform also makes cloning environments and preparing multi-tenant partner services much simpler than in the old datacenter model.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Mongomirror"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs Shutterfly's production document database clusters on AWS for photo, project, and content workloads across multiple brands.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Mongomirror",
+      "role": "Synchronized the existing database environment with Atlas during migration so applications could keep running until cutover.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer photos and project data flow into MongoDB Atlas clusters on AWS, Mongomirror kept legacy and Atlas environments synchronized during migration, and the new platform serves editing and ordering workloads across Shutterfly's brands while scaling for peak demand.",
+  "integration_points": [
+    "AWS",
+    "Lifetouch",
+    "Snapfish",
+    "Tiny Prints",
+    "BorrowLenses"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Shutterfly reduced infrastructure cost by up to 20%, gained easier seasonal scaling and environment cloning, and created a multi-cloud-ready platform for future partner services without the rigidity of relational databases.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Shutterfly helps customers store, enjoy, and share billions of photos.",
+    "Atlas clusters are each up to six terabytes in size and handle thousands of transactions per minute.",
+    "The old datacenter had datasets ranging from 1GB to 10TB in uncompressed size.",
+    "The company migrated its multi-terabyte dataset in minutes with minimal downtime.",
+    "Atlas delivers cost savings up to 20% over the previous data infrastructure."
+  ],
+  "architecture_clues": [
+    "Shutterfly runs multiple Atlas clusters on AWS rather than one monolithic database.",
+    "The migration preserved application availability by synchronizing old and new environments in parallel.",
+    "The team plans to use multi-tenant environments and can support a future multi-cloud strategy with Atlas."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/shutterfly",
+  "published_date": "2024-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Shutterfly and its other brands ... collectively generate a massive volume of new content that needs to be stored and available 24/7 for editing in real time.\"",
+    "\"It is currently running multiple Atlas clusters, each up to six terabytes in size and handling thousands of transactions per minute.\"",
+    "\"We switched over to Atlas in minutes, migrating our multi-terabyte dataset with minimal downtime.\"",
+    "\"[Atlas] enables them to focus resources on more strategic tasks, while delivering cost savings up to 20% over their previous data infrastructure.\""
+  ]
+}

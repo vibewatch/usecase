@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-ica-gruppen-real-time-analytics",
+  "slug": "mongodb-ica-gruppen-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "ICA Gruppen",
+  "industry": "Retail",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "ICA Gruppen needed a more standards-compliant, easier-to-manage document database so its ecommerce teams could process and analyze high-volume real-time retail data without slowing development.",
+  "solution_summary": "ICA Gruppen migrated from a legacy document database to MongoDB Atlas by replicating the existing environment, writing updates to both systems in parallel, and cutting over in under a month. On Atlas, the retailer now runs an operational data layer that temporarily stores real-time ecommerce, payment, address, delivery, and receipt information so downstream consumers do not need to overload source systems with direct queries. Teams use the platform to process intermediate data in real time, expose sales snapshots and niche business reports through MongoDB Atlas Charts, and share those views through simple links. Atlas also fits ICA Gruppen's developer workflow better than the legacy system: administration is largely automated, collections can be created in about ten minutes and moved to production in five, and Active Directory integration supports secure self-service analytics for business users.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Charts"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the operational data layer that stores and serves real-time ecommerce and retail data without overloading source systems.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Charts",
+      "role": "Visualizes sales and operational data so teams can share snapshots and business intelligence directly with authorized users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Source systems publish real-time ecommerce, payment, address, delivery, and receipt data into MongoDB Atlas, Atlas serves as the operational data layer for downstream queries and intermediate processing, and Atlas Charts exposes snapshots and niche reports to authorized users.",
+  "integration_points": [
+    "source systems",
+    "company active directory"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "ICA Gruppen reduced administration, accelerated development and releases, democratized access to business intelligence, and gave teams a faster way to answer complex retail questions without stressing source systems.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "ICA Gruppen has 1,400 physical stores, 450 e-commerce stores, and five e-commerce teams.",
+    "The legacy-system migration was completed in under a month.",
+    "The retailer has about 20 developers working on the system.",
+    "A new collection can be created in around ten minutes and put into production in five minutes.",
+    "At least two major releases have been achieved since the migration."
+  ],
+  "architecture_clues": [
+    "Atlas acts as an operational data layer that offloads source systems from direct query traffic.",
+    "The migration used dual writes to the original and new systems before cutover.",
+    "Atlas Charts access is integrated with the company's Active Directory."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ica-gruppen",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"With 1,400 physical stores, 450 e-commerce stores, and five e-commerce teams, ICA Gruppen is one of Sweden's leading online grocery retailers.\"",
+    "\"In under a month, the migration was complete.\"",
+    "\"ICA Gruppen now uses MongoDB Atlas as an operational data layer (ODL).\"",
+    "\"[Users] can now log in via the company's active directory to access tools like MongoDB Atlas Charts directly.\""
+  ]
+}

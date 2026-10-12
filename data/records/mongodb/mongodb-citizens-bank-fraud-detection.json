@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-citizens-bank-fraud-detection",
+  "slug": "mongodb-citizens-bank-fraud-detection",
+  "vendor": "MongoDB",
+  "customer_name": "Citizens Bank",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Citizens Bank needed to replace fragmented, batch-oriented fraud systems so it could detect new check and deposit fraud patterns in near real time and roll out new defenses far faster than days or weeks.",
+  "solution_summary": "Citizens Bank built a comprehensive fraud management platform on MongoDB Atlas on AWS to consolidate legacy applications into a cloud-based system for monitoring, alerts, and disputes. The first application scans checks, deposits, ACH transactions, wire transfers, and other payment events in near real time, while the alerts management application packages the relevant context for fraud operations teams to investigate suspicious activity quickly. A third claims and disputes application lets eligible customers file digitally instead of calling a contact center and equips representatives with customer data to resolve cases faster. By combining Atlas's flexible schema with real-time processing, the bank can adapt fraud rules, onboard new transaction types, and launch a new strategy into production in minutes instead of the old days-to-weeks cycle.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores fraud events and powers the bank's monitoring, alerts, and disputes applications on AWS with the flexibility needed for real-time rule changes.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Checks, deposits, ACH, wire, ATM, and point-of-sale events flow into a monitoring and detection application on MongoDB Atlas, suspicious activity is passed to alerts management for investigation, and dispute data is exposed through digital claims channels and customer-service workflows.",
+  "integration_points": [
+    "AWS",
+    "ATM transactions",
+    "point-of-sale transactions",
+    "checks",
+    "deposits",
+    "ACH transactions",
+    "wire transfers",
+    "online dispute channels",
+    "contact center"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "Data Platform",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "Citizens Bank reduced fraud losses and false positives, cut strategy deployment from days or weeks to minutes, improved contact-center efficiency, and built a cloud fraud platform that can expand to more transaction types and future AI enhancements.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Citizens Bank ran an 18-20-month transformation of its fraud management systems in 2023.",
+    "ATM and point-of-sale transactions undergo fraud assessment within subseconds of initiation.",
+    "Implementing a new fraud prevention strategy used to take anywhere from two days to several weeks.",
+    "With the new platform, the bank can launch a new strategy into production in minutes."
+  ],
+  "architecture_clues": [
+    "The platform is composed of three applications: monitoring and detection, alerts management, and claims and dispute management.",
+    "Fraud monitoring handles checks, deposits, ACH transactions, and wire transfers in near real time.",
+    "Eligible customers can file disputes digitally rather than through the contact center."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/citizens-bank",
+  "published_date": "2025-03-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our fraud ecosystem was fragmented, and all of our legacy applications worked in silos.\"",
+    "\"ATM and point-of-sale transactions undergo fraud assessment within subseconds of initiation.\"",
+    "\"The new platform consists of three main applications: monitoring and detection, alerts management, and claims and dispute management.\"",
+    "\"Initially, it used to take us anywhere from two days to several weeks to implement a new strategy ... we can launch a new strategy into production in minutes.\""
+  ]
+}
