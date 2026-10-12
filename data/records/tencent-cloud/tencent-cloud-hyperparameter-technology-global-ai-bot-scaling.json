@@ -1,0 +1,84 @@
+{
+  "vendor": "Tencent Cloud",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "slug": "tencent-cloud-hyperparameter-technology-global-ai-bot-scaling",
+  "customer_name": "Hyperparameter Technology (超参数科技)",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Mid-market",
+  "business_problem": "Hyperparameter Technology needed huge elastic compute for game-AI training, low-latency global deployment for live gameplay, and a better way to coordinate fast-changing resources across many countries and workload types.",
+  "solution_summary": "Hyperparameter Technology runs its AI Bot SaaS business on Tencent Cloud so it can train, deploy, and scale game AI globally without carrying fixed infrastructure overhead. The company uses a cloud-native architecture compatible with native Kubernetes, which means teams can load container images without managing cluster nodes while still maximizing cloud-server compute capacity. Tencent's large resource pool and spot instances reduce the cost of deep-learning training for increasingly diverse and independent AI Bots, and the platform can scale as the company moves from simple bot behavior to large populations of interacting agents. For live gameplay, Tencent's global footprint and customized BGP networking place compute near users, find nodes within 30 ms, and optimize routing during overseas congestion peaks. The result is a low-latency AI operations platform that supports very high peak concurrency across dozens of countries.",
+  "products_used": [
+    "Cloud-native Architecture",
+    "Kubernetes-Compatible Containers",
+    "Spot Instances",
+    "Global BGP Network",
+    "Cloud Server"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud-native Architecture",
+      "role": "Provides the base design that lets AI Bot services scale elastically across Tencent Cloud.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kubernetes-Compatible Containers",
+      "role": "Package AI Bot services so they can be deployed without managing cluster nodes directly.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Spot Instances",
+      "role": "Supply lower-cost compute capacity for deep-learning training workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Global BGP Network",
+      "role": "Routes gameplay traffic through low-latency paths and optimizes performance during overseas congestion.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Server",
+      "role": "Delivers the core compute power behind AI Bot training and runtime scaling.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Training jobs and runtime AI Bot services are packaged into Kubernetes-compatible containers and scheduled on elastic cloud servers and spot instances; global network routing then places gameplay close to users and keeps latency low during live interactions.",
+  "integration_points": [
+    "Game publishers",
+    "Global player traffic",
+    "Deep-learning training workloads",
+    "Overseas routing paths"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Tencent Cloud helped Hyperparameter Technology scale AI Bot services to global reach, lower training cost, and keep live interactions responsive even as bot populations and user coverage grew rapidly.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "AI Bot peak online concurrency reached nearly 1 million per day.",
+    "The company serves users in more than 50 countries and regions.",
+    "Tencent Cloud identified nodes with latency within 30 ms."
+  ],
+  "architecture_clues": [
+    "The platform is compatible with native Kubernetes and removes the need to manage cluster nodes directly.",
+    "Tencent spot instances are used to reduce deep-learning cost.",
+    "Routing policy is tuned for overseas congestion peaks to preserve real-time gameplay quality."
+  ],
+  "source_url": "https://cloud.tencent.com/customer/chaocanshu",
+  "published_date": "2023-02-17",
+  "evidence_quotes": [
+    "Hyperparameter's AI Bot roadmap requires huge elastic compute for self-training and for large numbers of interacting AI agents. (original: 这个过程中需要大量的训练数据积累，甚至要在没有玩家对战信息的情况下自训练，要追赶人类行为逻辑就需要海量弹性的计算资源。)",
+    "Using a cloud-native architecture, Tencent Cloud's global footprint, and customized BGP networking, the company can use native Kubernetes compatibility and high-cost-performance spot instances. (original: 通过云原生架构、腾讯云的全球布局以及优质的 BGP 网络定制解决方案：1.使用云原生架构：一方面兼容原生K8S...借助腾讯云海量资源池，利用竞价实例的闲时高性价比。)",
+    "Tencent Cloud found node resources with latency within 30 ms and optimized routing specifically for overseas congestion peaks so AI Bots could compete with players in real time. (original: 腾讯云的全球布局以及优质的 BGP 网络：为超参数覆盖游戏客户时，找到延时在30ms以内的节点资源，同时对于海外高峰期网络拥堵问题，针对性进行路由策略优化，保障 AI Bot 与玩家对战的实时智能。)",
+    "Tencent Cloud helped Hyperparameter Technology reach nearly one million peak daily AI Bot concurrency and serve hundreds of millions of users in more than 50 countries. (original: 腾讯云始终陪伴超参数一起成长，实现超参数AI Bot每天峰值在线数近百万，服务全球50余个国家的数亿用户。)"
+  ],
+  "source_language": "zh",
+  "id": "tencent-cloud-hyperparameter-technology-global-ai-bot-scaling"
+}
