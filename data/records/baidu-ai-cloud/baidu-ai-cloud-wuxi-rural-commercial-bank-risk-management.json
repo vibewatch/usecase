@@ -1,0 +1,81 @@
+{
+  "id": "baidu-ai-cloud-wuxi-rural-commercial-bank-risk-management",
+  "slug": "baidu-ai-cloud-wuxi-rural-commercial-bank-risk-management",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Wuxi Rural Commercial Bank",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Wuxi Rural Commercial Bank needed to turn its historical data into practical AI risk capability, but it lacked deep internal AI talent and could not afford a long, high-cost platform build for machine-learning use cases such as credit assessment.",
+  "solution_summary": "Baidu AI Cloud and Wuxi Rural Commercial Bank deployed an AI training appliance that connected the bank's internal big-data platform with external third-party data and separated development, testing, and production workflows. In production, upstream external and internal data are cleaned and processed on the bank's big-data platform. In the development and test zone, those curated datasets are extracted into the AI appliance to train and repeatedly refine credit models. Once validated, the models are exposed back to the bank's loan and admission systems through automated prediction interfaces. This arrangement let the bank stand up a full machine-learning loop quickly: data preparation, model training, iterative tuning, deployment, and real-time scoring all sit on one controlled stack. The first live use case focused on credit access and rating, giving the bank a practical template it can later extend into anti-fraud and credit-limit scenarios.",
+  "products_used": [
+    "AI Training Appliance",
+    "Big Data Platform",
+    "External Data Integration Gateway",
+    "Credit Rating Model Service"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Training Appliance",
+      "role": "Hosts model training, tuning, and inference workflows for the bank's machine-learning use cases.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Big Data Platform",
+      "role": "Processes and prepares internal banking data before it is exported into the model-training environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "External Data Integration Gateway",
+      "role": "Brings third-party data into the bank's controlled data-processing flow so models can use broader signals.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Credit Rating Model Service",
+      "role": "Returns automated risk predictions to loan-processing systems after models are deployed.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Third-party external data and the bank's internal data are combined and processed on the big-data platform, then exported into the AI appliance for training and tuning. Once the credit models are validated, they are published back to the bank's business systems, where loan workflows call the scoring interface for automated predictions in production.",
+  "integration_points": [
+    "Third-party external data",
+    "Internal big-data platform",
+    "Loan business systems",
+    "Admission module"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "The bank established a fast, low-overhead machine-learning foundation for credit risk decisions, improved recall without reducing approval quality, and created a deployable AI pattern it can extend into future fraud and credit-limit use cases.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "A working model was built within 2 weeks.",
+    "The first production module was delivered in 3 months.",
+    "After tuning on 60,000 samples, recall improved 50% at the same pass rate as expert rules."
+  ],
+  "architecture_clues": [
+    "The bank separated production data preparation from development and testing model training zones.",
+    "Models are repeatedly trained and tuned on the appliance, then exposed back to live loan systems through interfaces.",
+    "The project is intended to expand from credit rating into anti-fraud and credit-limit use cases."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/nongshangyinhang.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The AI training appliance was the first deployed in the rural commercial banking sector and solved the bank's limited AI talent problem (original: AI训练一体机应用是农村商业银行业内首个落地的一体机，有效解决了农商行人才不足、AI能力有限等问题).",
+    "External third-party data was combined with internal big-data-platform data before training models on the appliance (original: 将前置机的外部第三方数据与行内大数据平台中的数据相结合…将大数据平台的数据抽取到AI一体机训练模型).",
+    "A model was successfully built within two weeks (original: 在短短2周的时间内，成功搭建出AI一体机模型).",
+    "After tuning 60,000 samples, recall improved 50% at the same pass rate as expert rules (original: 通过对6万条样本信息的反复测算和模型调优之后…在与专家规则同等通过率的前提下，召回率提升了50%).",
+    "The bank plans to extend the project into anti-fraud and credit-limit scenarios (original: 未来…深入反欺诈、授信额度等领域的AI应用)."
+  ],
+  "source_language": "zh"
+}

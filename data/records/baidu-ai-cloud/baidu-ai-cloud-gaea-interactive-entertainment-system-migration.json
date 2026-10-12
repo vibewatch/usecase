@@ -1,0 +1,83 @@
+{
+  "id": "baidu-ai-cloud-gaea-interactive-entertainment-system-migration",
+  "slug": "baidu-ai-cloud-gaea-interactive-entertainment-system-migration",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Gaea Interactive Entertainment (盖娅互娱)",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Gaea wanted to avoid the high upfront cost, rigid capacity planning, weak disaster recovery, and slow content delivery that come with self-built gaming infrastructure while developing and operating large online titles.",
+  "solution_summary": "Baidu AI Cloud worked with Gaea Interactive Entertainment during the development of the game 'The Legend of Sword and Fairy 3D' to replace self-built infrastructure with a cloud architecture tuned for different game workloads. Combat services ran on custom cloud hosts with 3.2 GHz CPU and up to 400,000 PPS single-instance capacity, while login, chat, and payment services used standard instances sized for their own traffic patterns. Elastic scaling and minute-based, on-demand billing let Gaea expand capacity during promotions or user spikes without committing to permanent overprovisioning. Baidu's global CDN accelerated the transfer of game resources and updates, and Baidu LSS embedded live-streaming capability directly into the mobile client so players and streamers in mainland China, Hong Kong, and Taiwan could use the same delivery backbone. Together, the cloud-host, CDN, and streaming stack gave Gaea a flexible platform for game operations, media distribution, and disaster-responsive scaling.",
+  "products_used": [
+    "Custom Cloud Hosts",
+    "Elastic Scaling",
+    "Global Content Delivery Network",
+    "LSS Cloud Live Streaming"
+  ],
+  "solution_components": [
+    {
+      "name": "Custom Cloud Hosts",
+      "role": "Run high-performance game services such as combat logic on infrastructure matched to workload intensity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Elastic Scaling",
+      "role": "Expands or contracts game capacity when user volume and marketing activity change.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Global Content Delivery Network",
+      "role": "Accelerates resource-package distribution and download performance for players.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LSS Cloud Live Streaming",
+      "role": "Adds integrated live-streaming services to the mobile game client for audiences in multiple regions.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Game clients interact with combat, login, chat, and payment services that are deployed on different cloud-host configurations according to workload needs. Resource packages and updates are distributed through the CDN, while live-stream video flows through Baidu LSS so gameplay and streaming share a coordinated cloud-delivery backbone.",
+  "integration_points": [
+    "Combat servers",
+    "Login servers",
+    "Chat servers",
+    "Payment servers",
+    "Mobile game client",
+    "Mainland China users",
+    "Hong Kong and Taiwan users"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Cloud Native",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Gaea lowered early infrastructure cost, improved server performance and content delivery, and gained elastic operational control for both gameplay and live-stream experiences.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Server response speed improved 60%.",
+    "Core combat servers use 3.2 GHz cloud hosts with up to 400,000 PPS per instance."
+  ],
+  "architecture_clues": [
+    "Different game subsystems were mapped to different cloud-host classes instead of forcing every workload onto the same server profile.",
+    "The solution combines gameplay infrastructure, CDN acceleration, and live-stream delivery on one platform.",
+    "Minute-based and on-demand billing were used to reduce mismatch between provisioned capacity and actual demand."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/gaiya.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu's flexible payment and customization significantly reduced early R&D cost for 'The Legend of Sword and Fairy 3D' (original: 百度智能云灵活的付费与定制服务使《仙剑奇侠传3D》的研发初期成本大大降低).",
+    "Combat servers were deployed on custom 3.2 GHz cloud hosts with up to 400,000 PPS, while login, chat, and payment servers used other standard cloud hosts (original: 将3.2GHz、最高40万单机PPS能力的云主机全面配置到核心的战斗服务器…其他的登录服务器、聊天服务器、和支付服务器等，则使用其他标准的云主机).",
+    "Elastic scaling helps the team respond to user surges and promotional traffic in time (original: 弹性扩容这一项服务更是帮助团队在面对激增用户和活动推广时，拥有及时增加服务器性能和配置的能力).",
+    "Global CDN speeds up resource loading, and Baidu LSS provides smooth streaming for mainland China and Hong Kong/Taiwan users (original: 百度全球化CDN节点有效的加快了游戏玩家的资源加载速度…满足大陆和港台的流畅游戏直播)."
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "baidu-ai-cloud-hengyi-petrochemical-ai-quality-inspection",
+  "slug": "baidu-ai-cloud-hengyi-petrochemical-ai-quality-inspection",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Hengyi Petrochemical / Shuangtu New Material (恒逸石化 / 双兔新材料)",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "The fiber producer needed to replace slow, physically demanding manual inspection of spun-yarn products with a more consistent and scalable quality process, because long hours of flashlight-based visual checking were hurting quality, staffing, and energy efficiency.",
+  "solution_summary": "Baidu AI Cloud helped Hengyi Petrochemical's Shuangtu New Material operation replace manual fiber inspection with an AI-driven machine-vision workflow. Along the line, industrial cameras capture multiple images from each bobbin and send them to a data center, where models analyze defects such as hair yarn, knots, oil stains, and other surface problems. The system then classifies suspicious products and feeds sorting decisions back to the production line so only true exceptions require human review. To make the models work in practice, experienced quality staff were pulled into the loop as data annotators, converting long-held defect-recognition knowledge into reusable training data. The result is not just faster visual inspection; it is a new feedback loop in which production images, labeled defect data, and continuous model tuning create a repeatable quality-control asset that can support broader manufacturing modernization across the fiber operation.",
+  "products_used": [
+    "Industrial Intelligent Quality Inspection Solution",
+    "Industrial Data Intelligence Solution",
+    "Industrial Camera Array",
+    "Defect Classification Models"
+  ],
+  "solution_components": [
+    {
+      "name": "Industrial Camera Array",
+      "role": "Captures high-frequency images of yarn bobbins as they move through the inspection line.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Defect Classification Models",
+      "role": "Detect fiber-surface defects such as hair yarn, tangled yarn, spider-web yarn, oil stains, and knots.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Industrial Intelligent Quality Inspection Solution",
+      "role": "Coordinates inspection decisions and returns routing commands to the production line.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Industrial Data Intelligence Solution",
+      "role": "Turns inspection results and annotations into reusable manufacturing data for ongoing optimization.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Twenty industrial cameras capture images of bobbins on the line, split each image into many subregions, and send them to a central analysis system. Defect-classification models judge whether a bobbin is abnormal, route suspect products for review, and use human-validated labels to improve future detection performance and production decision-making.",
+  "integration_points": [
+    "Industrial cameras",
+    "Production sorting line",
+    "Human quality inspectors",
+    "Central analysis data center"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The fiber plant reduced manual inspection effort, accelerated quality checks, improved consistency, and created a data foundation that can support wider intelligent-manufacturing upgrades.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Inspection of a 20-kilogram bobbin takes 2.5 seconds.",
+    "Inspection time is reduced by more than 70%.",
+    "Twenty industrial cameras capture two bobbins at a time."
+  ],
+  "architecture_clues": [
+    "Inspection now runs as a closed loop between image capture, model inference, human exception review, and additional labeling.",
+    "Experienced inspectors were converted into data annotators so their tacit knowledge could train the models.",
+    "The system is positioned as a stepping stone toward broader full-chain manufacturing intelligence."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/shihua.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AI can inspect a 20-kilogram bobbin in 2.5 seconds, cutting time by more than 70% (original: 20公斤丝饼的质检只需要2.5秒，耗时比传统人工检测缩短了70%以上).",
+    "The system identifies defects such as hair yarn, tangled yarn, spider-web yarn, oil stains, and knots (original: 后台利用人工智能模型算法可以对毛丝、绊丝、蛛网丝、油污、夹结丝等缺陷进行准确检测).",
+    "Twenty industrial cameras shoot the line and each bobbin generates more than ten photos for analysis (original: 20台工业相机拍摄流水线上的两锭丝锭，每个丝锭会生成10余张照片).",
+    "Workers became AI data annotators so the machine could learn product-defect recognition from expert experience (original: 王礼娜成为一名人工智能数据标注师…将质检员的工作经验转化成数据，让人工智能设备学会辨别产品缺陷)."
+  ],
+  "source_language": "zh"
+}

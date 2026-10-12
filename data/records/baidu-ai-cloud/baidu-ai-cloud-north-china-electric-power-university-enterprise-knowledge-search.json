@@ -1,0 +1,86 @@
+{
+  "id": "baidu-ai-cloud-north-china-electric-power-university-enterprise-knowledge-search",
+  "slug": "baidu-ai-cloud-north-china-electric-power-university-enterprise-knowledge-search",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "North China Electric Power University (华北电力大学)",
+  "industry": "Education",
+  "region": "China",
+  "company_size": "Public sector",
+  "business_problem": "North China Electric Power University wanted a general campus assistant that could answer everyday questions, guide users into the right business systems, and do so securely on university-controlled infrastructure without exposing sensitive institutional data.",
+  "solution_summary": "North China Electric Power University built the 'i Huadian' assistant with Baidu AI Cloud as a campus-wide service for students and staff. The implementation combines Qianfan AppBuilder with a 'ERNIE 4.0 + Super Assistant' pattern: a very large model handles deep understanding and response generation, while a smaller intent-recognition model helps route users to the right business application or answer path. The assistant supports multi-turn dialogue for everyday needs such as checking notices, phone numbers, workflows, courses, meal-card top-ups, library borrowing, and document lookup. Just as importantly, the service was designed for controlled deployment: the Super Assistant's core application services run in a private on-premises machine room so institutional data stays inside a protected environment while operating cost remains manageable. The result is a conversational front door that links fragmented campus systems into one secure and easier-to-use experience.",
+  "products_used": [
+    "Qianfan AppBuilder",
+    "Qianfan Large Model Platform",
+    "ERNIE 4.0 + Super Assistant Solution",
+    "Intent Recognition Small Model",
+    "Private On-premises Deployment"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Supports the assembly of the university's campus-assistant application and service logic.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qianfan Large Model Platform",
+      "role": "Provides the underlying large-model capability for broad campus question answering and service generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ERNIE 4.0 + Super Assistant Solution",
+      "role": "Handles complex understanding and response generation for the campus-wide AI assistant experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Intent Recognition Small Model",
+      "role": "Detects user intent precisely so the assistant can push the right campus application entry points.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Private On-premises Deployment",
+      "role": "Keeps the assistant's core services and data inside the university's own protected machine-room environment.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Campus notices, guides, workflows, and application-entry data are connected to the assistant, where Qianfan and ERNIE provide broad language understanding while a smaller model routes intent. Users ask questions in natural language, the assistant returns answers or pushes the right business-system entry point, and the full interaction remains inside the university's private deployment environment.",
+  "integration_points": [
+    "Campus notices",
+    "Office phone directories",
+    "Workflow guides",
+    "Course information",
+    "Meal-card services",
+    "Library and literature lookup",
+    "Campus business systems"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The university gained a single conversational entry point for many campus services, improved the usability of existing systems, and protected sensitive data through private deployment instead of relying on a fully public AI service model.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The assistant uses a large-plus-small-model pattern, with a large model for depth and a smaller model for intent routing.",
+    "Private machine-room deployment is central to the solution's security and cost design.",
+    "The assistant is intended to push users directly into campus applications rather than only answer questions in chat."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/huabeidianlidaxue.html",
+  "published_date": "2025-05-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The university built the 'i Huadian' assistant on Qianfan AppBuilder to support notices, workflows, courses, meal-card top-ups, and library queries (original: 基于千帆AppBuilder，打造AI助手\"i华电\"…涵盖查课程、充饭卡、借书籍、查文献等校园生活高频需求).",
+    "Baidu proposed an 'ERNIE 4.0 + Super Assistant' solution for the campus assistant (original: 创新性地提出了\"文心4.0+超级助理解决方案\").",
+    "The assistant combines a thousand-billion-parameter large model with a hundred-billion small model for intent recognition (original: 它采用了千亿级别的文心大模型进行深度服务，同时结合百亿级别的小模型进行精准的意图识别).",
+    "Core application services are deployed in a local private machine room to protect all data and reduce large-model privatization cost (original: 超级助理的核心应用服务被部署在本地私有化的机房中，所有数据都受到严格保护)."
+  ],
+  "source_language": "zh"
+}

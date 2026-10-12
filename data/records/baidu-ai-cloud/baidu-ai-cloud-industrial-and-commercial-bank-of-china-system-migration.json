@@ -1,0 +1,89 @@
+{
+  "id": "baidu-ai-cloud-industrial-and-commercial-bank-of-china-system-migration",
+  "slug": "baidu-ai-cloud-industrial-and-commercial-bank-of-china-system-migration",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Industrial and Commercial Bank of China",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "ICBC needed a faster, more elastic cloud architecture for digital banking workloads because its original serverless platform could not keep up with application growth, model release needs, and the bank's broader push toward cloud-native modernization.",
+  "solution_summary": "ICBC rebuilt its financial-grade cloud platform around Baidu AI Cloud's Tianhe Stack and Function Compute to create a Serverless 2.0 architecture. The bank integrated the new function-computing core with its existing distributed systems and cloud platform, then used it to support BFF aggregation, server-side rendering, static assets, batch processing, database-update jobs, and rapid model publishing. Function Workflow lets teams compose larger batch tasks from individual functions, while Kafka-triggered execution and direct node connections support operational jobs that spike during peak release periods. By wrapping formerly heavyweight services in function-based interfaces, the bank avoided extra load-balancer deployments, improved elasticity, and gave project managers a faster path to put trained models such as investment backtesting into production. The platform is positioned as a supplement to microservices, helping ICBC modernize applications and lift resource efficiency without abandoning its broader distributed architecture.",
+  "products_used": [
+    "Tianhe Stack Cloud-Native Private Cloud Platform",
+    "Function Compute",
+    "Serverless 2.0 Platform",
+    "Function Workflow",
+    "Kafka Trigger"
+  ],
+  "solution_components": [
+    {
+      "name": "Tianhe Stack Cloud-Native Private Cloud Platform",
+      "role": "Provides the private-cloud foundation that underpins ICBC's financial-grade serverless architecture.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Function Compute",
+      "role": "Supplies the core serverless execution engine for application, batch, and model-serving workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Serverless 2.0 Platform",
+      "role": "Packages the bank's upgraded function-based architecture and connects it to existing distributed systems.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Function Workflow",
+      "role": "Combines multiple function steps into larger batch-processing flows for jobs such as text verification.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kafka Trigger",
+      "role": "Starts function-based jobs from event streams and supports peak production operations such as model publishing and database updates.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Business requests from mini programs, H5, and other banking services are routed into function-based BFF, SSR, and static-resource components on the serverless platform. Batch and model-release jobs are triggered through workflows and Kafka events, and the resulting services or outputs are published back into ICBC's distributed banking environment for production use.",
+  "integration_points": [
+    "Distributed banking systems",
+    "Mini programs",
+    "H5 services",
+    "Kafka message streams",
+    "Database update workflows",
+    "Model backtesting services"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Application Refactoring"
+  ],
+  "business_outcome": "ICBC improved elasticity, lowered infrastructure overhead, accelerated application and model delivery, and created a financial-grade cloud-native reference architecture for broader enterprise modernization.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Model release speed improved 10x.",
+    "Resource utilization improved 80%."
+  ],
+  "architecture_clues": [
+    "The platform supports BFF aggregation, server-side rendering, static resources, batch jobs, database updates, and model release on the same serverless base.",
+    "ICBC treats serverless as a complement to microservices rather than a full replacement.",
+    "Function Workflow and Kafka-triggered execution were used to orchestrate larger banking batch processes."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/icbc.html",
+  "published_date": "2025-05-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "ICBC built a Serverless 2.0 architecture around Baidu's function-computing product on Tianhe Stack (original: 工商银行以百度智能云天合Stack的函数计算产品为核心打造了Serverless 函数计算平台技术架构2.0).",
+    "The platform integrates with ICBC's existing distributed and cloud-computing technology systems and provides a complete function engine, management, and delivery capability (original: 并与工商银行现有的分布式、云计算技术平台做对接，为应用提供完整的函数核心引擎、函数管理能力、开发交付能力).",
+    "Application scenarios include BFF services, SSR, static resources, batch jobs, database updates, and model publishing (original: 主要包括BFF接口聚合服务、服务端渲染SSR、静态资源服务…批量任务…数据库安装场景…第三个场景是模型发布).",
+    "Migrating fund-combination backtesting models to function compute supports frequent and rapid releases (original: 通过将基金组合回测模型迁移到函数计算平台…需要频繁且快速的模型发布).",
+    "The project improved model release speed by 10x and resource utilization by 80% (original: 模型发布速度提升10倍；资源利用率提升80%)."
+  ],
+  "source_language": "zh"
+}

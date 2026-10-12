@@ -1,0 +1,76 @@
+{
+  "id": "baidu-ai-cloud-guangmo-technology-ai-video-generation",
+  "slug": "baidu-ai-cloud-guangmo-technology-ai-video-generation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Guangmo Technology (光魔科技)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Guangmo needed lower-cost inference capacity, stable cross-border delivery, and a more integrated creation pipeline for its Daydream AI app, which combines script generation, image processing, and video assembly for AIGC content creation.",
+  "solution_summary": "Baidu AI Cloud supplied Guangmo's Daydream AI platform with a cloud stack designed for both large-model creation and media delivery. At the infrastructure layer, Baidu deployed edge-compute nodes to absorb inference demand at lower cost and added cross-border dedicated-line CDN acceleration so the app could migrate inference workloads from AWS without disrupting service. On the media side, Baidu's MCP stitching capability assembles multiple generated images into short connected video sequences for the app's image-to-video workflow. On the model side, large-model services interpret user prompts, generate scripts, and expand them into character settings and storyboard structure so creative requests become structured video plans before rendering. The result is a more connected pipeline in which prompt understanding, script creation, video assembly, and global delivery all run on a unified cloud foundation instead of separate external systems.",
+  "products_used": [
+    "Edge Compute Nodes",
+    "Cross-border Content Delivery Network",
+    "MCP Stitching Capability",
+    "Script Generation Large Model Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Edge Compute Nodes",
+      "role": "Provide cost-efficient compute capacity for large-scale inference and model-serving workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cross-border Content Delivery Network",
+      "role": "Accelerates overseas content delivery and stabilizes service during the migration from AWS.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MCP Stitching Capability",
+      "role": "Turns unordered generated images into coherent short videos for the Daydream app.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Script Generation Large Model Service",
+      "role": "Understands user prompts and expands them into scripts, character settings, and storyboard structures.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User prompts enter the large-model service, which interprets intent and generates scripts, character profiles, and storyboard guidance. Generated images are then stitched into short videos with MCP capabilities, while inference and media assets are served through edge compute and cross-border CDN infrastructure to maintain stable app delivery.",
+  "integration_points": [
+    "Daydream AI app",
+    "AWS migration workload",
+    "Generated image assets",
+    "Script prompts",
+    "Cross-border users"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Migration",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Guangmo lowered inference operating cost, reduced stability risk during migration, and improved the end-to-end user experience for AI script and video creation on Daydream AI.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The solution combines infrastructure, media-processing, and large-model layers rather than treating video generation as a standalone model problem.",
+    "Cross-border CDN was included specifically to protect service continuity during migration from AWS.",
+    "Prompt understanding is expanded into personas and storyboards before downstream media generation."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/guangmo.html",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Daydream AI relies on Baidu edge compute nodes and cross-border CDN to keep its AIGC platform stable and efficient (original: 白日梦AI基于百度智能云边缘算力节点与跨境CDN服务，实现AIGC平台的高效稳定运行).",
+    "Baidu provided edge compute nodes and overseas accelerated dedicated-line CDN to support migration from AWS (original: 提供了海外加速的跨境专线CDN服务，保证了客户业务在云迁移过程中的稳定运行).",
+    "MCP stitching lets the app combine multiple generated images into a connected short video (original: 利用百度MCP产品的拼接能力，应用可将多张生成的无序图片变换成一个连环短片).",
+    "The large-model layer understands prompt content and builds characters and storyboards for script generation (original: 将用户描述的剧本内容进行理解并实现人设、分镜等功能)."
+  ],
+  "source_language": "zh"
+}

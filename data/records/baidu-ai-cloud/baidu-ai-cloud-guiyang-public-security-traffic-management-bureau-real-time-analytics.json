@@ -1,0 +1,82 @@
+{
+  "id": "baidu-ai-cloud-guiyang-public-security-traffic-management-bureau-real-time-analytics",
+  "slug": "baidu-ai-cloud-guiyang-public-security-traffic-management-bureau-real-time-analytics",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Guiyang Public Security Traffic Management Bureau (贵阳市公安交通管理局)",
+  "industry": "Public Sector",
+  "region": "China",
+  "company_size": "Public sector",
+  "business_problem": "Guiyang needed a more systematic way to reduce congestion in a mountainous city where road geometry, rapid growth, and fragmented traffic-management methods made it hard to optimize signal timing and respond to changing traffic conditions.",
+  "solution_summary": "Baidu AI Cloud and Guiyang's traffic-management bureau deployed an AI traffic-signal optimization system for thirty-one key intersections in the city's Guanshanhu core district. The solution combines roadside radar-and-vision integrated sensing devices with Baidu Maps traffic indicators to create a continuous picture of road-network conditions, congestion events, flow levels, and intersection performance. Those inputs feed an AI signal-control large model that generates signal-timing plans for peak, off-peak, and night conditions and updates them dynamically as traffic changes. The system also exposes a monitoring screen that shows macro congestion indicators, citywide five-minute traffic trends, and micro-level alerts for specific intersections or corridors. In practice, the deployment links sensing, diagnosis, timing-plan generation, and operational monitoring in one workflow so traffic managers can move from reactive adjustments to data-driven optimization and earlier intervention.",
+  "products_used": [
+    "Qianfan Model Development Platform",
+    "Qianfan Application Development Platform",
+    "AI Traffic Signal Control Large Model",
+    "Radar-Vision Integrated Sensor"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan Model Development Platform",
+      "role": "Supports the development and optimization of the traffic-signal large model used in Guiyang's congestion program.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qianfan Application Development Platform",
+      "role": "Packages the operational application used to monitor conditions and distribute optimized signal plans.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI Traffic Signal Control Large Model",
+      "role": "Generates signal-timing plans for different traffic states and adjusts them dynamically based on congestion conditions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Radar-Vision Integrated Sensor",
+      "role": "Captures real-time roadside flow data that is fused with map indicators to diagnose congestion causes.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Roadside radar-vision devices and Baidu Maps traffic indicators feed real-time data into the congestion-analysis layer, which diagnoses flow, incidents, and road-network conditions. The traffic-control large model then generates timing schemes for each period and state, and the resulting plans are monitored and refined through dashboards that expose macro, corridor, and single-intersection performance.",
+  "integration_points": [
+    "Roadside radar-vision devices",
+    "Baidu Maps traffic indicators",
+    "31 key intersections in Guanshanhu District",
+    "Traffic-monitoring dashboards",
+    "Traffic-police response workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Guiyang improved traffic-flow visibility, reduced intersection delay, and gained a reusable operating pattern for AI-assisted congestion control in a road network with severe physical constraints.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "The deployment covers 31 key intersections.",
+    "Average vehicle delay at target intersections fell 15%.",
+    "Citywide indicators are monitored at 5-minute granularity."
+  ],
+  "architecture_clues": [
+    "The system fuses roadside sensing with map-derived traffic indicators instead of relying on one data source.",
+    "Timing plans are generated for multiple periods such as peak, off-peak, and night conditions.",
+    "The operational dashboard spans macro city metrics, corridor analysis, and micro intersection alerts."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/guiyangjiaotong.html",
+  "published_date": "2025-10-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The project used an AI signal-control large model and radar-vision integrated sensing to optimize signals at 31 key intersections in Guanshanhu District (original: 基于AI信控大模型和雷视融合感知技术，在观山湖区31个重点路口实现信号灯智能调优).",
+    "Roadside radar-vision sensing is fused with Baidu Maps traffic indicators to analyze traffic conditions comprehensively (original: 通过外场雷视一体机感知获取实时车流量数据，融合百度地图交通指标数据，全面分析31个路口的交通通行情况).",
+    "The large model generates timing plans for different periods and conditions so signal timing can be tuned automatically (original: 基于交通信控大模型智能匹配生成不同时段，不同状态的信号灯配时方案，实现信号配时的自动调优).",
+    "Average vehicle delay at intersections was reduced by 15% (original: 路口车均延误下降15%)."
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,81 @@
+{
+  "id": "baidu-ai-cloud-jingnuo-data-smelting-optimization",
+  "slug": "baidu-ai-cloud-jingnuo-data-smelting-optimization",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Jingnuo Data (精诺数据)",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Jingnuo Data needed to turn highly specialized smelting expertise into a repeatable system because foundries relied too heavily on master workers' intuition for material ratios, quality adjustment, and process efficiency.",
+  "solution_summary": "Jingnuo Data used Baidu's AI stack to build an intelligent smelting system that converts expert metallurgy knowledge into model-driven recommendations for foundries. The solution begins with a pre-charge module that evaluates inventory, raw-material prices, and target metal composition to propose an optimized material mix. During fine charging, a second model combines AI predictions with spectral-test results to recommend precise adjustments for specific industrial requirements. The system also extends beyond the furnace by pushing production information to mobile apps, SMS, and WeChat mini programs so managers can see plant conditions without waiting for manual reporting. Underneath, the project used Baidu tools to encode the experience of more than one hundred master workers and decades of operating know-how into an AI-driven decision layer. That lets younger staff execute smelting workflows with more consistency while the plant gains better material efficiency, faster processing, and more transparent production data.",
+  "products_used": [
+    "PaddlePaddle",
+    "Intelligent Smelting System",
+    "Pre-charge Module",
+    "Fine-charge Module"
+  ],
+  "solution_components": [
+    {
+      "name": "Intelligent Smelting System",
+      "role": "Provides the overall decision layer that turns foundry data and expert knowledge into smelting recommendations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Pre-charge Module",
+      "role": "Calculates the best initial material mix from inventory, prices, and target composition.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Fine-charge Module",
+      "role": "Uses AI and spectral-analysis results to recommend precise adjustments during production.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PaddlePaddle",
+      "role": "Supplies the AI development foundation used to build and operate the smelting models.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Production inputs such as inventory, raw-material prices, target composition, and spectral-test results are fed into Jingnuo's AI modules. The pre-charge and fine-charge models generate recommended formulas or adjustments, and the outputs are then sent to plant staff and managers through mobile apps, SMS, and WeChat mini programs for execution and monitoring.",
+  "integration_points": [
+    "Inventory systems",
+    "Raw-material price inputs",
+    "Spectral-analysis results",
+    "Mobile app notifications",
+    "SMS notifications",
+    "WeChat mini programs"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Jingnuo gave foundries a repeatable AI decision process for smelting, reducing dependence on scarce expert workers while improving raw-material efficiency, process speed, and operational transparency.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The system can return an optimal mix in 3 seconds.",
+    "Raw-material savings average 15% and can reach 27%.",
+    "Production efficiency improved about 15%.",
+    "The model encoded the experience of more than 100 master workers."
+  ],
+  "architecture_clues": [
+    "The solution separates initial pre-charge optimization from fine-charge adjustment based on live spectral results.",
+    "Operational visibility is extended through mobile apps, SMS, and WeChat mini programs instead of staying inside one workstation.",
+    "Expert smelting experience was explicitly transformed into training data and models rather than kept as informal tribal knowledge."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/jingnuodata.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Jingnuo turned 30 years of master-worker experience into an AI model that can produce an optimal ratio in 3 seconds (original: 将30年老师傅经验转化为AI模型，实现3秒精准配料).",
+    "The project relied on input from more than 100 master workers (original: 精诺请教了100多位老师傅).",
+    "Raw-material savings average 15% and can reach 27% (original: 平均15%的原料节省，最大降幅达27%).",
+    "Fine charging linked AI recommendations with spectral-test results to support precise industrial adjustments (original: 熔炼精配模块会利用百度飞桨提供的AI模型，联动光谱检测结果，精确计算不同工业要求下的最优调整方案)."
+  ],
+  "source_language": "zh"
+}

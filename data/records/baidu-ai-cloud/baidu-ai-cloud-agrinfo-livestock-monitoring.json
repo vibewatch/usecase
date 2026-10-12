@@ -1,0 +1,91 @@
+{
+  "id": "baidu-ai-cloud-agrinfo-livestock-monitoring",
+  "slug": "baidu-ai-cloud-agrinfo-livestock-monitoring",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "AgrInfo (农信互联)",
+  "industry": "unknown",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "AgrInfo needed a practical way to digitize pig-farm management tasks such as barn monitoring, animal counting, and disease screening because manual oversight was slow, costly, and difficult to scale across large livestock operations.",
+  "solution_summary": "AgrInfo used Baidu's EasyDL customization and serving platform to turn everyday pig-farm operations into computer-vision workflows that ordinary field teams could use. The company trained three models in about a week: an electronic-fence detector that monitors barns and identifies people or pigs entering key areas, an AI counting model that estimates pig numbers from ceiling-mounted camera images, and a pig-disease recognition model that analyzes body images for common symptoms before escalating atypical cases to remote experts. These models were embedded into applications such as Remote-eye and Pig Disease Assistant so users could access them through cameras, mobile uploads, and mini-program workflows rather than data-science tooling. The broader value is that EasyDL let AgrInfo encode husbandry know-how into reusable AI services, connecting video frames, object detection, disease screening, and remote diagnostics in one agricultural management pipeline.",
+  "products_used": [
+    "EasyDL Customized Training and Serving Platform",
+    "Electronic Fence Model",
+    "AI Counting Model",
+    "Pig Disease Recognition Model",
+    "Remote-eye",
+    "Pig Disease Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "EasyDL Customized Training and Serving Platform",
+      "role": "Provides the no-code model training and serving environment used to build livestock AI models quickly.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Electronic Fence Model",
+      "role": "Detects people and pigs in monitored barn areas to support safety and activity observation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI Counting Model",
+      "role": "Counts pigs from barn images so farms can monitor herd size remotely.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Pig Disease Recognition Model",
+      "role": "Screens pig images for disease symptoms and flags cases that need expert review.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Remote-eye",
+      "role": "Presents remote monitoring and pig-counting results to farm users in operational workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Pig Disease Assistant",
+      "role": "Uses disease-recognition results to help breeders assess pig health and escalate uncertain cases.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Barn-camera images and farmer-captured pig photos enter EasyDL-trained detection models, which classify presence, count animals, and screen for visible disease traits. The results are sent into Remote-eye and Pig Disease Assistant workflows, where users monitor farms remotely, review suspected health issues, and escalate non-typical cases to online experts.",
+  "integration_points": [
+    "Barn surveillance cameras",
+    "Mobile image uploads",
+    "Mini-program workflows",
+    "Remote expert diagnosis"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "AgrInfo reduced manual farm-inspection effort, improved herd visibility and disease screening, and showed that livestock know-how can be packaged into reusable AI services for day-to-day farm management.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Three models were trained within 1 week.",
+    "All three models achieved about 80% accuracy.",
+    "Counting and disease-recognition workflows reduced the need for weekly on-site inspections."
+  ],
+  "architecture_clues": [
+    "The system links detection models to operational products such as Remote-eye and Pig Disease Assistant instead of leaving them as standalone experiments.",
+    "Ceiling-mounted cameras and mobile phone uploads are both part of the data-ingestion strategy.",
+    "Non-typical disease cases are escalated to remote experts rather than forced through full automation."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/yangzhu.html",
+  "published_date": "2025-05-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AgrInfo trained electronic-fence, pig-counting, and pig-disease models with EasyDL in just one week (original: 仅在一周内便训练出\"电子围栏\"\"猪只盘点\"\"猪病识别\"三个模型).",
+    "The models all achieved around 80% accuracy (original: 准确率均达80%左右).",
+    "The electronic fence uses EasyDL object detection to monitor whether people or pigs appear in monitored areas (original: 基于百度大脑EasyDL的物体检测能力，它可以实时检测区域内是否有人、猪的出现).",
+    "Remote-eye enables remote monitoring and pig counting, reducing manual farm visits (original: 在\"Remote-eye\"猪只检测的帮助下，养殖户们可以实现远程监控猪场情况，实时盘点猪只数目).",
+    "The disease-recognition workflow can help detect conditions such as foot-and-mouth disease and skin disease from mobile photo uploads (original: \"猪病通\"猪病识别就能协助养殖人员判断猪只是否有口蹄疫、皮肤病等典型猪病)."
+  ],
+  "source_language": "zh"
+}
