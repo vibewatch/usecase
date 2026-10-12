@@ -1,0 +1,81 @@
+{
+  "id": "ibm-ajuntament-de-lhospitalet-storage-modernization",
+  "slug": "ibm-ajuntament-de-lhospitalet-storage-modernization",
+  "vendor": "IBM",
+  "customer_name": "Ajuntament de L'Hospitalet",
+  "industry": "Public Sector",
+  "region": "Spain",
+  "company_size": "Public sector",
+  "business_problem": "Ajuntament de L'Hospitalet needed to replace an aging storage platform that was creating performance and availability risk for resident-facing digital services, while minimizing disruption to mission-critical municipal operations during the transition.",
+  "solution_summary": "The city council modernized its core storage layer with IBM FlashSystem 5200 arrays powered by IBM FlashCore modules, deployed with partner Logicalis Spain alongside an IBM Storage Networking SAN64B-7 switch. The implementation spanned both mainframe and open systems environments and used IBM HyperSwap to convert the existing VMware estate into a stretch-cluster architecture. That gave the municipality an active-active design with automatic failover instead of a more fragile single-site setup. More than 150 virtual machines, including application servers, databases and domain controllers, now run on the upgraded environment, which also layers in hardware-based compression, built-in FIPS 140-2 encryption, immutable backups and anomaly detection. In practice, IBM became the shared storage and resilience fabric for internal council systems and the external 24x7 resident portal, combining better latency with operational continuity and stronger data protection.",
+  "products_used": [
+    "IBM FlashSystem 5200",
+    "IBM FlashCore",
+    "IBM Storage Networking SAN64B-7",
+    "IBM HyperSwap"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM FlashSystem 5200",
+      "role": "Provides the core storage arrays that improve performance, availability and scalability for municipal workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM FlashCore",
+      "role": "Supplies the flash modules that drive low-latency performance inside the storage arrays.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Storage Networking SAN64B-7",
+      "role": "Connects the upgraded storage environment and supports the council's networking modernization.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "IBM HyperSwap",
+      "role": "Enables the active-active stretch-cluster configuration and automatic failover across sites.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Municipal applications, databases and domain controllers running in VMware access storage through FlashSystem arrays and SAN64B-7 networking, while HyperSwap coordinates active-active replication and failover so resident services stay available across the cluster.",
+  "integration_points": [
+    "VMware stretch cluster",
+    "mainframe environments",
+    "open systems environments",
+    "resident portal"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Ajuntament de L'Hospitalet improved application performance, cut downtime risk, reduced operational cost and created a more secure and resilient infrastructure for resident services and internal operations.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "< 1 second response time, even under heavy workloads",
+    "RTO and RPO of 0",
+    "over 150 virtual machines (VMs)"
+  ],
+  "architecture_clues": [
+    "The new platform spans both mainframe and open systems environments.",
+    "HyperSwap is used to create an active-active stretch cluster in VMware.",
+    "The storage environment includes immutable backups and anomaly detection."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/logicalis-spain",
+  "published_date": "2025-12-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"< 1 second response time, even under heavy workloads\"",
+    "\"RTO and RPO of 0\"",
+    "\"Their implementation of IBM HyperSwap technology helped us easily change our VMware environment to a stretch cluster configuration.\"",
+    "\"improving the performance of over 150 virtual machines (VMs)\"",
+    "\"in-built FIPS 140-2 certified encryption, immutable backups and advanced anomaly detection\""
+  ]
+}

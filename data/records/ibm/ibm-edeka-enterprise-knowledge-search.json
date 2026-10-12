@@ -1,0 +1,71 @@
+{
+  "id": "ibm-edeka-enterprise-knowledge-search",
+  "slug": "ibm-edeka-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "EDEKA Rhein-Ruhr Stiftung & Co. KG",
+  "industry": "Retail",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "EDEKA's internal support teams had to search across manuals, technical documentation and other formats to resolve software and store-system issues, making problem solving slow and operational support inefficient.",
+  "solution_summary": "EDEKA worked with IBM Client Engineering and IBM Expert Labs on a pilot that turned internal support documentation into a generative-AI knowledge workflow. Manuals, technical documents and other support sources were ingested into IBM Watson Discovery to build a searchable knowledge base. When a support user submits a question, Discovery retrieves the most relevant passages and IBM watsonx.ai uses that evidence plus the user query to generate a grounded answer. A custom application built with the Vue Framework exposes the experience through a search box, answer panel and linked supporting passages so staff can both read the synthesized answer and inspect the source text behind it. The two-phase design first organized the document estate and then layered generative AI on top of retrieval, cutting troubleshooting effort and producing a pilot with payback in under three months.",
+  "products_used": [
+    "IBM Watson Discovery",
+    "IBM watsonx.ai",
+    "Vue Framework"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Ingests EDEKA's support manuals and technical documentation and retrieves the passages used to answer internal support questions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Generates natural-language answers from the retrieved evidence so staff can resolve support issues faster.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vue Framework",
+      "role": "Hosts the custom front end that accepts user queries and displays answers, source passages and related documents.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Support manuals and technical documents are ingested into Watson Discovery, user queries are submitted through the Vue application, Discovery returns relevant passages, and watsonx.ai generates an answer that is shown alongside the original evidence.",
+  "integration_points": [
+    "manual documents",
+    "technical documentation",
+    "internal software-support workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "EDEKA dramatically reduced support problem-solving time and achieved a pilot ROI of less than three months, demonstrating that generative retrieval can streamline internal IT operations without forcing teams back into manual document review.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "ROI of the solution is less than three months"
+  ],
+  "architecture_clues": [
+    "The rollout happened in two phases: first document structuring in Discovery, then answer generation with watsonx.ai.",
+    "The custom application surfaced both answers and the underlying relevant passages for traceability.",
+    "The pilot focused on software systems used in EDEKA stores."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/edeka",
+  "published_date": "2024-04-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "used the combination of IBM Watson Discovery IBM watsonx.ai",
+    "manual documents, technical documentations and other sources, which were ingested by the Watson Discovery service",
+    "problem-solving time fell dramatically",
+    "the ROI of the solution is less than three months"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "ibm-smart-light-it-operations-automation",
+  "slug": "ibm-smart-light-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "Smart Light",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "SMB",
+  "business_problem": "Smart Light needed a practical way to combine voice interfaces, generative AI and heterogeneous facilities-control protocols, but existing smart-speaker dialogue flows and control integrations were too rigid for real environments.",
+  "solution_summary": "Smart Light built a facilities-control workflow around IBM watsonx.ai, IBM Cloud Code Engine, Node-RED and MQTT to make generative AI usable in IoT operations. The system begins with transcribed voice text, which watsonx.ai interprets in context so a user request can be mapped to a device action. Because control protocols vary across equipment, Code Engine provides a serverless layer for protocol conversion and runtime orchestration, while Node-RED standardizes interfaces and helps bridge device logic to the MQTT messaging model. That combination lets Smart Light connect air conditioning, lighting and curtain controls through a common AI-assisted command path instead of building separate rigid flows for every scenario. The architecture was designed for trial-and-error iteration through watsonx.ai's GUI and repeatedly tested prompt workflows, giving the team a practical way to validate new facility-control interactions before broader deployment.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Cloud Code Engine",
+    "Node-RED",
+    "MQTT"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Interprets transcribed voice requests and determines the contextual action the facilities-control system should take.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Code Engine",
+      "role": "Runs the protocol-conversion and bridging services that translate AI output into equipment-control actions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Node-RED",
+      "role": "Standardizes interfaces and wiring between device protocols, messaging and cloud services.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "MQTT",
+      "role": "Provides the messaging protocol used to standardize control commands across facilities devices.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Voice text is interpreted by watsonx.ai, Code Engine and Node-RED convert the AI decision into a standardized MQTT command, and the command is sent to connected systems such as air conditioning, lighting and curtains for execution.",
+  "integration_points": [
+    "facilities-control protocols",
+    "air conditioning systems",
+    "lighting systems",
+    "curtain controls"
+  ],
+  "technical_area": [
+    "IoT",
+    "Generative AI / LLM",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Smart Light created a repeatable way to test and deploy voice-driven building controls with generative AI, improving development efficiency and proving that flexible facilities automation can be built without hard-coded dialog trees for every device.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "50% improved efficiency"
+  ],
+  "architecture_clues": [
+    "The workflow standardizes device integration through MQTT rather than bespoke protocol handling for each endpoint.",
+    "Prompt experiments were run repeatedly in the watsonx.ai playground before broader rollout.",
+    "Code Engine was chosen as a serverless bridge between AI interpretation and device-control execution."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/smartlight",
+  "published_date": "2025-07-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM watsonx.ai",
+    "IBM Cloud Code Engine serverless platform was used for equipment control protocol conversion",
+    "Its interface was standardized to the Message Queuing Telemetry Transport (MQTT) messaging protocol",
+    "50% improved efficiency"
+  ]
+}

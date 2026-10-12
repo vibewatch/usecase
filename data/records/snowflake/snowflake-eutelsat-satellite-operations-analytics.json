@@ -1,0 +1,87 @@
+{
+  "id": "snowflake-eutelsat-satellite-operations-analytics",
+  "slug": "snowflake-eutelsat-satellite-operations-analytics",
+  "vendor": "Snowflake",
+  "customer_name": "Eutelsat Group",
+  "industry": "Telecommunications",
+  "region": "Paris, France",
+  "company_size": "Enterprise",
+  "business_problem": "GEO and LEO satellite operations generated petabyte-scale telemetry that needed unified storage, cross-domain access, and AI-driven outage prediction without adding major platform-management overhead.",
+  "solution_summary": "Eutelsat uses Snowflake as the shared data plane for satellite telemetry, business systems, and AI workloads across its combined Eutelsat and OneWeb operations. Measurements from the LEO network arrive every few milliseconds, producing about 70 billion records a day, and Snowflake stores that data alongside Salesforce and SAP feeds plus GEO data surfaced through Apache Iceberg tables. Separate domain accounts handle satellite data, ground networks, finance, and CRM, while shared data products let teams query combined information without moving or duplicating it. On top of that foundation, Eutelsat uses Cortex AI to forecast outages and analyze customer sentiment, and Cortex Analyst gives nontechnical users natural-language access to data. Gen2 warehouses and ongoing optimization improve both speed and cost, making the same governed platform the home for current operations and future AI expansion.",
+  "products_used": [
+    "Snowflake",
+    "Cortex AI",
+    "Cortex Analyst",
+    "Apache Iceberg"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the central storage and sharing platform for satellite telemetry, business data, and enterprise data products.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Supports outage forecasting and sentiment analysis on top of Eutelsat's large satellite and customer datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cortex Analyst",
+      "role": "Lets nontechnical users explore governed data with natural-language questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Apache Iceberg",
+      "role": "Brings GEO satellite data from a separate environment into Snowflake without large migration or duplication work.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "LEO telemetry, GEO data, Salesforce records, and SAP data flow into Snowflake on AWS, where domain accounts share curated data products across operations. Cortex AI and related ML workflows analyze network and customer data for outage prediction and sentiment, and Cortex Analyst serves natural-language answers to users.",
+  "integration_points": [
+    "Amazon Web Services",
+    "Salesforce",
+    "SAP",
+    "GEO satellite environment",
+    "LEO satellite network"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Eutelsat doubled compute performance on some workloads, saved more than $2 million in six months, cut compute costs 40% in a year, and now uses AI to reduce disruption across critical connectivity services.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "100% faster compute",
+    "70 billion records processed every day",
+    "$2M savings in just six months",
+    "40% reduction in compute costs in just one year",
+    "67% increase in data workloads",
+    "85% revenue growth for LEO services"
+  ],
+  "architecture_clues": [
+    "Separate Snowflake accounts exist for satellite data, ground networks, financials, and CRM.",
+    "Apache Iceberg brings GEO data into the same analytics estate as LEO data.",
+    "Gen2 warehouses and a dedicated Snowflake architect drive ongoing optimization."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/eutelsat/",
+  "published_date": "2026-09-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "creating 70 billion records a day. That’s multiple petabytes of data - all stored in Snowflake’s AI Data Cloud",
+    "uses Apache Iceberg tables to bring its GEO data from a separate environment into Snowflake",
+    "Snowflake’s Cortex AI and machine learning capabilities have given Eutelsat new opportunities",
+    "compute speeds that are between 20-100% faster than before",
+    "Just six months in, Eutelsat experienced savings of over $2 million"
+  ]
+}

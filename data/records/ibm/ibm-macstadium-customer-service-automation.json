@@ -1,0 +1,68 @@
+{
+  "id": "ibm-macstadium-customer-service-automation",
+  "slug": "ibm-macstadium-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "MacStadium",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "MacStadium's support technicians were fielding high volumes of repetitive product questions, leading to inconsistent response quality and slower resolution for customers using the Orka platform.",
+  "solution_summary": "MacStadium partnered with Innovative Solutions to pilot a generative-AI support assistant that combines IBM watsonx Assistant with Amazon Bedrock. The design centers on a chat interface delivered through watsonx Assistant, while Amazon Bedrock queries the knowledge sources selected by MacStadium and summarizes the findings for each user request. The assistant was built to support developers using Orka, MacStadium's Kubernetes-native virtualization platform for Apple-device build infrastructure, and to remove low-complexity questions from the queue that previously reached on-call technicians. During the three-week pilot, the team evaluated how quickly the assistant could blend information from documentation and return expert-like responses without relying on whichever technician happened to be on duty. The resulting architecture gave MacStadium an always-available front line for developer support and a path toward broader configuration and cloud-assistance scenarios.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the chat interface developers use to ask support questions and receive guided answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Queries MacStadium's selected data sources and summarizes the results that power the assistant's answers.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Developer questions enter through watsonx Assistant, Amazon Bedrock queries the documentation and other MacStadium knowledge sources, generates a summarized answer, and the response is returned through the support chat interface.",
+  "integration_points": [
+    "Orka product documentation",
+    "MacStadium support knowledge sources",
+    "Amazon Web Services"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "MacStadium improved support efficiency, reduced inbound support demand and demonstrated expert-like, high-accuracy responses that can expand from Orka support into broader cloud-configuration assistance.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "30% increase in staff efficiency",
+    "25% reduction in customer support queries",
+    "90% accuracy rate",
+    "three-week pilot"
+  ],
+  "architecture_clues": [
+    "The pilot focused first on Orka support and is intended to expand to other offerings.",
+    "The assistant often resolved questions in minutes that previously took hours.",
+    "The implementation combined IBM and AWS technologies rather than using a single-vendor stack."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/macstadium",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The new assistant's chat interface is enabled by IBM watsonx Assistant",
+    "Amazon Bedrock technology will query the various data sources determined by MacStadium and summarize its findings",
+    "30% increase in staff efficiency",
+    "25% reduction in customer support queries"
+  ]
+}

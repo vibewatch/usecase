@@ -1,0 +1,70 @@
+{
+  "id": "ibm-uhcw-nhs-trust-people-assist",
+  "slug": "ibm-uhcw-nhs-trust-people-assist",
+  "vendor": "IBM",
+  "customer_name": "University Hospitals Coventry and Warwickshire NHS Trust",
+  "industry": "Healthcare",
+  "region": "United Kingdom",
+  "company_size": "Public sector",
+  "business_problem": "UHCW NHS Trust needed a more efficient way to answer routine HR and workforce questions for more than ten thousand employees so specialist staff could spend less time on inbox and phone traffic and more time on complex support work.",
+  "solution_summary": "UHCW NHS Trust worked with IBM and SCC on a proof-of-concept called People Assist that combines IBM watsonx Assistant with IBM watsonx.ai to provide 24x7 workforce self-service. Watsonx Assistant delivers the employee-facing interface, while watsonx.ai performs retrieval-augmented generation over HR policy documentation so the assistant can summarize relevant guidance and return answers to common questions. The tool acts as a one-stop shop for policy lookups and routine transactional support instead of forcing staff to wait on email queues or office hours. Because the system is grounded in the Trust's own documentation, it improves consistency as well as speed, and it creates a reusable pattern for future HR automation beyond the pilot. In architectural terms, People Assist sits between users and policy content, using RAG to transform static documents into an interactive service layer for the workforce function.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the employee-facing virtual assistant for HR queries and routine workforce tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Uses retrieval-augmented generation over HR policy documents to summarize and answer employee questions.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Employees submit HR questions to People Assist, watsonx Assistant routes the request, watsonx.ai retrieves and summarizes relevant Trust policy documentation with RAG, and the response is returned through the self-service interface at any time of day.",
+  "integration_points": [
+    "HR policy documentation",
+    "People Operations",
+    "Workforce Information",
+    "Centralized Resourcing"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The Trust created a scalable employee-support channel, reduced the burden on HR teams, and improved access to policy guidance in a way that supports retention, efficiency and better patient-care operations indirectly.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Over 550 conversations on the platform since launch",
+    "Estimated to save approximately 2,080 working days per year",
+    "around 400 inbox queries",
+    "over 200 calls",
+    "10,500+ employees"
+  ],
+  "architecture_clues": [
+    "The front end is built with watsonx Assistant and grounded on HR policy documentation through RAG.",
+    "The pilot was designed first as a proof of concept for workforce queries.",
+    "Usage outside office hours shows the platform acts as a true 24x7 service layer."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/university-hospitals-coventry-and-warwickshire-nhs-trust",
+  "published_date": "2024-06-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"This AI tool, called People Assist, can serve as a one-stop-shop for all HR queries and routine tasks around the clock.\"",
+    "\"uses retrieval-augmented generation (RAG) to summarize its findings\"",
+    "\"Over 550 conversations on the platform since launch\"",
+    "\"Estimated to save approximately 2,080 working days per year\"",
+    "\"Almost 50 users accessed People Assist over the weekend or outside core office hours.\""
+  ]
+}

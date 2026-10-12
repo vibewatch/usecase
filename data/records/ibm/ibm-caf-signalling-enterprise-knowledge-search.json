@@ -1,0 +1,70 @@
+{
+  "id": "ibm-caf-signalling-enterprise-knowledge-search",
+  "slug": "ibm-caf-signalling-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "CAF Signalling",
+  "industry": "Manufacturing",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "CAF Signalling's onboard systems team had to repeatedly search, interpret and adapt dense ERTMS documentation, making it hard to access the right standards quickly and keep rail signaling implementations compliant as requirements evolved.",
+  "solution_summary": "CAF Signalling worked with IBM Client Engineering to build a generative AI knowledge assistant for European Rail Traffic Management System documentation. The implementation combined IBM Watson Discovery, IBM watsonx.ai and IBM watsonx Assistant so engineering teams could query a centralized corpus of manuals and standards instead of manually hunting through fragmented documents. Discovery ingests and indexes the ERTMS material and returns relevant passages for a user question; watsonx.ai uses those retrieved passages to generate a grounded natural-language answer; and watsonx Assistant provides the conversational interface that exposes the workflow to engineers. The result is a governed retrieval flow for technical standards that reduces search friction, helps teams find the right requirement faster and supports interoperability and compliance work across international rail projects.",
+  "products_used": [
+    "IBM Watson Discovery",
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Indexes ERTMS manuals and technical documents, then retrieves the passages most relevant to each engineering query.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Uses retrieved standards content to generate grounded answers that simplify interpretation of complex rail-signaling requirements.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the conversational front end engineers use to ask questions and consume AI-generated guidance.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "ERTMS manuals and standards are ingested into Watson Discovery, engineers submit questions through watsonx Assistant, Discovery returns matching passages, and watsonx.ai turns that evidence into a natural-language answer that supports signaling design and compliance work.",
+  "integration_points": [
+    "ERTMS standards documentation",
+    "technical manuals",
+    "on-board signaling engineering workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "CAF Signalling created a centralized, AI-assisted way to consume complex standards information in a three-week proof of concept, reducing documentation friction and helping engineering teams work more efficiently on interoperable rail-signaling projects.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "3 weeks duration of proof-of-concept (POC)"
+  ],
+  "architecture_clues": [
+    "The solution was built to support access to ERTMS standards rather than replace engineering decision-making.",
+    "Discovery retrieval supplies the evidence used by the generative-answer layer.",
+    "The workflow was aimed at improving interoperability across international rail networks."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/caf-signalling",
+  "published_date": "2024-04-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery",
+    "IBM watsonx.ai",
+    "to facilitate access to the ERTMS standards",
+    "3 weeks"
+  ]
+}

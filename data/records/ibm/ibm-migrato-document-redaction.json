@@ -1,0 +1,64 @@
+{
+  "id": "ibm-migrato-document-redaction",
+  "slug": "ibm-migrato-document-redaction",
+  "vendor": "IBM",
+  "customer_name": "Migrato",
+  "industry": "Software / SaaS",
+  "region": "Netherlands",
+  "company_size": "SMB",
+  "business_problem": "Migrato needed stronger natural-language processing to help government organizations identify and redact privacy-sensitive information in large volumes of unstructured documents before publication, while meeting new Dutch open-government and GDPR requirements at scale.",
+  "solution_summary": "Migrato enhanced its Intelligent Content Classifier with IBM Watson Natural Language Processing Library for Embed after recognizing that its existing NLP engine lacked the performance and scalability needed for new public-sector publication workloads. Working with IBM Build Lab, the company embedded the containerized library into its application so raw unstructured documents could be scanned for personally identifiable information, topic keywords and contextual meaning with much higher speed and accuracy. The library draws on IBM Research and open-source NLP algorithms, giving Migrato a packaged AI component it can run inside its own product instead of sending content to an external service. That architecture shortened development dramatically, moved a new production solution live within days, and positioned Migrato to serve hundreds of Dutch municipalities that must publish documents only after anonymization or pseudonymization has been completed reliably.",
+  "products_used": [
+    "IBM Watson Natural Language Processing Library for Embed"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Watson Natural Language Processing Library for Embed",
+      "role": "Provides embeddable NLP for detecting sensitive information and extracting topic meaning from unstructured documents inside Migrato's own application.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Documents from network shares and migration workflows are ingested into Migrato's Intelligent Content Classifier, where the embedded IBM NLP library identifies privacy-sensitive data and extracts semantic context before content is published or moved into regulated target systems.",
+  "integration_points": [
+    "Migrato Intelligent Content Classifier",
+    "network shares",
+    "enterprise content management platforms",
+    "government publication workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Migrato accelerated time to market for a stronger compliance product, improved accuracy and speed for unstructured-document processing, and positioned itself to serve a much larger set of public-sector customers facing new publication obligations.",
+  "outcome_category": [
+    "Speed to Market",
+    "Compliance",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "70% of development work completed within hours",
+    "5 days to go live with a production solution",
+    "400 potential government clients"
+  ],
+  "architecture_clues": [
+    "The NLP capability is delivered as an embeddable containerized library.",
+    "Migrato runs the IBM library inside its own Intelligent Content Classifier.",
+    "The target workload includes hundreds of thousands of documents and more than 340 municipalities."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/migrato",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our goal is to process hundreds of thousands of documents automatically\"",
+    "\"70% of development work completed within hours\"",
+    "\"5 days to go live with a production solution\"",
+    "\"IBM Watson NLP Library for Embed is a containerized library\"",
+    "\"accurately detect and redact sensitive personal information from raw text data\""
+  ]
+}

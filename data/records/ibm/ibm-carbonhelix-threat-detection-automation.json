@@ -1,0 +1,73 @@
+{
+  "id": "ibm-carbonhelix-threat-detection-automation",
+  "slug": "ibm-carbonhelix-threat-detection-automation",
+  "vendor": "IBM",
+  "customer_name": "CarbonHelix",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "CarbonHelix needed to deliver highly customized managed security services across diverse customer environments while improving threat-detection speed and accuracy beyond what human analysts and manual workflows could handle alone.",
+  "solution_summary": "CarbonHelix uses IBM QRadar Suite as the observability and analytics backbone for its 24x7 managed security operations center. QRadar gives the company full visibility across heterogeneous customer environments, including on-premises, air-gapped, virtual, AWS, Azure, IBM AS/400, IBM AIX and mainframe systems, and supports integration with homegrown and third-party applications that many SIEM tools struggle to ingest. On top of that visibility, CarbonHelix applies QRadar's machine-learning-based user behavior analytics and network threat analytics to detect anomalous activity at a scale human analysts cannot match. It then feeds UBA signals into QRadar SOAR so risky user behavior can trigger faster automated response actions. The company is also expanding its stack with IBM Guardium and third-party AI-driven endpoint detection and response, making QRadar both the correlation layer for today's SOC workflows and the integration hub for new AI-accelerated response capabilities.",
+  "products_used": [
+    "IBM QRadar Suite",
+    "IBM QRadar SOAR",
+    "IBM Guardium"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM QRadar Suite",
+      "role": "Collects and analyzes customer security telemetry to provide visibility and anomaly detection across diverse environments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM QRadar SOAR",
+      "role": "Automates response actions when risky behavior or threats are detected.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Guardium",
+      "role": "Adds data-security capabilities that CarbonHelix is incorporating into its managed services.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Logs, flow data, user activity and other telemetry from customer environments are ingested into QRadar Suite, machine-learning analytics identify anomalies and risky behavior, and validated findings are passed into QRadar SOAR and adjacent EDR tooling to speed response.",
+  "integration_points": [
+    "homegrown applications",
+    "third-party applications",
+    "AWS",
+    "Azure",
+    "endpoint detection and response (EDR)"
+  ],
+  "technical_area": [
+    "Cybersecurity",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "CarbonHelix improved detection and response speed, expanded the range of customer environments it can secure, and gave analysts better context so they can deliver highly customized services with greater accuracy.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "24x7 security operations center (SOC) services"
+  ],
+  "architecture_clues": [
+    "QRadar is deployed in on-premises, air-gapped, hosted and public-cloud environments.",
+    "UBA signals are integrated into QRadar SOAR for automated mitigation.",
+    "The service is being extended with Guardium and third-party AI for endpoint analysis."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/carbonhelix",
+  "published_date": "2024-08-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We can deploy QRadar in any form or fashion-on-premises, in air-gapped environments, if we host it, if a customer hosts it, hardware, virtual, AWS, Azure\"",
+    "\"there's nothing that we have come across that we have not been able to integrate into QRadar\"",
+    "\"The machine learning is able to analyze activity patterns on a scale that no human analyst is capable of\"",
+    "\"integrating UBA into the IBM QRadar SOAR component\"",
+    "\"We're using AI to feed our SOC better information, quicker\""
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "snowflake-allergan-alle-loyalty-personalization",
+  "slug": "snowflake-allergan-alle-loyalty-personalization",
+  "vendor": "Snowflake",
+  "customer_name": "Allergan Aesthetics",
+  "industry": "Healthcare",
+  "region": "Irvine, CA",
+  "company_size": "Enterprise",
+  "business_problem": "Fragmented customer data across brands, apps, and marketing systems prevented Allergan from building a unified direct-to-consumer relationship or personalizing its Allē loyalty journey effectively.",
+  "solution_summary": "Allergan rebuilt its direct-to-consumer engagement stack around Snowflake, Segment, and Twilio Programmable Messaging so consumer interactions from websites, mobile apps, and loyalty experiences could feed one governed customer record. Segment collects and standardizes event data, then loads it into Snowflake to create a single view of each consumer across brands and touchpoints. Product and data-science teams use the Segment-enriched Snowflake data to score audiences and predict relevant offers, products, and content. Those predictions are activated back into applications, websites, and multichannel marketing workflows, while Twilio delivers transactional loyalty messages. Segment reverse ETL and audience-building workflows also remove data silos between analytics, CRM, and downstream engagement tools such as Braze. By keeping collection, storage, modeling, and activation tightly connected, Allergan turned its loyalty program into a faster, more personalized revenue engine.",
+  "products_used": [
+    "Segment",
+    "Snowflake",
+    "Twilio Programmable Messaging"
+  ],
+  "solution_components": [
+    {
+      "name": "Segment",
+      "role": "Collects, standardizes, and routes customer event data from Allergan digital properties into the central data platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Stores unified consumer profiles and model outputs as the single source of truth for analytics, audience building, and personalization.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Twilio Programmable Messaging",
+      "role": "Delivers transactional loyalty and engagement messages to consumers based on platform data and audience logic.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer events from Allergan websites and mobile apps are captured in Segment, standardized, and loaded into Snowflake as unified profiles. Data-science scores and audience selections are then pushed into apps, sites, and messaging channels such as Twilio so each consumer receives more relevant offers and content.",
+  "integration_points": [
+    "websites",
+    "mobile apps",
+    "Microsoft SQL Server",
+    "legacy CRM system",
+    "Braze",
+    "social media advertising"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Allergan turned Allē into a major direct-to-consumer growth engine, generating more than $1 billion in sales since 2021 while improving campaign speed, acquisition efficiency, and consumer engagement.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "$1 billion in direct-to-consumer sales",
+    "$400 million in new revenue in 2021",
+    "10% reduction in JUVEDERM completed a purchase cost per acquisition",
+    "3M+ actively engaged Alle loyalty users"
+  ],
+  "architecture_clues": [
+    "Segment reverse ETL automates data activation into downstream engagement applications.",
+    "Snowflake serves as the centralized golden record for consumer identity and journey analysis.",
+    "Machine-learning scores are written back into the engagement stack for audience targeting and personalization."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/allergan/",
+  "published_date": "2024-08-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Segment captures and standardizes customer data and automatically loads that data into Allergan's data platform, Snowflake, to create a single view of the customer.",
+    "The machine learning team loads custom audiences and data science scores for consumer profiles into the Snowflake data platform.",
+    "Twilio Programmable Messaging to send transactional text messages to its loyalty program members",
+    "generate over $400 million in new revenue in 2021",
+    "reduce our completed purchase cost per acquisition with social media advertising by 10% for JUVEDERM"
+  ]
+}

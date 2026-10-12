@@ -1,0 +1,67 @@
+{
+  "id": "ibm-o2-czech-republic-customer-service-automation",
+  "slug": "ibm-o2-czech-republic-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "O2 Czech Republic",
+  "industry": "Telecommunications",
+  "region": "Czech Republic",
+  "company_size": "Enterprise",
+  "business_problem": "O2 needed to manage a broad mix of 24x7 customer-service requests more efficiently while still giving customers fast answers across voice, mobile-app and operator-assisted channels.",
+  "solution_summary": "O2 worked with IBM and AddAI.Life to create Eva, a virtual assistant built on IBM watsonx Assistant running on IBM Cloud. The assistant was trained on nearly 1,000 scenarios and connected directly to O2's customer-support systems so it could interpret intent, retrieve account-related information and guide users through tasks rather than only answering static FAQs. Within the mobile app, Eva greets users, handles requests and automatically redirects unresolved issues either to the correct page on O2's website or to a specialized operator. The implementation also extended to voice interactions, with Microsoft-supported voice synthesis used to give Eva a recognizable spoken persona for the app, support line and advertising. By treating watsonx Assistant as the decision-making core while surrounding it with customer-service integrations, O2 created a multichannel AI support layer that scales across billing, roaming, order-status and service questions.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Acts as Eva's conversational brain, interpreting user intent and orchestrating answers or guided actions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the assistant runtime that exchanges data with O2 support systems and powers the virtual-assistant experience.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer questions arrive through the mobile app or voice channels, watsonx Assistant running on IBM Cloud interprets intent, exchanges data with O2's support systems for billing, order-status or roaming information, and returns an answer or routes the request to the right operator or web page.",
+  "integration_points": [
+    "O2 customer support system",
+    "O2 mobile app",
+    "website routing flows",
+    "Microsoft voice synthesis"
+  ],
+  "technical_area": [
+    "Contact Center",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Eva now handles a significant share of support traffic across voice and digital channels, giving customers faster self-service while reducing the load on human representatives and broadening the reach of AI-assisted care.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Approximately 30% of O2 customers communicate exclusively by voice with the virtual assistant",
+    "nearly 1,000 scenarios",
+    "more than 250,000 questions a year"
+  ],
+  "architecture_clues": [
+    "Eva communicates directly with the O2 customer support system for targeted answers.",
+    "The voice layer was synthesized from a named Czech actress and reused across multiple channels.",
+    "The deployment spans the mobile app, customer support line and website handoff workflows."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/o2-czech-republic",
+  "published_date": "2024-05-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM watsonx Assistant to create a virtual assistant, which they named 'Eva'",
+    "The watsonx Assistant running on IBM Cloud is, so to speak, Eva's brain",
+    "The virtual assistant has been trained on nearly 1,000 different scenarios",
+    "about 30% of O2 customers now can communicate exclusively by voice with EVA"
+  ]
+}

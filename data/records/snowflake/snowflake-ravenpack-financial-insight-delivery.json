@@ -1,0 +1,87 @@
+{
+  "id": "snowflake-ravenpack-financial-insight-delivery",
+  "slug": "snowflake-ravenpack-financial-insight-delivery",
+  "vendor": "Snowflake",
+  "customer_name": "RavenPack",
+  "industry": "Financial Services",
+  "region": "Marbella, Spain and New York, USA",
+  "company_size": "Unknown",
+  "business_problem": "Delivering multi-petabyte financial data to clients across regions and clouds through FTP and ETL pipelines was too slow, siloed, and expensive for RavenPack's growing analytics and AI business.",
+  "solution_summary": "RavenPack standardized data delivery on Snowflake so client sharing, internal analytics, and AI products all run from one financial repository. Premium market, news, jobs, and alternative datasets are centralized in Snowflake on AWS, replacing fragmented regional pipelines and manual FTP delivery. Snowflake then feeds both direct client sharing and Bigdata.com, RavenPack’s financial research platform, where AI agents pull curated datasets to answer market questions. The same architecture also supports Annotations training datasets for customers building their own large language models. Because RavenPack already runs heavily on AWS, Bigdata.com agents can use AWS Bedrock for reasoning while pulling trusted data from Snowflake, and zero-ETL sharing keeps access fast for clients. Egress Cost Optimizer routes data across 15 regions without dataset duplication, giving RavenPack near-real-time distribution, simpler integration, and a lower-cost path from raw data to AI-ready insight.",
+  "products_used": [
+    "Snowflake",
+    "Bigdata.com",
+    "AWS Bedrock",
+    "Egress Cost Optimizer"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Acts as RavenPack's central repository for premium financial and alternative datasets that power sharing and AI products.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Bigdata.com",
+      "role": "Serves financial research experiences and agents that draw governed datasets directly from Snowflake.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Bedrock",
+      "role": "Provides model inference for Bigdata.com agents that use Snowflake data to answer financial research questions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Egress Cost Optimizer",
+      "role": "Routes shared data efficiently across regions so RavenPack can control global distribution cost.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Multi-petabyte financial and alternative datasets land in Snowflake on AWS, where RavenPack publishes them directly to clients and to Bigdata.com. Bigdata.com agents use AWS Bedrock and Snowflake data together, while Snowflake sharing and Egress Cost Optimizer distribute the same source data across 15 regions at lower cost.",
+  "integration_points": [
+    "AWS tools",
+    "hedge funds",
+    "banks",
+    "asset managers",
+    "FTP processes",
+    "API management"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "RavenPack launched new data products, cut global egress cost 14x, and gave investment professionals near-real-time access to financial intelligence through both direct sharing and agentic research workflows.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Revenue Growth",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "14x lower egress costs",
+    "2 new data products launched",
+    "multiple petabytes of data",
+    "15 regions",
+    "near real time"
+  ],
+  "architecture_clues": [
+    "Bigdata.com agents are powered by AWS Bedrock but draw their data from Snowflake.",
+    "Snowflake zero-ETL sharing replaces manual FTP and API-heavy delivery.",
+    "One data source is shared across 15 global regions with optimized egress routing."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/ravenpack/",
+  "published_date": "2025-09-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "RavenPack relies on Snowflake to power a centralized data repository that drives both internal and external data sharing",
+    "Bigdata.com financial research agents are largely powered by AWS Bedrock, but can easily draw data from Snowflake",
+    "with Snowflake zero-ETL data sharing, RavenPack can create more efficient data sharing pipelines",
+    "Already, that helps us reduce our costs 14-fold.",
+    "As soon as new data is processed, RavenPack's clients can access it instantly"
+  ]
+}

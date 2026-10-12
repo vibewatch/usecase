@@ -1,0 +1,81 @@
+{
+  "id": "snowflake-sallie-mae-cecl-and-engagement-platform",
+  "slug": "snowflake-sallie-mae-cecl-and-engagement-platform",
+  "vendor": "Snowflake",
+  "customer_name": "Sallie Mae",
+  "industry": "Financial Services",
+  "region": "Wilmington, DE",
+  "company_size": "Enterprise",
+  "business_problem": "On-premises infrastructure and third-party data-processing steps made CECL risk modeling slow and made timely, personalized engagement across the student-lending lifecycle difficult to sustain.",
+  "solution_summary": "Sallie Mae converged regulatory, identity, marketing, and servicing workloads onto Snowflake so loan analytics and customer engagement could run from one platform. The company rebuilt its CECL calculation engine directly in Snowflake, where model settings and outputs are saved automatically and finance teams can test multiple scenarios in near real time instead of waiting for monthly single-threaded batches. Third-party extraction steps were removed so processing stays close to the data. Snowflake also serves as the single source of truth for marketing and customer identity: a Snowflake-built identity system manages lifecycle classification and householding, while Secure Data Sharing exposes current data to marketing and servicing partners without duplication. Continuous feeds make onboarding, follow-ups, and re-engagement near real time, and cross-region replication improves resiliency as Snowflake handles millions of monthly queries across lending and college-planning services.",
+  "products_used": [
+    "Snowflake",
+    "Snowflake Secure Data Sharing",
+    "Streamlit"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Hosts Sallie Mae's lending, identity, and marketing data plus the CECL engine that now runs directly against live data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Secure Data Sharing",
+      "role": "Shares current customer and identity data with marketing and servicing partners without copying datasets.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Streamlit",
+      "role": "Supports modernization of internal workflows and new business-facing applications on top of the Snowflake foundation.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Lending, planning, and customer-identity data land in Snowflake, where the CECL engine runs directly against current loan data and lifecycle classifications are maintained. Secure Data Sharing passes live profiles to partners, and downstream outreach and servicing events trigger near-real-time communications back to students and borrowers.",
+  "integration_points": [
+    "marketing partners",
+    "servicing partners",
+    "FEMA updates",
+    "Department of Education data",
+    "cross-region replication"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Sallie Mae cut CECL processing from 16 hours to two, saved about $1.2 million annually, kept warehouse spend flat while data grew from 100TB to over 600TB, and turned multi-day engagement workflows into minutes or 15-minute follow-ups.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "$1.2M annual savings",
+    "90% faster processing time for regulatory calculations",
+    "100TB to over 600TB",
+    "16 hours to just two",
+    "follow-up email goes out within 15 minutes",
+    "more than 4 million queries each month"
+  ],
+  "architecture_clues": [
+    "The CECL calculation engine was rebuilt to run natively in Snowflake.",
+    "A customer identity system in Snowflake handles classification, householding, and lifecycle tracking.",
+    "Daily cross-region replication and failover capabilities strengthen recovery and resilience."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/sallie-mae/",
+  "published_date": "2025-07-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We finished our first product run of CECL on Snowflake in two hours",
+    "Partners access the same datasets through Snowflake Secure Data Sharing",
+    "If someone abandons a loan application, a follow-up email goes out within 15 minutes",
+    "Since switching, we’ve kept our warehouse spend flat, while our data volume has grown from 100TB to over 600TB",
+    "At the heart of this strategy is a customer identity system, fully built and managed in Snowflake."
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "ibm-sanwa-comtec-harassment-detection",
+  "slug": "ibm-sanwa-comtec-harassment-detection",
+  "vendor": "IBM",
+  "customer_name": "Sanwa Comtec K.K.",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Mid-market",
+  "business_problem": "Sanwa Comtec needed to add AI-based harassment detection to on-premises chat deployments for customers that cannot send sensitive conversations to external networks, while still achieving enough accuracy to make alerts useful and compliant.",
+  "solution_summary": "Sanwa Comtec built an on-premises harassment-detection capability for Rocket.Chat customers by combining IBM watsonx.ai with IBM Watson natural language processing classification functions. Working with legal experts, the team assembled training examples for sexual and power-based harassment, evaluated multiple models in a proof of concept and selected the most effective approach for a custom classifier. The resulting model runs inside a closed environment so organizations with strict network restrictions can analyze chat content without exposing it to public cloud services. By focusing on lightweight language models that can be packaged on premises, Sanwa Comtec and IBM turned watsonx.ai from a generic model-development environment into a deployable moderation component that fits regulated enterprise communication stacks. The team continues to refine training data and application logic as they move the solution toward production.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Watson natural language processing"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Hosts the custom harassment-detection model that classifies risky chat conversations in secure environments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson natural language processing",
+      "role": "Provides the classification capability Sanwa Comtec used to train and evaluate harassment-detection models.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Chat messages from on-premises Rocket.Chat deployments are processed by a custom classifier built in watsonx.ai with IBM Watson NLP, which scores conversations for likely harassment and generates alerts without sending sensitive content to external networks.",
+  "integration_points": [
+    "Rocket.Chat",
+    "legal-expert training data",
+    "on-premises chat environments"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Sanwa Comtec created a secure, on-premises moderation capability that helps customers detect problematic conversations more accurately while preserving data sovereignty and supporting future production rollout.",
+  "outcome_category": [
+    "Compliance",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "> 95％ accuracy of AI-based harassment judgments in closed networks"
+  ],
+  "architecture_clues": [
+    "The model was trained with examples curated with legal experts.",
+    "The deployment target is a closed on-premises network with no external connectivity.",
+    "The team selected a lightweight language-model approach suitable for package deployment."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/sanwa-comtec",
+  "published_date": "2024-07-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"issue an alert in a secure on-prem environment that cannot connect to external networks\"",
+    "\"used to train a custom language model within IBM watsonx.ai\"",
+    "\"using the classification capabilities of the IBM Watson natural language processing (NLP) function\"",
+    "\"> 95％ accuracy of AI-based harassment judgments in closed networks\"",
+    "\"deploying lightweight language models within on-prem packages without relying on cloud-based LLMs\""
+  ]
+}

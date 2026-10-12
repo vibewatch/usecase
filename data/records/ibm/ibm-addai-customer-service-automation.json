@@ -1,0 +1,80 @@
+{
+  "id": "ibm-addai-customer-service-automation",
+  "slug": "ibm-addai-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "AddAI",
+  "industry": "Software / SaaS",
+  "region": "Czech Republic",
+  "company_size": "SMB",
+  "business_problem": "AddAI needed to build banking and telecom assistants that were accurate, grounded in verified data and compliant with customer security requirements, while also reducing the time needed to implement each new assistant.",
+  "solution_summary": "AddAI collaborated with IBM Client Engineering and Technical Sales to build a retrieval-augmented customer-support assistant on IBM watsonx.ai, IBM watsonx Assistant and IBM Watson Discovery. Public bank documents such as contracts, terms and conditions, and price lists were tuned in Discovery so the system could understand domain-specific questions and return evidence passages. IBM watsonx.ai accessed open-source large language models including Llama 2 to contextualize that retrieved content and generate Czech answers for topics such as account access, payments, pricing and account services. Watsonx Assistant then exposed the experience through a conversational front end without requiring every dialog path to be hand-authored. The resulting design gave AddAI a reusable pattern for grounded assistant delivery that preserved verified-data answers, supported strict customer security expectations and reduced the implementation effort for new assistants.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery",
+    "Llama 2"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Generates contextual answers from retrieved banking content and selected open-source language models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Delivers the banking assistant through a user-friendly chatbot front end.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Indexes public bank documents and returns reference passages that ground the generated response.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Llama 2",
+      "role": "Provides the open-source large language model used by watsonx.ai to enhance and contextualize answers.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Public bank documents are indexed in Watson Discovery, user FAQs are submitted through watsonx Assistant, Discovery retrieves relevant evidence, watsonx.ai and Llama 2 generate a Czech answer through RAG, and the assistant returns a conversational response with grounded references.",
+  "integration_points": [
+    "public bank contracts",
+    "terms and conditions",
+    "price lists",
+    "customer FAQ workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The new pattern delivered materially better grounded answers, cut unanswered customer questions in half and gave AddAI a repeatable way to launch future assistants faster without manually scripting every response path.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "85% accuracy rate for answers generated via AI",
+    "50% reduction in unanswered queries",
+    "reduce the implementation time on any new AI assistant by up to 30%"
+  ],
+  "architecture_clues": [
+    "The pilot focused on a banking customer and produced answers in the Czech language.",
+    "Discovery supplied evidence snippets from bank documents so the assistant could cite the basis of its answer.",
+    "AddAI required bank-level security, data exclusivity and the ability to opt out of model training on user conversations."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/addai",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The assistant utilized the retrieval-augmented generation (RAG) methodology",
+    "We use watsonx.ai to access selected open-source large language models like Llama 2",
+    "It responded with 85% accuracy",
+    "50% reduction in unanswered customer queries"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "id": "snowflake-datahub-observability-ai-operations",
+  "slug": "snowflake-datahub-observability-ai-operations",
+  "vendor": "Snowflake",
+  "customer_name": "DataHub",
+  "industry": "Software / SaaS",
+  "region": "Palo Alto, California",
+  "company_size": "Mid-market",
+  "business_problem": "A fragmented, self-managed observability stack forced engineers to jump between tools, left monitoring on the same infrastructure it monitored, and drove high AWS cost and incident blind spots.",
+  "solution_summary": "DataHub replaced four self-managed observability systems with Observe by Snowflake so logs, metrics, traces, and alert context could be searched from one resilient platform. The team deployed the Observe agent across 22 EKS and GKE clusters and more than 70 isolated customer namespaces, then created separate U.S. and EU tenants through Terraform for regional data handling. Telemetry that previously lived in OpenSearch, Prometheus, Thanos, Grafana, and Alertmanager now lands in a single place where engineers can investigate incidents without switching tools or waiting for another team to build dashboards. DataHub also connected Observe’s CLI and OPAL query language to an internal AI agent in Slack, combining live telemetry with context from incident.io, Argo CD, and internal reference material. That design turns one telemetry store into both a human observability console and an AI-ready context layer for daily reports, faster diagnosis, and future automated remediation.",
+  "products_used": [
+    "Observe by Snowflake",
+    "Observe agent",
+    "Terraform",
+    "OPAL"
+  ],
+  "solution_components": [
+    {
+      "name": "Observe by Snowflake",
+      "role": "Centralizes logs, metrics, traces, and operational context so incidents can be investigated from one platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Observe agent",
+      "role": "Collects telemetry from DataHub's Kubernetes fleet and feeds it into the shared observability platform.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Terraform",
+      "role": "Manages regional Observe tenant configuration and repeatable observability setup as code.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OPAL",
+      "role": "Provides the query language the internal AI agent uses to retrieve telemetry-backed answers and reports.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Telemetry from DataHub's Kubernetes clusters is collected by the Observe agent and centralized in Observe by Snowflake. OPAL queries executed through a Slack-connected AI agent combine Observe data with incident.io and Argo CD context to answer operational questions and generate daily reports.",
+  "integration_points": [
+    "Amazon EKS",
+    "Google Kubernetes Engine",
+    "Slack",
+    "incident.io",
+    "Argo CD",
+    "OpenSearch",
+    "Prometheus",
+    "Thanos",
+    "Grafana",
+    "Prometheus AlertManager"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "DataHub eliminated over $100K in annual AWS observability cost, reduced median incident duration by about 80%, and created one searchable telemetry source that also powers AI-assisted diagnosis and reporting.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "80% reduction in median incident duration",
+    "$100K+ annual AWS savings",
+    "22 EKS and GKE clusters",
+    "70 isolated customer namespaces",
+    "roughly 500 GB of telemetry",
+    "16% reduction in metrics volume in the U.S.",
+    "19% reduction in metrics volume in the EU"
+  ],
+  "architecture_clues": [
+    "Observe tenants are split between U.S. and EU regions for data residency.",
+    "An internal AI agent in Slack uses Observe CLI and OPAL against live telemetry.",
+    "Monitoring no longer runs on the same infrastructure it monitors."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/datahub/",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "DataHub chose Observe by Snowflake and brought its telemetry into one platform.",
+    "The team deployed the Observe agent across its Kubernetes fleet",
+    "Engineers can ask operational questions in Slack, and the agent can generate and execute OPAL queries",
+    "retired over $100,000 a year of AWS infrastructure",
+    "cut median incident duration by about 80%"
+  ]
+}

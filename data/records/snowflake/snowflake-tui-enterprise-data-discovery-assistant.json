@@ -1,0 +1,77 @@
+{
+  "id": "snowflake-tui-enterprise-data-discovery-assistant",
+  "slug": "snowflake-tui-enterprise-data-discovery-assistant",
+  "vendor": "Snowflake",
+  "customer_name": "TUI Group",
+  "industry": "unknown",
+  "region": "Hanover, Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Decentralized business-unit data practices and complex analytics tooling made it hard for nontechnical users to discover the right data, understand schemas, and get answers quickly.",
+  "solution_summary": "TUI standardized enterprise analytics on Snowflake so governed travel, customer, and operational data could support both classic reporting and new AI-driven discovery workflows. The Technology Analytics team runs Snowflake on AWS as the backbone for data across airlines, hotels, agencies, cruises, and internal business functions. On top of that foundation, TUI built TACO, an AI assistant powered by Cortex Analyst that uses semantic models to let users ask natural-language questions against approved schemas. In parallel, Cortex Search indexes enterprise metadata so employees can locate data products, understand who owns them, and discover where key data sits without manually digging through separate tools. The same indexing work also surfaced data-quality issues that TUI fixed as part of rollout. By keeping core data, semantic modeling, metadata search, and user-facing AI on one governed platform, TUI improved self-service access while reducing demand on central data teams.",
+  "products_used": [
+    "Snowflake",
+    "Cortex Analyst",
+    "Cortex Search"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the unified enterprise data platform that stores and governs travel, customer, and operational datasets.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex Analyst",
+      "role": "Powers TACO so users can query business data in natural language through semantic models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cortex Search",
+      "role": "Indexes metadata and data-product context so users can discover datasets and owners more easily.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business-unit data is centralized in Snowflake on AWS. Cortex Analyst uses semantic models on top of governed schemas to answer natural-language questions, while Cortex Search indexes metadata so employees can find datasets, owners, and data products through TUI's discovery interfaces.",
+  "integration_points": [
+    "Amazon Web Services",
+    "metadata store",
+    "business-unit data products",
+    "customer analytics workloads",
+    "operations data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "TUI built AI data-discovery prototypes in hours, answered more than 500 complex natural-language queries during early testing, and expects each use case to save more than 30 days of people time while improving data quality and responsiveness.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "1 hour to develop its first AI use case",
+    "30+ days potentially saved per year",
+    "over 500 complex data queries were answered in natural language"
+  ],
+  "architecture_clues": [
+    "TACO uses Cortex Analyst with semantic models built from TUI schemas.",
+    "Cortex Search indexes enterprise metadata for discovery across business units.",
+    "The team is extending the design into a semantic catalog over the metadata store."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/tui/",
+  "published_date": "2025-09-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Cortex AI now powers TUI's Technology Analytics Companion (TACO), an AI platform powered by Cortex Analyst that allows users to query data through natural language.",
+    "Using Cortex Search, TUI has been able to index all its metadata, making it searchable and discoverable for everyone in the business.",
+    "within an hour of tweaking I was getting answers",
+    "over 500 complex data queries were answered in natural language",
+    "save over 30 days-or even months-of people hours"
+  ]
+}

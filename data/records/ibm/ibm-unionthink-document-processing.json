@@ -1,0 +1,63 @@
+{
+  "id": "ibm-unionthink-document-processing",
+  "slug": "ibm-unionthink-document-processing",
+  "vendor": "IBM",
+  "customer_name": "Unionthink Co., Ltd.",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "SMB",
+  "business_problem": "Unionthink's customer center was manually categorizing rising volumes of product inquiries, making it hard to improve FAQs, keep up with demand and sustain customer satisfaction with a limited workforce.",
+  "solution_summary": "Unionthink worked with IBM to turn inquiry classification into an AI-assisted workflow using IBM watsonx.ai and IBM Watson Natural Language Processing Library for Embed. The company first trained a custom language model in watsonx.ai on manually categorized customer inquiries, then compared the accuracy of multiple IBM-provided models to select the best option. That model was refined through technical verification and tuning of the training data before being used to support the customer center's daily classification tasks. A parallel proof of concept explored keyword extraction from inquiries so the company could better analyze recurring topics and improve its published FAQ content. The resulting setup gives Unionthink a repeatable language-understanding pipeline for inquiry triage, helping a small software vendor replace manual categorization work with AI-based classification that scales more effectively as demand rises.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Watson Natural Language Processing Library for Embed"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Hosts the custom language model trained on historically categorized customer inquiries.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Natural Language Processing Library for Embed",
+      "role": "Provides the NLP capabilities used to classify inquiries and support downstream keyword-extraction use cases.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Manually categorized inquiries are used to train a custom model in watsonx.ai, new customer-center inquiries are classified with IBM NLP services, and the resulting categories and keywords feed FAQ analysis and response-improvement workflows.",
+  "integration_points": [
+    "customer-center inquiries",
+    "FAQ improvement process",
+    "training-data tuning workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Unionthink reached high classification accuracy and established a foundation for broader AI use in its customer center, reducing manual work while improving the speed and consistency of inquiry analysis.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    ">90% prediction accuracy for classifications"
+  ],
+  "architecture_clues": [
+    "The team trained on previously manually categorized inquiry data rather than starting from generic prompts alone.",
+    "The proof of concept also explored keyword extraction beyond pure classification.",
+    "Unionthink compared several IBM models before selecting the most effective one."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/unionthink",
+  "published_date": "2024-07-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM and Unionthink created a custom language model using IBM watsonx.ai",
+    "improving category classification for manual inquiries",
+    ">90% prediction accuracy for classifications",
+    "explored tasks like keyword extraction from inquiries"
+  ]
+}

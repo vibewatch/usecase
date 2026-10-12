@@ -1,0 +1,80 @@
+{
+  "id": "ibm-baidu-cold-data-platform",
+  "slug": "ibm-baidu-cold-data-platform",
+  "vendor": "IBM",
+  "customer_name": "Baidu AI Cloud",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Baidu needed a more scalable and efficient cold-data architecture because disk-based long-term retention was becoming too expensive and space-intensive as AI, autonomous-driving and cloud workloads drove explosive data growth.",
+  "solution_summary": "Baidu AI Cloud replaced its legacy disk-based cold-data layer with an IBM architecture built around TS4500 Tape Libraries, IBM Storage Scale and IBM Storage Defender. The solution slots into Baidu's existing distributed storage design, where legacy solid-state drives serve hot data, hard-disk drives serve warm data and tape handles long-term cold storage. Storage Scale lets data move across those tiers while simplifying management, and IBM helped automate deployment so batches of 20 cold-storage nodes could be provisioned quickly during expansion. The platform now supports long retention periods at far lower cost and power draw than disks, while still allowing rapid retrieval for analytics and compliance use cases years after storage. In architectural terms, IBM gave Baidu a tiered data platform purpose-built for hyperscale cold storage rather than asking the company to keep stretching general-purpose disk infrastructure beyond its economic limits.",
+  "products_used": [
+    "IBM TS4500 Tape Libraries",
+    "IBM Storage Scale",
+    "IBM Storage Defender"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM TS4500 Tape Libraries",
+      "role": "Provide the high-density cold-storage tier that replaces expensive long-term disk retention.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Storage Scale",
+      "role": "Moves data across storage tiers and simplifies management of the large-scale cold-data platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Storage Defender",
+      "role": "Completes the storage platform used to protect and manage Baidu's cold-data environment.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Baidu writes hot data to solid-state drives, warm data to hard-disk drives and cold data to TS4500 tape libraries, while Storage Scale manages movement across tiers so retained data can still be retrieved for analytics and compliance when needed.",
+  "integration_points": [
+    "existing distributed storage architecture",
+    "solid-state drives for hot data",
+    "hard-disk drives for warm storage",
+    "Yangquan data center"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Baidu reduced cold-storage cost and power use dramatically, improved reliability, and created a storage foundation that can keep scaling with AI, autonomous-driving and cloud-data growth.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Compliance"
+  ],
+  "metrics": [
+    ">90% of power-consumption by replacing disks with tapes for cold data storage",
+    ">80% cost reduction",
+    "10 TB per day",
+    "approximately 100 exabytes [EB] of data",
+    "14 IBM TS4500 Tape Libraries",
+    "more than 2 EB of cold data",
+    "12 nines of reliability"
+  ],
+  "architecture_clues": [
+    "The design uses a three-tier storage model across SSD, HDD and tape.",
+    "IBM created automated deployment workflows for batches of 20 cold-storage nodes.",
+    "Tape retention can exceed 30 years while remaining integrated with Baidu's cloud platform."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/baidu",
+  "published_date": "2023-06-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"IBM TS4500 Tape Libraries and IBM Storage Scale software\"",
+    "\"the amount of data generated per vehicle can be as high as 10 TB per day\"",
+    "\"we now store approximately 100 exabytes [EB] of data\"",
+    "\"has reduced our operational costs by 80%\"",
+    "\"14 IBM TS4500 Tape Libraries at its Yangquan data center, storing more than 2 EB of cold data\""
+  ]
+}

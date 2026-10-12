@@ -1,0 +1,68 @@
+{
+  "id": "ibm-evernorth-storage-monitoring-automation",
+  "slug": "ibm-evernorth-storage-monitoring-automation",
+  "vendor": "IBM",
+  "customer_name": "Evernorth Health Services",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Evernorth's storage systems team needed to escape rising specialty storage monitoring costs and technical limitations while gaining a scalable way to monitor datasets from all sources, eliminate scheduling overhead, and protect data integrity across a massive mainframe storage estate.",
+  "solution_summary": "Evernorth modernized mainframe storage monitoring with IBM OMEGAMON for Storage on z/OS, implemented with IBM and Rocket Software over an aggressive nine-month program. The new design replaced slower scheduled collection processes with near real-time access to storage telemetry, giving teams one environment to monitor a landscape that spans 4 million DASD datasets, 30 million DFHSM objects and 2.6 million tape datasets. OMEGAMON was integrated with Evernorth's existing removable media manager and hierarchical storage manager data, extended with automated system scanning, OMEGAMON Situations for reporting and alerting, and a real-time dataset metrics viewer so even non-technical users could quickly inspect storage conditions. This let the CIO Office move from fragmented, costly tooling to a faster and more scalable observability model for capacity planning, hardware refreshes and problem prevention.",
+  "products_used": [
+    "IBM OMEGAMON for Storage on z/OS",
+    "IBM z/OS"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM OMEGAMON for Storage on z/OS",
+      "role": "Provides near real-time storage monitoring, alerting, reporting and dataset visibility across Evernorth's mainframe estate.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM z/OS",
+      "role": "Serves as the mainframe operating environment on which Evernorth runs its storage monitoring solution.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Storage telemetry and dataset information from DASD, tape, removable media manager data and hierarchical storage manager data are gathered into OMEGAMON on z/OS, where automated scanning, Situations and the real-time dataset metrics viewer expose issues and trends to technical and business users.",
+  "integration_points": [
+    "removable media manager (RMM) data",
+    "hierarchical storage manager (HSM) data",
+    "dataset services (DSS)",
+    "IBM Resource Access Control Facility (RACF)"
+  ],
+  "technical_area": [
+    "DevOps",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Evernorth lowered monitoring cost, improved responsiveness and data integrity, enabled faster operational decisions, and gained a foundation for better capacity planning and hardware refresh analysis.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "4M DASD, 30M DFHSM, 2.6M tape datasets environment",
+    "within an aggressive nine-month timeline"
+  ],
+  "architecture_clues": [
+    "The solution integrates with Evernorth's RMM and HSM data sources.",
+    "OMEGAMON Situations provides automated reporting.",
+    "The real-time dataset metrics viewer gives non-technical users access to current storage data."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/evernorth",
+  "published_date": "2026-01-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"for 4M DASD, 30M DFHSM, 2.6M tape datasets environment\"",
+    "\"The implementation involved planning, testing, designing, developing and deploying the solution within an aggressive nine-month timeline.\"",
+    "\"The solution seamlessly integrated with Evernorth's existing removable media manager (RMM) and hierarchical storage manager (HSM) data\"",
+    "\"It offers automated reporting through OMEGAMON Situations\"",
+    "\"near real-time data capabilities\""
+  ]
+}

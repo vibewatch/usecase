@@ -1,0 +1,75 @@
+{
+  "id": "ibm-prometeo-real-time-analytics",
+  "slug": "ibm-prometeo-real-time-analytics",
+  "vendor": "IBM",
+  "customer_name": "Prometeo Platform S.L.",
+  "industry": "Software / SaaS",
+  "region": "Spain",
+  "company_size": "SMB",
+  "business_problem": "Prometeo needed a scalable way to monitor firefighters' smoke and toxin exposure in the field and present actionable health status data to command centers in near real time.",
+  "solution_summary": "Prometeo built its firefighter-monitoring application on multiple IBM Cloud services so sensor data from field devices could be processed and surfaced rapidly. Ruggedized Samsung smartphones and smart watches worn by firefighters send measurements over the network into a cognitive platform on IBM Cloud, where machine-learning logic converts raw values into a simplified color-coded status for the Prometeo dashboard. IBM Cloudant stores the application data, and IBM Cloud Kubernetes Service now runs a set of Docker-based microservices that split the original monolithic application into smaller services for processing data, managing devices and building the dashboard. IBM Cloud App ID secures logins on the field devices, and the architecture is designed to support regional data residency as the solution expands internationally. By adopting cloud-native microservices, Prometeo gained a more maintainable and portable operating model for an IoT safety application that must ingest field telemetry, analyze it quickly and make the results usable during wildfire response.",
+  "products_used": [
+    "IBM Cloud",
+    "IBM Cloudant",
+    "IBM Cloud Kubernetes Service",
+    "IBM Cloud App ID"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the cognitive platform and dashboard environment that receives firefighter sensor data and serves monitoring outputs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloudant",
+      "role": "Stores the application data collected from field devices and supporting services.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Cloud Kubernetes Service",
+      "role": "Runs the Docker-based microservices that process telemetry and build the monitoring dashboard.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Cloud App ID",
+      "role": "Secures firefighter logins on the field devices used by the Prometeo solution.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Measurements from field devices are transmitted to IBM Cloud, processed by machine-learning logic and microservices running on Kubernetes, stored in Cloudant, and surfaced as a color-coded status dashboard for fire command centers.",
+  "integration_points": [
+    "Samsung smartphones",
+    "Samsung smart watches",
+    "network telemetry",
+    "command-center dashboard"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Prometeo created a portable, cloud-native health-monitoring platform that can scale with field testing and international deployment while giving fire-command teams clearer insight into firefighter smoke and toxin exposure.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The application was refactored from a monolith into multiple microservices housed in Docker containers on Kubernetes.",
+    "IBM Cloud data centers were chosen in part to keep data secure in each region as the project grows.",
+    "The next roadmap item is Samsung Health API integration for more granular recovery metrics."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/prometeo-platform",
+  "published_date": "2024-04-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The values from the device are collected and transmitted over a network to a cognitive platform",
+    "IBM Cloudant",
+    "IBM Cloud Kubernetes Service",
+    "The app has been split into a handful of microservices"
+  ]
+}

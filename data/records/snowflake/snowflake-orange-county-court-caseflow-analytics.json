@@ -1,0 +1,80 @@
+{
+  "id": "snowflake-orange-county-court-caseflow-analytics",
+  "slug": "snowflake-orange-county-court-caseflow-analytics",
+  "vendor": "Snowflake",
+  "customer_name": "Superior Court of California of the County of Orange",
+  "industry": "Public Sector",
+  "region": "Santa Ana, CA",
+  "company_size": "Public sector",
+  "business_problem": "Separate case-management systems, Excel-heavy reporting, and difficult statewide aggregation limited the court's ability to manage staffing, backlog, and cross-county reporting securely.",
+  "solution_summary": "The Superior Court of California, County of Orange, built a centralized analytics foundation on Snowflake Data Cloud on Azure to unify case-management data across civil, criminal, traffic, family, juvenile, and probate systems. Instead of managing on-premises, hybrid, and cloud-only silos separately, the court standardizes definitions and lands data in one secure repository that serves as the local source of truth. Power BI and Tableau dashboards on top of Snowflake give administrators, judges, and staff detailed visibility into filings, hearings, jury activity, and caseflow. Snowflake Secure Data Sharing then extends governed subsets to the Judicial Council of California so 58 counties can aggregate data statewide without brittle file-transfer processes or loss of local control. The architecture supports workload forecasting, staffing, funding advocacy, and backlog analysis while preserving privacy, lineage, and operational trust.",
+  "products_used": [
+    "Snowflake Data Cloud",
+    "Snowflake Secure Data Sharing",
+    "Power BI",
+    "Tableau"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake Data Cloud",
+      "role": "Centralizes case-management data from multiple court systems into one governed analytics platform on Azure.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Secure Data Sharing",
+      "role": "Shares approved statewide datasets with California judicial bodies without manual file transfers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power BI",
+      "role": "Provides operational dashboards for staffing, filings, hearings, and backlog analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Tableau",
+      "role": "Supports additional self-service analytics and drill-down reporting on court operations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Case-management data from multiple court systems is standardized and loaded into Snowflake on Azure. Power BI and Tableau expose local caseflow metrics, while Secure Data Sharing sends approved statewide datasets to judicial stakeholders for cross-county aggregation and funding analysis.",
+  "integration_points": [
+    "Judicial Branch Statistical Information System",
+    "Judicial Council of California",
+    "case management systems",
+    "Azure"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Orange County improved workload planning and service delivery, reduced backlog, became the template for statewide court data sharing, and helped secure $60 million in California funding for backlog reduction.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "over 500,000 annual case filings",
+    "county population that exceeds 3 million",
+    "58 Superior Courts of California",
+    "$60 million in funding"
+  ],
+  "architecture_clues": [
+    "Standardized data definitions unify separate case systems.",
+    "Snowflake runs on Azure as the court's centralized analytics environment.",
+    "Statewide sharing is governed through Secure Data Sharing rather than SFTP-like exchanges."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/superior-court-of-california-of-the-county-of-orange/",
+  "published_date": "2024-05-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The OC court chose the Snowflake Data Cloud on Azure as their centralized, modern data platform.",
+    "Snowflake Secure Data Sharing eliminates the need for secure file transfer protocol processes",
+    "the presiding judge and court administration use data based on filings to predict and project estimated workloads",
+    "we got $60 million in funding for California courts",
+    "data insights are now infused throughout the different departments within the court"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "ibm-banco-de-brasilia-it-operations-automation",
+  "slug": "ibm-banco-de-brasilia-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "Banco de Brasília S.A.",
+  "industry": "Financial Services",
+  "region": "Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "After moving to IBM z15, BRB still had limited high-platform monitoring and weak integration with low-platform processes, making it harder to automate operations and share reliable infrastructure-performance data.",
+  "solution_summary": "BRB worked with IBM to modernize mainframe monitoring around IBM Tivoli Enterprise Portal, IBM OMEGAMON Data Provider and IBM Z Service Management Suite. The bank needed a way to observe z/OS, CICS, Db2, MQ, storage, network and Java components through one coherent reporting flow instead of a handful of isolated indicators. IBM's monitoring team helped configure the environment so performance and availability data from the high-platform estate could be exported into Elasticsearch and Grafana dashboards and shared more broadly with interested teams. Tivoli and OMEGAMON provide the collection and presentation layers, while Z Service Management Suite gives the bank a more centralized operational control point for critical IBM Z workloads. The resulting architecture connects mainframe telemetry to modern dashboarding and automation workflows, giving BRB a stronger basis for proactive monitoring, cross-platform coordination and secure service delivery across a large banking operation.",
+  "products_used": [
+    "IBM z15",
+    "IBM Tivoli Enterprise Portal",
+    "IBM OMEGAMON Data Provider",
+    "IBM Z Service Management Suite"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM z15",
+      "role": "Hosts BRB's high-platform banking workloads that required improved observability after migration.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Tivoli Enterprise Portal",
+      "role": "Provides a monitoring and presentation layer for the bank's evolving mainframe observability workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM OMEGAMON Data Provider",
+      "role": "Collects operational data from the mainframe environment and exposes it to downstream dashboard tooling.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "IBM Z Service Management Suite",
+      "role": "Acts as the centralized management suite for monitoring and automating critical workloads on IBM Z.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Operational metrics from z/OS, CICS, Db2, MQ, storage, network and Java components are collected by OMEGAMON, surfaced through Tivoli and Elasticsearch/Grafana dashboards, and used by BRB teams through the Z Service Management Suite for monitoring and automation.",
+  "integration_points": [
+    "Elasticsearch",
+    "Grafana",
+    "IBM z/OS",
+    "IBM CICS Transaction Server",
+    "IBM Db2",
+    "IBM MQ"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "BRB improved visibility into its mainframe estate, strengthened cross-platform operational management and created a more proactive monitoring posture for a banking environment serving millions of customers.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 7 million customers",
+    "1,082 service points"
+  ],
+  "architecture_clues": [
+    "The project linked mainframe telemetry to Elasticsearch and Grafana rather than keeping reporting only in legacy tools.",
+    "IBM teams provided installation and configuration support for the monitoring stack.",
+    "The rollout covered storage, network and Java components in addition to core transactional middleware."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/banco-de-brasilia-sa",
+  "published_date": "2024-06-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM Tivoli Enterprise Portal",
+    "IBM OMEGAMON Data Provider",
+    "IBM Z Service Management Suite",
+    "more than 7 million customers"
+  ]
+}

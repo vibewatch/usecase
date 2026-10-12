@@ -1,0 +1,89 @@
+{
+  "id": "snowflake-tipalti-llm-insight-prompt-store",
+  "slug": "snowflake-tipalti-llm-insight-prompt-store",
+  "vendor": "Snowflake",
+  "customer_name": "Tipalti",
+  "industry": "Software / SaaS",
+  "region": "California, USA, Israel",
+  "company_size": "Unknown",
+  "business_problem": "Tipalti needed a secure way to give internal teams timely, consistent AI-backed business insights without moving data into external inference services or depending on specialist prompt engineers.",
+  "solution_summary": "Tipalti built an internal AI prompt store on Snowflake so sales and marketing teams can explore enterprise data through reusable, governed LLM workflows. Because its warehouse already runs on Snowflake on AWS, the team kept data in place and layered Cortex AI directly into the platform instead of introducing separate inference infrastructure. Predefined business questions are executed through AI_COMPLETE and TRY_COMPLETE, which return structured results inside SQL workflows and isolate single-row failures. Tipalti also used Snowpark to build a custom parallelization function so multiple prompt executions can run simultaneously and deliver faster answers. Outputs surface in tools such as Salesforce, giving nontechnical users consistent insights without manual prompt engineering or data wrangling. The design reduces overhead today and leaves Tipalti ready for future semantic-model, search, and RAG capabilities on the same governed data foundation.",
+  "products_used": [
+    "Snowflake",
+    "Cortex AI",
+    "AI_COMPLETE",
+    "TRY_COMPLETE",
+    "Snowpark"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Hosts Tipalti's governed data warehouse and serves as the platform where AI insight workflows run.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Provides in-platform LLM capabilities for prompt execution and structured insight generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI_COMPLETE",
+      "role": "Embeds LLM calls directly into SQL workflows so prompts can return structured business answers without extra infrastructure.",
+      "layer": "Compute"
+    },
+    {
+      "name": "TRY_COMPLETE",
+      "role": "Prevents single prompt failures from breaking whole batch workflows, improving reliability at scale.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Runs the custom parallelization logic that increases prompt throughput and responsiveness for business users.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Internal business and finance data remains in Snowflake on AWS, where predefined prompts call Cortex AI through AI_COMPLETE and TRY_COMPLETE. Snowpark parallelizes execution, and structured answers are surfaced in Salesforce and other daily tools for sales and marketing teams.",
+  "integration_points": [
+    "Salesforce",
+    "Amazon Web Services",
+    "sales data",
+    "marketing data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Tipalti democratized internal insight generation, shipped more than ten new AI features to over 50 users, enabled more than 600 ad hoc analyses, and avoided building separate external AI infrastructure while supporting a $75 billion payments business.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "5x more queries run simultaneously",
+    "$75 billion in payments managed yearly",
+    "more than ten new features have been deployed to over 50 users",
+    "more than 600 ad-hoc analyses"
+  ],
+  "architecture_clues": [
+    "The AI prompt store centralizes reusable prompt patterns for internal teams.",
+    "Prompt execution stays inside Snowflake instead of relying on external inference services.",
+    "Future plans include semantic models, Cortex Search, and RAG with embeddings on the same foundation."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/tipalti/",
+  "published_date": "2026-03-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "built an AI-prompt store on Cortex AI",
+    "The solution enables Tipalti to integrate AI insights into the platforms its teams use every day, such as Salesforce",
+    "AI_COMPLETE integrates LLM capabilities from Cortex directly into SQL workflows",
+    "TRY_COMPLETE ensures that any single failure won't cause an entire batch process to fail",
+    "multiple queries can run in parallel"
+  ]
+}

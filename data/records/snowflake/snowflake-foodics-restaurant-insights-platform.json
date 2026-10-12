@@ -1,0 +1,78 @@
+{
+  "id": "snowflake-foodics-restaurant-insights-platform",
+  "slug": "snowflake-foodics-restaurant-insights-platform",
+  "vendor": "Snowflake",
+  "customer_name": "Foodics",
+  "industry": "Software / SaaS",
+  "region": "Saudi Arabia",
+  "company_size": "Mid-market",
+  "business_problem": "Foodics needed near-real-time analytics for tens of thousands of restaurant branches, but older systems struggled with reliability, code-heavy integration work, and the scale of daily reports and jobs.",
+  "solution_summary": "Foodics runs its restaurant-insights backbone on Snowflake so point-of-sale, finance, customer, and inventory intelligence can operate from one platform. Departments use Snowflake Secure Data Sharing to exchange governed datasets in their own ecosystems while still aggregating them for deeper analysis, and separated storage and compute lets Foodics scale to millions of reports and jobs without inflating cost. Engineers embed Snowflake's custom ODBC driver into application flows so live data can be surfaced to customers without large rewrites, and more business logic can execute inside the platform instead of scattered code. The same foundation supports anomaly detection, loyalty analysis, and predictive AI use cases for restaurant operators. Because Snowflake stays reliable under heavy volume, Foodics can serve near-real-time operational insight to more than 39,000 branches while freeing engineers to focus on value-added work rather than pipeline maintenance.",
+  "products_used": [
+    "Snowflake",
+    "Snowflake Secure Data Sharing",
+    "custom ODBC driver"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Acts as the central platform for restaurant operations, finance, customer, and analytics data at Foodics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Secure Data Sharing",
+      "role": "Lets departments share governed datasets across separate ecosystems while still aggregating them for deeper analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "custom ODBC driver",
+      "role": "Connects Foodics applications to live Snowflake data without extensive code changes.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Point-of-sale, finance, customer, and inventory data land in Snowflake on AWS, where departments share curated datasets through Secure Data Sharing and applications pull live results through the custom ODBC driver. Analytics and AI on the same foundation then produce near-real-time reports and predictive insight for restaurant operators.",
+  "integration_points": [
+    "point-of-sale interactions",
+    "restaurant operations",
+    "financial systems",
+    "Amazon Web Services",
+    "customer applications"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Foodics now analyzes 80% more data, runs 2 million daily reports and 3 million daily jobs for more than 39,000 customers, and cut analysis and reporting effort in half while delivering timelier restaurant insight.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "2M daily reports for over 39,000 customers",
+    "80% more data analyzed",
+    "3 million jobs a day",
+    "analysis and reporting has been halved"
+  ],
+  "architecture_clues": [
+    "Business logic is implemented inside Snowflake rather than scattered through application code.",
+    "The custom ODBC driver is embedded directly into Foodics systems.",
+    "Secure Data Sharing lets teams work in separate ecosystems without losing central visibility."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/foodics/",
+  "published_date": "2026-09-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Snowflake’s AI Data Cloud, running on Amazon Web Services (AWS), provides the foundation for all of these data-driven capabilities",
+    "its Secure Data Sharing capability allows the company’s different departments to use data in their own ecosystems",
+    "the AI Data Cloud’s custom ODBC driver",
+    "it can analyze 80% more data, issuing 2 million daily reports",
+    "engineering time spent on analysis and reporting has been halved"
+  ]
+}

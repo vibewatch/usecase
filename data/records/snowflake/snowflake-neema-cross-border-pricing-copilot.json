@@ -1,0 +1,82 @@
+{
+  "id": "snowflake-neema-cross-border-pricing-copilot",
+  "slug": "snowflake-neema-cross-border-pricing-copilot",
+  "vendor": "Snowflake",
+  "customer_name": "Neema",
+  "industry": "Financial Services",
+  "region": "Tel Aviv, Israel",
+  "company_size": "Mid-market",
+  "business_problem": "A complex multi-system cloud estate slowed analytics delivery, increased maintenance overhead, and made it hard for Neema to innovate quickly on pricing and customer-facing AI use cases.",
+  "solution_summary": "Neema consolidated its data and AI stack onto Snowflake so reporting, operational workflows, marketing automation, and new AI services could run from one agile platform. Internal dashboards and reports now read from a single repository, while marketing and onboarding workflows use the same data to target campaigns and personalize account setup. The most advanced implementation is an AI pricing copilot: Neema combines public competitor pricing, exchange rates, and internal commercial data in Snowflake, then uses Cortex AI to ground a Mistral model that generates benchmarked pricing recommendations for business opportunities. Reps receive suggested offers, margin context, and alternatives in about 40 seconds instead of manually searching documents and spreadsheets. Snowflake’s sharing model also simplifies activation in systems such as HubSpot, giving Neema a faster path from experimentation to production AI.",
+  "products_used": [
+    "Snowflake",
+    "Cortex AI",
+    "Mistral",
+    "HubSpot"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Serves as Neema's central repository for internal business data, pricing context, and operational workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cortex AI",
+      "role": "Provides the in-platform AI capabilities that orchestrate pricing-recommendation workflows and future AI features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mistral",
+      "role": "Supplies the language model used to generate benchmarked pricing recommendations for sales teams.",
+      "layer": "Compute"
+    },
+    {
+      "name": "HubSpot",
+      "role": "Consumes shared data for downstream go-to-market and customer-engagement workflows without heavy reverse ETL.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Internal business data and public competitor pricing are centralized in Snowflake, where Cortex AI grounds a Mistral model that generates pricing guidance for sales teams. The same platform feeds dashboards, marketing automation, onboarding personalization, and outbound data sharing to systems such as HubSpot.",
+  "integration_points": [
+    "public competitor pricing",
+    "exchange rates",
+    "onboarding flows",
+    "marketing automation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "Neema took an AI use case from MVP to production in 2.5 weeks, reduced a manual pricing workflow that consumed about 2,500 hours a year to a 40-second interaction, and created a faster path to future automation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "1,000s of hours saved per year",
+    "2.5 weeks to deploy an AI use case",
+    "between 2,500 hours collectively each year",
+    "completed in just 40 seconds"
+  ],
+  "architecture_clues": [
+    "The AI use case went from hackathon concept to production on Snowflake in two and a half weeks.",
+    "Public competitor pricing is combined with internal data before model inference.",
+    "HubSpot data sharing replaced what Neema expected to be a manual reverse-ETL process."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/neema/",
+  "published_date": "2025-08-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With Snowflake and Cortex AI, Neema can build new data and AI products rapidly, even taking an AI use case from a minimum viable product (MVP) to production in just two and a half weeks.",
+    "By powering a Mistral large language model with Cortex AI and data from Snowflake",
+    "spending between 2,500 hours collectively each year manually searching documents",
+    "All of this is completed in just 40 seconds",
+    "we could set up a data share in just two clicks"
+  ]
+}

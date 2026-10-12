@@ -1,0 +1,75 @@
+{
+  "id": "ibm-systems-assurance-it-operations-automation",
+  "slug": "ibm-systems-assurance-it-operations-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM Systems Assurance",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Project leads in IBM Systems Assurance were spending hours each week preparing for status meetings and consolidating updates from spreadsheets, slides, boards and tracking tools, yet leaders still lacked timely, consistent visibility.",
+  "solution_summary": "IBM Systems Assurance built GPS reporting on IBM watsonx Orchestrate and IBM Cloud to replace meeting-heavy project reporting with a real-time AI workflow. Team members submit updates directly into GPS, which structures project data and automatically notifies stakeholders through Slack. Watsonx Orchestrate provides the large-language-model and agent foundation for generating tailored summaries such as verbatim updates, risk-focused views and 3Ps snapshots, while dashboards and filters expose the latest project health to project leads and executives. The application was first created during the IBM watsonx Challenge and quickly moved from proof of concept into production use inside the Hardware Compliance organization. Instead of manually reconciling status from multiple tools, the organization now has one reporting layer that collects updates, produces AI-generated insight and supports more strategic conversations. The solution demonstrates how agentic reporting can reduce administrative burden while improving decision speed and transparency across complex internal portfolios.",
+  "products_used": [
+    "IBM watsonx Orchestrate",
+    "IBM Cloud",
+    "Slack"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Orchestrate",
+      "role": "Generates summaries and provides the agent framework for multi-step project-status reporting workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the GPS reporting application and the supporting reporting environment used by Systems Assurance teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Slack",
+      "role": "Distributes notifications and stakeholder updates triggered by the GPS reporting workflow.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Project updates are entered into GPS, watsonx Orchestrate structures and summarizes the information, dashboards expose portfolio health in real time, and Slack notifications push the relevant outputs to stakeholders and leaders.",
+  "integration_points": [
+    "Slack",
+    "spreadsheets",
+    "PowerPoint slides",
+    "Mural boards",
+    "project tracking tools"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "DevOps",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "GPS reporting reduced recurring status-meeting overhead, improved near-real-time transparency and gave leaders a more actionable view of project health without waiting for manually assembled reports.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "50%+ reduction in recurring status meetings",
+    "24/7 near real-time visibility into project status",
+    "approximately 45 users",
+    "two to four hours weekly"
+  ],
+  "architecture_clues": [
+    "The solution was initially developed during the 2025 IBM watsonx Challenge and then entered production.",
+    "Different summary modes such as verbatim, risk-focused and 3Ps were built into the reporting experience.",
+    "Project reporting is now mandated within IBM's Hardware Compliance organization and is expanding to other teams."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-client-zero-gps-reporting",
+  "published_date": "2026-09-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "IBM Systems Assurance teams reclaim time and transparency with GPS reporting and watsonx Orchestrate",
+    "50%+ reduction in recurring status meetings",
+    "automatically notifies stakeholders through Slack",
+    "24/7 near real-time visibility into project status"
+  ]
+}

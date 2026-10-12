@@ -1,0 +1,82 @@
+{
+  "id": "ibm-cio-cloud-ai-workload-modernization",
+  "slug": "ibm-cio-cloud-ai-workload-modernization",
+  "vendor": "IBM",
+  "customer_name": "IBM Chief Information Officer organization",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM's CIO organization needed to run new AI applications alongside thousands of existing workloads, but its earlier vector-database and model setup relied on costly provisioned GPUs that created resource contention and inefficiency.",
+  "solution_summary": "IBM's CIO organization moved its AI workload management onto IBM Cloud with IBM watsonx.data, IBM watsonx.ai and Red Hat OpenShift to improve scale, flexibility and cost efficiency. The target environment separates concerns more cleanly than the prior arrangement: watsonx.data manages domain-specific data, watsonx.ai supports development, training and inferencing, and the elastic IBM Cloud environment absorbs GPU spikes instead of forcing operations teams to overprovision hardware. OpenShift provides workload-placement flexibility so the same environment can also support on-premises requirements, while watsonx.governance can be layered on in scenarios that need stronger lifecycle oversight and indemnification support. This turns AI hosting from a set of manually managed high-cost resources into a managed platform service for internal applications such as AskIBM, allowing IBM to scale AI services across the enterprise with more predictable operations and better alignment to hybrid-cloud constraints.",
+  "products_used": [
+    "IBM Cloud",
+    "IBM watsonx.data",
+    "IBM watsonx.ai",
+    "Red Hat OpenShift",
+    "IBM watsonx.governance"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Cloud",
+      "role": "Provides the elastic runtime environment that absorbs GPU spikes and hosts the CIO organization's AI workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Manages the domain-specific data used by internal AI applications and model workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Supports development, training and inferencing for AI applications running on the CIO platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Red Hat OpenShift",
+      "role": "Extends the environment across cloud and on-premises placements with a consistent operating model.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx.governance",
+      "role": "Adds lifecycle governance and covered-model support where stricter AI oversight is required.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Domain-specific data is managed in watsonx.data, model development and inferencing run through watsonx.ai on IBM Cloud, elastic GPU capacity serves peak demand, and applications such as AskIBM consume the resulting AI services through the hybrid-cloud platform.",
+  "integration_points": [
+    "AskIBM",
+    "hybrid-cloud platform",
+    "on-premises workload placement",
+    "GPU-backed model services"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "IBM's CIO organization reduced the operational burden of managing AI infrastructure, improved scaling behavior for internal AI services and created a more flexible platform for enterprise AI workloads across cloud and on-premises environments.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "nearly 2,000 existing internal workloads"
+  ],
+  "architecture_clues": [
+    "The earlier environment used provisioned GPUs that sat idle during off-peak hours and drove cost inefficiency.",
+    "Watsonx as a Service on IBM Cloud now absorbs GPU spikes instead of requiring the operations team to manage those resources directly.",
+    "OpenShift keeps the environment portable enough for on-premises placement when required."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-cio-cloud-ai",
+  "published_date": "2024-10-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "hosting new artificial intelligence (AI) applications alongside nearly 2,000 existing internal workloads",
+    "IBM watsonx.data",
+    "IBM watsonx.ai",
+    "The spikes in GPU usage are handled by the elasticity of watsonx as a Service on the IBM Cloud"
+  ]
+}

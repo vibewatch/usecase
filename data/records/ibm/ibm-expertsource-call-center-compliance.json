@@ -1,0 +1,89 @@
+{
+  "id": "ibm-expertsource-call-center-compliance",
+  "slug": "ibm-expertsource-call-center-compliance",
+  "vendor": "IBM",
+  "customer_name": "ExpertSource Global Services",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "ExpertSource needed to monitor far more call-center interactions for compliance because manual review of only a small sample left the company exposed to regulatory penalties, litigation and inconsistent service quality in debt-collection operations.",
+  "solution_summary": "ExpertSource expanded its CXReview automated call-review platform through a co-creation project with IBM Client Engineering, turning keyword-based compliance monitoring into a cloud-native ML workflow. The solution runs in Kubernetes containers on Red Hat OpenShift and uses an embedded IBM service agreement to call IBM Watson Studio, IBM Watson Machine Learning, Speech to Text and Natural Language Understanding against recorded calls. Audio is transcribed, analyzed for natural-language meaning and checked against compliance requirements rather than simple keyword presence, allowing far broader monitoring coverage across the collections operation. Because the stack is deployable on public or private cloud, CXReview could keep evolving the platform while giving ExpertSource production-ready analytics in a short timeframe. The result is a scalable compliance pipeline that continuously evaluates calls, supports quality teams and reduces dependence on expensive manual sampling.",
+  "products_used": [
+    "Red Hat OpenShift",
+    "IBM Watson Studio",
+    "IBM Watson Machine Learning",
+    "Speech to Text",
+    "Natural Language Understanding"
+  ],
+  "solution_components": [
+    {
+      "name": "Red Hat OpenShift",
+      "role": "Hosts the CXReview solution in Kubernetes containers across public or private cloud environments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Studio",
+      "role": "Supports the AI workflow used to build and refine automated call-review models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Machine Learning",
+      "role": "Runs machine-learning services that evaluate calls against compliance requirements.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Speech to Text",
+      "role": "Transcribes recorded calls so downstream compliance models can analyze them.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Natural Language Understanding",
+      "role": "Extracts meaning from call transcripts to detect compliance issues beyond simple keywords.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Recorded calls are transcribed with Speech to Text, analyzed with Natural Language Understanding and Watson ML services, evaluated inside CXReview against compliance rules, and surfaced to quality teams through the OpenShift-hosted platform for broad, automated call monitoring.",
+  "integration_points": [
+    "CXReview",
+    "recorded call archive",
+    "Kubernetes containers",
+    "public or private cloud"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "ExpertSource expanded monitoring from a tiny sample to full coverage, improved collections performance, reduced legal risk and gave managers much more scalable visibility into agent compliance and service quality.",
+  "outcome_category": [
+    "Compliance",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "280,000 separate compliance checks can be carried out daily",
+    "100% of calls can be monitored without increasing headcount",
+    "over 300 agents",
+    "31 compliance checks",
+    "around USD 3,500"
+  ],
+  "architecture_clues": [
+    "The platform runs in Kubernetes containers on any public or private cloud.",
+    "The AI stack uses transcription plus natural-language analysis rather than keyword-only review.",
+    "IBM and CXReview built an MVP in eight weeks before further refinement."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/cxreview",
+  "published_date": "2024-04-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"280,000 separate compliance checks can be carried out daily\"",
+    "\"100% of calls can be monitored without increasing headcount\"",
+    "\"The CXReview solution runs in Kubernetes containers on any public or private cloud\"",
+    "\"using Speech to Text Natural Language Understanding models to analyze call recordings and check them against compliance requirements\"",
+    "\"Since we started working with CXReview, we've gone from 2% to 100% monitoring.\""
+  ]
+}
