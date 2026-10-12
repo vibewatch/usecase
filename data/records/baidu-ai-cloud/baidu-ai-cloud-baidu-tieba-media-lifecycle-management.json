@@ -1,0 +1,94 @@
+{
+  "id": "baidu-ai-cloud-baidu-tieba-media-lifecycle-management",
+  "slug": "baidu-ai-cloud-baidu-tieba-media-lifecycle-management",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Baidu Tieba",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Tieba needed to evolve from a text-centric community into a large-scale video and live-stream platform without sacrificing access speed, storage scalability, media governance, or operational simplicity.",
+  "solution_summary": "Baidu Tieba used Baidu AI Cloud to evolve from a text-heavy forum into a video and live-stream community with one end-to-end media architecture. Object Storage BOS forms the backbone for UGC, PGC, short-video, and live-stream assets, while Media Content Analysis and Media Content Review inspect and govern content across the asset lifecycle. Live Streaming Service (LSS) powers Tieba Live as a PaaS layer that let the team launch a live-stream middle platform quickly and keep iterating on new features. Video On Demand (VOD) adds managed storage, organization, playback, and media-asset classification for large on-demand libraries, while CDN distributes content to web and app clients at national scale. Because the same live stack can be exported as an SDK to other Baidu live platforms and share unified-account logic, the deployment becomes a reusable operating backbone for live, recorded, stored, reviewed, and delivered community content.",
+  "products_used": [
+    "Content Delivery Network (CDN)",
+    "Object Storage BOS",
+    "Live Streaming Service (LSS)",
+    "Video On Demand (VOD)",
+    "Media Content Analysis",
+    "Media Content Review"
+  ],
+  "solution_components": [
+    {
+      "name": "Content Delivery Network (CDN)",
+      "role": "Accelerates Tieba web and app traffic so users can access community content quickly across regions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Object Storage BOS",
+      "role": "Stores Tieba's large volume of posts, short videos, video files, and other media assets across their lifecycle.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Live Streaming Service (LSS)",
+      "role": "Runs the Tieba live-stream platform and provides the reusable live middle layer exported to other Baidu platforms.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Video On Demand (VOD)",
+      "role": "Manages on-demand media storage, organization, playback, and asset categorization for large video libraries."
+    },
+    {
+      "name": "Media Content Analysis",
+      "role": "Analyzes media assets as part of the full-lifecycle multimedia processing architecture.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Media Content Review",
+      "role": "Adds moderation and governance checks to the multimedia processing workflow.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "UGC and PGC posts, short videos, and live streams flow into BOS and the LSS live stack, where media-analysis and review services inspect the assets. VOD manages on-demand video organization and playback, and CDN delivers the resulting media to Tieba web clients, mobile apps, and other Baidu live platforms that reuse the SDK-based live middle layer.",
+  "integration_points": [
+    "UGC content",
+    "PGC content",
+    "Tieba web clients",
+    "Tieba app clients",
+    "Tieba Live",
+    "Other Baidu live platforms",
+    "Unified account logic"
+  ],
+  "technical_area": [
+    "Media and Content",
+    "Cloud Native",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Tieba gained a single architecture for live, recorded, stored, and reviewed media that improved user access speed, supported hundreds of millions of daily visits, enabled video growth, and let other Baidu live businesses reuse the same technical backbone at lower cost.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "CDN supports hundreds of millions of daily web and app visits.",
+    "VOD manages video content at the ten-million scale."
+  ],
+  "architecture_clues": [
+    "The architecture spans live streaming, recording, media storage, media distribution, media analysis, and moderation.",
+    "BOS can distinguish hot and cold data and switch storage classes such as standard, low-frequency, and cold storage.",
+    "Tieba exported the live-stream middle platform as an SDK to other Baidu live businesses.",
+    "Other Baidu live platforms share the same account and business-logic pattern with Tieba's live stack."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/tieba.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu AI Cloud built a full media-resource-processing architecture for Tieba that covers live streaming, recording, storage, distribution, media analysis, and review (original: 百度智能云多媒体服务为贴吧提供了一整套完整的媒体资源处理覆盖全生命周期管理的技术架构，涵盖直播、录播、媒体存储、媒体分发、媒体内容分析与审核等等).",
+    "Baidu CDN supports Tieba's web and app clients with hundreds of millions of visits per day (original: 百度智能云CDN支撑贴吧Web端和App客户端每日数亿次的访问量).",
+    "BOS supports every video, post, and even every punctuation mark published by users (original: 网友们所发布的每一个视频、每一个帖子、每一个标点符号，都由百度智能云BOS提供支撑服务).",
+    "Tieba's live technical architecture uses Baidu LSS and quickly built a live-stream middle platform that kept evolving with new versions and features (original: 百度贴吧直播业务技术架构采用百度智能云LSS云服务…在较短的时间内帮助贴吧搭建直播吧，形成直播中台).",
+    "Tieba introduced Baidu VOD to handle the higher data-management and storage demands created by video sharing and live streaming (original: 后续引入视频内容分享以及直播业务后，对数据管理存储提出了更高的挑战。百度智能云则在整体架构设计的时候，引入了百度智能云 VOD (Video On Demand) 解决这一问题)."
+  ],
+  "source_language": "zh"
+}
