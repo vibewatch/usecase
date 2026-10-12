@@ -1,0 +1,96 @@
+{
+  "id": "servicenow-arqiva-customer-service-automation",
+  "slug": "servicenow-arqiva-customer-service-automation",
+  "vendor": "ServiceNow",
+  "customer_name": "Arqiva",
+  "industry": "Telecommunications",
+  "region": "Winchester, United Kingdom",
+  "company_size": "Mid-market",
+  "business_problem": "Arqiva needed to replace fragmented customer service and field operations workflows with a single platform that could coordinate customer journeys, schedule the right engineer faster, and give customers and staff one consistent view of service activity.",
+  "solution_summary": "Arqiva consolidated customer and field operations on the ServiceNow AI Platform so sales, service, finance, and engineering could work from one control-tower view. Customer Service Management holds the shared record of customer interactions and case triage, while Now Assist for CSM generates case summaries and resolution notes that can be shared with customers through the portal. Field Service Management and IT Service Management are connected to the CMDB, which gives engineers a digital representation of the broadcast and metering network. When an incident occurs, the platform assigns the closest engineer with the right skills, exposes asset details through barcode scans, checks spare-parts requirements, and links logistics so parts are delivered near the job site. Arqiva also connects its own ServiceNow instance directly to customers that run ServiceNow, allowing data sharing and deeper analysis without manual re-entry.",
+  "products_used": [
+    "ServiceNow AI Platform",
+    "Customer Service Management",
+    "Now Assist for CSM",
+    "Field Service Management",
+    "IT Service Management",
+    "CMDB"
+  ],
+  "solution_components": [
+    {
+      "name": "ServiceNow AI Platform",
+      "role": "Acts as Arqiva's shared platform of work across customer, field, and operational teams.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Customer Service Management",
+      "role": "Maintains the common record of customer interactions, cases, and service workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Now Assist for CSM",
+      "role": "Creates case resolution and summary notes that improve communications and reduce manual research.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Field Service Management",
+      "role": "Dispatches engineers, coordinates field work, and lets staff manage jobs end to end in the app.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IT Service Management",
+      "role": "Works with field service workflows to manage incidents and escalations around network operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "CMDB",
+      "role": "Provides the digital representation of Arqiva's network that field and service teams rely on.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customers open and track requests in the portal, where Customer Service Management records the interaction and Now Assist for CSM summarizes progress. Case triage, workforce scheduling, and AI signals feed the ServiceNow AI Platform, which uses CMDB context to dispatch the nearest qualified engineer in FSM and ITSM; engineers scan asset barcodes, confirm parts, and updates can be shared back to customers or into customers' own ServiceNow instances.",
+  "integration_points": [
+    "customer portal",
+    "customers' ServiceNow instances",
+    "logistics process"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Arqiva improved field service productivity by 130%, enhanced 64% of case journeys with AI in ServiceNow, launched the CRM solution in four months, more than doubled completed task volume over two years, and reduced the hours of research, phone calls, and manual data entry needed to support customers and engineers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "130% productivity improvement in Field Service Management",
+    "64% of case journeys enhanced using AI in ServiceNow",
+    "4 months to develop and launch the CRM solution",
+    "Over two years, the volume of completed tasks has more than doubled"
+  ],
+  "architecture_clues": [
+    "Arqiva maintains over one million assets across 1,450 broadcast sites.",
+    "Engineers scan asset barcodes in the FSM app and trigger parts delivery through linked logistics workflows.",
+    "Arqiva directly connects its own ServiceNow instance with customers that also use ServiceNow."
+  ],
+  "source_url": "https://www.servicenow.com/customers/arqiva.html",
+  "published_date": "2026-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Our ultimate goal is one unified system and platform of work, with every aspect of the customer journey-sales, service, finance-all managed in ServiceNow, providing a single control tower view.",
+    "Now Assist for CSM automatically creates case resolution and summary notes and shares them with customers-saving teams hours of manual work.",
+    "the telecommunications company now directly connects its own ServiceNow instance with theirs-automating data sharing and removing the need for manual data entry.",
+    "With ServiceNow CRM, we've made huge progress connecting our Field Service Management (FSM), IT Service Management, and Customer Service Management which are all connected to our configuration management database (CMDB)",
+    "Previously many of these tasks would require multiple phone calls. Now, everything is automated in the FSM agent app."
+  ]
+}
