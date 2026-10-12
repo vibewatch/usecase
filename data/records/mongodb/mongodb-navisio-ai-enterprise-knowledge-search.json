@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-navisio-ai-enterprise-knowledge-search",
+  "slug": "mongodb-navisio-ai-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Navisio AI",
+  "industry": "Financial Services",
+  "region": "Europe",
+  "company_size": "SMB",
+  "business_problem": "Rapid adoption of Navisio AI's platform triggered severe latency spikes, elevated CPU and RAM consumption, and costly vertical scaling.",
+  "solution_summary": "Rapid adoption of Navisio AI's platform triggered severe latency spikes, elevated CPU and RAM consumption, and costly vertical scaling. MongoDB helped Navisio AI migrate to a secure multi-tenant database on GCP and deploy hybrid search to deliver cited, accurate answers. In an insurance sector where many intermediaries still process documents much as they did three decades ago, Italian InsurTech startup is spearheading a modern digital shift. Navisio AI’s solution is an AI-powered platform with a conversational interface that allows brokers to query private documents and compare them against a public library of 1,600 Italian insurance products. As Navisio AI transitioned from research to commercial launch, the team strategically graduated from local MongoDB Community Edition to to power their cloud operations. The original, multi-database design triggered latency spikes, elevated CPU and RAM consumption, and forced costly vertical scaling.",
+  "products_used": [
+    "MongoDB Atlas Vector Search",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves semantically relevant context from Navisio AI's data for AI, search, and recommendation workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational, document, and context data behind Navisio AI's AI-powered search and assistant experiences.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Business documents, tickets, records, and other operational content stay in MongoDB Atlas Vector Search and MongoDB Atlas, where search indexes or vector embeddings are built and then queried in real time to supply grounded results to applications, assistants, or discovery features. Upstream and downstream integrations include AWS, Google Cloud, APIs.",
+  "integration_points": [
+    "AWS",
+    "Google Cloud",
+    "APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Navisio AI slashed monthly database costs by over 60%, achieved an eight-month ROI, and freed its small team to focus entirely on the product.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Today, the company stands at 500 users.",
+    "As it prepares to scale to 1,000 by the end of the year, and eventually toward 5,000 users, the team is confident that MongoDB has given them a database built for massive, cost-effective growth."
+  ],
+  "architecture_clues": [
+    "Vector search is part of the retrieval layer for semantic or generative-AI use cases.",
+    "AI agents or assistants are layered on top of the MongoDB data platform.",
+    "The deployment integrates with AWS.",
+    "The deployment integrates with Google Cloud.",
+    "The deployment integrates with APIs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/navisio-ai",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We were reaching a point of no return,”",
+    "“If we wanted to grow our customer base, the only possible solution was to scale the platform vertically, doubling the cost each time.”",
+    "“We’re focused on building the harness around our solution—creating an architecture where, even if we change a model tomorrow, we can still deliver the best output for our customers. And we are certain that MongoDB is a key pillar of this harness.”",
+    "“It was a really useful way to put the database and the machines within the same virtual private network,”"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "mongodb-repsol-real-time-analytics",
+  "slug": "mongodb-repsol-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "Repsol",
+  "industry": "Energy",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Repsol needed to handle huge volumes of raw data and provide IT-friendly access to operational information through a centralized system",
+  "solution_summary": "Repsol needed to handle huge volumes of raw data and provide IT-friendly access to operational information through a centralized system Repsol bridged the OT-IT gap with MongoDB Atlas, MongoDB Time Series, and Apache Kafka, ensuring cost-effective global scalability and reliability “We also have a strategic roadmap to reach 7,000MW of installed capacity and potentially integrate new technologies like battery storage,” Vicuña added. A solution that offered efficient compression to reduce storage costs while maintaining data availability was, therefore, another key requirement. “Different vendors, systems, and technologies force us to normalize models, so we don’t store data with inconsistent formats or semantic differences,” said Vicuña. Repsol required a cloud-based solution that ensured global connectivity and high availability through redundancy. “High availability through redundant nodes is very valuable,” said Vicuña.",
+  "products_used": [
+    "MongoDB Time Series Collections",
+    "MongoDB Atlas Online Archive",
+    "MongoDB Atlas Data API",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Time Series Collections",
+      "role": "Stores and compresses time-stamped telemetry or market data for fast analysis inside Repsol's platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Online Archive",
+      "role": "Moves colder data out of the hot cluster while keeping it available for retention, analysis, and compliance.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Data API",
+      "role": "Exposes MongoDB data to internal and external applications through API calls.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the high-volume operational and event data that underpins Repsol's real-time analytics platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational events, telemetry, or transaction data are ingested into MongoDB Time Series Collections and MongoDB Atlas Online Archive, enriched or filtered where needed, retained for fast query access, and served to analytics, monitoring, or customer-facing workflows in near real time. Upstream and downstream integrations include Kafka, AWS, Azure.",
+  "integration_points": [
+    "Kafka",
+    "AWS",
+    "Azure",
+    "Power BI",
+    "SCADA systems",
+    "APIs"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "With MongoDB Atlas, Repsol centralized data to cut costs, enabled self-service analytics, and ensured global scalability and high availability",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "It operates nearly 60 plants with over 300 wind turbines and 400 inverters, which convert a turbine’s power into grid-compatible electricity.",
+    "“Two years of aggregated data in one collection only uses around 160GB.",
+    "“Two years of aggregated data in one collection only uses around 160GB,” added Vicuña."
+  ],
+  "architecture_clues": [
+    "Kafka is used as an event or ingestion layer in the wider architecture.",
+    "SCADA signals feed the platform from operational technology systems.",
+    "Power BI is used as a downstream analytics or reporting consumer.",
+    "Time series storage is used for high-volume timestamped data.",
+    "Cold data retention is handled with archiving to control active storage costs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/repsol",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“My job is to add value to the immense amount of information we receive from each plant, each signal, and each piece of equipment, so it can be used by the company,”",
+    "“We also have a strategic roadmap to reach 7,000MW of installed capacity and potentially integrate new technologies like battery storage,”",
+    "“We needed a database that could scale efficiently to accommodate this growth without infrastructural bottlenecks.”",
+    "“Different vendors, systems, and technologies force us to normalize models, so we don’t store data with inconsistent formats or semantic differences,”"
+  ]
+}

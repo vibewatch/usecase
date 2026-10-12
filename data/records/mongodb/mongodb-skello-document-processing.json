@@ -1,0 +1,65 @@
+{
+  "id": "mongodb-skello-document-processing",
+  "slug": "mongodb-skello-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "Skello",
+  "industry": "Software / SaaS",
+  "region": "Europe",
+  "company_size": "Mid-market",
+  "business_problem": "Skello aimed to scale efficiently, support millions of daily HR interactions, and empower teams with resilient, high-performing tools.",
+  "solution_summary": "Skello aimed to scale efficiently, support millions of daily HR interactions, and empower teams with resilient, high-performing tools. Skello uses MongoDB Atlas to power AI features, secure payroll, and scalable search, enabling fast, flexible, and reliable HR solutions. Founded in France in 2016, this fast-growing SaaS provider specializes in HR management solutions for field employees in sectors such as hospitality, retail, healthcare, industry, and services. Today, the company has nearly 400 employees, including a strong development team, and serves 22,000 enterprise clients with 600,000 daily users. As user volumes soared and its client base diversified, the patchwork of systems that once served it well began to strain. “But now we need to make sure that growth can continue in the future.” Processing millions of daily HR transactions—shift swaps, payroll runs, compliance checks, and notifications—required both resiliency and cost control.",
+  "products_used": [
+    "MongoDB Atlas Search",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides relevance-based text retrieval across Skello's documents and application data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational, document, and context data behind Skello's document-heavy operational workflows.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Business documents, tickets, records, and other operational content stay in MongoDB Atlas Search and MongoDB Atlas, where search indexes or vector embeddings are built and then queried in real time to supply grounded results to applications, assistants, or discovery features. Upstream and downstream integrations include AWS.",
+  "integration_points": [
+    "AWS"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "ERP / CRM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "MongoDB enables Skello to scale features like AI search, payroll, and chatbots, boosting performance, developer agility, and cost efficiency.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Today, the company has nearly 400 employees, including a strong development team, and serves 22,000 enterprise clients with 600,000 daily users.",
+    "Every month, the platform processes around 100,000 documents, with huge spikes in activity during the first few days of the month when payroll is distributed."
+  ],
+  "architecture_clues": [
+    "The solution uses a microservices-based architecture.",
+    "Vector search is part of the retrieval layer for semantic or generative-AI use cases.",
+    "The deployment integrates with AWS."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/skello",
+  "published_date": "2026-02-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“What was built in the early stages of Skello was very good at the time and helped the company grow,”",
+    "“But now we need to make sure that growth can continue in the future.”",
+    "“It ticks a lot of boxes on our side. It's efficient, it works really well, we have a really good response time, and we don't have to worry about the synchronization of the search engine versus the database—MongoDB handles all that stuff.”",
+    "“Now we have a crazy amount of data,”"
+  ]
+}

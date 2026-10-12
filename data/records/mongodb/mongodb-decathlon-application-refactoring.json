@@ -1,0 +1,71 @@
+{
+  "id": "mongodb-decathlon-application-refactoring",
+  "slug": "mongodb-decathlon-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "Decathlon",
+  "industry": "Retail",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Decathlon's eight-year-old pricing system was struggling to scale and process millions of daily dynamic, marketplace, and local store prices.",
+  "solution_summary": "Decathlon's eight-year-old pricing system was struggling to scale and process millions of daily dynamic, marketplace, and local store prices. Decathlon migrated to MongoDB Atlas, leveraging denormalized document structures and Online Archive to simplify data and reduce storage costs. One of these platforms is an internal pricing builder designed to centralize retail prices and maintain a single source of truth for global commerce. “The advantage of centralized pricing is that we can also centralize compliance with pricing laws, of which there are many, depending on the country,” explained Julien Lampin, Solutions Architect at Decathlon. These include local ‘subsidiarity’, which allows over 600 stores in France to adjust their own prices, as well as the launches of AI-driven dynamic pricing and a new third-party marketplace. As a result, the business’s daily data volume skyrocketed, reaching up to 1 million dynamic prices and 4 million marketplace prices.",
+  "products_used": [
+    "MongoDB Atlas Online Archive",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Online Archive",
+      "role": "Moves colder data out of the hot cluster while keeping it available for retention, analysis, and compliance.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the managed document database backing Decathlon's modernized application platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational data from legacy or distributed applications is consolidated in MongoDB Atlas Online Archive and MongoDB Atlas, where flexible document models support microservices, APIs, and downstream user experiences without batch-heavy synchronization. Upstream and downstream integrations include Kafka, AWS, APIs.",
+  "integration_points": [
+    "Kafka",
+    "AWS",
+    "APIs"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "With MongoDB Atlas, Decathlon successfully migrated 100% of marketplace partners, eliminating relational bottlenecks to focus on business value.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "As a result, the business’s daily data volume skyrocketed, reaching up to 1 million dynamic prices and 4 million marketplace prices.",
+    "“In France alone, we have around 1 million references.",
+    "To date, Decathlon has successfully migrated 100% of its marketplace partners and 4 million marketplace processes.",
+    "And with Oneprice, it has a system ready to handle millions of data points and their related legal complexities each day across Decathlon’s 85 countries of operation."
+  ],
+  "architecture_clues": [
+    "Kafka is used as an event or ingestion layer in the wider architecture.",
+    "Cold data retention is handled with archiving to control active storage costs.",
+    "The deployment integrates with Kafka.",
+    "The deployment integrates with AWS.",
+    "The deployment integrates with APIs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/decathlon-modernization",
+  "published_date": "2026-09-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The advantage of centralized pricing is that we can also centralize compliance with pricing laws, of which there are many, depending on the country,”",
+    "“In France, for example, it is forbidden to sell at a loss except during sales. We are not pricing decision-makers, but if someone sets a price too low, we are obligated to raise it to be compliant.”",
+    "“Mechanically, it generated a huge load increase,”",
+    "“In France alone, we have around 1 million references. Multiply that by 600 stores, and that potentially creates 600 million timelines.”"
+  ]
+}

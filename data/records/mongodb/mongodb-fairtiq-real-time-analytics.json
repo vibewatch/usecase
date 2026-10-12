@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-fairtiq-real-time-analytics",
+  "slug": "mongodb-fairtiq-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "FAIRTIQ",
+  "industry": "Logistics",
+  "region": "Europe",
+  "company_size": "Mid-market",
+  "business_problem": "FAIRTIQ needed a scalable, high-availability backend to process 320k+ trips/day across six countries, ensure near-zero downtime, support rapid growth, and handle noisy GPS-based data accounting.",
+  "solution_summary": "FAIRTIQ needed a scalable, high-availability backend to process 320k+ trips/day across six countries, ensure near-zero downtime, support rapid growth, and handle noisy GPS-based data accounting. Built on MongoDB Atlas, FAIRTIQ leverages a cloud-native, microservices-ready platform offering flexible performance, high uptime (99.99%), and rapid deployment. Users simply check in via the FAIRTIQ app at the start of their journey. Check-in triggers sensor data collection, the app detects when the trip ends, and a journey mapping algorithm reconstructs the route using timetables, graph algorithms, and neural networks. Currently FAIRTIQ processes 320,000 trips daily and is available in eight European countries where it’s used actively by over 1.3 million people. Now expanding into new markets, the company’s goal is to simplify sustainable mobility internationally.",
+  "products_used": [
+    "MongoDB Atlas Data Federation",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Data Federation",
+      "role": "Lets FAIRTIQ query operational and archived data together from one interface.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the high-volume operational and event data that underpins FAIRTIQ's real-time analytics platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational events, telemetry, or transaction data are ingested into MongoDB Atlas Data Federation and MongoDB Atlas, enriched or filtered where needed, retained for fast query access, and served to analytics, monitoring, or customer-facing workflows in near real time. Upstream and downstream integrations include AWS, ticketing systems, APIs.",
+  "integration_points": [
+    "AWS",
+    "ticketing systems",
+    "APIs"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "320k+ daily transactions with 99.99% uptime Accurate auto ticketing from GPS data Architecture flexible enough to expand into 6 countries",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Currently FAIRTIQ processes 320,000 trips daily and is available in eight European countries where it’s used actively by over 1.3 million people.",
+    "This meant the employee’s aggregation query, which writes large intermediate results to disk on the secondary node, was effectively executed 300 times."
+  ],
+  "architecture_clues": [
+    "The solution uses a microservices-based architecture.",
+    "The platform is operated for very high availability.",
+    "The deployment integrates with AWS.",
+    "The deployment integrates with ticketing systems.",
+    "The deployment integrates with APIs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/fairtiq",
+  "published_date": "2025-05-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“As a startup, you want to be fast,”",
+    "“We had only four months to bring our journey mapper from a prototype to a full product with pricing payment, customer care service, and integrate it with public transport systems.”",
+    "“The way I see it is that the schema sits inside the application as opposed to inside the database,”",
+    "“A big advantage is if you release the schema upgrade, you release the microservice – you don’t need a database migration script, which will complicate your release pipeline. That’s important if you have continuous delivery, so it was the right thing for us.”"
+  ]
+}

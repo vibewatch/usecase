@@ -1,0 +1,65 @@
+{
+  "id": "mongodb-nexthink-system-migration",
+  "slug": "mongodb-nexthink-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Nexthink",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Nexthink faced stability and latency issues due to a complex, self-managed legacy stack, resulting in a poor user experience.",
+  "solution_summary": "Nexthink faced stability and latency issues due to a complex, self-managed legacy stack, resulting in a poor user experience. Nexthink used MongoDB Atlas to consolidate data, integrate with AWS via Terraform, and automate global data residency across 14 regions. It acts as an overlay to leading enterprise software, using embedded support to provide in-app guidance and personalized training that helps end users to navigate and learn complex applications and processes. “Adopt guides employees through unfamiliar applications so they can understand and use them in the most efficient way possible,” explained Ladislav Gažo, Senior Director at Nexthink. It was a shrewd move, but not all of AppLearn’s technology stack, which included Couchbase and Elasticsearch, delivered the holistic performance that Nexthink was looking for. “Our primary requirement for Adopt is that response times must be fast,” explained Matúš Bartko, Software Architect at Nexthink.",
+  "products_used": [
+    "MongoDB Atlas Vector Search",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves semantically relevant context from Nexthink's data for AI, search, and recommendation workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the managed document database backing Nexthink's modernized application platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Business documents, tickets, records, and other operational content stay in MongoDB Atlas Vector Search and MongoDB Atlas, where search indexes or vector embeddings are built and then queried in real time to supply grounded results to applications, assistants, or discovery features. Upstream and downstream integrations include AWS, APIs.",
+  "integration_points": [
+    "AWS",
+    "APIs"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Application Modernization",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Nexthink cut latency to under 2ms, eliminated outages, and enabled its team to develop AI features using MongoDB Atlas Vector Search.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Nexthink cut latency to under 2ms, eliminated outages, and enabled its team to develop AI features using MongoDB Atlas Vector Search."
+  ],
+  "architecture_clues": [
+    "Vector search is part of the retrieval layer for semantic or generative-AI use cases.",
+    "The deployment integrates with AWS.",
+    "The deployment integrates with APIs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/nexthink",
+  "published_date": "2026-03-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Adopt guides employees through unfamiliar applications so they can understand and use them in the most efficient way possible,”",
+    "“Our primary requirement for Adopt is that response times must be fast,”",
+    "“We don’t want users to open an application and see nothing happening for several seconds. That would be very, very disruptive.”",
+    "“Having a managed service was a secondary criterion, but still an important one. We didn’t necessarily want to maintain the solution on our own, so we opted to switch,”"
+  ]
+}

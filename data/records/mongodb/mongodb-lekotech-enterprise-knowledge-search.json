@@ -1,0 +1,74 @@
+{
+  "id": "mongodb-lekotech-enterprise-knowledge-search",
+  "slug": "mongodb-lekotech-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "LekoTech",
+  "industry": "Software / SaaS",
+  "region": "Europe",
+  "company_size": "SMB",
+  "business_problem": "LekoTech needed to digitize millions of unique car parts to promote reuse but faced latency of up to 35 seconds with its existing search system.",
+  "solution_summary": "LekoTech needed to digitize millions of unique car parts to promote reuse but faced latency of up to 35 seconds with its existing search system. Consolidating on MongoDB Atlas and Vector Search allowed LekoTech to manage complex metadata and offer fast natural-language queries. More importantly, LekoTech aimed to advance the circular economy by focusing exclusively on original equipment manufacturer (OEM) parts, which are manufactured to last a lifetime. “LekoTech’s primary aim is to help breakers and dismantlers manage parts and inventories digitally,” said Nikolin Ngjela, CTO and Co-founder at LekoTech. “Dismantlers often don’t have a close connection with technology,” explained Ngjela. “One of our biggest struggles as a startup was to both educate them and make our system easy to use.” To make this vast, fragmented catalog accessible to buyers and fleet operators, speed is paramount.",
+  "products_used": [
+    "MongoDB Atlas Vector Search",
+    "MongoDB Atlas Search",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves semantically relevant context from LekoTech's data for AI, search, and recommendation workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides relevance-based text retrieval across LekoTech's documents and application data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational, document, and context data behind LekoTech's AI-powered search and assistant experiences.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Business documents, tickets, records, and other operational content stay in MongoDB Atlas Vector Search and MongoDB Atlas Search, where search indexes or vector embeddings are built and then queried in real time to supply grounded results to applications, assistants, or discovery features. Upstream and downstream integrations include AWS, APIs.",
+  "integration_points": [
+    "AWS",
+    "APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Sales Automation"
+  ],
+  "business_outcome": "Search times dropped to under two seconds, enabling auto dismantlers to double sales within months and scale the circular economy for auto parts.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "LekoTech needed to digitize millions of unique car parts to promote reuse but faced latency of up to 35 seconds with its existing search system.",
+    "LekoTech previously struggled with search latencies of up to 35 seconds, a delay that risked losing potential buyers to competitors if they couldn’t instantly confirm a part’s price and availability.",
+    "The business has reduced its search latency from 35 seconds to under two seconds, and in many cases, full inventory searches across 300,000 spare parts can be handled in less than 100 milliseconds."
+  ],
+  "architecture_clues": [
+    "Vector search is part of the retrieval layer for semantic or generative-AI use cases.",
+    "AI agents or assistants are layered on top of the MongoDB data platform.",
+    "The deployment integrates with AWS.",
+    "The deployment integrates with APIs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/lekotech",
+  "published_date": "2026-06-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“LekoTech’s primary aim is to help breakers and dismantlers manage parts and inventories digitally,”",
+    "“Our Fleet Management app is a consumer-oriented layer that lets vehicle owners and fleet operators access that data for everyday maintenance and parts sourcing.”",
+    "“reduce, reuse, and recycle,”",
+    "“Dismantlers often don’t have a close connection with technology,”"
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "mongodb-financial-times-enterprise-knowledge-search",
+  "slug": "mongodb-financial-times-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Financial Times",
+  "industry": "Media and Entertainment",
+  "region": "UK",
+  "company_size": "Enterprise",
+  "business_problem": "FT needed to deliver scalable, hybrid search that blends full-text precision and AI driven semantic discovery across more than a million daily search queries, maintaining performance and relevance at scale.",
+  "solution_summary": "FT needed to deliver scalable, hybrid search that blends full-text precision and AI driven semantic discovery across more than a million daily search queries, maintaining performance and relevance at scale. Using MongoDB Atlas with Atlas Search and Atlas Vector Search, FT built an AI-powered hybrid search platform in just 18 weeks, combining keyword and semantic search for better content discovery. The deployment has positioned the as a leader in hybrid search within the media sector, offering readers highly relevant article suggestions—without the need for manual searches: a boon for time-poor subscribers. Next, the hybrid search rollout will extend to the ’s mobile apps, followed by its specialist titles, ensuring all users will benefit from its enhanced capabilities. Ultimately, the goal is to make content across all platforms accessible through a unified hybrid search system. “We are at the beginning, and we expect to improve it further,” said Terziev.",
+  "products_used": [
+    "MongoDB Atlas Vector Search",
+    "MongoDB Atlas Search",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Retrieves semantically relevant context from Financial Times's data for AI, search, and recommendation workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides relevance-based text retrieval across Financial Times's documents and application data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational, document, and context data behind Financial Times's AI-powered search and assistant experiences.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Business documents, tickets, records, and other operational content stay in MongoDB Atlas Vector Search and MongoDB Atlas Search, where search indexes or vector embeddings are built and then queried in real time to supply grounded results to applications, assistants, or discovery features. Upstream and downstream integrations include CRM systems, APIs.",
+  "integration_points": [
+    "CRM systems",
+    "APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Hybrid search launched in 18 weeks Supports over a million searches per day Improved relevance and reader engagement through AI-powered discovery",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Using MongoDB Atlas with Atlas Search and Atlas Vector Search, FT built an AI-powered hybrid search platform in just 18 weeks, combining keyword and semantic search for better content discovery.",
+    "LG U+ Read about how LG U+ improves efficiency by 30% with MongoDB-powered AI tool DevRev Learn how IT company DevRev boosted its CRM solution’s performance by 3-4x with MongoDB Atlas."
+  ],
+  "architecture_clues": [
+    "Vector search is part of the retrieval layer for semantic or generative-AI use cases.",
+    "AI agents or assistants are layered on top of the MongoDB data platform.",
+    "The deployment integrates with CRM systems.",
+    "The deployment integrates with APIs."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ft",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“From an architectural standpoint, it made a lot of sense to keep content searchable at [the] source rather than transferring it to an external search engine,”",
+    "“We have various products, and at the core of all of them is gold star journalism,”",
+    "“Being able to slice, dice, and surface the content in different ways is critical.”",
+    "“The problem is, hybrid search is new territory,”"
+  ]
+}
