@@ -1,0 +1,66 @@
+{
+  "id": "mongodb-sbb-system-migration",
+  "slug": "mongodb-sbb-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Swiss Federal Railways SBB",
+  "industry": "Logistics",
+  "region": "Switzerland",
+  "company_size": "Public sector",
+  "business_problem": "SBB needed to replace an in-memory database that could not persist growing formation-data workloads and had to be rebuilt after microservice restarts, creating downtime risk for rail planning and freight operations.",
+  "solution_summary": "SBB moved the data layer behind its rail-operations services from a volatile in-memory store to MongoDB Atlas so formation data and master data could stay persistent as traffic volumes climbed. Third-party Railway Undertakings send formation and cargo information to SBB over APIs, and the railway depends on that data to plan routes, track carriage characteristics, and share train running information with organizations such as Swiss border control. Atlas was installed quickly and then rolled out gradually by migrating 20 microservices to individual MongoDB clusters over two months, including services for passenger traffic, freight data, and master data libraries. The managed document model removed the need to rebuild memory after restarts, while Atlas backups, updates, and high availability gave the team a more future-proof platform for frequent releases without rail-service downtime.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Persists formation, passenger, freight, and master data for SBB's rail-operations microservices.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Formation data arrives from third-party Railway Undertakings through APIs and is stored in MongoDB Atlas alongside passenger, freight, and master data. SBB's routing and planning microservices query Atlas for train characteristics and running information, and downstream organizations such as Swiss border control consume the resulting rail-operation data.",
+  "integration_points": [
+    "third-party Railway Undertakings APIs",
+    "Swiss border control",
+    "passenger traffic microservices",
+    "freight-data microservices",
+    "master data libraries"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "SBB gained a stable and developer-friendly data foundation with no outages in the first year, faster release cycles, and less operational risk for mission-critical rail services.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "It transports more than 1.16 million passengers and 180,000 tons of freight every day.",
+    "Around 92.5% of trains arrive within three minutes of the intended arrival time.",
+    "The team migrated 20 microservices to individual MongoDB clusters over the following two months.",
+    "There hasn't been a single outage in our first year."
+  ],
+  "architecture_clues": [
+    "The old solution relied on volatile memory that had to be rebuilt after microservice restarts.",
+    "SBB migrated 20 microservices to individual MongoDB clusters rather than doing a big-bang rollout.",
+    "Atlas handles backups, updates, and high availability for the rail-operations platform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/sbb",
+  "published_date": "2025-07-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"This is known as 'formation data' and it's captured from third-party companies via an API.\"",
+    "\"We can't afford to have systems down while that's happening.\"",
+    "The team migrated 20 microservices to individual MongoDB clusters over the following two months.",
+    "\"We seamlessly transitioned to the new solution without any issues; there hasn't been a single outage in our first year.\"",
+    "\"We can develop at a speed, safe in the knowledge that it won't cause any downtime, which gives us the confidence to release new features more often.\""
+  ]
+}

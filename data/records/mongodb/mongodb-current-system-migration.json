@@ -1,0 +1,77 @@
+{
+  "id": "mongodb-current-system-migration",
+  "slug": "mongodb-current-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Current",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Current needed to replace legacy, account-centric banking silos with a customer-centric core that could keep transactional integrity, connect modern payment services, and scale digital banking workloads without large operational overhead.",
+  "solution_summary": "Current built its own ledgering platform, Current Core, on MongoDB Atlas to create a digital banking stack centered on people rather than legacy account systems. The application uses an event-driven architecture in which ACH withdrawals, mobile check deposits, cash deposits, peer-to-peer payments, ATM events, and POS card purchases are written into Atlas as ledger events for partner banks. Atlas was selected for document flexibility, security, and multi-document distributed ACID transactions, letting the team store very different payment objects without forcing them into one rigid schema. Current layered MongoDB Atlas Search on top of the same data to simplify queries and support services such as user-to-user payments, and uses MongoDB Compass to help teams analyze and manage data. The Atlas deployment is VPC-peered with GKE and connected to Dataflow, PubSub, Memorystore, OAM + IAP, and BigQuery, so the company can pushbutton-scale the platform with minimal ops involvement.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search",
+    "MongoDB Compass"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Current Core's event-driven banking ledger and related customer workflow data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides query and retrieval capabilities on top of the banking data so services such as user-to-user payments can run accurately.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Compass",
+      "role": "Gives business users a simpler way to analyze and manage Current Core data.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "ACH withdrawals, check deposits, cash deposits, peer-to-peer payments, ATM events, and POS purchases are written into MongoDB Atlas as Current Core ledger events. Atlas Search queries that same data for downstream payment experiences, while Compass and Google Cloud integrations help teams analyze, manage, and extend the banking platform.",
+  "integration_points": [
+    "Google Kubernetes Engine",
+    "Google Cloud Dataflow",
+    "Google Cloud PubSub",
+    "Google Cloud Memorystore",
+    "Google BigQuery",
+    "OAM + IAP",
+    "partner banks"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Current built a more flexible digital banking core, improved customer experience with customer-centric product flows, and reduced operating burden by letting Atlas scale on demand with zero-ops-style expansion.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Tailored to the needs of their four million customers.",
+    "Atlas has enabled Current to reduce TCO by giving it the power to pushbutton-scale its platform as needed to meet changing demand with zero Ops intervention."
+  ],
+  "architecture_clues": [
+    "Current Core uses an event-driven architecture that collects every transaction in an Atlas collection.",
+    "The Atlas deployment is VPC-peered with Google Kubernetes Engine.",
+    "Current integrates Atlas with Dataflow, PubSub, Memorystore, OAM + IAP, and BigQuery."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/current",
+  "published_date": "2024-05-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"One of the things we're using MongoDB for is the document flexibility, as a card authorization looks very different from a Bitcoin purchase, which looks different from a paycheck.\"",
+    "Current Core features an event-driven architecture that collects every transaction in an Atlas collection.",
+    "\"By working with MongoDB and Google Cloud we are creating excellent customer experiences.\"",
+    "\"Atlas has enabled Current to reduce TCO by giving it the power to pushbutton-scale its platform as needed to meet changing demand with zero Ops intervention.\""
+  ]
+}
