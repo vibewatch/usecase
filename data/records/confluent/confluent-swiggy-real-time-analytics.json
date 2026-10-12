@@ -1,0 +1,68 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-swiggy-real-time-analytics",
+  "slug": "confluent-swiggy-real-time-analytics",
+  "customer_name": "Swiggy",
+  "industry": "Retail",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Swiggy needed to replace self-managed Kafka so it could scale delivery operations, predictions, and recommendations during peak demand without spending engineering time on infrastructure management.",
+  "solution_summary": "Swiggy uses Confluent's fully managed data streaming platform as the event backbone behind its delivery marketplace so customer, restaurant, and delivery-partner decisions can all be informed in real time. The Confluent cluster handles asynchronous communication across the service graph, powering use cases such as predicted delivery SLA, recommendations, analytics, and other data-driven customer interactions. Elastic scaling removes the manual planning and hardware management that were required with open-source Kafka during peak festival demand, while lineage tooling helps the team understand dependencies and correct anti-patterns across internal systems. Swiggy is also layering Apache Flink and built-in connectors onto this backbone so continuous stream processing can keep all three marketplace participants aligned as the company expands. The result is a more resilient operational platform that supports both near-term customer service quality and longer-term growth across India.",
+  "products_used": [
+    "Confluent",
+    "Apache Flink"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent",
+      "role": "Runs Swiggy's managed streaming backbone for operational, analytical, and recommendation data."
+    },
+    {
+      "name": "Apache Flink",
+      "role": "Performs continuous stream processing so customers, restaurants, and delivery partners receive real-time insights.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Order and operational events flow through Confluent across Swiggy's services, where Flink-powered processing derives predicted SLAs, recommendations, and analytics that are then shared with customers, restaurants, and delivery partners in real time.",
+  "integration_points": [
+    "customer app",
+    "restaurants",
+    "delivery partners",
+    "built-in connectors"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Swiggy reduced infrastructure overhead, kept service stable during demand spikes, and improved customer-facing predictions and recommendations by putting real-time streaming and continuous processing at the center of its delivery platform.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "over three billion orders",
+    "680 cities"
+  ],
+  "architecture_clues": [
+    "Confluent provides lineage visibility to identify anti-patterns and map relationships across internal data systems.",
+    "Flink-based continuous stream processing helps keep customer, restaurant, and delivery-partner workflows synchronized.",
+    "The team is using managed streaming to shift effort from hardware management to governance and business outcomes."
+  ],
+  "source_url": "https://www.confluent.io/customers/swiggy/",
+  "published_date": "2025-04-24",
+  "evidence_quotes": [
+    "\"With over three billion orders delivered in 680 cities across India as of 2024, Swiggy has successfully pioneered the hyperlocal commerce industry.\"",
+    "\"Using the Confluent cluster for real-time predictions, recommendations, and analytics, Swiggy tackled a key challenge-managing asynchronous communications across the various services it offers.\"",
+    "\"When a customer opens the Swiggy app, the Confluent cluster powers the predicted SLA, providing an estimated delivery time to the customer.\"",
+    "\"With Flink powering continuous stream processing behind the scenes, each of these parties can rely on critical, real-time insights to make informed decisions.\""
+  ]
+}

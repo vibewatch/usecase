@@ -1,0 +1,75 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-globe-group-marketing-personalization",
+  "slug": "confluent-globe-group-marketing-personalization",
+  "customer_name": "Globe Group",
+  "industry": "Telecommunications",
+  "region": "Philippines",
+  "company_size": "Enterprise",
+  "business_problem": "Globe Group needed to replace batch-based data processing that was dropping network-probe data and slowing marketing execution so it could deliver real-time insights, governance, and targeted customer engagement at telecom scale.",
+  "solution_summary": "Globe Group built an event-driven architecture on Confluent Platform and later Confluent Cloud to separate event capture from campaign execution and make real-time data available across the business. The solution uses Kafka as the streaming foundation, Confluent Replicator to move topics between clusters, ksqlDB to process and aggregate streams, and Stream Governance to provide self-service access with role-based guardrails. This architecture replaced batch systems that could not keep up with source-system volume, allowing Globe to process network probes and business events in real time, feed marketing and analytics use cases, and build more microservices on top of reusable data streams. The migration to the managed cloud service further reduced infrastructure spend and Kafka maintenance, while a broader data mesh strategy is turning Confluent into the central nervous system for real-time decisions, personalization, and secure enterprise-wide data reuse.",
+  "products_used": [
+    "Confluent Platform",
+    "Confluent Replicator",
+    "ksqlDB",
+    "Stream Governance"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Platform",
+      "role": "Provides Globe Group's event-streaming foundation for telecom data, analytics, and customer engagement."
+    },
+    {
+      "name": "Confluent Replicator",
+      "role": "Moves Kafka topics reliably between clusters as part of Globe's distributed streaming architecture.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "ksqlDB",
+      "role": "Processes and aggregates streaming data into fit-for-purpose outputs for business users.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Stream Governance",
+      "role": "Applies role-based guardrails and standards for secure self-service data access.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Network-probe and business events are captured in Confluent Platform, replicated and processed with Confluent Replicator and ksqlDB, and then exposed through governed streams that feed targeted campaigns, reports, and other business-facing microservices in real time.",
+  "integration_points": [
+    "AWS"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Globe Group reduced infrastructure cost, improved campaign targeting, eliminated lost network-probe data, and created a governed real-time data platform that scales with new use cases and source-system volume.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Revenue Growth",
+    "Customer Experience",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Globe is pursuing a data mesh architecture with Confluent as the central nervous system for enterprise data.",
+    "Role-based access and streaming-data guardrails are enforced through Stream Governance.",
+    "The company migrated from Confluent Platform to Confluent Cloud on AWS to offload Kafka maintenance."
+  ],
+  "source_url": "https://www.confluent.io/customers/globe-group/",
+  "published_date": "2023-10-01",
+  "evidence_quotes": [
+    "\"Its batch capability could not support ingesting network probes. This led to data loss that impacted analysis and models.\"",
+    "\"It needed to drive targeted marketing campaigns with real-time data to improve campaign conversion rates while lowering costs.\"",
+    "\"Using Confluent, the Globe Group has moved to an event-driven architecture capable of separating events from the campaign itself.\"",
+    "\"The Globe Group migrated from Confluent Platform to Confluent Cloud running in AWS, a fully managed, cloud-native data streaming platform, to further reduce infrastructure spend and offload day-to-day Kafka maintenance.\""
+  ]
+}

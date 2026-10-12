@@ -1,0 +1,78 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-one-mount-group-application-refactoring",
+  "slug": "confluent-one-mount-group-application-refactoring",
+  "customer_name": "One Mount Group",
+  "industry": "Financial Services",
+  "region": "Vietnam",
+  "company_size": "Enterprise",
+  "business_problem": "One Mount Group needed to replace legacy product platforms with a scalable, secure, real-time microservices architecture and lacked the internal capacity to build and operate change-data-capture pipelines across its growing ecosystem.",
+  "solution_summary": "One Mount Group rebuilt core parts of its technology stack around a microservices architecture backed by Confluent Platform on Google Cloud. The first implementation used pub/sub messaging to power a payment gateway with near-real-time transaction processing between customer channels and backend services. The second major use case used Kafka Connect and Schema Registry to implement CDC across heterogeneous systems including MySQL, PostgreSQL, Oracle, Cloud SQL, MongoDB, SAP, and Salesforce, giving teams one resilient streaming layer instead of bespoke point integrations. By self-managing Confluent Platform and extending it with a custom Terraform provider, the company gained the flexibility to fit its own integration requirements while lowering the effort required to launch new services and data pipelines across VinID, VinShop, and other platforms.",
+  "products_used": [
+    "Confluent Platform",
+    "Kafka Connect",
+    "Schema Registry"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Platform",
+      "role": "Provides the central event-streaming platform for One Mount Group's payment and CDC workloads."
+    },
+    {
+      "name": "Kafka Connect",
+      "role": "Captures and moves changes from operational systems into the shared streaming architecture.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Standardizes event contracts so teams can build CDC and microservices integrations faster.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer transactions and source-system changes flow into Confluent Platform through pub/sub and CDC pipelines, where Kafka Connect and Schema Registry normalize events before backend services and downstream product teams consume them across the broader One Mount ecosystem.",
+  "integration_points": [
+    "Google Cloud",
+    "Oracle",
+    "Cloud SQL",
+    "MongoDB",
+    "MySQL",
+    "PostgreSQL",
+    "SAP",
+    "Salesforce"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "One Mount Group cut streaming integration effort, launched its microservices platform faster, and gained a stable, secure data foundation that supports payment processing and future innovation across its digital ecosystem.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market",
+    "Compliance"
+  ],
+  "metrics": [
+    "50%",
+    "two years"
+  ],
+  "architecture_clues": [
+    "One Mount self-manages Confluent Platform on Google Cloud for flexibility and customization.",
+    "The team built a custom Terraform provider to fit its integration requirements.",
+    "The initial rollout covered both payment pub/sub and CDC streaming across multiple databases and business systems."
+  ],
+  "source_url": "https://www.confluent.io/customers/one-mount-group/",
+  "published_date": "2024-04-19",
+  "evidence_quotes": [
+    "\"We moved to Confluent Platform because we needed a platform that was stable and could scale easily, and it has security features that we couldn't find from other platforms.\"",
+    "\"The first use case with Confluent was the pub/sub system, which One Mount Group used to build a payment gateway system with near-real time transaction processing.\"",
+    "\"The second use case with Confluent was CDC data streaming. One Mount Group uses various database management systems, including MySQL and PostgreSQL, plus other systems such as SAP and Salesforce.\"",
+    "\"We decreased our data streaming system integration workloads by 50% using Kafka Connect and Schema Registry.\""
+  ]
+}

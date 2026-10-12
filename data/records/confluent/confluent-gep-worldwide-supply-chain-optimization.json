@@ -1,0 +1,79 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-gep-worldwide-supply-chain-optimization",
+  "slug": "confluent-gep-worldwide-supply-chain-optimization",
+  "customer_name": "GEP Worldwide",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "GEP needed to replace delayed batch reporting and self-managed Kafka so its supply-chain and procurement platform could deliver real-time insights, connect data across systems, and feed AI services without growing pipeline sprawl.",
+  "solution_summary": "GEP adopted Confluent's fully managed streaming platform as the core data-delivery layer for its supply-chain and procurement services. The platform replaced legacy batch pipelines and a self-managed Apache Kafka environment with continuous event delivery that links operational, analytical, and AI systems through pre-built managed connectors. GEP uses the streaming backbone to move data from SQL databases, MongoDB, and Elasticsearch into downstream storage systems and into an AI stack integrated with Azure Open AI services and GPT models. That real-time context powers customer-facing generative AI experiences such as document summaries, insights, and procurement risk flags while also supporting platform reliability use cases. Running across multiple clusters and 500 microservices, the architecture lets GEP scale event delivery without data loss and gives engineering teams time back for new feature delivery.",
+  "products_used": [
+    "Confluent",
+    "pre-built, fully managed connectors",
+    "Azure Open AI services"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent",
+      "role": "Serves as the managed streaming backbone connecting GEP's operational, analytical, and AI systems."
+    },
+    {
+      "name": "pre-built, fully managed connectors",
+      "role": "Move data between source systems and downstream storage or analytics destinations without custom integrations.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Azure Open AI services",
+      "role": "Consume real-time context from the streaming platform to power generative AI summaries, insights, and risk signals.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Events from SQL databases, MongoDB, and Elasticsearch stream through Confluent and its managed connectors into storage systems and GEP's AI stack, where Azure Open AI services and GPT models use the fresh context for customer-facing supply-chain insights and internal reliability use cases.",
+  "integration_points": [
+    "SQL database",
+    "MongoDB",
+    "Elasticsearch",
+    "GPT models"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "GEP eliminated day-long reporting delays, scaled to a billion events per month with zero data loss, predicted outages much earlier, and turned real-time data into AI-powered customer features and lower operating cost.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "500K events",
+    "a billion events per month",
+    "zero data loss",
+    "500 microservices",
+    "30 minutes in advance",
+    "1,400% earlier"
+  ],
+  "architecture_clues": [
+    "GEP scaled from a single cluster to multiple clusters while keeping the streaming backbone in place.",
+    "Real-time streams from multiple databases feed both operational analytics and generative AI experiences.",
+    "Infrastructure monitoring was automated as part of the move to the managed platform."
+  ],
+  "source_url": "https://www.confluent.io/customers/gep-worldwide/",
+  "published_date": "2024-10-31",
+  "evidence_quotes": [
+    "\"Previously, the company relied on quarterly batch processing, which delayed reporting and decision-making for its customers.\"",
+    "\"After adopting Confluent, the company quickly scaled to handling a billion events per month across multiple clusters-all with zero data loss.\"",
+    "\"With Confluent's multi-cloud support, GEP integrated real-time data from multiple systems, including SQL database, MongoDB, and Elasticsearch, directly into their AI stack.\"",
+    "\"Confluent fits seamlessly into our data stack. It's natively integrated with Azure Open AI services and other GPT models.\""
+  ]
+}

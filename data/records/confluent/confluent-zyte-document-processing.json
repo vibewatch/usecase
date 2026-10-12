@@ -1,0 +1,75 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-zyte-document-processing",
+  "slug": "confluent-zyte-document-processing",
+  "customer_name": "Zyte",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Mid-market",
+  "business_problem": "Zyte needed to launch an AI-enabled web data extraction service quickly, with low-latency streaming and minimal operational overhead, while a small distributed team moved core infrastructure to the cloud.",
+  "solution_summary": "Zyte built its AutoExtract service on Confluent Cloud running alongside Google Cloud infrastructure to turn web crawling into a scalable event-driven extraction pipeline. Web crawlers act as Kafka producers, publishing raw page data into the streaming platform, while downstream AI and machine learning consumers transform that content into structured outputs for customers. The managed service let Zyte stand up a production-ready Kafka environment without spending weeks on cluster operations, and its cloud-vendor-aware deployment kept the Kafka cluster in the same availability zone as the rest of the application to minimize latency. Confluent Cloud also fit neatly with the team's use of Google Compute Engine and Google Cloud SQL, giving a globally distributed engineering team reliable data delivery, faster release cycles, and a stable backbone for AI-powered extraction at scale.",
+  "products_used": [
+    "Confluent Cloud",
+    "Google Compute Engine",
+    "Google Cloud SQL"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Carries Zyte's event streams between web crawlers and downstream AI extraction services."
+    },
+    {
+      "name": "Google Compute Engine",
+      "role": "Hosts the cloud application components that run alongside the managed Kafka cluster.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud SQL",
+      "role": "Provides a managed data service used as part of Zyte's cloud-based AutoExtract platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Web crawlers publish page data into Confluent Cloud, AI and machine learning consumers transform the content into structured results, and Zyte then delivers those outputs back to customers through channels such as FTP, AWS S3, and Google Cloud Storage.",
+  "integration_points": [
+    "FTP",
+    "AWS S3",
+    "Google Cloud Storage"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Zyte launched AutoExtract quickly, achieved stable low-latency operation with no outages after launch, and gave its remote team a managed streaming foundation that sped time to market for AI-powered data extraction.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "within a week",
+    "at least twice as long",
+    "Fifteen minutes",
+    "100% uptime"
+  ],
+  "architecture_clues": [
+    "Kafka producers are web crawlers and consumers are AI and machine learning models.",
+    "Zyte kept the Kafka cluster in the same availability zone as the rest of the infrastructure to reduce latency.",
+    "The team paired Confluent Cloud with other managed Google Cloud services to minimize maintenance work."
+  ],
+  "source_url": "https://www.confluent.io/customers/zyte/",
+  "published_date": "2024-11-07",
+  "evidence_quotes": [
+    "\"Zyte built AutoExtract on Confluent Cloud running on Google Cloud Platform (GCP), with an Apache Kafka-based, event-driven architecture.\"",
+    "\"When we started our move to the cloud we had the whole application running on Confluent Cloud and Google Compute Engine within a week.\"",
+    "\"Setting up Confluent Cloud was simple... Fifteen minutes later, if even that, we had credentials and we were ready to go.\"",
+    "\"We've had no outages whatsoever since our launch.\""
+  ]
+}

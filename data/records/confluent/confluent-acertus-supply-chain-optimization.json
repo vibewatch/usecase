@@ -1,0 +1,96 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-acertus-supply-chain-optimization",
+  "slug": "confluent-acertus-supply-chain-optimization",
+  "customer_name": "ACERTUS",
+  "industry": "Logistics",
+  "region": "United States and Canada",
+  "company_size": "Enterprise",
+  "business_problem": "ACERTUS needed to integrate multiple monolithic business units and eliminate slow manual handoffs so vehicle transport, title, storage, and customer updates could happen in real time instead of through fragmented, error-prone processes.",
+  "solution_summary": "ACERTUS modernized its logistics architecture around Confluent Cloud and an event-driven microservices model that connects transportation management, title and registration, car haul, and related systems through one shared streaming backbone. The company uses pre-built connectors plus Schema Registry to exchange events with partners and line-of-business applications, while SQL Server and PostgreSQL CDC source connectors, the Snowflake sink connector, and ksqlDB help move, transform, and land data across operational and analytics environments. Stream Lineage gives teams visibility into how data moves through the platform, and Kafka Streams applications running in containers on AWS Fargate extend the real-time workflows. This setup replaced slow reports and manual coordination with instant event handling, which now powers external order integrations, duplicate-VIN checks, customer notifications, and internal AI-assisted decision support.",
+  "products_used": [
+    "Confluent Cloud",
+    "Schema Registry",
+    "ksqlDB",
+    "Stream Lineage",
+    "Snowflake sink connector"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Acts as the central streaming backbone across ACERTUS's transportation, title, and logistics businesses."
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Governs evolving order and partner contracts without requiring code changes in connected systems.",
+      "layer": "Governance"
+    },
+    {
+      "name": "ksqlDB",
+      "role": "Processes streaming data in flight for operational and analytical workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Stream Lineage",
+      "role": "Visualizes how ACERTUS events are produced, consumed, and transformed across the platform.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Snowflake sink connector",
+      "role": "Moves logistics data into ACERTUS's data warehouse for analytics and modeling.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Orders, vehicle, pricing, and title events stream through Confluent Cloud from systems such as SQL Server and PostgreSQL; ksqlDB and connectors transform and route them to partners, operational applications, notifications, and the Snowflake warehouse for analytics and AI-assisted decision support.",
+  "integration_points": [
+    "CarGurus",
+    "Salesforce",
+    "NetSuite",
+    "SQL Server",
+    "PostgreSQL",
+    "MySQL",
+    "Snowflake",
+    "AWS Fargate"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Application Refactoring"
+  ],
+  "business_outcome": "ACERTUS eliminated logistics bottlenecks, cut manual reporting from days to minutes, delivered real-time customer and partner updates, and unlocked new revenue while reducing infrastructure labor and errors.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Revenue Growth",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "66 hub and prep locations",
+    "all 50 states",
+    "50+ people",
+    "5,000 schemas",
+    "more than $10 million in revenue in the first year",
+    "days",
+    "minutes"
+  ],
+  "architecture_clues": [
+    "Kafka Streams applications run as Docker containers on AWS Fargate through ACERTUS's AWS Marketplace integration.",
+    "The platform combines SQL Server and PostgreSQL CDC source connectors with the Snowflake sink connector.",
+    "Real-time partner integrations include CarGurus orders and evolving order contracts managed through Schema Registry."
+  ],
+  "source_url": "https://www.confluent.io/customers/acertus/",
+  "published_date": "2023-10-01",
+  "evidence_quotes": [
+    "\"Confluent serves as a central nervous system connecting core ACERTUS systems, including our transportation management, title and registration, and car haul systems.\"",
+    "\"Confluent enabled ACERTUS to shift from a monolithic to event-driven microservices architecture.\"",
+    "\"Confluent helps ACERTUS build streaming data pipelines using SQL Server and PostgreSQL CDC source connectors, and the Snowflake sink connector, along with ksqlDB for processing data in flight.\"",
+    "\"The solution we built with Confluent enabled us to lower costs, increase automation, eliminate errors, and open new business opportunities that are already generating more than $10 million in revenue in the first year.\""
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-mercari-fraud-detection",
+  "slug": "confluent-mercari-fraud-detection",
+  "customer_name": "Mercari",
+  "industry": "Retail",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Mercari needed real-time change data capture across rapidly growing microservices and databases because batch updates every 10 minutes were too slow for fraud prevention, marketing incentives, and broader business operations.",
+  "solution_summary": "Mercari adopted Confluent Cloud as the managed event backbone for its CDC architecture after deciding that operating Apache Kafka in house would consume scarce specialist capacity. Product and service teams already relied on Kubernetes-based microservices and BigQuery warehousing, so the data platform team used Confluent to capture changes from multiple databases in real time and stream them into downstream fraud, analytics, and marketing workflows. Schema Registry and the managed Kafka environment reduced the burden of standing up clusters, rebuilding them, and governing interfaces, while the team's CDC pipelines made it possible to replace ten-minute batch retrieval with continuous event delivery. That foundation now supports real-time fraud detection, better customer incentive timing, and future extensions such as TiDB Cloud integration and managed Flink stream processing, all without adding operational downtime.",
+  "products_used": [
+    "Confluent Cloud",
+    "BigQuery",
+    "Schema Registry"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Acts as Mercari's managed CDC and event-streaming backbone for product and service data."
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores streamed business and customer data for analytics and downstream marketing use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Helps Mercari build and operate CDC infrastructure with governed event contracts.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Database changes from Mercari's in-house microservices stream into Confluent Cloud, where CDC pipelines deliver the events to BigQuery and downstream fraud detection and marketing systems so teams can act on new customer and transaction data immediately.",
+  "integration_points": [
+    "Kubernetes",
+    "BigQuery",
+    "TiDB Cloud"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Mercari accelerated fraud detection, eliminated missed timing for customer incentives, avoided Kafka outages, and reduced the engineering effort required to build and operate CDC pipelines at scale.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "approximately 23 million monthly active users",
+    "every 10 minutes",
+    "not experienced a single outage"
+  ],
+  "architecture_clues": [
+    "Mercari's product teams run microservices on Kubernetes while the data platform team owns CDC infrastructure.",
+    "The team plans to expand the architecture with TiDB Cloud and managed Apache Flink.",
+    "Real-time CDC pipelines are shared across fraud, marketing, and analytics workflows."
+  ],
+  "source_url": "https://www.confluent.io/customers/mercari/",
+  "published_date": "2025-10-11",
+  "evidence_quotes": [
+    "\"As Mercari expanded, its product and service teams built more applications in-house using Kubernetes for microservices orchestration and BigQuery for data warehousing.\"",
+    "\"Using Confluent Cloud, the Data Platform team has been able to quickly build and deploy CDC pipelines and accelerate progress on operational use cases like fraud detection and marketing analytics.\"",
+    "\"With Confluent, we can now easily build the CDC pipelines we need to acquire data in real time rather than retrieving it in batches every 10 minutes, enabling us to detect fraud quickly.\"",
+    "\"With Confluent, we have not experienced a single outage due to failure since its introduction, and it has continued to operate stably.\""
+  ]
+}

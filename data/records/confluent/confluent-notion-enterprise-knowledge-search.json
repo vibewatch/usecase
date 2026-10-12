@@ -1,0 +1,85 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-notion-enterprise-knowledge-search",
+  "slug": "confluent-notion-enterprise-knowledge-search",
+  "customer_name": "Notion",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Notion's legacy event-logging architecture could not scale with rapid user growth, online indexing, AI features, and multi-destination integrations without driving up tooling costs and distracting a lean engineering team with infrastructure work.",
+  "solution_summary": "Notion moved to a fully managed event-driven architecture on Confluent Cloud to make product events available in real time for analytics, integrations, and Notion AI. The platform replaces a brittle pattern of third-party tools and custom connectors with one managed Kafka backbone that scales clusters up and down, expands retention on demand, and streams changes directly into destinations such as Amazon S3, Snowflake, and PostgreSQL. Schema Registry and stream processing help the team enrich and govern events, while the AWS-native deployment fits cleanly into Notion's existing infrastructure. The most important use case is AI: as users update pages and workspace content, Confluent immediately synchronizes those changes into Notion's vector database so RAG search and content-generation workflows always use current context. By offloading Kafka operations, the engineering team can focus fully on new product features instead of running infrastructure.",
+  "products_used": [
+    "Confluent Cloud",
+    "Amazon S3",
+    "Snowflake",
+    "Schema Registry"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Acts as Notion's managed event backbone for analytics, integrations, and AI synchronization."
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Receives real-time event streams for storage and analytics use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake",
+      "role": "Stores and analyzes streamed event data for downstream decision-making and product workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Supports real-time capture, enrichment, and governance of user events.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Workspace and application events stream through Confluent Cloud, flow into destinations like Amazon S3 and Snowflake, and are synchronized into Notion's vector database so RAG search, content generation, and connected-app integrations use current workspace context.",
+  "integration_points": [
+    "Slack",
+    "Jira",
+    "Google Drive",
+    "PostgreSQL",
+    "vector database",
+    "AWS"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Notion gained a scalable real-time AI backbone, tripled productivity, lowered operations cost, and freed the data platform team to spend all of its time on new features rather than Kafka operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 100 million users",
+    "just over a year",
+    "tripled its productivity",
+    "100% of their time"
+  ],
+  "architecture_clues": [
+    "Notion keeps its Kafka backbone on AWS and uses fully managed connectors to move data into storage and application systems.",
+    "The streaming platform keeps a vector database synchronized in real time for RAG search and generation.",
+    "The engineering team is evaluating additional Confluent features such as managed Flink and autoscaling on top of the current event-driven design."
+  ],
+  "source_url": "https://www.confluent.io/customers/notion/",
+  "published_date": "2025-05-13",
+  "evidence_quotes": [
+    "\"The Confluent data streaming platform enables us to move at the scale of Notion, meaning that it can process the real-time messaging of over 100 million users generating many, many pages per day.\"",
+    "\"With its powerful, fully managed connectors, we effortlessly stream data into destinations like Amazon S3, making real-time event logging scalable and efficient.\"",
+    "\"With the Confluent data streaming platform as the backbone of Notion AI, Notion can ensure that changes made within the application are instantly reflected in its vector database for RAG.\"",
+    "\"Faster Innovation: With infrastructure management and Kafka maintenance offloaded to Confluent, Notion's data platform team can now dedicate 100% of their time to bringing new features to market faster.\""
+  ]
+}

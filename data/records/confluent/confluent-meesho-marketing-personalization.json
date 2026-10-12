@@ -1,0 +1,63 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-meesho-marketing-personalization",
+  "slug": "confluent-meesho-marketing-personalization",
+  "customer_name": "Meesho",
+  "industry": "Retail",
+  "region": "India",
+  "company_size": "Enterprise",
+  "business_problem": "Meesho's rapid growth and peak-sale traffic overwhelmed its self-managed Kafka infrastructure, creating downtime risk, limiting throughput, and preventing the company from using customer and purchase data in real time for personalization.",
+  "solution_summary": "Meesho adopted Confluent Cloud as the core data-ingestion layer for its e-commerce ecosystem so it could re-architect around elastic real-time streams instead of manually scaled Kafka clusters. The managed platform now absorbs bursty traffic during major sale events, carries data from across the marketplace, and makes those streams available to downstream services without the operational drag of cluster maintenance and over-provisioning. Because customer and purchase events are available immediately, teams can use the streaming layer for new retail experiences such as a real-time recommendation engine rather than waiting for delayed historical datasets. Confluent's pay-as-you-go model also lets Meesho size for actual bandwidth and usage instead of peak guesses. Together, those capabilities help the company ship features faster, survive traffic spikes, and turn fresh marketplace data into more relevant offers and product suggestions for shoppers.",
+  "products_used": [
+    "Confluent Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Serves as Meesho's elastic ingestion and streaming backbone for sale events, marketplace data, and personalization workflows."
+    }
+  ],
+  "data_flow": "Marketplace, customer, and purchase events stream into Confluent Cloud as the central ingestion layer, where downstream services consume them for peak-sale operations and for real-time recommendation and offer-generation use cases.",
+  "integration_points": [
+    "platform app",
+    "recommendation engine"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Meesho can now handle much larger sale-day traffic, deploy new services faster, lower infrastructure overhead, and personalize shopping experiences with a real-time recommendation engine backed by current customer data.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience",
+    "Speed to Market",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "over 140 million average active users",
+    "five times more traffic",
+    "1 million requests per second",
+    "3x more load"
+  ],
+  "architecture_clues": [
+    "Confluent Cloud acts as the central ingestion layer across Meesho's e-commerce ecosystem.",
+    "The business uses the same streaming backbone for both operational scaling and recommendation workflows.",
+    "Elastic scaling removes the need for manual cluster planning ahead of events such as Diwali sales."
+  ],
+  "source_url": "https://www.confluent.io/customers/meesho/",
+  "published_date": "2024-03-03",
+  "evidence_quotes": [
+    "\"Confluent Cloud took up position as the central ingestion layer, transforming the way data flowed through Meesho's ecosystem.\"",
+    "\"It allowed the company to efficiently handle massive throughput bursts during peak events, such as the Diwali sale, where it reached up to 1 million requests per second.\"",
+    "\"Now, with Confluent, Meesho has unfettered data access-which has helped the online platform create a real-time recommendation engine.\"",
+    "\"Teams can handle 3x more load during sale days.\""
+  ]
+}

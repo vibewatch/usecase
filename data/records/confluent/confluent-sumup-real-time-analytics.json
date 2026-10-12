@@ -1,0 +1,75 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-sumup-real-time-analytics",
+  "slug": "confluent-sumup-real-time-analytics",
+  "customer_name": "SumUp",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "SumUp's centralized data platform had become a bottleneck, leaving teams waiting for pipelines, reports, and analytics while siloed systems made it difficult to provide merchants with better real-time products and decisions at global scale.",
+  "solution_summary": "SumUp used Confluent Cloud to implement a data-mesh-oriented event architecture that decentralizes data ownership and turns siloed operational information into reusable streaming data products. The managed platform lets teams publish and consume standardized streams without waiting on a central platform group to build every new pipeline. Kafka Connect and Schema Registry support consistent interfaces and data quality, while Confluent Cloud runs across on-premises and AWS-hosted environments and fits into SumUp's microservices architecture backed by Amazon RDS for PostgreSQL. Internal teams now publish streams directly to the shared platform, and downstream groups use them for reporting, CRM, analytics, banking services, and machine learning use cases. This shifted the platform team away from pipeline firefighting toward governance, self-service enablement, and higher-value data product work.",
+  "products_used": [
+    "Confluent Cloud",
+    "Kafka Connect",
+    "Schema Registry"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Provides SumUp's shared managed streaming platform for publishing, governing, and consuming data products."
+    },
+    {
+      "name": "Kafka Connect",
+      "role": "Helps SumUp standardize streaming data pipelines between source systems and downstream end systems.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Schema Registry",
+      "role": "Maintains consistent event contracts and data quality across independently owned streams.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Teams publish transaction, CRM, analytics, and operational data streams into Confluent Cloud, where standardized contracts and pipelines make the data reusable for downstream reporting, customer-facing applications, risk models, and other self-service consumers across the business.",
+  "integration_points": [
+    "AWS",
+    "Amazon RDS for PostgreSQL"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Application Refactoring"
+  ],
+  "business_outcome": "SumUp reduced data-team bottlenecks, gave more than 20 internal teams self-service access to trusted streams, and accelerated customer-facing analytics, CRM, and machine-learning work without growing infrastructure overhead.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "more than 4 million businesses",
+    "36 markets worldwide",
+    "Over the last two years",
+    "a handful of projects per quarter",
+    "more than 20 teams"
+  ],
+  "architecture_clues": [
+    "SumUp applies data mesh principles including federated governance, self-service infrastructure, and domain ownership.",
+    "The managed platform spans on-premises and AWS-hosted environments.",
+    "Risk, CRM, banking, and analytics teams publish and consume streams independently on the shared Confluent backbone."
+  ],
+  "source_url": "https://www.confluent.io/customers/sumup/",
+  "published_date": "2024-03-03",
+  "evidence_quotes": [
+    "\"Over the last two years, Confluent Cloud has become integral to provide internal teams with the trusted, shareable data products they need to accelerate innovation and business growth.\"",
+    "\"Migrating to Confluent Cloud allowed the data platform team to make significant strides in implementing data mesh principles.\"",
+    "\"Today, individual teams at SumUp independently publish streaming data directly to Confluent Cloud.\"",
+    "\"Now, more than 20 teams across SumUp use Confluent Cloud to pursue advanced, mission-critical use cases.\""
+  ]
+}

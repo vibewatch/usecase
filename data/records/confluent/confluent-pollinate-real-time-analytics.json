@@ -1,0 +1,62 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-pollinate-real-time-analytics",
+  "slug": "confluent-pollinate-real-time-analytics",
+  "customer_name": "Pollinate",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Mid-market",
+  "business_problem": "Pollinate needed a more scalable and lower-overhead way to ingest financial data and support a multi-tenant banking platform as transaction volumes and merchant onboarding demands outgrew its open-source Kafka setup.",
+  "solution_summary": "Pollinate adopted Confluent Cloud as the managed event backbone for its banking platform after first outgrowing open-source Kafka and then its Confluent Platform deployment. The architecture now runs as a multi-tenant platform on a single dedicated cluster that handles high-throughput merchant and financial data ingestion while reducing the operational load on an overstretched platform team. Pollinate uses the streaming layer to move data from flat-file ingestion and direct bank integrations into microservices that support onboarding, notifications, and business insights for banking partners and their small-business customers. Real-time streams give banks and merchants visibility into operational data such as inventory, cash flow, and customer engagement, while the managed service and CI/CD-friendly event-driven design let developers ship features faster. The same foundation helps the company onboard more clients rapidly and treat data-in-motion as a core product differentiator.",
+  "products_used": [
+    "Confluent Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Runs Pollinate's multi-tenant managed streaming platform for merchant, banking, and product data."
+    }
+  ],
+  "data_flow": "Financial and merchant data enters Confluent Cloud through flat files and direct bank streams, flows through Pollinate's microservices on a shared dedicated cluster, and is then used to power onboarding, notifications, and real-time insights for banks and SMB customers.",
+  "integration_points": [
+    "NatWest",
+    "Truist Bank",
+    "flat files"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Pollinate improved operational efficiency, increased developer productivity, enabled faster client onboarding, and delivered richer real-time insights to banking partners and small businesses without expanding platform-management overhead.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "100,000 merchants",
+    "millions of transactions",
+    "35% of U.S. small businesses"
+  ],
+  "architecture_clues": [
+    "Pollinate operates a multi-tenant platform on a single dedicated Confluent cluster.",
+    "The current ingestion model mixes flat files with direct Kafka-based bank integrations.",
+    "The event-driven microservices design is tightly integrated with CI/CD workflows for faster feature delivery."
+  ],
+  "source_url": "https://www.confluent.io/customers/pollinate/",
+  "published_date": "2025-10-01",
+  "evidence_quotes": [
+    "\"We needed to do internal testing to ensure that our platform could support 100,000 merchants before we roll it out.\"",
+    "\"We have successfully developed a multi-tenant platform, operating on a single dedicated cluster, which has proven highly effective.\"",
+    "\"Confluent Cloud provides a continuous stream-processing capability. With actionable insights on critical operational activities, such as inventory, cash flow, and customer engagement, Pollinate is adding tangible value to the banking relationship.\"",
+    "\"Pollinate will continue to leverage Confluent Cloud heavily as a cornerstone of their infrastructure, using shared, dedicated clusters across their client base.\""
+  ]
+}
