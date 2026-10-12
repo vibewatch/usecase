@@ -1,0 +1,71 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-mpl-fraud-detection",
+  "slug": "confluent-mpl-fraud-detection",
+  "customer_name": "MPL",
+  "industry": "Media and Entertainment",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "MPL needed real-time visibility across gameplay, app, and transaction events because batch-driven systems delayed fraud detection, personalization, and product decisions for a 90-million-user gaming platform.",
+  "solution_summary": "MPL built its new trust and personalization backbone on a fully managed Kafka solution from Confluent so gameplay, app, and competition events could move continuously instead of arriving a day late from batch systems. Kafka carries streams from gameplay activity, player actions, and competition outcomes into a real-time pipeline that feeds authorization services and downstream data science workflows. That architecture lets MPL identify suspicious behavior quickly enough to block, lock, or suspend users before fraud and money-laundering issues spread, while the same event streams power tailored onboarding, retention offers, and in-product tasks based on gaming behavior. Because Confluent manages the Kafka deployment, MPL can support its multicloud transition and growing pipeline count without hiring extra specialists to operate clusters. The result is a single streaming foundation for security, personalization, and product decisioning across the gaming platform.",
+  "products_used": [
+    "fully managed Kafka solution",
+    "Kafka"
+  ],
+  "solution_components": [
+    {
+      "name": "fully managed Kafka solution",
+      "role": "Runs MPL's streaming backbone and removes the need to govern Kafka operations in house."
+    },
+    {
+      "name": "Kafka",
+      "role": "Carries gameplay, app, and competition events through real-time fraud and personalization pipelines."
+    }
+  ],
+  "data_flow": "Gameplay, app, and competition events stream through the managed Kafka backbone, where downstream services connect relevant app data to authorization systems and data science models that flag suspicious behavior, trigger account controls, and generate personalized tasks, offers, and onboarding guidance.",
+  "integration_points": [
+    "gameplay streams",
+    "app activity",
+    "authorization services",
+    "player actions",
+    "competition outcomes",
+    "data science model"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "AI and Machine Learning",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "MPL improved fraud prevention and platform trust, gave teams fresher signals for onboarding and retention offers, avoided adding Kafka operations headcount, and created a more scalable real-time foundation for new features.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 90 million registered users",
+    "millions of monthly competitions",
+    "millions of daily events",
+    "three or four additional employees"
+  ],
+  "architecture_clues": [
+    "The program replaced batch-driven systems with a streaming architecture designed for multicloud growth.",
+    "Authorization services can block, lock, or suspend users once suspicious activity is detected.",
+    "Confluent's managed operation of Kafka let MPL avoid hiring additional staff for cluster governance."
+  ],
+  "source_url": "https://www.confluent.io/customers/mpl/",
+  "published_date": "2023-06-08",
+  "evidence_quotes": [
+    "“Collecting data a day late meant our decisions were delayed, our customer offers were not that relevant in a lot of cases, and our deep focus on fraud prevention could be improved further.”",
+    "Confluent supplied MPL with a data pipeline that collects and transmits events from data sources like gameplay streams, player actions, and competition outcomes—all in real time.",
+    "Once the system identifies users suspected of fraud, the model can block, lock, or suspend users from accessing the platform.",
+    "“Without Confluent managing our Kafka deployment, we’d easily need three or four additional employees to keep things ticking along.”"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "vendor": "Confluent",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "confluent-cerved-risk-management",
+  "slug": "confluent-cerved-risk-management",
+  "customer_name": "Cerved",
+  "industry": "Software / SaaS",
+  "region": "Italy",
+  "company_size": "Enterprise",
+  "business_problem": "Cerved needed to unify hundreds of disconnected databases and partner feeds so it could deliver credit and risk intelligence in near real time without spending internal resources managing large Kafka clusters.",
+  "solution_summary": "Cerved first used Confluent Platform on premises to speed access to business-critical data, then migrated the production estate to Confluent Cloud so its event-driven architecture could scale without the operational drag of self-managed clusters. The platform connects public, Chamber of Commerce, web, social, and partner datasets such as Experian and Assilea, then distributes governed data across 200 applications through a large topic and schema footprint. Kafka Streams and Apache Kafka connectors help the Data Platform team move and process information for downstream services, while Cluster Linking adds disaster-recovery resilience for mission-critical workloads. By the end of the six-month migration, 12 dev teams were running 789 topics, 2,452 partitions, 1,107 schemas, 40,000 connected clients, and 2TB of storage on the managed platform, making near-real-time risk intelligence available across Cerved's connected ecosystem.",
+  "products_used": [
+    "Confluent Platform",
+    "Confluent Cloud",
+    "Kafka Streams",
+    "Apache Kafka connectors",
+    "Cluster Linking"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Platform",
+      "role": "Ran Cerved's original on-premises event-driven data distribution layer."
+    },
+    {
+      "name": "Confluent Cloud",
+      "role": "Hosts the managed production streaming environment for Cerved's connected data ecosystem."
+    },
+    {
+      "name": "Kafka Streams",
+      "role": "Supports stream-processing logic inside applications connected to the platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Apache Kafka connectors",
+      "role": "Connect applications and data pipelines to the streaming backbone.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Cluster Linking",
+      "role": "Provides cross-cluster disaster recovery for mission-critical workloads.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Public, Chamber of Commerce, web, social, and partner datasets flow into Cerved's streaming ecosystem, where Confluent Platform and then Confluent Cloud distribute the data across hundreds of applications; Kafka Streams and connectors support downstream processing while Cluster Linking protects disaster-recovery copies.",
+  "integration_points": [
+    "public data",
+    "Chamber of Commerce data",
+    "web data",
+    "social data",
+    "Experian",
+    "Assilea"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Migration",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Cerved now serves strategic solutions and risk-management support in seconds, runs an always-on resilient data ecosystem with strong encryption controls, scales new projects without manual cluster sizing, and cuts infrastructure and management costs.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Over 30,000 businesses",
+    "95% of Italian banks",
+    "12 dev teams",
+    "200 applications",
+    "789 topics",
+    "2,452 partitions",
+    "1,107 schemas",
+    "40,000 connected clients",
+    "2TB of storage",
+    "99.99% SLA"
+  ],
+  "architecture_clues": [
+    "The Confluent Cloud migration started in late 2022 and the production environment was deployed within six months.",
+    "Cerved describes Confluent as one of the most important pillars of its data mesh architecture.",
+    "The managed platform encrypts data at rest and in transit for all consumers of the platform."
+  ],
+  "source_url": "https://www.confluent.io/customers/cerved/",
+  "published_date": "2023-12-05",
+  "evidence_quotes": [
+    "Cerved was looking to build a unique data ecosystem that could access public, Chamber of Commerce, web, and social data—alongside data from business partners like Experian and Assilea.",
+    "The migration project started in the latter part of 2022, with the entire production environment deployed within six months.",
+    "Overall, 200 applications, 789 topics, and 2,452 partitions with 1,107 schemas were migrated. In total there are now 40,000 connected clients with 2TB of storage.",
+    "Implementing a disaster recovery strategy with Cluster Linking increases the availability and reliability of mission-critical applications, helping to minimize data loss and downtime in the event of an unexpected disaster."
+  ]
+}
