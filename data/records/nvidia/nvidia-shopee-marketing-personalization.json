@@ -1,0 +1,82 @@
+{
+  "slug": "nvidia-shopee-marketing-personalization",
+  "vendor": "NVIDIA",
+  "customer_name": "Shopee",
+  "industry": "Retail",
+  "region": "Southeast Asia, Taiwan, and Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Shopee needed specialized multilingual AI for ecommerce because general-purpose LLMs performed poorly on Southeast Asian shopping, fraud, and support tasks, limiting the platform's ability to scale search, recommendations, and customer interactions across languages and markets.",
+  "solution_summary": "Shopee trained its Compass family of ecommerce models on NVIDIA GPU infrastructure so search, recommendations, fraud detection, and customer service could share a domain-specific multilingual foundation. The team used NVIDIA Megatron-Core and NVIDIA NeMo Framework to pretrain and align large mixture-of-experts models on proprietary product titles, reviews, ratings, and synthetic ecommerce instructions spanning major Southeast Asian languages. In production, NVIDIA TensorRT-LLM accelerates model serving for high-volume commerce use cases, while the resulting models power search relevance, ad revenue, anti-fraud detection, logistics recovery, and context-aware support chat. Shopee also created its own EcomEval benchmark to measure these workloads directly rather than relying on English-centric general benchmarks. This architecture lets Shopee keep AI close to the realities of regional commerce and scale proprietary models into a platform-wide operational asset.",
+  "products_used": [
+    "NVIDIA Megatron-Core",
+    "NVIDIA NeMo Framework",
+    "NVIDIA TensorRT-LLM"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Megatron-Core",
+      "role": "Supports large-scale pretraining of Shopee's multilingual ecommerce models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Framework",
+      "role": "Handles model customization and alignment for regional ecommerce tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes production serving for fraud, search, recommendation, and service workloads.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Product content, ratings, reviews, and multilingual query signals are used to train Compass models, which are then served through TensorRT-LLM to support search, recommendations, fraud scoring, logistics analysis, and customer-service responses across Shopee's markets.",
+  "integration_points": [
+    "search",
+    "recommendations",
+    "anti-fraud detection",
+    "customer service",
+    "supply chain"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Fraud Detection",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Shopee grew monthly API token volume from 3 billion to 340 billion in eight months, achieved 50x faster fraud detection at 90% lower cost, and scaled multilingual ecommerce AI into a shared platform for search, ad revenue, logistics, and customer support across hundreds of millions of users.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "3 billion to 340 billion monthly",
+    "113x",
+    "50x faster fraud detection",
+    "90% lower cost",
+    "$136 billion in annual gross merchandise value",
+    "245B total parameters",
+    "12T tokens"
+  ],
+  "architecture_clues": [
+    "Shopee created the EcomEval benchmark to measure multilingual regional ecommerce performance directly.",
+    "Compass is trained as a vertical-domain mixture-of-experts model rather than a generic assistant.",
+    "The same model family powers both user-facing and operational ecommerce workflows."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/shopee/",
+  "published_date": "2026-08-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Shopee’s LLMs Deliver Frontier-Level Performance With the NVIDIA AI Factory",
+    "Specialized LLMs deliver leading performance on every ecommerce benchmark when customized with NVIDIA Megatron-Core and NVIDIA NeMo Framework",
+    "50x faster fraud detection at 90% lower cost in production, powered by NVIDIA TensorRT-LLM",
+    "Monthly API tokens grew from 3 billion to 340 billion in eight months—a 113x increase."
+  ],
+  "id": "nvidia-shopee-marketing-personalization"
+}

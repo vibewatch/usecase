@@ -1,0 +1,73 @@
+{
+  "slug": "ibm-ibm-gpu-resource-optimization",
+  "vendor": "IBM",
+  "customer_name": "IBM",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM Research's Big AI Models team needed to keep scarce GPUs available for a growing set of LLM experiments and inference workloads, but overprovisioned Kubernetes instances were wasting expensive accelerator capacity and forcing engineers to spend time manually monitoring and resizing resources.",
+  "solution_summary": "IBM's Big AI Models team deployed IBM Turbonomic to automate resource management for its internal generative-AI environment. The BAM platform supports engineering teams testing and refining LLM projects on Kubernetes-based inference services backed by more than 100 NVIDIA A100 GPUs. Turbonomic continuously evaluates real-time utilization data, recommends optimal actions, and can automatically scale instances up or down so workloads get the right amount of GPU-backed capacity without overprovisioning. That let the team convert manual monitoring into policy-driven optimization, free idle GPUs for other users, and time-share infrastructure instead of reserving dedicated capacity. The resulting setup preserved performance while increasing throughput and cutting the number of GPUs required in a fully automated environment, turning hybrid-cloud optimization software into a practical control plane for high-demand AI infrastructure.",
+  "products_used": [
+    "IBM Turbonomic",
+    "Kubernetes",
+    "NVIDIA A100 GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Turbonomic",
+      "role": "Analyzes runtime demand and automates scaling decisions to optimize BAM's GPU-backed LLM services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kubernetes",
+      "role": "Runs the LLM inference instances that are scaled up and down based on Turbonomic recommendations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA A100 GPUs",
+      "role": "Provide the accelerated compute pool that BAM shares across model testing and inference workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Runtime utilization telemetry from BAM's Kubernetes-hosted LLM services is analyzed by Turbonomic, which recommends or triggers scaling changes so GPU capacity is released from overprovisioned instances and reassigned to other active workloads.",
+  "integration_points": [
+    "IBM Research BAM environment",
+    "Kubernetes LLM inference servers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "IBM increased idle GPU availability from three to sixteen, doubled throughput without hurting latency, and projected that full automation would eliminate the need for thirteen GPUs, while also freeing engineers from constant manual performance monitoring.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "5.3x increase in idle GPU resources",
+    "2x throughput achieved without degrading the latency performance",
+    "running over 100 NVIDIA A100 GPUs",
+    "13 fewer GPUs will be necessary in a full automation environment"
+  ],
+  "architecture_clues": [
+    "The BAM environment runs LLM services on Kubernetes and shares a pool of NVIDIA A100 GPUs.",
+    "Turbonomic uses real-time data and can execute automated scaling actions.",
+    "The team adopted time-sharing to reuse GPUs across multiple workloads."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-bam-turbonomic",
+  "published_date": "2025-08-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "To optimize their GPU resources and manage their LLM Kubernetes instances, the IBM BAM team deployed IBM Turbonomic",
+    "With Turbonomic, the IBM BAM team was able to create a scalable and agile infrastructure",
+    "the team show the ability to increase the idle GPU resources from 3 to 16 (5.3 times)",
+    "Now, with scaling and sharing, IBM BAM team showed 13 fewer GPUs will be necessary in a full automation environment."
+  ],
+  "id": "ibm-ibm-gpu-resource-optimization"
+}

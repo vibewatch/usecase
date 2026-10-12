@@ -1,0 +1,86 @@
+{
+  "slug": "confluent-dish-wireless-real-time-analytics",
+  "vendor": "Confluent",
+  "customer_name": "DISH Wireless",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "DISH Wireless needed to turn massive 5G network telemetry into developer-accessible data products, but traditional telco infrastructure kept operations and analytics locked in proprietary systems, making it hard to monitor networks in real time, customize connectivity, and support low-latency Industry 4.0 applications at cloud and edge scale.",
+  "solution_summary": "DISH Wireless used Confluent Cloud to build an event-driven connectivity platform for its cloud-native 5G O-RAN network. Rather than treat network data as a black box, the company adopted Apache Kafka and data-mesh principles so teams could decentralize ownership, apply federated governance, and expose trusted network data as APIs. Confluent Cloud and its Kora engine provide the streaming layer that ingests log, telemetry, and application data, connects real-time systems with batch consumers and APIs, and keeps connectivity workloads cloud native from core to edge. The platform also supports customer use cases in AWS environments, including Wavelength-based low-latency processing and SageMaker model training for manufacturing and mobility scenarios. By making network signals programmable and shareable, DISH created a flexible developer platform that supports proactive monitoring, predictive analytics, and edge applications without the operational burden of self-managing Kafka.",
+  "products_used": [
+    "Confluent Cloud",
+    "Apache Kafka",
+    "Kora",
+    "AWS Wavelength",
+    "Amazon SageMaker"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Provides the cloud-native streaming platform that carries DISH network telemetry and exposes programmable data products.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Apache Kafka",
+      "role": "Supplies the event-streaming model that connects real-time systems, batch systems, and APIs across the network stack.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kora",
+      "role": "Acts as Confluent Cloud's managed Kafka engine so DISH can scale the platform without self-operating open-source clusters.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Wavelength",
+      "role": "Processes low-latency edge workloads for manufacturing and automotive scenarios close to devices.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "Consumes replicated manufacturing data for ongoing model training and anomaly-detection workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Network logs, telemetry, and application data stream through Confluent Cloud and Kafka, where they are processed in real time, exposed as APIs for developers, and selectively replicated to AWS edge and regional services such as Wavelength and SageMaker for monitoring, analytics, and machine learning.",
+  "integration_points": [
+    "operation support systems",
+    "developer APIs",
+    "AWS Wavelength",
+    "Amazon SageMaker",
+    "edge devices"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "DISH built a programmable smart network that lets enterprises and developers work with trusted network data in real time, extended cloud-native 5G O-RAN coverage to more than 73% of the United States, and created a foundation for monitoring, predictive analytics, mobility, and smart-factory applications across heterogeneous edge environments.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "an exabyte of data per day",
+    "more than 73% of the United States"
+  ],
+  "architecture_clues": [
+    "The platform uses data mesh principles with decentralized ownership and federated governance.",
+    "DISH exposes network data products as APIs so developers can customize connectivity from any cloud to any device.",
+    "Manufacturing and automotive patterns replicate edge data into AWS regions for further processing and training."
+  ],
+  "source_url": "https://www.confluent.io/customers/dish-wireless/",
+  "published_date": "2023-12-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With Confluent Cloud, DISH Wireless has built an event-driven connectivity platform from the ground up.",
+    "DISH Wireless generates an exabyte of data per day",
+    "Using Confluent, DISH Wireless has been able to build a programmable network",
+    "As of June 2023, DISH Wireless has expanded coverage of its cloud-native 5G O-RAN network—powered by innovative technologies like Confluent—to more than 73% of the United States."
+  ],
+  "id": "confluent-dish-wireless-real-time-analytics"
+}

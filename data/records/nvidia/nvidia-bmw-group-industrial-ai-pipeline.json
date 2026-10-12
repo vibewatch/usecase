@@ -1,0 +1,85 @@
+{
+  "slug": "nvidia-bmw-group-industrial-ai-pipeline",
+  "vendor": "NVIDIA",
+  "customer_name": "BMW Group",
+  "industry": "Automotive",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "BMW Group needed to scale industrial AI across quality assurance, production, and logistics, but limited training data, manual image labeling, and a lack of end-to-end lifecycle tooling slowed model development and made it hard for plant teams to deploy AI autonomously.",
+  "solution_summary": "BMW Group built a complete deep learning operations pipeline on NVIDIA DGX systems so manufacturing teams could generate training data, train models, and deploy AI applications from one platform. Using NVIDIA Omniverse Enterprise, the company creates virtual factories and synthetic production scenes that feed the SORDI dataset, the open industrial reference set BMW uses for object detection, segmentation, and related vision tasks. DGX systems with Hopper architecture then train synthetic-data generators and downstream quality models, while TAO inside NVIDIA AI Enterprise supports AutoML and inference for no-code applications such as LabelTool Lite. This lets employees load a few examples, enrich them with synthetic images, and quickly build visual-inspection models for tasks like door-sill validation and stitch checking. The result is an industrial AI stack that reduces manual labeling, speeds deployment, and makes advanced quality-automation tooling usable well beyond the R&D team.",
+  "products_used": [
+    "NVIDIA DGX",
+    "NVIDIA Base Command",
+    "NVIDIA AI Enterprise",
+    "NVIDIA Omniverse Enterprise",
+    "NVIDIA Hopper architecture",
+    "TAO"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX",
+      "role": "Provides the end-to-end training, testing, and deployment backbone for BMW's industrial AI models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Omniverse Enterprise",
+      "role": "Generates virtual factories and synthetic industrial scenes used to build training data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Supplies the managed software environment for training and inference workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "TAO",
+      "role": "Supports model training, AutoML, and optimized inference for BMW's no-code AI applications.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Synthetic factory scenes are generated in Omniverse, converted into large labeled datasets such as SORDI, trained on DGX systems, and then pushed into no-code and production QA workflows where plant employees deploy inspection models with minimal manual labeling.",
+  "integration_points": [
+    "SORDI dataset",
+    "LabelTool Lite",
+    "virtual factories",
+    "quality assurance workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BMW achieved an 8x boost in data-science productivity, 4–6x better performance than legacy systems, cut employee time to implement QA automation by more than two-thirds, and can generate hundreds of thousands of synthetic images on demand to support production AI at scale.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "one new vehicle every minute",
+    "over 800,000 photorealistic images",
+    "over 500K images",
+    "8X boost in data scientist productivity",
+    "4–6X improved performance over prior legacy systems",
+    "hundreds of thousands of images",
+    "slashed by over two-thirds"
+  ],
+  "architecture_clues": [
+    "BMW uses Omniverse to create synthetic scenes and virtual factories before training production models.",
+    "DGX systems cover the full lifecycle from synthetic-data generation through evaluation and deployment.",
+    "LabelTool Lite turns the pipeline into a no-code experience for plant employees."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/bmw-optimizes-production-with-ai-and-dgx-systems/",
+  "published_date": "2025-03-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The BMW Group is using NVIDIA Omniverse to create virtual factories and simulate complex scenes, along with NVIDIA DGX systems to create synthetic data based on those simulations.",
+    "DGX systems delivered an 8X boost in our data scientists’ productivity",
+    "The time it takes for our employees to implement AI automation in quality assurance has been slashed by over two-thirds.",
+    "SORDI ... comprising over 800,000 photorealistic images spanning 80 categories"
+  ],
+  "id": "nvidia-bmw-group-industrial-ai-pipeline"
+}

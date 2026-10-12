@@ -1,0 +1,72 @@
+{
+  "slug": "mongodb-kovai-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Kovai",
+  "industry": "Software / SaaS",
+  "region": "United Kingdom and India",
+  "company_size": "Mid-market",
+  "business_problem": "Kovai saw knowledge-base users shift from keyword search toward conversational questions, and needed to deliver low-latency, context-aware answers from documentation without introducing brittle data synchronization between its system-of-record database and a separate vector store.",
+  "solution_summary": "Kovai extended its Document360 knowledge-base platform with Eddy, a RAG assistant built on MongoDB Atlas and MongoDB Vector Search. Because the company was already using MongoDB as its system of record, the team chose to keep both articles and embeddings in the same Atlas deployment instead of syncing data to a separate vector database. OpenAI-generated embeddings are stored alongside knowledge-base content, and Vector Search retrieves the most relevant chunks by similarity so the assistant can answer questions with context, low latency, and linked source articles. The same application also preserves traditional keyword search, letting users switch between semantic and lexical retrieval in one experience. This unified architecture reduced operational complexity for engineering and data-science teams, improved answer quality, and gave Kovai a fast, cost-effective path to shipping AI-powered search directly inside a customer-facing SaaS product.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Vector Search",
+    "OpenAI"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores knowledge-base articles and the operational data that powers Document360 and Eddy.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Retrieves semantically similar article chunks so Eddy can ground responses in customer documentation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI",
+      "role": "Generates embeddings used to represent knowledge-base content for semantic retrieval.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Documentation content is stored in Atlas, embeddings are generated and saved beside the source articles, Vector Search retrieves the best-matching chunks for a user question, and Eddy uses that context to answer while linking back to relevant knowledge-base articles.",
+  "integration_points": [
+    "Document360",
+    "Eddy AI assistant"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Kovai delivered a seamless keyword-plus-AI search experience for Document360 users, returns vector results in under four milliseconds, reduced architecture complexity by avoiding a second vector store, and improved trust by grounding answers in relevant knowledge-base articles.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "nearly 300 employees",
+    "over 2,500 customers",
+    "results in <4ms",
+    "average time reduces to less than 2 milliseconds"
+  ],
+  "architecture_clues": [
+    "Kovai keeps both article content and embeddings in the same Atlas implementation.",
+    "Users can switch between keyword and semantic search in a single interface.",
+    "The team combined Vector Search with OpenAI embeddings inside a RAG framework."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/kovai",
+  "published_date": "2024-04-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Kovai adopted MongoDB Vector Search to unify content and embeddings, boosting performance, reducing sync issues, and simplifying architecture.",
+    "MongoDB Vector Search on Atlas allows Kovai to store both knowledge base articles and their embeddings together in MongoDB collections",
+    "the team has seen average time taken to return 3, 5 and 10 chunks between 2 milliseconds and 4 milliseconds",
+    "Only answers from the knowledge base relevant to the context of the question are provided, and those answers are cross-referenced with relevant articles to ensure trust."
+  ],
+  "id": "mongodb-kovai-enterprise-knowledge-search"
+}

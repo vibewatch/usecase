@@ -1,0 +1,75 @@
+{
+  "slug": "confluent-mercari-real-time-analytics",
+  "vendor": "Confluent",
+  "customer_name": "Mercari",
+  "industry": "Retail",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Mercari needed to move financial transactions, inventory changes, customer events, and other marketplace data from batch-oriented processing to real-time pipelines, but it lacked the specialist Kafka operations capacity to run and scale that infrastructure in house while supporting fraud prevention, marketing analytics, and downstream CRM workflows.",
+  "solution_summary": "Mercari's data platform team adopted Confluent Cloud as the managed streaming backbone for the company's change data capture program. Product teams already ran in-house applications on Kubernetes and used BigQuery for warehousing, but batch retrieval every 10 minutes created delays for fraud detection, incentives, and customer engagement. With Confluent Cloud, Mercari built real-time CDC pipelines that collect data from multiple microservices and databases, stream those changes through Kafka-based infrastructure, and deliver governed event data into analytics and downstream CRM processes. The managed platform removed the burden of cluster construction, rebalancing, and day-two operations, so the team could focus on business-facing use cases. Marketing systems now receive updated customer and transaction data in real time, while trust-and-safety teams consume the same streams to detect prohibited activity faster and support a broader, multi-service marketplace strategy.",
+  "products_used": [
+    "Confluent Cloud",
+    "Kubernetes",
+    "BigQuery"
+  ],
+  "solution_components": [
+    {
+      "name": "Confluent Cloud",
+      "role": "Runs Mercari's managed CDC and event-streaming backbone so multiple teams can publish and consume marketplace data in real time.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Kubernetes",
+      "role": "Hosts the in-house microservices that generate the business events and database changes streamed through the platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Acts as the analytics warehouse that receives real-time streams for marketing and business analysis.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Operational data from Mercari microservices and databases is captured by CDC pipelines on Confluent Cloud, streamed in real time to analytics consumers, loaded into BigQuery for warehousing, and forwarded to downstream CRM services so fraud, marketing, and engagement workflows stay current.",
+  "integration_points": [
+    "microservice databases",
+    "BigQuery",
+    "CRM services"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Fraud Detection",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Mercari eliminated ten-minute batch delays for key workflows, enabled faster fraud detection, improved the timing of incentives and coupons for customers, and gained a stable streaming foundation that has operated without outages while supporting international expansion and additional real-time use cases.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "approximately 23 million monthly users",
+    "real time rather than retrieving it in batches every 10 minutes",
+    "not experienced a single outage due to failure"
+  ],
+  "architecture_clues": [
+    "Mercari built CDC pipelines to integrate data across systems and applications.",
+    "The platform connects multiple in-house microservice databases to BigQuery and downstream CRM tooling.",
+    "The team chose a managed Kafka service to avoid specialist in-house operations work."
+  ],
+  "source_url": "https://www.confluent.io/customers/mercari/",
+  "published_date": "2025-10-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Mercari collects a wide variety of data from multiple microservices and databases for market analysis, marketing, fraud prevention, and other use cases.",
+    "With Confluent, we can now easily build the CDC pipelines we need to acquire data in real time rather than retrieving it in batches every 10 minutes, enabling us to detect fraud quickly.",
+    "streaming data from multiple in-house microservice databases is connected to Confluent and sent to BigQuery, Mercari’s data warehousing solution for analytics, in real time",
+    "With Confluent, we have not experienced a single outage due to failure since its introduction"
+  ],
+  "id": "confluent-mercari-real-time-analytics"
+}

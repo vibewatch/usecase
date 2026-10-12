@@ -1,0 +1,81 @@
+{
+  "slug": "nvidia-pinterest-marketing-personalization",
+  "vendor": "NVIDIA",
+  "customer_name": "Pinterest",
+  "industry": "Retail",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Pinterest needed to serve multimodal AI experiences such as visual search, conversational shopping assistance, and ad optimization at internet scale, but doing that required much faster image understanding, lower inference cost, and higher visual context capacity than earlier serving stacks could provide.",
+  "solution_summary": "Pinterest rebuilt its vision-language serving stack on NVIDIA Blackwell and NVIDIA Dynamo so images, text, and recommendation context could be processed together at platform scale. The system uses an internal image encoder to precompute visual embeddings, which Dynamo and vLLM then serve far more efficiently than raw-pixel inference for every request. That architecture powers Pinterest Assistant, multimodal reranking, content safety, and signal generation across a fleet of 14,000 GPUs spanning Blackwell, Hopper, and prior NVIDIA generations. Open models post-trained on Pinterest data now support shopping and discovery use cases at a fraction of prior transaction cost, while the same AI signals feed ad targeting, bidding, and creative optimization. By optimizing memory bandwidth, prefill, and visual-context handling on Blackwell, Pinterest turned its AI stack into a real-time discovery engine that connects inspiration, commerce, and monetization.",
+  "products_used": [
+    "NVIDIA Blackwell",
+    "NVIDIA Dynamo",
+    "vLLM"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Blackwell",
+      "role": "Provides the inference hardware foundation for large-scale vision-language workloads and Pinterest Assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Serves precomputed visual embeddings and optimizes routing across Pinterest's VLM stack.",
+      "layer": "Serving"
+    },
+    {
+      "name": "vLLM",
+      "role": "Works with Dynamo to deliver efficient multimodal model serving for discovery and shopping features.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "User images, searches, boards, and intent signals are encoded into visual embeddings, served through Dynamo and vLLM, combined with text context inside VLMs, and returned as conversational assistance, reranking, safety signals, and ad-optimization outputs.",
+  "integration_points": [
+    "Pinterest Assistant",
+    "ad targeting",
+    "creative optimization",
+    "content safety"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Pinterest supports 640 million monthly active users with a multimodal AI stack that runs at less than 8% of previous AI transaction costs, delivers a 6% click-through lift for AI creative optimization, processes 25x more visual context per request, and improves end-to-end latency by up to 44x.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "640 million monthly active users",
+    "14,000 NVIDIA GPUs",
+    "80 billion+ monthly searches",
+    "16 billion+ boards",
+    "96%+ unbranded text searches",
+    "less than 8% of previous AI transaction costs",
+    "6% average click-through rate lift",
+    "25x more visual context",
+    "44x faster end-to-end latency"
+  ],
+  "architecture_clues": [
+    "Pinterest serves precomputed visual embeddings rather than raw pixels for many requests.",
+    "Blackwell is optimized around prefill-heavy VLM workloads in the assistant stack.",
+    "The same multimodal signals feed both consumer discovery and advertiser monetization workflows."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/pinterest/",
+  "published_date": "2026-10-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Pinterest built its vision-language model (VLM) serving stack on NVIDIA Blackwell",
+    "Pinterest achieves inference transaction costs at less than 8% of comparable closed proprietary models",
+    "Smart Assembly, a Pinterest Performance+ capability that automatically builds and serves the best-performing ad from advertiser-uploaded images, delivered a 6% average click-through-rate improvement",
+    "With NVIDIA Dynamo, Pinterest Assistant can process 25x more visual context per request"
+  ],
+  "id": "nvidia-pinterest-marketing-personalization"
+}

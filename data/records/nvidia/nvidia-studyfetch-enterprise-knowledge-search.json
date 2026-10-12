@@ -1,0 +1,94 @@
+{
+  "slug": "nvidia-studyfetch-enterprise-knowledge-search",
+  "vendor": "NVIDIA",
+  "customer_name": "StudyFetch",
+  "industry": "Education",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "StudyFetch needed to keep AI tutoring affordable while scaling live lecture transcription and personalized learning for millions of students, but off-the-shelf cloud transcription created cost and latency ceilings that threatened the real-time tutoring experience at the heart of the product.",
+  "solution_summary": "StudyFetch rebuilt its lecture-ingestion and tutoring stack on NVIDIA infrastructure so classroom content could become real-time study guidance. Live lecture audio is transcribed with NVIDIA Riva and the Parakeet ASR model packaged in NVIDIA NIM containers on L40S GPUs, cutting the company's largest inference cost center by roughly ten times. The resulting transcripts feed StudyFetch's Learn Engine, which runs on H100 and L40S GPUs and personalizes tutoring, flashcards, practice tests, and study plans against each learner's course material. Across the rest of the stack, StudyFetch is distilling open NVIDIA Nemotron models so more tutoring and course-generation workloads can move off expensive closed APIs and onto predictable internal capacity. This architecture lets the platform keep hundreds of thousands of lectures flowing every month while expanding into voice tutoring and broader agentic education products for both higher education and new AI-literacy programs.",
+  "products_used": [
+    "NVIDIA Riva",
+    "Parakeet ASR model",
+    "NVIDIA NIM",
+    "NVIDIA Nemotron",
+    "NVIDIA H100 GPUs",
+    "NVIDIA L40S GPUs"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Riva",
+      "role": "Runs the real-time speech pipeline that converts live lecture audio into text for downstream tutoring workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Parakeet ASR model",
+      "role": "Provides the speech-recognition model behind lecture transcription at StudyFetch scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Packages transcription services so a small team can run them without a separate MLOps organization.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Nemotron",
+      "role": "Provides open models that StudyFetch is distilling for tutoring and course-generation workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Power the Learn Engine and model distillation for personalized tutoring features.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA L40S GPUs",
+      "role": "Run production transcription and learning interactions at lower inference cost.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Lecture audio is transcribed in real time with Riva and Parakeet, the resulting text is fed into StudyFetch's Learn Engine, and personalized tutoring, flashcards, tests, and study plans are generated against each learner's own course materials.",
+  "integration_points": [
+    "Learn Engine",
+    "course materials",
+    "voice tutoring"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "StudyFetch cut its largest inference workload cost by about 10x, supports more than 7 million learners, processes hundreds of thousands of lectures each month, personalizes over 100 million learning interactions in real time, and unlocked new voice-tutoring and agentic-learning features without blowing up unit economics.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "~10x reduction in cost on the largest inference workload",
+    "more than 7 million learners",
+    "hundreds of thousands of lectures every month",
+    "100M+ learning interactions",
+    "250,000 K–12 students"
+  ],
+  "architecture_clues": [
+    "Lecture transcription is the foundation of the tutoring experience and is packaged in NIM containers.",
+    "The Learn Engine runs on H100 and L40S GPUs to personalize study flows.",
+    "StudyFetch is planning dedicated NVIDIA B300 systems for more open-model tutoring workloads."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/studyfetch/",
+  "published_date": "2026-08-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By migrating its transcription pipeline to NVIDIA Riva with the Parakeet ASR model, packaging it in NVIDIA NIM microservices, and adopting NVIDIA Nemotron open models with distillation across its stack, StudyFetch cut its largest inference workload’s cost by roughly 10x",
+    "StudyFetch is an AI-native learning workspace used by more than 7 million learners",
+    "Hundreds of thousands of college lectures transcribed in real time every month",
+    "100M+ learning interactions personalized in real time through StudyFetch’s Learn Engine on NVIDIA H100 and L40S GPUs"
+  ],
+  "id": "nvidia-studyfetch-enterprise-knowledge-search"
+}

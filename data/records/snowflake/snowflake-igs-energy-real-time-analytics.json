@@ -1,0 +1,77 @@
+{
+  "slug": "snowflake-igs-energy-real-time-analytics",
+  "vendor": "Snowflake",
+  "customer_name": "IGS Energy",
+  "industry": "Energy",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "IGS Energy needed a scalable data platform for demand forecasting and solar anomaly detection, because its legacy on-premises workflows were brittle, expensive to train at customer-level granularity, and too manual to reliably support commodity purchasing and rooftop-solar performance monitoring.",
+  "solution_summary": "IGS moved forecasting and anomaly-detection workloads into the Snowflake ecosystem so energy analytics, data science, and stakeholder collaboration could run on the same platform. Snowflake stores the large weather, consumption, contract, and account datasets behind IGS's demand-forecasting models, allowing the team to replace hundreds of thousands of per-customer models with one unified model that still preserves accuracy. Snowpark and in-platform ML workflows let data scientists build and execute those models close to the data, while Streamlit helps them ship stakeholder-facing anomaly-detection applications quickly for rooftop-solar monitoring. This design reduced dependency chains from the old on-premises environment, accelerated forecast generation from roughly thirty minutes to minutes, and created a single AI/ML platform that can expand into additional simulations, scenario planning, and third-party data from Snowflake Marketplace without extra ELT complexity.",
+  "products_used": [
+    "Snowflake",
+    "Snowpark",
+    "Streamlit"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Stores and serves the large operational datasets used for forecasting, anomaly detection, and downstream energy analytics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Lets IGS build predictive models inside the Snowflake environment close to the data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Streamlit",
+      "role": "Provides rapid internal applications for testing and presenting anomaly-detection workflows to stakeholders.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Weather, consumption, contract, and solar-production data land in Snowflake, forecasting and anomaly-detection models are built with Snowpark, and Streamlit apps expose results so business users can validate models and act on predictions quickly.",
+  "integration_points": [
+    "Snowflake Marketplace",
+    "internal stakeholder apps",
+    "rooftop solar monitoring"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "IGS cut forecasting training costs by 75%, reduced forecast runtimes from about half an hour to minutes, built a solar anomaly application in two weeks, and improved customer experience by detecting underperforming rooftop arrays more accurately with less manual work.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "75% cost savings",
+    "40 to 50 billion rows",
+    "exceed a terabyte",
+    "took a half hour",
+    "in just two weeks",
+    "more than 1 million U.S. customers"
+  ],
+  "architecture_clues": [
+    "IGS replaced many per-customer forecasting models with one unified model in Snowflake.",
+    "The anomaly application uses weather data and solar-array specifications to predict underperformance.",
+    "Marketplace data is used directly inside Snowflake without separate ELT maintenance."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/igs-energy/",
+  "published_date": "2024-06-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Moving from hundreds of thousands of individual forecasting models in Databricks to one unified model in Snowflake helped IGS achieve 75% cost savings in training",
+    "The unified model on Snowflake is super quick; we’re talking minutes to generate forecasts for hundreds of thousands of customers.",
+    "Shah’s team created an initial anomaly detection application for internal stakeholders in just two weeks for testing.",
+    "Our anomaly detection model helps predict when rooftop solar arrays are underperforming"
+  ],
+  "id": "snowflake-igs-energy-real-time-analytics"
+}
