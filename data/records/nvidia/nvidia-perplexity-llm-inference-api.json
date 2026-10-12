@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-perplexity-llm-inference-api",
+  "slug": "nvidia-perplexity-llm-inference-api",
+  "vendor": "NVIDIA",
+  "customer_name": "Perplexity",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Perplexity needed a production-grade inference stack for pplx-api that could serve open-source LLMs with lower latency, lower first-token delay, and lower operating cost while still scaling elastically across large GPU fleets.",
+  "solution_summary": "Perplexity built pplx-api on NVIDIA-accelerated AWS infrastructure so developers could call open-source language models through a low-latency API instead of managing their own inference clusters. The serving layer runs on Amazon P4d and P5 instances backed by NVIDIA A100 and H100 GPUs, and NVIDIA TensorRT-LLM applies optimizations such as FlashAttention, masked multi-head attention, quantization, and tensor parallelism to improve both context processing and token generation. NVIDIA AI Enterprise supplies the production-ready software base around those optimizations, while AWS-integrated Kubernetes scales the service across hundreds of GPUs. This combination gives Perplexity a faster and cheaper inference plane for real-time applications without sacrificing elasticity or uptime.",
+  "products_used": [
+    "NVIDIA A100 GPUs",
+    "NVIDIA H100 GPUs",
+    "NVIDIA TensorRT-LLM",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA A100 GPUs",
+      "role": "Provide the cost-effective baseline GPU infrastructure that powers pplx-api inference on Amazon P4d instances.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Deliver lower latency and higher throughput for the most demanding inference configurations on Amazon P5 instances.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes LLM inference with GPU-aware attention, batching, and parallelism techniques to improve response speed.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the secure production software platform around TensorRT-LLM and the surrounding inference stack.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Developer API requests hit pplx-api, where TensorRT-LLM-optimized model servers run on A100 and H100 GPU fleets in AWS. Kubernetes scales those services beyond hundreds of GPUs, and the optimized inference path returns tokens with lower latency and lower first-token delay than Perplexity's prior external API routing model.",
+  "integration_points": [
+    "pplx-api developer endpoint",
+    "Amazon P4d and P5 instances",
+    "AWS-integrated Kubernetes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Perplexity achieved up to 3.1x lower latency and up to 4.3x lower first-token latency, cut serving cost by 4x, saved about $600,000 per year by re-pointing external API references to pplx-api, and doubled throughput when moving comparable workloads from A100 to H100 GPUs with FP8 precision.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Up to 3.1x lower latency",
+    "Up to 4.3x lower first-token latency",
+    "4x lower cost",
+    "$600,000 per year in savings",
+    "200% higher throughput on H100 compared with A100 in the same configuration"
+  ],
+  "architecture_clues": [
+    "pplx-api is served on Amazon P4d and P5 instances",
+    "TensorRT-LLM applies FlashAttention, masked MHA, quantization, and tensor parallelism",
+    "The service scales beyond hundreds of GPUs with Kubernetes",
+    "FP8 precision is used on H100-based deployments"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/perplexity/",
+  "published_date": "2024-02-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Perplexity harnesses the power of NVIDIA's hardware and software to solve this challenge.",
+    "Pplx-api can achieve up to 3.1X lower latency and up to 4.3X lower first-token latency relative to other deployment platforms.",
+    "Perplexity was able to lower costs by 4X by simply switching their external inference-serving API references to call pplx-api, resulting in savings of $600,000 per year.",
+    "By leveraging NVIDIA H100 GPUs and FP8 precision on Amazon P5 instances, they can cut their latency in half and boost throughput by 200 percent compared to NVIDIA A100 GPUs."
+  ]
+}

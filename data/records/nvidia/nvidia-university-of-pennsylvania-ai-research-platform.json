@@ -1,0 +1,100 @@
+{
+  "id": "nvidia-university-of-pennsylvania-ai-research-platform",
+  "slug": "nvidia-university-of-pennsylvania-ai-research-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "University of Pennsylvania",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Penn needed shared AI infrastructure that could support researchers across many disciplines without weeks-long wait times, fragmented storage, or the cost barriers that kept frontier-scale training and inference off campus.",
+  "solution_summary": "Penn built a university-wide AI research platform called Betty on NVIDIA DGX SuperPOD so researchers across robotics, biomedicine, genomics, and other fields could use the same high-performance infrastructure. The deployment combines NVIDIA DGX B200 systems, NVIDIA InfiniBand networking, a VAST Data 15x10 array for multi-petabyte storage, and dark-fiber connectivity back to campus through a Flexential colocation site. NVIDIA Mission Control provides cluster-wide observability, while the scheduling layer uses both Slurm for traditional HPC workloads and NVIDIA Run:ai for AI-native training and inference. This architecture lets Penn ingest large research datasets, keep GPUs fed at high throughput, and serve many labs from one governed platform instead of isolated departmental clusters.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD",
+    "NVIDIA DGX B200 systems",
+    "NVIDIA InfiniBand",
+    "VAST Data 15x10 array",
+    "NVIDIA Mission Control",
+    "Slurm",
+    "NVIDIA Run:ai"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD",
+      "role": "Provides the integrated cluster platform that consolidates campus AI training and inference workloads into a shared research environment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX B200 systems",
+      "role": "Supply the GPU compute nodes used for large-scale training, inference, and AI-for-science experiments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA InfiniBand",
+      "role": "Delivers the low-latency, high-speed fabric connecting DGX compute nodes across the SuperPOD.",
+      "layer": "Compute"
+    },
+    {
+      "name": "VAST Data 15x10 array",
+      "role": "Stores multiple petabytes of research data and serves read/write throughput high enough to keep the GPU cluster continuously fed.",
+      "layer": "Storage"
+    },
+    {
+      "name": "NVIDIA Mission Control",
+      "role": "Provides cluster-wide telemetry on health, utilization, and GPU performance so operators can tune workloads and capacity.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Slurm",
+      "role": "Schedules traditional HPC jobs on the shared cluster for researchers who need batch-style compute access.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Run:ai",
+      "role": "Schedules AI-native workloads and inference services so multiple research groups can share the same GPU infrastructure efficiently.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Research datasets move into the VAST Data array and are accessed over InfiniBand by DGX B200 nodes inside the DGX SuperPOD. Slurm and Run:ai schedule different classes of jobs onto the shared cluster, while Mission Control monitors health and utilization so operators can optimize experiments and return capacity to the wider Penn research community.",
+  "integration_points": [
+    "Penn campus research workflows",
+    "Flexential colocation facility",
+    "Dark-fiber connectivity to campus",
+    "Multi-school AI and HPC workloads"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Penn cut wait times from weeks to hours, delivered a 12x speedup in vision-language-action model training, raised experimental throughput 14x, reduced a 40,000-document analysis project from 1.5 years of compute to three days, and now serves about 950 researchers across 200 groups with 120,000 GPU hours per month at roughly $1 per GPU hour.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "12x speedup in vision-language-action model training",
+    "14x increase in daily experimental throughput",
+    "1.5 years of compute time reduced to three days for a 40,000-document project",
+    "950 researchers across 200 groups",
+    "120,000 GPU hours monthly at roughly $1 per GPU hour"
+  ],
+  "architecture_clues": [
+    "Betty is the university-wide AI platform built on DGX SuperPOD",
+    "VAST storage provides more than 250 GB/s read throughput and 60 GB/s write throughput",
+    "Mission Control exposes GPU power, memory, Tensor Core, and communication telemetry",
+    "Penn uses both Slurm and Run:ai on the same cluster"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/university-of-pennsylvania/",
+  "published_date": "2026-10-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "That platform is Betty, built on an NVIDIA DGX SuperPOD with NVIDIA DGX B200 systems.",
+    "VAST Data 15x10 array provides more than 250 GB/s of read throughput and 60 GB/s of write throughput across multiple petabytes of data.",
+    "The cluster runs both Slurm for traditional high-performance computing workloads and NVIDIA Run:ai for AI-native workloads, including inference services.",
+    "Today, Betty serves approximately 950 registered researchers across 200 research groups, delivering 120,000 GPU hours and 30,000 jobs per month at a subsidized cost of roughly $1 per GPU hour."
+  ]
+}

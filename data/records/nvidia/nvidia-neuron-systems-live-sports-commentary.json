@@ -1,0 +1,71 @@
+{
+  "id": "nvidia-neuron-systems-live-sports-commentary",
+  "slug": "nvidia-neuron-systems-live-sports-commentary",
+  "vendor": "NVIDIA",
+  "customer_name": "Neuron Systems",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Neuron Systems needed an always-on AI sports newsroom that could analyze every play, sustain multi-agent reasoning during long live broadcasts, and generate multilingual commentary without the latency, rate limits, and audit gaps of public cloud APIs.",
+  "solution_summary": "Neuron Systems used NVIDIA Innovation Lab as a dedicated test environment to build an always-on AI sports newsroom that can watch live events, reason across multi-agent personalities, and deliver multilingual audio commentary without depending on rate-limited public APIs. Live game signals are processed on NVIDIA H100 GPUs, while NVIDIA CUDA accelerates the inference path that coordinates play analysis, agent debate, and audio generation. The platform also keeps a forensic trace of AI decisions so editorial teams can audit every generated output during a broadcast. By moving the long-running inference workload onto dedicated NVIDIA compute, the team stabilized latency, improved reliability across multi-hour events, and created a repeatable architecture for localized postgame audio episodes and continuous live coverage.",
+  "products_used": [
+    "NVIDIA H100 GPUs",
+    "NVIDIA CUDA"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Provide the accelerated compute used to run live multi-agent sports analysis, commentary generation, and long-running broadcast tests.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates the inference pipeline that turns play analysis into multilingual audio commentary with lower latency and more control than external APIs.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Live sports event inputs flow into an H100-backed inference stack, where CUDA-accelerated agents analyze plays, debate outcomes, and generate multilingual audio segments. The platform stores forensic traces for each generated step so editors can audit outputs while coverage is still in progress.",
+  "integration_points": [
+    "Live sports broadcast feeds",
+    "Multilingual audio distribution workflows",
+    "AI trace audit logs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Neuron Systems kept the platform responsive through a four-plus-hour championship broadcast, generated 1 million audited traces with 100 percent event coverage, reduced some localized audio generation from hours to about 20 minutes, and removed more than 100 hours of cloud API friction in two months.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "1 million audited AI traces",
+    "100% event coverage over more than four hours of live coverage",
+    "About 13.3 seconds from play analysis to audio delivery",
+    "Localized AI audio episodes produced in about 20 minutes",
+    "More than 100 hours of cloud API friction eliminated within two months"
+  ],
+  "architecture_clues": [
+    "Built and tested in NVIDIA Innovation Lab",
+    "Dedicated NVIDIA H100 GPU capacity used for broadcast-scale experiments",
+    "Forensic audit trail retained for generated commentary",
+    "Designed for continuous multilingual live coverage"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/neuron-systems/",
+  "published_date": "2026-08-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Neuron Systems set out to build an always-on AI sports newsroom that could watch every play, reason about what happened, and deliver commentary to fans in multiple languages.",
+    "The Neuron Systems Platform stayed responsive through a four-plus-hour football championship broadcast, with 1 million audited AI traces, 100% event coverage, and zero cascading failures.",
+    "Localized AI audio episodes that once took hours to generate in the cloud are now produced in about 20 minutes, while developers eliminated more than 100 hours of cloud API friction within two months.",
+    "Running inference on NVIDIA H100 GPUs reduced the team's reliance on external cloud APIs and gave them greater control over continuous multilingual coverage and faster experimentation."
+  ]
+}

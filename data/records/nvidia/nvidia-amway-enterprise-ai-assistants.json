@@ -1,0 +1,84 @@
+{
+  "id": "nvidia-amway-enterprise-ai-assistants",
+  "slug": "nvidia-amway-enterprise-ai-assistants",
+  "vendor": "NVIDIA",
+  "customer_name": "Amway",
+  "industry": "Consumer Goods",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Amway needed secure, scalable AI infrastructure that could support assistants across internal operations and seller-facing workflows while improving inference efficiency, reducing rollout times, and preventing sensitive data leakage.",
+  "solution_summary": "Amway standardized its internal AI rollout on NVIDIA AI Enterprise to support assistants for employees and Amway Business Owners without sacrificing governance or performance. The company uses NVIDIA NIM to accelerate inference for its office assistant and AM Copilot experiences, and it embeds NVIDIA NeMo Guardrails across the workflow to screen prompts and responses for sensitive information. For lifecycle management, Amway runs NVIDIA Base Command Manager Essentials to automate model training, deployment, monitoring, and GPU resource operations across the stack. The assistants connect document-processing and knowledge-base tasks with business logic so marketers and support staff can retrieve cases, generate presentations, and deliver personalized guidance at scale. This architecture let Amway move secure generative AI use cases from experiments into on-premises production with better throughput, faster rollout cycles, and tighter compliance controls.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "NVIDIA NIM",
+    "NVIDIA NeMo Guardrails",
+    "NVIDIA Base Command Manager Essentials"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the supported enterprise AI software stack behind Amway's assistant portfolio.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Accelerates inference for the AI Office Assistant, AM Copilot, and seller-facing assistant experiences.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo Guardrails",
+      "role": "Applies safety and privacy controls that block sensitive information across the AI workflow.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA Base Command Manager Essentials",
+      "role": "Automates full-lifecycle model operations, deployment, and resource management across the AI environment.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Documents, knowledge-base content, and business logic are routed into on-premises assistants running on AI Enterprise. NIM serves the inference layer for office and seller-facing copilots, Guardrails filters inputs and outputs for sensitive content, and Base Command Manager Essentials orchestrates training, deployment, and monitoring across the environment.",
+  "integration_points": [
+    "Internal documents and uploaded files",
+    "ABO knowledge base",
+    "Amway business logic",
+    "On-premises employee and marketer assistant workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Sales Automation"
+  ],
+  "business_outcome": "Amway improved inference efficiency by 40 percent, blocked 99.9 percent of sensitive information, shortened a major delivery cycle from 35 days to 15 days, improved operational efficiency by more than 60 percent, and put assistants into production for office work and marketer support.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "40% increase in inference efficiency",
+    "99.9% interception rate for sensitive information",
+    "35 days to 15 days",
+    "More than 60% improvement in operational efficiency",
+    "Up to 10 million case retrievals daily"
+  ],
+  "architecture_clues": [
+    "The intelligent office assistant was deployed on premises",
+    "Base Command Manager Essentials is used for lifecycle management across training, deployment, and inference",
+    "A visual monitoring dashboard tracks GPU utilization and anomaly alerts in real time",
+    "Assistants connect to a dynamic knowledge base and embedded business logic"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/amway/",
+  "published_date": "2026-02-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using NVIDIA AI Enterprise, Amway is establishing a secure, efficient, and scalable AI infrastructure.",
+    "Amway experienced a 40% increase in inference efficiency.",
+    "To keep data safe, the company integrated NeMo Guardrails across the AI workflow, blocking 99.9% of sensitive information and ensuring everything remains secure and compliant.",
+    "With the automated orchestration capabilities of NVIDIA Base Command Manager Essentials, Amway has achieved full-lifecycle management of AI models, covering training, deployment, and inference."
+  ]
+}

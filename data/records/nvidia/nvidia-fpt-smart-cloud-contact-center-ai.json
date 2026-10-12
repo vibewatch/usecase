@@ -1,0 +1,96 @@
+{
+  "id": "nvidia-fpt-smart-cloud-contact-center-ai",
+  "slug": "nvidia-fpt-smart-cloud-contact-center-ai",
+  "vendor": "NVIDIA",
+  "customer_name": "FPT Smart Cloud",
+  "industry": "Software / SaaS",
+  "region": "Vietnam",
+  "company_size": "Unknown",
+  "business_problem": "FPT Smart Cloud needed to scale virtual-assistant deployments for customer service and workforce enablement while improving speech quality, reducing model-training time, and keeping inference efficient enough for millions of monthly interactions.",
+  "solution_summary": "FPT Smart Cloud built its customer-service and workforce-assistance stack on NVIDIA GPUs so the same platform could power large-scale call-center automation and better speech synthesis models. FPT AI Engage handles high-volume virtual-agent workloads such as information inquiries, card self-service, surveys, debt collection, and service-to-sales flows, while FPT AI Mentor helps agents learn with AI-generated situational questions and answers. In production, the inference path is optimized with NVIDIA TensorRT and served through NVIDIA Triton Inference Server using dynamic batching. The company uses Kubernetes with NVIDIA GPU Operator and Multi-Instance GPU support to deploy virtual assistants at scale, while training moved from NVIDIA A100 Tensor Core GPUs toward NVIDIA H100 Tensor Core GPUs to reduce processing time and improve multilingual voice quality for 18 languages.",
+  "products_used": [
+    "NVIDIA A100 Tensor Core GPUs",
+    "NVIDIA H100 Tensor Core GPUs",
+    "NVIDIA TensorRT",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA GPU Operator",
+    "Multi-Instance GPU"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Powered the earlier generation of speech-model training and inference for FPT's virtual-assistant stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 Tensor Core GPUs",
+      "role": "Accelerate newer speech-synthesis and language-model training workloads with faster turnaround and higher voice quality.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes model inference so call-center and voice workloads can run efficiently at large scale.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves the optimized AI models behind FPT AI Engage and related virtual-agent workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA GPU Operator",
+      "role": "Helps manage GPU infrastructure in Kubernetes for large-scale cloud-native assistant deployments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Multi-Instance GPU",
+      "role": "Partitions GPU resources so many assistant workloads can share infrastructure efficiently.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer calls and agent-assist requests enter FPT AI Engage and FPT AI Mentor, where speech and language models are served through Triton and TensorRT-optimized inference. Kubernetes, GPU Operator, and MIG distribute those workloads across shared GPU infrastructure, while A100 and H100 systems train new multilingual speech and LLM models for ongoing quality improvements.",
+  "integration_points": [
+    "Home Credit Vietnam call-center workflows",
+    "Card self-service, surveys, debt collection, and telesales flows",
+    "Kubernetes-based deployment environment"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "FPT scaled Home Credit Vietnam from 5 million calls per month to 12 million peak-hour calls, cut operating costs by 50 percent, achieved a 98 percent call success rate, doubled service-to-sales volume, improved knowledge quality for agents by 55 percent, and shortened speech-model preparation from about 20 days to five days with H100-based training.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "5,000,000 calls per month scaled to 12,000,000 calls during peak hours",
+    "50% operating cost savings",
+    "98% call success rate",
+    "4x improvement in speech-model efficiency",
+    "2x increase in service-to-sales volume"
+  ],
+  "architecture_clues": [
+    "Dynamic batching is used in Triton for efficiency",
+    "The stack uses Kubernetes, GPU Operator, and MIG for large-scale deployment",
+    "H100 training increased model output dimension and aptitude by 100x across 18 languages",
+    "FPT AI Mentor generates situational questions and answers for workforce development"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/fpt-smart-cloud-levels-up-customer-service-operations/",
+  "published_date": "2024-09-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "FPT.AI Virtual Agent for Call Center supported Home Credit Vietnam to make more than 5,000,000 calls per month. This was scaled up, powered by NVIDIA, to 12,000,000 calls during peak hours.",
+    "The deployment is optimized using NVIDIA TensorRT and served in NVIDIA Triton Inference Server with dynamic batching, saving up to 20 percent of high-performance computing resources.",
+    "With H100, the total process only requires one dedicated server. The speech synthesis model is ready in five days, a 4X efficiency improvement compared to the NVIDIA A100.",
+    "FPT AI Engage increased Home Credit Vietnam's service-to-sales volume by 2X."
+  ]
+}

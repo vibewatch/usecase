@@ -1,0 +1,72 @@
+{
+  "id": "nvidia-clinomic-icu-ai-assistant",
+  "slug": "nvidia-clinomic-icu-ai-assistant",
+  "vendor": "NVIDIA",
+  "customer_name": "Clinomic",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Clinomic needed to consolidate ICU patient data, reduce documentation burden, and run bedside analytics and telemedicine functions without relying on cloud connectivity that could introduce latency or operational risk inside the hospital.",
+  "solution_summary": "Clinomic built Mona as a bedside intensive-care assistant on NVIDIA Jetson AGX Xavier so data aggregation, documentation support, diagnostics, and telemedicine could run directly in the patient room. The platform integrates third-party and AI applications, aggregates vital signs, lab results, demographics, and imaging inputs, and performs real-time edge processing so hospitals do not depend on cloud connectivity for core ICU workflows. NVIDIA TensorRT accelerates deployed models on Jetson, while the device's support for TensorFlow, PyTorch, and ONNX helps Clinomic integrate pretrained models with monitoring and imaging systems already used in care environments. This edge architecture powers voice recognition, multilingual translation, ultrasound enhancement, predictive analytics for conditions such as sepsis or acute kidney injury, and remote consultations from one modular clinical workstation.",
+  "products_used": [
+    "NVIDIA Jetson AGX Xavier",
+    "NVIDIA TensorRT"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Jetson AGX Xavier",
+      "role": "Provides the edge-compute platform that runs Mona's bedside data aggregation, voice, imaging, and predictive-analytics workloads in the ICU.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Accelerates deployed models so Mona can deliver real-time bedside inference with lower latency and better reliability.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Vitals, lab results, demographics, voice commands, and imaging signals are aggregated on Mona at the bedside. Jetson AGX Xavier processes those inputs locally, TensorRT-optimized models generate documentation, predictions, translations, and image enhancements, and the resulting insights are presented to care teams or remote specialists without a cloud round trip.",
+  "integration_points": [
+    "Third-party and AI applications",
+    "Medical imaging systems",
+    "Monitoring systems",
+    "Remote telemedicine consultations"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Document Processing"
+  ],
+  "business_outcome": "Clinomic reduced documentation errors by 68 percent, saved 550 hours per year per bed, increased patient-care capacity by 143 percent, and reduced hospital transfers by 26 percent while giving care teams a real-time bedside assistant for ICU operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "68% reduction in documentation errors",
+    "550 hours saved per year per bed",
+    "143% increase in patient-care capacity",
+    "26% reduction in transfers to other hospitals",
+    "33% reduction in perceived workload"
+  ],
+  "architecture_clues": [
+    "Mona performs real-time edge processing instead of relying on cloud connectivity",
+    "The platform supports voice recognition, translation, predictive analytics, and telemedicine from one bedside station",
+    "Jetson integrates pretrained models with existing monitoring and imaging systems",
+    "The platform is modular, open, and integrates with third-party clinical applications"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/clinomic/",
+  "published_date": "2026-02-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Mona is more than a device-it's a modular, open, and scalable platform that integrates with third-party and AI applications.",
+    "Powered by NVIDIA Jetson AGX Xavier, Mona brings telemedicine directly to the bedside.",
+    "Its real-time edge processing eliminates reliance on cloud connectivity, delivering faster, more reliable performance in hospitals.",
+    "68% reduction in documentation errors, enhancing the accuracy of patient records and improving overall care quality."
+  ]
+}

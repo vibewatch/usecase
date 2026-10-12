@@ -1,0 +1,88 @@
+{
+  "id": "nvidia-amdocs-telecom-ai-agents",
+  "slug": "nvidia-amdocs-telecom-ai-agents",
+  "vendor": "NVIDIA",
+  "customer_name": "Amdocs",
+  "industry": "Telecommunications",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Amdocs needed a telecom-specific generative AI platform that could support customer care, commerce, and operations use cases with lower latency and lower token cost than generic deployments while remaining manageable across enterprise production environments.",
+  "solution_summary": "Amdocs built amAIz as a telecom-specific generative AI platform by combining model development, customization, and serving on NVIDIA's enterprise stack. The company uses NVIDIA DGX Cloud for model training and adaptation, then relies on NVIDIA AI Enterprise to standardize the software environment across its delivery pipeline. NVIDIA NIM microservices serve LLM inference for telecom use cases in commerce, care, and operations, while Amdocs' LLMOps and data flywheel layers use NVIDIA NeMo tooling and TensorRT-LLM-compatible inference paths to fine-tune models with domain data and deploy them efficiently. This architecture lets Amdocs move from generic LLM access to reusable, production-grade AI agents that are optimized for lower latency, lower token consumption, and consistent deployment across customer-experience and network-operation workflows.",
+  "products_used": [
+    "NVIDIA DGX Cloud",
+    "NVIDIA AI Enterprise",
+    "NVIDIA NIM",
+    "NVIDIA NeMo",
+    "NVIDIA TensorRT-LLM"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Provides the accelerated training environment used to adapt and fine-tune telecom-specific foundation models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Standardizes the software stack used to develop and deliver Amdocs' production generative AI services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Serves LLM inference as reusable microservices for commerce, care, and operations agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Supports the data flywheel and LLMOps workflow used to customize models with telecom-specific data.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "Optimizes inference paths so deployed agents can answer user queries with lower latency and lower cost.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Telecom data and domain knowledge are curated through Amdocs' LLMOps workflow, where models are trained on DGX Cloud and packaged in the AI Enterprise environment. NIM microservices and TensorRT-LLM then serve the tuned models into customer care, commerce, and operations applications, while usage data feeds back into ongoing refinement.",
+  "integration_points": [
+    "Telecom commerce systems",
+    "Customer care workflows",
+    "Operations support tools",
+    "Amdocs LLMOps and data-flywheel pipelines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Amdocs cut token consumption by as much as 60 percent for preprocessing and up to 40 percent for inference while also reducing query latency by about 80 percent, making telecom AI agents cheaper to run and fast enough for near-real-time end-user experiences.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Up to 60% lower token consumption for data preprocessing",
+    "Up to 40% lower token consumption for inferencing",
+    "Approximately 80% lower query latency"
+  ],
+  "architecture_clues": [
+    "amAIz is a domain-specific generative AI platform for telecom",
+    "Inference is deployed through universal LLM NIM microservices",
+    "The delivery stack is built around a NeMo-based data flywheel and LLMOps pipeline",
+    "TensorRT-LLM, vLLM, and SGLang are supported through the universal LLM NIM approach"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/amdocs-builds-generative-ai-agents-for-telecom/",
+  "published_date": "2024-09-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Amdocs, a leading provider of software and services for communications and media providers, built amAIz-a domain-specific generative AI platform that helps telecom companies transform customer experiences, automate processes, and optimize decision-making.",
+    "Amdocs is using NVIDIA DGX Cloud and NVIDIA AI Enterprise software to develop and deliver solutions based on commercially available large language models and domain-adapted models.",
+    "On NVIDIA infrastructure, Amdocs reduced the number of tokens consumed for deployed use cases-by as much as 60 percent for data preprocessing and by up to 40 percent for inferencing.",
+    "The collaboration has successfully reduced query latency by approximately 80 percent, ensuring that end users experience near-real-time responses."
+  ]
+}

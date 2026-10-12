@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-astellas-pharma-drug-discovery-structure-prediction",
+  "slug": "nvidia-astellas-pharma-drug-discovery-structure-prediction",
+  "vendor": "NVIDIA",
+  "customer_name": "Astellas Pharma Inc.",
+  "industry": "Healthcare",
+  "region": "Japan",
+  "company_size": "Enterprise",
+  "business_problem": "Astellas needed to shorten the slow handoff between experimental scientists and computational chemists in early drug discovery so more researchers could use structure prediction and affinity screening without waiting on scarce specialist capacity.",
+  "solution_summary": "Astellas Pharma turned structure prediction and affinity screening into a broadly accessible internal service by deploying NVIDIA Boltz-2 NIM as a production microservice for experimental scientists. Instead of waiting for specialized chemistry handoffs, researchers submit biomolecular hypotheses into an application built around Boltz-2 NIM, with NVIDIA TensorRT speeding complex modeling and activity prediction. The service also draws on NVIDIA BioNeMo tools and DGX H100/H200 resources from Astellas' broader AI research environment. Predictions are used to prioritize compounds before wet-lab assays so only the most promising candidates move forward. That shifts early discovery from an expert bottleneck into a self-service loop that speeds hit identification, reduces experimental volume, and broadens access to molecular AI across the company.",
+  "products_used": [
+    "NVIDIA Boltz-2 NIM",
+    "NVIDIA TensorRT",
+    "NVIDIA BioNeMo",
+    "NVIDIA DGX H100/H200"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Boltz-2 NIM",
+      "role": "Serves biomolecular structure and binding-affinity predictions so experimental scientists can screen hypotheses directly.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes complex modeling and activity-prediction inference so results return faster than the open-source baseline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA BioNeMo",
+      "role": "Supports Astellas' broader molecular AI environment and adjacent biological modeling workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DGX H100/H200",
+      "role": "Provides the accelerated infrastructure that underpins the company's wider drug-discovery model-development work.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Researchers submit target and compound hypotheses into an internal application built around Boltz-2 NIM. TensorRT-optimized predictions score structures and binding affinity, Astellas prioritizes the best candidates, and only the shortlisted compounds move into laboratory assays for hit identification.",
+  "integration_points": [
+    "Internal drug-discovery applications",
+    "Wet-lab assay workflows",
+    "Tokyo-1 research environment"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Astellas cut the number of compounds needing experimental evaluation by more than 90 percent, shortened Hit-ID timelines by more than 70 percent, reduced complex-model response time from over 20 seconds to 7 seconds, and expanded the system to more than 2,000 total users within four months.",
+  "outcome_category": [
+    "Speed to Market",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "More than 90% reduction in compounds evaluated",
+    "More than 70% shorter Hit-ID research timeline",
+    "Over 20 seconds reduced to 7 seconds for complex modeling and activity prediction",
+    "More than 50 regular users and over 2,000 total users within four months"
+  ],
+  "architecture_clues": [
+    "Astellas participated in the Tokyo-1 Project",
+    "Boltz-2 NIM is deployed as a company-wide application",
+    "Predictions are used to prioritize compounds before wet-lab validation",
+    "The workflow complements other in-house antibody and screening models"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/astellas-pharma/",
+  "published_date": "2026-07-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AI-guided prioritization reduced the number of compounds requiring experimental evaluation to just 10, resulting in a 90% reduction in assays needed.",
+    "Using Boltz-2 NIM optimized with TensorRT, results were obtained in just 7 seconds.",
+    "Applications incorporating Boltz-2 NIM have been provided company-wide; as of four months post-release, there are over 50 regular users, and the total number of users has exceeded 2,000.",
+    "The full process, from hypothesis generation to Hit-ID, was completed in less than one month."
+  ]
+}

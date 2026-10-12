@@ -1,0 +1,105 @@
+{
+  "id": "nvidia-corover-ai-indic-language-agents",
+  "slug": "nvidia-corover-ai-indic-language-agents",
+  "vendor": "NVIDIA",
+  "customer_name": "CoRover.ai",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "CoRover.ai needed a scalable way to serve multilingual AI agents across India's 22 official languages while reducing latency, raising throughput, and meeting enterprise-grade security and compliance requirements for population-scale conversational services.",
+  "solution_summary": "CoRover.ai built a population-scale conversational AI stack for India by tuning BharatGPT for 22 Indic languages and deploying it on NVIDIA's model-development and speech stack. The company uses NVIDIA NeMo to build and customize the multilingual foundation layer, runs training and inference on NVIDIA DGX systems with NVIDIA A100 and H100 Tensor Core GPUs, and uses NVIDIA Riva to handle speech interactions across voice channels. NVIDIA AI Enterprise provides the supported software environment for enterprise deployments, while TensorRT and Triton optimizations are used to improve throughput and latency for real-time conversations. This modular architecture lets CoRover deliver text, voice, and video agents with stronger language coverage, lower time to first token, and the scalability required for millions of users and heavily regulated enterprise or public-sector deployments.",
+  "products_used": [
+    "NVIDIA NeMo",
+    "NVIDIA DGX",
+    "NVIDIA A100 Tensor Core GPUs",
+    "NVIDIA H100 Tensor Core GPUs",
+    "NVIDIA Riva",
+    "NVIDIA AI Enterprise",
+    "NVIDIA TensorRT",
+    "NVIDIA Triton Inference Server"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Provides the modular framework used to build and tune BharatGPT for Indic-language conversational workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DGX",
+      "role": "Supplies the accelerated infrastructure used to train and serve the multilingual conversational models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA A100 Tensor Core GPUs",
+      "role": "Run efficient training and inference workloads for CoRover's conversational AI platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA H100 Tensor Core GPUs",
+      "role": "Provide higher-performance compute for scaling BharatGPT and related multimodal workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Riva",
+      "role": "Handles speech AI so voice-based assistants can respond across multiple Indian languages and dialects.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the supported enterprise software stack for secure production deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes inference latency and throughput for real-time conversations at scale.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves optimized models in production so CoRover can scale multimodal agents efficiently.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer text, voice, and video requests are routed into BharatGPT models customized in NeMo and served on DGX infrastructure. Riva handles speech interactions, while TensorRT and Triton optimize and serve real-time inference on A100 and H100 GPU resources for multilingual responses across enterprise and public-facing channels.",
+  "integration_points": [
+    "Voice, text, and video conversational channels",
+    "BharatGPT multilingual foundation model",
+    "Enterprise compliance and security controls"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "CoRover improved time to first token by 70 percent, increased output token throughput by 20 to 25 percent, and created a modular stack that can serve over a billion individuals with lower operational cost and better support for Indian languages.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Support for 22 officially recognized Indian languages",
+    "Used by over a billion individuals",
+    "70% lower time to first token",
+    "20%-25% higher output token throughput"
+  ],
+  "architecture_clues": [
+    "BharatGPT is the foundation model customized for Indic languages",
+    "The platform supports multimodal deployments across voice, text, and video",
+    "The stack is designed for population-scale deployment with enterprise security requirements",
+    "Inference is optimized with TensorRT and Triton"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/corover-delivers-ai-for-indian-markets-using-nvidia-nemo/",
+  "published_date": "2025-06-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With 22 officially recognized languages and a multitude of regional dialects, understanding and processing these linguistic nuances remains a complex task.",
+    "CoRover.ai developed a conversational generative AI platform that leverages BharatGPT, a large language model fine-tuned for 22 Indic languages.",
+    "CoRover.ai utilizes NVIDIA A100 and H100 Tensor Core GPUs for efficient training and inference. The AI solutions are enhanced by NVIDIA NeMo for conversational AI and NVIDIA Riva for speech AI.",
+    "Time to first token reduced by 70%, and output token throughput increased by 20%-25%, enabling real-time responses at scale."
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "nvidia-siam-ai-thailand-tourism-assistant",
+  "slug": "nvidia-siam-ai-thailand-tourism-assistant",
+  "vendor": "NVIDIA",
+  "customer_name": "Siam AI Corporation Co., Ltd. (Siam.AI Cloud)",
+  "industry": "Software / SaaS",
+  "region": "Thailand",
+  "company_size": "Unknown",
+  "business_problem": "Thailand tourism information was fragmented across multiple websites, difficult to verify, often outdated, and hard for visitors to access across languages, creating poor experiences and inefficient support workflows.",
+  "solution_summary": "Siam AI and Wipro built an AI tourism assistant called Sukjai on top of SiamGPT so visitors could get reliable travel information through a single multilingual interface instead of navigating disconnected websites. The implementation starts with tourism content from the Tourism Authority of Thailand and additional curated travel data, which Siam AI verifies and improves before using it to train and ground the model. NVIDIA NeMo provides the framework for building the tourism-specialized language model, NeMo Curator prepares the source corpus, and NeMo Retriever grounds responses in approved tourism knowledge. NVIDIA NIM then packages the model as reusable services that can be delivered through web apps, mobile apps, and APIs, giving Siam AI a modular stack for real-time tourist assistance.",
+  "products_used": [
+    "NVIDIA NeMo",
+    "NVIDIA NeMo Curator",
+    "NVIDIA NeMo Retriever",
+    "NVIDIA NIM",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Provides the model-development framework used to build the tourism-focused language model on SiamGPT.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Prepares and improves the tourism data corpus before it is used for training and grounding.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA NeMo Retriever",
+      "role": "Grounds answers in verified tourism knowledge so the assistant can respond accurately to visitor questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Packages the assistant as reusable inference microservices that can be delivered through multiple application channels.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the enterprise software foundation for deploying the tourism assistant stack in production.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Tourism information from the Tourism Authority of Thailand and other sources is verified and curated, then prepared with NeMo Curator for model training and retrieval grounding. Visitor questions are answered through NIM-hosted services that use NeMo-based models and NeMo Retriever to return approved travel guidance across web, mobile, and API delivery channels.",
+  "integration_points": [
+    "Tourism Authority of Thailand data",
+    "Additional tourism information sources",
+    "SiamGPT platform",
+    "Web applications, mobile applications, and APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Siam AI created a single assistant that can give tourists more reliable and timely information across languages while also giving Thailand tourism stakeholders a modular way to distribute verified destination knowledge through web, mobile, and API channels.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Sukjai is the tourism assistant persona built on SiamGPT",
+    "The initial model specialization focused on Thai tourism",
+    "The platform is designed for web apps, mobile apps, and API integration",
+    "The data corpus is verified before being used to ground answers"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/thailand-tourism-with-ai-powered-assistance/",
+  "published_date": "2025-06-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Before the NVIDIA-powered solution was implemented, tourists struggled with fragmented information spread across multiple websites, concerns about information authenticity, outdated content, and language barriers.",
+    "The integration of NVIDIA's advanced technologies-particularly the NVIDIA NeMo framework and NVIDIA NIM-enabled the development of a sophisticated tourism assistant platform called Sukjai.",
+    "The training data for this model comprises tourism information provided by the Tourism Authority of Thailand.",
+    "SiamGPT features a modular design and supports multiple usage formats, including web applications, mobile applications, and API integration."
+  ]
+}

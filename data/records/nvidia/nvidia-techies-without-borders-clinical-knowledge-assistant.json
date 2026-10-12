@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-techies-without-borders-clinical-knowledge-assistant",
+  "slug": "nvidia-techies-without-borders-clinical-knowledge-assistant",
+  "vendor": "NVIDIA",
+  "customer_name": "Techies Without Borders",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Techies Without Borders needed a way to deliver trustworthy medical education and decision support to frontline clinicians in underserved regions without forcing them to wait minutes for answers or rely on brittle keyword-based search.",
+  "solution_summary": "Techies Without Borders built CMES-AI as a retrieval-based clinical education assistant to give frontline practitioners in low-resource settings fast access to trustworthy medical guidance. The platform packages NVIDIA Nemotron Rerank, Embed, and Instruct NIM microservices into a pipeline that indexes educational and licensing content, retrieves the most relevant passages, reranks them for precision, and generates natural-language answers at the point of care. The system runs on NVIDIA accelerated computing so clinicians can use the service in clinics and training centers rather than waiting minutes for batch-style lookups. TWB is also testing deployments across sites in The Gambia, Papua New Guinea, and Ecuador, using the same stack to preserve institutional knowledge and improve response quality as more usage data is collected. The result is a faster, more scalable knowledge assistant for continuing medical education and everyday care delivery.",
+  "products_used": [
+    "NVIDIA NIM",
+    "NVIDIA Nemotron Rerank",
+    "NVIDIA Nemotron Embed",
+    "NVIDIA Nemotron Instruct"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NIM",
+      "role": "Packages the model services behind CMES-AI so the healthcare knowledge assistant can be operated as a production microservice stack.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Nemotron Rerank",
+      "role": "Reorders retrieved passages so clinicians see the most clinically relevant guidance first.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Nemotron Embed",
+      "role": "Creates embeddings that map healthcare reference material and user questions into the same retrieval space.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Nemotron Instruct",
+      "role": "Generates natural-language answers grounded in the retrieved and reranked medical content.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Continuing medical education and licensing content is embedded and indexed for retrieval. A clinician question is matched to relevant passages, reranked with Nemotron Rerank, and answered by Nemotron Instruct through NIM microservices so guidance can be returned in seconds at the point of care.",
+  "integration_points": [
+    "Continuing medical education content",
+    "Licensing resources",
+    "Clinics and training centers in low- and middle-income countries"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "CMES-AI now supports more than 17,000 healthcare practitioners across 19 countries, improved query response time from five minutes to two seconds, increased token processing speed 22x, and helped expand healthcare impact to roughly 20 million people each year.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Over 17,000 healthcare practitioners",
+    "19 countries",
+    "Improving care for 20 million people each year",
+    "Query response time dropped from 5 minutes to 2 seconds",
+    "22x acceleration in token processing speed"
+  ],
+  "architecture_clues": [
+    "CMES-AI is being tested in sites across The Gambia, Papua New Guinea, and Ecuador",
+    "The system moved from tag-based processing to natural-language queries",
+    "Human and clinical interactions create new feedback for ongoing improvement",
+    "The stack is built as a retrieval-and-generation workflow rather than a standalone chatbot"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/techies-without-borders/",
+  "published_date": "2026-06-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "CMES supports over 17,000 healthcare practitioners across 19 low- and middle-income countries, improving care for 20 million people each year.",
+    "Powered by NVIDIA Nemotron Rerank, Embed, and Instruct NIM microservices, CMES slashed query processing time from 5 minutes to just 2 seconds.",
+    "Token processing speed jumped from 0.83 tokens per second to 18.23 tokens per second-a 22x acceleration.",
+    "By minimizing latency while maximizing referential accuracy, CMES-AI moved from tag-based processing to natural language queries."
+  ]
+}

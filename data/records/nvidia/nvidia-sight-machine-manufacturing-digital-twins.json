@@ -1,0 +1,81 @@
+{
+  "id": "nvidia-sight-machine-manufacturing-digital-twins",
+  "slug": "nvidia-sight-machine-manufacturing-digital-twins",
+  "vendor": "NVIDIA",
+  "customer_name": "Sight Machine",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Manufacturers needed a faster way to understand equipment issues, share floor knowledge across shifts, and resolve downtime without forcing operators to piece together disconnected plant data and static reports.",
+  "solution_summary": "Sight Machine's Operator Agent combines live production data, AI recommendations, and immersive digital twins so manufacturing teams can diagnose problems in context instead of chasing isolated alerts. To build the digital twins, Sight Machine uses OpenUSD and NVIDIA Omniverse technologies together with plant scans from NavVis and Kinetic Vision. Omniverse Kit App Streaming and NVIDIA A10 GPUs on Azure deliver those twins to any Chromium-based browser, where operators can see AI recommendations mapped directly onto the physical line. The same platform adds tablet-friendly workflows for documenting downtime, non-compliance, and root causes, turning each intervention into structured feedback for future models. By connecting real-time plant telemetry, 3D context, and operator knowledge, Sight Machine created a unified workflow for faster issue detection and resolution.",
+  "products_used": [
+    "OpenUSD",
+    "NVIDIA Omniverse",
+    "Omniverse Kit App Streaming",
+    "NVIDIA A10 GPUs on Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenUSD",
+      "role": "Provides the scene representation used to model the production environment as a physically accurate digital twin.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Hosts the collaborative digital-twin environment where operators visualize live plant context and AI recommendations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Omniverse Kit App Streaming",
+      "role": "Streams the digital twin to browser-based clients so operators can use it from any device.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A10 GPUs on Azure",
+      "role": "Provide the cloud GPU capacity needed to render and deliver the digital twin experience at scale.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Plant scans are converted into OpenUSD-based digital twins that are hosted in Omniverse and streamed through Kit App Streaming on Azure A10 GPUs. Live production data and AI recommendations are layered into that 3D environment, and operator actions, downtime notes, and non-compliance records become feedback data for future AI training.",
+  "integration_points": [
+    "NavVis and Kinetic Vision plant scans",
+    "Microsoft Azure",
+    "Tablet-friendly operator workflows",
+    "Existing production monitoring data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Sight Machine customers are resolving downtime in minutes instead of hours, reporting up to 10 percent better line productivity and up to 15 percent higher profit margins by using digital twins and AI recommendations to target failures faster.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "Downtime resolved in minutes instead of hours",
+    "Up to 10% improvement in line productivity",
+    "Up to 15% increase in profit margins"
+  ],
+  "architecture_clues": [
+    "Digital twins are built from LiDAR and photogrammetry scans",
+    "The system is delivered to Chromium-based browsers through Kit App Streaming",
+    "Workflow documentation doubles as training data for future AI models",
+    "Operator Agent combines AI recommendations with real-time production data"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/sight-machine/",
+  "published_date": "2026-03-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "To build the digital twins, Sight Machine uses OpenUSD, NVIDIA Omniverse technologies, and advanced LiDAR and photogrammetry technologies from NavVis.",
+    "By leveraging Omniverse Kit App Streaming and NVIDIA A10 GPUs on Azure, these immersive, physically accurate digital twins are made accessible on every device with a Chromium-based browser.",
+    "Teams using Operator Agent are resolving downtime in minutes instead of hours.",
+    "Operators from one large manufacturer have reported reduced downtime and higher throughput, resulting in up to 10% improvements in line productivity and up to 15% increases in profit margins."
+  ]
+}

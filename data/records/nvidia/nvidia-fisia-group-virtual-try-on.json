@@ -1,0 +1,80 @@
+{
+  "id": "nvidia-fisia-group-virtual-try-on",
+  "slug": "nvidia-fisia-group-virtual-try-on",
+  "vendor": "NVIDIA",
+  "customer_name": "Fisia Group",
+  "industry": "Retail",
+  "region": "Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Fisia needed to improve fit confidence, conversion, and basket size for Nike shoppers while reducing returns and making the same personalized experience work consistently in stores, on mobile devices, and online.",
+  "solution_summary": "Fisia deployed Doris.ai as an experience-commerce layer for Nike Brazil so shoppers could move between physical and digital channels without losing personalization. The workflow starts with two smartphone photos that Doris.ai uses to estimate body measurements and generate a personalized 3D avatar. Behind that experience, the platform runs seven APIs on a Kubernetes cluster backed by NVIDIA A10 Tensor Core GPUs, while NVIDIA TensorRT and Triton Inference Server optimize the recommendation and avatar-inference path for real-time performance. Product-catalog data, purchase history, and live inventory are combined to recommend sizes, outfits, alternate colors, and complementary items in one conversational flow. This gives Fisia a scalable try-on and sizing stack that can serve smart mirrors, mobile apps, and ecommerce surfaces from the same backend.",
+  "products_used": [
+    "Doris.ai",
+    "NVIDIA A10 Tensor Core GPUs",
+    "NVIDIA TensorRT",
+    "NVIDIA Triton Inference Server"
+  ],
+  "solution_components": [
+    {
+      "name": "Doris.ai",
+      "role": "Provides the virtual try-on, avatar generation, recommendation, and sizing application used by Nike Brazil shoppers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA A10 Tensor Core GPUs",
+      "role": "Supply the AWS GPU capacity that powers the horizontally scalable try-on and recommendation APIs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes avatar generation and recommendation inference so personalized experiences can run in real time.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves the underlying models behind sizing, garment visualization, and recommendation APIs at scale.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Two shopper photos are processed by Doris.ai to estimate measurements and generate a personalized 3D avatar. Product catalog, purchase history, and real-time inventory data then flow through TensorRT- and Triton-optimized services on A10 GPU-backed Kubernetes clusters to return size recommendations, outfit suggestions, and virtual try-on results across store, web, and mobile channels.",
+  "integration_points": [
+    "Shopper phone photos",
+    "Product catalogs",
+    "Purchase history",
+    "Real-time inventory data",
+    "Smart mirrors, ecommerce, and mobile experiences"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Fisia raised in-store conversion by 150 percent, increased average ticket size by 45 percent, achieved 128 percent ROI, and used the same real-time recommendation stack to improve fit confidence and reduce friction across channels.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "150% increase in in-store conversion rates",
+    "45% increase in average ticket size",
+    "128% ROI",
+    "66% reduction in product returns for another Doris.ai retailer deployment"
+  ],
+  "architecture_clues": [
+    "Seven APIs are hosted on a Kubernetes cluster of AWS instances with A10 GPUs",
+    "The experience uses just two shopper photos to build a personalized 3D avatar",
+    "The same stack serves smart mirrors, mobile devices, and online storefronts",
+    "Marvik built the computer-vision, recommendation, and generative-model layers"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/fisia-group/",
+  "published_date": "2026-03-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With just two photos from a shopper's phone-one from the front and one from the side-the platform instantly captures accurate body measurements.",
+    "The platform's virtual try-on and avatar generation capabilities are powered by a combination of seven APIs, hosted on a Kubernetes cluster of AWS instances equipped with NVIDIA A10 Tensor Core GPUs.",
+    "Behind the scenes, Doris.ai leverages NVIDIA TensorRT and Triton Inference Server to deliver tailored recommendations and answer nuanced customer queries.",
+    "In a recent proof of concept with Fisia Group, in-store Doris.ai users saw conversion rates rise from 8% to 20%, while average ticket size climbed by 45%."
+  ]
+}

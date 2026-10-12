@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-instacart-smart-cart-physical-ai",
+  "slug": "nvidia-instacart-smart-cart-physical-ai",
+  "vendor": "NVIDIA",
+  "customer_name": "Instacart",
+  "industry": "Retail",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Instacart needed real-time visibility into in-store shopping behavior, shelf conditions, and basket changes so retailers could reduce shrink, improve recommendations, and personalize physical-store experiences that traditional store systems could not observe well.",
+  "solution_summary": "Instacart turned its Caper Cart into a physical-AI retail edge platform by splitting the workload between on-cart sensor fusion and cloud ranking services. On each cart, NVIDIA Jetson Orin NX modules fuse three basket-facing camera streams with weight sensors and location inputs to build a real-time view of what the shopper has picked up and where the cart is in the store. That state feeds recommendation and reminder experiences, while cloud-side models running on NVIDIA Hopper GPUs use NVIDIA Dynamo to serve ranking and ad workloads faster than prior CPU deployments. The same architecture reuses signals from Instacart's online commerce graph to personalize in-store experiences, improve shelf visibility, and scale a single vision-language model across stores with minimal retraining.",
+  "products_used": [
+    "NVIDIA Jetson Orin NX modules",
+    "NVIDIA Hopper GPUs",
+    "NVIDIA Dynamo"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Jetson Orin NX modules",
+      "role": "Run on-cart sensor fusion that combines camera, weight, and location inputs into a real-time basket and shopper-state view.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Hopper GPUs",
+      "role": "Execute cloud-side ranking and recommendation inference that powers ads and personalized prompts from store and commerce signals.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Serves GPU-accelerated ranking workloads so recommendation and advertising responses can be delivered with lower latency.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Cart-mounted cameras, weight sensors, and location signals are fused on Jetson Orin NX modules to understand basket contents and shopper context in real time. Those signals are combined with Instacart's commerce graph in cloud inference services on Hopper GPUs and Dynamo, which return ranked recommendations, reminders, and retail analytics back to the cart experience.",
+  "integration_points": [
+    "Caper Cart sensors and cameras",
+    "Instacart online commerce graph",
+    "Retail shelf-mapping data",
+    "In-store recommendation and advertising surfaces"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Instacart scaled Caper Cart deployments across more than 100 cities with 3x year-over-year growth, measured more than 1 percent incremental sales lift from in-store recommendations, cut whole-page ranking latency by 65 percent, and increased click-through rates by more than 5 percent.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "More than 1% incremental sales lift",
+    "65% lower whole-page ranking latency",
+    "More than 5% higher click-through rates",
+    "Deployments across 100+ cities",
+    "3x year-over-year Caper Cart growth"
+  ],
+  "architecture_clues": [
+    "Three basket-facing camera angles plus weight and location inputs are fused on-cart",
+    "A single vision-language model serves all stores with minimal store-specific retraining",
+    "Cloud-side ranking workloads were migrated from CPU to GPU",
+    "The platform combines in-store sensor signals with online order history"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/instacart/",
+  "published_date": "2026-07-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By deploying NVIDIA Jetson for real-time sensor fusion, Instacart has turned a standard shopping cart into an AI platform that personalizes every trip and gives retailers visibility they've never had before.",
+    "By incorporating ranking signals from Instacart's online platform-drawn from 1.6 billion lifetime grocery orders-into in-store recommendations, Instacart measured more than 1% incremental sales lift in rigorous A/B testing.",
+    "Migrating ad and recommendation workloads from CPU to GPU cut whole-page ranking latency by 65% and item ranking latency by 40%, while click-through rates increased by more than 5%.",
+    "Scaled Caper Cart deployments across 100+ cities with 3x year-over-year growth, using a single vision-language model that serves all stores with minimal store-specific retraining."
+  ]
+}

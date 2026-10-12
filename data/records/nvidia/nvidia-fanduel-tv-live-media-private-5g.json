@@ -1,0 +1,88 @@
+{
+  "id": "nvidia-fanduel-tv-live-media-private-5g",
+  "slug": "nvidia-fanduel-tv-live-media-private-5g",
+  "vendor": "NVIDIA",
+  "customer_name": "FanDuel TV and Verizon",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "FanDuel TV and Verizon needed a portable production architecture that could move high-volume live sports feeds with lower latency and stronger security than cloud backhaul while still supporting AI-assisted camera selection and on-site editorial control.",
+  "solution_summary": "Verizon built its Private 5G Network with Enterprise AI for FanDuel TV as an on-site live-media stack that combines wireless connectivity, edge compute, and AI inference in one portable unit. Camera feeds are ingested over Verizon's licensed-spectrum private 5G network and processed at the edge with NVIDIA Holoscan for Media running on bare-metal infrastructure with NVIDIA L40S GPUs. NVIDIA AI Enterprise and NIM microservices support the AI runtime, which can apply object detection, feed prioritization, captioning, and other media workflows without sending traffic back to a remote cloud. The platform is SMPTE ST 2110 compliant and includes timing, control, and container orchestration so broadcasters can train and deploy custom LLM and VLM workflows on site while keeping sensitive live-production data local.",
+  "products_used": [
+    "Verizon Private 5G Network with Enterprise AI",
+    "NVIDIA Holoscan for Media",
+    "NVIDIA L40S GPUs",
+    "NVIDIA AI Enterprise",
+    "NVIDIA NIM"
+  ],
+  "solution_components": [
+    {
+      "name": "Verizon Private 5G Network with Enterprise AI",
+      "role": "Provides the portable wireless and edge-compute environment used to transport and manage live production traffic on site.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Holoscan for Media",
+      "role": "Processes video and audio at the edge so AI-assisted production logic can run near the source.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA L40S GPUs",
+      "role": "Supply the high-performance on-site compute used for real-time media inference and custom AI model deployment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the software stack used to run enterprise AI workloads in the live-media edge environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Offers reusable microservices inside the edge stack for deploying AI-assisted media workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Live camera feeds are transmitted over Verizon's private 5G network into an edge compute module, where Holoscan for Media and NIM-backed services run on L40S GPUs. The AI layer analyzes video in real time to prioritize feeds, identify key race moments, and return low-latency outputs to producers so editorial control stays on site rather than in a distant cloud.",
+  "integration_points": [
+    "Wireless live camera feeds",
+    "SMPTE ST 2110 workflows",
+    "Editorial production control rooms",
+    "Partner tools from Haivision, Ericsson, Monks, and Dell Technologies"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The pilot cut latency by more than 50 percent versus traditional cloud workflows, gave FanDuel immediate editorial control near the source, reduced hardware from multiple racks to one portable unit, and created a scalable path for AI-assisted production across more than 130 racetracks.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Over 50% lower latency versus traditional cloud workflows",
+    "More than 70,000 live horse races annually",
+    "More than 130 racetracks nationwide",
+    "Hardware footprint condensed from multiple racks to one portable unit"
+  ],
+  "architecture_clues": [
+    "The edge stack is fully IP-based and compliant with SMPTE ST 2110",
+    "Uses licensed spectrum with mmWave, C-band, and CBRS radios",
+    "Supports on-site training and deployment of custom LLM and VLM workflows",
+    "Partner demo used Mistral 12B for object detection and feed prioritization"
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/verizon-private-5g-network-with-enterprise-ai-for-live-media/",
+  "published_date": "2026-03-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "FanDuel's pilot using Verizon's Private 5G Network with Enterprise AI running on NVIDIA AI Enterprise and Holoscan for Media achieved over 50% lower latency and enabled immediate editorial control near the source for live race production.",
+    "Built on NVIDIA Holoscan for Media, it enables real-time AI inference for video and audio and supports multi-vendor workflows via container orchestration.",
+    "It runs on bare-metal infrastructure leveraging NVIDIA L40S GPUs for high-performance compute, networking, and storage.",
+    "This pilot shows how Private 5G and edge AI can transform high-volume live sports production."
+  ]
+}
