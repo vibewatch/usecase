@@ -1351,7 +1351,8 @@ a.chip--glass:hover {
 
 .heatmap__cell:not(.is-empty):hover,
 .heatmap__cell:not(.is-empty):focus-visible {
-  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink);
+  /* Inset ring: an outer one is painted over by the next cells and clipped by the scroller. */
+  box-shadow: inset 0 0 0 2px var(--ink), inset 0 0 0 4px var(--surface);
   outline: none;
 }
 

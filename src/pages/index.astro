@@ -3,7 +3,6 @@ import BarList from "../components/BarList.astro";
 import CaseCard from "../components/CaseCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
-  buildMatrix,
   countValues,
   flattenValues,
   formatDate,
@@ -15,7 +14,7 @@ import {
 import { caseStudies } from "../lib/caseStudies";
 import { facetHref, sortNewest } from "../lib/facets";
 import { caseHref, href } from "../lib/paths";
-import { groupByWeek, toCardRecord, UNDATED_WEEK, weekShortLabel } from "../lib/weeks";
+import { groupByWeek, toCardRecord, UNDATED_WEEK } from "../lib/weeks";
 import { vendorStyle } from "../lib/vendors";
 
 // Insights describe the real market signal; synthetic seed rows only count
@@ -30,10 +29,8 @@ const industries = uniqueSorted(caseStudies.map((record) => record.industry));
 const vendorCounts = countValues(signal.map((record) => record.vendor));
 const industryCounts = countValues(signal.map((record) => record.industry));
 const topUseCases = topValues(flattenValues(signal, (record) => record.use_case_category), 8);
-const topProducts = topValues(flattenValues(signal, (record) => record.products_used), 8);
-const topOutcomes = topValues(flattenValues(signal, (record) => record.outcome_category), 8);
 
-// Weekly collection batches (data/weekly), used for the cadence chart and KPIs.
+// Weekly collection batches (data/weekly), used for the KPIs.
 const groups = groupByWeek(caseStudies);
 const datedGroups = groups.filter((group) => group.week !== UNDATED_WEEK);
 const latestWeek = datedGroups[0];
@@ -42,37 +39,6 @@ const lastCollected = caseStudies
   .filter(Boolean)
   .sort()
   .at(-1);
-
-// Collection cadence: real records per week, oldest → newest, last 12 weeks.
-const cadence = datedGroups
-  .slice(0, 12)
-  .reverse()
-  .map((group) => ({
-    week: group.week,
-    label: weekShortLabel(group.week),
-    count: group.records.filter((record) => !record.is_sample).length,
-  }));
-const cadenceMax = cadence.reduce((highest, entry) => Math.max(highest, entry.count), 1);
-
-// Industry × use-case heatmap over the top use cases (sequential blue ramp).
-const heatColumns = topUseCases.map((entry) => entry.label);
-const heatRows = buildMatrix(
-  signal,
-  industryCounts.map((entry) => entry.label),
-  heatColumns,
-  (record) => [record.industry],
-  (record) => record.use_case_category,
-).filter((row) => row.total > 0);
-const heatMax = heatRows.reduce(
-  (highest, row) => Math.max(highest, ...row.cells.map((cell) => cell.count)),
-  1,
-);
-const HEAT_RAMP = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95"];
-function heatStep(count: number): number {
-  if (count <= 0) return -1;
-  if (heatMax <= 1) return 0;
-  return Math.round(((count - 1) / (heatMax - 1)) * (HEAT_RAMP.length - 1));
-}
 
 const latestStories = sortByRecency(realRecords.length > 0 ? realRecords : caseStudies).slice(0, 4);
 const latestGrid = sortNewest(realRecords.length > 0 ? realRecords : caseStudies).slice(0, 12);
@@ -217,11 +183,11 @@ const methodSteps = [
         <div class="section__head">
           <div>
             <p class="eyebrow">Insights</p>
-            <h2 class="section__title">Where vendors prove customer value</h2>
+            <h2 class="section__title">Where AI delivers customer value</h2>
           </div>
-          <p class="section__subtitle">
-            Aggregated across {signal.length} customer stories. Click any bar to filter the explorer.
-          </p>
+          <div class="section__actions">
+            <a class="btn btn--primary" href={href("/insights/")}>See all insights</a>
+          </div>
         </div>
 
         <div class="insight-grid">
@@ -235,94 +201,10 @@ const methodSteps = [
 
           <article class="panel">
             <header class="panel__head">
-              <h3>Stories by vendor</h3>
-              <span class="panel__meta">stories per vendor</span>
+              <h3>Top industries</h3>
+              <span class="panel__meta">stories per industry</span>
             </header>
-            <BarList items={vendorCounts.slice(0, 8)} noun="stories" linkTo={(label) => explore("vendor", label)} />
-          </article>
-
-          <article class="panel">
-            <header class="panel__head">
-              <h3>Most-cited products</h3>
-              <span class="panel__meta">mentions across stories</span>
-            </header>
-            <BarList items={topProducts} noun="mentions" linkTo={(label) => explore("q", label)} />
-          </article>
-
-          <article class="panel">
-            <header class="panel__head">
-              <h3>Business outcomes claimed</h3>
-              <span class="panel__meta">stories per outcome</span>
-            </header>
-            <BarList items={topOutcomes} noun="stories" />
-          </article>
-
-          {cadence.length > 1 && (
-            <article class="panel panel--wide">
-              <header class="panel__head">
-                <h3>Collection cadence</h3>
-                <span class="panel__meta">new stories per collection week</span>
-              </header>
-              <div class="columns" role="img" aria-label={`New stories per week, latest week ${cadence.at(-1)?.count ?? 0}`}>
-                {cadence.map((entry, index) => (
-                  <div class="columns__col" tabindex="0" data-tip={`Week of ${entry.label}: ${entry.count} new ${entry.count === 1 ? "story" : "stories"}`}>
-                    <span class="columns__bar" style={`height: ${Math.max(2, (entry.count / cadenceMax) * 100)}%`}>
-                      <span class="columns__value">{index === cadence.length - 1 || entry.count === cadenceMax ? entry.count : ""}</span>
-                    </span>
-                    <span class="columns__label">{entry.label}</span>
-                  </div>
-                ))}
-              </div>
-              <table class="sr-only">
-                <caption>New stories per collection week</caption>
-                <thead><tr><th>Week of</th><th>Stories</th></tr></thead>
-                <tbody>{cadence.map((entry) => <tr><td>{entry.label}</td><td>{entry.count}</td></tr>)}</tbody>
-              </table>
-            </article>
-          )}
-
-          <article class="panel panel--wide">
-            <header class="panel__head">
-              <h3>Industry × use case coverage</h3>
-              <div class="heat-legend" aria-hidden="true">
-                <span>1</span>
-                {HEAT_RAMP.map((color) => <span class="heat-legend__swatch" style={`background: ${color}`}></span>)}
-                <span>{heatMax}</span>
-                <span class="heat-legend__caption">stories</span>
-              </div>
-            </header>
-            <div class="heatmap-scroll">
-              <table class="heatmap">
-                <thead>
-                  <tr>
-                    <th scope="col">Industry</th>
-                    {heatColumns.map((column) => <th scope="col"><span>{column}</span></th>)}
-                    <th scope="col">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {heatRows.map((row) => (
-                    <tr>
-                      <th scope="row">{row.label}</th>
-                      {row.cells.map((cell) => {
-                        const step = heatStep(cell.count);
-                        return (
-                          <td
-                            class:list={["heatmap__cell", { "is-empty": step < 0, "is-dark": step >= 3 }]}
-                            style={step >= 0 ? `background: ${HEAT_RAMP[step]}` : undefined}
-                            tabindex={step >= 0 ? 0 : undefined}
-                            data-tip={step >= 0 ? `${row.label} × ${cell.label}: ${cell.count} ${cell.count === 1 ? "story" : "stories"}` : undefined}
-                          >
-                            {cell.count || ""}
-                          </td>
-                        );
-                      })}
-                      <td class="heatmap__total">{row.total}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <BarList items={industryCounts.slice(0, 8)} noun="stories" linkTo={(label) => explore("industry", label)} />
           </article>
         </div>
       </div>
@@ -354,8 +236,8 @@ const methodSteps = [
             <p class="cta__text">Search by vendor, industry, use case or product, and go straight to the architecture and outcomes behind each deployment.</p>
           </div>
           <div class="cta__actions">
-            <a class="btn btn--primary" href="#explore">Explore use cases</a>
-            <a class="btn btn--glass" href="#insights">See insights</a>
+            <a class="btn btn--primary" href={href("/explore/")}>Explore use cases</a>
+            <a class="btn btn--glass" href={href("/insights/")}>See insights</a>
           </div>
         </div>
       </div>

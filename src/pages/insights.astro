@@ -1,0 +1,159 @@
+---
+import BarList from "../components/BarList.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Heatmap from "../components/Heatmap.astro";
+import { countValues, flattenValues, topValues } from "../lib/analytics";
+import { caseStudies } from "../lib/caseStudies";
+import { href } from "../lib/paths";
+
+const records = caseStudies.filter((record) => !record.is_sample);
+const explore = (param: string, value: string) => href(`/explore/?${param}=${encodeURIComponent(value)}`);
+
+const useCases = countValues(flattenValues(records, (record) => record.use_case_category));
+const industries = countValues(records.map((record) => record.industry));
+const vendors = countValues(records.map((record) => record.vendor));
+const areas = countValues(flattenValues(records, (record) => record.technical_area));
+const outcomes = countValues(flattenValues(records, (record) => record.outcome_category));
+const products = topValues(flattenValues(records, (record) => record.products_used), 15);
+const withMetrics = records.filter((record) => record.metrics.length > 0).length;
+
+// Adoption over time: stories per publication quarter (the stories' own dates, 2023 onward).
+const quarterOf = (date: string) => (/^20\d\d-\d\d/.test(date) ? `${date.slice(0, 4)} Q${Math.ceil(Number(date.slice(5, 7)) / 3)}` : "");
+const quarters = countValues(records.map((record) => quarterOf(record.published_date)).filter((q) => q >= "2023"))
+  .sort((a, b) => a.label.localeCompare(b.label));
+const quarterMax = quarters.reduce((highest, entry) => Math.max(highest, entry.count), 1);
+
+const heatUseCases = useCases.slice(0, 10).map((entry) => entry.label);
+const heatVendors = vendors.slice(0, 12).map((entry) => entry.label);
+---
+
+<BaseLayout title="Insights | Use Case Intelligence" description={`What ${records.length.toLocaleString("en")} real-world AI customer stories say about use cases, industries, vendors, products and outcomes.`}>
+  <main>
+    <section class="page-hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container page-hero__inner">
+        <p class="eyebrow eyebrow--light">Insights</p>
+        <h1 class="page-hero__title">Where AI delivers customer value</h1>
+        <p class="hero__lead">
+          Aggregated across {records.length.toLocaleString("en")} customer stories from {vendors.length} vendors and {industries.length} industries.
+          Click any bar to open those stories in the explorer.
+        </p>
+        <dl class="kpi-row">
+          <div class="kpi"><dt>Customer stories</dt><dd>{records.length.toLocaleString("en")}</dd></div>
+          <div class="kpi"><dt>Vendors</dt><dd>{vendors.length}</dd></div>
+          <div class="kpi"><dt>Industries</dt><dd>{industries.length}</dd></div>
+          <div class="kpi"><dt>Use-case categories</dt><dd>{useCases.length}</dd></div>
+          <div class="kpi"><dt>With measured results</dt><dd>{Math.round((withMetrics / Math.max(records.length, 1)) * 100)}%</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section--compact">
+      <div class="container">
+        <div class="insight-grid">
+          {quarters.length > 1 && (
+            <article class="panel panel--wide">
+              <header class="panel__head">
+                <h3>AI adoption stories over time</h3>
+                <span class="panel__meta">stories per publication quarter</span>
+              </header>
+              <div class="columns" role="img" aria-label={`Stories per quarter, ${quarters[0].label} to ${quarters.at(-1)?.label}`}>
+                {quarters.map((entry) => (
+                  <div class="columns__col" tabindex="0" data-tip={`${entry.label}: ${entry.count} ${entry.count === 1 ? "story" : "stories"}`}>
+                    <span class="columns__bar" style={`height: ${Math.max(2, (entry.count / quarterMax) * 100)}%`}>
+                      <span class="columns__value">{entry.count === quarterMax ? entry.count : ""}</span>
+                    </span>
+                    <span class="columns__label">{entry.label.replace(/^20(\d\d) (Q\d)$/, "$2 ’$1")}</span>
+                  </div>
+                ))}
+              </div>
+              <table class="sr-only">
+                <caption>Stories per publication quarter</caption>
+                <thead><tr><th>Quarter</th><th>Stories</th></tr></thead>
+                <tbody>{quarters.map((entry) => <tr><td>{entry.label}</td><td>{entry.count}</td></tr>)}</tbody>
+              </table>
+            </article>
+          )}
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Use-case categories</h3>
+              <span class="panel__meta">stories per category</span>
+            </header>
+            <BarList items={useCases} noun="stories" linkTo={(label) => explore("usecase", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Industries</h3>
+              <span class="panel__meta">stories per industry</span>
+            </header>
+            <BarList items={industries} noun="stories" linkTo={(label) => explore("industry", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Vendors</h3>
+              <span class="panel__meta">stories per vendor</span>
+            </header>
+            <BarList items={vendors} noun="stories" linkTo={(label) => explore("vendor", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Technical areas</h3>
+              <span class="panel__meta">stories per area</span>
+            </header>
+            <BarList items={areas} noun="stories" linkTo={(label) => explore("area", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Most-cited products</h3>
+              <span class="panel__meta">mentions across stories</span>
+            </header>
+            <BarList items={products} noun="mentions" linkTo={(label) => explore("q", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Business outcomes claimed</h3>
+              <span class="panel__meta">stories per outcome</span>
+            </header>
+            <BarList items={outcomes} noun="stories" linkTo={(label) => explore("outcome", label)} />
+          </article>
+
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <h3>Industry × use case</h3>
+              <span class="panel__meta">top {heatUseCases.length} use cases</span>
+            </header>
+            <Heatmap
+              records={records}
+              rowLabel="Industry"
+              rows={industries.map((entry) => entry.label)}
+              columns={heatUseCases}
+              rowValues={(record) => [record.industry]}
+              columnValues={(record) => record.use_case_category}
+            />
+          </article>
+
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <h3>Vendor × use case</h3>
+              <span class="panel__meta">top {heatVendors.length} vendors, top {heatUseCases.length} use cases</span>
+            </header>
+            <Heatmap
+              records={records}
+              rowLabel="Vendor"
+              rows={heatVendors}
+              columns={heatUseCases}
+              rowValues={(record) => [record.vendor]}
+              columnValues={(record) => record.use_case_category}
+            />
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
