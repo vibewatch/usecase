@@ -488,7 +488,9 @@ def author(workers: int = 6, model: str = "gpt-5.4", limit: Optional[int] = None
             record["source_type"] = "company"
             if not record.get("published_date") or record["published_date"] == "unknown":
                 record["published_date"] = job.get("published_date") or "unknown"
-            record["vendor"] = (record.get("vendor") or "In-house").strip()
+            record["vendor"] = (record.get("vendor") or "").strip()
+            if record["vendor"].lower() in ("", "unknown", "not specified", "none", "n/a"):
+                record["vendor"] = "In-house"  # the skill's rule when no external provider is named
             try:
                 normalize_record(record, 0)
             except ValueError as exc:

@@ -1,0 +1,101 @@
+{
+  "id": "in-house-servicenow-generative-ai-operations",
+  "slug": "in-house-servicenow-generative-ai-operations",
+  "vendor": "In-house",
+  "customer_name": "ServiceNow",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "ServiceNow wanted to solve complex operational problems across IT, employee, sales, and developer workflows, starting with a need to make its IT service desk more efficient and then reduce manual work, improve self-service, and help staff find and produce information faster.",
+  "solution_summary": "ServiceNow describes a multi-use-case generative AI deployment running on the Now Platform across its own operations as a first-party adopter. The implementation builds on earlier machine learning in Predictive Intelligence, which predicts business service and routes incidents to the right assignment groups, and extends that foundation with AI Search, AI Search with GenAI, Now Assist for IT Service Management, Now Assist for Creator, and the Generative AI Controller. User questions, incident work notes, and knowledge content are processed inside Now Platform workflows; AI Search with GenAI sends retrieved information to an LLM to synthesize a single actionable answer with follow-up Q&A, while Now Assist summarizes incident histories for agents and converts natural-language prompts into code suggestions for developers. Generative AI Controller acts as the reusable integration layer for connecting ServiceNow instances to domain-specific or general-purpose LLMs so teams can embed generation into workflows such as knowledge base content creation without rebuilding integrations each time.",
+  "products_used": [
+    "Now Platform",
+    "Predictive Intelligence",
+    "AI Search",
+    "AI Search with GenAI",
+    "Now Assist for IT Service Management",
+    "Now Assist for Creator",
+    "Generative AI Controller"
+  ],
+  "solution_components": [
+    {
+      "name": "Now Platform",
+      "role": "Hosts the internal workflows and production generative AI use cases used across ServiceNow operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Predictive Intelligence",
+      "role": "Predicts the business service and routes incidents to the proper assignment groups for the IT service desk.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Search",
+      "role": "Provides search across ServiceNow operations and supports self-service and case deflection experiences.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI Search with GenAI",
+      "role": "Generates a single actionable answer to user questions by summarizing retrieved information and supporting follow-up questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Now Assist for IT Service Management",
+      "role": "Summarizes incident work notes so agents spend less time reading and compiling case history."
+    },
+    {
+      "name": "Now Assist for Creator",
+      "role": "Turns natural-language descriptions into intelligent code suggestions or complete code for developers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Generative AI Controller",
+      "role": "Connects ServiceNow instances to domain-specific or general-purpose LLMs so generative AI can be embedded into workflows without rebuilding integrations.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "User questions, incident work notes, and knowledge content enter workflows on the Now Platform. AI Search with GenAI retrieves supporting information and sends it to an LLM for synthesis into a single answer, while Now Assist summarizes work notes or converts developer prompts into code suggestions. The outputs are then returned to employees, agents, developers, and the sales team inside their existing ServiceNow workflows.",
+  "integration_points": [
+    "incident work notes",
+    "knowledge base articles",
+    "user-asked questions in self-service workflows",
+    "sales questions about ServiceNow products and solutions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "ServiceNow reports early gains in productivity, agility, and employee experience from moving multiple generative AI use cases from pilots into production, with positive employee feedback on self-service answers, increased agent satisfaction, and faster developer work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "more than 15 Now Assist use cases to production"
+  ],
+  "architecture_clues": [
+    "ServiceNow says more than 15 Now Assist use cases were brought to production on the Now Platform in 2023.",
+    "The deployment combines earlier machine learning with newer generative AI capabilities.",
+    "Generative AI Controller is used as a reusable connection layer between ServiceNow instances and LLMs.",
+    "The sales Q&A capability includes source citations.",
+    "ServiceNow positions itself as 'customer zero' and moved use cases from pilots to production."
+  ],
+  "source_url": "https://www.servicenow.com/workflow/now-on-now/using-generative-ai-capabilities.html",
+  "published_date": "2023-09-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"This year alone, we will have brought more than 15 Now Assist use cases to production on the Now Platform\"",
+    "\"We used the machine learning capabilities in Predictive Intelligence to help predict the business service and route incidents to the proper assignment groups.\"",
+    "\"AI Search with GenAI – This generates actionable answers to user-asked questions to significantly improve self-service. Data is sent to a large language model (LLM), which summarizes the information into a single answer.\"",
+    "\"Now Assist for IT Service Management – This is an internally developed use case to increase agent productivity. It uses generative AI’s summarization features to produce a summary of incident work notes\"",
+    "\"Now Assist for Creator ... Generative AI converts the text into intelligent code suggestions or complete code\"",
+    "\"The controller allows us to connect ServiceNow instances to our domain-specific LLMs or general-purpose LLMs ... We’re using it for knowledge base content generation.\"",
+    "\"A question-and-answer capability helps our sales team find answers to specific questions about our products and solutions, including source citations.\""
+  ],
+  "source_type": "company"
+}

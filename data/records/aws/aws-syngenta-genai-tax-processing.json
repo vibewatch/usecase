@@ -1,0 +1,95 @@
+{
+  "id": "aws-syngenta-genai-tax-processing",
+  "slug": "aws-syngenta-genai-tax-processing",
+  "vendor": "AWS",
+  "customer_name": "Syngenta",
+  "industry": "Agriculture",
+  "region": "Basel, Switzerland",
+  "company_size": "Enterprise",
+  "business_problem": "Syngenta needed to handle supplier invoice tax processing in Argentina despite multiple provincial taxes, exemptions, and dual SAP systems, where manual entry slowed operations, introduced errors, and increased compliance risk.",
+  "solution_summary": "DXC built Syngenta an intelligent tax automation solution on AWS-native services to process supplier invoices for Argentina. Optical Character Recognition (OCR) reads and digitizes invoice content, and GenAI capabilities analyze the extracted tax information at scale so it can be matched across multiple systems, including Syngenta’s dual SAP environment. The processed data is consolidated in Syngenta’s GenAI Invoice Data Lake, which the story describes as a central platform connecting OCR, AI, and analytics capabilities for continuous learning and improvement. Interactive dashboards sit on top of this flow to give tax experts real-time visibility into issues, enriched data, and faster correction workflows. The implementation is modular, receives weekly updates, and is designed to extend to other LATAM countries while also supporting new applications for SAP tax entry improvement and regulatory-change summarization.",
+  "products_used": [
+    "AWS-native services",
+    "Optical Character Recognition (OCR)",
+    "GenAI capabilities",
+    "GenAI Invoice Data Lake",
+    "interactive dashboards",
+    "SAP"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS-native services",
+      "role": "Provide the cloud foundation on which the intelligent tax automation solution is built.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Optical Character Recognition (OCR)",
+      "role": "Automatically reads and digitizes supplier invoice data for downstream tax analysis.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "GenAI capabilities",
+      "role": "Analyze digitized invoice and tax data at scale to improve tax booking and automation outcomes.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GenAI Invoice Data Lake",
+      "role": "Acts as the central platform connecting OCR, AI, and analytics capabilities for continuous learning and a unified invoice and tax view.",
+      "layer": "Storage"
+    },
+    {
+      "name": "interactive dashboards",
+      "role": "Present real-time insights so tax experts can identify and correct issues faster.",
+      "layer": "Serving"
+    },
+    {
+      "name": "SAP",
+      "role": "Serves as the enterprise system environment whose dual instances are matched against invoice tax data and targeted for improved tax entry."
+    }
+  ],
+  "data_flow": "Supplier invoices are ingested through OCR, digitized, and passed to GenAI-based analysis running on AWS-native services. The resulting tax data is matched across Syngenta’s dual SAP systems and consolidated in the GenAI Invoice Data Lake, where AI and analytics support continuous improvement. Interactive dashboards then surface real-time insights to tax experts for review and correction.",
+  "integration_points": [
+    "Supplier invoices",
+    "dual SAP systems",
+    "Tax experts using interactive dashboards"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Syngenta achieved more than 90% tax-booking accuracy while reducing manual errors and speeding tax processing, improving data quality and audit readiness, and creating a modular platform that can be extended across LATAM and into additional compliance workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "More than 90% accuracy in tax bookings"
+  ],
+  "architecture_clues": [
+    "Deployment targets tax processing for Argentina while Syngenta is headquartered in Basel, Switzerland.",
+    "The solution matches invoice tax data across dual SAP systems.",
+    "The architecture is modular and receives weekly updates.",
+    "The platform is designed to extend to other countries across LATAM.",
+    "Two new applications are already in development: one for SAP tax entry improvement and another for summarizing and tracking regulatory changes."
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/syngenta-achieves-tax-accuracy-with-genai-powered-automation",
+  "published_date": "2025-11-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"multiple provincial taxes, exemptions and dual SAP systems made supplier invoice processing highly complex. Manual entry slowed operations and increased compliance risk.\"",
+    "\"extracts tax data from invoices, matches it across multiple systems and displays real-time insights through interactive dashboards.\"",
+    "\"built on AWS-native services, combines Optical Character Recognition (OCR) with GenAI capabilities to automatically read and digitize invoice data, then analyze it at scale.\"",
+    "\"This modular solution forms the foundation of Syngenta’s GenAI Invoice Data Lake, a central platform that connects OCR, AI and analytics capabilities to deliver continuous learning and improvement.\"",
+    "\"More than 90% accuracy in tax bookings\"",
+    "\"Improved data quality and audit readiness\""
+  ],
+  "source_type": "company"
+}

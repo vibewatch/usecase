@@ -1,0 +1,101 @@
+{
+  "id": "google-cloud-deutsche-telekom-agentic-network-operations",
+  "slug": "google-cloud-deutsche-telekom-agentic-network-operations",
+  "vendor": "Google Cloud",
+  "customer_name": "Deutsche Telekom",
+  "industry": "Telecommunications",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Deutsche Telekom needed to move network operations beyond fragmented, reactive troubleshooting so it could predict, diagnose, and resolve service-impacting issues across RAN, transport, and core domains before customers experienced degraded connectivity.",
+  "solution_summary": "Deutsche Telekom built and implemented MINDR as a multi-agent network diagnostics and remediation system with Google Cloud. The deployment extends the production RAN Guardian Agent, which already runs live in Germany, into an end-to-end service operations architecture. Specialized agents ingest network signals and event data from multiple network domains, then correlate them using Google Cloud's Autonomous Network Operations framework together with Google's Gemini models on Vertex AI. The agents create a real-time cross-domain view of service performance, support root-cause analysis, and trigger controlled remediation actions. In production, RAN Guardian monitors traffic surges and major events, pre-checks affected mobile sites, and autonomously adjusts network settings when loads spike. The source does not describe the persistent storage layer, but it clearly shows an AI serving layer for explainable diagnostics and operator-facing or automated remediation across Deutsche Telekom's network operations.",
+  "products_used": [
+    "MINDR",
+    "RAN Guardian Agent",
+    "Google Gemini models",
+    "Vertex AI",
+    "Google Cloud Autonomous Network Operations framework",
+    "A2A (Agent-to-Agent) protocol"
+  ],
+  "solution_components": [
+    {
+      "name": "MINDR",
+      "role": "Deutsche Telekom's multi-agent AI system for end-to-end network diagnostics and remediation across service domains.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "RAN Guardian Agent",
+      "role": "Production agent that monitors high-impact events and traffic surges in the radio access network and autonomously triggers remediation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Google Gemini models",
+      "role": "Foundation models used to power agentic analysis, diagnosis, and remediation decisions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vertex AI",
+      "role": "Google Cloud platform on which MINDR is built with Gemini models for network intelligence workflows."
+    },
+    {
+      "name": "Google Cloud Autonomous Network Operations framework",
+      "role": "Framework used to develop the autonomous network operations design and cross-domain agent workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "A2A (Agent-to-Agent) protocol",
+      "role": "Intended coordination protocol for communication among specialized agents, subject to availability.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Signals and operational data from the RAN, transport, and core network domains are collected by specialized agents, correlated end to end using the Autonomous Network Operations framework with Gemini models on Vertex AI, assembled into a real-time service-performance view for root-cause analysis, and used to drive explainable recommendations or autonomous remediation actions such as network adjustments at affected mobile sites.",
+  "integration_points": [
+    "Radio access network (RAN) domain",
+    "Transport network domain",
+    "Core network domain",
+    "Mobile network sites",
+    "Network operations teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Deutsche Telekom reports materially faster incident handling, proactive issue prevention, and more autonomous network operations that protect customer experience during large events and traffic surges.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 100 remediation actions autonomously triggered in the first month after launch",
+    "reduced the time needed to manage major events from hours to around a minute",
+    "a more than 95% improvement",
+    "identified 237,000 events",
+    "identified around 130 Carnival events and parades, each expected to draw over 10,000 participants",
+    "served by 611 different mobile sites",
+    "Only 5 sites experienced peak loads"
+  ],
+  "architecture_clues": [
+    "RAN Guardian Agent has been live in production in Germany since November 2025.",
+    "MINDR spans RAN, transport, and core domains.",
+    "The system operates as a collaborative multi-agent architecture.",
+    "First production releases for MINDR are planned for later in 2026.",
+    "RAN Guardian is scaling to Deutsche Telekom national companies starting with the Czech Republic and Croatia.",
+    "The source emphasizes explainable remediation and real-time end-to-end service visibility."
+  ],
+  "source_url": "https://www.telekom.com/en/newsroom/latest-updates/media-information/2026/2/mindr-ai-agents-in-telekom-network",
+  "published_date": "2026-02-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Deutsche Telekom, in partnership with Google Cloud, today announced the development and implementation of MINDR... a multi-agentic artificial intelligence (AI) system designed by Deutsche Telekom to enable autonomous diagnostics and operations across complex, multi-domain telecommunications networks.\"",
+    "\"As modern networks span multiple domains and technologies, operational teams often rely on fragmented systems that slow root-cause analysis and resolution.\"",
+    "\"Developed with Google Cloud's Autonomous Network Operations framework, and built with Google Gemini models on Vertex AI, MINDR correlates signals end-to-end across network domains to proactively identify service-impacting issues and support autonomous, explainable remediation.\"",
+    "\"Specialized agents collect and correlate network data, build a real-time, end-to-end view of service performance, and support root-cause analysis and controlled remediation across domains.\"",
+    "\"Since its launch in November 2025, RAN Guardian Agent has autonomously triggered over 100 remediation actions at Christmas market events during its first month.\"",
+    "\"in live operations it has reduced the time needed to manage major events from hours to around a minute, a more than 95% improvement.\""
+  ],
+  "source_type": "company"
+}

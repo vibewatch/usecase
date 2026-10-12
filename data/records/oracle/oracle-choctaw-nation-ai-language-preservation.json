@@ -1,0 +1,91 @@
+{
+  "id": "oracle-choctaw-nation-ai-language-preservation",
+  "slug": "oracle-choctaw-nation-ai-language-preservation",
+  "vendor": "Oracle",
+  "customer_name": "Choctaw Nation of Oklahoma",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "With only about 300 native speakers remaining, the Choctaw Nation needed to preserve its endangered language and move from slow manual translation work to a scalable, secure AI-assisted translation process that could protect culturally sensitive linguistic data.",
+  "solution_summary": "Choctaw Nation built an English-Choctaw translation system on Oracle Cloud Infrastructure to replace manual translation work with a human-in-the-loop generative AI workflow. Translation requests arrive from the community, often by email, and the application also extracts bilingual pairs from historical PDFs and interview transcripts. Oracle Cloud Infrastructure (OCI) Data Science notebooks provide the development environment for tribal engineers and linguists to fine-tune Meta's Llama large language models on Choctaw linguistic data, using OCI GPU resources and Oracle's model-tuning capabilities inside a secure, containerized tenancy. At runtime, an AI agent uses the fine-tuned Llama model plus retrieval-augmented generation over dictionary resources and validated translation databases to propose translations. Oracle Database stores translation data and related AI functionality, while an Oracle APEX application manages request intake, routing, linguist review, approval, and publishing for tribal programs, digital platforms, and signage.",
+  "products_used": [
+    "Oracle Cloud Infrastructure (OCI) Data Science",
+    "Oracle Cloud Infrastructure",
+    "Oracle APEX",
+    "Oracle Database",
+    "Llama"
+  ],
+  "solution_components": [
+    {
+      "name": "Oracle Cloud Infrastructure (OCI) Data Science",
+      "role": "Provides notebooks and data science environments for development, model deployment, and fine-tuning of the translation models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure",
+      "role": "Supplies secure, containerized OCI environments and GPU resources for training and running the translation system.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle APEX",
+      "role": "Powers the translation application and routes requests through review and approval workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Oracle Database",
+      "role": "Stores translation data and supports related AI functionality for the application.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Llama",
+      "role": "Serves as the fine-tuned language model that proposes and validates English-Choctaw translations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Requests come in from community emails and source material such as historical PDFs and interview transcripts. The APEX application routes content into OCI-based workflows, where OCI Data Science notebooks and GPU-backed OCI resources fine-tune and run a Llama model. The agent retrieves context from dictionaries and validated translation databases, generates a draft translation, stores data in Oracle Database, and sends results to Choctaw linguists for review before approved translations are used in tribal programs, digital platforms, and signage.",
+  "integration_points": [
+    "Community translation requests submitted by email",
+    "Historical PDF documents, including 19th-century newspapers",
+    "Interview transcripts with diacritic marks",
+    "Dictionary resources",
+    "Validated translation databases",
+    "Tribal programs",
+    "Tribal digital platforms and signage"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "The tribe built a secure AI-powered bilingual translation system that makes linguistic resources more accessible, supports English and Choctaw content across digital platforms and signage, and helps linguists handle more translation demand while preserving cultural context.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "just 300 native speakers",
+    "process double the translation requests per day"
+  ],
+  "architecture_clues": [
+    "An AI agent plans each translation using a fine-tuned Llama model plus retrieval-augmented generation.",
+    "OCI provides secure, containerized environments and GPU resources for model fine-tuning and deployment.",
+    "Sensitive language materials stay inside Choctaw-controlled OCI environments for data residency and cultural protection.",
+    "Human linguists review and refine machine-generated translations before approval."
+  ],
+  "source_url": "https://www.oracle.com/customers/choctaw-nation-oracle-ai/",
+  "published_date": "2025-11-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"use of the Choctaw language dwindled to just 300 native speakers\"",
+    "\"trained Llama AI large language models from Meta to validate translations between English and Choctaw\"",
+    "\"Using Oracle AI infrastructure and Oracle's model fine-tuning tools, tribal linguists can process double the translation requests per day\"",
+    "\"The application ingests translation requests (often emails from across the community), suggests initial translations, and then routes them to Choctaw linguists\"",
+    "\"The agent first consults comprehensive dictionary resources and validated translation databases, then generates a proposed translation\"",
+    "\"Sensitive language materials never leave Choctaw-controlled OCI environments\""
+  ],
+  "source_type": "company"
+}

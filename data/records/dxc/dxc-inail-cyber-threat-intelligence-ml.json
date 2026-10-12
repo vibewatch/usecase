@@ -1,0 +1,103 @@
+{
+  "id": "dxc-inail-cyber-threat-intelligence-ml",
+  "slug": "dxc-inail-cyber-threat-intelligence-ml",
+  "vendor": "DXC",
+  "customer_name": "INAIL",
+  "industry": "Public Sector",
+  "region": "Rome, Italy",
+  "company_size": "Public sector",
+  "business_problem": "As Italy's national agency for workplace health and safety, INAIL holds sensitive personal information and needed stronger defenses against growing phishing campaigns, sophisticated malware, and potential data breaches, along with more current threat intelligence and automated analysis.",
+  "solution_summary": "INAIL worked with DXC to implement an automated cyber-threat intelligence and analysis platform centered on IOC ingestion, search, and machine-learning scoring. Upstream, open-source intelligence sources and multiple security intelligence engines feed threat data, email/domain/user lookups, and suspicious attachment evidence into leading security software and a search engine. MineMeld aggregates indicators of compromise from multiple sources and converts them into consistent configuration lists that INAIL's security workflow can redistribute to downstream security tools. For analysis, classifier systems and a machine learning model extract characteristics from domains and URLs to perform predictive reputation analysis and phishing detection at scale, including automated analysis on millions of URLs and domains. The solution is served through an external integration layer for technical users and a self-service malware analysis solution for 11,000 nontechnical users; the source does not name a separate storage product, so normalized threat data appears to be managed within the workflow while exchanges with other national security bodies are automated.",
+  "products_used": [
+    "leading security software",
+    "external integration layer",
+    "malware analysis solution",
+    "search engine",
+    "machine learning model",
+    "classifier systems",
+    "MineMeld"
+  ],
+  "solution_components": [
+    {
+      "name": "leading security software",
+      "role": "Collects cyber-threat information and integrates it into INAIL's security workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "external integration layer",
+      "role": "Provides technical users with access to the threat-intelligence workflow and integrated outputs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "malware analysis solution",
+      "role": "Lets nontechnical users perform self-service analysis of suspicious email attachments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "search engine",
+      "role": "Searches emails, domains, and users across security intelligence engines for real-time threat identification.",
+      "layer": "Compute"
+    },
+    {
+      "name": "machine learning model",
+      "role": "Performs predictive reputation analysis using characteristics extracted from domains and URLs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "classifier systems",
+      "role": "Classify suspicious domains, including detecting phishing behavior.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MineMeld",
+      "role": "Compiles threat indicators from multiple sources into a consistent format for downstream security processing.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Open-source intelligence sources and security intelligence engines supply IOC and reputation data to leading security software, the search engine, and MineMeld. The platform normalizes indicators, runs classifier systems and a machine learning model on domains and URLs, then redistributes vetted IOC lists to INAIL's security tools. Technical users access outputs through the external integration layer, while employees use the malware analysis interface for self-service attachment checks.",
+  "integration_points": [
+    "open-source intelligence sources",
+    "security intelligence engines",
+    "INAIL security tools",
+    "other national security organizations and institutions"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Risk Management"
+  ],
+  "business_outcome": "INAIL improved the effectiveness and timeliness of threat detection and response, increased automated sharing of threat data, avoided malware infection and work-disruption costs, and maintained service continuity during the COVID-19 period.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "11,000 nontechnical users",
+    "millions of specific URLs and domains"
+  ],
+  "architecture_clues": [
+    "DXC runs INAIL's security operations center and also supports its data center and cloud-managed applications.",
+    "The solution has two delivery modes: an external integration layer for technical users and a malware analysis front end for 11,000 nontechnical users.",
+    "Threat information exchange with other national security organizations and institutions is automated.",
+    "MineMeld is used to aggregate indicators from multiple sources into configuration lists.",
+    "The source does not name a standalone storage platform; normalized IOC data appears to be managed inside the security workflow."
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/inail-shines-light-on-cyber-threats-with-automation-and-machine-learning-technology",
+  "published_date": "2026-03-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"In the face of growing phishing attacks and highly sophisticated malware, INAIL is at the forefront of preventing data breaches.\"",
+    "\"open-source intelligence sources are combined with leading security software to collect information on cyber threats and integrate the data into INAIL’s security workflow.\"",
+    "\"Two versions of the solution have been released: an external integration layer for technical users, and an easy-to-use malware analysis solution provided to INAIL’s 11,000 nontechnical users\"",
+    "\"Using a machine learning model, INAIL performs predictive reputation analysis based on extraction of unique characteristics of domains and URLs.\"",
+    "\"AI and machine learning technologies are then deployed to carry out automated security analysis on millions of specific URLs and domains scored as potential security threats.\"",
+    "\"Information on IOCs is aggregated by generating configuration lists so the data can be processed by software such as MineMeld\"",
+    "\"However, INAIL did not experience any service interruptions related to COVID-19.\""
+  ],
+  "source_type": "company"
+}

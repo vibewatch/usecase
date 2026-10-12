@@ -1,0 +1,91 @@
+{
+  "id": "in-house-pt-vale-indonesia-slag-furnace-ratio-automation",
+  "slug": "in-house-pt-vale-indonesia-slag-furnace-ratio-automation",
+  "vendor": "In-house",
+  "customer_name": "PT Vale Indonesia Tbk",
+  "industry": "Manufacturing",
+  "region": "Indonesia",
+  "company_size": "Enterprise",
+  "business_problem": "Instability in the Silica/Magnesia (S/M) ratio within slag furnaces led to suboptimal slag flow, reduced output, long response delays, and heavy reliance on continuous manual adjustments by engineers and operators.",
+  "solution_summary": "PT Vale implemented an in-house machine learning automation platform to control the Silica/Magnesia ratio in nickel slag furnaces. The system combines real-time data integration from plant operations with XRF laboratory analysis and a neural-network model to evaluate furnace conditions and determine the conveyor speed adjustments needed to keep the slag ratio within target. The model output is connected directly to field control systems and PLC control systems, allowing autonomous decisions for West Block and East Block conveyors instead of waiting for manual intervention. Process analysis, automation engineering, laboratory testing, and quality assurance were combined into a single operating loop. The source does not identify a separate storage platform, but it clearly describes a closed-loop AI control architecture that ingests operational and lab data, computes control actions, and serves them directly to production equipment in near real time.",
+  "products_used": [
+    "real-time data integration",
+    "neural networks",
+    "XRF laboratory analysis",
+    "PLC control systems",
+    "field control systems"
+  ],
+  "solution_components": [
+    {
+      "name": "real-time data integration",
+      "role": "Combines live operational signals so the automation platform can evaluate furnace conditions continuously.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "neural networks",
+      "role": "Compute the control logic used to determine optimal conveyor speed decisions for slag ratio stability.",
+      "layer": "Compute"
+    },
+    {
+      "name": "XRF laboratory analysis",
+      "role": "Provides laboratory measurements used in the automation workflow for slag ratio control.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "PLC control systems",
+      "role": "Execute the automated conveyor speed decisions in the plant for West Block and East Block operations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "field control systems",
+      "role": "Provide the direct control-system interface through which the machine learning solution is integrated into furnace operations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Operational data from the slag furnace process is integrated in real time and combined with XRF laboratory analysis inputs. A neural-network model evaluates the S/M ratio condition and generates control decisions, which are sent through field control systems and PLC control systems to adjust West Block and East Block conveyor speeds automatically.",
+  "integration_points": [
+    "XRF laboratory analysis workflow",
+    "field control systems",
+    "PLC control systems",
+    "West Block (WB) conveyor controls",
+    "East Block (EB) conveyor controls"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "PT Vale improved slag-ratio compliance, removed the need for continuous manual adjustment, increased process reliability, reduced operator burden and delays, enabled potential nickel recovery gains, lowered operational risk, and created a foundation to extend smart automation into sulfur and coal management.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "improved S/M compliance from an average of 89% to 95%",
+    "potential recovery of approximately 182 tons of nickel per year",
+    "eliminated delays of 30–150 minutes",
+    "could cut emissions by up to 6,000 tons of CO₂eq annually",
+    "equivalent to the absorption capacity of more than 250,000 trees"
+  ],
+  "architecture_clues": [
+    "Machine learning was integrated directly with field control systems.",
+    "The automation platform makes autonomous decisions on conveyor speeds for West Block (WB) and East Block (EB).",
+    "The implementation combined process analysis, automation, laboratory testing, and quality assurance.",
+    "The technology is being expanded to sulfur and coal management."
+  ],
+  "source_url": "https://saladeimprensa.vale.com/w/machine-learning-based-slag-furnace-ratio-automation-innovation-earns-pt-vale-indonesia-gold-achievement-at-opexcon-2025",
+  "published_date": "2025-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The award-winning project tackled one of the long-standing challenges in nickel smelting: instability in the Silica/Magnesia (S/M) ratio within slag furnaces, which often led to suboptimal slag flow and reduced output.\"",
+    "\"By deploying machine learning technology directly integrated with field control systems, PT Vale improved S/M compliance from an average of 89% to 95%, eliminating the need for 24/7 manual adjustments that previously burdened engineers and operators.\"",
+    "\"The project leveraged real-time data integration, neural networks, XRF laboratory analysis, and PLC control systems to create an automation platform capable of making autonomous decisions on conveyor speeds for West Block (WB) and East Block (EB), ensuring optimal slag ratio.\"",
+    "\"This approach eliminated delays of 30–150 minutes, reduced repetitive tasks, and minimized operator fatigue.\"",
+    "\"This innovation not only enhanced process reliability but also delivered significant productivity gains, with potential recovery of approximately 182 tons of nickel per year, while drastically reducing operational risks.\"",
+    "\"Enhanced furnace stability and reduced process variability could cut emissions by up to 6,000 tons of CO₂eq annually.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "in-house-cohesity-agentic-support-portal",
+  "slug": "in-house-cohesity-agentic-support-portal",
+  "vendor": "In-house",
+  "customer_name": "Cohesity",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Cohesity needed to reduce friction in enterprise support by replacing manual forms, portal navigation, and low-context case intake that slowed diagnosis and increased customer effort during business-critical incidents.",
+  "solution_summary": "Cohesity built its NextGen Support Portal as an in-house, production-grade agentic AI support system for enterprise customers. The portal serves as the conversational front end where users describe issues in plain language instead of filling rigid forms. Inside that experience, a guided AI troubleshooting engine handles interactive diagnosis by asking clarifying questions, refining understanding, and leading customers through structured resolution steps. A retrieval augmented generation (RAG) engine indexes Cohesity’s knowledge base, product documentation, and historical case data so the system can generate contextually accurate, real-time responses grounded in support content. An agentic workflow layer then orchestrates multi-step actions such as interpreting problems, searching for relevant solutions, presenting options, confirming intent, and automatically creating support cases with populated priority, subject, description, tags, triage context, and suggested next steps for engineers.",
+  "products_used": [
+    "NextGen Support Portal",
+    "guided AI troubleshooting engine",
+    "retrieval augmented generation (RAG) engine",
+    "Entitlement management system (VEMS)",
+    "Cohesity NetBackup"
+  ],
+  "solution_components": [
+    {
+      "name": "NextGen Support Portal",
+      "role": "Provides the customer-facing conversational support experience that unifies troubleshooting, case creation, license management, downloads, and tracking.",
+      "layer": "Serving"
+    },
+    {
+      "name": "guided AI troubleshooting engine",
+      "role": "Diagnoses issues interactively by asking targeted questions, refining context, and guiding users through step-by-step resolution paths.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "retrieval augmented generation (RAG) engine",
+      "role": "Indexes knowledge base content, product documentation, and historical case data to generate contextually accurate real-time responses.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Entitlement management system (VEMS)",
+      "role": "Supplies integrated license management capabilities directly inside the support portal."
+    },
+    {
+      "name": "Cohesity NetBackup",
+      "role": "Provides software downloads that are integrated into the same support portal experience."
+    }
+  ],
+  "data_flow": "Customers enter a problem in the NextGen Support Portal in plain language. The guided AI troubleshooting engine engages the user, while the RAG engine retrieves context from the knowledge base, product documentation, and historical case data to generate answers. The agentic layer then guides resolution or, if escalation is needed, creates a support case pre-populated with conversation context, triage details, and suggested next steps for support engineers.",
+  "integration_points": [
+    "knowledge base",
+    "product documentation",
+    "historical case data",
+    "Entitlement management system (VEMS)",
+    "Cohesity NetBackup software downloads"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Cohesity redesigned support around conversational, agentic AI so customers can resolve many issues on their own and support engineers receive better-prepared cases when escalation is required.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "approximately 50% of interactions resolved by customers themselves without ever needing to open a case"
+  ],
+  "architecture_clues": [
+    "Production-grade agentic AI stack",
+    "RAG engine grounded on knowledge base, product documentation, and historical case data",
+    "Autonomous multi-step workflow can search solutions, confirm intent, and raise populated support cases in one conversational flow",
+    "AI auto-populates case priority, subject, description, and tags from conversation context",
+    "TSEs receive structured briefs with AI-generated context, triage information, and suggested next steps"
+  ],
+  "source_url": "https://www.cohesity.com/blogs/the-future-of-support-is-here-and-its-agentic/",
+  "published_date": "2026-05-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"In the NextGen Portal, the AI takes on that diagnostic role and meets you at the start of your thoughts, not at the end of a form.\"",
+    "\"Since introducing the guided AI troubleshooting engine in April 2026, we've seen approximately 50% of interactions resolved by customers themselves without ever needing to open a case.\"",
+    "\"A production-grade agentic AI stack powers the NextGen Support Portal.\"",
+    "\"At its core, a retrieval augmented generation (RAG) engine indexes our knowledge base, product documentation, and historical case data to generate contextually accurate, real-time responses.\"",
+    "\"The agentic layer enables autonomous, multi-step workflows.\"",
+    "\"When a case does need to be raised, it happens automatically. The portal pre-populates the case with the full context of everything discussed.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,118 @@
+{
+  "id": "in-house-rockwell-automation-embedded-ai-industrial-automation",
+  "slug": "in-house-rockwell-automation-embedded-ai-industrial-automation",
+  "vendor": "In-house",
+  "customer_name": "Rockwell Automation",
+  "industry": "Manufacturing",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Rockwell Automation wanted to add AI across the production asset life cycle so its automation products could improve design efficiency, operations, throughput, yield, quality inspection, maintenance decisions, and equipment lifespan without requiring users to manually code or analyze every condition.",
+  "solution_summary": "Rockwell Automation is embedding AI directly into its industrial automation portfolio rather than treating AI as a separate product line. In its programming environment, Rockwell added generative AI that converts natural-language instructions into code to speed automation system development. When production data is not yet available, Emulate3D simulation can act as a training environment. On the plant floor, the FactoryTalk Analytics family adds LogixAI, VisionAI, and GuardianAI capabilities. VisionAI uses camera feeds to learn what good and bad product states look like for no-code quality inspection. ControlLogix controllers, already deployed at large scale, act as data aggregation points where learning and adaptation can be applied. For maintenance, GuardianAI analyzes motor-current sensor data from variable-frequency drives and motion systems, then integrates with Fiix CMMS to recommend the needed work order. In logistics, Plex MES manages OTTO Motors AMR fleets while AI-based optimization improves throughput and yield.",
+  "products_used": [
+    "Emulate3D simulation",
+    "Plex",
+    "OTTO Motors autonomous mobile robot (AMR) portfolio",
+    "FactoryTalk Analytics",
+    "LogixAI",
+    "VisionAI",
+    "GuardianAI",
+    "ControlLogix",
+    "Fiix"
+  ],
+  "solution_components": [
+    {
+      "name": "Emulate3D simulation",
+      "role": "Provides a training environment for AI-assisted automation development when production data is not yet available.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Plex",
+      "role": "MES software used for fleet management across the OTTO Motors AMR portfolio and as the point where AI-based optimization is being incorporated.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OTTO Motors autonomous mobile robot (AMR) portfolio",
+      "role": "Provides the autonomous mobile robot fleet that Plex manages and optimizes.",
+      "layer": "Serving"
+    },
+    {
+      "name": "FactoryTalk Analytics",
+      "role": "Hosts the LogixAI, VisionAI, and GuardianAI capabilities Rockwell is adding to operational analytics workflows."
+    },
+    {
+      "name": "LogixAI",
+      "role": "Applies learning and adaptation capabilities around controller data in Rockwell automation environments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "VisionAI",
+      "role": "Performs no-code visual quality inspection by learning what good and bad products look like from camera views.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GuardianAI",
+      "role": "Runs anomaly detection on motor-current data to assess asset condition and drive maintenance actions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ControlLogix",
+      "role": "Acts as a controller platform and data aggregation point where learning and adaptation can be applied.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Fiix",
+      "role": "Receives GuardianAI maintenance findings to determine the necessary work order in the CMMS.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Natural-language prompts are turned into automation code in Rockwell's programming environment, with Emulate3D supplying simulated training data when production data is unavailable. In operations, camera images feed VisionAI for quality inspection, while ControlLogix controllers aggregate plant data and motor-current sensor readings from drives and motion systems feed GuardianAI for anomaly detection. Those maintenance findings flow into Fiix for work-order decisions, and Plex manages OTTO Motors AMR fleets with AI-based optimization.",
+  "integration_points": [
+    "cameras for quality inspection",
+    "motor current sensors",
+    "variable-frequency drives (VFDs)",
+    "motion control systems",
+    "Fiix computerized maintenance management system",
+    "OTTO Motors autonomous mobile robot (AMR) portfolio"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Rockwell reports that embedded AI improves automation system development efficiency, enables no-code quality inspection, supports anomaly-based maintenance decisions, and can increase throughput and yield while extending asset lifespan.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "The difference between a feasible and an optimal solution can be 10%.",
+    "We currently have 3 to 4 million programmable logic controllers in operation, generating massive amounts of data.",
+    "We have customers with 2,000 or 3,000 of them in one facility."
+  ],
+  "architecture_clues": [
+    "Rockwell organizes AI implementation across five portfolio categories: design, operations, logistics, automation, and maintenance.",
+    "Emulate3D is used as a training environment when production data is unavailable.",
+    "VisionAI is described as requiring no programming for inspection.",
+    "ControlLogix controllers are described as industry's predominant aggregators.",
+    "GuardianAI uses integrated motor-current sensors from installed drives and motion systems.",
+    "The maintenance workflow integrates AI outputs with Fiix CMMS work-order generation."
+  ],
+  "source_url": "https://www.rockwellautomation.com/en-us/company/news/the-journal/how-rockwell-automation-is-adding-ai-to-its-products.html",
+  "published_date": "2025-01-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We've introduced generative AI in our programming environment, turning natural language into code. This improves the efficiency of automation systems development.\"",
+    "\"And if you don't yet have any production data, you can use an Emulate3D simulation as a training environment.\"",
+    "\"VisionAI was introduced for quality inspection, with no programming necessary. 'Point a camera at a product coming down a conveyor. It learns what 'good' looks like and what 'bad' looks like.'\"",
+    "\"We currently have 3 to 4 million programmable logic controllers in operation, generating massive amounts of data.\"",
+    "\"By integrating GuardianAI with the Fiix by Rockwell Automation [computerized maintenance management system], you can determine what work order is necessary.\"",
+    "\"Prescriptive recommendations can increase throughput and yield. The difference between a feasible and an optimal solution can be 10%.\""
+  ],
+  "source_type": "company"
+}

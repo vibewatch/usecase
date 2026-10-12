@@ -1,0 +1,81 @@
+{
+  "id": "in-house-delphi-autonomous-driving-ai",
+  "slug": "in-house-delphi-autonomous-driving-ai",
+  "vendor": "In-house",
+  "customer_name": "Delphi",
+  "industry": "Automotive",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "Delphi needed an autonomous driving system that could operate safely in real-world conditions where no fixed rule set exists for every scenario, while still being suitable for large-scale vehicle deployment.",
+  "solution_summary": "Delphi built its Centralized Sensing Localization Planning platform (CSLP) as a hybrid autonomous-driving stack that combines predefined safety rules with AI-based decisioning. The implementation ingests signals from three sensor types—radar, vision cameras, and LiDAR—to create a redundant perception layer with complementary strengths: radar for weather tolerance, LiDAR for precise range and distance, and vision for object classification. Sensor inputs are fused inside the platform to increase confidence in the vehicle’s understanding of its surroundings. AI is used primarily in the vision pipeline, where machine-learning models and an onboard neural net are trained to recognize objects and classify them in real time. The platform then applies generalized rules plus AI-driven path selection to choose safe actions, while fleet-collected driving data is used to catalog new scenarios and improve how the system reacts when conditions are not already covered by rules.",
+  "products_used": [
+    "Delphi Centralized Sensing Localization Planning platform (CSLP)",
+    "radar",
+    "vision (cameras)",
+    "LiDAR",
+    "neural net"
+  ],
+  "solution_components": [
+    {
+      "name": "Delphi Centralized Sensing Localization Planning platform (CSLP)",
+      "role": "The core autonomous-driving platform that combines generalized safety rules with AI to plan and execute the vehicle's path."
+    },
+    {
+      "name": "radar",
+      "role": "Provides sensing input that is not impacted by weather to strengthen perception redundancy.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "vision (cameras)",
+      "role": "Supplies visual input used for AI-driven object classification and recognition.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "LiDAR",
+      "role": "Provides accurate range and distance information for the vehicle's environmental model.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "neural net",
+      "role": "Runs onboard the vehicle to classify objects in real time based on trained machine-learning behavior.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Radar, vision-camera, and LiDAR data are collected on the vehicle and fused by Delphi's CSLP platform to build a high-confidence view of the surroundings. The vision stream feeds AI and machine-learning models, including an onboard neural net for real-time object classification. The platform combines those outputs with generalized driving rules to choose a path, while fleet data is used to expand scenario coverage and improve future responses.",
+  "integration_points": [
+    "Radar sensors",
+    "Vision cameras",
+    "LiDAR sensors",
+    "Fleet-collected driving data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Delphi reports that the hybrid AI-and-rules approach gives the vehicle a more comprehensive view of its surroundings, improves object recognition and path decisions, and adds redundant safety with a safe-stop response when scenarios are not recognized.",
+  "outcome_category": [
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "CSLP uses sensor fusion across radar, vision, and LiDAR.",
+    "AI is used primarily in the vision pipeline.",
+    "An onboard neural net classifies objects in real time.",
+    "Fleet vehicles collect data globally to catalog new driving scenarios.",
+    "When the vehicle does not recognize something, the system is designed to come to a safe stop."
+  ],
+  "source_url": "https://www.aptiv.com/en/insights/article/delphi-s-autonomous-driving-playing-by-the-rules-with-ai",
+  "published_date": "2017-09-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"the Delphi Centralized Sensing Localization Planning platform (CSLP) relies on pre-determined, generalized rules for basic safe operations and uses artificial intelligence (AI) to solve for the optimal path.\"",
+    "\"There are three types of sensors – radar, vision (cameras) and LiDAR... Delphi’s CSLP relies on all three.\"",
+    "\"By fusing each sensor’s inputs, the Delphi autonomous driving system gains the highest confidence in the vehicle’s surrounding.\"",
+    "\"AI is used primarily in the vision space, while machine learning is used to improve object classification and recognition.\"",
+    "\"Machine learning relies on what called a 'neural net'... lives onboard the vehicle and classifies objects in real-time.\"",
+    "\"there are fleets of autonomous vehicles scattered around the globe - they are collecting data. That data is then used to catalog the myriad possible situations a vehicle may encounter\"",
+    "\"For cases when the vehicle doesn’t recognize something, the neural rules tell it to come to a safe stop.\""
+  ],
+  "source_type": "company"
+}

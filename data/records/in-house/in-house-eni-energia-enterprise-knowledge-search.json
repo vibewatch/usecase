@@ -1,0 +1,64 @@
+{
+  "id": "in-house-eni-energia-enterprise-knowledge-search",
+  "slug": "in-house-eni-energia-enterprise-knowledge-search",
+  "vendor": "In-house",
+  "customer_name": "Eni",
+  "industry": "Energy",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Users and stakeholders needed a quicker, easier way to access official information and data across eni.com without relying on manual search or traditional browsing.",
+  "solution_summary": "Eni built EnergIA as a first-party generative AI experience on eni.com to help users and stakeholders find official company information faster. The user submits a natural-language question in Italian, English, or another language through EnergIA, which routes retrieval against the appropriate site language corpus. Behind the interface, Large Language Models analyze Eni’s official content and use Retrieve Augmented Generation (RAG) to pull the most relevant material from a knowledge base made up of webpages, financial documents from the previous twelve months, press releases from the previous two years, and selected strategic documents. The system automatically incorporates newly published website content almost in real time, keeps temporary conversational memory so follow-up questions can use prior context, and returns natural-language answers with cited official sources and direct links back to the relevant Eni or group-company pages.",
+  "products_used": [
+    "EnergIA"
+  ],
+  "solution_components": [
+    {
+      "name": "EnergIA",
+      "role": "User-facing generative AI tool on eni.com that accepts questions, retrieves relevant official content, and returns source-linked answers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "A user asks a question in EnergIA; the system selects the relevant Italian or English content set on eni.com, uses RAG to retrieve matching webpages and documents from its knowledge base, has Large Language Models generate a response from those official sources, and returns the answer with source links while keeping session history until inactivity clears it.",
+  "integration_points": [
+    "eni.com webpages",
+    "Eni financial documents from the past twelve months",
+    "Eni press releases from the past two years",
+    "Selected strategic project documents",
+    "Group company websites linked from answers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "EnergIA gives users faster, more goal-oriented access to official Eni information, provides richer responses with cited sources, and is intended to improve accessibility, transparency, and understanding of the company.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Uses Large Language Models to analyze information available on eni.com.",
+    "Uses Retrieve Augmented Generation (RAG) to find the most pertinent content in its knowledge base.",
+    "Knowledge base sources include webpages, financial documents from the past twelve months, press releases from the past two years, and selected strategic documents.",
+    "Automatically integrates new website content almost as soon as it is published.",
+    "Supports Italian and English responses and can understand questions in nearly all languages.",
+    "Stores question, answer, and source history during the browsing session and erases it after 30 minutes of inactivity."
+  ],
+  "source_url": "https://www.eni.com/en-IT/strategic-vision/innovation/digitalisation/generative-ai-experience.html",
+  "published_date": "2025-07-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"EnergIA\" tool is based on generative artificial intelligence and helps users to rapidly locate information on eni.com.",
+    "\"A window on Eni’s world, updated in real time. The system automatically integrates new content, almost as soon as it is published on the website.\"",
+    "\"EnergIA uses this technology, specifically ‘Large Language Models’, to analyse the information available on eni.com and generate responses based on official sources.\"",
+    "\"The system uses the Retrieve Augmented Generation (RAG) method to find the most pertinent content in its knowledge base when answering a user’s question.\"",
+    "\"The sources used by EnergIA include the most relevant content available on eni.com: webpages, financial documents from the past twelve months, press releases from the past two years, and a selection of documents deemed strategic for the project.\"",
+    "\"Faster than a manual search or traditional browsing\"",
+    "\"Richer responses with a list of sources directing you to more details\""
+  ],
+  "source_type": "company"
+}

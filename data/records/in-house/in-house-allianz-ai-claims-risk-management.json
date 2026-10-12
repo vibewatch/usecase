@@ -1,0 +1,72 @@
+{
+  "id": "in-house-allianz-ai-claims-risk-management",
+  "slug": "in-house-allianz-ai-claims-risk-management",
+  "vendor": "In-house",
+  "customer_name": "Allianz",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Allianz wanted to reduce customer effort and cycle time in claims handling, improve risk assessment and pricing, and move from reactive claims payment toward more predictive and preventive support for policyholders.",
+  "solution_summary": "Allianz describes an in-production AI claims and risk-management setup embedded across its insurance operations rather than a single standalone platform. In customer interaction, the company uses intelligent chatbots to answer queries, while underwriting uses AI tools to assess and price risks more accurately. The most concrete named implementation is the CE application, developed by Allianz-owned Control Expert, where customers submit photos of damaged cars or parts and an AI solution evaluates the images to produce a loss amount, confirm coverage, and trigger a direct payment offer within minutes. Allianz also uses AI in claims operations to route cases directly to partner repair shops. A second named tool, the Severe Weather SMS tool, combines available customer data with tracked weather patterns to identify at-risk customers and send preventive storm warnings by text message. The source does not name storage platforms or external model providers, but it clearly shows AI ingesting customer images and customer/weather data, processing them for decisioning, and serving outputs through app-based settlement, repair routing, and SMS notifications.",
+  "products_used": [
+    "CE application",
+    "Severe Weather SMS tool"
+  ],
+  "solution_components": [
+    {
+      "name": "CE application",
+      "role": "Lets customers submit vehicle-damage photos and uses AI to generate a loss amount, confirm coverage, and offer direct payment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Severe Weather SMS tool",
+      "role": "Uses customer and weather data to identify risk exposure and send preventive storm warnings by text message.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customers submit vehicle-damage photos through the CE application, where AI analyzes the images and returns a loss amount, coverage confirmation, and direct-payment offer; related claims can then be routed to partner repair shops. Separately, Allianz combines available customer data with tracked weather patterns to identify exposed customers and send storm-warning SMS messages before losses occur.",
+  "integration_points": [
+    "Partner repair shops",
+    "SMS/text messaging channel",
+    "Customer-submitted vehicle damage photos",
+    "Weather pattern data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Risk Management"
+  ],
+  "business_outcome": "Allianz says these AI tools shorten claims handling to minutes, improve customer satisfaction, support more accurate underwriting and claims routing, help customers avoid weather-related damage, and reduce claims expenses while increasing efficiency and productivity.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The entire process is completed in a few minutes.",
+    "We’re currently investigating around 60 use cases globally for Generative AI."
+  ],
+  "architecture_clues": [
+    "Allianz says AI is used across the full insurance value chain.",
+    "The CE application was developed by Allianz-owned company Control Expert.",
+    "The severe-weather use case relies on available customer data in accordance with data privacy regulations plus tracked weather patterns.",
+    "Claims workflows can route customers directly to partner repair shops."
+  ],
+  "source_url": "https://www.allianz.com/en/mediacenter/news/business/it/230822_Allianz-Are-we-still-talking-about-AI-as-a-tool-of-the-future.html",
+  "published_date": "2023-08-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We use intelligent chatbots in our client interaction, e.g., to answer customer queries, and embed AI tools in the underwriting process to assess and price risks more accurately.\"",
+    "\"Developed by the Allianz-owned company Control Expert, the app allows customers to take pictures of their damaged car and get a settlement offer immediately.\"",
+    "\"All they need to do is take a picture of the damage or damaged parts and through an AI solution, they’re automatically presented with a loss amount, receive coverage confirmation, and are offered a direct payment.\"",
+    "\"The entire process is completed in a few minutes and leads to immediate results for the customer.\"",
+    "\"By leveraging available data from customers (in accordance with data privacy regulations) and tracking weather patterns, the tool sends a storm warning via text message.\"",
+    "\"This helps customers avoid damage and brings us corresponding savings in claims expenses.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "sap-central-coast-local-health-district-parkinsons-remote-monitoring-ai",
+  "slug": "sap-central-coast-local-health-district-parkinsons-remote-monitoring-ai",
+  "vendor": "SAP",
+  "customer_name": "Central Coast Local Health District",
+  "industry": "Healthcare",
+  "region": "Australia",
+  "company_size": "Public sector",
+  "business_problem": "Clinicians lacked accurate between-appointment data on Parkinson's disease patients' fluctuating 'on' and 'off' medication states, especially for people in remote areas or with mobility limitations, which made symptom control assessment and medication optimization difficult.",
+  "solution_summary": "Central Coast Local Health District clinicians worked with DXC Technology and SAP on the Parkinson's disease Spiral Analysis Project to digitize remote symptom monitoring for Parkinson's disease patients. A mobile application lets patients capture hand-drawn spirals outside appointments and submit them with symptom logs, blood pressure, current sentiment, and medication status. Those patient-generated data points are passed to an AI engine that analyzes the spiral and related inputs to classify whether the patient is in an 'on' or 'off' state. The resulting status and submitted observations are integrated into a desktop view for neurologists, giving them a longitudinal picture of symptom control and supporting treatment decisions. The solution is built on SAP Business Technology Platform (BTP) for both patient mobile and clinician desktop deployment. SAP created the AI model and algorithm for the analysis, while DXC handled solution delivery, user interface development, and integration with SAP BTP services.",
+  "products_used": [
+    "Mobile application",
+    "AI engine",
+    "Desktop view of the solution",
+    "SAP Business Technology Platform (BTP)"
+  ],
+  "solution_components": [
+    {
+      "name": "Mobile application",
+      "role": "Captures patient spiral drawings, symptom logs, blood pressure, sentiment, and medication status outside clinician appointments.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AI engine",
+      "role": "Analyzes submitted patient data to determine whether the patient is in an 'on' or 'off' state.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Desktop view of the solution",
+      "role": "Presents patient data points and AI-derived status to clinicians so they can manage treatment plans.",
+      "layer": "Serving"
+    },
+    {
+      "name": "SAP Business Technology Platform (BTP)",
+      "role": "Hosts and supports deployment of the clinician desktop and patient mobile solution, along with integration services used by the application.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Patients enter spiral drawings, symptoms, blood pressure, sentiment, and medication information in the mobile application. Those submissions are uploaded and passed to the AI engine, which classifies each patient's 'on' or 'off' status. The AI result and raw patient data are then integrated into the desktop clinician view on SAP Business Technology Platform (BTP) so neurologists can review trends and adjust treatment.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The solution gives neurologists more frequent access to structured patient data, supports more effective medication management and treatment planning, simplifies self-reporting for patients, improves access for people in remote areas or with mobility issues, and establishes a scalable telehealth architecture for disease monitoring.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Built for dual deployment: desktop for clinicians and mobile for patients.",
+    "SAP created the AI model and algorithm used for data-point analysis and said it was open sourced.",
+    "The solution is intended as a scalable telehealth architecture that could extend to other disease monitoring scenarios."
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/ai-powered-app-transforms-care-for-parkinsons-disease-patients-and-clinicians",
+  "published_date": "2026-03-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"obtaining the data to accurately track a patient’s ‘on’ and ‘off’ states is often limited to clinician appointments or through patients self-reporting their symptoms\"",
+    "\"The mobile application is designed for PD patients to log their symptoms and spiral drawings, which are uploaded and sent to their neurologist.\"",
+    "\"This data is then passed onto the artificial intelligence (AI) engine to determine a patient’s “on” or “off” status.\"",
+    "\"This status, along with the data points collected by the patient app, is integrated into the desktop view of the solution for clinicians to devise more optimal PD patient management and treatment plans.\"",
+    "\"The solution is built on the SAP Business Technology Platform (BTP) for deployment on desktop for clinician use and mobile for patient use.\"",
+    "\"For patients who live in remote areas or have mobility issues, it will improve access to their neurologist and may reduce the need for a face-to-face appointment.\"",
+    "\"Neurologists gain access to critical patient data through the clinician user interface more frequently.\""
+  ],
+  "source_type": "company"
+}

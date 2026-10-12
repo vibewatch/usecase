@@ -1,0 +1,82 @@
+{
+  "id": "in-house-large-australian-bank-it-outage-prediction",
+  "slug": "in-house-large-australian-bank-it-outage-prediction",
+  "vendor": "In-house",
+  "customer_name": "Large Australian bank",
+  "industry": "Financial Services",
+  "region": "Sydney, Australia",
+  "company_size": "Enterprise",
+  "business_problem": "The bank wanted a proactive way to monitor a complex IT environment, predict critical service outages, and reduce the impact of infrastructure failures on customers and employees.",
+  "solution_summary": "DXC worked with the bank’s IT team to build an AIOps-based predictive outage solution for a complex banking estate. Historical system-level log data and service-management metrics from hundreds of banking systems, including customer-facing platforms and back-end credit card and processing systems, were ingested and analyzed to identify patterns linked to future incidents. DXC data scientists used a design thinking process, SME interviews, workshops, and feature engineering to select and productionise 700 features inside the bank’s big data cluster. An AIOps model then continuously observes operating signals, generates outage likelihood risk scores, and feeds iterative learnings back into the model for ongoing accuracy improvement. The resulting predictions and next-best-action insights are surfaced in a dashboard so service managers can intervene before failures occur, and the same data also supports quarterly APRA regulatory reporting.",
+  "products_used": [
+    "AIOps model",
+    "big data cluster",
+    "dashboard"
+  ],
+  "solution_components": [
+    {
+      "name": "AIOps model",
+      "role": "Continuously analyzes service-management and log data to generate future outage risk scores and support automated issue resolution activities.",
+      "layer": "Compute"
+    },
+    {
+      "name": "big data cluster",
+      "role": "Hosts the productionised feature set and underlying data used to train and run the predictive outage models.",
+      "layer": "Storage"
+    },
+    {
+      "name": "dashboard",
+      "role": "Presents advance warnings, risk insights, and next best actions for service managers to act on before systems fail.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Historical log and service-management data from hundreds of customer-facing and back-end banking systems are ingested into the bank’s big data cluster, where 700 engineered features were productionised. The AIOps model analyzes three years of incident data, generates outage risk scores and next-best-action insights, and publishes warnings to a dashboard used by service managers and for APRA regulatory reporting.",
+  "integration_points": [
+    "Customer-facing banking systems",
+    "Back-end credit card processing systems",
+    "Other back-end banking processing systems",
+    "Australian Prudential Regulation Authority (APRA) regulatory reporting"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Risk Management"
+  ],
+  "business_outcome": "The bank can predict high-priority incidents affecting customer-critical systems up to four weeks in advance, improve IT service management quality, reduce outage risk, increase resilience and reliability, and support quarterly regulatory reporting.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "predict IT outages four weeks into the future",
+    "700 features were selected and productionised",
+    "accuracy was around 60%",
+    "thousands of service management data points and statistics",
+    "incidents over the past three years"
+  ],
+  "architecture_clues": [
+    "Solution built for a bank in Sydney, Australia",
+    "Consumes historical system-level log data from hundreds of banking systems",
+    "Covers both mission-critical customer-facing systems and back-end processing systems",
+    "Uses a continual AIOps observe-engage-act cycle for continuous learning",
+    "Model outputs are used for quarterly APRA regulatory reporting",
+    "AI explainability and transparency were required to satisfy governance needs"
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/ai-and-ml-help-predict-and-resolve-it-outages-before-they-occur",
+  "published_date": "2026-03-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The objective of this project was to create and support a robust solution that could predict outages in the bank’s IT environment.\"",
+    "\"The resulting model uses data, AI and ML to analyse various service management metrics, identify patterns and produce a risk score determining the likelihood of future outages or incidents.\"",
+    "\"DXC data scientists used a design thinking approach and worked hand in hand with the bank to design, prototype and build AI models to consume historical system-level log data from hundreds of banking systems.\"",
+    "\"700 features were selected and productionised within the bank’s big data cluster, ensuring the creation of the most accurate algorithms.\"",
+    "\"It has fundamentally changed the bank’s approach to system outages — with the ability to predict issues up to four weeks out.\"",
+    "\"the data is also used to support quarterly regulatory reporting to the Australian Prudential Regulation Authority (APRA).\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,93 @@
+{
+  "id": "google-cloud-deutsche-telekom-ran-guardian-agent-network-operations",
+  "slug": "google-cloud-deutsche-telekom-ran-guardian-agent-network-operations",
+  "vendor": "Google Cloud",
+  "customer_name": "Deutsche Telekom",
+  "industry": "Telecommunications",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Deutsche Telekom needed a faster way to detect, classify, and resolve mobile network issues around demand spikes and other exceptional situations because growing network complexity made traditional automation insufficient for real-time problem solving.",
+  "solution_summary": "Deutsche Telekom built the RAN Guardian Agent as a multi-agent AI system for mobile network operations using Google Cloud technology. The implementation starts by ingesting publicly available event signals from online directories and social media to identify upcoming events across Germany, estimate their scale, determine location, and automatically verify the collected information. A second stage combines those event inputs with network monitoring, inventory, performance, and coverage data to assess whether nearby antennas can handle expected traffic, monitor key parameters in real time, and classify degradations with Gemini 2.5-based reasoning. CloudRun is part of the runtime stack for the agent services, while BigQuery and Firestore are named components in the architecture. A third agent recommends and executes corrective actions such as reallocating resources or adjusting configurations, then documents actions and outcomes so network teams can improve readiness for future events.",
+  "products_used": [
+    "RAN Guardian Agent",
+    "Gemini 2.5",
+    "CloudRun",
+    "BigQuery",
+    "Firestore"
+  ],
+  "solution_components": [
+    {
+      "name": "RAN Guardian Agent",
+      "role": "A multi-agent system that monitors network performance, classifies issues, recommends optimizations, and executes corrective actions for mobile network operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini 2.5",
+      "role": "Provides the large-language-model reasoning used to analyze conditions, classify problems, and support autonomous decision making.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CloudRun",
+      "role": "Runs components of the agent implementation that support the operational workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BigQuery",
+      "role": "A named data platform component in the implementation stack used by the agent system.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Firestore",
+      "role": "A named data store in the implementation stack used by the agent system.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "The system gathers and verifies event signals from online directories and social media, then combines them with network monitoring, inventory, performance, and coverage data to assess expected traffic near each event. The agent stack uses Gemini 2.5 with CloudRun, BigQuery, and Firestore in the implementation to analyze antenna capacity in real time, trigger or recommend corrective actions, and document outcomes for future optimization and operator review.",
+  "integration_points": [
+    "Online directories",
+    "Social media",
+    "Network monitoring data",
+    "Inventory data",
+    "Performance data",
+    "Coverage data",
+    "Network management teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Deutsche Telekom reports faster troubleshooting and optimization, more resilient network operations, and a better mobile customer experience, while positioning the implementation as a first step toward autonomous, self-healing networks.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Processes that previously took roughly an hour can now be completed within just a few minutes."
+  ],
+  "architecture_clues": [
+    "Multi-agent system composed of specialized AI agents that analyze, recommend, execute, and document corrective actions.",
+    "Uses publicly available event data from sources across Germany to anticipate traffic surges.",
+    "Evaluates nearby antenna capacity and key network parameters in real time.",
+    "Problem classification uses network monitoring, inventory, performance, and coverage data.",
+    "Positioned as a first step toward autonomous, self-healing networks."
+  ],
+  "source_url": "https://www.telekom.com/en/newsroom/latest-updates/media-information/2025/11/deutsche-telekom-ai-agents-for-mobile-network",
+  "published_date": "2025-11-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The RAN Guardian Agent was created with Google's Gemini 2.5. In addition, it also uses CloudRun, BigQuery, and Firestore.\"",
+    "\"In the first step, an AI agent continuously scans and analyzes publicly available sources, such as online directories and social media, to identify upcoming public events across Germany.\"",
+    "\"In the second step, another component of the RAN Guardian uses this data to assess how well the mobile network can handle the expected traffic during each event.\"",
+    "\"It evaluates the capacity of nearby antennas, monitors key network parameters in real time, and can immediately recognize high utilization levels, recommending suitable optimization measures if required.\"",
+    "\"In the third step, an additional AI agent executes these measures, for example by reallocating network resources or adjusting configurations. It also documents all actions and outcomes to continuously improve performance and enhance readiness for future events.\"",
+    "\"Processes that previously took roughly an hour can now be completed within just a few minutes.\""
+  ],
+  "source_type": "company"
+}

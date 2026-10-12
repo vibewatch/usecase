@@ -1,0 +1,68 @@
+{
+  "id": "nvidia-merck-kermt-small-molecule-lead-optimization",
+  "slug": "nvidia-merck-kermt-small-molecule-lead-optimization",
+  "vendor": "NVIDIA",
+  "customer_name": "Merck",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Lead optimization in small-molecule research takes months, and most drug candidates never make it to clinical testing, so Merck needed a way to predict molecular behavior earlier and reduce wasted lab work.",
+  "solution_summary": "Merck built KERMT (Kinetic GROVER Multi-Task) with NVIDIA to support the lead-optimization stage of small-molecule discovery, where researchers refine early compounds in search of a viable medicine. The core compute element is a deep-learning foundation model trained on more than 11 million molecules and large volumes of chemical data. In the workflow described, molecular data is used to train KERMT, the model learns chemical patterns, and Merck scientists then use its predictions to assess how candidate molecules may behave in the body so liabilities can be detected earlier than with lab work alone. The page does not describe the storage or orchestration stack in detail, but it does say the open-source model is available on NVIDIA accelerated computing and software, including NVIDIA BioNeMo and Clara Open Models, providing a platform path for packaging and serving the model to Merck researchers and the wider scientific community.",
+  "products_used": [
+    "KERMT",
+    "NVIDIA BioNeMo",
+    "Clara Open Models"
+  ],
+  "solution_components": [
+    {
+      "name": "KERMT",
+      "role": "Deep-learning model Merck uses to predict how candidate molecules may behave in the body during lead optimization.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA BioNeMo",
+      "role": "Platform on which the open-source KERMT model is made available through NVIDIA's accelerated computing and software ecosystem."
+    },
+    {
+      "name": "Clara Open Models",
+      "role": "NVIDIA model distribution offering that makes KERMT available to the broader scientific community."
+    }
+  ],
+  "data_flow": "Chemical data from more than 11 million molecules is used to train KERMT. The model learns molecular patterns and is then applied by Merck researchers during lead optimization to predict how candidate compounds may behave in the body, helping teams surface issues earlier and focus lab work on the most promising molecules.",
+  "integration_points": [
+    "NVIDIA",
+    "NVIDIA BioNeMo",
+    "Clara Open Models"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Merck reports that AI is accelerating early drug-development work by helping scientists identify disease targets and optimized compounds faster, improve candidate quality, reduce costs, and shorten preclinical phases.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "more than 11 million molecules",
+    "30% or more"
+  ],
+  "architecture_clues": [
+    "Developed in collaboration with NVIDIA.",
+    "KERMT is a deep-learning foundation model.",
+    "KERMT is open source.",
+    "The model is available on NVIDIA accelerated computing and software, including NVIDIA BioNeMo and Clara Open Models."
+  ],
+  "source_url": "https://www.merck.com/stories/our-ai-model-kermt-is-helping-to-advance-drug-discovery/",
+  "published_date": "2026-03-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Developed in collaboration with Nvidia, KERMT, pronounced 'Kermit' and short for Kinetic GROVER Multi-Task, is a deep-learning computer model trained on more than 11 million molecules.\"",
+    "\"It learns from patterns in vast amounts of chemical data with the goal of helping scientists better predict how a molecule will behave in the body, potentially spotting issues much earlier and reducing the need for months of lab work.\"",
+    "\"AI is sometimes cutting timelines by 30% or more, improving drug candidate quality and reducing costs.\"",
+    "\"KERMT is available on Nvidia accelerated computing and software, including platforms like Nvidia BioNeMo and Clara Open Models.\""
+  ],
+  "source_type": "company"
+}

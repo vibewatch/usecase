@@ -1,0 +1,92 @@
+{
+  "id": "in-house-singapore-general-hospital-antimicrobial-stewardship-ai",
+  "slug": "in-house-singapore-general-hospital-antimicrobial-stewardship-ai",
+  "vendor": "In-house",
+  "customer_name": "Singapore General Hospital",
+  "industry": "Healthcare",
+  "region": "Singapore",
+  "company_size": "Public sector",
+  "business_problem": "Singapore General Hospital needed to curb inappropriate antibiotic prescribing and antimicrobial resistance, but its antimicrobial stewardship team could manually audit only a limited subset of prescriptions and could not scale to broader, real-time review across patient records and clinical context.",
+  "solution_summary": "Singapore General Hospital and DXC Technology co-created a custom AI-driven antimicrobial stewardship solution to automate review of antibiotic use for pneumonia. The implementation draws data from SGH's proprietary electronic medical records system and linked repositories including radiology images, laboratory results, histology reports, and anaesthetic charts. These inputs are transformed through data-engineering and data-completeness strategies so patient history, biomarkers, comorbidities, prior admissions, microbiology, and treatment timing can be normalized for analysis. On top of this data foundation, SGH built an operational AI model that flags prescriptions needing ASP review and a recommender AI model that suggests suitable regimens. The models apply a five-part clinical reasoning framework to support point-of-prescription decisions, prioritize complex cases, and move stewardship from retrospective manual audit toward real-time, patient-specific treatment guidance inside hospital clinical workflows.",
+  "products_used": [
+    "proprietary electronic medical records (EMR) system",
+    "linked data repositories",
+    "operational AI model",
+    "recommender AI model"
+  ],
+  "solution_components": [
+    {
+      "name": "proprietary electronic medical records (EMR) system",
+      "role": "Provides the core institutional patient record data used to evaluate infections, treatments, comorbidities, and prescribing patterns.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "linked data repositories",
+      "role": "Supply supporting clinical data such as radiology images, laboratory results, histology reports, and anaesthetic charts for syndromic analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "operational AI model",
+      "role": "Identifies antibiotic treatment profiles that require additional ASP review and prioritizes cases needing intervention.",
+      "layer": "Compute"
+    },
+    {
+      "name": "recommender AI model",
+      "role": "Suggests appropriate antibiotic regimens to guide clinicians at the point of prescription.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Clinical data is pulled from SGH's proprietary EMR system and linked repositories holding radiology, lab, histology, and anaesthetic records, then processed with data-engineering and missing-data strategies into illness-specific features. The operational AI model scores pneumonia prescriptions for review priority, and the recommender AI model returns regimen guidance for ASP teams and clinicians in clinical workflows.",
+  "integration_points": [
+    "SGH proprietary electronic medical records system",
+    "Radiology image repositories",
+    "Laboratory results systems",
+    "Histology report repositories",
+    "Anaesthetic chart records",
+    "Hospital clinical systems",
+    "National databases (targeted future expansion)"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "The AI system improved stewardship efficiency by sharply narrowing the review queue, accelerating case analysis from manual minutes to sub-second assessment, and supporting more timely, targeted antibiotic interventions intended to reduce inappropriate prescribing, hospital stays, mortality, readmissions, and treatment costs.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "approximately 12,000 audits performed for broad-spectrum antibiotic use at SGH showed that 20 to 30 per cent of these prescriptions were inappropriate",
+    "In a test using 2,012 pneumonia treatments unseen by the model, 624 cases were flagged as requiring additional review",
+    "Seventy-two (87%) of all intervention cases were captured within the 624 cases flagged for review",
+    "the model reduces the number of cases for review by a factor of three (624 out of 2,012)",
+    "11.5% — as compared to the full review process, which identifies 4% of all cases for intervention",
+    "the recommender model was able to recommend the correct regimen only 50% of the time",
+    "manual processes typically take 20 minutes to review each case, AI can assess the same data in less than a second"
+  ],
+  "architecture_clues": [
+    "Initial training data covered seven broad-spectrum intravenous antibiotics used to treat pneumonia.",
+    "The clinical reasoning framework evaluates five question groups: whether there is an infection, where it is, when it occurred, who the host is, and which antibiotic should be selected.",
+    "Feature engineering included symptoms within relevant periods, days between admissions, and administration of the pneumonia regimen.",
+    "Data quality, freshness, and completeness were explicit design constraints addressed through categorization, processing, and proxy or averaging strategies for missing information.",
+    "The target operating model is real-time support embedded in hospital clinical systems at the point of care."
+  ],
+  "source_url": "https://dxc.com/insights/knowledge-base/paper/tackling-the-problem-of-antimicrobial-resistance-using-ai-and-automation",
+  "published_date": "2026-03-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Singapore General Hospital is working with DXC Technology to use artificial intelligence (AI) to automate the process of auditing antibiotic usage\"",
+    "\"DXC and SGH co-created an AI model that gives antimicrobial stewardship program (ASP) teams faster, more accurate insights into antibiotic use.\"",
+    "\"In SGH, data will need to be drawn from institution’s proprietary electronic medical records system. Information from linked data repositories, such as radiology images, all laboratory results, histology reports and anaesthetic charts, is also required\"",
+    "\"In 2018 alone, approximately 12,000 audits performed for broad-spectrum antibiotic use at SGH showed that 20 to 30 per cent of these prescriptions were inappropriate.\"",
+    "\"In a test using 2,012 pneumonia treatments unseen by the model, 624 cases were flagged as requiring additional review. Seventy-two (87%) of all intervention cases were captured within the 624 cases flagged for review.\"",
+    "\"While manual processes typically take 20 minutes to review each case, AI can assess the same data in less than a second\""
+  ],
+  "source_type": "company"
+}

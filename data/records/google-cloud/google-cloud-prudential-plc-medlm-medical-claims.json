@@ -1,0 +1,71 @@
+{
+  "id": "google-cloud-prudential-plc-medlm-medical-claims",
+  "slug": "google-cloud-prudential-plc-medlm-medical-claims",
+  "vendor": "Google Cloud",
+  "customer_name": "Prudential plc",
+  "industry": "Financial Services",
+  "region": "Singapore and Malaysia",
+  "company_size": "Enterprise",
+  "business_problem": "Prudential needed to handle a growing volume of medical insurance claims more efficiently and accurately, while reducing manual data-entry errors and shortening approval and payout times for customers.",
+  "solution_summary": "Prudential plc is deploying Google Cloud's MedLM, a healthcare-tuned family of generative AI language models, to support medical insurance claims processing in Singapore and Malaysia. In this implementation, claim-related documents submitted with health insurance claims—including diagnostic reports, prescriptions, and invoices—are passed to MedLM for analysis, summarization, information extraction, and medical coding assistance. The AI output is then used to support claims review and assessment rather than replace it outright: Prudential is comparing MedLM's analysis and advice against outcomes from its current approval processes over a 3-4 month period, with human assessors kept in the loop at critical decision stages. The design is intended to improve decision accuracy, increase automation, and let claims teams process higher claim volumes with faster turnaround and less friction for policyholders.",
+  "products_used": [
+    "MedLM",
+    "Google Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "MedLM",
+      "role": "Analyzes submitted medical claim documents, summarizes content, extracts relevant information, and supports accurate coding for claims decisions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud",
+      "role": "Provides the AI platform and strategic cloud partnership through which Prudential is deploying MedLM for claims processing."
+    }
+  ],
+  "data_flow": "Medical claim submissions and attached documents such as diagnostic reports, prescriptions, and invoices are provided to MedLM on Google Cloud. MedLM analyzes and summarizes the materials, extracts relevant details, and produces coding and decision-support advice. Prudential then compares that output with decisions from its existing approval process, while human claims assessors review critical stages before approvals and payouts.",
+  "integration_points": [
+    "Diagnostic reports",
+    "Prescriptions",
+    "Invoices",
+    "Current claim approval processes",
+    "Claims assessors"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Prudential reported faster and more frictionless claims handling, improved claims-decision accuracy, higher automation in reviews and assessments, the ability to handle greater claim volume and velocity, and better customer experience through quicker approvals and pay-outs.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "doubled the automation rate of claim reviews and assessments",
+    "3-4 months"
+  ],
+  "architecture_clues": [
+    "Initial deployment targets select medical insurance claims in Singapore and Malaysia.",
+    "Human assessors remain in the loop at critical stages of decision-making.",
+    "Prudential is running a side-by-side comparison between MedLM analysis and current approval decisions during the evaluation period.",
+    "The AI is used on claim-related documents including diagnostic reports, prescriptions, and invoices."
+  ],
+  "source_url": "https://www.prudentialplc.com/en/newsroom/company-news/2024/prudential-pioneers-use-of-generative-ai-for-faster-and-more-frictionless-medical-claims-in-global-first-partnership-with-google-cloud/",
+  "published_date": "2024-10-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Prudential will use Google's MedLM family of language models to simplify and summarise claim-related documents, including medical reports and invoices, for quicker approvals and pay-outs\"",
+    "\"Starting in Singapore and Malaysia, Prudential will use MedLM to analyse documents submitted alongside health insurance claims, such as diagnostic reports, prescriptions and invoices.\"",
+    "\"MedLM supports human decision-making with its ability to extract relevant information and code it accurately for claims, helping to reduce the potential for errors caused by manual data entry, so claims can be processed faster and more accurately.\"",
+    "\"proof-of-concept tests by Prudential ... showed its use of MedLM doubled the automation rate of claim reviews and assessments, in addition to improving the accuracy of claims decisions\"",
+    "\"Prudential will apply MedLM to select medical insurance claims made in Singapore and Malaysia over a period of 3-4 months, then compare the AI's analysis and advice to actual decisions using current approvals processes during this time.\"",
+    "\"maintaining a 'human in the loop' at critical stages of the decision-making process\""
+  ],
+  "source_type": "company"
+}

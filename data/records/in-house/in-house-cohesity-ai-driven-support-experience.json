@@ -1,0 +1,82 @@
+{
+  "id": "in-house-cohesity-ai-driven-support-experience",
+  "slug": "in-house-cohesity-ai-driven-support-experience",
+  "vendor": "In-house",
+  "customer_name": "Cohesity",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Cohesity needed to improve customer support by reducing customers' time to action and time to resolution while scaling access to its SRE knowledge without requiring a support technician for every issue.",
+  "solution_summary": "Cohesity implemented an AI-driven Support Experience for its own support operation, powered by Cohesity Turing and delivered as a chat-based interface for customers. The system captures the knowledge base of Cohesity Site Reliability Engineers and makes it available through AI agents that act like virtual SREs or support technicians. The source says the agents use Natural Language Processing and Large Language Models together with retrieval augmented generation (RAG) to access knowledge base repositories and issue resolution systems at response time, so users receive current remediation guidance instead of static FAQs. The implementation also includes a feedback loop: SREs continue producing deep technical documentation and issue write-ups, and those learnings are fed back into AI agent stream workflows to continuously improve the support experience and expand coverage for both common and novel issues.",
+  "products_used": [
+    "Cohesity Turing",
+    "Natural Language Processing (NLP)",
+    "Large Language Models (LLMs)",
+    "retrieval augmented generation (RAG)"
+  ],
+  "solution_components": [
+    {
+      "name": "Cohesity Turing",
+      "role": "Powers the AI-driven Support Experience and delivers the chat-based support interface customers use.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Natural Language Processing (NLP)",
+      "role": "Helps the AI agents interpret customer issues and identify likely root causes from natural-language interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Large Language Models (LLMs)",
+      "role": "Generate diagnosis and remediation guidance for routine and complex support issues.",
+      "layer": "Compute"
+    },
+    {
+      "name": "retrieval augmented generation (RAG)",
+      "role": "Connects the AI models to current knowledge base repositories and issue resolution systems for just-in-time answers.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer questions enter a chat experience powered by Cohesity Turing, where AI agents use NLP and LLMs with RAG to pull context from Cohesity knowledge base repositories and issue resolution systems, generate diagnosis and remediation steps, and return guidance to the user. New SRE write-ups and technical learnings are then fed back into AI agent stream workflows to improve future responses.",
+  "integration_points": [
+    "Cohesity knowledge base repositories",
+    "issue resolution systems",
+    "Cohesity SRE technical documentation",
+    "AI agent stream workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The support experience enables customers to self-serve with AI-powered guidance, reduces time to resolution, and lets Cohesity SREs focus on more complex issues while continuously improving support quality.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "reducing overall customer time to resolution by up to 40%"
+  ],
+  "architecture_clues": [
+    "Chat-based support experience built around virtual SRE-style AI agents",
+    "RAG activates ever-growing and changing knowledge base repositories and issue resolution systems",
+    "SRE write-ups and learnings are fed back into AI agent stream workflows for continuous improvement",
+    "Designed to diagnose common issues and identify novel issues without engaging a support technician"
+  ],
+  "source_url": "https://www.cohesity.com/blogs/revolutionizing-customer-support-ai-driven-support-experience/",
+  "published_date": "2023-09-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"This innovative support experience is designed to help customers reduce their time to action by capturing the entire knowledge base of Cohesity SREs (Site Reliability Engineers) into a chat experience.\"",
+    "\"The AI-driven Support Experience has already made a significant impact on customer support by reducing overall customer time to resolution by up to 40%\"",
+    "\"By providing customers with intelligent AI agents through a chat-like experience, the agents act as an AI-powered SRE or support technician\"",
+    "\"By using the power of Natural Language Processing (NLP) and Large Language Models (LLMs), these agents can quickly and accurately identify the root cause of an issue and provide the necessary steps to resolve it.\"",
+    "\"These models leverage retrieval augmented generation (RAG) which activates the ever-growing and changing knowledge base repositories and issue resolution systems\"",
+    "\"These write-ups and learnings are fed back into the AI agent stream workflows, enabling continuous learning and improvement of the AI-driven Support Experience.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "in-house-zf-ai-assisted-engineering-and-vehicle-control",
+  "slug": "in-house-zf-ai-assisted-engineering-and-vehicle-control",
+  "vendor": "In-house",
+  "customer_name": "ZF",
+  "industry": "Automotive",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "ZF needed to shorten development cycles, analyze large volumes of customer requirements, speed testing and validation, and estimate operating parameters that cannot be physically measured in products such as electric motors.",
+  "solution_summary": "ZF uses in-house AI across its engineering lifecycle rather than in a single standalone app. A pilot run by the AI Tech Center ingests customer requests and requirement specifications, analyzes them for recurring or similar requirements, and surfaces related code, test specifications and tools so engineers in different divisions can reuse prior work and estimate new projects faster. In later development stages, AI methods are applied to simulation, testing and validation: AI agents orchestrate validation workflows, while machine-learning models act as non-linear approximators when enough data is available. ZF also combines hardware tests with AI evaluation to create Virtual Sensors that infer temperatures, speeds and positions that cannot be measured directly, and the cubiX control software uses machine learning for predictive trajectory control in chassis dynamics. The source does not name an external platform or dedicated data store; prior specs, code and measurement data are the working information base served back to developers and control functions.",
+  "products_used": [
+    "AI Tech Center",
+    "Virtual Sensors",
+    "cubiX"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Tech Center",
+      "role": "Central ZF AI team that runs the requirements-analysis pilot and supports divisions with AI use cases across development.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Virtual Sensors",
+      "role": "Machine-learning capability that combines hardware tests and AI evaluation to infer temperatures, speeds and positions that cannot be measured directly.",
+      "layer": "Compute"
+    },
+    {
+      "name": "cubiX",
+      "role": "Chassis control software that applies machine learning to predictive trajectory control for AD and ADAS vehicle dynamics functions.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "ZF feeds customer requests and requirement specifications into an internal AI pilot that detects recurring requirements and retrieves related code, test specifications and tools for engineers across divisions. In validation use cases, hardware-test measurements and simulation inputs are processed by ML models and AI agents to estimate hard-to-measure states and orchestrate validation; outputs are then consumed by developers and by control software such as cubiX.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "ZF says AI helps redesign and optimize products and development processes, shortens development cycles, enables faster and more reliable project estimation, and makes validation work cheaper and more efficient.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The AI Tech Center is anchored within Corporate Research and Development in Friedrichshafen.",
+    "The requirements-analysis use case is described as an internal pilot project used across a globally active group.",
+    "AI agents are used to orchestrate validation of product designs.",
+    "Virtual sensor models combine hardware testing with AI evaluation to infer unmeasurable motor and drivetrain states.",
+    "cubiX applies machine learning inside chassis control and predictive trajectory control workflows."
+  ],
+  "source_url": "https://www.zf.com/mobile/en/technologies/artificial_intelligence/stories/ai_at_zf.html",
+  "published_date": "2024-08-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"AI is of strategic importance for ZF because it helps us to redesign and optimize our products and development processes and develop more efficiently\"",
+    "\"There is an internal pilot project for this purpose. It identifies recurring or similar requirements in customer requests.\"",
+    "\"Developers gain access to code, test specifications and other tools that can also be utilized for the new project – even if it's just to make the estimates faster and more reliable\"",
+    "\"AI agents can orchestrate the validation of product designs and reduce development time as well.\"",
+    "\"Thanks to machine learning, the combination of hardware testing and AI evaluation, ZF developers can also obtain this information\"",
+    "\"The cubiX developers also use machine learning methods for this.\""
+  ],
+  "source_type": "company"
+}

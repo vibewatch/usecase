@@ -1,0 +1,108 @@
+{
+  "id": "intel-act-on-ai-customer-segmentation-model",
+  "slug": "intel-act-on-ai-customer-segmentation-model",
+  "vendor": "Intel",
+  "customer_name": "Act-On",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Act-On wanted to reduce marketer guesswork in building audience segments from large volumes of profile and behavioral data, and needed a practical way to analyze heterogeneous CRM and engagement data at production scale fast enough to launch a new feature within six months.",
+  "solution_summary": "Act-On and Intel built the AI Audience Insights feature as an unsupervised machine-learning pipeline deployed in Act-On’s production environment. Customer profile records synchronized from CRMs and high-volume behavioral signals such as email opens, clicks, page visits, downloads, webinar activity, and form submissions are standardized, cleansed, and aggregated into time-windowed features, then prepared from Snowflake for modeling. Intel Distribution of Modin accelerates data import and handling, while Intel Extension for Scikit-learn speeds supported model fitting on Intel hardware; Intel customized the workflow for predominantly categorical marketing data and used K-Modes clustering with automatic cluster-count search. The containerized system runs on AWS EC2 R7iz with Spring Boot, Spring Cloud Data Flow, and Kubernetes coordinating staging, parallel clustering, and processor tasks. Results are interpreted with statistical and business logic, posted back to the Audience Service, and surfaced in the Act-On UI as recommended audience segments marketers can accept, discard, or rerun with different feature selections.",
+  "products_used": [
+    "Snowflake",
+    "Intel Distribution of Modin",
+    "Intel Extension for Scikit-learn",
+    "AWS EC2 R7iz",
+    "Spring Boot",
+    "Spring Cloud Data Flow",
+    "Kubernetes",
+    "Audience Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Stores the large contact and behavioral datasets that are reshaped for customer segmentation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Intel Distribution of Modin",
+      "role": "Accelerates data import and handling in the unsupervised learning workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Intel Extension for Scikit-learn",
+      "role": "Accelerates supported clustering-model fitting on Intel hardware.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS EC2 R7iz",
+      "role": "Provides the production compute environment where the accelerated workflow runs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Spring Boot",
+      "role": "Runs the deployed application services and workflow jobs for the segmentation solution.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Spring Cloud Data Flow",
+      "role": "Coordinates the staging, parallel clustering, and processor tasks in the pipeline.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kubernetes",
+      "role": "Runs the containerized pipeline in Act-On’s production environment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Audience Service",
+      "role": "Controls when insights jobs run and receives the processed segment recommendations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer profile records from synced CRM systems and behavioral event histories are stored in Snowflake, where Act-On standardizes fields and aggregates engagement windows. A staging task fetches and preprocesses the dataset, Intel-accelerated clustering jobs run in parallel on AWS EC2 R7iz, and a processor task applies statistical and business logic before posting recommended segments to the Audience Service for display in the AI Audience Insights UI.",
+  "integration_points": [
+    "Customer CRM systems such as Salesforce, Microsoft Dynamics, and NetSuite",
+    "Act-On application and AI Audience Insights user interface"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Act-On launched AI Audience Insights within six months, giving marketers AI-generated segment recommendations, parallel processing for very large datasets, configurable model inputs, and lower internal development effort than building the capability from scratch.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "within 6 months from idea to deployment in a customer environment",
+    "almost tens of billions of rows of behavioral data",
+    "hundreds of millions of rows of contact data",
+    "30, 90 and 180 days"
+  ],
+  "architecture_clues": [
+    "The pipeline was containerized and deployed in Act-On’s production environment.",
+    "The workflow uses unsupervised learning customized for predominantly categorical data.",
+    "K-Modes clustering is used, with automatic search for the most suitable number of clusters.",
+    "Jobs are split into staging, parallel clustering, and processor tasks.",
+    "The workflow is accelerated on AWS EC2 R7iz powered by 4th Generation Intel Xeon Scalable Processors."
+  ],
+  "source_url": "https://www.intel.com/content/www/us/en/developer/articles/case-study/creating-ai-based-customer-segmentation-model.html",
+  "published_date": "2023-12-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"it uses machine learning (ML) to parse and ingest vast amounts of behavioral data to design and implement customized segmentation models.\"",
+    "\"The first step in this project was to wrangle the data, stored in Snowflake*, into a format that could be used for customer segmentation.\"",
+    "\"Intel provided an unsupervised machine learning pipeline to ingest, process, cluster, and visualize the data and clusters.\"",
+    "\"The workflow is accelerated on AWS EC2 R7iz, which is powered by 4th Generation Intel® Xeon® Scalable Processors.\"",
+    "\"Deployment of the solution was done using Spring Boot and Spring Cloud Data Flow on Kubernetes*.\"",
+    "\"greatly accelerated the project to within 6 months from idea to deployment in a customer environment\""
+  ],
+  "source_type": "company"
+}

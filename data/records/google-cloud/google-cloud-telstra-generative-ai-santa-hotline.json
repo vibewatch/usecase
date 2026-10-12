@@ -1,0 +1,70 @@
+{
+  "id": "google-cloud-telstra-generative-ai-santa-hotline",
+  "slug": "google-cloud-telstra-generative-ai-santa-hotline",
+  "vendor": "Google Cloud",
+  "customer_name": "Telstra",
+  "industry": "Telecommunications",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Telstra wanted to let children and parents call Santa from its nationwide payphone network during the Christmas season, but a human-only hotline could not answer large volumes of wish-list and question calls in real time while consistently staying child-appropriate and privacy-aware.",
+  "solution_summary": "Telstra built a seasonal voice experience that turns public payphones into an AI-powered hotline to Santa. Inbound calls from Telstra payphones are handed into Customer Engagement Suite from Google Cloud, which fronts the interaction and lets callers speak naturally instead of navigating a fixed script. Google’s Gemini large language model generates Santa’s answers in real time using a custom persona, prompt-engineered guardrails, and child-appropriate Christmas-only response rules. Gemini’s custom voice capabilities synthesize the spoken reply from voice recordings made for the project so callers hear a branded Santa voice rather than a generic TTS output. Calls are transcribed in real time for monitoring, transcripts are deleted after 72 hours, and each conversation is isolated so the model stays “frozen” and is not trained on caller data.",
+  "products_used": [
+    "Telstra payphones",
+    "Customer Engagement Suite from Google Cloud",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Telstra payphones",
+      "role": "They provide the public voice entry point for callers dialing the Santa hotline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Customer Engagement Suite from Google Cloud",
+      "role": "It handles the AI-powered call experience used to answer callers on the hotline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini",
+      "role": "It generates real-time answers, applies the Santa persona and guardrails, and produces Santa’s synthetic voice for the call.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Children and parents dial in through Telstra payphones, and the call is handled by Customer Engagement Suite from Google Cloud. The conversation is transcribed in real time, Gemini uses prompt-engineered rules and a custom Santa persona to generate a response, and Gemini voice capabilities speak the answer back to the caller. Transcript data is monitored for quality control, retained for up to 72 hours, then deleted.",
+  "integration_points": [
+    "Telstra payphone network"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Telstra turned its Santa hotline into a real-time generative AI voice service that can answer callers dynamically across its payphone network while enforcing child-safety, privacy, and conversation-isolation controls.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Santa’s voice was created from recordings made specifically for the project using Gemini custom voice capabilities.",
+    "Calls are transcribed in real time for quality control.",
+    "Transcripts are deleted after 72 hours.",
+    "Each caller conversation is isolated so the LLM is not trained on hotline conversations and remains 'frozen'.",
+    "Prompt engineering is used to keep responses child-appropriate and focused only on Christmas topics."
+  ],
+  "source_url": "https://www.telstra.com.au/exchange/how-we-re-helping-santa-with-generative-ai",
+  "published_date": "2025-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Santa will use Google’s Gemini large language model (LLM) and Customer Engagement Suite from Google Cloud to answer everyone’s calls.\"",
+    "\"Santa’s voice is generated using Gemini’s custom voice capabilities, which were created from recordings we made with Santa especially for this project.\"",
+    "\"With the tech from the Google Cloud team, Santa is able to respond dynamically and in real-time – something that wasn’t possible before generative AI.\"",
+    "\"While the calls themselves will be transcribed in real-time to make sure that the AI program is working correctly, they will be deleted after 72 hours to help avoid any privacy concerns.\"",
+    "\"the conversations Santa has with each caller are isolated; this means Santa’s LLM isn’t being ‘taught’ based on any of the calls made to the North Pole. It’s ‘frozen’.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,67 @@
+{
+  "id": "microsoft-dlg-ai-translation-trade-fairs",
+  "slug": "microsoft-dlg-ai-translation-trade-fairs",
+  "vendor": "Microsoft",
+  "customer_name": "DLG (German Agricultural Society)",
+  "industry": "Commercial and Professional Services",
+  "region": "Germany",
+  "company_size": "Unknown",
+  "business_problem": "DLG needed a way to turn live trade-fair presentations into written, barrier-free, multilingual content so international attendees and people with hearing impairments could follow sessions without relying on traditional simultaneous interpreters.",
+  "solution_summary": "DLG deployed transcribbyAI from Deutsche Telekom MMS as a browser-based AI simultaneous interpretation application for its trade fairs. Organizers run the application on a computer that receives the live event audio stream; a microphone connects through a standard audio cable, or a recorded audio file can be played in as the source. transcribbyAI uses Microsoft Azure AI language models to perform real-time speech recognition, speech synthesis, and translation, automatically detecting the source language and translating output into more than 100 languages. During pauses it corrects capitalization and punctuation, masks inappropriate expressions with symbols, and distinguishes speakers by voice color. The resulting text is delivered to large stage screens and to mobile devices through QR-code access. The source does not name a dedicated storage product, but it does state that transcripts can be exported for further processing. The solution was operated on German servers with certified IT security and GDPR-compliant hosting, and Telekom MMS ran it across five stages in parallel at Agritechnica.",
+  "products_used": [
+    "transcribbyAI",
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "transcribbyAI",
+      "role": "Browser-based application used by DLG to ingest event audio, generate live transcripts and translations, and deliver accessible text to screens and mobile viewers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Provides the AI language models that power speech recognition, speech synthesis, and language translation for the live interpretation workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A presentation audio stream reaches a browser-based transcribbyAI session from a connected microphone or from a played-back audio file. transcribbyAI uses Microsoft Azure language models for real-time recognition and translation, then returns corrected subtitles and multilingual text to stage screens or QR-code mobile views, with transcript export available for further processing.",
+  "integration_points": [
+    "Live presentation audio stream",
+    "Connected microphone via standard audio cable",
+    "Recorded audio files",
+    "Large stage monitor",
+    "Mobile devices via QR code"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "DLG expanded the reach of its trade fairs with multilingual, barrier-free access to presentations, created additional value for attendees and partners, and reduced the cost of hiring simultaneous translators.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "more than 100 languages",
+    "five stages in parallel"
+  ],
+  "architecture_clues": [
+    "Operated in compliance with the GDPR on German servers",
+    "Certified IT security",
+    "Telekom MMS provided the application on five stages in parallel at Agritechnica",
+    "The number of listeners can be flexibly adjusted",
+    "Transcripts can be exported for further processing"
+  ],
+  "source_url": "https://www.telekom.com/en/newsroom/latest-updates/media-information/2024/8/inclusion-and-innovation-ai-translation-at-dlg-trade-fairs",
+  "published_date": "2024-08-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"the DLG was looking for a way to simultaneously transmit presentations in written form (speech to text). In addition, the text output for a large stage monitor had to be optimized to be barrier-free and multilingual.\"",
+    "\"The tool is based on the latest AI language models from Microsoft Azure, which enable speech recognition, speech synthesis and language translation.\"",
+    "\"Telekom MMS ... provided the required application on five stages in parallel.\"",
+    "\"transcribbyAI automatically recognizes the source language and can translate into more than 100 languages individually for each user.\"",
+    "\"DLG saves costs by eliminating the need for simultaneous translators.\""
+  ],
+  "source_type": "company"
+}

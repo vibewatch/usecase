@@ -1,0 +1,84 @@
+{
+  "id": "in-house-citrix-globalization-ticket-analysis-ml",
+  "slug": "in-house-citrix-globalization-ticket-analysis-ml",
+  "vendor": "In-house",
+  "customer_name": "Citrix",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Citrix's Globalization Services team was manually reviewing a very large volume of support tickets to identify globalization-related customer requirements, making it difficult to prioritize broad product fixes quickly, measure team effectiveness, and systematically surface product improvement opportunities.",
+  "solution_summary": "Citrix built an in-house machine learning workflow to analyze the voice of the customer in support tickets and identify issues tied to globalization requirements. The ingest layer is the stream of customer support tickets, plus historical ticket data from 2016 and 2017 that had already been manually reviewed by the Globalization Services team. Citrix cleans the ticket text, removes unhelpful content, and performs feature extraction so each ticket can be represented as numeric vectors. Those vectors feed a decision engine powered by a trained random forest model that classifies whether a ticket is relevant to globalization issues. The classification output is then surfaced through a dashboard used to track accuracy, ticket trends, and team effectiveness. Insights from the model also inform downstream product changes, including a time zone health check tool intended to prevent recurring support issues.",
+  "products_used": [
+    "decision engine",
+    "random forest model",
+    "dashboard",
+    "time zone health check tool"
+  ],
+  "solution_components": [
+    {
+      "name": "decision engine",
+      "role": "Uses machine learning to classify support ticket data for relevance to globalization requirements.",
+      "layer": "Compute"
+    },
+    {
+      "name": "random forest model",
+      "role": "Learns classification rules from historical ticket samples and scores new ticket vectors.",
+      "layer": "Compute"
+    },
+    {
+      "name": "dashboard",
+      "role": "Tracks classification data, trends, and the team's effectiveness as the model is tuned.",
+      "layer": "Serving"
+    },
+    {
+      "name": "time zone health check tool",
+      "role": "Applies insights from ticket analysis to help customers identify time zone setting issues.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Citrix feeds customer support tickets, including the manually analyzed 2016-2017 corpus, into a preprocessing stage where text is cleaned and converted through feature extraction into numeric vectors. Those vectors are scored by a random forest model inside the decision engine to determine whether a ticket is related to globalization issues. Results are exposed in a dashboard and used to drive product changes such as the time zone health check tool.",
+  "integration_points": [
+    "Customer support tickets",
+    "Historical customer data from 2016 and 2017",
+    "Globalization Services dashboard"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The machine learning system lets Citrix analyze support tickets much faster, track trends with a dashboard, better understand globalization-related customer issues, and translate findings into product improvements such as a time zone health check tool. Citrix reports faster large-scale analysis, rising classification accuracy, and an expected reduction in globalization-related support cases.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "more than 100,000 a year",
+    "more than half our support tickets were related to globalization requirements",
+    "exceed 85 percent accuracy by year-end across all product lines",
+    "more than 27,000 tickets in three hours",
+    "8 percent decrease in globalization-related customer support issues"
+  ],
+  "architecture_clues": [
+    "The training corpus came from manual analysis of customer data from 2016 and 2017.",
+    "Text samples are cleaned before feature extraction.",
+    "Tickets are transformed into numeric vectors before classification.",
+    "The classification algorithm is tuned on an ongoing basis.",
+    "The model is specifically described as a random forest model."
+  ],
+  "source_url": "https://www.citrix.com/blogs/2019-09/analyzing-the-voice-of-the-customer-using-machine-learning",
+  "published_date": "2019-09-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Back then, the Globalization Services team was analyzing customer voice by going through support tickets manually.\"",
+    "\"With more than 100,000 a year, it gave us plenty of opportunity to learn about our customers and their needs... more than half our support tickets were related to globalization requirements.\"",
+    "\"We leveraged the data from our manual analysis of data from 2016 and 2017 to build a decision engine powered by machine learning.\"",
+    "\"First, we clean the text samples... Then, we extract features... Data samples are then aligned with these features, which results in numeric vectors.\"",
+    "\"The model learns the rules from those samples, saving them for future use, and we end up with a trained random forest model.\"",
+    "\"The algorithm also enables rapid analysis - more than 27,000 tickets in three hours.\"",
+    "\"We created a time zone health check tool... We're expecting it to lead to an 8 percent decrease in globalization-related customer support issues.\""
+  ],
+  "source_type": "company"
+}

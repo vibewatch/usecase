@@ -1,0 +1,71 @@
+{
+  "id": "openai-meo-portugal-regulatory-compliance-legal-assistant",
+  "slug": "openai-meo-portugal-regulatory-compliance-legal-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "MEO Portugal",
+  "industry": "Telecommunications",
+  "region": "Lisbon, Portugal",
+  "company_size": "Enterprise",
+  "business_problem": "MEO's legal analysts had to handle a steady stream of regulatory requests that required cross-referencing corporate legal records and manually processing large volumes of legal documents, consuming significant time and effort for compliance work.",
+  "solution_summary": "DXC and MEO built a proof-of-concept AI assistant with ChatGPT capabilities to support regulatory compliance work for MEO's legal team. The implementation centers on a controlled, private document repository that holds legal documents and acts as the governed source for answers, helping preserve confidentiality. Legal analysts interact with the assistant through conversational prompts, and the system automatically sources relevant information from the document set, structures it into a standardized response format, and produces summaries and next-step guidance. During development, MEO's legal analysts provided recurring feedback on responses to improve accuracy and usefulness, creating a human-in-the-loop tuning process. The assistant serves both frontline analysts, who use it to answer regulatory requests faster, and MEO's executive board, which receives regulatory response summaries for quicker decision-making.",
+  "products_used": [
+    "AI assistant",
+    "ChatGPT",
+    "controlled, private document repository"
+  ],
+  "solution_components": [
+    {
+      "name": "AI assistant",
+      "role": "Provides a conversational interface for legal analysts to retrieve regulatory response information and actionable guidance from MEO's legal documents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "Supplies the generative AI capabilities used to analyze legal content and generate responses, summaries, and next steps.",
+      "layer": "Compute"
+    },
+    {
+      "name": "controlled, private document repository",
+      "role": "Stores the legal documents that the assistant uses as its secure source of regulatory response information.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "MEO's legal documents are kept in a controlled, private document repository. Legal analysts submit conversational prompts to the AI assistant, which uses ChatGPT capabilities to source relevant information from those documents, format responses in a standardized way, and return summaries, insights, and recommended next steps to analysts and the executive board.",
+  "integration_points": [
+    "MEO legal document corpus",
+    "MEO legal analysts",
+    "MEO executive board"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The assistant helps MEO reduce the hours and effort required for compliance work, respond to regulatory requests with greater speed and efficiency, generate executive-ready summaries, and free legal analysts to focus on more complex work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Proof-of-concept implementation that became a proof of value",
+    "Uses a controlled, private document repository for security and confidentiality",
+    "Human feedback loop from legal analysts was used to improve response effectiveness and accuracy",
+    "Conversational prompt interface for regulatory query handling"
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/ai-legal-assistant-meo-portugal",
+  "published_date": "2025-03-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"DXC developed an AI assistant with ChatGPT capabilities.\"",
+    "\"The generative AI solution, first created as a proof-of-concept, simplifies the process of regulatory compliance by automatically sourcing regulatory response information from legal documents into a standardized format.\"",
+    "\"Using a controlled, private document repository, the tool ensures maximum data security and confidentiality.\"",
+    "\"During development, MEO’s legal analysts provided regular feedback on the AI assistant’s responses to improve its effectiveness and accuracy.\"",
+    "\"Using conversational prompts, legal analysts can quickly get the data they need to respond to regulatory requests with greater speed and efficiency.\"",
+    "\"It's a tool that allows us to free up resources and speed up the work carried out by our team of legal analysts.\""
+  ],
+  "source_type": "company"
+}

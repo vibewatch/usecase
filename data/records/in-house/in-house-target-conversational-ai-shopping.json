@@ -1,0 +1,104 @@
+{
+  "id": "in-house-target-conversational-ai-shopping",
+  "slug": "in-house-target-conversational-ai-shopping",
+  "vendor": "In-house",
+  "customer_name": "Target",
+  "industry": "Retail",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "As shoppers increasingly begin discovery and purchase journeys inside conversational AI tools, Target needed to make its assortment, account identity, loyalty benefits, and checkout available directly in those interfaces rather than relying only on conventional web and app navigation.",
+  "solution_summary": "Target built a multichannel conversational commerce implementation that lets shoppers discover products, assemble baskets, authenticate, and complete purchases inside third-party AI interfaces instead of starting on Target.com alone. In Google Search, including AI Mode, and the Gemini app, Target uses Universal Commerce Protocol (UCP) as the common language that lets Google agents surface Target listings, pass selected items into checkout, and optionally transfer carts to the Target site. In Microsoft Copilot, Copilot Checkout and Target account linking connect the chat flow to Target Circle benefits so members can log in, apply discounts, confirm payment, and order without leaving Copilot. In ChatGPT, the Target app exposes Target's full assortment, multi-item basket building, fulfillment options, and account-based purchasing, extending conversational shopping to fresh food, Drive Up, Order Pickup, shipping, and personalized recommendations.",
+  "products_used": [
+    "Google Search, including AI Mode",
+    "Gemini app",
+    "Universal Commerce Protocol (UCP)",
+    "Microsoft Copilot",
+    "Copilot Checkout",
+    "ChatGPT",
+    "Target app"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Search, including AI Mode",
+      "role": "Hosts conversational discovery and direct buying flows for Target products inside Google search experiences.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Gemini app",
+      "role": "Provides a conversational shopping interface where shoppers can browse Target products and complete purchases.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Universal Commerce Protocol (UCP)",
+      "role": "Acts as the open standard that lets AI agents and commerce systems exchange shopping and checkout information.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Copilot",
+      "role": "Delivers Target-specific shopping queries and product recommendations inside Copilot chat.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Copilot Checkout",
+      "role": "Handles in-chat purchase completion after shoppers connect their Target accounts.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "Hosts the Target shopping experience for conversational browsing, basket building, and purchase decisions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Target app",
+      "role": "Provides the complete in-ChatGPT shopping experience, including multi-item baskets, fresh food, and fulfillment selection.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "A shopper asks for product advice in Google Search/Gemini, Microsoft Copilot, or ChatGPT. The AI surface returns Target assortment recommendations; UCP or account-linking passes selected items into Target's commerce flow, where the shopper signs into a Target account, applies Target Circle benefits, confirms payment, and submits the order. Depending on the channel, the basket can stay in-chat or move to Target.com, then route to shipping, Drive Up, or Order Pickup.",
+  "integration_points": [
+    "Target account",
+    "Target Circle loyalty accounts",
+    "Target.com",
+    "Google Pay",
+    "Major credit cards",
+    "Drive Up",
+    "Order Pickup",
+    "Shipping"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Sales Automation"
+  ],
+  "business_outcome": "Target launched live conversational shopping experiences across Google Search/AI Mode and Gemini, Microsoft Copilot, and ChatGPT, turning AI-assisted discovery into direct transactions with linked loyalty benefits, easier checkout, personalized recommendations, and strong traffic growth from AI-driven channels.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "AI-driven traffic to Target leapt 2,000% in the first quarter compared to last year.",
+    "a nearly 400% increase in AI-driven traffic to retail sites overall.",
+    "Members paying with their Target Circle Card also save an extra 5%."
+  ],
+  "architecture_clues": [
+    "Target says it is the first mass retailer with shopping experiences across Google Search including AI Mode, the Gemini app, Microsoft Copilot, and ChatGPT.",
+    "Google channel supports direct buying and optional cart transfer from Google to the Target site.",
+    "Copilot flow uses account linking so Target Circle benefits can be applied during checkout.",
+    "ChatGPT Target app supports multi-item transactions, fresh food, and fulfillment selection including Drive Up, Order Pickup, or shipping.",
+    "Google purchases can be paid through Google Pay and shipped anywhere in the U.S."
+  ],
+  "source_url": "https://corporate.target.com/press/fact-sheet/2026/06/conversational-ai",
+  "published_date": "2026-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Target is the first mass retailer with shopping experiences available to consumers across three leading AI platforms: Google Search, including AI Mode, and the Gemini app; Microsoft Copilot; and OpenAI’s ChatGPT.\"",
+    "\"AI-driven traffic to Target leapt 2,000% in the first quarter compared to last year.\"",
+    "\"UCP creates a common language for AI agents and systems to work together, creating a seamless shopping journey every step of the way.\"",
+    "\"Guests can browse, easily log into their Target account, and make purchases — all within the Copilot chat.\"",
+    "\"Target offers a complete shopping experience through its app in ChatGPT, with the ability to purchase multiple items in a single transaction, shop fresh food, and select Drive Up, Order Pickup or shipping.\""
+  ],
+  "source_type": "company"
+}

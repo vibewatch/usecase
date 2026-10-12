@@ -1,0 +1,75 @@
+{
+  "id": "in-house-deutsche-telekom-ai-honeypots",
+  "slug": "in-house-deutsche-telekom-ai-honeypots",
+  "vendor": "In-house",
+  "customer_name": "Deutsche Telekom",
+  "industry": "Telecommunications",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Conventional low-interaction honeypots are easy for attackers to recognize and abandon, while medium- and high-interaction honeypots are more resource-intensive, harder to manage, and can create greater risk because they rely on more realistic environments and connections to real services.",
+  "solution_summary": "Deutsche Telekom uses its T-Pot honeypot platform to run AI-enhanced decoys that keep attackers engaged longer without exposing real production systems. Within T-Pot, the honeypots Galah and Beelzebub use Large Language Models (LLM) to generate dynamic responses instead of the repetitive, generic feedback typical of low-interaction traps. Galah handles web requests as a specialized chatbot that makes an attacker believe actions are changing the target system, while Beelzebub applies the same idea to protocol interactions such as SSH sessions and returns convincing but useless data. T-Pot acts as the umbrella platform that packages these honeypots, while the recorded interaction history is stored as a list for defenders to analyze attacker tactics, techniques, and tools. The design aims to approximate medium- or high-interaction realism with lower operational effort and lower exposure than traditional high-interaction honeypots.",
+  "products_used": [
+    "T-Pot",
+    "Galah",
+    "Beelzebub",
+    "Large Language Models (LLM)"
+  ],
+  "solution_components": [
+    {
+      "name": "T-Pot",
+      "role": "Deutsche Telekom's honeypot platform packages and runs multiple honeypots for different attack scenarios.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Galah",
+      "role": "This honeypot responds to web requests with realistic, AI-generated behavior to prolong attacker engagement.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Beelzebub",
+      "role": "This honeypot simulates protocol interactions, including SSH, and feeds attackers convincing but worthless responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Large Language Models (LLM)",
+      "role": "The models generate the dynamic responses that make the honeypots appear more realistic and interactive.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Attacker inputs such as web requests and protocol sessions enter T-Pot through Galah and Beelzebub. These honeypots use LLM-driven response generation to return realistic outputs that appear to reflect attacker actions. The resulting interaction trail is then recorded in a list for Deutsche Telekom to analyze attacker tactics, while the attacker remains isolated from real systems.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "The AI-enhanced honeypots keep attackers occupied longer, produce more useful intelligence about attacker tactics and tools, and reduce the effort and risk associated with traditional high-interaction honeypots.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "T-Pot is described as a globally recognized honeypot platform with multiple honeypot types.",
+    "Galah is used for web-request interactions and behaves like a specialized chatbot.",
+    "Beelzebub is used for protocol interactions, specifically including SSH.",
+    "The system records attacker interactions in a list for later analysis.",
+    "The design goal is to deliver medium- or high-interaction behavior with the lower effort of low-interaction honeypots."
+  ],
+  "source_url": "https://www.telekom.com/en/newsroom/latest-updates/news/2025/2/honeypot-where-ai-is-unbeatably-efficient",
+  "published_date": "2025-02-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The latest members of the family are called Beelzebub and Galah, and they have one thing in common: They use artificial intelligence, specifically the so-called Large Language Models (LLM).\"",
+    "\"Galah responds to web requests and is essentially a highly specialized chatbot.\"",
+    "\"Beelzebub follows a similar approach and plays to its strengths particularly in the area of protocols. For example, the so-called SSH protocol.\"",
+    "\"During their stay, I gather information about the attack. I learn about strategies, tools used. That's why I note down all interactions in a list.\"",
+    "\"With this support, I get the advantages of medium- and high-interaction operational models, but only bear the lower effort of low-interaction honeypots.\"",
+    "\"AI-supported systems like Galah and Beelzebub simulate a much more dynamic environment. This way, attackers stay engaged longer and generate more valuable data about their tactics and tools.\""
+  ],
+  "source_type": "company"
+}
