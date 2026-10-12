@@ -1,0 +1,89 @@
+{
+  "id": "ibm-ibm-chief-information-office-organization-sales-automation",
+  "slug": "ibm-ibm-chief-information-office-organization-sales-automation",
+  "vendor": "IBM",
+  "customer_name": "IBM Chief Information Office organization",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM's client-facing teams were losing time switching among disconnected sales, support and planning tools, leaving them without a timely, shared account view when preparing for customer interactions.",
+  "solution_summary": "The IBM Chief Information Office organization built an Account 360 Slack application on its internal Hybrid Cloud platform to reduce the time client-facing teams spent hunting across disconnected sales, support and planning tools. The solution aligns account identifiers across source systems, combines quote documents, support tickets, account plans, company profiles and other client records, preprocesses them and stores the result in IBM Cloud Object Storage. The application is written in Python and hosted on Red Hat OpenShift on IBM Cloud, while IBM watsonx.ai generates summaries and answers natural-language questions over the aggregated account material. Slack is the serving layer, exposing one-click access to relevant resources and teammates from desktop or mobile devices. This creates a cross-silo retrieval and collaboration layer where normalized account data is stored once and surfaced inside the tool where sellers, customer success managers and support staff already work.",
+  "products_used": [
+    "Slack",
+    "IBM watsonx.ai",
+    "IBM Cloud Object Storage",
+    "Red Hat OpenShift on IBM Cloud",
+    "IBM Hybrid Cloud platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Slack",
+      "role": "Provides the user-facing app where client-facing teams access account summaries, resources and teammates.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Generates summaries and answers natural-language questions over account documents and records.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Object Storage",
+      "role": "Stores the preprocessed account data assembled from multiple internal tools and repositories.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Red Hat OpenShift on IBM Cloud",
+      "role": "Hosts the Python application that serves the Account 360 experience.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Hybrid Cloud platform",
+      "role": "Provides the internal platform foundation for the application environment.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Sales, support and planning data is aligned by account identifier, combined and preprocessed into IBM Cloud Object Storage, then served by a Python application on OpenShift; Slack exposes the output while watsonx.ai summarizes account documents and answers account questions.",
+  "integration_points": [
+    "sales tools",
+    "support systems",
+    "client profiles",
+    "account plans",
+    "deal reviews",
+    "desktop and mobile devices"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "IBM deployed the pilot in 6-8 weeks, rolled it out to about 70 accounts, and gave account teams a faster way to get up to speed, coordinate with teammates and respond to client questions without manually stitching context together.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "1 view",
+    "6-8 weeks to deploy pilot",
+    "about 70 accounts"
+  ],
+  "architecture_clues": [
+    "The application was written in Python and hosted within IBM's internal Hybrid Cloud platform.",
+    "Preprocessed account data is stored before users make requests so responses can be served quickly.",
+    "The design depends on finding and linking common account identifiers across sales and support systems."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/account-360",
+  "published_date": "2024-04-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The tool pulls data and information from across multiple tools and repositories\"",
+    "\"The application was written in Python and hosted within IBM's internal Hybrid Cloud platform built on Red Hat OpenShift on IBM Cloud.\"",
+    "\"the organization was able to serve the application directly\"",
+    "\"IBM uses its watsonx.ai AI studio as the summarization tool\"",
+    "\"the company plans to add all its commercial signature and strategic accounts into the tool\""
+  ]
+}

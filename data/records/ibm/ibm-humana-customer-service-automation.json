@@ -1,0 +1,78 @@
+{
+  "id": "ibm-humana-customer-service-automation",
+  "slug": "ibm-humana-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "Humana",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Humana needed to reduce the cost and poor experience caused by an IVR that pushed too many provider calls to live agents for routine pre-service questions.",
+  "solution_summary": "Humana worked with IBM Watson and IBM Data and AI Expert Labs & Learning to replace an underperforming IVR with a Provider Services Conversational Voice Agent that spans IBM Cloud and on-premises voice infrastructure. After a three-month proof of concept, the joint team combined multiple Watson applications in a single assistant, while watsonx Assistant for Voice handled the voice interaction layer at Humana. The system uses AI to determine caller intent, verify access rights and return eligibility, benefits, authorization, referral and other pre-service information without a live agent. Humana also trained seven language models and two acoustic models around different input types so the assistant could cope with healthcare terminology and noisy call-center conditions. In effect, the architecture turns provider phone inquiries into a continuously tuned voice workflow that serves routine healthcare administration at scale rather than handing those calls off to outsourced centers.",
+  "products_used": [
+    "IBM Watson",
+    "IBM Cloud",
+    "IBM watsonx Assistant for Voice"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Watson",
+      "role": "Interprets provider intent and helps deliver the right eligibility, benefits and referral answers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Runs the conversational assistant environment used by the provider services solution.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant for Voice",
+      "role": "Handles the on-premises voice interaction layer for provider conversations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Provider phone calls are processed by watsonx Assistant for Voice and custom speech models, IBM Watson interprets the intent and access rights for each call, and the system returns pre-service, eligibility, benefits, authorization or referral information without routing routine requests to a live agent.",
+  "integration_points": [
+    "provider phone inquiries",
+    "member eligibility information",
+    "authorization and referral workflows",
+    "live call center operations"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The voice agent handles inquiries at about a third of the previous cost, delivers nearly double the response rate of the old IVR and lets providers complete common inquiries in about two minutes.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "over one million provider calls every month",
+    "More than 60% of these calls",
+    "three-month proof of concept (POC)",
+    "90%-95% sentence error rate accuracy level",
+    "about a third of the cost",
+    "more than 7,000 voice calls from 120 providers per business day",
+    "about two minutes"
+  ],
+  "architecture_clues": [
+    "The implementation uses seven language models and two acoustic models tailored to different input types.",
+    "The voice layer runs on premises at Humana while the broader assistant runs on IBM Cloud.",
+    "The solution was formalized into the watsonx Assistant for Voice Interaction offering after the deployment."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/humana",
+  "published_date": "2024-01-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Humana receives over one million provider calls every month\"",
+    "\"More than 60% of these calls were related to routine, specific, pre-service questions with well-defined answers.\"",
+    "\"The solution combines multiple Watson applications in a single conversational assistant, run on IBM Cloud, while the watsonx Assistant for Voice runs on premises at Humana.\"",
+    "\"the solution achieves an average of 90%-95% sentence error rate accuracy level\"",
+    "\"The solution receives more than 7,000 voice calls from 120 providers per business day\""
+  ]
+}

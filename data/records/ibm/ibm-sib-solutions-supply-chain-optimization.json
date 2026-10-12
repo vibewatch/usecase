@@ -1,0 +1,76 @@
+{
+  "id": "ibm-sib-solutions-supply-chain-optimization",
+  "slug": "ibm-sib-solutions-supply-chain-optimization",
+  "vendor": "IBM",
+  "customer_name": "SiB Solutions",
+  "industry": "Logistics",
+  "region": "Sweden",
+  "company_size": "Unknown",
+  "business_problem": "SiB Solutions needed a scalable, open and low-error way to process warehouse video and logistics events across customer sites without getting trapped in rigid monolithic architectures or vendor lock-in.",
+  "solution_summary": "SiB Solutions built its intelligent video and AI services on IBM Cloud beginning in 2020, using IBM Code Engine and IBM Event Streams, the managed Apache Kafka service, as the backbone for warehouse telemetry and video events. In customer warehouses, video analytics run onsite for data residency, and edge computers apply deep-learning models to the camera feeds so errors can be identified close to the process being observed. Those outputs are published by Kafka producers to Kafka topics and sent to cloud servers, where application logic executes and microservices coordinate logistics workflows. Event Streams gives the company the high-volume streaming fabric it needed to avoid brittle monoliths and connect onsite industrial environments to cloud services, while Code Engine supports the cloud-side runtime used to develop and operate the broader platform.",
+  "products_used": [
+    "IBM Cloud",
+    "IBM Code Engine",
+    "IBM Event Streams"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the cloud servers and broader platform that receive warehouse events and run application logic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Code Engine",
+      "role": "Supports the cloud-side runtime used to develop and operate the logistics application services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Event Streams",
+      "role": "Carries high-volume Kafka event streams between onsite edge processing and cloud microservices.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Video is analyzed onsite in customer warehouses, edge computers process the footage with deep-learning models, and Kafka producers send the resulting events through IBM Event Streams to cloud servers on IBM Cloud where application logic and microservices coordinate logistics actions.",
+  "integration_points": [
+    "intelligent video cameras",
+    "edge computers",
+    "customer warehouses",
+    "virtual machines",
+    "cloud servers",
+    "augmented reality overlays"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "The platform supports more than 30 sites across Europe and North America while helping SiB Solutions reduce infrastructure and operational expenses and deliver logistics services designed to eliminate costly warehouse errors.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "in 2020",
+    "over 30 sites across Europe and North America"
+  ],
+  "architecture_clues": [
+    "Video analytics are run onsite to comply with data residency regulations.",
+    "The architecture uses microservices rather than a large monolithic application.",
+    "Forklift drivers can receive audible alerts and augmented reality overlays when loads are misplaced."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/sib-solutions",
+  "published_date": "2024-04-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"SiB Solutions has developed and improved its solutions since starting on IBM Cloud in 2020, using IBM Code Engine and IBM Event Streams\"",
+    "\"Event Streams on IBM Cloud is core in everything we develop\"",
+    "\"video analytics are run onsite to comply with data residency regulations\"",
+    "\"The output of this process is sent from Kafka producers over Kafka topics to cloud servers, where application logic takes place.\"",
+    "\"the company now services over 30 sites across Europe and North America\""
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "ibm-netox-oy-security-and-compliance",
+  "slug": "ibm-netox-oy-security-and-compliance",
+  "vendor": "IBM",
+  "customer_name": "Netox Oy",
+  "industry": "Software / SaaS",
+  "region": "Finland",
+  "company_size": "SMB",
+  "business_problem": "Netox needed a scalable, multitenant security platform to replace a fragmented mix of customer-specific tools and a SIEM that mostly collected logs without helping analysts resolve threats quickly.",
+  "solution_summary": "Netox standardized its Netox Trust cybersecurity services on IBM Security QRadar SIEM after deciding its prior mix of customer-specific tools and a weaker SIEM could not scale. QRadar became the multitenant analytics core of the company's SOC, giving analysts anomaly detection, network monitoring, user behavior analytics and customizable dashboards across customer environments. Netox deployed the platform in its own data center on VersaStack infrastructure with IBM FlashSystem storage, while storing customer backups in IBM Cloud Object Storage managed through IBM Storage Insights. The architecture ingests security events from customer networks and cloud environments into one SIEM, correlates them with AI-powered analytics and exposes investigation views and automated reports that analysts use to detect and resolve threats quickly. This standardized control plane lets Netox grow service delivery without building separate SIEM stacks per customer.",
+  "products_used": [
+    "IBM Security QRadar SIEM",
+    "IBM FlashSystem Storage",
+    "IBM Cloud Object Storage",
+    "IBM Storage Insights"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Security QRadar SIEM",
+      "role": "Acts as the multitenant SOC platform for anomaly detection, event analysis and threat investigation across customer environments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM FlashSystem Storage",
+      "role": "Provides storage inside Netox's data-center infrastructure that hosts the SOC platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Cloud Object Storage",
+      "role": "Stores customer backups associated with the cybersecurity service environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Storage Insights",
+      "role": "Manages and monitors the storage environment used for customer backup data."
+    }
+  ],
+  "data_flow": "Security telemetry from customer networks and cloud environments feeds QRadar, where analysts use anomaly detection, traffic monitoring and investigation views to identify threats, while backup data is stored in IBM Cloud Object Storage and managed through IBM Storage Insights.",
+  "integration_points": [
+    "customer network infrastructure",
+    "customer cloud infrastructure",
+    "third-party security products and services",
+    "Netox SOC analysts",
+    "customer backup workflows"
+  ],
+  "technical_area": [
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Netox now delivers multitenant cybersecurity services to around 200 customers from one platform, gives analysts better visibility and faster issue resolution, and reduces false positives so they can focus on the most important threats.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "70% in 2021",
+    "30% annual sales growth through 2026",
+    "200 customers",
+    "1 platform",
+    "120 people",
+    "EUR 15.7 million"
+  ],
+  "architecture_clues": [
+    "QRadar is deployed in Netox's own data center rather than as a fully outsourced SOC platform.",
+    "The service is designed as a true multitenant SIEM environment.",
+    "Automated reports and customizable dashboards cover both on-premises and cloud deployments."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/netox-oy",
+  "published_date": "2023-01-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Netox delivers multitenant cybersecurity services to 200 customers using the QRadar SIEM platform\"",
+    "\"QRadar was the only SIEM that could provide true multitenant services\"",
+    "\"It easily integrates with third-party security products and services, so we don't need to develop our own APIs.\"",
+    "\"Netox began storing customer backups on IBM Cloud Object Storage, with storage management provided by IBM Storage Insights software.\"",
+    "\"QRadar makes it easier to focus on the most important threats\""
+  ]
+}

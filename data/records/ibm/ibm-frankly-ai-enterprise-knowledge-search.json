@@ -1,0 +1,68 @@
+{
+  "id": "ibm-frankly-ai-enterprise-knowledge-search",
+  "slug": "ibm-frankly-ai-enterprise-knowledge-search",
+  "vendor": "IBM",
+  "customer_name": "Frankly.AI",
+  "industry": "Software / SaaS",
+  "region": "New Zealand",
+  "company_size": "SMB",
+  "business_problem": "Frankly.AI needed a faster way to turn AI-mediated interviews, panel transcripts and research papers into trustworthy summaries and queryable insights for public-sector consultation work.",
+  "solution_summary": "Frankly.AI worked with IBM Customer Success and Client Engineering to build a proof-of-concept on IBM watsonx.ai and IBM Watson Discovery for the New Zealand AI Forum consultation workflow. The system ingests forum discussion transcripts plus associated research papers, then uses Smart Document Understanding in Watson Discovery to organize the material by topic, speaker and other relevant parameters. On top of that indexed corpus, watsonx.ai runs each user query through pre-trained large language models to return concise, targeted insights inside the consultation chatbot. Rather than simply collect opinions, the implementation turns multi-source discussion content into a searchable evidence base that can be used to draft a white paper and surface the most relevant perspectives across a broad community of stakeholders.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Watson Discovery"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs pre-trained large language models to answer user questions with concise, targeted insights.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Organizes transcripts and research papers by topic, speaker and related parameters using Smart Document Understanding.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Forum discussion transcripts and associated research papers are ingested into Watson Discovery, organized with Smart Document Understanding, and then passed to watsonx.ai so the consultation chatbot can answer user-specific questions and support white-paper creation.",
+  "integration_points": [
+    "AI-mediated interviews",
+    "forum discussion transcripts",
+    "associated research papers",
+    "consultation chatbot",
+    "white paper workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The two-week proof of concept cut reporting time by more than 90% and enabled roughly 100 New Zealand AI Forum members to generate a white paper from the proceedings faster and with more targeted insight.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    ">90% reduction in time for reporting",
+    "2 weeks to achieve POC",
+    "roughly 100 members of the New Zealand AI Forum used the POC solution"
+  ],
+  "architecture_clues": [
+    "The implementation uses Smart Document Understanding to classify content by topic and speaker.",
+    "Watsonx.ai applies pre-trained large language models rather than a custom model named in the story.",
+    "The output feeds a consultation chatbot and downstream white-paper drafting workflow."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/frankly-ai",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The joint team built a model that automatically extracts raw data from forum discussion transcripts, along with associated research papers.\"",
+    "\"the solution uses the Smart Document Understanding function within the IBM Watson Discovery service to organize the content by topic, speaker and other relevant parameters\"",
+    "\"IBM watsonx.ai runs all that aggregated content through one of its many pre-trained large language models (LLMs).\"",
+    "\">90% reduction in time for reporting\"",
+    "\"roughly 100 members of the New Zealand AI Forum used the POC solution to generate a white paper\""
+  ]
+}

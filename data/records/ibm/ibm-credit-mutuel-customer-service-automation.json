@@ -1,0 +1,82 @@
+{
+  "id": "ibm-credit-mutuel-customer-service-automation",
+  "slug": "ibm-credit-mutuel-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "Crédit Mutuel",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "Enterprise",
+  "business_problem": "Crédit Mutuel needed to preserve high-quality customer relationships while handling fast-growing inquiry volumes that consumed advisor time with repetitive banking and insurance questions.",
+  "solution_summary": "Crédit Mutuel trained IBM Watson on banking and insurance language by feeding it output from four virtual assistants and an email analyzer plus 50,000 lines of dialogue. The bank rolled the system out progressively across lines of business so advisors could use AI inside everyday service workflows rather than as a separate experiment. Watson, watsonx Assistant, Watson Discovery and Watson Natural Language Understanding help advisors retrieve the right product information, answer routine customer questions and enrich inbound email handling for insurance, savings and investment products. Instead of expecting staff to memorize roughly 200 offerings, the architecture turns prior conversations and reference knowledge into a searchable decision-support layer that serves 20,000 advisors in 5,000 branches and keeps improving as business experts train it on new inquiries.",
+  "products_used": [
+    "watsonx Assistant",
+    "IBM Watson Discovery",
+    "IBM Watson Natural Language Understanding",
+    "IBM Watson"
+  ],
+  "solution_components": [
+    {
+      "name": "watsonx Assistant",
+      "role": "Runs the virtual assistant interactions that help advisors and customers handle routine service questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Provides the searchable knowledge base used to retrieve product and service information.",
+      "layer": "Storage"
+    },
+    {
+      "name": "IBM Watson Natural Language Understanding",
+      "role": "Interprets banking and insurance language in customer requests and email content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson",
+      "role": "Coordinates the trained question-answering workflow used by assistants, email analysis and advisor support.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Online inquiries and emails flow through four virtual assistants and a Watson-based email analyzer, which use trained banking and insurance vocabulary plus dialogue history to surface the right answers for advisors and accelerate responses to customers.",
+  "integration_points": [
+    "four virtual assistants",
+    "email analyzer",
+    "customer advisor workflows",
+    "banking and insurance product catalog"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Crédit Mutuel answers customer questions 60% faster and can deflect or address 50% of the 350,000 daily emails received by client advisors, giving staff more time for higher-value client relationships.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "350,000 online inquiries a day",
+    "23% a year",
+    "50,000 lines of dialogue",
+    "20,000 customer advisors",
+    "5,000 branches",
+    "60% faster",
+    "50% of the 350,000 daily emails"
+  ],
+  "architecture_clues": [
+    "The rollout proceeded progressively across lines of business rather than as a single big-bang launch.",
+    "Business experts continue training the system on thousands of customer inquiries after go-live.",
+    "The solution combines virtual assistants with an email analyzer to support both synchronous and asynchronous service channels."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/credit-mutuel",
+  "published_date": "2024-04-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Watson learned from four virtual assistants and an email analyzer, analyzing banking and insurance vocabulary and building 50,000 lines of dialogue.\"",
+    "\"Watson has been assisting 20,000 customer advisors to strengthen customer relationships in 5,000 branches.\"",
+    "\"Once Watson was adopted, client advisors could answer customer questions 60% faster.\"",
+    "\"Watson has made it possible to find the right answers 60% faster, and it can help deflect and address 50% of the 350,000 daily emails\""
+  ]
+}

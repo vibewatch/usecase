@@ -1,0 +1,64 @@
+{
+  "id": "ibm-solas-customer-service-automation",
+  "slug": "ibm-solas-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "SOLAS",
+  "industry": "Public Sector",
+  "region": "Ireland",
+  "company_size": "Public sector",
+  "business_problem": "SOLAS needed a better way to answer repetitive fetchcourses.ie support questions so adult learners could get immediate help without tying up scarce IT staff on simple issues.",
+  "solution_summary": "SOLAS worked with SureSkills, Education and Training Boards Ireland and Ludex to build \"Dave,\" a virtual assistant on fetchcourses.ie using IBM watsonx Assistant. The team cataloged about 30 of the most common support and course-related questions, then prepared ten variants of each so the assistant could recognize different phrasings. Answers were written in plain English, tested iteratively and adjusted with attention to GDPR implications and handoff needs. In production, the assistant handles common problems such as forgotten passwords, duplicate accounts and other navigation questions directly on the site, while more complex cases are routed to the relevant human support path. The implementation acts as a front-door service layer for lifelong-learning support: website users ask for help, watsonx Assistant matches intent against the curated Q&A set, and SOLAS staff only intervene on exceptions that genuinely need specialist attention.",
+  "products_used": [
+    "IBM watsonx Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Powers the virtual assistant that answers common learner questions and routes harder cases to human support.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Learners ask for help on fetchcourses.ie, watsonx Assistant matches the request against the curated question-and-answer variants, returns plain-English answers for common problems, and leaves more complex cases for SOLAS or ETB human support teams.",
+  "integration_points": [
+    "fetchcourses.ie",
+    "Education and Training Boards Ireland",
+    "human support email workflows",
+    "SureSkills analysis",
+    "Ludex training support"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The assistant cut incoming support-query volume by 50%, saves potentially hundreds of staff hours annually and frees SOLAS specialists to focus on higher-value work while learners get quicker answers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "50% reduction",
+    "around 30 of the most common questions",
+    "ten variants of each one",
+    "hundreds of hours annually",
+    "one-year pilot project"
+  ],
+  "architecture_clues": [
+    "The team explicitly considered GDPR implications when training the assistant.",
+    "Answers were prepared in plain English to maximize accessibility for learners.",
+    "Usage data is gathered after go-live to identify unanswered questions and future improvements."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/solas",
+  "published_date": "2023-02-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"SOLAS and ETBI collated a list of around 30 of the most common questions, preparing ten variants of each one\"",
+    "\"To build Dave, our fetchcourses.ie virtual assistant, we added the Q&As to Watson and then worked with Ludex to iteratively train, test, adjust, and retrain the system\"",
+    "\"Our team member responsible for incoming support queries has seen a 50 percent drop in volume.\"",
+    "\"saving potentially hundreds of hours annually\"",
+    "\"The requests reaching us now are related to more complex issues that really require specialist support.\""
+  ]
+}
