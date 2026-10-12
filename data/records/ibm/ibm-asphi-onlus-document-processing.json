@@ -1,0 +1,80 @@
+{
+  "customer_name": "ASPHI Onlus",
+  "industry": "Education",
+  "region": "Italy",
+  "company_size": "SMB",
+  "business_problem": "ASPHI Onlus needed a better way to make reading materials accessible for people with hearing or cognitive impairments and non-native Italian speakers because conventional text experiences created barriers to learning and engagement.",
+  "solution_summary": "ASPHI Onlus, IFAB, and IBM Client Engineering ran a four-week proof of concept to build a more accessible reading and learning environment on IBM watsonx. The resulting platform, Limpide Letture, uses IBM watsonx.ai to classify text, generate titles and summaries, simplify reading passages, produce quizzes, and recommend suitable learning paths. A companion assistant named LucIA uses watsonx Assistant to answer questions about the text in real time. IBM Cloud Code Engine provides the runtime layer for the application, while IBM Cloudant stores documents and session data so the experience can scale without heavy infrastructure maintenance. This architecture turned static written material into an interactive accessibility service that combines content transformation, knowledge assistance, and personalization for readers with different abilities and language proficiency levels.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant",
+    "IBM Cloud Code Engine",
+    "IBM Cloudant"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Simplifies texts, generates summaries and titles, and powers the adaptive reading features in Limpide Letture.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Drives the LucIA virtual assistant that answers questions about texts on demand.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud Code Engine",
+      "role": "Provides the scalable runtime environment for the accessibility application.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloudant",
+      "role": "Stores large volumes of documents and session data used by the reading platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Reading content is classified and simplified by watsonx.ai, LucIA uses watsonx Assistant to answer questions about the material, and Cloudant plus Code Engine store and serve the documents and session interactions needed by the application.",
+  "integration_points": [
+    "publicly available data",
+    "foundation data",
+    "document sessions",
+    "reader-facing virtual assistant"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "ASPHI expects to broaden access to reading, reduce drop-off from education programs, and scale personalized learning support for a much larger population of readers.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Expected increase in accessibility of ASPHI services up to 100,000 users",
+    "Students will be able to read at least 30 narrative documents a year",
+    "4 weeks"
+  ],
+  "architecture_clues": [
+    "The solution includes both a content-transformation engine and a text-questioning assistant.",
+    "Cloudant and Code Engine were chosen to avoid heavy maintenance while supporting large volumes of documents and sessions.",
+    "The proof of concept used both foundation-owned data and public data."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/asphi-onlus",
+  "published_date": "2024-11-06",
+  "evidence_quotes": [
+    "\"The POC ran for 4 weeks.\"",
+    "\"Using watsonx's robust analytical abilities, they developed a tool that simplifies reading\"",
+    "\"The virtual assistant is built on watsonx.ai and deploys watsonx Assistant\"",
+    "\"up to 100,000 users\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-asphi-onlus-document-processing",
+  "slug": "ibm-asphi-onlus-document-processing"
+}

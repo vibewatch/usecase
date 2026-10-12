@@ -1,0 +1,72 @@
+{
+  "customer_name": "Polpo",
+  "industry": "Software / SaaS",
+  "region": "Netherlands",
+  "company_size": "SMB",
+  "business_problem": "Polpo needed to automate political and parliamentary monitoring because analysts were spending too much time manually searching many disparate data sources and could not efficiently surface the context relevant to specific organizations or stakeholders.",
+  "solution_summary": "Polpo built a political-monitoring platform around IBM text-analytics technology to capture and analyze Dutch parliamentary data in near real time. The company aggregated open-source political data into its own database and dashboard, then used IBM Watson Explorer together with IBM Content Analytics Studio, now part of IBM Watson Discovery, to enrich the content and generate AI-based models. This let Polpo move beyond keyword matching and identify the context around ambiguous political terms by using secondary-word patterns and continuously refined models. The platform then exposed the results through a subscription web application where public-affairs professionals can filter, search, and monitor issues relevant to their organizations. Because the system was designed for continuous development, Polpo could keep adding dashboards and data sources without having development effort scale linearly, creating a practical production system rather than a proof of concept.",
+  "products_used": [
+    "IBM Watson Explorer",
+    "IBM Content Analytics Studio",
+    "IBM Watson Discovery"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Watson Explorer",
+      "role": "Provides context-aware text analytics that help Polpo interpret political language and surface relevant content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Content Analytics Studio",
+      "role": "Supports document aggregation and model generation for the political-monitoring workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Represents the evolved IBM document-intelligence capability within the platform's broader analytics landscape.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Political and governmental data from online sources is aggregated into Polpo's database, IBM text-analytics components enrich and classify the content, and the platform delivers filtered results through dashboards and subscription views for public-affairs professionals.",
+  "integration_points": [
+    "online political sources",
+    "Dutch Parliament data",
+    "European Parliament data",
+    "European Commission data",
+    "Polpo dashboard"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Polpo gave users faster access to relevant political intelligence, reduced manual research time, and created a scalable subscription service for public-affairs monitoring.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "75% less time searching for relevant political information",
+    "90% of public affairs professionals are immediately convinced"
+  ],
+  "architecture_clues": [
+    "Polpo stores aggregated online input in its own database and dashboard before IBM enrichment.",
+    "The system uses context-sensitive modeling rather than simple term matching to reduce noise.",
+    "The platform adds new data sources incrementally and ships updates every two weeks."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/polpo",
+  "published_date": "2023-06-30",
+  "evidence_quotes": [
+    "\"Input aggregated from online sources is stored in the database, which interacts with IBM Watson for data enrichment and then displays the results in a dashboard.\"",
+    "\"Supported by business partner You-Get and advised by IBM, Polpo used Watson Explorer technology combined with IBM Content Analytics Studio technology\"",
+    "\"Users of the Polpo Political Monitor typically spend 75% less time searching for relevant political information.\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-polpo-enterprise-knowledge-search",
+  "slug": "ibm-polpo-enterprise-knowledge-search"
+}

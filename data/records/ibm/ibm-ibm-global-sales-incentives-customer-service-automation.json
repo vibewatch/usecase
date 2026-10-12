@@ -1,0 +1,71 @@
+{
+  "customer_name": "IBM Global Sales Incentives",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM Global Sales Incentives needed to improve how it handled seller incentive inquiries because its chatbot still escalated too many questions and manual analyst reviews were taking far longer than target service levels.",
+  "solution_summary": "The IBM Global Sales Incentives team combined IBM watsonx Assistant and IBM Process Mining to redesign how seller incentive questions are answered and escalated. AskIncentives already served as the digital front door for questions about incentives, commissions, sales plays, and sales targets, but unresolved issues still required analysts to manually review inquiries. To fix that, GSI partnered with digital strategy teams to mine the bot's conversation history and the inquiry-tracking tool, revealing excessive hold states, poor root-cause categorization, and slow analyst assignment patterns. Those insights were used to expand the bot's knowledge base, consolidate categories, improve ticket routing, and add personalized profile data such as territory, quota, last payment, and achievement at the start of an interaction. The resulting design links conversational support, process intelligence, and workflow optimization so more routine questions can be answered immediately and analysts can focus on the genuinely complex cases.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM Process Mining"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Runs the AskIncentives chatbot that answers seller questions and delivers personalized incentive information.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Process Mining",
+      "role": "Analyzes bot and inquiry-workflow history to identify bottlenecks and recommend changes to routing and content.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Seller questions enter AskIncentives through watsonx Assistant, bot and inquiry-tracking logs are mined by IBM Process Mining, and the resulting insights feed knowledge-base expansion, category cleanup, and improved analyst-routing logic.",
+  "integration_points": [
+    "inquiry tracking tool",
+    "knowledge base",
+    "seller profile data",
+    "incentive-analyst workflow"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "GSI sharply reduced inquiry-resolution time, increased the percentage of questions answered automatically, and gave sellers a faster and more personalized support experience.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 278,000 questions in 2021",
+    "over 340,000 questions in 2022",
+    "92% and 93% answer rates in 2021 and 2022",
+    "28% of inquiries went into hold status",
+    "82.5% improvement in time to resolve an inquiry",
+    "96% of questions answered by AskIncentives bot",
+    "326,525 questions received from January to September 2023"
+  ],
+  "architecture_clues": [
+    "The redesign mined both bot history logs and inquiry-workflow data rather than tuning the chatbot in isolation.",
+    "Personalized seller profile data is injected into the interaction at the start of the conversation.",
+    "The next phase extends the pattern toward more complex answers with watsonx and Watson Discovery."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ibm-gsi-watsonx",
+  "published_date": "2024-05-14",
+  "evidence_quotes": [
+    "\"the bot receives tens of thousands of questions\"",
+    "\"28% of inquiries went into hold status\"",
+    "\"82.5% improvement in the time required to resolve a query\"",
+    "\"the AskIncentives chatbot answered 96% of the 326,525 questions it received\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-ibm-global-sales-incentives-customer-service-automation",
+  "slug": "ibm-ibm-global-sales-incentives-customer-service-automation"
+}

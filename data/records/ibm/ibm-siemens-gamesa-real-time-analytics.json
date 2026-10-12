@@ -1,0 +1,79 @@
+{
+  "customer_name": "Siemens Gamesa Renewable Energy",
+  "industry": "Energy",
+  "region": "Denmark",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens Gamesa needed to cut blade-manufacturing errors and reduce rework because manual inspection and a partially automated laser-grid system could not deliver the precision, throughput, or standardization needed across expanding factories.",
+  "solution_summary": "Siemens Gamesa and IBM Consulting turned a visual quality-control concept into a production-ready computer-vision system for turbine-blade manufacturing. IBM helped the Digital Ventures Lab design a camera array above each manufacturing station, process video on Microsoft Azure IoT Edge, and apply machine-learning models in real time so the laser grid system could validate fiberglass placement and later detect foreign objects in the mold. Microsoft Azure Machine Learning and Azure DevOps supported the cloud engineering and model lifecycle, while IBM Garage methodology accelerated iterative delivery from design to MVP in Aalborg. The architecture kept feedback close to the production line: images are analyzed with minimal latency at the edge, then the resulting guidance is projected back into the manufacturing process so technicians can act immediately. By standardizing the digital workflow on Azure and scaling it plant by plant, Siemens Gamesa created a reusable manufacturing-intelligence platform rather than a one-off inspection tool.",
+  "products_used": [
+    "IBM Consulting",
+    "Microsoft Azure Machine Learning",
+    "Microsoft Azure DevOps",
+    "Microsoft Azure IoT Edge"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Consulting",
+      "role": "Co-designed the manufacturing-quality solution and implemented the production-ready MVP with Siemens Gamesa.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Azure Machine Learning",
+      "role": "Hosts and manages the machine-learning models that validate fiberglass placement and detect defects.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Azure DevOps",
+      "role": "Supports the cloud engineering and delivery workflow for the manufacturing-intelligence solution.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Azure IoT Edge",
+      "role": "Processes video close to the production line so model feedback can be delivered with minimal latency.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Cameras mounted above the blade stations capture video, Azure IoT Edge runs machine-learning inference on the footage, the laser-grid system returns placement guidance and defect alerts to technicians, and Azure services manage the broader model and delivery lifecycle.",
+  "integration_points": [
+    "laser grid system",
+    "camera array",
+    "factory edge-computing systems",
+    "production lines in Aalborg, Le Havre, and Hull"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Siemens Gamesa reduced rework risk, improved manufacturing consistency, and created a faster path for scaling best practices across new and existing turbine-blade factories.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "full ROI within 2.5 years",
+    "97-meter-long blade",
+    "payback period of about two and a half years"
+  ],
+  "architecture_clues": [
+    "A distributed camera array and edge-computing stack were chosen instead of a smaller number of high-resolution cameras.",
+    "Video is processed at the edge so feedback can be returned to technicians in real time.",
+    "The platform is designed to be replicated across multiple factories and new lines."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/siemens-gamesa",
+  "published_date": "2024-04-04",
+  "evidence_quotes": [
+    "\"By processing video on the Microsoft Azure IoT Edge platform\"",
+    "\"the solution detects any errors or abnormalities in the surface of the blade\"",
+    "\"We expect a payback period of about two and a half years for our Azure-based production system.\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-siemens-gamesa-real-time-analytics",
+  "slug": "ibm-siemens-gamesa-real-time-analytics"
+}

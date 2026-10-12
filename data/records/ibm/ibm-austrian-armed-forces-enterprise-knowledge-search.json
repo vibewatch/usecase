@@ -1,0 +1,76 @@
+{
+  "customer_name": "Austrian Armed Forces",
+  "industry": "Public Sector",
+  "region": "Austria",
+  "company_size": "Public sector",
+  "business_problem": "The Austrian Armed Forces needed a trustworthy way to query large volumes of open-source and internal documentation because users required fact-based answers with traceable sources, low hallucination risk, and human oversight.",
+  "solution_summary": "IBM Austria and the Federal Ministry for National Defence created ChatZentDoc as a minimal viable product for trusted generative AI over defense documentation. The ministry already used IBM Watson Explorer for natural-language processing and data collection, so IBM Client Engineering extended that foundation with IBM watsonx.ai to add source-grounded answer generation. The resulting front end lets users query the knowledge base in natural language, filter results, and export answers together with the cited source documents. The system also refreshes its information daily and includes a feedback loop so the ZentDok team can continuously improve response quality. By combining legacy NLP assets with newer generative AI under a human-in-the-loop operating model, the ministry built an OSINT-style knowledge service that supports defense analysts without relinquishing transparency or legal control.",
+  "products_used": [
+    "ChatZentDoc",
+    "IBM Client Engineering",
+    "IBM Watson Explorer",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatZentDoc",
+      "role": "Provides the user-facing interface that answers questions over the ministry's documentation in natural language.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Client Engineering",
+      "role": "Co-developed the MVP with the ZentDok team and translated the trust requirements into a working solution.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Watson Explorer",
+      "role": "Supplies the established NLP and data-collection foundation used by ZentDok before the generative AI extension.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Adds fact-based response generation over the defense knowledge base.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Daily-updated source documents flow into the ZentDok knowledge base, Watson Explorer and watsonx.ai process the content for retrieval and answer generation, and ChatZentDoc returns filterable, exportable responses with cited sources for user review.",
+  "integration_points": [
+    "daily-updated knowledge database",
+    "source-document exports",
+    "feedback function",
+    "open-source intelligence workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Security and Compliance"
+  ],
+  "business_outcome": "The ministry gained a trusted AI interface for evidence-backed information retrieval while preserving human review, source traceability, and alignment with public-sector security requirements.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Compliance",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Responses are grounded in cited source documents that can be exported with the answer.",
+    "The knowledge base is updated daily to preserve timeliness for defense use cases.",
+    "The operating model is explicitly human-in-the-loop and designed to minimize hallucination risk."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/the-federal-ministry-for-national-defence-bmlv",
+  "published_date": "2024-05-02",
+  "evidence_quotes": [
+    "\"The responses can be exported along with the source documents.\"",
+    "\"ChatZentDoc runs using information that is updated daily\"",
+    "\"the human-in-the-loop principle\"",
+    "\"a so-called OSINT (Open-Source Intelligence Tool) was created\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-austrian-armed-forces-enterprise-knowledge-search",
+  "slug": "ibm-austrian-armed-forces-enterprise-knowledge-search"
+}

@@ -1,0 +1,66 @@
+{
+  "customer_name": "Marcegaglia Group",
+  "industry": "Manufacturing",
+  "region": "Italy",
+  "company_size": "Enterprise",
+  "business_problem": "Marcegaglia needed to renew the SAP HANA infrastructure underpinning its ERP landscape so it could maintain business continuity, security, performance, and sustainability across a global steel-processing operation.",
+  "solution_summary": "IBM and Marcegaglia designed a technology migration centered on IBM Power to modernize the ERP foundation that supports the group's production and logistics chain. After technical and economic benchmarking, Marcegaglia chose an architecture based on two IBM Power E950 systems running Linux to host SAP HANA logical partitions and virtual I/O services. IBM Power HMC supplies monitoring, predictive diagnostics, and on-demand rebalancing of processor and memory resources, while the clustered design supports workload movement between systems without duplicating infrastructure. Because the migration was implemented without changing the application layer, users kept existing operating patterns while the company gained more resilient infrastructure and faster transaction processing. The new platform also created headroom for future MES standardization, data-warehouse work, and AI or machine-learning analysis aimed at reducing energy use and improving manufacturing quality.",
+  "products_used": [
+    "IBM Power E950",
+    "IBM Power HMC",
+    "SAP HANA"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Power E950",
+      "role": "Hosts the clustered Linux environment and logical partitions that run Marcegaglia's SAP HANA workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Power HMC",
+      "role": "Monitors the solution, provides predictive diagnostics, and rebalances processor and memory resources on demand.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "SAP HANA",
+      "role": "Runs the core ERP data and application workloads that support the production and logistics chain.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "ERP transactions and operational data flow through SAP HANA logical partitions on the IBM Power cluster, IBM Power HMC supervises system health and resource balancing, and workloads can be shifted between nodes without disrupting users.",
+  "technical_area": [
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Marcegaglia gained a more resilient SAP platform, improved transaction speed, and a lower-cost path to future manufacturing analytics and automation work.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "20-30% increase in transaction execution speed",
+    "+6.5M tons/year machined steel",
+    "35 plants in the world",
+    "7000 employees"
+  ],
+  "architecture_clues": [
+    "The target design uses two IBM Power E950 systems with Linux and virtual I/O servers.",
+    "IBM Power HMC handles predictive diagnostics and on-demand CPU and memory rebalancing.",
+    "The migration kept the application component unchanged so users saw no operational disruption."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/marcegaglia-case-study",
+  "published_date": "2025-01-03",
+  "evidence_quotes": [
+    "\"The solution is based on a cluster of systems that combines the logic of replicating SAP applications with the ability to move workloads from one system to another without duplicating resources\"",
+    "\"Two IBM Power E950 systems with Linux operating system for managing SAP Hana logical partitions\"",
+    "\"After this implementation, a 20-30% increase in transaction execution speed was observed\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-marcegaglia-system-migration",
+  "slug": "ibm-marcegaglia-system-migration"
+}

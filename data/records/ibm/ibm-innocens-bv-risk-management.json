@@ -1,0 +1,72 @@
+{
+  "customer_name": "Innocens BV",
+  "industry": "Healthcare",
+  "region": "Belgium",
+  "company_size": "SMB",
+  "business_problem": "Innocens BV needed a faster, more reliable way to detect signs of late-onset sepsis in vulnerable newborns because NICU teams were relying on manual interpretation of many data sources and could miss critical changes for hours.",
+  "solution_summary": "Innocens BV worked with IBM to turn a decade of neonatal intensive care data into an explainable clinical decision-support platform. Using IBM Watson Studio on IBM Cloud Pak for Data, the team trained machine learning models on monitoring signals, reports, diagnoses, and patient-record data from Antwerp University Hospital. The implementation was designed around three architectural pillars identified by the team: a predictive model, an interpretable user interface, and a robust edge-oriented architecture. Explainable AI features in Cloud Pak for Data were used to help caregivers understand why the models were flagging risk, while federated learning let the models evolve without moving raw patient data outside the hospital. Parameters could move through the cloud, but raw NICU data stayed on premises behind hospital firewalls, creating a privacy-preserving operating model for continuous sepsis monitoring.",
+  "products_used": [
+    "IBM Watson Studio",
+    "IBM Cloud Pak for Data",
+    "IBM Watson Machine Learning"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Watson Studio",
+      "role": "Trains and tests the machine learning models used to detect bloodstream infections in NICU patients.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Cloud Pak for Data",
+      "role": "Provides the data and explainable-AI platform used to build, run, and manage the models.",
+      "layer": "Governance"
+    },
+    {
+      "name": "IBM Watson Machine Learning",
+      "role": "Supports operational deployment of the predictive models as Innocens prepares to expand to other hospitals.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Monitoring signals, reports, diagnoses, and electronic patient-record data remain inside the hospital environment, Watson Studio models analyze the patterns through Cloud Pak for Data, and federated-learning parameters move in the cloud while clinicians receive explainable risk insight locally.",
+  "integration_points": [
+    "monitoring signals",
+    "reports",
+    "diagnoses",
+    "patient electronic file",
+    "hospital firewalls"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "The Innocens platform gave clinicians a path to detect severe sepsis earlier, preserve patient-data locality, and build a reusable AI foundation for broader neonatal decision support.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "approximately one in five preterm neonates born under 3.3 pounds (1,500 grams) experience late-onset sepsis",
+    "Can identify a significant amount of severe sepsis cases",
+    "Can help detect sepsis hours faster than medical staff"
+  ],
+  "architecture_clues": [
+    "The implementation uses federated machine learning so raw clinical data stays on premises.",
+    "Explainable AI capabilities were used to help caregivers understand model output.",
+    "The architecture brings computation close to patient-room data sources to reduce latency and improve privacy."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/innocens-bv",
+  "published_date": "2023-03-16",
+  "evidence_quotes": [
+    "\"The UZA NICU is a highly digitized environment with multiple data sources\"",
+    "\"Innocens BV used IBM Watson Studio to train its solution's machine learning models\"",
+    "\"The raw data will remain on premises. Federated machine learning does this without moving the data.\"",
+    "\"Can help detect sepsis hours faster than medical staff\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-innocens-bv-risk-management",
+  "slug": "ibm-innocens-bv-risk-management"
+}

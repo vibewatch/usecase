@@ -1,0 +1,73 @@
+{
+  "customer_name": "IBM Tax Organization",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "IBM's tax organization needed to automate global compliance work because inaccessible and incomplete data made tax-return preparation and document validation too manual across many countries and source systems.",
+  "solution_summary": "IBM's tax organization worked with EY and IBM Ecosystem Engineering to build AI-assisted tax-compliance workflows on watsonx. IBM watsonx.data created a unified data layer across diverse global source systems, while IBM watsonx.ai powered detect-and-correct processing over business documents such as invoices and broader withholding-tax determinations. EY.ai for tax packaged the domain logic on top of the IBM AI stack, and the IBM team added data controls plus reconciliation checkpoints into each data flow so the new automation could be trusted in production. The initial MVP focused on three use cases, but the architecture is broader: a shared lake-like data foundation feeds AI models, validation routines, and compliance workflows that can scale across IBM's 170-country footprint. By moving large-volume tax processing onto a governed AI platform, the organization reduced dependence on manual harmonization and freed specialists to focus on higher-value tax work.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx.data",
+    "EY.ai for tax"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Runs the detect-and-correct AI logic used for invoice validation and other tax-compliance tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx.data",
+      "role": "Creates the unified data layer across varied global tax and business-data sources.",
+      "layer": "Storage"
+    },
+    {
+      "name": "EY.ai for tax",
+      "role": "Packages the tax-specific AI workflows built with the IBM watsonx stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Tax and invoice data from many source systems flows into watsonx.data, watsonx.ai applies detect-and-correct and other compliance logic, and the resulting outputs feed EY.ai for tax workflows supported by reconciliation checkpoints and controls.",
+  "integration_points": [
+    "global source systems",
+    "invoice data",
+    "withholding-tax workflows",
+    "reconciliation checkpoints"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Document Processing"
+  ],
+  "business_outcome": "IBM improved invoice validation accuracy, positioned multiple tax use cases to save significant labor, and established a reusable AI and data platform for global compliance work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "3 use cases on track to save tens of thousands of hours annually",
+    ">95% first-pass invoice validation accuracy",
+    "supports operations in 170 countries globally"
+  ],
+  "architecture_clues": [
+    "Data controls and reconciliation checkpoints were built into each source-to-target flow.",
+    "The solution combines a unified data layer with multimodel AI for many countries and document types.",
+    "IBM used the tax organization as a client-zero environment for the watsonx stack."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/ey",
+  "published_date": "2025-10-15",
+  "evidence_quotes": [
+    "\"IBM watsonx.data, a hybrid open data lake, helped create a unified data layer from all varied sources.\"",
+    "\"3 use cases on track to save tens of thousands of hours annually\"",
+    "\">95% first-pass invoice validation accuracy\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-ibm-tax-organization-security-and-compliance",
+  "slug": "ibm-ibm-tax-organization-security-and-compliance"
+}

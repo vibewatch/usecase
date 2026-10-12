@@ -1,0 +1,60 @@
+{
+  "customer_name": "GigaSpaces",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Mid-market",
+  "business_problem": "GigaSpaces needed a faster way to let enterprise users query complex structured data with generative AI because conventional approaches to databases and metadata were too unintuitive and inaccurate for natural-language access.",
+  "solution_summary": "GigaSpaces used IBM watsonx.ai and IBM watsonx Assistant to build an enterprise retrieval-augmented generation platform aimed at structured enterprise data. The architecture places watsonx Assistant at the front end as the conversational interface and uses watsonx.ai to power the query, reasoning, and summarization flow behind it. GigaSpaces layered semantic enrichment and vector caching on top of its Digital Integration Hub approach so metadata reasoning and retrieval could work across operational datasets such as sales records, inventory, order payments, and marketing analytics. This allowed the R&D team to prototype the experience in days rather than months and to focus on improving the core eRAG logic. The resulting design turns complicated structured datasets into a natural-language service layer that can surface business insight more accurately than generic AI-to-database methods, while leaving room for future governance controls as the platform matures.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the LLM-driven query, reasoning, and summarization capabilities behind the eRAG platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Serves as the conversational front end through which users query enterprise structured data in natural language.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Structured enterprise data and metadata are enriched inside the eRAG platform, watsonx.ai reasons over the retrieved context using semantic enrichment and vector caching, and watsonx Assistant returns the answer through a conversational interface.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "GigaSpaces accelerated prototyping, raised the expected accuracy of natural-language access to structured data, and created a reusable AI layer for mission-critical digital services.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "near 95% accuracy rate with eRAG approach is the mission",
+    "days instead of months to prototype an assistant based on eRAG",
+    "up to 55% accuracy rate"
+  ],
+  "architecture_clues": [
+    "The solution combines semantic enrichment and vector caching to improve metadata reasoning and retrieval.",
+    "watsonx Assistant is the front end while watsonx.ai powers query and summarization.",
+    "The target datasets include sales, inventory, order-payment, and marketing-analytics records."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/gigaspaces",
+  "published_date": "2024-05-14",
+  "evidence_quotes": [
+    "\"The GigaSpaces team is building the new solution using IBM watsonx.ai and IBM watsonx Assistant\"",
+    "\"By using the advanced LLMs on IBM watsonx.ai and applying techniques like semantic enrichment and vector caching\"",
+    "\"near 95% accuracy rate with eRAG approach is the mission\"",
+    "\"significantly reduced its time to prototype an assistant ... to within several days, instead of months\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-gigaspaces-enterprise-knowledge-search",
+  "slug": "ibm-gigaspaces-enterprise-knowledge-search"
+}

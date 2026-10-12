@@ -1,0 +1,77 @@
+{
+  "customer_name": "Boston Dynamics",
+  "industry": "Manufacturing",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Boston Dynamics needed a safer and more scalable way for industrial customers to inspect assets and identify anomalies because manual rounds and fixed sensors are costly, risky, and hard to scale across complex sites.",
+  "solution_summary": "Boston Dynamics partnered with IBM to combine the Spot mobile robot with IBM edge analytics and asset-management software for industrial inspection. Spot carries cameras and sensors through environments that are difficult, noisy, or unsafe for people, collecting telemetry that IBM analytics process directly on the robot rather than sending everything to the cloud. IBM Maximo Application Suite interprets the data, identifies likely anomalies, and can automatically generate work orders with recommended next steps, while IBM Consulting supports implementation for customer environments. Red Hat technology makes the analytics portable across hybrid-cloud deployments, so the joint solution can be rolled out without instrumenting every machine in a facility. By shifting intelligence to a roaming edge device, the architecture reduces cloud-storage requirements, lowers data-movement costs, and helps operators catch issues before they become major outages.",
+  "products_used": [
+    "Spot",
+    "IBM Maximo Application Suite",
+    "IBM Consulting",
+    "Red Hat technology"
+  ],
+  "solution_components": [
+    {
+      "name": "Spot",
+      "role": "Traverses industrial sites to capture visual and sensor data from assets that are hard or unsafe for workers to inspect manually.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "IBM Maximo Application Suite",
+      "role": "Analyzes the collected telemetry, interprets anomalies, and can generate maintenance work orders with suggested next steps.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Consulting",
+      "role": "Provides implementation and support services for deploying the joint solution in customer environments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Red Hat technology",
+      "role": "Helps package and deploy the analytics stack cost-effectively in hybrid-cloud environments.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Spot gathers images and telemetry from equipment in the field, IBM analytics on the robot process the data at the edge, Maximo interprets anomalies and opens work orders when needed, and maintenance teams act on the resulting insight.",
+  "integration_points": [
+    "onboard cameras",
+    "asset sensors",
+    "maintenance work orders",
+    "hybrid cloud environments"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "The combined solution lowers inspection risk and cost while helping operators detect problems sooner and keep production assets running longer.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "reduces costs associated with IoT instrumentation",
+    "Spot's routine inspection routes and follow-up task assignments improve worker efficiency"
+  ],
+  "architecture_clues": [
+    "Analytics run on the robot in real time instead of relying on separate cloud analysis for every event.",
+    "Maximo can automatically create work orders when Spot identifies an anomaly.",
+    "IBM is extending the joint offer with 5G and additional analytics such as acoustics and compositional analysis."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/boston-dynamics",
+  "published_date": "2024-04-04",
+  "evidence_quotes": [
+    "\"The analytics happens on the robot in real time, reducing the need for separate cloud data storage and analysis.\"",
+    "\"Spot can go around a site, identify a problem and, using Maximo, automatically generate a work order\"",
+    "\"reduces costs associated with IoT instrumentation\""
+  ],
+  "vendor": "IBM",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "id": "ibm-boston-dynamics-predictive-maintenance",
+  "slug": "ibm-boston-dynamics-predictive-maintenance"
+}
