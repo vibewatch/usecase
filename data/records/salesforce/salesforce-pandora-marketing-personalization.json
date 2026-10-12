@@ -1,0 +1,96 @@
+{
+  "id": "salesforce-pandora-marketing-personalization",
+  "slug": "salesforce-pandora-marketing-personalization",
+  "vendor": "Salesforce",
+  "customer_name": "Pandora",
+  "industry": "Retail",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Pandora needed to bring its high-touch in-store storytelling, gift guidance, and service quality into digital channels while coping with seasonal support spikes and a fragmented ecommerce architecture.",
+  "solution_summary": "Pandora is building an agentic commerce and service stack that recreates its in-store experience online. Agentforce powers Gemma, a personal shopper agent that uses Commerce Cloud product and order history together with Data 360 context to ask about the occasion, recipient, and budget, then recommend jewelry in Pandora's own tone. The same platform also supports Clara, a service agent that answers order-status and care questions by combining Service Cloud with Commerce Cloud fulfillment data. MuleSoft connects the broader commerce environment so personalized recommendations and service answers are grounded in the right customer and order context, and Loyalty Management extends that same data to promotions across key markets. By unifying commerce, service, and loyalty on one Salesforce-centered platform, Pandora can personalize more interactions without recreating the rigid chatbots and fragmented systems it wanted to leave behind.",
+  "products_used": [
+    "Agentforce",
+    "Commerce Cloud",
+    "Data 360",
+    "Service Cloud",
+    "MuleSoft",
+    "Loyalty Management"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Runs Pandora's shopping and service agents for guided recommendations and automated support.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Commerce Cloud",
+      "role": "Provides product, order, and storefront context for ecommerce interactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data 360",
+      "role": "Supplies unified customer and interaction data used to personalize recommendations.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Gives service agents access to shopper history and case context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MuleSoft",
+      "role": "Connects commerce data and downstream systems inside Pandora's digital architecture.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Loyalty Management",
+      "role": "Turns customer data into personalized loyalty offers across multiple markets.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Product, order, and shopper data from Commerce Cloud and connected systems is unified through Data 360 and MuleSoft. Agentforce uses that context to power Gemma and Clara, while Service Cloud supports hand-offs and Loyalty Management turns the same customer view into personalized promotions.",
+  "integration_points": [
+    "Bloomreach",
+    "Databricks",
+    "IBM Sterling",
+    "Kong",
+    "Publicis Sapient"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Pandora improved digital recommendation quality, automated a large share of routine service interactions, and created a platform for loyalty and ecommerce growth that still feels personal to shoppers.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "45K conversations a month",
+    "60% of cases deflected",
+    "net promoter score increase of 10%",
+    "22% of total sales handled through Commerce Cloud"
+  ],
+  "architecture_clues": [
+    "Gemma uses order history, product data, recommendation signals, and research insights to personalize shopping guidance.",
+    "Clara uses fulfillment data from IBM Sterling through connected Commerce Cloud workflows.",
+    "Pandora is moving toward a composable PWA Kit-based storefront architecture."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/pandora/",
+  "published_date": "2025-10-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"With Agentforce, they built a personal shopper agent named Gemma that's designed to help customers choose the perfect piece of jewelry.\"",
+    "\"To deliver tailored recommendations, Agentforce draws on data across Pandora's ecosystem.\"",
+    "\"Clara is already handling 45K conversations a month, deflecting 60% of cases, and a net promoter score increase of 10% indicates that customers are more satisfied with the service they're receiving.\"",
+    "\"Commerce Cloud handles 22% of total sales and provides a scalable platform for Pandora's global ecommerce operations.\""
+  ]
+}

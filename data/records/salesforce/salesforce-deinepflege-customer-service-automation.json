@@ -1,0 +1,95 @@
+{
+  "id": "salesforce-deinepflege-customer-service-automation",
+  "slug": "salesforce-deinepflege-customer-service-automation",
+  "vendor": "Salesforce",
+  "customer_name": "deinePflege",
+  "industry": "Healthcare",
+  "region": "Germany",
+  "company_size": "SMB",
+  "business_problem": "deinePflege's medically trained support staff was spending too much time on routine care-box and application questions, even as paper-heavy healthcare workflows and rising demand made 24/7 service impossible to staff economically.",
+  "solution_summary": "deinePflege is using Agentforce to convert repetitive care-support work into authenticated, around-the-clock digital service. Customer cases, contact history, and operational content live in Service Cloud and Data Cloud, letting Agentforce verify eligibility, answer questions about in-home care, and guide customers through next steps in seconds instead of forcing medically trained reps to complete each workflow by hand. When a request crosses into sensitive territory, the agent hands the interaction to a human rep together with the full conversation context so customers do not repeat themselves. The same design is being extended to WhatsApp, email, and voice, while the Einstein Trust Layer and strict authentication protect regulated health information. Agent Builder gives the team a low-code way to refine actions, helping deinePflege scale service without rebuilding its support architecture.",
+  "products_used": [
+    "Agentforce",
+    "Service Cloud",
+    "Data Cloud",
+    "Einstein Trust Layer",
+    "Agent Builder"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Handles common support conversations and guides customers through approved next steps.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Stores contact history and service context used during support interactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data Cloud",
+      "role": "Holds FAQs, documents, and care-offering data that the agent reasons across.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Einstein Trust Layer",
+      "role": "Protects regulated customer data with masking and zero-retention safeguards.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Agent Builder",
+      "role": "Lets the team configure and refine support agents with low-code tools.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Email and phone requests enter Service Cloud, where Agentforce combines contact history with FAQ, document, and offering data from Data Cloud. Authenticated answers are delivered immediately, sensitive cases are handed to reps with context, and the same model is being extended to WhatsApp, email, and voice channels.",
+  "integration_points": [
+    "Email",
+    "Phone",
+    "WhatsApp"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "deinePflege expects faster access to care support, lower case-handling costs, and more staff time for counseling and medically complex work instead of repetitive case administration.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "more than 100,000 applications a year",
+    "nearly 200,000 people",
+    "80% of applications still arrive by fax",
+    "10,000 bills each month",
+    "team of just four medically trained support reps handling 40,000 cases a year",
+    "waiting up to three days",
+    "40% of support cases in seconds",
+    "average resolution cost per case from $17 to just $2",
+    "$300,000 annually",
+    "86% expected drop in average cost per contact",
+    "7x ROI",
+    "24/7 customer support"
+  ],
+  "architecture_clues": [
+    "Requests can trigger authenticated actions such as applications or medical alarm exploration.",
+    "Hand-offs preserve full conversational context for human support reps.",
+    "WhatsApp, email, and voice agents are planned on the same foundation."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/deinePflege/",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"When customers reach out via email or phone with requests - like changing items in their care box - Agentforce can reason across contact history in Service Cloud and company FAQs, documents, and offerings in Data Cloud to confirm eligibility and guide them through next steps right away.\"",
+    "\"deinePflege estimates that Agentforce will autonomously resolve 40% of support cases in seconds\"",
+    "\"This level of automation is expected to reduce the average resolution cost per case from $17 to just $2, saving approximately $300,000 annually.\"",
+    "\"Most deinePflege customers rely on Germany's most popular messaging app, WhatsApp - and soon, Agentforce will provide full support there.\""
+  ]
+}

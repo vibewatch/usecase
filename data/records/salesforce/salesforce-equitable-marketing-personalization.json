@@ -1,0 +1,83 @@
+{
+  "id": "salesforce-equitable-marketing-personalization",
+  "slug": "salesforce-equitable-marketing-personalization",
+  "vendor": "Salesforce",
+  "customer_name": "Equitable",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Equitable's Employee Benefits team was constrained by a brittle homegrown connector, manual list building, slow HTML email coding, and disconnected sweepstakes tooling that prevented scalable, targeted marketing.",
+  "solution_summary": "Equitable replaced a fragile homegrown connector and disconnected campaign tooling with a modern marketing stack centered on Agentforce Marketing and Salesforce CRM. The new design uses a secure bidirectional CRM integration as the single source of business data, then lets marketers build target lists in two clicks rather than repeated extracts and uploads. Journey Builder automates scheduled multi-step campaigns, engagement splits, and send-time optimization based on historical behavior, while a 20-plus-block content library gives users reusable approved modules with personalized sales-executive details and UTM parameters. Marketing Cloud Pages replaced external sweepstakes tools so entries prefill from CRM records, duplicates are blocked automatically, and winner notifications run natively. Together, those changes removed five-day coding bottlenecks, reduced IT dependency, and gave the team a platform it can keep extending with evergreen journeys and new meeting-request flows.",
+  "products_used": [
+    "Agentforce Marketing",
+    "Salesforce CRM",
+    "Journey Builder",
+    "Marketing Cloud Pages",
+    "Send Time Optimization"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce Marketing",
+      "role": "Runs Equitable's redesigned campaign framework and content operations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Salesforce CRM",
+      "role": "Acts as the authoritative system for audience data, approvals, and downstream tasks.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Journey Builder",
+      "role": "Automates scheduled multi-step campaigns and engagement-based follow-up paths.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Marketing Cloud Pages",
+      "role": "Hosts web-based landing pages that write sweepstakes and request data directly back to CRM.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Send Time Optimization",
+      "role": "Uses engagement history to deliver each email when recipients are most likely to open it.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Business data is synchronized bidirectionally with Salesforce CRM, used to create lists and audience segments, then passed into Journey Builder and Marketing Cloud Pages for campaign execution. Engagement behavior feeds Send Time Optimization and follow-up logic, while page submissions and winner notifications write back into CRM workflows.",
+  "technical_area": [
+    "ERP / CRM",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Equitable sped up campaign production, improved segmentation and compliance control, automated sweepstakes administration, and gave marketers more freedom to launch targeted outreach without waiting on technical intermediaries.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "75% reduction in overall campaign build time",
+    "91% reduction in segmentation list creation time",
+    "20+ brand-approved static and dynamic content blocks",
+    "two clicks using Salesforce Reports",
+    "five-day external coding cycle now take minutes"
+  ],
+  "architecture_clues": [
+    "A three-tiered approval process enforces company-specific business rules.",
+    "Landing pages prefill CRM data, block duplicates, and notify teams automatically.",
+    "The roadmap includes evergreen journeys and request-a-meeting pages that create CRM tasks."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/equitable/",
+  "published_date": "2026-09-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Equitable established a secure, bidirectional link between Agentforce Marketing and Salesforce CRM, ensuring full system availability and a single source of business data.\"",
+    "\"The team built an internal Agentforce Marketing content library with 20+ brand-approved static and dynamic content blocks.\"",
+    "\"Agentforce Send Time Optimization uses historical engagement data to send each email when a recipient is most likely to open it.\"",
+    "\"Processes that previously required a five-day external coding cycle now take minutes\""
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "salesforce-college-possible-enterprise-knowledge-search",
+  "slug": "salesforce-college-possible-enterprise-knowledge-search",
+  "vendor": "Salesforce",
+  "customer_name": "College Possible",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "College Possible needed a faster way to onboard 200 new coaches every year and preserve each student's history so support did not reset every time an AmeriCorps coach rotated out.",
+  "solution_summary": "College Possible deployed Agentforce to turn its curriculum, knowledge articles, coach notes, appointment data, and historical student interactions into an on-demand support system for both coaches and students. Coaches ask natural-language questions instead of manually searching articles or relying on prior staff memory; Agentforce reasons across Education Cloud records and historical session summaries to surface the right guidance, relevant resources, and student-specific context before each meeting. Because the implementation uses a shared data model with Education Cloud and low-code agent tooling, the nonprofit built and deployed its first agents in one month. Experience Cloud extends the same knowledge base to students through a portal that provides 24/7 personalized answers about essays, deadlines, appointments, and financial aid, preserving continuity even as volunteer coaches turn over each year.",
+  "products_used": [
+    "Agentforce",
+    "Education Cloud",
+    "Experience Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Reasons across program knowledge and student history to answer coach and student questions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Education Cloud",
+      "role": "Stores curriculum, student records, coach notes, and appointment data used by the agents.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Experience Cloud",
+      "role": "Delivers the student-facing portal for 24/7 self-service guidance and support.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Curriculum content, coach notes, appointment data, and historical student interactions are stored in Education Cloud. Agentforce retrieves and reasons over that information to answer coach questions, then Experience Cloud exposes the same personalized guidance to students through a self-service portal.",
+  "integration_points": [
+    "Curriculum knowledge articles",
+    "Historical student interactions",
+    "Appointment data",
+    "Online portal"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "College Possible reduced research time for coaches, maintained continuity across coach turnover, and created an always-on guidance channel that lets the nonprofit support far more students with the same coaching base.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "200 new coaches every year",
+    "one counselor for every 385 students",
+    "only one month to build and deploy their first agents",
+    "initial pilot of 12,000 students",
+    "serve four times as many students",
+    "25,000 students total per year",
+    "24/7 assistance for students"
+  ],
+  "architecture_clues": [
+    "Agentforce harmonizes structured records and unstructured chat histories.",
+    "The initial deployment used low-code tools rather than custom code-heavy integration.",
+    "Portal responses are personalized from each student's profile and prior sessions."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/college-possible/",
+  "published_date": "2025-02-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Agentforce then reasons through all of College Possible's curriculum, knowledge articles, and historical student interactions and delivers the information they need immediately.\"",
+    "\"Because Agentforce and Education Cloud are part of the integrated Salesforce Platform, it took College Possible only one month to build and deploy their first agents.\"",
+    "\"Their initial pilot of 12,000 students is already showing impressive results: Agentforce empowers College Possible to serve four times as many students with the same number of coaches.\"",
+    "\"With Agentforce, students will get instant access to answers and resources 24/7 through an online portal, powered by Experience Cloud.\""
+  ]
+}
