@@ -49,6 +49,7 @@ def initialize_database(connection: sqlite3.Connection) -> None:
         create index if not exists idx_case_studies_vendor on case_studies(vendor);
         create index if not exists idx_case_studies_industry on case_studies(industry);
         create index if not exists idx_case_values_kind_value on case_study_values(kind, value);
+        create index if not exists idx_case_values_case on case_study_values(case_study_id);
         """
     )
 
