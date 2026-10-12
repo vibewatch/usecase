@@ -1,0 +1,89 @@
+{
+  "id": "baidu-ai-cloud-chushou-live-game-content-recognition",
+  "slug": "baidu-ai-cloud-chushou-live-game-content-recognition",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Chushou Live (触手直播)",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Chushou needed to label massive volumes of user-generated livestream clips without depending on game-publisher APIs or manual review so it could support fine-grained operations, faster highlight editing, ad moderation and better recommendations.",
+  "solution_summary": "Chushou Live worked with Baidu AI Cloud to build a multimodal recognition pipeline for Honor of Kings livestreams so raw UGC video could be turned into operational metadata automatically. The implementation combined image recognition, OCR, speech recognition and voiceprint recognition to analyze frames, on-screen text and audio from gameplay clips. Custom models first detect the main hero, map mode and rank context; OCR reads in-game battle data; and the recognition stack marks the timestamps where highlight moments occur. The same pipeline flags ads, competitor watermarks and streamer gender anomalies for moderation workflows. Outputs from the models are written back as structured content and user tags that support topic operations, segment clipping and personalized matching between viewers and videos. Architecturally, Baidu supplies the recognition layer and domain models, while Chushou consumes the labels inside its content-operations, audit and recommendation workflows.",
+  "products_used": [
+    "Image Recognition",
+    "OCR",
+    "Speech Recognition",
+    "Voiceprint Recognition",
+    "Honor of Kings Recognition Model"
+  ],
+  "solution_components": [
+    {
+      "name": "Image Recognition",
+      "role": "Analyzes gameplay frames to identify heroes, maps, ads and watermark signals inside livestream video.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OCR",
+      "role": "Extracts in-game battle results and rank information from on-screen text during live matches.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Speech Recognition",
+      "role": "Adds audio understanding to the multimodal labeling pipeline for livestream content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Voiceprint Recognition",
+      "role": "Detects streamer gender characteristics to help identify impersonation and trust issues.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Honor of Kings Recognition Model",
+      "role": "Combines multimodal signals into structured tags, map classifications and highlight timestamps for downstream operations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Livestream video and audio from Chushou pass through image, OCR, speech and voiceprint models. The Honor of Kings recognition model converts detected heroes, maps, rank, battle data, ads and watermark signals into structured tags and highlight timestamps, which then feed content operations, clip editing, moderation and recommendation matching.",
+  "integration_points": [
+    "User-generated livestream and short-video feeds",
+    "Content operations workflows",
+    "Video clipping and editing workflows",
+    "Ad and watermark review",
+    "Recommendation engine"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Chushou gained automatically tagged livestream inventory, faster highlight production, lower manual ad-review effort and more accurate matching between viewers and game content.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Hero recognition accuracy exceeded 99%.",
+    "Map recognition accuracy exceeded 99%.",
+    "The map model recognizes 3 map types: 1V1, 3V3 and 5V5.",
+    "The rank model classifies 9 rank categories."
+  ],
+  "architecture_clues": [
+    "The solution targets Honor of Kings livestreams and short videos.",
+    "The system automatically marks highlight timestamps for downstream clip editing.",
+    "The same recognition stack supports both content tagging and ad or watermark moderation."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/chushouzhibo.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Chushou could not label all UGC content because of publisher API limitations and overwhelming data volume, making efficient content profiling a business pain point (original: 但碍于CP方游戏接口提供与否、内容数据量过载等问题，无法对所有的UCG的内容信息都做标签化处理。如何高效获取直播短视频的内容画像，辅助做到精细化运营，是触手平台的业务痛点。)",
+    "Baidu used image recognition, OCR, speech recognition and voiceprint recognition to build an Honor of Kings recognition model that automatically identifies game-video information and creates a content profile (original: 以图像识别、文字识别、语音识别、声纹识别为基础，打造《王者荣耀》的识别模型，自动识别游戏视频信息，完成内容画像的刻画。)",
+    "The hero-recognition model covers every Honor of Kings hero with accuracy above 99%, and OCR reads battle data so the system can pinpoint highlight moments automatically (original: 搭建了游戏英雄识别模型，可以覆盖王者的全部英雄，正确率在99%以上；同时，通过百度OCR技术，自动识别游戏进行中的各项战绩信息，结合主英雄的识别，生成主英雄的战绩。不仅能精确定位游戏主英雄，还能自动标定出游戏的精彩时间点。)",
+    "The map-recognition model identifies 1V1, 3V3 and 5V5 maps with accuracy above 99%, and the rank model performs 9-way classification (original: 搭建地图识别模型，可自动识别游戏视频中的1V1，3V3，5V5这3种地图信息，正确率在99%以上。建立9分类的段位识别模型。)",
+    "Machine recognition filters ads and competitor watermarks, helps clip highlight segments and improves recommendation accuracy by matching tagged content to tagged users (original: 针对平台中出现广告及水印如竞品的logo等，进行自动识别，帮助触手平台高效过滤广告。...辅助人工进行直播视频的精彩节选，大幅提高工作效率。...根据识别结果，将内容标签化、用户标签化，进而进行匹配，提高推荐的准确率。)"
+  ],
+  "source_language": "zh"
+}

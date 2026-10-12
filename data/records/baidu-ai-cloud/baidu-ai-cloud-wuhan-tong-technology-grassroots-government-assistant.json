@@ -1,0 +1,99 @@
+{
+  "id": "baidu-ai-cloud-wuhan-tong-technology-grassroots-government-assistant",
+  "slug": "baidu-ai-cloud-wuhan-tong-technology-grassroots-government-assistant",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Wuhan Tong Technology Co., Ltd. (武汉通科技有限公司)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Wuhan Tong Technology needed to help severely understaffed grassroots government teams serve large resident populations, answer policy questions more accurately and automate labor-intensive work-order handling across community service scenarios.",
+  "solution_summary": "Wuhan Tong Technology Co., Ltd. used Baidu AI Cloud's Qianfan stack to build a grassroots government assistant spanning district, street and community operations. On the resident side, the team used Qianfan AppBuilder roles, follow-up prompts, speech recognition and Online-Search to expose consultation through WeChat groups, personal assistants, mini-programs, official accounts and H5 endpoints. Government policies and files were consolidated into a knowledge base so the assistant could answer common questions locally and fall back to controlled online search when standard content was missing. On the staff side, AppBuilder, ModelBuilder, NLP, Workflow and GBI convert patrol notes, dispute visits and daily resident conversations into structured forms and work orders, then route, review, feed back, evaluate and close cases against government procedures. The implementation also ingests crawled governance information to support intelligent analysis and category-based dispatching.",
+  "products_used": [
+    "Qianfan AppBuilder",
+    "Qianfan ModelBuilder",
+    "Government Knowledge Base",
+    "Workflow",
+    "Resident Assistant",
+    "Government Service Copilot"
+  ],
+  "solution_components": [
+    {
+      "name": "Qianfan AppBuilder",
+      "role": "Provides the orchestration layer for resident consultation, prompt logic, speech recognition integration and service-channel delivery.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qianfan ModelBuilder",
+      "role": "Supports the custom model and NLP logic used to interpret government-service intents and normalize staff inputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Government Knowledge Base",
+      "role": "Stores local policies and official files so answers can be grounded in region-specific government knowledge.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Workflow",
+      "role": "Automates node judgment, routing and the work-order lifecycle from creation through closure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Resident Assistant",
+      "role": "Delivers citizen-facing consultation through chat groups, mini-programs, official accounts and H5 channels.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Government Service Copilot",
+      "role": "Helps grassroots staff convert field observations and resident conversations into structured government work orders.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Resident questions enter through WeChat groups, mini-programs, official accounts and H5 clients into the Resident Assistant on AppBuilder. The system answers from the local government knowledge base first, then uses controlled online search when standard content is missing. Staff-side text and voice inputs pass through ModelBuilder and NLP into normalized forms and work orders, which Workflow routes through review, feedback, evaluation and closure.",
+  "integration_points": [
+    "WeChat resident groups",
+    "Personal assistant clients",
+    "Mini-programs and official accounts",
+    "H5 service portals",
+    "Government policy and document repositories",
+    "Government work-order workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The deployment gave local governments a 24/7 resident assistant and automated work-order handling, helping Wuhan Tong deliver smarter public-service software while improving frontline efficiency, speeding resident responses and raising satisfaction.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "China has 477,800 administrative villages and 116,000 communities, with only 3-8 cadres typically serving each unit.",
+    "Each grassroots cadre typically serves 400-1500 residents.",
+    "Grid-worker efficiency improved 15%.",
+    "Resident-service response speed improved 30%.",
+    "Resident satisfaction improved 50%."
+  ],
+  "architecture_clues": [
+    "Designed for district-street-community three-level grassroots government operations.",
+    "Resident service is exposed through WeChat groups, personal assistants, mini-programs, official accounts and H5 endpoints.",
+    "The workflow engine automates work-order creation, routing, review, feedback, evaluation and closure against standard government procedures."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/zhongweihuitong.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Wuhan Tong Technology Co., Ltd. is a leading grassroots-government service provider and offers a SaaS platform for party building, grassroots governance, coordinated communications and points programs (original: 武汉通科技有限公司作为国内领先的基层政务服务商，提供专业高效的基层政务治理服务的SaaS平台，打造党建引领、基层治理、协同宣发、积分体系等场景。)",
+    "China has 477,800 administrative villages and 116,000 communities, each typically served by only 3-8 cadres who cover 400-1500 residents (original: 目前全国行政村数量47.78万，社区数量11.6万，对应干部数量3-8人，干部人均服务居民数量400-1500人，面临着人数严重不足的情况。)",
+    "Using Qianfan AppBuilder, speech recognition and Online-Search, the team provides resident consultation through groups, personal assistants, mini-programs, official accounts and H5 channels (original: 借助百度智能云千帆AppBuilder平台的角色指令、通用组件(语音识别、Online-Search等)、标准追问、标准提示等能力，基于居民群、个人助理、小程序/公众号、H5等服务端提供便民咨询能力。)",
+    "With AppBuilder, ModelBuilder, NLP, Workflow and GBI, the solution offers Copilot and Insight capabilities for grassroots government and can automate work-order creation, routing, review, feedback, evaluation and closure (original: 借助AppBuilder、ModelBuilder等平台的通用组件、自定义模型、自定义组件、NLP、Workflow、GBI等能力，能够围绕基层政务提供Copilot及Insight相关能力。...由AI替代人工，完成工单的创建、流转、审核、反馈、评价、完结等动作。)",
+    "After Zhongwei Huitong connected its product matrix to Baidu ERNIE models, grid-worker efficiency rose 15%, response speed rose 30%, and resident satisfaction rose 50% (original: 中卫慧通产品矩阵接入百度文心大模型后，整体服务水平大幅度提升，其中基层网格员服务居民效率提升15%，居民服务响应速度提升30%，居民满意度提升50%。)"
+  ],
+  "source_language": "zh"
+}
