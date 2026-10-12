@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-beamable-application-refactoring",
+  "slug": "mongodb-beamable-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "Beamable",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Beamable needed a backend platform that could give game developers scalable identity, commerce, social, and live-operations services without forcing them to build or manage the underlying data infrastructure themselves.",
+  "solution_summary": "Beamable standardized its game-development platform on MongoDB Atlas so it could provide developers with ready-to-use backend capabilities for identity, commerce, social systems, inventories, and live operations. The company supports both multi-tenant and single-tenant deployments, so it needed horizontal and vertical scale, very low-latency reads and writes, and a data model flexible enough to accommodate custom cloud code and customer-specific extensions. Atlas became the core document platform behind Beamable's managed services and private-cloud product, while AWS Fargate and broader AWS infrastructure host the surrounding runtime. The team chose MongoDB because document inserts performed well, sharding enabled large-scale multi-tenant workloads, and the platform avoided painful migrations as customer data models evolved. This lets Beamable absorb spiky launch traffic, avoid glue code, and give development teams a faster route from prototype to live game operations.",
+  "products_used": [
+    "MongoDB Atlas",
+    "AWS Fargate"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the identity, gameplay, social, commerce, and cloud-code data that powers Beamable's live-operations platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS Fargate",
+      "role": "Runs the managed compute layer that hosts Beamable services around the Atlas-backed data platform.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Game clients and Beamable's developer tooling send identity, inventory, social, commerce, and cloud-code events into Beamable services, those services persist and query the data in MongoDB Atlas, and the platform returns live-operational state to both Beamable operators and end-user games in near real time.",
+  "integration_points": [
+    "AWS",
+    "game clients",
+    "developer tooling",
+    "private cloud deployments"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Beamable cut time and cost for game studios, handled large traffic bursts more easily, and created a reusable backend platform that lets developers focus on content, monetization, and strategy instead of infrastructure.",
+  "outcome_category": [
+    "Speed to Market",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Beamable supports 35+ games currently live, 60+ in active development, and 100+ going through tech evaluation.",
+    "Launch traffic can reach around 14,000 requests per second.",
+    "The platform handles billions of API calls per month.",
+    "Beamable can save some development teams USD $300,000-400,000 each year and cut up to four months from a one-year development cycle."
+  ],
+  "architecture_clues": [
+    "Beamable supports both multi-tenant and single-tenant offerings on the same general architecture.",
+    "Sharded MongoDB data models are used to scale high-throughput game workloads.",
+    "Cloud code executes sensitive multiplayer logic on the server side."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/beamable",
+  "published_date": "2025-07-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Game developers didn't become game developers to work on tools. They became game developers to work on games.”",
+    "“MongoDB Atlas gives us the ability to scale vertically and horizontally with relatively little effort and without huge operational overheads.”",
+    "“At launch they can reach anywhere in the neighborhood of 14,000 requests per second.”",
+    "“Beamable can save some development teams USD $300,000-400,000 each year, and cut up to four months from a standard one-year development cycle.”"
+  ]
+}

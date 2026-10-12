@@ -1,0 +1,66 @@
+{
+  "id": "mongodb-naologic-enterprise-knowledge-search",
+  "slug": "mongodb-naologic-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Naologic",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Naologic needed to build AI-powered ERP applications quickly while avoiding rigid schemas, duplicated search infrastructure, and repeated data remodeling whenever customers connected new internal or external business data.",
+  "solution_summary": "Naologic uses MongoDB Atlas as the core data platform for building custom AI applications that augment ERP operations. The company first adopted MongoDB for its flexible developer experience and document model, which let it create complex visual data models for enterprise customers without repeatedly changing relational tables. It then extended the platform with MongoDB Atlas Vector Search so semantic retrieval and standard application queries could run in the same database rather than in separate search systems. Atlas now holds operational business data, connected external sources, and the structures that back Naologic's AI pipelines, while aggregation pipelines are used both for analytics and for AI-generated query workflows. This unified architecture makes it easier for Naologic to stand up tailored applications on modern AI stacks, accelerate experimentation, and save customers large amounts of implementation time when adapting software to their own processes.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Vector Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the operational business data and flexible application models behind Naologic's ERP-focused AI platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Vector Search",
+      "role": "Provides semantic retrieval on business data so AI applications can combine vector and standard queries in one platform.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business and ERP data is modeled in MongoDB Atlas, connected external sources are added without remodeling the whole schema, Vector Search retrieves relevant context from the same database, and AI pipelines generate or execute aggregation-based analyses for end-user applications.",
+  "integration_points": [
+    "ERP platforms",
+    "external data sources",
+    "AI pipelines"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Naologic shortened the time needed to build AI applications, enabled more rapid experimentation on enterprise data, and saved customers hundreds of hours by keeping search, analytics, and operational models on one flexible platform.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "Naologic started working on the platform three years ago.",
+    "The new AI-driven aggregation workflows save hundreds of hours."
+  ],
+  "architecture_clues": [
+    "Vector and standard query search run in the same MongoDB platform.",
+    "Aggregation pipelines are generated and executed as part of the AI workflow.",
+    "The platform is designed to connect external business data without remodelling the entire schema."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/naologic",
+  "published_date": "2024-11-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Our product augments the operational side of ERP.”",
+    "“We've done a lot with MongoDB Atlas Vector Search because for business data, there's a huge advantage to being able to run query and vector search in the same place.”",
+    "“We even have the AI generating aggregation pipelines now in MongoDB based on the user's query.”",
+    "“That's hundreds of hours saved.”"
+  ]
+}

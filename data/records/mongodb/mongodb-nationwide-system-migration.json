@@ -1,0 +1,74 @@
+{
+  "id": "mongodb-nationwide-system-migration",
+  "slug": "mongodb-nationwide-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Nationwide Building Society",
+  "industry": "Financial Services",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "Nationwide needed to retire an on-premises overdraft platform that was nearing end of service life, move data to the cloud quickly, and avoid large amounts of manual migration and validation work.",
+  "solution_summary": "Nationwide used MongoDB Relational Migrator to move its overdraft database from SQL to MongoDB Atlas as part of a broader cloud modernization program. The team chose a one-time snapshot migration during scheduled maintenance so it could preserve environment integrity while avoiding the operational complexity of continuous replication. Test migrations were run in a separate environment to validate the process before the production cutover. Relational Migrator handled the schema and data movement, while Query Converter helped engineers translate SQL logic into MongoDB aggregation pipelines. At the same time, Nationwide moved APIs, ETL feeds, and Lambda-based workloads into its AWS estate so the new cloud platform could serve downstream services end to end. The result was a low-friction migration path that reduced development effort, accelerated delivery, and gave the bank a scalable NoSQL foundation for future databases.",
+  "products_used": [
+    "MongoDB Relational Migrator",
+    "Query Converter",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Relational Migrator",
+      "role": "Moved the overdraft database from SQL into MongoDB Atlas and supported validation before the production cutover.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Query Converter",
+      "role": "Translated SQL queries into MongoDB aggregation pipelines so developers could rework application logic with less manual effort."
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the cloud-hosted overdraft data store that replaced the legacy on-premises database.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Nationwide extracted data from the legacy SQL overdraft system with a snapshot migration, loaded it into MongoDB Atlas, converted SQL query logic with Query Converter, and then served the modernized APIs, ETL feeds, and Lambda-based cloud workloads from the new platform.",
+  "integration_points": [
+    "AWS cluster",
+    "AWS Lambda",
+    "on-premises APIs",
+    "ETL feeds"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Nationwide cut migration effort, reduced feed-generation time dramatically, and gained confidence to move additional databases off legacy infrastructure while keeping its credit-risk services available.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "Nationwide has over 16 million customers and holds almost 10% of UK household savings.",
+    "The complete migration project took around six months.",
+    "Relational Migrator saved approximately 50% of the team's effort.",
+    "A feed that previously took at least an hour now takes a maximum of two minutes."
+  ],
+  "architecture_clues": [
+    "Nationwide used a snapshot migration rather than continuous replication.",
+    "The migration included APIs, ETL feeds, and Lambda workloads alongside the database move.",
+    "A separate test environment was used to validate the production migration flow."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/nationwide",
+  "published_date": "2024-10-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The idea was to get rid of all the legacy servers, move everything to the cloud, and have a NoSQL database.”",
+    "“We wanted to maintain the integrity of the environment and reduce the risk of something being missed or unverified with a continuous migration of data.”",
+    "“With Relational Migrator, I would say we saved 50% of our effort.”",
+    "“In SQL, it used to take at least an hour to generate one of our feeds, having moved to MongoDB, the maximum time is two minutes.”"
+  ]
+}

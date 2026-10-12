@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-thales-system-migration",
+  "slug": "mongodb-thales-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Thales",
+  "industry": "Manufacturing",
+  "region": "France",
+  "company_size": "Enterprise",
+  "business_problem": "Thales needed to stop grounding aircraft for in-flight entertainment updates and replace an unstable, opaque Azure Cosmos DB deployment with a lower-latency ground system that could synchronize with onboard databases when connectivity was available.",
+  "solution_summary": "Thales modernized the ground side of its in-flight entertainment platform by replacing Azure Cosmos DB with MongoDB Atlas while keeping MongoDB Community Edition on each aircraft. The architecture now uses a parent Atlas database on the ground to manage content distribution, remote updates, and post-flight data retrieval, while each aircraft stores local entertainment content in its onboard database and syncs when internet access becomes available. Thales migrated data with standard command-line tools rather than building custom ETL pipelines, temporarily paused selected microservices to protect in-flight event processing, and then restarted those services on Atlas with almost no code changes. The move resolved driver and aggregation limitations in the previous environment, improved cost transparency, and gave airlines the ability to push daily incremental content updates without immobilizing planes for technician visits.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Community Edition"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the ground-based content distribution and update platform that coordinates remote synchronization for the airline fleet.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Community Edition",
+      "role": "Stores in-flight entertainment content locally on each aircraft until the plane reconnects and syncs with the ground platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Content and operational updates are stored in MongoDB Atlas on the ground, aircraft query Atlas whenever connectivity is available, download incremental updates into their onboard MongoDB Community Edition databases, and then send stored flight information back to the ground platform after trips complete.",
+  "integration_points": [
+    "aircraft onboard databases",
+    "ground-based microservices",
+    "internet connectivity windows"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Thales cut costs, reduced key response times by a factor of 10, and let airlines run daily content updates remotely instead of grounding aircraft for manual monthly refreshes.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Thales manages in-flight entertainment updates for over 30 airlines.",
+    "Most jobs were migrated in under a minute.",
+    "Services with smaller databases took just a few seconds to migrate.",
+    "Response times for some processes were reduced by a factor of 10."
+  ],
+  "architecture_clues": [
+    "The platform uses a two-tier database model with onboard aircraft databases and a parent ground database.",
+    "Migration was executed with standard command-line utilities instead of custom ETL tooling.",
+    "Specific microservices were shut down briefly to stop event processing during the cutover."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/thales",
+  "published_date": "2026-04-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We wanted to give airlines the autonomy to deploy the applications they want on board, and update content incrementally—potentially daily—without the need for physical intervention.”",
+    "“We updated the MongoDB dependency, and that was that. It was very easy.”",
+    "“Most jobs were migrated in under a minute, and services with smaller databases took just a few seconds.”",
+    "“We no longer have to immobilize a plane just to deliver an update. The performance gain with MongoDB Atlas has been amazing.”"
+  ]
+}

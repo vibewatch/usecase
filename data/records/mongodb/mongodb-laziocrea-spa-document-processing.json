@@ -1,0 +1,63 @@
+{
+  "id": "mongodb-laziocrea-spa-document-processing",
+  "slug": "mongodb-laziocrea-spa-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "LazioCrea SpA",
+  "industry": "Public Sector",
+  "region": "Italy",
+  "company_size": "Public sector",
+  "business_problem": "LazioCrea had to launch and scale a vaccination booking and certificate platform for millions of citizens while handling changing healthcare regulations, large spikes in access, and the need to store secure digital documents inside patient records.",
+  "solution_summary": "LazioCrea expanded its existing MongoDB-based health-information infrastructure to power the Lazio region's COVID-19 vaccination enrollment and certificate workflows. Using MongoDB Enterprise Advanced, the team upgraded the electronic health record platform so it could manage signed vaccination certificates, QR codes, booking processes, reminders, payments, and related patient documentation in one scalable document store. The flexible data model let engineers adapt quickly as Italian healthcare and data-protection requirements changed during the pandemic, while the platform's throughput and security features absorbed a surge from relatively low historic usage to hundreds of thousands of certificate lookups per month. MongoDB also kept vaccination certificates embedded in patient files, simplifying retrieval through the SaluteLazio application and making the service reliable enough to support both regional certificates and the later EU Green Pass rollout.",
+  "products_used": [
+    "MongoDB Enterprise Advanced"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Enterprise Advanced",
+      "role": "Stores vaccination certificates and health-record documents while supporting the booking and retrieval workflows for the Lazio region.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Citizen booking and certificate data is captured through the regional health platform and SaluteLazio app, MongoDB stores the signed certificate records and QR-coded documents inside patient files, and residents then retrieve validated records through the electronic health record system as regulations and certificate versions evolve.",
+  "integration_points": [
+    "SaluteLazio app",
+    "electronic health record platform",
+    "patient appointment reminders",
+    "online payments"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "LazioCrea delivered one of Europe's fastest regional vaccination-platform rollouts, broadened access for citizens, and improved the efficiency and reliability of public-health certificate services during a period of intense demand.",
+  "outcome_category": [
+    "Customer Experience",
+    "Compliance",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "The Lazio region has approximately five million inhabitants.",
+    "The previous platform had a maximum of 22,000 monthly accesses.",
+    "Demand rose to approximately 400,000 accesses per month for Green Pass retrieval.",
+    "LazioCrea indexed approximately four million vaccination certificates."
+  ],
+  "architecture_clues": [
+    "Vaccination certificates were generated with a signed graphic and QR code.",
+    "MongoDB kept vaccination certificates within patient files inside the electronic health record platform.",
+    "The flexible data model was used to absorb frequently changing healthcare regulations."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/laziocrea-spa",
+  "published_date": "2024-05-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We created a regional vaccination certificate, with a signed graphic and a QR code which represented the digital signature that certified the data within.”",
+    "“The system began to register approximately 400,000 accesses per month from users who wanted to obtain a Green Pass.”",
+    "“MongoDB put everything together and managed the vaccination certificates within patients’ files.”",
+    "“We have indexed approximately four million vaccination certificates processed in MongoDB at regional level.”"
+  ]
+}

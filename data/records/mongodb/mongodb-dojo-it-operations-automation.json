@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-dojo-it-operations-automation",
+  "slug": "mongodb-dojo-it-operations-automation",
+  "vendor": "MongoDB",
+  "customer_name": "Dojo",
+  "industry": "Financial Services",
+  "region": "United Kingdom",
+  "company_size": "Mid-market",
+  "business_problem": "Dojo needed to build a faster payment-processing platform that could support event-driven, regulated workloads across many clouds and microservices while still letting engineers release features quickly.",
+  "solution_summary": "Dojo designed a cloud-native payments platform around MongoDB Atlas so the company could replace slow, legacy merchant-payment experiences with a faster and more agile architecture. The business moved roughly 1,000 microservices onto a multi-cloud estate where settlement, clearing, and billing services run on AWS, Oracle Cloud Kubernetes Engine, and Google Cloud, then publish their events to a managed Kafka bus that is consolidated in MongoDB Atlas to make sure the data reconciles correctly. Atlas gives Dojo a managed, JSON-friendly store for the microservices involved in sales, onboarding, services, and reconciliation, and it supports the low-latency serialization and deserialization patterns the company needs for payment operations. This lets Dojo scale across regions, keep release cycles short, and provide merchants with a smoother setup and operating experience than older payment processors.",
+  "products_used": [
+    "MongoDB Atlas",
+    "managed Kafka bus"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Acts as the consolidated data platform for payment, onboarding, sales, service, and reconciliation microservices.",
+      "layer": "Storage"
+    },
+    {
+      "name": "managed Kafka bus",
+      "role": "Aggregates events from multiple cloud environments before they are reconciled in Atlas.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Payment-processing services running across multiple clouds publish events to a managed Kafka bus, MongoDB Atlas consolidates the resulting data for reconciliation and operational services, and Dojo's microservices use that shared record to drive onboarding, sales, service, and merchant-payment experiences.",
+  "integration_points": [
+    "AWS",
+    "Oracle Cloud Kubernetes Engine",
+    "Google Cloud",
+    "third-party payment services"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Dojo gained a highly duplicable, multi-cloud microservices platform that speeds merchant onboarding, improves payment responsiveness, and supports continued expansion into new segments.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "Dojo has 100,000 users.",
+    "That represents a 15% share of the SME market.",
+    "The platform uses around 1,000 microservices.",
+    "Dojo's product is described as twice as fast and takes minutes to set up."
+  ],
+  "architecture_clues": [
+    "The platform is entirely event driven and spans multiple clouds.",
+    "A managed Kafka bus consolidates events before Atlas reconciliation.",
+    "MongoDB Atlas is used where fast JSON serialization and deserialization are important."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/dojo",
+  "published_date": "2024-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Our environment is built for agility. It’s multi-cloud so we can take advantage of the best cloud services for different use cases.”",
+    "“The team selected and moved around 1,000 microservices onto the platform.”",
+    "“Settlement, clearing, and billing run on AWS, Oracle Cloud Kubernetes Engine, and Google Cloud. They all use different databases, but publish to a managed Kafka bus that is consolidated in MongoDB Atlas.”",
+    "“MongoDB is super fast and super flexible.”"
+  ]
+}

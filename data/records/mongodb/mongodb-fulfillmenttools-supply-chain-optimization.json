@@ -1,0 +1,68 @@
+{
+  "id": "mongodb-fulfillmenttools-supply-chain-optimization",
+  "slug": "mongodb-fulfillmenttools-supply-chain-optimization",
+  "vendor": "MongoDB",
+  "customer_name": "fulfillmenttools",
+  "industry": "Software / SaaS",
+  "region": "Germany",
+  "company_size": "Mid-market",
+  "business_problem": "fulfillmenttools needed to replace a Firestore-based SaaS backend that made backups inconsistent, developer tooling awkward, and complex retail-order queries difficult to support at scale.",
+  "solution_summary": "fulfillmenttools migrated its omnichannel fulfillment SaaS platform from Firestore to MongoDB Atlas so retail-order orchestration, inventory, shipping, and returns workflows could run on a more flexible cloud data layer. The company builds an API-first platform with Android and web clients, so it needed strong availability, better integration with its cloud environment, and a database that could support richer query patterns without engineers prebuilding every index guess in advance. During the cutover, Atlas ran in parallel with Firestore while data was synchronized gradually, and the team completed the switch by redirecting reads to Atlas once both stores matched. Atlas then became the foundation for customer-facing order flows and internal analytics, while MongoDB Charts gave the Customer Success team self-service visibility into operational data. The result is a more maintainable SaaS platform that helps retailers simplify omnichannel fulfillment and delivery operations.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Charts"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the fulfillment data layer for the API-first SaaS platform that coordinates orders, inventory, shipping, and returns.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Charts",
+      "role": "Provides self-service analytics for teams that need to explore retailer fulfillment data and service performance.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Retailer order and inventory events move through fulfillmenttools' API-first cloud platform into MongoDB Atlas, the platform serves Android and web clients from that shared data layer, and MongoDB Charts exposes the operational data to internal teams that need quick visibility into customer activity.",
+  "integration_points": [
+    "Android native app",
+    "web-based clients",
+    "Google Cloud",
+    "retailer order and inventory systems"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "fulfillmenttools improved developer productivity, enabled richer analytics, and gave its retail SaaS platform a more reliable foundation for delivering flexible omnichannel fulfillment services.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "REWE operates over 3,000 supermarkets and over 5,500 other stores in Germany.",
+    "REWE serves around 12 million people a day.",
+    "REWE operates a total of over 12,000 stores across Europe."
+  ],
+  "architecture_clues": [
+    "Atlas and Firestore were run in parallel during migration until datasets matched.",
+    "The platform is API first and serves Android-native and web clients.",
+    "fulfillmenttools aims to keep its SaaS platform fully cloud-based and serverless."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/fulfillmenttools",
+  "published_date": "2024-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“If, for example, I wanted to sort orders by date and then by customers in a certain zip code, I would have needed to build this index ahead of time.”",
+    "“We achieved a completely normal migration to MongoDB Atlas, with nothing wild or unexpected. It was completely painless and highly effective.”",
+    "“MongoDB Charts in particular have proved to be very popular.”",
+    "“We’re aiming to deliver a product that is SaaS across the board and serverless.”"
+  ]
+}

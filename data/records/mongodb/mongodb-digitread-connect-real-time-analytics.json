@@ -1,0 +1,72 @@
+{
+  "id": "mongodb-digitread-connect-real-time-analytics",
+  "slug": "mongodb-digitread-connect-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "Digitread Connect",
+  "industry": "Software / SaaS",
+  "region": "Norway",
+  "company_size": "SMB",
+  "business_problem": "Digitread Connect needed an industrial IoT platform that could process large volumes of sensor data at the edge, filter and analyze time-series measurements efficiently, and deliver customer applications without complex database operations.",
+  "solution_summary": "Digitread Connect built its industrial IoT service around MongoDB Atlas running on Google Cloud so data from sensors and industrial assets can be captured, filtered, and turned into usable applications for operators. The company handles the full digital journey from edge collection through analysis to end-user delivery, so it needed a design that would keep initial processing close to equipment while still providing a scalable cloud system for the data worth uploading. Atlas Time Series collections became the core store for the sensor data that is retained after edge filtering, and the company pairs Atlas with Appfarm to build no-code or low-code customer-facing applications on top of that data. This lets Digitread deploy new software very quickly, avoid micromanaging database internals, and support use cases such as safer operations, greener performance, and predictive-maintenance-style monitoring without rebuilding the data foundation for each customer.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Google Cloud",
+    "Appfarm"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the filtered industrial time-series data that underpins Digitread's IoT applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud",
+      "role": "Hosts the Atlas deployment that receives the cloud-bound IoT data after edge-side analysis.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Appfarm",
+      "role": "Builds and manages the end-user applications that expose industrial insights on top of MongoDB data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Sensors and industrial assets emit measurements to edge components, Digitread analyzes and filters the time-series data locally, the needed records are uploaded into MongoDB Atlas on Google Cloud, and Appfarm-based applications present those insights to engineers, surveyors, technicians, farmers, and other end users.",
+  "integration_points": [
+    "microcontrollers",
+    "programmable logic controllers",
+    "Appfarm",
+    "customer sensors and industrial assets"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Digitread Connect shortened application delivery from months to less than a day for some use cases, simplified industrial data management, and gave customers a faster route to efficiency, sustainability, and asset-performance insights.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "New applications that previously took months to build can now be delivered in less than a day."
+  ],
+  "architecture_clues": [
+    "Time-series data is analyzed at the edge before selected records are uploaded to Atlas.",
+    "MongoDB Time Series collections are used to manage sensor-derived data.",
+    "Appfarm is used as the application layer on top of the MongoDB platform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/digitread-connect",
+  "published_date": "2024-05-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Time-series data is our bread and butter, and MongoDB for Time Series made it simple for us to handle this.”",
+    "“All time series data is captured at the edge, and then analyzed and filtered so only the data needed for any given application is uploaded.”",
+    "“Digitread Connect then uses a no-code platform from Appfarm, which also uses MongoDB, to build and manage the end-user applications.”",
+    "“Where new applications would previously have taken months to develop, Lange can now build custom pieces of software in less than a day.”"
+  ]
+}

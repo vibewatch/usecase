@@ -1,0 +1,64 @@
+{
+  "id": "mongodb-expedia-marketing-personalization",
+  "slug": "mongodb-expedia-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Expedia",
+  "industry": "Logistics",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Expedia needed to personalize trip shopping across devices and session boundaries without forcing its developers to normalize highly variable travel and customer data through slow warehouse-style processing.",
+  "solution_summary": "Expedia built the Scratchpad travel-shopping feature on MongoDB so it could remember searches, compare changing inventory and pricing, and personalize trip planning across devices in real time. Scratchpad captures many kinds of unstructured data at once, including flights, hotels, rental cars, reviews, notes, dates, destinations, and customer session history for both logged-in and anonymous users. MongoDB's flexible document model lets the application persist and evolve those travel objects without waiting for rigid ETL pipelines or prescribed warehouse schemas, while rich indexes power the analytics used to make suggestions as customers browse. The first prototype was built by just three developers in under two months and launched to production two months later, and the team was able to make radical schema changes in production without downtime as the feature evolved. This architecture helped Expedia increase conversion, strengthen loyalty, and prepare Scratchpad for global expansion.",
+  "products_used": [
+    "MongoDB"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB",
+      "role": "Stores the dynamic search, session, pricing, and product data that powers Expedia's Scratchpad personalization feature.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Customer searches, notes, session activity, and changing travel-product data are written into MongoDB, the Scratchpad application compares current prices and availability against saved search state, and Expedia returns personalized trip options and recommendations across web and mobile devices in real time.",
+  "integration_points": [
+    "flight inventory systems",
+    "hotel inventory systems",
+    "rental-car data",
+    "web and mobile shopping sessions"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Expedia delivered a more personalized cross-device shopping experience, increased conversion and loyalty, and gave developers the freedom to iterate rapidly as travel-use cases evolved.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "A typical shopper searches 48 times across different sites before booking a flight.",
+    "A team of three developers built the first prototype in less than two months.",
+    "Scratchpad launched to production only two months later.",
+    "The feature was available in the US, UK, and Japan and planned for 30 additional markets."
+  ],
+  "architecture_clues": [
+    "Scratchpad stores both customer and product data without a rigid relational schema.",
+    "MongoDB indexes power the analytics that make personalized suggestions during shopping.",
+    "Native sharding supports horizontal expansion across international data centers."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/expedia",
+  "published_date": "2024-04-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Scratchpad automates the note-taking process, intelligently remembers searches, hunts for the lowest prices, and makes it easy to shop across any device.”",
+    "“A team of only three developers built the first prototype for Scratchpad in less than two months, and launched it to production only two months later.”",
+    "“MongoDB's rich indexes are used to power analytics that make personalized suggestions to users while they shop.”",
+    "“MongoDB allowed Expedia to radically change its schemas while running in production at scale, with zero impact on the customer experience.”"
+  ]
+}
