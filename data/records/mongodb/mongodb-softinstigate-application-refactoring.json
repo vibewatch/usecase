@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-softinstigate-application-refactoring",
+  "slug": "mongodb-softinstigate-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "Softinstigate",
+  "industry": "Software / SaaS",
+  "region": "Italy",
+  "company_size": "SMB",
+  "business_problem": "Softinstigate needed a simpler architecture than its mix of relational databases and heavy application servers so it could build cloud-native products, move faster for Italian SMB customers, and stop spending engineering time on server and database upkeep.",
+  "solution_summary": "Softinstigate centered its product architecture on MongoDB and AWS by building RESTHeart, a stateless REST API microservice that exposes MongoDB through simple HTTP calls. MongoDB Atlas became the managed document database for most of the company's products and deployments, while RESTHeart handles request routing and lets customers map JSON payloads directly into the database without writing server-side glue code. The design models sessions and transactions as first-class REST resources and benefits from MongoDB's atomic document operations plus multi-document transaction support. Because failover, scaling, and upgrades are easier on Atlas than on the company's former relational stack, Softinstigate can focus on rapidly delivering cloud-native applications, microservices, and customer MVPs instead of hand-managing infrastructure. The same pattern underpins customer solutions such as automotive marketplaces, traffic-data connectors, digital voting systems, and IoT agriculture projects.",
+  "products_used": [
+    "RESTHeart",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "RESTHeart",
+      "role": "Provides the stateless REST API layer that exposes MongoDB data and transactions over HTTP without custom server-side code.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the managed document database for Softinstigate's products and customer deployments on AWS.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Web and mobile clients send HTTP requests to RESTHeart, which uses MongoDB drivers to read and write documents and transactions in MongoDB Atlas, then returns JSON responses that power customer applications and APIs.",
+  "integration_points": [
+    "AWS",
+    "Kubernetes"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "System Migration"
+  ],
+  "business_outcome": "Softinstigate achieved five-nines-style reliability on MongoDB, cut backend development time dramatically for customer projects, and turned RESTHeart into a broadly adopted product with nearly one million downloads.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Softinstigate reports 99.999% uptime with MongoDB.",
+    "Users have downloaded RESTHeart nearly one million times.",
+    "AutoInRete.com needed only 11 developer days to build the backend with RESTHeart and MongoDB after a 215 developer-day MVP."
+  ],
+  "architecture_clues": [
+    "RESTHeart is written in Java and embeds the Undertow HTTP server.",
+    "Softinstigate models sessions and transactions as first-class REST resources.",
+    "The architecture commonly runs Kubernetes clusters against MongoDB.",
+    "Most products and services are deployed on MongoDB Atlas running on AWS."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/softinstigate",
+  "published_date": "2024-05-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We decided to build something on our own using simpler technologies.”",
+    "“RESTHeart, is a stateless REST API microservice for MongoDB, written in Java and embedding the Undertow HTTP server, that lets users access the full power of MongoDB using HTTP calls.”",
+    "“With Atlas you deploy it and it just works. It requires much less maintenance than with other databases, saving a great deal of time and money.”",
+    "“Users have downloaded RESTHeart nearly one million times.”"
+  ]
+}

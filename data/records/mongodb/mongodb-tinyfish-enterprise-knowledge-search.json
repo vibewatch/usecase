@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-tinyfish-enterprise-knowledge-search",
+  "slug": "mongodb-tinyfish-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "TinyFish",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "SMB",
+  "business_problem": "TinyFish needed retrieval technology accurate enough to let thousands of AI agents automate web research, product matching, and data extraction for enterprise users without forcing customers to wait weeks for conventional ETL-driven reporting.",
+  "solution_summary": "TinyFish built its intelligent web engine around Voyage AI models and MongoDB so specialized agents can turn noisy internet content into structured business intelligence. The platform deploys thousands of collaborating AI agents that browse sites, extract information, and assemble fresh web data for use cases such as retailer product matching, competitive pricing analysis, and social sentiment tracking. Voyage AI's voyage-3.5 embedding model is used to index competitor catalogs and retrieve an initial candidate set, while rerank-2.5 refines the results to the most relevant matches. MongoDB Atlas provides the document-oriented data layer for storing unstructured web content and the structured outputs those agents create, giving TinyFish a flexible foundation for enterprise-scale retrieval and fast iteration as new research workflows are added.",
+  "products_used": [
+    "Voyage AI voyage-3.5",
+    "Voyage AI rerank-2.5",
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "Voyage AI voyage-3.5",
+      "role": "Creates embeddings that let TinyFish index competitor catalogs and retrieve likely product matches from unstructured web data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Voyage AI rerank-2.5",
+      "role": "Reorders retrieved candidates so the platform surfaces the most relevant product matches for enterprise workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the unstructured web data and structured outputs produced by TinyFish's AI agents.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "TinyFish's web agents gather internet and catalog data, voyage-3.5 turns that content into embeddings for initial retrieval, rerank-2.5 narrows the candidate set, and MongoDB Atlas stores both extracted documents and structured intelligence so enterprises can act on fresh results immediately.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "TinyFish gives enterprise knowledge workers access to fresh, structured web intelligence without waiting for long ETL cycles, accelerating decisions in product matching, pricing analysis, and related research-heavy workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "The platform deploys thousands of specialized AI agents.",
+    "TinyFish launched with $47 million in funding.",
+    "Businesses can make decisions based on fresh, accurate information instead of waiting weeks for data to move through traditional ETL processes and dashboard updates."
+  ],
+  "architecture_clues": [
+    "TinyFish focuses on fresh internet data for product matching, competitive pricing analysis, and social sentiment tracking.",
+    "The platform combines embedding retrieval and reranking before delivering structured outputs.",
+    "MongoDB is described as the storage layer for unstructured data and downstream value delivery.",
+    "TinyFish is exploring a broader unified data infrastructure as it scales."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/tinyfish",
+  "published_date": "2026-01-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The company’s platform deploys thousands of specialized AI agents that autonomously perform the web-based research and data extraction tasks that typically consume knowledge workers’ most valuable time.”",
+    "“The platform uses the Voyage AI voyage-3.5 embedding model to index competitor catalogs and quickly identify an initial set of similar products to what vendors are selling.”",
+    "“The Voyage AI rerank-2.5 reranking model then refines the results to surface the most relevant options.”",
+    "“Instead of waiting weeks for data to move through traditional ETL processes and dashboard updates, businesses can make decisions based on fresh, accurate information extracted in real time.”"
+  ]
+}

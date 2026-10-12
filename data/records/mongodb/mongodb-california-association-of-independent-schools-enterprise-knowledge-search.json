@@ -1,0 +1,64 @@
+{
+  "id": "mongodb-california-association-of-independent-schools-enterprise-knowledge-search",
+  "slug": "mongodb-california-association-of-independent-schools-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "California Association of Independent Schools",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "CAIS needed to replace the aging third-party technology behind its member-school directory and job board so it could improve search relevance, reduce maintenance-related outages, and keep a small internal team productive as website traffic grew.",
+  "solution_summary": "CAIS rebuilt its web foundation on MongoDB Atlas so its public website, school directory, and educator job board could deliver faster and more accurate discovery experiences. After learning MongoDB through MongoDB University, the organization's primary developer redesigned the data model around Atlas' document structure, which fit the site's varied records better than the prior system and made new feature work easier to ship. MongoDB Atlas Search now powers phrase matching, fuzzy matching, match-score boosting, wildcard search, highlighting, and autocomplete, especially on high-traffic pages such as the job board. Atlas also replaced maintenance-heavy database chores with built-in backups, monitoring, and simpler scaling. The result is a modernized member-information hub that handles higher concurrency, responds faster to user queries, and gives the organization room to explore future AI-powered personalization capabilities.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores CAIS' website, school-directory, and job-board data on a managed document database foundation.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Provides autocomplete, fuzzy search, wildcard search, and relevance tuning for CAIS' school and job discovery experiences.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Member-school records, job postings, and related website content are stored in MongoDB Atlas, Atlas Search indexes that data for phrase, fuzzy, wildcard, and autocomplete queries, and website users retrieve matching schools or jobs through CAIS' public-facing pages.",
+  "integration_points": [
+    "MongoDB University"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "CAIS reduced database maintenance effort, improved user search experiences, and estimates that its new platform is ten times more scalable than the previous solution.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "CAIS serves a network of more than 230 schools and 93,000 students.",
+    "The organization estimates that it improved scalability by 10 times compared to the previous database solution."
+  ],
+  "architecture_clues": [
+    "The website serves schools, CAIS staff, and the public through different access paths.",
+    "Atlas Search is configured with phrase matching, fuzzy matching, match score boosting, wildcard search, and autocomplete.",
+    "Automated backups and monitoring reduced maintenance work for a small internal team.",
+    "CAIS is exploring generative AI and Atlas Vector Search for future personalization work."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/cais",
+  "published_date": "2024-10-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“The introduction of previously unavailable features, such as autocomplete functionality and wildcard search capabilities, serve as clear indicators of MongoDB’s impact.”",
+    "“MongoDB Atlas enables streamlined development processes, more efficient coding, and faster implementation of features.”",
+    "“Dy estimates that the organization has improved scalability by 10 times compared to the previous database solution.”",
+    "“Atlas Vector Search, which integrates AI-powered search and personalization into applications on MongoDB Atlas, is of particular interest.”"
+  ]
+}

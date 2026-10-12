@@ -1,0 +1,64 @@
+{
+  "id": "mongodb-huntr-enterprise-knowledge-search",
+  "slug": "mongodb-huntr-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Huntr",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "SMB",
+  "business_problem": "Huntr needed to replace Elasticsearch so its small engineering team could deliver reliable search across a rapidly growing job database, support global location-based discovery, and create headroom for new AI-driven job-search features.",
+  "solution_summary": "Huntr consolidated its search and operational datastore on MongoDB Atlas so its lean team could focus on product development instead of babysitting Elasticsearch. Atlas stores more than 14 million jobs and supports 400,000 users across 190 countries, while MongoDB Atlas Search powers the core experience: fuzzy keyword matching across job titles and descriptions, geospatial lookup for nearby roles, and automatically generated job boards for more than 150 cities. By moving search into the same managed platform that already held application data, Huntr eliminated separate search-cluster overhead and gained a more flexible base for experimentation. The company has already launched AI Resume Review on top of this stack and plans to extend the same data foundation with Atlas Vector Search so it can extract richer signals from its corpus and produce more actionable guidance for job seekers.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Huntr's job data and provides the managed operational database for the platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Delivers fuzzy keyword and geospatial search across Huntr's global job listings and generated city pages.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Job records are stored in MongoDB Atlas, Atlas Search indexes descriptions, titles, and locations, users query the index through keyword and geospatial searches, and the same data is reused to create dynamic job boards and newer AI-assisted job-search features.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Huntr improved reliability, removed dedicated search-operations overhead for its three-person engineering team, and now serves global, AI-assisted job discovery experiences across millions of listings and hundreds of city-specific boards.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Huntr serves 400,000 customers across 190 countries.",
+    "The platform stores more than 14 million jobs.",
+    "Huntr automatically generates job boards for over 150 major cities worldwide.",
+    "The architecture no longer needs a DevOps person dedicated to running the database."
+  ],
+  "architecture_clues": [
+    "Huntr migrated search from Elasticsearch into MongoDB Atlas Search.",
+    "The platform uses fuzzy keyword search across job descriptions and titles.",
+    "Geospatial search supports both city searches and proximity-based nearby results.",
+    "Huntr plans to use Atlas Vector Search for future AI features."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/huntr",
+  "published_date": "2025-06-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Search is the number one function of Huntr’s website.”",
+    "“Huntr migrated its search functionalities from Elasticsearch to MongoDB Atlas, simplifying the company’s tech stack and gaining the flexibility needed to quickly iterate and develop new features.”",
+    "“I consider MongoDB to be a fourth member of our engineering team. We don’t need a DevOps person dedicated to running our database when we have MongoDB Atlas in front of us.”",
+    "“Huntr also uses this technology to power dynamic job boards for over 150 major cities worldwide.”"
+  ]
+}

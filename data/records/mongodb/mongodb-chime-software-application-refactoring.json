@@ -1,0 +1,60 @@
+{
+  "id": "mongodb-chime-software-application-refactoring",
+  "slug": "mongodb-chime-software-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "Chime Software",
+  "industry": "Software / SaaS",
+  "region": "United Kingdom",
+  "company_size": "Mid-market",
+  "business_problem": "Chime needed to replace manual clipboard-based construction site administration with a digital platform that could manage complex operational and payroll data while surviving spikes when tens of thousands of workers try to sign in at once.",
+  "solution_summary": "Chime built its construction site management platform on MongoDB Atlas so workforce administration, compliance, and payroll could move from paper forms into a real-time digital operating system. Atlas stores the changing mix of sign-in, skills, leave, and pay data that construction projects generate, giving Chime one flexible backend for an industry that still runs many processes manually. During crunch periods, such as synchronized morning sign-ins, the company uses Atlas' scalable infrastructure and storage configurations to absorb bursts from up to 70,000 workers without service disruption. Chime's developers also benefit from a workflow that lets them run MongoDB locally in Docker during early testing and deploy the same data model to Atlas in production, while Studio 3T makes the data easier for engineering and support teams to inspect. That combination gives Chime enterprise-grade resilience without slowing feature delivery as the product expands across the construction sector.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Chime's site-management, workforce, and payroll data and provides the scalable production database for high-concurrency sign-in events.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Workers sign in and update skills, holiday, and payroll information through Chime's digital application, those records are written into MongoDB Atlas, and site managers and downstream workflows read the same live operational data to run construction sites in real time.",
+  "integration_points": [
+    "Docker",
+    "Studio 3T"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Chime can now handle synchronized sign-ins from 70,000 workers, support more than £100 million in weekly wages, and deliver new capabilities faster because developers no longer fight the rigidity of relational databases or manual site processes.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Chime handles 70,000 concurrent worker sign-ins.",
+    "The platform processes tens of thousands of paysheets and more than £100 million in wages every week."
+  ],
+  "architecture_clues": [
+    "Atlas is configured for very high throughput to handle predictable synchronized traffic spikes.",
+    "Developers run MongoDB locally in Docker during testing before deploying to Atlas.",
+    "Studio 3T is used to inspect and navigate data for development and support work.",
+    "Chime plans to layer a multi-agent AI copilot on top of the same operational data foundation."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/chime-software",
+  "published_date": "2026-08-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Now we've got a digital app, so people sign in and do their skills management, holidays, pay—all of it. You can run your whole building site through our software.”",
+    "“MongoDB Atlas has been fantastic. At the click of a button, we can scale up the servers and there's a wide configuration of local hard disks for very high throughput which has been really important for us in managing those spikes.”",
+    "“With MongoDB we can evolve the platform really, really quickly. It's very scalable, and it allows our developers to take an idea and get it implemented much faster than the relational databases we found.”",
+    "Chime built a real-time construction management platform on MongoDB Atlas, handling 70,000 concurrent worker sign-ins with ease."
+  ]
+}

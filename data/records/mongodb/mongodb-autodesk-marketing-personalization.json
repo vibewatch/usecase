@@ -1,0 +1,64 @@
+{
+  "id": "mongodb-autodesk-marketing-personalization",
+  "slug": "mongodb-autodesk-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Autodesk",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Autodesk needed a more scalable and flexible data platform for Product Insights so it could capture growing volumes of product-usage data, analyze changing user behavior, and deliver personalized guidance to customers without the capacity limits of its prior object-store and metastore design.",
+  "solution_summary": "Autodesk built Product Insights on MongoDB Atlas to collect usage events from its software portfolio and turn them into personalized recommendations for end users. Atlas integrates with Autodesk's broader infrastructure and stores analytics data in flexible documents, which lets teams retrieve product activity and generate insights across emails, web portals, and in-product pop-ups from the same operational store. That document model also absorbs new schemas as user behavior and service requirements change, removing the rigidity that constrained the earlier object-store and metastore approach. Because Atlas provides managed scalability, resiliency, and operational tooling out of the box, Autodesk's engineers spend less time on infrastructure work and more time refining the recommendation experience. MongoDB's integration with GraphQL also helped Autodesk improve API accuracy while maintaining subsecond latency for a service that now delivers several million insights every week.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Autodesk's product-usage analytics in a flexible document model and powers the Product Insights recommendation platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Usage data from Autodesk products is captured into MongoDB Atlas, organized as product-level documents, analyzed to identify helpful recommendations, and then surfaced to users through emails, web portals, and in-software pop-ups with subsecond API responses.",
+  "integration_points": [
+    "GraphQL",
+    "Email",
+    "Web portals",
+    "In-software pop-ups"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Autodesk scaled Product Insights by 300% in one year, now delivers several million insights weekly, achieves subsecond API latency, and can extend personalized guidance to more users without increasing operational overhead.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Autodesk launched the Product Insights platform in 2020.",
+    "Autodesk scaled product insights by 300% in one year.",
+    "After migrating to MongoDB Atlas, Autodesk could deliver several million insights weekly.",
+    "Autodesk achieved subsecond latencies for a critical SLA by integrating MongoDB with GraphQL."
+  ],
+  "architecture_clues": [
+    "Product Insights stores usage analytics in single documents so data can be retrieved across multiple software products.",
+    "The data model has evolved over time and MongoDB adapted to repeated schema changes.",
+    "Atlas provides built-in scalability, fault tolerance, and resiliency instead of custom infrastructure.",
+    "Autodesk plans to expand into Atlas Vector Search and Atlas Stream Processing."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/autodesk",
+  "published_date": "2025-01-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Product Insights is an internal platform that gathers and analyzes usage data from Autodesk products, and this data can be used to deliver insights that increase ease of use and user efficiency.”",
+    "“The platform captures usage data and offers users recommendations through emails, web portals, and in-software pop-ups.”",
+    "“After migrating to MongoDB Atlas, Autodesk overcame its scaling and operational challenges, enabling the company to deliver several million insights weekly.”",
+    "“Autodesk increased the accuracy of its API calls while simultaneously achieving subsecond latencies, a critical SLA for the company, because MongoDB integrated with GraphQL.”"
+  ]
+}

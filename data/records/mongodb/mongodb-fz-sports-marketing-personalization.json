@@ -1,0 +1,83 @@
+{
+  "id": "mongodb-fz-sports-marketing-personalization",
+  "slug": "mongodb-fz-sports-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Fz Sports",
+  "industry": "Media and Entertainment",
+  "region": "Latin America",
+  "company_size": "Mid-market",
+  "business_problem": "Fz Sports needed a database platform that could keep live sports streams available during concurrent matches, support cross-device content discovery, and power recommendations and customer insights without the maintenance burden of relational systems or self-managed MongoDB.",
+  "solution_summary": "Fz Sports rebuilt the data layer behind Fanatiz, 1190 Sports, and Nunchee on MongoDB Atlas so it could serve live and on-demand sports content with better performance and lower operating overhead. The company adopted a MERN-based architecture and moved from MongoDB Community to Atlas on AWS, where Atlas Search helps subscribers find thousands of archived games and live events quickly, Atlas Device SDKs keep profile and event data synchronized across parallel nodes, and Online Archive moves older content out of the hot path after two years. Atlas dashboards and snapshots also support pay-per-view reporting and operational planning, while the same content corpus feeds an AI-oriented recommendation proof of concept built with MoreLikeThis. By consolidating content metadata, profile data, and operational analytics on one managed platform, Fz Sports can keep streaming reliable during traffic peaks and spend more time improving the subscriber experience.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Search",
+    "Online Archive",
+    "Atlas Device SDKs"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the core database for Fz Sports' streaming, profile, and operational data on AWS.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Search",
+      "role": "Helps subscribers quickly find live and archived games across Fz Sports' large content catalog.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Online Archive",
+      "role": "Moves older game content out of the hot cluster while keeping it available for on-demand access.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Device SDKs",
+      "role": "Synchronizes profile information and business-logic events across multiple nodes in parallel.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Content metadata, viewer profiles, and event information are stored in MongoDB Atlas, Atlas Search indexes the catalog for subscriber discovery, Atlas Device SDKs keep profile and trigger data synchronized across nodes, and older game records are moved into Online Archive while remaining queryable.",
+  "integration_points": [
+    "AWS",
+    "MERN stack"
+  ],
+  "technical_area": [
+    "Media and Content",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Fz Sports doubled performance in a key optimization project, cut archive storage costs by 40%, planned campaigns 25% faster with real-time reporting, and kept subscriber experiences responsive across live and on-demand sports content.",
+  "outcome_category": [
+    "Customer Experience",
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Fz Sports streams around 10,000 games each year.",
+    "A MongoDB optimization project increased performance by 100%.",
+    "Atlas dashboards help the company plan activities 25% faster than before.",
+    "Online Archive reduced storage costs by 40%.",
+    "Another service restructuring delivered a 50% performance increase."
+  ],
+  "architecture_clues": [
+    "Fz Sports adopted a MERN stack with MongoDB as the database layer.",
+    "MongoDB Atlas is hosted on AWS alongside the rest of the company's media stack.",
+    "The company uses Atlas Search and a MoreLikeThis recommendation proof of concept to improve discovery.",
+    "Atlas Device SDKs keeps profile information synchronized to the millisecond across eight nodes."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/fz-sports",
+  "published_date": "2024-05-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“MongoDB Atlas Search helps people find the games they want to watch quickly.”",
+    "“Online Archive keeps the database fast, responsive, and cost-efficient, with content being archived after two years.”",
+    "“These real-time capabilities help Fz Sports plan activities, such as marketing campaigns and the activation of other channels, 25% faster than before.”",
+    "“We worked with MongoDB on a month-long project to reorganize the authorization database and increased performance by 100% as a result.”"
+  ]
+}

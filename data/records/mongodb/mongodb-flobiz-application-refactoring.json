@@ -1,0 +1,87 @@
+{
+  "id": "mongodb-flobiz-application-refactoring",
+  "slug": "mongodb-flobiz-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "FloBiz",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Mid-market",
+  "business_problem": "FloBiz needed myBillBook to work reliably across mobile, web, desktop, online, and offline environments while handling complex SMB accounting data, background synchronization, and multi-user conflict resolution that its initial PostgreSQL MVP could not scale to support.",
+  "solution_summary": "FloBiz rebuilt myBillBook on MongoDB's managed data platform so India's small businesses could use invoicing, accounting, and workflow tools across devices without losing data when connectivity drops. MongoDB Atlas on Google Cloud became the backend system of record for billing, inventory, and business documents, while Realm, Atlas Device Sync, and Atlas App Services gave FloBiz an offline-first mobile and desktop architecture that keeps accounts synchronized even when multiple users work on the same business from different devices. The flexible document model let the team absorb highly variable invoice, product, and workflow data without repeated schema rewrites, and MongoDB Atlas Charts provides built-in visibility into deployment and monitoring information. By consolidating storage, sync, and application services into one stack, FloBiz avoided stitching together Firebase, Redis, SQLite, and custom sync software while gaining a single source of truth for a multi-platform product.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas App Services",
+    "MongoDB Atlas Device Sync",
+    "Realm",
+    "MongoDB Atlas Charts"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores myBillBook's billing, inventory, and workflow data as the backend source of truth on Google Cloud.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas App Services",
+      "role": "Provides the application services layer that connects client apps to Atlas and supports the broader cross-platform backend.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MongoDB Atlas Device Sync",
+      "role": "Keeps data synchronized between client devices and Atlas when users move between online and offline states.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Realm",
+      "role": "Acts as the local mobile database that powers myBillBook's offline-first user experience.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Charts",
+      "role": "Visualizes deployment and monitoring data for the FloBiz team directly from the MongoDB platform.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Invoice, inventory, payments, and workflow data is captured in myBillBook's mobile, desktop, and web apps, stored locally in Realm when devices are offline, synchronized through Atlas Device Sync and App Services, persisted in MongoDB Atlas on Google Cloud, and then surfaced through Charts for operational visibility.",
+  "integration_points": [
+    "Google Cloud"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "System Migration"
+  ],
+  "business_outcome": "FloBiz scaled myBillBook to more than six million downloads and a million monthly users, cut update transaction times by 90%, reduced CPU drain by 50%, and improved developer productivity by replacing a patchwork architecture with one synchronized data platform.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "myBillBook has been downloaded over six million times.",
+    "The platform has a million monthly users.",
+    "FloBiz now employs 170 people and works with offline distributors in 70 cities across India.",
+    "The move to MongoDB's fully managed database on the cloud has reduced transaction speeds on updates by 90 percent.",
+    "Moving workloads away from PostgresSQL helped reduce the drain on CPU by 50 per cent."
+  ],
+  "architecture_clues": [
+    "The platform supports mobile, web, and desktop apps with online and offline operation.",
+    "Multiple people from the same business can use the app simultaneously while sync resolves conflicts in the background.",
+    "MongoDB Atlas runs on Google Cloud for this workload.",
+    "FloBiz replaced a planned custom sync layer and a mix of other databases with one unified platform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mybillbook",
+  "published_date": "2024-04-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Many businesses struggled with fluctuations in internet services, outages and latency which made it imperative to develop tools that could manage billing and inventory in both online and offline environments.”",
+    "“Having all that functionality in a single unified database was incredibly important for us. It really saved us from dealing with the complexity of managing all those different systems and we had a single source of truth.”",
+    "“The move to MongoDB's fully managed database on the cloud has reduced transaction speeds on updates by 90 percent.”",
+    "“Moving workloads away from PostgresSQL helped reduce the drain on CPU by 50 per cent.”"
+  ]
+}

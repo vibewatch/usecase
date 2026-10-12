@@ -1,0 +1,62 @@
+{
+  "id": "mongodb-mediastream-real-time-analytics",
+  "slug": "mongodb-mediastream-real-time-analytics",
+  "vendor": "MongoDB",
+  "customer_name": "Mediastream",
+  "industry": "Media and Entertainment",
+  "region": "Latin America",
+  "company_size": "Mid-market",
+  "business_problem": "Mediastream needed an enterprise cloud database that could keep viewer metadata and user credentials instantly available, survive traffic surges around live events such as the FIFA World Cup, and support regional expansion without sacrificing performance or compliance.",
+  "solution_summary": "Mediastream runs its online video platform on MongoDB Atlas so broadcasters across Latin America can deliver live streaming at scale. The platform stores viewer metadata, content descriptions, thumbnail information, search attributes, and login data for roughly 30 million users in Atlas, which has been a core part of the architecture since the company migrated from self-managed MongoDB on AWS in 2018. Atlas gives Mediastream elastic scaling through additional nodes and autoscaling, which is critical as the service normally supports hundreds of thousands of concurrent consumers but must stretch to World Cup-level peaks. Atlas also keeps the company cloud-flexible as it expands into new regions, while the same data layer feeds a data platform for consumer-behavior analysis and service optimization. With Atlas handling durability and multi-region growth, Mediastream can keep viewers streaming smoothly while customers monetize digital content across OTT, OVP, CDN, and live-signal services.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Mediastream's user, metadata, and content-access data and scales the platform for live-streaming peaks.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Content metadata and user account data are stored in MongoDB Atlas, live and on-demand applications query that data to authenticate viewers and surface searchable content, and metadata is also sent to Mediastream's big data platform for behavior analysis and service optimization.",
+  "integration_points": [
+    "Amazon Web Services",
+    "Big data platform"
+  ],
+  "technical_area": [
+    "Media and Content",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Mediastream can now support up to one million concurrent consumers, process ten million requests per minute with 99.995% availability, and use viewer behavior data to improve digital experiences as it expands into new regions and sectors.",
+  "outcome_category": [
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Mediastream enables more than 150 million media reproductions per day.",
+    "The platform manages log-in credentials for 30 million users.",
+    "The service typically supports 200,000-300,000 concurrent consumers and can scale up to handle 1 million.",
+    "The platform processes up to 10 million requests per minute with 99.995% availability."
+  ],
+  "architecture_clues": [
+    "Mediastream migrated to MongoDB Atlas in 2018 after previously running MongoDB on AWS.",
+    "Atlas supports autoscaling and multi-cloud expansion as the company enters the United States and Europe.",
+    "The team uses stress tests ahead of major live events such as the FIFA World Cup.",
+    "Metadata is forwarded to a big data platform for consumer behavior analysis."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mediastream",
+  "published_date": "2024-05-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Since day one, MongoDB has been a vital component of Mediastream’s architecture, providing the speed, scalability, and resilience to make sure consumers have a seamless experience even during peak viewing times.”",
+    "“The platform typically supports 200,000-300,000 concurrent consumers, it can scale up to handle 1 million, processing up to 10 million requests per minute with 99.995% availability.”",
+    "“MongoDB Atlas gives us the confidence to expand into new regions and markets safe in the knowledge we can give consumers a great viewing experience and comply with local regulations.”",
+    "“It also sends metadata to the company’s big data platform, which is used for consumer behavior analysis.”"
+  ]
+}
