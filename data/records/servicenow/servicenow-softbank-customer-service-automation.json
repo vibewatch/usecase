@@ -1,0 +1,79 @@
+{
+  "id": "servicenow-softbank-customer-service-automation",
+  "slug": "servicenow-softbank-customer-service-automation",
+  "vendor": "ServiceNow",
+  "customer_name": "SoftBank Corp",
+  "industry": "Telecommunications",
+  "region": "Tokyo, Japan",
+  "company_size": "Enterprise",
+  "business_problem": "SoftBank's growing portfolio of enterprise services had outgrown an aging case-management system and separate service-specific channels, leaving support teams to monitor inquiries manually and making multi-service issues slow to resolve.",
+  "solution_summary": "SoftBank rebuilt enterprise-service support around ServiceNow Telecommunications Service Management after an aging ticketing system and service-specific channels forced agents to monitor queues manually and coordinate multi-service issues by phone and email. Telecommunications Service Management became the shared case-management and routing layer for different offerings, while a new portal centralized customer inquiries, FAQ self-service, status views, and maintenance notices in one place. SoftBank also used Integration Hub, part of Workflow Data Fabric, to turn portal clicks into automated actions such as virtual-machine provisioning and pausing monitoring, while IT Operations Management discovers and normalizes configuration data, generates alerts, and reduces noise across systems and networks. Together, these components create a more scalable, multilingual support architecture for new B2B services.",
+  "products_used": [
+    "Telecommunications Service Management",
+    "Integration Hub",
+    "Workflow Data Fabric",
+    "IT Operations Management"
+  ],
+  "solution_components": [
+    {
+      "name": "Telecommunications Service Management",
+      "role": "Unifies case management, routing, and customer-support operations for SoftBank's enterprise services on one platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Integration Hub",
+      "role": "Executes automated backend actions such as virtual-machine provisioning and pausing monitoring when customers submit portal requests.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Workflow Data Fabric",
+      "role": "Provides the integration layer behind button-driven automations and connected service workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IT Operations Management",
+      "role": "Discovers and normalizes configuration data, generates alerts, and reduces operational noise across systems and networks.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customers submit questions and requests through SoftBank's portal, where Telecommunications Service Management creates and routes cases across support teams. Portal interactions can invoke Integration Hub and Workflow Data Fabric automations for tasks such as provisioning or monitoring changes, while IT Operations Management feeds discovered configuration data and alerts back into the same service workflows and status views.",
+  "integration_points": [
+    "Japanese and English translation APIs",
+    "Virtual machine provisioning workflows",
+    "System monitoring controls"
+  ],
+  "technical_area": [
+    "Contact Center",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "SoftBank launched a single support portal that centralizes enterprise-service inquiries, enables self-service and selected 24/7 automated requests, improves multilingual status visibility for customers, and reduces manual workload for support agents as new services are introduced.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Customers can make requests 24/7 without waiting for someone to be available"
+  ],
+  "architecture_clues": [
+    "The portal displays service status history, maintenance notices, and failure alerts as standard Telecommunications Service Management features.",
+    "SoftBank uses real-time translation between Japanese and English inside the portal.",
+    "Integration Hub automations let customers trigger tasks such as spinning up a virtual machine or pausing system monitoring from the portal.",
+    "IT Operations Management discovers and normalizes configuration management data and reduces alert noise for the IT team."
+  ],
+  "source_url": "https://www.servicenow.com/customers/softbank.html",
+  "published_date": "2023-09-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our previous solution was aging and we had different channels for every service. The team had to monitor them manually to maintain high levels of service.\"",
+    "\"ServiceNow unifies and standardizes operations for different services onto one platform.\"",
+    "\"Customers can self-serve for common queries using the FAQ section on the portal.\"",
+    "\"We use it to translate text typed into the portal between Japanese and English in real time.\"",
+    "\"Using ServiceNow Integration Hub, part of Workflow Data Fabric, we built a system to automatically execute certain tasks when the customer clicks on a button.\"",
+    "\"The solution automatically discovers and normalizes valuable configuration management data, generates alerts, and reduces noise for the IT team.\""
+  ]
+}
