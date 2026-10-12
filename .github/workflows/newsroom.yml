@@ -1,0 +1,201 @@
+# Scheduled / on-demand collection of AI use cases from companies' own websites.
+#
+# The company list is private and never committed: it lives in the
+# NEWSROOM_COMPANIES secret (gzip + base64 of data/private/companies.json —
+# company names and their official sites). Crawl progress (which URLs were
+# discovered, judged, screened or rejected) is carried between runs as an
+# encrypted file on the `newsroom-state` branch, replaced on every run so the
+# history does not grow. Only the resulting public stories are committed to
+# main (data/records/**), which triggers the Pages deploy.
+#
+# This repository is public, and so are its Actions logs: every stage writes
+# its detailed output (company names, URLs) to a file on the runner, and only
+# the aggregate count lines are echoed.
+#
+# Required secrets:
+# - COPILOT_PAT         Copilot-licensed token for the Copilot CLI (screening + extraction).
+# - USECASE_PAT         repo write token, so the records commit triggers the deploy.
+# - NEWSROOM_COMPANIES  gzip+base64 company list (see above).
+# - NEWSROOM_STATE_KEY  passphrase for the encrypted crawl state.
+
+name: Newsroom — AI use cases from company websites
+run-name: "Newsroom · ${{ github.event.inputs.refresh == 'false' && 'backlog only' || 'refresh' }} · limit ${{ github.event.inputs.limit || '150' }}"
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Re-crawl every company's sitemaps/newsroom for new story URLs"
+        type: boolean
+        required: false
+        default: true
+      limit:
+        description: "Max stories to extract this run"
+        type: string
+        required: false
+        default: "150"
+      model:
+        description: "Copilot model for screening and extraction"
+        type: choice
+        options:
+          - "gpt-5.4"
+          - "gpt-6.1-sol"
+          - "grok-4.7"
+        required: false
+        default: "gpt-5.4"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: newsroom
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Verify secrets
+        env:
+          COPILOT_PAT: ${{ secrets.COPILOT_PAT }}
+          USECASE_PAT: ${{ secrets.USECASE_PAT }}
+          NEWSROOM_COMPANIES: ${{ secrets.NEWSROOM_COMPANIES }}
+          NEWSROOM_STATE_KEY: ${{ secrets.NEWSROOM_STATE_KEY }}
+        run: |
+          set -euo pipefail
+          missing=0
+          for name in COPILOT_PAT USECASE_PAT NEWSROOM_COMPANIES NEWSROOM_STATE_KEY; do
+            if [ -z "${!name:-}" ]; then echo "Missing required secret: $name" >&2; missing=1; fi
+          done
+          exit "$missing"
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: main
+          fetch-depth: 0
+          token: ${{ secrets.USECASE_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          npm ci --no-audit --no-fund
+          npm install -g @github/copilot --no-audit --no-fund
+          python3 -m pip install -r requirements.txt
+
+      - name: Restore private inputs and crawl state
+        env:
+          NEWSROOM_COMPANIES: ${{ secrets.NEWSROOM_COMPANIES }}
+          NEWSROOM_STATE_KEY: ${{ secrets.NEWSROOM_STATE_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p data/private
+          printf '%s' "$NEWSROOM_COMPANIES" | base64 -d | gunzip > data/private/companies.json
+          if git fetch -q origin newsroom-state 2>/dev/null; then
+            git show origin/newsroom-state:newsroom.state.enc \
+              | openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 -pass env:NEWSROOM_STATE_KEY \
+              | tar xzf - -C data/private
+            echo "Restored crawl state."
+          else
+            echo "No crawl state yet; starting fresh."
+          fi
+          python3 -m pipeline.usecase_intel.newsroom status
+
+      - name: Collect, screen and extract
+        timeout-minutes: 280
+        continue-on-error: true
+        env:
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT }}
+          REFRESH: ${{ github.event.inputs.refresh || 'true' }}
+          LIMIT: ${{ github.event.inputs.limit || '150' }}
+          MODEL: ${{ github.event.inputs.model || 'gpt-5.4' }}
+        run: |
+          set -uo pipefail
+          mkdir -p /tmp/newsroom-logs
+          # Detailed output stays on the runner; only aggregate "<stage>: k=v" lines are shown.
+          stage() {
+            local name="$1"; shift
+            if python3 -m pipeline.usecase_intel.newsroom "$name" "$@" > "/tmp/newsroom-logs/$name.log" 2>&1; then
+              grep -E '^(discover|fetch|triage [a-z]+|prescreen|bundle|author|status|compact):' "/tmp/newsroom-logs/$name.log" | tail -3
+            else
+              echo "stage $name failed (exit $?); details withheld from the public log" >&2
+              return 1
+            fi
+          }
+          if [ "$REFRESH" = "true" ]; then stage discover --refresh --workers 16 || true; fi
+          stage fetch --workers 24 || true
+          stage triage || true
+          stage prescreen || true
+          stage dates --limit 400 || true
+          stage bundle || true
+          stage author --limit "$LIMIT" --model "$MODEL" --workers 6 || true
+          stage status || true
+
+      - name: Rebuild and validate site data
+        run: |
+          set -euo pipefail
+          npm run --silent data:build > /dev/null
+          npm run --silent build > /tmp/site-build.log 2>&1 || { tail -20 /tmp/site-build.log; exit 1; }
+
+      - name: Commit & push new records
+        run: |
+          set -euo pipefail
+          git config user.name "usecase-intel-bot"
+          git config user.email "usecase-intel-bot@users.noreply.github.com"
+          git add -A data/records data/weekly
+          if git diff --cached --quiet; then
+            echo "No new records this run."
+            exit 0
+          fi
+          echo "New records: $(git diff --cached --name-only --diff-filter=A -- data/records | wc -l)"
+          git commit -q -m "chore(data): newsroom run $(date -u +%F)"
+          for attempt in $(seq 1 20); do
+            git reset -q --hard HEAD
+            git fetch -q origin main
+            if ! git rebase -q -X ours origin/main; then
+              echo "Rebase conflict; aborting this attempt." >&2
+              git rebase --abort
+              exit 1
+            fi
+            npm run --silent data:build >/dev/null
+            git add -A data/records data/weekly
+            git diff --cached --quiet || git commit -q --amend --no-edit
+            if git push -q origin HEAD:main; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            sleep $(( (RANDOM % 30) + attempt * 3 ))
+          done
+          echo "Could not push after 20 attempts." >&2
+          exit 1
+
+      - name: Save crawl state
+        if: always()
+        env:
+          NEWSROOM_STATE_KEY: ${{ secrets.NEWSROOM_STATE_KEY }}
+        run: |
+          set -euo pipefail
+          [ -s data/private/newsroom_discovered.jsonl ] || { echo "No crawl state to save."; exit 0; }
+          python3 -m pipeline.usecase_intel.newsroom compact > /tmp/newsroom-logs/compact.log 2>&1
+          grep '^compact:' /tmp/newsroom-logs/compact.log || true
+          files=$(cd data/private && ls newsroom_discovered.jsonl newsroom_triage.jsonl newsroom_prescreen.jsonl newsroom_crawled.jsonl newsroom_manifest.jsonl 2>/dev/null)
+          tar czf - -C data/private $files \
+            | openssl enc -aes-256-cbc -pbkdf2 -iter 200000 -salt -pass env:NEWSROOM_STATE_KEY -out /tmp/newsroom.state.enc
+          # A single parentless commit, force-pushed: the branch never accumulates history.
+          blob=$(git hash-object -w /tmp/newsroom.state.enc)
+          tree=$(printf '100644 blob %s\tnewsroom.state.enc\n' "$blob" | git mktree)
+          commit=$(git -c user.name=usecase-intel-bot -c user.email=usecase-intel-bot@users.noreply.github.com commit-tree "$tree" -m "newsroom crawl state (encrypted)")
+          git push -q -f origin "$commit:refs/heads/newsroom-state"
+          echo "Saved crawl state ($(stat -c %s /tmp/newsroom.state.enc) bytes)."

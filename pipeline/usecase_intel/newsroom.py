@@ -283,15 +283,16 @@ def discover_company(name: str, sites: list[str], seen: set[str], lock: threadin
     return added
 
 
-def discover(workers: int = 12, only: Optional[str] = None) -> None:
+def discover(workers: int = 12, only: Optional[str] = None, refresh: bool = False) -> None:
     companies = load_companies()
     if only:
         companies = {k: v for k, v in companies.items() if only.lower() in k.lower()}
     rows = load_jsonl(DISCOVERED_PATH)
     seen = {row["url"] for row in rows}
-    # Resume: companies already crawled (they have rows, or a recorded empty result) are skipped.
+    # Resume: companies already crawled (they have rows, or a recorded empty result) are
+    # skipped — unless refreshing, which re-crawls everyone and keeps only unseen URLs.
     done = {row["vendor"] for row in rows} | {row["company"] for row in load_jsonl(PRIVATE / "newsroom_crawled.jsonl")}
-    if not only:
+    if not only and not refresh:
         companies = {k: v for k, v in companies.items() if k not in done}
     lock = threading.Lock()
 
@@ -314,7 +315,9 @@ def discover(workers: int = 12, only: Optional[str] = None) -> None:
 # --- fetch -------------------------------------------------------------------
 
 def fetch(workers: int = 12) -> None:
+    # Skip pages already fetched or already judged (CI keeps decisions between runs, not pages).
     done = {row["url"] for row in load_jsonl(MANIFEST_PATH) if row.get("status") == 200}
+    done |= {row["url"] for row in load_jsonl(TRIAGE_PATH)}
     by_company: dict[str, list[dict[str, Any]]] = {}
     for row in load_jsonl(DISCOVERED_PATH):
         if row["url"] not in done:
@@ -399,6 +402,8 @@ def _pending_jobs() -> list[dict[str, Any]]:
 
     existing = {json.loads(p.read_text(encoding="utf-8")).get("source_url", "").rstrip("/").lower() for p in RECORDS_ROOT.glob("*/*.json")}
     rejected = {row["url"] for row in load_jsonl(TRIAGE_PATH) if any(str(r).startswith("extractor:") for r in row.get("reasons", []))}
+    # A later triage row (e.g. archive dating) must not resurrect a page the prescreen rejected.
+    rejected |= {row["url"] for row in load_jsonl(PRIVATE / "newsroom_prescreen.jsonl") if row.get("story") is False}
     jobs = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(JOBS_ROOT.glob("*/*.json"))]
     return [job for job in jobs if job["source_url"].rstrip("/").lower() not in existing and job["source_url"] not in rejected]
 
@@ -424,8 +429,12 @@ def prescreen(batch_size: int = 40, workers: int = 6) -> None:
 
     def lead(url: str) -> tuple[str, str]:
         row = manifest[url]
+        raw_path = Path(row["raw_path"])
         try:
-            title, text, _ = content_to_text(Path(row["raw_path"]).read_bytes(), content_type=str(row.get("content_type") or ""))
+            if not raw_path.exists():  # pages from earlier CI runs are not kept; fetch again
+                raw_path.parent.mkdir(parents=True, exist_ok=True)
+                raw_path.write_bytes(FetchClient(user_agent=USER_AGENT, per_host_delay_seconds=1.0, cache_dir=None).fetch(url, use_cache=False).body)
+            title, text, _ = content_to_text(raw_path.read_bytes(), content_type=str(row.get("content_type") or ""))
         except Exception:  # noqa: BLE001
             return "", ""
         return title or "", re.sub(r"\s+", " ", text)[:450]
@@ -520,22 +529,70 @@ def author(workers: int = 6, model: str = "gpt-5.4", limit: Optional[int] = None
     log("author: " + " ".join(f"{k}={v}" for k, v in counts.items()))
 
 
+def status() -> dict[str, int]:
+    """Pending work per stage (aggregate counts only — safe for public CI logs)."""
+    from .settings import RECORDS_ROOT
+    from .triage import bulk_dates, date_settled, load_decisions
+
+    decisions = load_decisions(TRIAGE_PATH)
+    bulk = bulk_dates(decisions)
+    fetched = {row["url"] for row in load_jsonl(MANIFEST_PATH) if row.get("status") == 200}
+    prescreen_rows = load_jsonl(PRIVATE / "newsroom_prescreen.jsonl")
+    screened = {row["url"] for row in prescreen_rows}
+    stories = {row["url"] for row in prescreen_rows if row.get("story")} - {row["url"] for row in prescreen_rows if row.get("story") is False}
+    records = {json.loads(p.read_text(encoding="utf-8")).get("source_url", "").rstrip("/").lower() for p in RECORDS_ROOT.glob("*/*.json")}
+    kept = [row for row in decisions.values() if row.get("stage") == "post" and row.get("decision") == "keep"]
+    counts = {
+        "discovered": len({row["url"] for row in load_jsonl(DISCOVERED_PATH)}),
+        "unfetched": sum(1 for row in load_jsonl(DISCOVERED_PATH) if row["url"] not in decisions and row["url"] not in fetched),
+        "unjudged": sum(1 for url in fetched if url not in decisions),
+        "unscreened": sum(1 for row in kept if row["url"] not in screened),
+        "undated": sum(1 for row in kept if row["url"] in stories and not date_settled(row, bulk)),
+        "unextracted": sum(1 for row in kept if row["url"] in stories and date_settled(row, bulk)
+                           and row["url"].rstrip("/").lower() not in records),
+        "records": sum(1 for p in RECORDS_ROOT.glob("*/*.json") if json.loads(p.read_text(encoding="utf-8")).get("source_type") == "company"),
+    }
+    print("status: " + " ".join(f"{k}={v}" for k, v in counts.items()), flush=True)
+    return counts
+
+
+def compact() -> None:
+    """Shrink the ledgers carried between CI runs: latest triage row per URL, and
+    manifest rows only for pages still awaiting a decision or extraction."""
+    from .triage import load_decisions
+
+    decisions = load_decisions(TRIAGE_PATH)
+    lines = [json.dumps(row, ensure_ascii=False) for row in decisions.values()]
+    TRIAGE_PATH.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    latest: dict[str, dict[str, Any]] = {}
+    for row in load_jsonl(MANIFEST_PATH):
+        latest[row["url"]] = row
+    keep = [row for url, row in latest.items() if row.get("status") == 200
+            and (url not in decisions or decisions[url].get("decision") == "keep")]
+    MANIFEST_PATH.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in keep), encoding="utf-8")
+    discovered = {row["url"]: row for row in load_jsonl(DISCOVERED_PATH)}
+    DISCOVERED_PATH.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in discovered.values()), encoding="utf-8")
+    log(f"compact: triage={len(lines)} manifest={len(keep)} discovered={len(discovered)}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="stage", required=True)
     p = sub.add_parser("resolve"); p.add_argument("list", type=Path)
-    p = sub.add_parser("discover"); p.add_argument("--only"); p.add_argument("--workers", type=int, default=12)
+    p = sub.add_parser("discover"); p.add_argument("--only"); p.add_argument("--workers", type=int, default=12); p.add_argument("--refresh", action="store_true")
     p = sub.add_parser("fetch"); p.add_argument("--workers", type=int, default=12)
     sub.add_parser("triage")
     p = sub.add_parser("dates"); p.add_argument("--limit", type=int)
     sub.add_parser("bundle")
     sub.add_parser("prescreen")
     p = sub.add_parser("author"); p.add_argument("--workers", type=int, default=6); p.add_argument("--model", default="gpt-5.4"); p.add_argument("--limit", type=int)
+    sub.add_parser("status")
+    sub.add_parser("compact")
     args = parser.parse_args()
     if args.stage == "resolve":
         resolve(args.list)
     elif args.stage == "discover":
-        discover(args.workers, args.only)
+        discover(args.workers, args.only, args.refresh)
     elif args.stage == "fetch":
         fetch(args.workers)
     elif args.stage == "triage":
@@ -548,3 +605,7 @@ if __name__ == "__main__":
         prescreen()
     elif args.stage == "author":
         author(args.workers, args.model, args.limit)
+    elif args.stage == "status":
+        status()
+    elif args.stage == "compact":
+        compact()
