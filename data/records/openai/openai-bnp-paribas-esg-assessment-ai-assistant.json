@@ -1,0 +1,84 @@
+{
+  "id": "openai-bnp-paribas-esg-assessment-ai-assistant",
+  "slug": "openai-bnp-paribas-esg-assessment-ai-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "BNP Paribas",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Relationship Managers needed hours to complete ESG Assessment questionnaires of up to 80 questions from client ESG and CSR documents, creating operational inefficiency and data quality issues in a process embedded in BNP Paribas's credit risk workflow.",
+  "solution_summary": "BNP Paribas built an internal AI Assistant into its impACT platform to accelerate ESG Assessments used by Relationship Managers and risk teams. In the workflow, Relationship Managers first upload relevant client ESG and CSR documents that were either publicly disclosed or shared during client meetings. The AI Assistant then launches analysis in impACT, where the documents are scanned and indexed and prompts are sent through Azure API to OpenAI's ChatGPT 4o mini model. The model returns suggested answers and justifications for questionnaire items, along with links to the exact document passages supporting each suggestion. The generated content is served back inside impACT rather than being auto-filled, so Relationship Managers must review, select, edit, and validate the proposed answers before submission. The resulting assessment feeds BNP Paribas's ESG synthesis and credit decision process, while the bank monitors answer relevancy, user feedback, and Azure LLM operating cost.",
+  "products_used": [
+    "impACT platform",
+    "AI Assistant",
+    "ChatGPT 4o mini",
+    "Azure API"
+  ],
+  "solution_components": [
+    {
+      "name": "impACT platform",
+      "role": "Hosts the ESG Assessment workflow where Relationship Managers upload documents, launch analysis, review suggestions, and complete the final questionnaire.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI Assistant",
+      "role": "Presents suggested questionnaire answers, justifications, and linked document passages to help Relationship Managers complete assessments faster.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ChatGPT 4o mini",
+      "role": "Generates answer suggestions from uploaded ESG and CSR documents and provides supporting rationale for each proposed response.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure API",
+      "role": "Provides the API path BNP Paribas uses to call the ChatGPT 4o mini model from its internal application.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Relationship Managers upload client ESG and CSR documents into impACT, then trigger the AI Assistant. The documents are scanned and indexed, prompts are sent through Azure API to ChatGPT 4o mini, and the model returns suggested answers plus comments and links to supporting passages. Those suggestions are displayed in impACT for Relationship Managers to review, edit, and use in the ESG Assessment and downstream credit-risk process.",
+  "integration_points": [
+    "Client ESG/CSR documents disclosed publicly or shared during client meetings",
+    "BNP Paribas credit risk process",
+    "Credit committee synthesis sheet"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "The AI Assistant helps Relationship Managers complete ESG Assessments faster, simplifies analysis of client ESG strategy and risks, reduces data quality issues, and has achieved good user adoption while keeping Azure LLM operating cost low.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "up to 80 questions",
+    "600 users since the Go live",
+    "almost 1600 ESG Assessments",
+    "around 35% of all ESG Assessments"
+  ],
+  "architecture_clues": [
+    "The tool was internally developed by Group Data Office and CIB AI Platforms in collaboration with sustainability and company engagement stakeholders.",
+    "The AI displays suggested answers with comments referencing the relevant sections of the uploaded documents.",
+    "Answers are not pre-filled; Relationship Managers must actively select and can edit AI suggestions.",
+    "BNP Paribas tracks AI relevancy through quantitative and qualitative monitoring and also monitors Azure LLM run cost."
+  ],
+  "source_url": "https://group.bnpparibas/en/news/ai-at-bnp-paribas-4-artificial-intelligence-in-the-esg-assessment",
+  "published_date": "2025-11-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The ESG Assessment is implemented in the impACT platform, (the Group’s internal platform dedicated to ESG data).",
+    "it takes hours for a relationship manager to fill in the ESG Assessment, which can contain up to 80 questions",
+    "the main goal of implementation of Generative AI is to assist Relationship Managers in completing the ESG Assessment questionnaire faster and more efficiently, by providing suggestions answers and justifications based on quick comprehensive analysis of the documents disclosed by the clients and uploaded by the Relationship Manager.",
+    "Documents are being scanned and indexed by the AI, and the AI displays suggested answers for the questionnaire from the documents uploaded, and comments referencing the relevant sections of the document",
+    "The tool is the result of internal development, using Open AI’s Chat GPT 4 o mini model via Azure API.",
+    "The AI Assistant has been used by 600 users since the Go live, helping them to complete almost 1600 ESG Assessments",
+    "The AI Assistant is used to complete around 35% of all ESG Assessments",
+    "we also monitor the cost of running the LLM model in Azure, which is very limited in this use case."
+  ],
+  "source_type": "company"
+}

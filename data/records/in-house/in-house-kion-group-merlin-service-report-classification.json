@@ -1,0 +1,77 @@
+{
+  "id": "in-house-kion-group-merlin-service-report-classification",
+  "slug": "in-house-kion-group-merlin-service-report-classification",
+  "vendor": "In-house",
+  "customer_name": "KION Group",
+  "industry": "Manufacturing",
+  "region": "EMEA",
+  "company_size": "Enterprise",
+  "business_problem": "KION's service technicians write maintenance reports for industrial trucks under time pressure, so the reports often contain abbreviations and colloquial wording that make them hard to read, translate, correct, and consistently classify into recurring fault categories.",
+  "solution_summary": "KION Group built MERLIN as a productively used generative AI tool for maintenance and quality workflows around its industrial trucks. Service reports created after maintenance appointments are stored and processed on the KION Analytics Platform (KAP), whose cloud resources are used to store data and train the machine learning model. In the first phase, MERLIN uses a glossary plus contextual signals such as the truck model, series, and spare part references mentioned in each report to expand KION-specific abbreviations, correct spelling issues, and translate the documentation into English, creating a consistent dataset for downstream analysis. On top of that normalized data, a custom-built classification model searches for patterns and assigns reports to recurring \"master problems.\" Results are uploaded as confidence-scored proposals for manual review, while the wider data lake and Dremio query layer let teams consolidate and pull data from multiple internal sources.",
+  "products_used": [
+    "MERLIN",
+    "KION Analytics Platform (KAP)",
+    "Dremio"
+  ],
+  "solution_components": [
+    {
+      "name": "MERLIN",
+      "role": "Generative AI tool that corrects, translates, and proposes classifications for maintenance service reports.",
+      "layer": "Serving"
+    },
+    {
+      "name": "KION Analytics Platform (KAP)",
+      "role": "Provides the cloud resources used to store service-report data and train the machine learning model."
+    },
+    {
+      "name": "Dremio",
+      "role": "Self-service query engine used to consolidate and pull data from different systems and sources via the data lake.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Service technicians create maintenance reports after each appointment, and KION stores that data on KAP cloud resources. MERLIN uses a glossary plus truck model, series, and spare-part context to correct and translate the text into English, then a classification model detects patterns and maps reports to master problems. The resulting confidence-scored proposals are uploaded for manual review, while Dremio queries the broader data lake for consolidated analysis.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "KION reduced the time and cost of translating and classifying maintenance reports, removed dependence on an external translation agency, enabled more frequent report availability, and freed quality teams to focus more on solving customer problems and making recommendations.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Translations used to come once a week, but now they can be downloaded twice a day.",
+    "annual savings in the 6-digit range"
+  ],
+  "architecture_clues": [
+    "The solution runs on cloud resources in the KION Analytics Platform operated by KION Group IT.",
+    "A glossary is used to distinguish KION-specific abbreviations from spelling errors.",
+    "Truck model, series, and spare-part references are used as context to improve translation and correction.",
+    "Classification results are uploaded with a percentage confidence level for manual review.",
+    "KION describes the implementation as a combination of generative AI and a custom-built classification model.",
+    "A data lake and Dremio are used to consolidate data from different systems and sources."
+  ],
+  "source_url": "https://www.kiongroup.com/en/Newsroom/Story-Categories/Innovation/Article/Artificial-intelligence-is-revolutionizing-the-maintenance-process-of-industrial-trucks.html?storyid=53120",
+  "published_date": "2024-06-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"In the area of product maintenance and quality, the first productively used generative AI tool MERLIN is revolutionizing the maintenance process of our industrial trucks.\"",
+    "\"The main goal is to reduce the effort required to classify problems that are documented during maintenance processes on our material handling equipment.\"",
+    "\"To store the data and train the ML model, the team uses the cloud resources of the KION Analytics Platform (KAP), which is operated by KION Group IT.\"",
+    "\"In the first phase, the AI was trained with the help of a glossary to distinguish KION-specific abbreviations from spelling errors in the service reports and to either write them out completely or correct them and then translate the documentation into English.\"",
+    "\"The AI also orients itself on the truck model, series or spare part mentioned to improve the translation and correction of the documentation.\"",
+    "\"In a second step, the AI is trained to search for patterns and automatically classify the service reports into the so-called 'master problems'.\"",
+    "\"The MERLIN classification is currently being uploaded as a proposal with a percentage confidence level for further manual review.\"",
+    "\"Translations used to come once a week, but now they can be downloaded twice a day.\"",
+    "\"Overall, the tool can be used to achieve annual savings in the 6-digit range.\"",
+    "\"With the data lake as the basis and self-service query engines such as Dremio, data from different systems and sources can now be easily consolidated and pulled.\"",
+    "\"The combination of generative AI and a custom-built classification model has shown excellent results\""
+  ],
+  "source_type": "company"
+}

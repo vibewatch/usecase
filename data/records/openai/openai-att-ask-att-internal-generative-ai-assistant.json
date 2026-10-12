@@ -1,0 +1,71 @@
+{
+  "id": "openai-att-ask-att-internal-generative-ai-assistant",
+  "slug": "openai-att-ask-att-internal-generative-ai-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "AT&T",
+  "industry": "Telecommunications",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "AT&T wanted a secure way for employees to use generative AI with company data to improve productivity, creativity, and innovation without exposing corporate information to the public domain.",
+  "solution_summary": "AT&T built Ask AT&T as an internal generative AI assistant for employees, using OpenAI's chatGPT functionality inside an AT&T-dedicated Azure tenant. Employees submit prompts plus company data and information to the Ask AT&T interface, which layers AT&T knowledge and internal processes onto the model so responses are focused on enterprise tasks and returned in a controlled environment rather than through a public chatbot. The first production uses target developer productivity and multilingual document support, helping coders and software developers work more productively while also translating and simplifying customer and employee documentation. Microsoft-supported Azure isolation and leakage testing are used to keep corporate data from escaping to the public domain, while AT&T's AI Policy, operating guidelines, and user review requirements govern responsible use and response checking.",
+  "products_used": [
+    "Ask AT&T",
+    "OpenAI's chatGPT functionality",
+    "Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "Ask AT&T",
+      "role": "AT&T's internal generative AI tool provides employees with a secured interface for enterprise prompts, answers, translations, summaries, and other work tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI's chatGPT functionality",
+      "role": "The underlying generative model generates responses for Ask AT&T's first iteration.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure",
+      "role": "An AT&T-dedicated Azure tenant hosts the tool in an isolated environment that was pressure tested for leakage."
+    }
+  ],
+  "data_flow": "Employees enter prompts and company information into Ask AT&T; the application applies AT&T knowledge and process controls, invokes OpenAI's chatGPT functionality within AT&T's dedicated Azure tenant, and returns generated answers, translations, simplified documentation, summaries, and action items back to employees in the secured internal environment.",
+  "integration_points": [
+    "AT&T company data and information",
+    "Customer documentation",
+    "Employee documentation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "AT&T says Ask AT&T will help employees be more effective, efficient, creative, and innovative, with early value in developer productivity and easier translation and simplification of documentation.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Runs in an AT&T-dedicated Azure tenant.",
+    "The tenant was 'pressure tested for leakage' to protect corporate data.",
+    "Ask AT&T is designed to be interoperable with other generative tools.",
+    "AT&T says the tool includes 'special sauce' that incorporates AT&T knowledge and processes.",
+    "Users are responsible for checking that generated results are accurate and appropriate.",
+    "AT&T governs usage through an AI Policy and AI Operating Guidelines."
+  ],
+  "source_url": "https://about.att.com/blogs/2023/generative-ai.html",
+  "published_date": "2023-06-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We're deploying a generative AI tool for our employees over the next several weeks so they can be part of the first generation of true corporate users of this new capability.\"",
+    "\"The first iteration uses OpenAI's chatGPT functionality.\"",
+    "\"We've worked with Microsoft to make Ask AT&T secure and safe for our employees and our corporate data. It runs in an AT&T-dedicated Azure tenant that's been pressure tested for leakage.\"",
+    "\"AT&T employees can bring company data and information into Ask AT&T without worrying about that material leaking into the public domain.\"",
+    "\"Out of the box use cases are helping our coders and software developers across the company become more productive.\"",
+    "\"It's also helping to translate customer and employee documentation from English to other languages as well as to simplify that documentation and make it easier to use.\""
+  ],
+  "source_type": "company"
+}

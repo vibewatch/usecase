@@ -1,0 +1,73 @@
+{
+  "id": "openai-target-conversational-shopping-chatgpt",
+  "slug": "openai-target-conversational-shopping-chatgpt",
+  "vendor": "OpenAI",
+  "customer_name": "Target",
+  "industry": "Retail",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Target wanted to help shoppers who start with broad, conversational questions and do not know exactly what they want, reducing the need to sift through large search result sets before finding affordable, relevant products and completing a purchase.",
+  "solution_summary": "Target built a first-party conversational commerce experience inside ChatGPT so shoppers can begin with natural-language requests instead of traditional keyword search. In the Target app in ChatGPT, a guest tags Target and asks for ideas tied to an occasion, recipient, budget, or dietary preference; ChatGPT provides the conversational front end, while Target returns curated product suggestions across its assortment using its own merchandising authority. The experience is tied directly to commerce actions: users can browse recommendations, add favorites to cart, and complete checkout with a Target account. The flow also connects product discovery to fulfillment options, allowing selection of same-day Drive Up, in-store Order Pickup, or shipping. The source does not disclose storage, retrieval, or model-customization details, but it clearly shows an implemented serving-layer integration between OpenAI's conversational AI and Target's shopping and order-fulfillment systems, built through rapid iteration and frequent testing.",
+  "products_used": [
+    "ChatGPT",
+    "Target app in ChatGPT",
+    "Target account"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatGPT",
+      "role": "Provides the conversational interface where guests ask broad shopping questions and receive curated recommendations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Target app in ChatGPT",
+      "role": "Delivers Target's in-chat shopping experience, returning occasion- and budget-aware product suggestions and enabling cart-building actions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Target account",
+      "role": "Supports authenticated purchase completion after shoppers choose recommended items."
+    }
+  ],
+  "data_flow": "A shopper opens ChatGPT, tags Target, and asks a natural-language shopping question. The Target app in ChatGPT returns curated recommendations from Target's assortment, the user browses and adds favorites to cart, then completes purchase with a Target account and selects fulfillment through same-day Drive Up, in-store Order Pickup, or shipping.",
+  "integration_points": [
+    "ChatGPT",
+    "Target account",
+    "same-day Drive Up",
+    "in-store Order Pickup",
+    "shipping"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Target made shopping more intuitive by letting guests discover personalized product options conversationally inside ChatGPT and move directly into purchase and fulfillment selection; internally, the team also moved from idea to launch in a matter of weeks.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "within a matter of weeks",
+    "multiple times a day"
+  ],
+  "architecture_clues": [
+    "The experience runs inside ChatGPT as a conversational shopping surface for Target.",
+    "The implementation links recommendation, cart building, checkout, and fulfillment selection in one flow.",
+    "Target said the team built and tested new versions multiple times a day because ChatGPT is in constant development."
+  ],
+  "source_url": "https://corporate.target.com/news-features/article/2025/11/target-chatgpt",
+  "published_date": "2025-11-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“We wanted to make it easier to shop by taking the pressure off needing to know exactly what you want or having to sift through an endless number of search results.”",
+    "“Open the ChatGPT interface, type ‘Target’ first to tag us, and type your question”",
+    "“You can browse, fill your cart with your favorites and purchase them with your Target account, as well as choose how you’d like to get your order, whether it’s same-day Drive Up, in-store Order Pickup or shipping.”",
+    "“For the Target app in ChatGPT, our technology, user experience and product management teams went from idea to launch within a matter of weeks”",
+    "“With our merchandising authority and OpenAI’s conversational AI expertise, we’ll help make shopping in ChatGPT smarter for everyone.”"
+  ],
+  "source_type": "company"
+}

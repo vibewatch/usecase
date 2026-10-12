@@ -1,0 +1,84 @@
+{
+  "id": "microsoft-infosys-agentic-ai-software-development",
+  "slug": "microsoft-infosys-agentic-ai-software-development",
+  "vendor": "Microsoft",
+  "customer_name": "Infosys",
+  "industry": "Commercial and Professional Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Infosys wanted to move beyond basic AI augmentation in the software development life cycle because developers still had to manually review, validate, integrate, and fix generated code in large enterprise applications, limiting productivity and increasing delivery risk.",
+  "solution_summary": "Infosys uses GitHub Copilot agent mode as the execution layer for software-development work across enterprise applications and its own IP products and platforms. Architects and developers feed the agent detailed context such as tech-stack information, business rules, user stories, coding standards, prompts, and rule sets so it can plan multistep tasks, generate code, suggest terminal commands, inspect runtime errors, and iterate on its own output through self-reflection. Infosys then wraps this workflow with its iLEAD platform, an AI-first, agent-integrated SDLC environment that supports requirements definition through release management and adds guardrails for maintainability, security, and enterprise standards. Infosys is also developing model context protocol servers inside iLEAD to bridge agents to external systems and expose tools such as databases, design patterns, and industry- or technology-specific endpoints, so generated changes can be better integrated, reviewed in smaller chunks, and handed off across architect, developer, and DevOps roles.",
+  "products_used": [
+    "GitHub Copilot agent mode",
+    "iLEAD platform",
+    "model context protocol servers"
+  ],
+  "solution_components": [
+    {
+      "name": "GitHub Copilot agent mode",
+      "role": "Acts as the coding agent that plans tasks, generates code, suggests terminal actions, analyzes runtime errors, and iterates on its own output.",
+      "layer": "Serving"
+    },
+    {
+      "name": "iLEAD platform",
+      "role": "Provides the agent-integrated SDLC environment and guardrails from requirements definition to release management.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "model context protocol servers",
+      "role": "Bridge AI agents to external systems and expose databases, design patterns, and domain-specific endpoints as tools.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Tech-stack details, business rules, user stories, coding standards, and prompts are provided to GitHub Copilot agent mode as context. The agent works against the existing code base, terminal, and operating system, iterating on generated code and runtime errors. Within iLEAD, model context protocol servers expose databases and design-pattern resources, and reviewed output then moves through SDLC and release-management workflows for architects, developers, and DevOps teams.",
+  "integration_points": [
+    "terminals",
+    "operating system",
+    "existing code base",
+    "databases",
+    "design and architecture patterns",
+    "release management workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Infosys reports materially faster software development and modernization work, including higher productivity in database code generation, API and microservices creation, user interface generation, unit-test creation, database-view migration, and application dependency upgrades, while using iLEAD guardrails to keep generated code aligned with enterprise standards.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "between 80% and 90% improvement in database code generation",
+    "between 60% and 70% improvement in generating application programming interfaces (APIs) and microservices",
+    "up to 60% improvement in generating user interface code",
+    "Creating end-to-end unit test cases took about 45 minutes with AI assistance, compared to a couple of weeks it would have required manually.",
+    "Migrating Oracle database views to SQL views was completed in just 10 minutes instead of the approximately three days usually needed.",
+    "upgrading configuration files, packages, and dependencies for a web application was completed in 30 minutes, a task that would typically require two to three days of developer time using traditional methods."
+  ],
+  "architecture_clues": [
+    "Infosys says it has adopted GitHub Copilot at scale.",
+    "The agent is described as iterating against its own output, runtime errors, the terminal, the OS, and the code base.",
+    "iLEAD is described as an AI-first, agent-integrated platform spanning requirements definition to release management.",
+    "Model context protocol servers are being developed inside iLEAD to expose industry-specific and technology endpoints.",
+    "Tests covered C#, Java, HTML, CSS, Angular, React, Vue.JS and SQL."
+  ],
+  "source_url": "https://www.infosys.com/iki/perspectives/agentic-ai-software-development.html",
+  "published_date": "2025-06-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "At Infosys we have adopted GitHub Copilot at scale and its agent mode is particularly exciting.",
+    "This agent is capable of iterating on its own code, understanding its own errors, and then fixing them itself through self-reflection.",
+    "According to our analysis, which includes experiments from both senior architects and junior developers at Infosys, agent mode can achieve between 80% and 90% improvement in database code generation; between 60% and 70% improvement in generating application programming interfaces (APIs) and microservices; and up to 60% improvement in generating user interface code.",
+    "To help in this, Infosys leverages the iLEAD platform. This is an AI-first, agent-integrated platform providing end-to-end SDLC assistance tailored for key personas including architects, developers, and DevOps teams, supporting the journey from requirements definition to release management.",
+    "The platform ensures that the agent-generated code adheres to best practices, incorporates strong security measures, and is straightforward to maintain.",
+    "To facilitate this, we are also developing model context protocol servers — software components that act as bridges between AI agents and external systems — within the iLEAD platform, providing tools and resources for agents.",
+    "Creating end-to-end unit test cases took about 45 minutes with AI assistance, compared to a couple of weeks it would have required manually.",
+    "Migrating Oracle database views to SQL views was completed in just 10 minutes instead of the approximately three days usually needed."
+  ],
+  "source_type": "company"
+}

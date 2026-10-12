@@ -1,0 +1,61 @@
+{
+  "id": "in-house-urban-transporte-spare-parts-order-completion-prediction",
+  "slug": "in-house-urban-transporte-spare-parts-order-completion-prediction",
+  "vendor": "In-house",
+  "customer_name": "Urban-Transporte",
+  "industry": "Logistics",
+  "region": "Europe",
+  "company_size": "Enterprise",
+  "business_problem": "Warehouse staff handling KION spare parts orders faced intense end-of-day workload peaks because containers could not be closed until it was clear whether customers would add more items before the shipping cutoff, creating time pressure, uneven work distribution, and a complicated handoff to shipping.",
+  "solution_summary": "Urban-Transporte, KION Group’s in-house logistics provider, built a machine-learning workflow to predict whether a spare-parts order is complete enough for packing before the daily cutoff. The core component is an Extreme Gradient Boosting (XGBoost) model trained on historical order data and operational variables such as time of day, day of week, public holidays, order activity, and individual ordering behavior. The model computes the probability that more items will still be added to a container. That prediction is then served to warehouse staff through a real-time display that recommends whether a box can already be closed. The source describes the data inputs and real-time decision support layer, but does not name a separate storage platform or orchestration tool. In practice, the system turns live order activity plus past fulfillment patterns into earlier packing decisions, smoother shipping preparation, and less operational stress on the warehouse floor.",
+  "products_used": [
+    "Extreme Gradient Boosting (XGBoost)"
+  ],
+  "solution_components": [
+    {
+      "name": "Extreme Gradient Boosting (XGBoost)",
+      "role": "This machine-learning model analyzes historical order data and operational variables to predict whether additional items will still arrive for a container.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Historical order data and operational variables such as time of day, holidays, real-time order activity, and individual ordering behavior feed the XGBoost model, which calculates the probability of more items arriving for a container. The prediction is shown to warehouse employees in real time so they can decide whether to close the box and release it for packing and shipping.",
+  "integration_points": [
+    "Historical order data",
+    "Real-time order activity",
+    "Warehouse employee display",
+    "Shipping dispatch workflow"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "The pilot let orders be released for shipping earlier, distributed packing work more evenly through the day, reduced stress during peak periods, improved resource use, and made overall warehouse operations smoother.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "accuracy rate of around 96%",
+    "the number of packages processed simultaneously dropped from around 70 to about 40"
+  ],
+  "architecture_clues": [
+    "Pilot deployed at RDC Nordics in Sweden for Scandinavian spare parts distribution.",
+    "Rollout is expanding to the Czech Republic and Spain.",
+    "Model features include time of day, day of week, public holidays and days leading up to holidays, real-time order activity, and individual ordering behavior.",
+    "Employees receive real-time close-or-wait recommendations on a display."
+  ],
+  "source_url": "https://www.kiongroup.com/en/Newsroom/Story-Categories/Innovation/Article/How-AI-Optimizes-Spare-Parts-Logistics.html?storyid=63488",
+  "published_date": "2026-06-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Using machine learning, Urban aims to predict whether an order is truly complete and ready to be packed – or whether the customer is likely to add more items before the cutoff time.\"",
+    "\"It uses Extreme Gradient Boosting (XGBoost), an algorithm that analyzes historical order data and operational variables to generate highly accurate forecasts.\"",
+    "\"Based on this data, the system calculates the probability that additional items will arrive for a given container.\"",
+    "\"On a display, the employee immediately sees: no further orders expected – this box can be closed.\"",
+    "\"The results from a pilot project at RDC Nordics in Sweden ... are impressive: the model achieves an accuracy rate of around 96%.\"",
+    "\"The number of packages processed simultaneously dropped from around 70 to about 40.\""
+  ],
+  "source_type": "company"
+}

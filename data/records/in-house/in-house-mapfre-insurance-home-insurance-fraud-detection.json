@@ -1,0 +1,58 @@
+{
+  "id": "in-house-mapfre-insurance-home-insurance-fraud-detection",
+  "slug": "in-house-mapfre-insurance-home-insurance-fraud-detection",
+  "vendor": "In-house",
+  "customer_name": "MAPFRE Insurance",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "MAPFRE Insurance needed a better way to detect fraudulent claims, especially in home insurance, while overcoming the scarcity and imbalance of historical fraud examples and avoiding exposure of sensitive personal data.",
+  "solution_summary": "MAPFRE Insurance built an in-house fraud-detection workflow around Conditional Tabular Generative Adversarial Networks (CTGAN) for its US insurance operations. The process starts with historical claims data, where fraudulent cases are relatively rare and therefore hard to use as a balanced training set. MAPFRE uses CTGAN to learn the statistical structure of that tabular data and generate synthetic claims records that preserve privacy while expanding the fraud training population. Those synthetic datasets feed AI systems that combine machine learning and graph analysis to identify fraud patterns across claims, first in motor insurance and later in home insurance. In production, when a home insurance claim is filed, the trained model estimates the likelihood of fraud and flags suspicious cases for further investigation by claims teams. MAPFRE presents the approach as a privacy-conscious way to improve model precision, streamline claims processing, and reduce fraud-related losses.",
+  "products_used": [
+    "Conditional Tabular Generative Adversarial Networks (CTGAN)"
+  ],
+  "solution_components": [
+    {
+      "name": "Conditional Tabular Generative Adversarial Networks (CTGAN)",
+      "role": "Generates synthetic tabular claims data to rebalance scarce fraud examples for training MAPFRE Insurance's fraud detection models.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Historical motor and home insurance claims data, including limited fraud examples, are used to train a CTGAN model that generates synthetic tabular records. MAPFRE Insurance uses the resulting balanced dataset to train machine-learning and graph-analysis fraud models. When a home insurance claim is submitted, the trained model scores its fraud likelihood and flags suspicious cases for further investigation.",
+  "integration_points": [
+    "Historical motor and home insurance claims datasets",
+    "Home insurance claims intake workflow",
+    "Advanced Analytics and Technical Claims teams' investigation workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "MAPFRE reports more efficient claims processing and more precise fraud detection, using synthetic data to improve model accuracy while protecting sensitive personal data.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The deployment is described in MAPFRE's US operations through MAPFRE Insurance.",
+    "The fraud-pattern project started in motor claims and later expanded to home insurance.",
+    "Synthetic tabular data is used to address imbalance and scarcity in historical fraudulent claims while preserving privacy."
+  ],
+  "source_url": "https://www.mapfre.com/en/insights/innovation/generative-models-synthetic-data/",
+  "published_date": "2024-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Mapfre Insurance is using Conditional Tabular Generative Adversarial Networks (CTGAN) to combat fraud using AI and synthetic data.\"",
+    "\"With the help of AI systems that use machine learning and graph analysis, the Advanced Analytics and Technical Claims teams have developed a project to identify patterns of fraud in claims, initially in Motors and later in Home insurance.\"",
+    "\"When a Home insurance claim is filed, the model assesses the likelihood of fraud and flags suspicious cases for further investigation.\"",
+    "\"This strategy helps overcome the imbalance and scarcity of historical fraudulent claims, improving the algorithm’s ability to identify fraud patterns more accurately.\"",
+    "\"By generating a more balanced data set, the company makes its Home insurance fraud detection models much more precise.\"",
+    "\"This approach achieves more efficient claims processing and fraud detection\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,76 @@
+{
+  "id": "in-house-bbva-ai-agent-initiated-payments",
+  "slug": "in-house-bbva-ai-agent-initiated-payments",
+  "vendor": "In-house",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA needed to prove that AI agents could initiate consumer purchases securely within existing payment infrastructure while preserving cardholder consent, issuer oversight, and EU Strong Customer Authentication compliance.",
+  "solution_summary": "BBVA used Visa Intelligent Commerce in a live agentic commerce test to let an AI agent initiate a purchase on behalf of a cardholder using real card credentials and an active merchant environment. The transaction was processed on existing payment infrastructure rather than a simulated sandbox, with tokenisation protecting credentials as the payment request entered the flow and real-time fraud monitoring checking the transaction before authorisation. To satisfy European Strong Customer Authentication requirements, BBVA added Visa Payment Passkeys so the cardholder could approve the online payment biometrically instead of by password or SMS. The implementation linked AI systems, merchant systems, issuer controls and Visa security protections into a single production-style path, showing that agent-initiated payments can be served securely and compliantly at scale even though the source does not describe storage internals or model architecture.",
+  "products_used": [
+    "Visa Intelligent Commerce",
+    "tokenisation",
+    "real-time fraud monitoring",
+    "Visa Payment Passkeys"
+  ],
+  "solution_components": [
+    {
+      "name": "Visa Intelligent Commerce",
+      "role": "Enabled the live agentic commerce transaction and connected the AI-initiated purchase to the secure payment infrastructure.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "tokenisation",
+      "role": "Protected the card credentials used in the AI-initiated payment flow.",
+      "layer": "Governance"
+    },
+    {
+      "name": "real-time fraud monitoring",
+      "role": "Checked the transaction in real time to keep the agent-initiated payment secure.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Visa Payment Passkeys",
+      "role": "Provided biometric cardholder authentication so the payment could meet SCA requirements without passwords or SMS codes.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "An AI agent initiated a purchase request for a cardholder, the request was routed through Visa Intelligent Commerce using tokenised card credentials and real-time fraud monitoring, and the cardholder then authenticated the payment with Visa Payment Passkeys to satisfy SCA before the transaction was completed with the active merchant and issuer systems.",
+  "integration_points": [
+    "AI agent acting on behalf of the cardholder",
+    "Active merchant systems",
+    "Issuer systems and oversight controls",
+    "Visa payment infrastructure"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BBVA completed its first live AI agent-initiated card transaction and showed that agentic payments can run in a real merchant environment using existing infrastructure, cardholder consent controls, and current regulatory protections.",
+  "outcome_category": [
+    "Compliance",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Live agentic commerce activity under Visa's Agentic Ready programme in Europe",
+    "Used real card credentials rather than a simulated payment setup",
+    "Biometric passkeys were used to meet EU Strong Customer Authentication requirements",
+    "Source describes issuer oversight, cardholder consent, and existing protections as part of the operating model"
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/bbva-completes-its-first-ai-agent-initiated-transaction-together-with-visa/",
+  "published_date": "2026-07-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BBVA has completed a transaction initiated by an artificial intelligence agent on behalf of a cardholder, as part of a live agentic commerce activity\"",
+    "\"The payment was carried out using real card credentials and the systems of an active merchant\"",
+    "\"The transaction successfully tested by BBVA was enabled through Visa Intelligent Commerce, using the same technologies that support secure digital payments, including tokenisation and real-time fraud monitoring.\"",
+    "\"the transaction also used Visa Payment Passkeys, a biometric authentication method that enables consumers to authorise online payments securely without passwords or SMS codes.\"",
+    "\"This demonstrates that AI agent-initiated transactions can operate within existing regulatory frameworks\"",
+    "\"fully maintaining cardholder consent, issuer oversight and compliance with existing protections.\""
+  ],
+  "source_type": "company"
+}

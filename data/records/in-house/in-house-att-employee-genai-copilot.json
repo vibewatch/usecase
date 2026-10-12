@@ -1,0 +1,119 @@
+{
+  "id": "in-house-att-employee-genai-copilot",
+  "slug": "in-house-att-employee-genai-copilot",
+  "vendor": "In-house",
+  "customer_name": "AT&T",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "AT&T wanted to put generative AI into everyday employee workflows so software developers, engineers, finance teams, supply chain staff, HR, customer service, and fraud teams could work faster on code, data analysis, support, and risk-related tasks while using a consistent internal architecture and keeping humans in the loop.",
+  "solution_summary": "AT&T built Ask AT&T as an internal generative AI platform for employees and initially powered it with OpenAI's ChatGPT functionality, while keeping the system interoperable with other large language models including Meta's LLaMA 2 and Falcon transformers. The platform serves users through a conversational interface that accepts plain-English prompts for coding, question answering, and data analysis. AT&T feeds the system with enterprise content such as contracts, financial materials, HR information, AT&T content, software code, and network-related data so it can generate code, answer questions, and analyze operational data by detecting fields, joining tables, and creating code automatically. Beyond the employee-facing tool, AT&T uses NVIDIA RAPIDS AI software to accelerate Spark pipelines, Triton Inference Server to scale production AI/ML and Ask AT&T real-time inference, CuOpt for field technician routing optimization, and Riva for speech-to-text in front of GenAI applications, all aligned to a shared \"single source of truth\" architecture across common platforms, databases, and code.",
+  "products_used": [
+    "Ask AT&T",
+    "OpenAI ChatGPT",
+    "Meta LLaMA 2",
+    "Falcon transformers",
+    "NVIDIA RAPIDS AI software",
+    "NVIDIA Triton Inference Server",
+    "NVIDIA CuOpt",
+    "NVIDIA Riva"
+  ],
+  "solution_components": [
+    {
+      "name": "Ask AT&T",
+      "role": "AT&T's internal conversational platform gives employees a plain-English interface for coding, question answering, and data analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI ChatGPT",
+      "role": "It provided the initial generative AI functionality behind Ask AT&T.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Meta LLaMA 2",
+      "role": "It is one of the alternative LLMs that Ask AT&T can interoperate with for different applications.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Falcon transformers",
+      "role": "They are additional open-source LLM options that Ask AT&T can use as part of its multi-model design.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RAPIDS AI software",
+      "role": "It accelerates Spark data pipelines used in AT&T's AI and data workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "It scales production AI models and Ask AT&T question-and-answer inference for real-time use.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA CuOpt",
+      "role": "It performs more frequent vehicle routing optimization for AT&T field technicians.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Riva",
+      "role": "It provides speech-to-text in front of several generative AI applications.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "AT&T ingests enterprise content and operational data including software code, contracts, financial materials, HR information, AT&T content, and network data into Ask AT&T and related AI workflows. Employees query the system in natural language; the platform uses ChatGPT or alternative LLMs to generate code, answer questions, and analyze data, while RAPIDS accelerates Spark processing and Triton serves real-time inference on shared internal platforms and databases.",
+  "integration_points": [
+    "AT&T software codebases",
+    "contracts",
+    "financial materials",
+    "human resources content",
+    "AT&T content",
+    "network data flows",
+    "Spark data pipelines",
+    "field technician routing workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search",
+    "Risk Management"
+  ],
+  "business_outcome": "AT&T expanded AI access to more than 30,000 employees, accelerated coding and vulnerability remediation, enabled natural-language data analysis, improved Spark pipeline efficiency, and scaled real-time inference for production AI and internal question answering.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 30,000 AT&T employees have access to Ask AT&T",
+    "reduce our response times from days or weeks to literal seconds",
+    "in some cases 2x the speed, 1/2 the cost"
+  ],
+  "architecture_clues": [
+    "Ask AT&T is interoperable with multiple LLMs rather than tied to one model.",
+    "AT&T is building and customizing LLMs with NVIDIA.",
+    "Triton is used for real-time inferencing in both traditional AI/ML and Ask AT&T Q&A on AT&T content.",
+    "AT&T is standardizing on a \"single source of truth\" target architecture with shared platforms, databases, and code.",
+    "Humans remain in the loop to monitor and refine vulnerability remediation outputs."
+  ],
+  "source_url": "https://about.att.com/blogs/2023/expanding-ai-across-company.html",
+  "published_date": "2023-09-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"AT&T has built its own generative AI tool for our employees to use. We call it Ask AT&T. It's an intuitive, conversational platform that you can interact with in plain English\"",
+    "\"our initial use case was for software developers to use it to write and refine code\"",
+    "\"Today, more than 30,000 AT&T employees have access to Ask AT&T\"",
+    "\"This tool can detect issues in our software code and, crucially, write and automate patches and fixes as they occur.\"",
+    "\"we'll be able to reduce our response times from days or weeks to literal seconds\"",
+    "\"Ask AT&T was originally built on OpenAI's ChatGPT functionality. But Ask AT&T is also interoperable with other Large Language Models (LLMs), including Meta's LLaMA 2 and the open-source Falcon transformers.\"",
+    "\"we have also applied their RAPIDS AI software for faster/more cost effective (in some cases 2x the speed, 1/2 the cost) Spark data pipelines\"",
+    "\"deploying NVIDIA Triton Inference Server for real-time inferencing for use in traditional AI/ML, and Ask AT&T's question and answer chats on AT&T content\"",
+    "\"We are also testing NVIDIA Riva for tying voice to text in front of several GenAI applications.\""
+  ],
+  "source_type": "company"
+}

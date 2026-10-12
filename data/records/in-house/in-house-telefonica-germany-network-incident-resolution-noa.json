@@ -1,0 +1,76 @@
+{
+  "id": "in-house-telefonica-germany-network-incident-resolution-noa",
+  "slug": "in-house-telefonica-germany-network-incident-resolution-noa",
+  "vendor": "In-house",
+  "customer_name": "Telefónica Germany",
+  "industry": "Telecommunications",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Telefónica's network operations teams had to handle growing network complexity, massive alarm volumes, and incident analysis workflows that made root-cause identification and troubleshooting slower and harder for NOC operators.",
+  "solution_summary": "Telefónica Germany built the Network Operation Agent (NOA) as an internal generative AI troubleshooting assistant for network incident analysis. The application serves NOC operators through a chatbot interface, letting them ask natural-language questions about active incidents and receive troubleshooting guidance. On the ingest side, NOA pulls context from a database, operational documentation, live operational data, and the resolution history of previous incidents retrieved through an integrated ticketing system. In the processing tier, the source says the system uses LLM-based agents, reasoning mechanisms, RAG, and vectorization to correlate alarms, compare current incidents with prior cases, and identify likely root causes across domains. The resulting answers are delivered back to operators as precise natural-language responses, with the architecture intended to evolve further by adding orchestrators that can trigger intents and future closed-loop operational actions directly over the network.",
+  "products_used": [
+    "Network Operation Agent (NOA)",
+    "ticketing system",
+    "database"
+  ],
+  "solution_components": [
+    {
+      "name": "Network Operation Agent (NOA)",
+      "role": "Internal LLM- and agent-based application that answers operator questions and supports troubleshooting for network incidents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ticketing system",
+      "role": "Provides closed-issue resolution information that NOA uses to inform incident analysis and troubleshooting.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "database",
+      "role": "Stores incident-related information that operators can query through NOA during troubleshooting.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "NOC operators submit incident questions to NOA, which gathers context from a database, operational documentation, live operational data, and closed-issue records from the ticketing system. It applies RAG, vectorization, and reasoning to correlate alarms, identify related incidents and root causes, and returns natural-language troubleshooting guidance back to operators.",
+  "integration_points": [
+    "Ticketing system",
+    "Operational documentation",
+    "Live operational data",
+    "Closed-issue resolution records",
+    "NOC operators"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The initiative improves technician and engineer productivity, speeds incident analysis and troubleshooting, reduces operational-response times such as MTTD, MTTR, and MTNA, strengthens knowledge transfer and training for NOC engineers, and advances Telefónica's network-autonomy goals.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Implemented within Telefónica's ANJ Program for network autonomy and automation.",
+    "Uses RAG, vectorization, and reasoning mechanisms rather than a basic chatbot-only pattern.",
+    "Connects directly to live operational data and knowledge documents.",
+    "Designed for NOC incident analysis and troubleshooting in Telefónica Germany.",
+    "Planned evolution includes orchestrators, intents, and closed-loop operational actions over the network.",
+    "Positioned as progress toward TM Forum Level 4 autonomous network operations."
+  ],
+  "source_url": "https://www.telefonica.com/en/communication-room/blog/driving-network-incident-resolution-ai-agents-llms/",
+  "published_date": "2026-03-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Operating the network is becoming more complex every day due to the huge number of elements and the massive generation of alarms.\"",
+    "\"In Telefonica Germany, they are developing several initiatives based on LLM and AI-agents for incident analysis that can help to the NOC operators to analyze and resolve the incidence.\"",
+    "\"Within this topic, in Telefonica Germany have developed the Network Operation Agent (NOA).\"",
+    "\"Is possible to review the information from a database, documentation and even from the resolution of previous incidents. It is integrated with the ticketing system and obtain information about the resolution of closed issues.\"",
+    "\"NOA is not just a classic RAG-based chatbot solution. It is an application that combines reasoning mechanisms with direct connections to live operational data and knowledge documents enabling a much deeper understanding of network situations.\"",
+    "\"Reduce times from the operational process like Mean Time to Detect (MTTD), Mean Time to Recover (MTTR) and Mean Time to Next Action (MTNA).\""
+  ],
+  "source_type": "company"
+}

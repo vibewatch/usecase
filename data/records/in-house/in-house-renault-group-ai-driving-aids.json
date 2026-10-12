@@ -1,0 +1,89 @@
+{
+  "id": "in-house-renault-group-ai-driving-aids",
+  "slug": "in-house-renault-group-ai-driving-aids",
+  "vendor": "In-house",
+  "customer_name": "Renault Group",
+  "industry": "Automotive",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Renault Group needed to improve the reliability and effectiveness of increasingly complex driving aids and in-cabin assistance features as vehicles added more sensors, ECUs, and safety functions that must keep working under real-world environmental constraints.",
+  "solution_summary": "Renault Group describes an onboard AI stack for driver-assistance and cabin-personalization features across vehicles such as New Clio, New Renault Austral, and New Renault Scenic. Cameras and other vehicle sensors generate image and signal data that is handled by growing numbers of ECUs. Renault says predictive AI based on neural-network learning interprets those signals, while symbolic AI applies fixed rules such as highway-code logic so the vehicle behaves appropriately in specific situations. A camera above the rear-view mirror feeds Intelligent Speed Assistance (ISA), where AI trained on millions of photos recognizes road signs and displays the current speed limit on the dashboard; the same camera-signal interpretation pipeline also supports Adaptive Cruise Control and Lane Assist. In the cabin, an A-pillar camera identifies the driver so OpenR link can personalize menus, media, seat and mirror settings, and Google apps, while the Take a break! app analyzes facial movements to detect fatigue and trigger alerts. The source does not describe a separate storage tier; it emphasizes that the models are fully integrated onboard, cannot self-update, and were validated over millions of kilometres.",
+  "products_used": [
+    "Intelligent Speed Assistance (ISA)",
+    "Adaptive Cruise Control (ACC)",
+    "Lane Assist",
+    "OpenR link",
+    "Take a break!"
+  ],
+  "solution_components": [
+    {
+      "name": "Intelligent Speed Assistance (ISA)",
+      "role": "Uses AI on camera images to recognize road signs and display the current speed limit on the dashboard.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Adaptive Cruise Control (ACC)",
+      "role": "Uses AI-interpreted camera signals to adjust speed and maintain a safe distance from the vehicle ahead.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Lane Assist",
+      "role": "Uses AI-interpreted camera signals to identify road markings and help set the vehicle back on course.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenR link",
+      "role": "Applies driver-recognition results to personalize the home menu, media, driving position, and Google apps.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Take a break!",
+      "role": "Uses onboard camera images of the driver's face to detect fatigue cues and send an alert encouraging a break.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Vehicle cameras and sensors feed image and signal data into onboard ECUs, where predictive AI models interpret signs and driver cues while symbolic AI applies rule-based logic. The resulting outputs are served through ISA, ACC, and Lane Assist in the vehicle, through dashboard speed-limit display, through OpenR link personalization, and through Take a break! fatigue alerts.",
+  "integration_points": [
+    "Vehicle cameras and onboard sensors",
+    "Dashboard display",
+    "Google apps",
+    "MyRenault"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Renault says AI improves the efficiency and operational reliability of driving aids, enables more robust analysis under environmental constraints, personalizes in-cabin settings, and alerts drivers when fatigue or drowsiness is detected.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "29 driving aids",
+    "trained on millions of photos of real road signs",
+    "validated over millions of kilometres"
+  ],
+  "architecture_clues": [
+    "A camera above the rear-view mirror is used for road-sign recognition in ISA.",
+    "A camera in the left-hand windscreen pillar (A-pillar) is used for driver recognition.",
+    "Renault says the AI used onboard cannot update itself or perform actions outside its configured rules.",
+    "The driving-aid AI is described as fully integrated and validated over millions of kilometres."
+  ],
+  "source_url": "https://www.renaultgroup.com/en/magazine/technology/artificial-intelligence-in-driving-aids-for-more-intelligent-cars/",
+  "published_date": "2025-11-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"AI is an effective solution for managing this technological complexity. It is able to increase the operational reliability of driving aids for more robust analysis in the face of environmental constraints.\"",
+    "\"On Renault Group vehicles, AI is used to improve the performance of road sign recognition by the camera located above the rear-view mirror.\"",
+    "\"it analyses the images taken by the camera thanks to an AI trained on millions of photos of real road signs.\"",
+    "\"the AI used in Renault Group driving aids is therefore mature, proven, fully integrated and validated over millions of kilometres.\"",
+    "\"In Renault Group vehicles, such as New Clio, AI is is used to interpret camera signals and extract the information necessary for the operation of driver assistance systems: Adaptive Cruise Control (ACC)... Lane Assist... Intelligent Speed Assistance (ISA)\"",
+    "\"Using a camera in the left-hand windscreen pillar (A-pillar), this system is able to identify the driver and personalise a range of settings... and Google apps, using the OpenR link system.\"",
+    "\"the app uses images from the onboard camera to interpret the facial movements of the driver. If they blink frequently, close their eyes or yawn constantly, the system sends out an alert\""
+  ],
+  "source_type": "company"
+}

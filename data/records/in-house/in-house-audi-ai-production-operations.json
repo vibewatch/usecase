@@ -1,0 +1,99 @@
+{
+  "id": "in-house-audi-ai-production-operations",
+  "slug": "in-house-audi-ai-production-operations",
+  "vendor": "In-house",
+  "customer_name": "Audi",
+  "industry": "Automotive",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Audi needed to scale AI-enabled production and logistics across factories while reducing reliance on stationary factory computers, improving flexibility and quality control, and giving employees real-time support in large-scale series production.",
+  "solution_summary": "Audi is scaling an in-house AI production architecture built around Edge Cloud 4 Production (EC4P), a cloud-based control platform that centralizes factory automation workloads previously handled by local shop-floor PCs and controllers. In vehicle assembly, EC4P delivers worker-guidance data such as vehicle specifications and regional variants in real time from a central source. In the Neckarsulm body shop, virtual programmable logic controllers (vPLC) running through EC4P coordinate about 100 robots with millisecond precision for large-scale series production. On top of this compute layer, Audi runs AI applications including Weld Splatter Detection (WSD), which identifies weld splatter on car bodies and triggers downstream robotic grinding, and ProcessGuardAIn, which uses the P-Data Engine data platform to combine standardized plant, system, machine, and sensor data for real-time anomaly detection and process monitoring. Additional AI control loops are being connected to paint-shop dryer controllers to optimize energy use.",
+  "products_used": [
+    "Edge Cloud 4 Production (EC4P)",
+    "virtual programmable logic controllers (vPLC)",
+    "Weld Splatter Detection (WSD)",
+    "ProcessGuardAIn",
+    "P-Data Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Edge Cloud 4 Production (EC4P)",
+      "role": "Provides the centralized cloud platform that runs production control workloads and worker guidance across Audi plants.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "virtual programmable logic controllers (vPLC)",
+      "role": "Replace local hardware controllers on production lines and coordinate automated equipment through EC4P.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Weld Splatter Detection (WSD)",
+      "role": "Detects weld splatter on vehicle underbodies and marks defects so robotic grinding can remove them.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ProcessGuardAIn",
+      "role": "Monitors manufacturing processes in real time, detects anomalies early, and alerts experts using AI models.",
+      "layer": "Serving"
+    },
+    {
+      "name": "P-Data Engine",
+      "role": "Standardizes and combines production system and plant data so Audi data scientists can develop and scale AI applications.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Production-system, plant, machine, and sensor data are centralized through EC4P and the P-Data Engine. EC4P serves real-time worker-guidance information and runs vPLC-controlled automation, while AI applications consume standardized operational data: WSD inspects car-body underbodies and signals robotic rework, and ProcessGuardAIn analyzes live manufacturing data to detect anomalies and notify experts. In the paint shop, dryer controllers are being connected to an AI system to adjust temperature and air volume more responsively.",
+  "integration_points": [
+    "production line worker-guidance systems",
+    "body-shop robots",
+    "machine and sensor data from manufacturing equipment",
+    "paint-shop longitudinal dryer controllers",
+    "production experts receiving anomaly alerts"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Audi reports more stable processes, lower maintenance costs, higher IT security, faster rollout of new functions, reduced manual strain through robotic assistance, earlier fault detection, and shorter lead times for production changes.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "more than 1,000 industrial PCs",
+    "around 100 robots",
+    "several hundred vehicle bodies to be manufactured every day in three shifts",
+    "six plants in Ingolstadt",
+    "minutes instead of weeks",
+    "less than ten percent of wiring loom production and assembly is automated across the industry"
+  ],
+  "architecture_clues": [
+    "EC4P replaces stationary factory computers with centralized cloud control across production environments.",
+    "Worker guidance in German assembly plants is served from a central source in real time.",
+    "In the Neckarsulm body shop, vPLC-based control is used in large-scale series production for the A5 and A6 series.",
+    "WSD is planned to run on EC4P for greater flexibility and scalability.",
+    "P-Data Engine provides cross-plant standardized production data for AI development and scaling.",
+    "ProcessGuardAIn pilots in Neckarsulm cover dosage optimization in pretreatment and anomaly detection in cathodic dip coating (CDC)."
+  ],
+  "source_url": "https://www.volkswagen-group.com/en/articles/audi-scales-up-deployment-of-artificial-intelligence-in-production-20108",
+  "published_date": "2026-01-27",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The automaker controls production systems via a large cloud instead of stationary factory computers at scale\"",
+    "\"Audi is putting the Edge Cloud 4 Production (EC4P) into operation across its production environment.\"",
+    "\"The move to the cloud has already eliminated the need for more than 1,000 industrial PCs.\"",
+    "\"Industrial devices, including around 100 robots, work together via the EC4P with millisecond precision.\"",
+    "\"Based on machine and sensor data, ProcessGuardAIn already monitors production steps in real time, detects anomalies at an early stage, and informs the experts.\"",
+    "\"The benefits for Audi are considerable: less logistical effort and significantly shorter lead times for changes – minutes instead of weeks.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "in-house-vivo-network-capacity-creation-ai-fractal",
+  "slug": "in-house-vivo-network-capacity-creation-ai-fractal",
+  "vendor": "In-house",
+  "customer_name": "Vivo",
+  "industry": "Telecommunications",
+  "region": "Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Vivo needed to speed up and standardize Network Capacity Creation for transport and transmission networks, a stage that required engineers to order, model, and configure complex multilayer infrastructure by manually reviewing history and cross-referencing multiple information sources, which made delivery slow and error-prone.",
+  "solution_summary": "Vivo's Fractal Project is an in-house AI system for planning network expansion and creating transport-network capacity. It ingests geolocation context, site-density patterns, traffic-demand factors, existing hub and centroid locations, fiber distances, topology rules, IP-layer robustness requirements, and reuse opportunities from the network inventory and installed optical infrastructure. Fractal first applies DBSCAN to segment macro-regions with similar node density, then uses the Coral Reef Algorithm (CRA) to organize site clusters, preserve viable existing hubs, create new hubs only when thresholds are exceeded, and define capacity-bounded sub-polygons. Vivo's House of Cats (HOC) algorithm then builds logical adjacency graphs that minimize connections while preserving resilience constraints, and Dijkstra's algorithm selects efficient routes that balance new fiber builds with reuse of existing optical paths. The system serves engineers through intent-based, closed-loop automation that converts high-level requirements into network designs and actions.",
+  "products_used": [
+    "Fractal Project",
+    "DBSCAN",
+    "Coral Reef Algorithm (CRA)",
+    "House of Cats (HOC)",
+    "Dijkstra's algorithm"
+  ],
+  "solution_components": [
+    {
+      "name": "Fractal Project",
+      "role": "Vivo's central AI-driven automation system for planning network expansion and creating transport-network capacity.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "DBSCAN",
+      "role": "Clusters geographic macro-regions by similar site density before advanced optimization is applied.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Coral Reef Algorithm (CRA)",
+      "role": "Organizes site clusters, reuses existing hubs where possible, creates new hubs only when thresholds are exceeded, and defines capacity-constrained sub-polygons.",
+      "layer": "Compute"
+    },
+    {
+      "name": "House of Cats (HOC)",
+      "role": "Builds logical adjacencies between sites while enforcing hierarchy, topology, redundancy, and IP robustness constraints.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dijkstra's algorithm",
+      "role": "Determines efficient fiber routes by balancing new builds with reuse of existing optical infrastructure.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Fractal takes network node density, geolocation, traffic demand, existing hub locations, fiber-distance data, topology constraints, and current optical infrastructure context from Vivo's network environment. DBSCAN segments regions, CRA forms and optimizes clusters and hubs, HOC builds resilient adjacency graphs, and Dijkstra selects routes. The resulting intent-driven network design is delivered to engineering teams and used to automate creation and planning decisions.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Vivo automated and standardized network-capacity creation, accelerating 5G rollout planning, reducing manual analysis and design effort, improving resilience and design quality, lowering commissioning and maintenance costs, and reaching TM Forum Autonomy Level 4 for network creation and planning in the transmission network.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Projects that used be delivered in an average of 60 days, are now made in a standardized way, with more precision and in less than 1 week.",
+    "Autonomy Level 4 in Network Creation, as defined by the TM Forum standard."
+  ],
+  "architecture_clues": [
+    "Closed-loop automation framework for network creation.",
+    "Intent-based management translates high-level objectives, requirements, and constraints into actions.",
+    "Fiber optic paths between sites are kept fully disjoint to improve resilience against failures or fiber cuts.",
+    "HOC enforces limits such as the maximum number of elements per loop or ring.",
+    "Designed to adapt across urban and rural areas based on geography and population density.",
+    "Applies to Creation and Planning processes of the Transmission Network and metro network design."
+  ],
+  "source_url": "https://www.telefonica.com/en/communication-room/blog/automating-network-capacity-creation-ai-vivos-fractal-project/",
+  "published_date": "2025-03-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Traditionally, this process involves numerous manual tasks, historical reviews, and the cross-referencing of multiple information sources — a time-consuming approach prone to human error.\"",
+    "\"Initially, traditional clustering algorithms like DBSCAN ... are employed to identify geographic macro-regions with similar site densities.\"",
+    "\"CRA groups sites based on fiber distance to define sub-polygons, adhering to capacity constraints.\"",
+    "\"The HOC algorithm establishes logical adjacencies between sites while adhering to hierarchy, topology, and IP layer robustness requirements.\"",
+    "\"Finally, Dijkstra's algorithm is employed to determine optimal paths, factoring in both the creation of new fiber optic networks and the reuse of existing optical infrastructure.\"",
+    "\"Projects that used be delivered in an average of 60 days, are now made in a standardized way, with more precision and in less than 1 week.\"",
+    "\"With this transformation, Vivo has effectively reached Autonomy Level 4 in Network Creation, as defined by the TM Forum standard.\""
+  ],
+  "source_type": "company"
+}

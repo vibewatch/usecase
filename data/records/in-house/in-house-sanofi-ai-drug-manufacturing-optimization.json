@@ -1,0 +1,108 @@
+{
+  "id": "in-house-sanofi-ai-drug-manufacturing-optimization",
+  "slug": "in-house-sanofi-ai-drug-manufacturing-optimization",
+  "vendor": "In-house",
+  "customer_name": "Sanofi",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Sanofi needs to speed up and de-risk the development, scale-up, troubleshooting, and control of drug manufacturing processes that traditionally require thousands of manual solubility measurements, extensive real-world experiments, and coordination across fragmented data, equipment, teams, and external manufacturing partners.",
+  "solution_summary": "Sanofi built an in-house AI-enabled manufacturing R&D stack that combines robotics, predictive models, digital twins, and generative AI across process development and scale-up. In early CMC work, the Solvify solubility prediction tool ingests public and Sanofi-owned chemical data to model likely solubility behavior and prioritize which experiments matter most. Those predictions guide Solutron, a robotics platform that executes repetitive solubility experiments with precision and reproducibility, producing fresh experimental data that feeds back into the models as a self-sharpening loop. Sanofi’s Kinetic AI platform then helps scientists interpret reaction results, rate-limiting steps, and impurity risks, while LLMs simplify scientist-to-robot interaction, experiment design, and navigation of the broader data ecosystem. In manufacturing scale-up, process digital twins simulate equipment and chemical or biological processes, test operating conditions, and troubleshoot partner production issues without waiting for physical experiments. Generative AI tools and agents also assemble reports and gather data to support faster decisions, monitoring, and knowledge sharing across Sanofi’s manufacturing network.",
+  "products_used": [
+    "Solvify",
+    "Solutron",
+    "Kinetic AI platform",
+    "Large Language Models (LLMs)",
+    "process digital twins",
+    "Generative AI tools",
+    "ML tools",
+    "Generative AI agents"
+  ],
+  "solution_components": [
+    {
+      "name": "Solvify",
+      "role": "Predicts solubility from public and Sanofi-owned chemical data to focus physical experimentation on the most relevant conditions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Solutron",
+      "role": "Automates repetitive solubility experiments and generates reproducible lab data for model refinement.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Kinetic AI platform",
+      "role": "Analyzes chemical reaction results to explain mechanisms, rate-limiting behavior, and impurity formation risks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Large Language Models (LLMs)",
+      "role": "Simplify connectivity between scientists and robots, support experiment design, and help users navigate the data ecosystem more easily."
+    },
+    {
+      "name": "process digital twins",
+      "role": "Simulate equipment and manufacturing processes to evaluate conditions, optimize scale-up, and troubleshoot production issues.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Generative AI tools",
+      "role": "Create reports that improve and accelerate decision-making during manufacturing scale-up and control."
+    },
+    {
+      "name": "ML tools",
+      "role": "Identify optimal production conditions to increase productivity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Generative AI agents",
+      "role": "Gather data to enable collaboration and knowledge sharing within Sanofi and with external parties.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Public and Sanofi-owned chemical data is modeled in Solvify to choose starting conditions; Solutron runs the prioritized solubility experiments and returns new experimental data to update the models. Kinetic AI and LLM-based tools help scientists interpret results and plan next experiments, while process digital twins use process and partner-site data to simulate manufacturing conditions, test fixes, and support reporting, monitoring, and scale-up decisions.",
+  "integration_points": [
+    "public chemical data",
+    "Sanofi-owned chemical data",
+    "robotics platforms",
+    "scientists and laboratory workflows",
+    "partner company production-site data",
+    "partner equipment",
+    "external manufacturing partners"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Sanofi reports faster process development, fewer unnecessary physical experiments, better process understanding and optimization before large-scale manufacturing, faster troubleshooting for external partner production, improved productivity and product quality goals, and quicker readiness for manufacturing and control.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "thousands of measurements",
+    "could have taken months",
+    "find a fix in just a few days"
+  ],
+  "architecture_clues": [
+    "Closed-loop 'self-sharpening' workflow where model predictions guide experiments and experimental data updates models.",
+    "Human-AI collaboration is intended 'at every stage of process and product design.'",
+    "Process digital twins are applied from process development through manufacturing scale-up and partner-site troubleshooting.",
+    "Real-time data access across diverse systems, equipment, processes, and a large network of locations is described as foundational.",
+    "The solution spans internal teams and external manufacturing partners."
+  ],
+  "source_url": "https://www.sanofi.com/en/magazine/ai-in-healthcare/ai-research-development-value-chain-manufacturing-digital-labs-self-sharpening-tools",
+  "published_date": "2026-01-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Solutron has taken over this type of experimental work, accelerating process development with precision and reproducibility – methodically generating data that feeds back into AI models, enabling continuous learning.\"",
+    "\"the 'Solvify' solubility prediction tool integrates a vast array of public and Sanofi-owned chemical data, creating models and narrowing the focus, determining what physical experiments Solutron conducts.\"",
+    "\"Sanofi’s Kinetic AI platform illuminates results from chemical reactions – helping to understand complex reaction mechanisms, what’s rate-limiting, what types of impurities could be formed, and more.\"",
+    "\"Large Language Models (LLMs) are used to simplify the connectivity between the scientists and the robots, design new experiments and navigate the data ecosystem more easily.\"",
+    "\"Process digital twins – models of equipment and biological or chemical processes across manufacturing steps – enable teams to simulate the production of a molecule.\"",
+    "\"Doing physical experiments to replicate the issue and identify solutions could have taken months. But digital approaches enabled the scientist to find a fix in just a few days.\"",
+    "\"Generative AI tools are used to create reports, enabling better and faster decision-making. ML tools are used to identify optimal production conditions, increasing productivity.\""
+  ],
+  "source_type": "company"
+}

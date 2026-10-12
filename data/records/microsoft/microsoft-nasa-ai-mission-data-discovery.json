@@ -1,0 +1,93 @@
+{
+  "id": "microsoft-nasa-ai-mission-data-discovery",
+  "slug": "microsoft-nasa-ai-mission-data-discovery",
+  "vendor": "Microsoft",
+  "customer_name": "NASA",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "NASA had decades of scientific and operational data spread across open repositories, academic sources, engineering reviews, safety analyses, and mission systems, making it difficult for scientists, planners, and flight controllers to find, connect, and act on the right information quickly.",
+  "solution_summary": "NASA is using a set of AI assistants, developed partly with Microsoft, to turn scattered scientific and operational repositories into usable decision support. Inputs include academic literature, open NASA datasets, safety analyses, engineering reviews, Artemis II mission records, and satellite, observational, and modeling data drawn from at least 10 sources. Microsoft Copilot helps employees sift large volumes of literature and routine information. Earth Copilot and Hydrology Copilot add a conversational access layer over Earth science and water datasets, letting users ask natural-language questions while the system performs calculations and analyses on variables such as precipitation and soil moisture. NASA keeps its existing open-data repositories, mission systems, and public databases as the storage foundation, while AI handles retrieval, synthesis, and response delivery. A separate SPARTAN agent prototype is being designed as a virtual backroom teammate for Johnson Space Center flight controllers, returning real-time answers from mission information to support operational decisions.",
+  "products_used": [
+    "Microsoft Copilot",
+    "Earth Copilot",
+    "Hydrology Copilot",
+    "SPARTAN agent prototype"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Copilot",
+      "role": "Used by NASA employees to sift through large volumes of academic literature and streamline daily tasks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Earth Copilot",
+      "role": "Provides natural-language interaction with complex Earth science datasets so users can explore NASA data more easily.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Hydrology Copilot",
+      "role": "Lets users ask questions about water data and automatically runs calculations and analyses on variables such as precipitation and soil moisture.",
+      "layer": "Serving"
+    },
+    {
+      "name": "SPARTAN agent prototype",
+      "role": "Acts as a virtual Mission Control support teammate for flight controllers by surfacing answers from mission information for real-time decisions.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "NASA draws safety analyses, engineering reviews, mission records, academic literature, and Earth science datasets from open repositories and internal mission systems. Microsoft Copilot, Earth Copilot, and Hydrology Copilot interpret those sources through natural-language prompts and automated analysis, then return synthesized answers to scientists, planners, communities, and agencies. The SPARTAN agent prototype is intended to deliver similar mission-information support directly into Mission Control workflows for real-time operational use.",
+  "integration_points": [
+    "NASA open data repositories",
+    "academic literature",
+    "safety analyses",
+    "engineering reviews",
+    "Artemis II mission data",
+    "satellite, observational, and modeling datasets",
+    "Mission Control flight-controller workflows",
+    "NASA lessons learned public database"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "NASA reduced some mission-planning analysis from weeks to seconds, expanded non-expert access to complex Earth and hydrology data through natural-language interfaces, and is building AI-assisted decision support for flight operations and faster disaster-response analysis.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "at least 10 separate sources",
+    "a single mission that was only 10 days in duration",
+    "Traditionally, it would take experts weeks",
+    "The AI tools did that work in seconds – I mean, literally seconds",
+    "More than 500 employees signed up"
+  ],
+  "architecture_clues": [
+    "NASA retains existing open-data repositories, mission systems, and public databases as the source-of-record data stores.",
+    "Hydrology Copilot automatically runs calculations and analyses over precipitation and soil-moisture variables.",
+    "The SPARTAN agent prototype is aimed at Johnson Space Center Mission Control support for ISS power and thermal-control operations.",
+    "NASA is exploring edge processing of satellite data so flood maps can be generated close to where the data is created or used.",
+    "Natural-language prompting is the main access pattern for Earth Copilot and Hydrology Copilot."
+  ],
+  "source_url": "https://news.microsoft.com/source/features/digital-transformation/at-nasa-ai-is-helping-scientists-unlock-discoveries-hidden-in-decades-of-data/",
+  "published_date": "2026-09-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"teams across the organization generated streams of information – safety analyses, engineering reviews and mission data scattered across at least 10 separate sources.\"",
+    "\"NASA is increasingly turning to AI to extract insights from decades of observations, simulations and mission data.\"",
+    "\"Employees use AI tools including Microsoft Copilot to sift through massive amounts of academic literature and streamline daily tasks\"",
+    "\"NASA collaborated with Microsoft to develop Earth Copilot and Hydrology Copilot, AI-powered tools designed to help users interact with complex data through natural language.\"",
+    "\"The AI tools did that work in seconds – I mean, literally seconds,\"",
+    "\"It automatically performs calculations and analyses that would otherwise require time-consuming manual work.\"",
+    "\"If you’re able to process the flood map on the edge and give you that information directly, that’s a matter of minutes.\""
+  ],
+  "source_type": "company"
+}

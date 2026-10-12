@@ -1,0 +1,87 @@
+{
+  "id": "microsoft-mercedes-benz-chatgpt-intelligent-vehicle-production",
+  "slug": "microsoft-mercedes-benz-chatgpt-intelligent-vehicle-production",
+  "vendor": "Microsoft",
+  "customer_name": "Mercedes-Benz AG",
+  "industry": "Automotive",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Mercedes-Benz needed a faster, easier way for production employees and quality engineers to analyze production and quality data, identify faults and malfunctions in real time, support daily production planning, and access insights without requiring complex programming skills.",
+  "solution_summary": "Mercedes-Benz is testing ChatGPT in its MO360 digital production ecosystem as a production-facing AI interface for analyzing manufacturing and quality data. The implementation keeps production data in the MO360 Data Platform, which intelligently networks quality data from development, customer experience, and production. ChatGPT is integrated through Azure OpenAI Service and used as a universal voice- and chat-based interface so employees can query production-relevant data conversationally instead of writing complex code. In this workflow, the chatbot helps quality engineers cluster data, identify faults, simplify evaluations and presentations, and progressively narrow questions until the needed level of detail is reached. Mercedes-Benz also extends the same stack into the MO360 Support Bot, a self-service assistant available on company devices worldwide. Voice inputs are processed anonymously in the Azure cloud, while production data remains in MO360 under Mercedes-Benz control.",
+  "products_used": [
+    "MO360 digital production ecosystem",
+    "MO360 Data Platform",
+    "Azure OpenAI Service",
+    "ChatGPT",
+    "MO360 Support Bot"
+  ],
+  "solution_components": [
+    {
+      "name": "MO360 digital production ecosystem",
+      "role": "Hosts the production-side digital tools and provides the environment in which ChatGPT is being introduced to production employees.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MO360 Data Platform",
+      "role": "Retains production data and networks quality data from development, customer experience, and production for analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Azure OpenAI Service",
+      "role": "Integrates ChatGPT into Mercedes-Benz production workflows using Microsoft's enterprise-grade cloud and AI platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "Acts as the conversational interface for querying production and quality data, clustering faults, and simplifying evaluations for employees.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MO360 Support Bot",
+      "role": "Provides an AI-based self-service contact point that answers employee questions through MO360 on company devices.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Quality data from development, customer experience, and production is networked in the MO360 Data Platform. Employees query that data through ChatGPT, integrated via Azure OpenAI Service inside the MO360 digital production ecosystem. The chatbot narrows questions in dialogue, supports fault clustering and analysis, and returns evaluations and planning views to production staff, while voice inputs are anonymized in Azure and production data remains in MO360.",
+  "integration_points": [
+    "Quality data from development",
+    "Customer experience data",
+    "Production data",
+    "Self-service portal on company devices including tablets, smartphones, and laptops"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Mercedes-Benz says the implementation accelerates error identification, analysis, quality management, and process optimization, simplifies access to production insights for non-programmers, supports strategic decision-making across the production chain, and is planned for rollout across its global production network after a successful pilot.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "After a successful pilot phase, ChatGPT will be used throughout the Mercedes-Benz global production network.",
+    "Employees' voice inputs are processed anonymously in the Azure cloud.",
+    "Production data remains in the MO360 Data Platform rather than being moved into the chatbot layer.",
+    "The solution is also exposed through a self-service portal on company devices."
+  ],
+  "source_url": "https://group.mercedes-benz.com/company/production/production-network/chatgpt-in-vehicle-production.html",
+  "published_date": "2023-07-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Mercedes-Benz AG is testing ChatGPT in production, accelerating the use of intelligent tools in the MO360 digital production ecosystem\"",
+    "\"Mercedes-Benz is integrating ChatGPT through Azure OpenAI Service, leveraging the enterprise-grade capabilities of Microsoft’s cloud and AI platform.\"",
+    "\"An automated analysis tool enables intelligent networking of quality data from development, customer experience and production.\"",
+    "\"Production data stays into the MO360 Data Platform.\"",
+    "\"Instead of complex programming functions, queries are steered in a dialogue, so that not only engineers but also employees without prior programming knowledge can have the necessary data at their disposal.\"",
+    "\"The overview of the daily production planning can be checked in real time and flexibly adjusted if necessary.\"",
+    "\"Another area of focus of integrating ChatGPT in production is to provide employees worldwide with an AI-based digital contact person.\""
+  ],
+  "source_type": "company"
+}

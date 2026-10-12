@@ -1,0 +1,110 @@
+{
+  "id": "in-house-bbva-financial-health-tools-causal-inference-savings",
+  "slug": "in-house-bbva-financial-health-tools-causal-inference-savings",
+  "vendor": "In-house",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "Spain and Mexico",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA needed to determine whether customers who use its financial health tools actually save more because of those tools, while removing the influence of confounding variables such as age, income, and spending level. Standard A/B testing was not feasible because the tools were already available to all customers through the bank's app and website.",
+  "solution_summary": "BBVA built an in-house AI analytics workflow to measure the causal impact of its digital financial health tools on customer savings. The process uses anonymized customer profile and behavior data from Spain and Mexico, including age, income, spending level, tool usage, and resulting account balances. Because the tools were already available to all customers on the BBVA app and website, the data team could not use a conventional A/B test. Instead, it applied causal inference to identify confounders and create matched 'twin' socioeconomic profiles that differ mainly in whether the tools were used. BBVA then ran a double machine learning approach with two AI models: one estimated how confounders affect the likelihood of using the tools, and the other predicted expected balance changes for each pair. By comparing predicted and actual savings across users and non-users of features such as Movimientos Previstos, Mis Presupuestos, Objetivos de Gastos, Mi día a día, BBVA Plan, and Apartados, BBVA isolated the savings attributable to the tools themselves and fed that evidence into digital strategy decisions.",
+  "products_used": [
+    "BBVA app",
+    "website",
+    "double machine learning",
+    "Movimientos Previstos",
+    "Mis Presupuestos",
+    "Objetivos de Gastos",
+    "Mi día a día",
+    "BBVA Plan",
+    "Apartados"
+  ],
+  "solution_components": [
+    {
+      "name": "BBVA app",
+      "role": "The bank's app is the delivery channel where the analyzed financial health tools are used by customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "website",
+      "role": "The website is an additional delivery channel where the financial health tools are available to customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "double machine learning",
+      "role": "This technique uses two AI models to separate the effect of tool usage from confounding variables when estimating savings impact.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Movimientos Previstos",
+      "role": "This Spanish financial health feature was one of the app tools evaluated for its effect on customer savings.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Mis Presupuestos",
+      "role": "This Spanish budgeting feature was analyzed as part of the savings-impact study.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Objetivos de Gastos",
+      "role": "This Spanish spending-goals feature was evaluated to measure whether its usage increases savings.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Mi día a día",
+      "role": "This Mexican financial health feature was one of the tools assessed in the causal analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BBVA Plan",
+      "role": "This Mexican planning feature was analyzed for its contribution to customer savings outcomes.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Apartados",
+      "role": "This Mexican sections feature was included in the study of tool-driven savings behavior.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "BBVA takes anonymized customer data from its app and website, including age, income, spending level, feature usage, and account balances, and groups similar customers into matched 'twins.' A first AI model estimates how confounders affect tool usage, a second predicts expected balance changes, and BBVA compares predicted versus actual savings to isolate the effect of each financial health tool.",
+  "integration_points": [
+    "BBVA app",
+    "website",
+    "customer account balances",
+    "customer socioeconomic profile data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BBVA quantified the causal impact of its financial health tools and found that customers using the analyzed features saved 11 percent more in Spain and up to 20 percent more in Mexico, giving the bank a stronger evidence base for evaluating and improving its digital strategy.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [
+    "11 percent more savings in Spain",
+    "up to 20 percent more savings in Mexico"
+  ],
+  "architecture_clues": [
+    "Study conducted in Spain and Mexico",
+    "Confounding variables explicitly modeled: age, income, and spending level",
+    "Matched-pair 'twin' analysis used anonymous socioeconomic profiles rather than specific individuals",
+    "Two AI models were used in a double machine learning approach",
+    "A/B testing was not possible because the tools were already available to all customers on the app and website"
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/when-artificial-intelligence-helps-you-find-out-whether-your-app-is-helping-your-customers/",
+  "published_date": "2024-07-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BBVA wanted to determine whether customers who use its financial health tools save more than those who do not.\"",
+    "\"The bank could not simply remove access to them for some people to test its hypothesis.\"",
+    "\"the Data team decided to use causal inference\"",
+    "\"the Data team analyzed each set of 'twins' with two different artificial intelligence models - a technique known as 'double machine learning'.\"",
+    "\"In Spain, the analysis focused on three of the app's features that are used the most: 'Movimientos Previstos' (Expected Transactions), 'Mis Presupuestos' (My Budgets) and 'Objetivos de Gastos' Spending Goals.\"",
+    "\"Meanwhile, in Mexico, the following tools were studied: 'Mi día a día', (My Day-to-Day) 'BBVA Plan' and 'Apartados' (Sections).\"",
+    "\"In Spain, it is 11 percent for the analyzed features and in Mexico it is up to 20 percent.\""
+  ],
+  "source_type": "company"
+}

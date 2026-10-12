@@ -1,0 +1,89 @@
+{
+  "id": "aws-bt-group-genai-gateway-generative-ai-platform",
+  "slug": "aws-bt-group-genai-gateway-generative-ai-platform",
+  "vendor": "AWS",
+  "customer_name": "BT Group",
+  "industry": "Telecommunications",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "BT Group needed a secure, centrally governed way to scale generative AI beyond ad hoc experimentation, with cost control, privacy, prompt security, model monitoring, and flexibility to use multiple LLM providers without lock-in.",
+  "solution_summary": "BT Group’s Digital Unit built the internal GenAI Gateway with AWS as a shared generative AI enablement layer for business teams and engineers. The platform is deployed on AWS and exposed through secure APIs inside BT Group’s modular digital architecture so applications can access approved LLM capabilities through one controlled entry point instead of standing up separate model stacks. GenAI Gateway uses Amazon Bedrock to provide access to multiple foundation model providers through a single API and Amazon SageMaker to support machine learning operations for BT’s use cases. The platform adds prompt security, chat history, enterprise search, per-use-case FinOps billing, and access to multiple corporate data sources. BT also applies central privacy controls such as separate tenants per use case, PII filters, UK data location, and isolation between trained models. Guardrails filter unsafe or out-of-scope prompts, while BT’s data fabric platform enforces data governance, access control, and data sovereignty restrictions.",
+  "products_used": [
+    "GenAI Gateway",
+    "Amazon Bedrock",
+    "Amazon SageMaker",
+    "data fabric"
+  ],
+  "solution_components": [
+    {
+      "name": "GenAI Gateway",
+      "role": "BT Group’s internal platform provides a central, secure API layer for accessing and governing generative AI use cases across the company.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "It supplies BT Group with API-based access to multiple foundation models from different providers through a single managed interface."
+    },
+    {
+      "name": "Amazon SageMaker",
+      "role": "It supports BT Group’s machine learning workloads as part of the gateway platform’s AI tooling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "data fabric",
+      "role": "BT Group uses its data management platform to enforce data-use policies, access control, and data sovereignty restrictions.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Users and internal applications call GenAI Gateway through secure APIs. The gateway applies prompt security, privacy controls, tenancy separation, PII filtering, guardrails, and budget controls, then routes requests to foundation models accessed via Amazon Bedrock and AI tooling in Amazon SageMaker. Corporate data sources and enterprise search features are brought into the workflow, and BT’s data fabric governs policy enforcement, access, and sovereignty constraints before responses are returned to business use cases.",
+  "integration_points": [
+    "Secure internal APIs in BT Group's modular digital architecture",
+    "Multiple corporate data sources",
+    "Enterprise search workflows",
+    "Foundation model providers accessed through Amazon Bedrock, including Anthropic, Cohere, Meta, Mistral AI, Stability AI, AI21 Labs, and Amazon",
+    "Openreach engineering notes on Ethernet and full fibre jobs",
+    "Contract analysis workflows for BT Group's business, legal, and procurement teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "BT Group launched GenAI Gateway into live beta use, giving the company a centralized platform for safe, flexible generative AI adoption at scale. The first use cases include summarizing Openreach engineering notes to simplify processes and boost productivity, plus contract analysis for business, legal, and procurement teams.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Deployed on AWS",
+    "Accessed via secure APIs as part of BT Group's modular digital architecture",
+    "Supports multiple foundation model providers through a single API",
+    "Includes per-use-case FinOps billing and budget tracking",
+    "Uses separate tenants for each use case",
+    "Applies PII filters and keeps data within the UK",
+    "Isolates trained models from each other",
+    "Built-in guardrails limit jailbreak and toxic interaction risk",
+    "Live with first beta use cases"
+  ],
+  "source_url": "https://newsroom.bt.com/bt-groups-digital-unit-launches-genai-gateway-platform-powered-by-aws-accelerating-the-companys-safe-adoption-of-generative-ai-at-scale/",
+  "published_date": "2024-09-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The GenAI Gateway, built in collaboration with AWS and using Amazon Bedrock Amazon SageMaker and AWS Professional Services capabilities, provides secure, private access to a range of natural-language processing and large language models\"",
+    "\"Ad-hoc use of LLMs, whilst appropriate for test and development work, is not well suited to large scale use; cost control, security and privacy need more careful management.\"",
+    "\"GenAI Gateway, deployed on AWS, is accessed via secure APIs, like all the components of BT Group’s modular digital architecture.\"",
+    "\"The platform supports prompt security, chat history, FinOps billing per use case, enterprise search, as well as use of multiple corporate data sources.\"",
+    "\"Central privacy controls include separate tenants for each use case, the use of Personal Identifiable Information filters, the location of the data within the UK\"",
+    "\"Guardrails are built into the GenAI Gateway, limiting the risk of jailbreaks or toxic interactions\"",
+    "\"we will also use our ‘data fabric’ data management platform to help enforce governing policies for how data can be used, as well as to manage access control and data sovereignty restrictions.\"",
+    "\"A trial in Openreach is summarising engineering notes on Ethernet and full fibre jobs, helping to simplify processes and boost productivity\""
+  ],
+  "source_type": "company"
+}

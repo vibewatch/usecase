@@ -1,0 +1,75 @@
+{
+  "id": "openai-bbva-customer-inquiry-copilot",
+  "slug": "openai-bbva-customer-inquiry-copilot",
+  "vendor": "OpenAI",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "Italy and Germany",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA’s digital banks in Italy and Germany handle nearly 100,000 customer enquiries per month across phone, email, and in-app/web messaging, and agents previously had to search multiple internal documents and product and service manuals to assemble answers, making routine responses slow and time-consuming.",
+  "solution_summary": "BBVA implemented two generative AI assistants for contact-centre teams in Italy and Germany using BBVA Assistants, the bank’s corporate generative AI platform. Agents submit a customer request in natural language, and the assistants use internal knowledge sources and product/service manuals to generate a structured response proposal in the customer’s language within seconds. BBVA Assistants sits on the bank’s proprietary orchestration architecture and combines OpenAI’s models with access control, knowledge management, and supervision mechanisms so the assistants can be deployed for a specific support workflow while meeting internal security and governance standards. The assistants are intentionally limited to frequent product, service, and procedure questions and have no access to customer personal or sensitive data. For case-specific issues, agents review the draft, consult BBVA’s internal systems, and personalize the final reply before sending it to the customer.",
+  "products_used": [
+    "BBVA Assistants",
+    "OpenAI's models"
+  ],
+  "solution_components": [
+    {
+      "name": "BBVA Assistants",
+      "role": "BBVA’s corporate generative AI platform hosts the assistants, manages knowledge access and supervision, and delivers draft response proposals for agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OpenAI's models",
+      "role": "The models generate structured response proposals from agents’ natural-language requests and the bank’s approved knowledge sources.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer enquiries arrive through telephone, email, and the 'My Conversations' channel. An agent submits the request in natural language to the assistant in BBVA Assistants, which draws on internal documents and manuals and uses OpenAI's models to produce a structured reply draft in the customer’s language. The agent reviews the output, consults BBVA internal systems when personalization is needed, and then sends the final response.",
+  "integration_points": [
+    "Internal documents and product and service manuals specific to each market",
+    "Telephone channel",
+    "Email channel",
+    "'My Conversations' messaging channel on the app and website",
+    "BBVA internal systems"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The assistants reduced average handling time for common enquiries by more than 15%, sped up information retrieval and response preparation, and let agents spend more time on complex cases requiring analysis and personalized support.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "more than 15%",
+    "nearly 100,000 customer enquiries every month",
+    "more than 260 customer service agents",
+    "around 40,000 messages"
+  ],
+  "architecture_clues": [
+    "Two specialized assistants were deployed for BBVA’s fully digital banks in Italy and Germany.",
+    "The assistants have no access to customers’ personal or sensitive data.",
+    "Outputs are reviewed by human agents before being shared with customers.",
+    "The platform is built on BBVA’s proprietary orchestration architecture.",
+    "The assistants were assessed under BBVA’s AI Assistant Governance Framework before production.",
+    "Training teaches agents how to formulate prompts in natural language and provide context."
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/bbva-cuts-customer-inquiry-response-times-by-more-than-15-in-italy-and-germany-thanks-to-ai/",
+  "published_date": "2026-07-31",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"To respond to the nearly 100,000 customer enquiries they receive every month via telephone, email and the ‘My Conversations’ messaging channel on the app and website, BBVA customer service agents in Italy and Germany previously had to consult multiple of internal documents and product and service manuals specific to each market.\"",
+    "\"Agents simply submit the customer's request in natural language, and the AI copilot turns the bank's internal knowledge into a structured response proposal in the customer's language within seconds.\"",
+    "\"This process speeds up query resolution by reducing the average handling time for each customer interaction by more than 15%.\"",
+    "\"The assistants were developed using BBVA Assistants, the Group’s corporate generative AI platform\"",
+    "\"Built on BBVA’s proprietary orchestration architecture, the platform combines the capabilities of OpenAI’s models with access control, knowledge management and supervision mechanisms\"",
+    "\"the tool has no access to customers’ personal or sensitive data.\"",
+    "\"In June alone, customer service agents in both countries exchanged around 40,000 messages with their AI copilots\""
+  ],
+  "source_type": "company"
+}

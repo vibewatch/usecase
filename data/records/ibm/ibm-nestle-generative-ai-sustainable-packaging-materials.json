@@ -1,0 +1,67 @@
+{
+  "id": "ibm-nestle-generative-ai-sustainable-packaging-materials",
+  "slug": "ibm-nestle-generative-ai-sustainable-packaging-materials",
+  "vendor": "IBM",
+  "customer_name": "Nestle",
+  "industry": "Consumer Goods",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Nestle needs to identify new packaging materials that meet product-specific functional requirements while preserving food safety and quality, but the research process is meticulous and can take years.",
+  "solution_summary": "Nestle R&D worked with IBM Research to build a generative AI system for sustainable packaging discovery. The implementation starts with ingesting material knowledge from public and proprietary documents, which the team used to construct a knowledge base of known packaging materials. That curated corpus was then used to fine-tune a fit-for-purpose chemical language model so it could learn molecular structure representations relevant to barrier-material design. On top of that learned representation, the teams applied IBM Research's regression transformer to model correlations between structural molecular features and physical-chemical properties. The resulting model serves packaging researchers by proposing entirely new high-barrier materials that can protect sensitive products from moisture, temperature swings, and oxygen, helping Nestle evaluate future options against cost, recyclability, and functional packaging requirements.",
+  "products_used": [
+    "knowledge base",
+    "chemical language model",
+    "regression transformer"
+  ],
+  "solution_components": [
+    {
+      "name": "knowledge base",
+      "role": "Stores known material information assembled from public and proprietary documents for model training and discovery.",
+      "layer": "Storage"
+    },
+    {
+      "name": "chemical language model",
+      "role": "Learns representations of molecular structures from the curated materials corpus.",
+      "layer": "Compute"
+    },
+    {
+      "name": "regression transformer",
+      "role": "Learns correlations between structural molecular features and physical-chemical properties to generate candidate packaging materials.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Public and proprietary documents are ingested to build a knowledge base of known materials, which is curated into a corpus for fine-tuning a chemical language model. Its learned molecular representations are used with a regression transformer that predicts structure-property relationships and proposes new high-barrier packaging materials for Nestle researchers to assess for cost, recyclability, and functional fit.",
+  "integration_points": [
+    "public documents",
+    "proprietary documents",
+    "Nestle R&D packaging research workflows",
+    "IBM Research collaboration"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Nestle will use the model to identify future high-barrier packaging materials while considering cost, recyclability, and functionality, with the stated aim of optimizing development of more sustainable packaging solutions.",
+  "outcome_category": [],
+  "metrics": [],
+  "architecture_clues": [
+    "Knowledge base built from public and proprietary documents.",
+    "Chemical language model was fine-tuned on a curated corpus of known materials.",
+    "Regression transformer models relationships between molecular structure features and physical-chemical properties.",
+    "Generated materials are intended to protect products from moisture, temperature swings, and oxygen."
+  ],
+  "source_url": "https://www.nestle.com/about/research-development/news/ibm-ai-powered-sustainable-packaging",
+  "published_date": "2025-07-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Identifying new packaging materials that meet each product's functional needs while ensuring food safety and quality is often meticulous. In some cases, this requires years of research.\"",
+    "\"construct a knowledge base of known materials from public and proprietary documents.\"",
+    "\"the team fine-tuned a fit-for-purpose chemical language model on this curated corpus, enabling it to learn the representation of the molecular structures.\"",
+    "\"the teams leveraged the recently developed regression transformer ... to learn the correlation between key structural molecular features and the resulting physical-chemical properties.\"",
+    "\"The resulting model can now propose entirely new high-barrier packaging materials that shield sensitive products from moisture, temperature swings and oxygen.\"",
+    "\"Nestle will utilize this novel technology to identify future packaging materials, while considering cost, recyclability, and functionality.\""
+  ],
+  "source_type": "company"
+}

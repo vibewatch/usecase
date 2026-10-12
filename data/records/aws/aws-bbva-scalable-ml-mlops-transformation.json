@@ -1,0 +1,107 @@
+{
+  "id": "aws-bbva-scalable-ml-mlops-transformation",
+  "slug": "aws-bbva-scalable-ml-mlops-transformation",
+  "vendor": "AWS",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "As BBVA expanded the number and diversity of AI and ML solutions across the bank, it needed a more flexible, scalable, and automated MLOps architecture that improved code reuse, reproducibility, version control, and lifecycle automation while preserving strict governance, risk management, and auditability.",
+  "solution_summary": "BBVA evolved its ADA global data and AI platform on AWS to industrialize machine learning development and deployment across the bank. Users start from an ADA catalog template that creates a new project and captures regulatory metadata such as model description, business owner, and model tier. The platform automatically provisions a dedicated GitHub repository with standardized code scaffolding for training, model registration, metrics, and metadata. Amazon SageMaker AI provides the core ML workflow foundation for training, batch inference, monitoring, and reusable pipeline components, while ephemeral pull-request environments let teams validate changes in isolated sandboxes before merge. GitHub Actions manages CI/CD transitions across development and production branches. SageMaker Model Registry enforces lifecycle stages and approval states, while Amazon EventBridge and AWS Lambda automate approval workflows, promotions, and production registration. ADA also notifies BBVA’s risk portal on key lifecycle events to keep governance and audit processes synchronized.",
+  "products_used": [
+    "ADA",
+    "Amazon SageMaker AI",
+    "GitHub",
+    "GitHub Actions",
+    "Amazon EventBridge",
+    "AWS Lambda",
+    "SageMaker Model Registry"
+  ],
+  "solution_components": [
+    {
+      "name": "ADA",
+      "role": "BBVA’s global data and AI platform provides the catalog, centralized access, and standardized foundation for ML project creation and deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon SageMaker AI",
+      "role": "It underpins the automated ML workflow for training, batch inference, monitoring, and reusable pipeline composition.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GitHub",
+      "role": "A dedicated repository is automatically provisioned for each project to hold standardized code, model registration logic, metrics, and metadata."
+    },
+    {
+      "name": "GitHub Actions",
+      "role": "It runs CI/CD workflows tied to pull requests and environment branches, including ephemeral validation environments and promotion between development and production.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Amazon EventBridge",
+      "role": "It participates in the model approval workflow and triggers production registration steps after approval.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "It executes automation in the approval workflow and model registration path for production promotion.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SageMaker Model Registry",
+      "role": "It manages model lifecycle stages, approval states, auditability, and programmatic governance enforcement.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A user selects an ADA MLOps template, which captures regulatory metadata and provisions a GitHub repository with standardized scaffolding. Teams build and test training, batch inference, and monitoring pipelines on Amazon SageMaker AI, including ephemeral pull-request sandboxes created by GitHub Actions. Models, metrics, and metadata are registered in SageMaker Model Registry, then GitHub Actions, Amazon EventBridge, and AWS Lambda coordinate approvals, promotion, and production registration while notifying BBVA’s risk platform.",
+  "integration_points": [
+    "BBVA model risk management platform",
+    "risk portal",
+    "ADA catalog",
+    "GitHub pull requests",
+    "repository branches mapped to development and production environments"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Risk Management"
+  ],
+  "business_outcome": "BBVA standardized and automated ML delivery across business units, enabling faster experimentation, parallel development, stronger traceability, and embedded governance in a regulated banking environment.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 6,500 users",
+    "40% to 55% reduction in costs across pilot use cases",
+    "20% to 75% reduction in development times"
+  ],
+  "architecture_clues": [
+    "Global deployment across BBVA",
+    "Ephemeral pull-request environments provision isolated temporary training pipelines and model packages",
+    "Automated cleanup stops executions, deletes model versions, removes pipeline definitions, and cleans up model package groups",
+    "Model lifecycle stages are Development, QA, PreProduction, and Production",
+    "Auto-approval is allowed when a production-approved model is retrained without material pipeline changes"
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/mlops-transformation-at-bbva-from-data-platform-to-scalable-ml/",
+  "published_date": "2026-07-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"the ADA platform continues to grow and currently serves more than 6,500 users in the bank, providing centralized access to development environments, shared data assets, and production deployment capabilities\"",
+    "\"To solve this, we moved from a monolithic approach to a loosely coupled, flexible, and fully automated ML development workflow based on Amazon SageMaker AI.\"",
+    "\"Each project automatically provisions a dedicated GitHub repository with a standardized code scaffold for training models, registering them alongside metrics and metadata.\"",
+    "\"The transition between development and production environments is managed through GitHub Actions\"",
+    "\"Amazon EventBridge and AWS Lambda, meanwhile, follow a model approval workflow and register the models in the production environment once they have been approved.\"",
+    "\"SageMaker Model Registry is integrated with the bank’s model governance framework to enforce these rules programmatically\"",
+    "\"directly contributing to our 40% to 55% reduction in costs across pilot use cases.\"",
+    "\"the 20% to 75% reduction in development times we have observed across pilot use cases.\""
+  ],
+  "source_type": "company"
+}

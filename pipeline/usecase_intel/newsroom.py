@@ -8,7 +8,9 @@ Stages (`python3 -m pipeline.usecase_intel.newsroom <stage>`):
   resolve   company name -> official website + newsroom (LLM proposal, HTTP-verified)
   discover  robots.txt/sitemaps (and newsroom index pages) -> AI-related story URLs
   fetch     download candidates (parallel across companies, polite per host)
-  triage    same AI / length / language / 2023+ filter as vendor stories
+  triage    same AI / length / language / 2023+ filter as vendor stories (no archive dating yet)
+  prescreen cheap title/lead screen: keep only likely implemented-AI stories
+  dates     Internet Archive dating, only for pages that passed the prescreen
   bundle    extraction prompts with first-party guidance
   author    run the extraction skill on each bundle (Copilot CLI) -> data/records/
 """
@@ -349,13 +351,20 @@ def fetch(workers: int = 12) -> None:
 # --- triage ------------------------------------------------------------------
 
 def triage_pages() -> None:
-    from .triage import Criteria, enrich_dates, triage
+    from .triage import Criteria, triage
 
     criteria = Criteria.load(TRIAGE_CONFIG_PATH)
     counts = triage(stage="post", criteria=criteria, discovered_path=DISCOVERED_PATH, manifest_path=MANIFEST_PATH,
                     output_path=TRIAGE_PATH, sources_path=Path("/nonexistent"))
     log("triage post: " + " ".join(f"{k}={v}" for k, v in counts.most_common()))
-    dated = enrich_dates(criteria=criteria, output_path=TRIAGE_PATH)
+
+
+def date_pages(limit: Optional[int] = None) -> None:
+    """Archive-date undated kept pages. Run after `prescreen`, whose rejections drop
+    non-stories, so only likely stories cost (slow, rate-limited) archive lookups."""
+    from .triage import Criteria, enrich_dates
+
+    dated = enrich_dates(criteria=Criteria.load(TRIAGE_CONFIG_PATH), output_path=TRIAGE_PATH, limit=limit)
     log("triage dates: " + " ".join(f"{k}={v}" for k, v in dated.most_common()))
 
 
@@ -385,15 +394,74 @@ def bundle() -> None:
     log("bundle: " + " ".join(f"{k}={v}" for k, v in counts.items()))
 
 
+def _pending_jobs() -> list[dict[str, Any]]:
+    from .settings import RECORDS_ROOT
+
+    existing = {json.loads(p.read_text(encoding="utf-8")).get("source_url", "").rstrip("/").lower() for p in RECORDS_ROOT.glob("*/*.json")}
+    rejected = {row["url"] for row in load_jsonl(TRIAGE_PATH) if any(str(r).startswith("extractor:") for r in row.get("reasons", []))}
+    jobs = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(JOBS_ROOT.glob("*/*.json"))]
+    return [job for job in jobs if job["source_url"].rstrip("/").lower() not in existing and job["source_url"] not in rejected]
+
+
+PRESCREEN_PROMPT = """Each item below is a page from a company's own website. Decide whether the page is likely a story about ONE specific organization's concrete, implemented AI use case (e.g. "we deployed an AI assistant for our agents", "how X uses machine learning to cut downtime", a client case study with a named client) — as opposed to thought leadership, trend or research reports, white papers, guides, explainers, opinion, interviews, event pages, product or service landing pages, partnership/investment announcements, earnings, or listing pages.
+
+Return ONLY a JSON array, no prose: [{"i": <index>, "story": true|false}]
+
+"""
+
+
+def prescreen(batch_size: int = 40, workers: int = 6) -> None:
+    """Cheap title/lead screen of every kept page (dated or not), so archive dating
+    and full extraction only run on likely use-case stories."""
+    from .triage import load_decisions, reject
+
+    screened = {row["url"] for row in load_jsonl(PRIVATE / "newsroom_prescreen.jsonl")}
+    manifest = {row["url"]: row for row in load_jsonl(MANIFEST_PATH) if row.get("raw_path")}
+    pages = [row for url, row in load_decisions(TRIAGE_PATH).items()
+             if row.get("stage") == "post" and row.get("decision") == "keep" and url not in screened and url in manifest]
+    lock = threading.Lock()
+    log(f"prescreen: {len(pages)} kept pages")
+
+    def lead(url: str) -> tuple[str, str]:
+        row = manifest[url]
+        try:
+            title, text, _ = content_to_text(Path(row["raw_path"]).read_bytes(), content_type=str(row.get("content_type") or ""))
+        except Exception:  # noqa: BLE001
+            return "", ""
+        return title or "", re.sub(r"\s+", " ", text)[:450]
+
+    def run(batch: list[tuple[int, dict[str, Any]]]) -> None:
+        leads = {i: lead(row["url"]) for i, row in batch}
+        prompt = PRESCREEN_PROMPT + "\n".join(f"[{i}] {row['url']} | {leads[i][0]} | {leads[i][1]}" for i, row in batch)
+        for _ in range(3):
+            try:
+                verdicts = {v["i"]: bool(v["story"]) for v in _json_block(_copilot(prompt)) or []}
+            except Exception:  # noqa: BLE001
+                continue
+            if set(verdicts) >= {i for i, _ in batch}:
+                break
+        else:
+            log("  prescreen batch failed")
+            return
+        for i, row in batch:
+            _append(PRIVATE / "newsroom_prescreen.jsonl", {"url": row["url"], "story": verdicts[i], "at": _now()}, lock)
+            if not verdicts[i]:
+                with lock:
+                    reject(row["url"], "prescreen: not an implemented AI use case story", output_path=TRIAGE_PATH, vendor=row["vendor"])
+
+    indexed = list(enumerate(pages))
+    with ThreadPoolExecutor(workers) as pool:
+        list(pool.map(run, [indexed[k:k + batch_size] for k in range(0, len(indexed), batch_size)]))
+    rows = load_jsonl(PRIVATE / "newsroom_prescreen.jsonl")
+    log(f"prescreen: {sum(1 for r in rows if r['story'])} likely stories of {len(rows)} screened")
+
+
 def author(workers: int = 6, model: str = "gpt-5.4", limit: Optional[int] = None) -> None:
     from .models import normalize_record
     from .settings import RECORDS_ROOT
     from .triage import reject
 
-    existing = {json.loads(p.read_text(encoding="utf-8")).get("source_url", "").rstrip("/").lower() for p in RECORDS_ROOT.glob("*/*.json")}
-    rejected = {row["url"] for row in load_jsonl(TRIAGE_PATH) if any(str(r).startswith("extractor:") for r in row.get("reasons", []))}
-    jobs = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(JOBS_ROOT.glob("*/*.json"))]
-    jobs = [job for job in jobs if job["source_url"].rstrip("/").lower() not in existing and job["source_url"] not in rejected]
+    jobs = _pending_jobs()
     jobs.sort(key=lambda job: float(job.get("triage_score") or 0), reverse=True)
     if limit:
         jobs = jobs[:limit]
@@ -457,7 +525,9 @@ if __name__ == "__main__":
     p = sub.add_parser("discover"); p.add_argument("--only"); p.add_argument("--workers", type=int, default=12)
     p = sub.add_parser("fetch"); p.add_argument("--workers", type=int, default=12)
     sub.add_parser("triage")
+    p = sub.add_parser("dates"); p.add_argument("--limit", type=int)
     sub.add_parser("bundle")
+    sub.add_parser("prescreen")
     p = sub.add_parser("author"); p.add_argument("--workers", type=int, default=6); p.add_argument("--model", default="gpt-5.4"); p.add_argument("--limit", type=int)
     args = parser.parse_args()
     if args.stage == "resolve":
@@ -468,7 +538,11 @@ if __name__ == "__main__":
         fetch(args.workers)
     elif args.stage == "triage":
         triage_pages()
+    elif args.stage == "dates":
+        date_pages(args.limit)
     elif args.stage == "bundle":
         bundle()
+    elif args.stage == "prescreen":
+        prescreen()
     elif args.stage == "author":
         author(args.workers, args.model, args.limit)

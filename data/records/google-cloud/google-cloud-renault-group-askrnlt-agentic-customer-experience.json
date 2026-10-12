@@ -1,0 +1,105 @@
+{
+  "id": "google-cloud-renault-group-askrnlt-agentic-customer-experience",
+  "slug": "google-cloud-renault-group-askrnlt-agentic-customer-experience",
+  "vendor": "Google Cloud",
+  "customer_name": "Renault Group",
+  "industry": "Automotive",
+  "region": "France and Spain",
+  "company_size": "Enterprise",
+  "business_problem": "Renault needed a consistent, reliable, and personalized way to guide online vehicle shoppers from discovery to servicing, especially for electric and hybrid questions, without forcing visitors to manually search across site content before speaking with dealers.",
+  "solution_summary": "Renault Group built askrnlt in-house as a customer-facing agentic AI advisor embedded in renault.fr and renault.es. The front-end conversational experience runs through askrnlt, while an orchestrator agent analyzes each visitor request and routes it to the right capability, such as vehicle configuration or product knowledge. The orchestration layer is powered by Gemini 2.5 Flash for natural interactions. To answer and act, the system draws on multiple connected sources: Renault brand website content for product and journey information, the Renault brand configurator for vehicle selection and prefilled configuration paths, a pricing API for commercial data, and an askrnlt confidential database for internal knowledge, alongside Gemini’s general knowledge. Responses are served back as natural-language guidance enriched with images, videos, deep links, and context-aware redirects, with guardrails and human oversight in place to resist misuse and keep answers reliable.",
+  "products_used": [
+    "askrnlt",
+    "orchestrator agent",
+    "Gemini 2.5 Flash",
+    "Renault brand website",
+    "Renault brand configurator",
+    "pricing API",
+    "askrnlt confidential database"
+  ],
+  "solution_components": [
+    {
+      "name": "askrnlt",
+      "role": "Customer-facing conversational agent that supports visitors throughout vehicle discovery and decision-making on Renault brand websites.",
+      "layer": "Serving"
+    },
+    {
+      "name": "orchestrator agent",
+      "role": "Analyzes each request and activates the right specialized capability, such as configuration or product knowledge.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Gemini 2.5 Flash",
+      "role": "Powers the orchestrator to deliver fluid, natural interactions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Renault brand website",
+      "role": "Provides product and journey content and hosts the customer interaction on renault.fr and renault.es.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Renault brand configurator",
+      "role": "Supplies configuration data and receives users through prefilled links tailored to the conversation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "pricing API",
+      "role": "Provides pricing information used in answers and guidance.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "askrnlt confidential database",
+      "role": "Stores internal data used by the agent alongside public website and pricing sources.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Visitor questions and browsing context on renault.fr or renault.es enter askrnlt, where the orchestrator agent running on Gemini 2.5 Flash classifies the request and invokes the right capability. It retrieves product content from the Renault brand website, configuration data from the Renault brand configurator, prices from the pricing API, and internal knowledge from the askrnlt confidential database, then returns rich answers, links, images, videos, or prefilled configurator journeys to the visitor.",
+  "integration_points": [
+    "renault.fr",
+    "renault.es",
+    "Renault brand configurator",
+    "pricing API"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "askrnlt improved Renault's digital customer experience by giving shoppers faster, more personalized guidance, increasing engagement with the assistant, boosting completed mobile configurations, and better preparing customers before dealer conversations.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "The open rate of askrnlt has tripled compared with the previous chatbot.",
+    "On mobile, complete configurations are multiplied by 3 between user without askrnlt and user who had a chat with askrnlt.",
+    "60% of the questions relate to vehicles and their configuration first. Financing is the third topic of interest.",
+    "more than 50 000 chats with askrnlt since its launch."
+  ],
+  "architecture_clues": [
+    "Available on renault.fr since November 2025 and on renault.es since April 2026.",
+    "Multi-agent architecture with an orchestrator and specialized agents.",
+    "Guardrails were added to protect against jailbreak attempts and misuse.",
+    "Human oversight remains in place to ensure correct behavior and source retrieval.",
+    "The deployment covers the full passenger car range.",
+    "Renault plans rollout to Italy, Germany, the United Kingdom and Brazil by the end of 2026."
+  ],
+  "source_url": "https://www.renaultgroup.com/en/magazine/technology/the-era-of-agentic-ai-begins-with-askrnlt-a-new-customer-experience-by-renault/",
+  "published_date": "2026-06-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Integrated into Renault brand websites, askrnlt is a conversational agent developed in-house by Renault Group’s AI, IS/IT and Renault brand Marketing teams.\"",
+    "\"Multi-agent architecture with an orchestrator, powered by Gemini 2.5 Flash to ensure fluid, natural interactions.\"",
+    "\"Data sources: Renault brand website, Renault brand configurator, pricing API, askrnlt confidential database, and Gemini’s general knowledge.\"",
+    "\"The goal of askrnlt is to enhance customers’ knowledge upstream, enabling richer conversations with dealers... conversion to purchase is easier.\"",
+    "\"The open rate of askrnlt has tripled compared with the previous chatbot.\"",
+    "\"On mobile, complete configurations are multiplied by 3 between user without askrnlt and user who had a chat with askrnlt.\"",
+    "\"Adoption of askrnlt keeps growing, with more than 50 000 chats with askrnlt since its launch.\""
+  ],
+  "source_type": "company"
+}

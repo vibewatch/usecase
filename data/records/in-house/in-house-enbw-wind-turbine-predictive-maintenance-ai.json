@@ -1,0 +1,60 @@
+{
+  "id": "in-house-enbw-wind-turbine-predictive-maintenance-ai",
+  "slug": "in-house-enbw-wind-turbine-predictive-maintenance-ai",
+  "vendor": "In-house",
+  "customer_name": "EnBW",
+  "industry": "Energy",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "EnBW needed to move beyond reactive, manual analysis of massive wind-turbine telemetry so it could detect faults and anomalies early across a heterogeneous fleet before they caused expensive failures or downtime.",
+  "solution_summary": "EnBW built an in-house AI and machine-learning workflow for condition and structural health monitoring across its onshore wind fleet. Each turbine contributes operating telemetry from up to 1,500 sensors, with readings such as bearing temperature, gear-oil temperature, generator speed, wind speed, rotational speed and output arriving continuously, and core operating data sent every ten minutes. EnBW correlates these measurements with environmental and operating parameters, then feeds them into thousands of specialized models that learn normal behavior for specific turbine types, components and site conditions. When a model detects deviation from the learned baseline, the system alerts specialists, who review the abnormal pattern with engineers and technical experts, estimate severity and decide whether to dispatch service teams. If a serious failure is imminent, the team can proactively restrict turbine output to protect damaged parts, buying time for maintenance while improving availability and reducing repair cost.",
+  "products_used": [],
+  "solution_components": [],
+  "data_flow": "Telemetry from wind-turbine sensors and anemometers flows into EnBW's monitoring environment, where operating and environmental parameters are correlated and used to train and run specialized machine-learning models. Deviations from normal behavior trigger alerts for specialists, engineers and technical experts, who validate the issue and, if needed, send service teams or reduce turbine output to protect equipment.",
+  "integration_points": [
+    "Wind turbine sensors",
+    "Anemometers",
+    "Engineers and technical experts",
+    "Service teams"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "EnBW detects turbine faults and anomalies earlier, can reduce output before a complete failure occurs, cuts maintenance and failure costs, and improves the availability of renewable-energy generation.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "saving EnBW around ten million euros per year",
+    "Each turbine contains up to 1,500 sensors",
+    "hundreds of thousands of values per minute",
+    "Every ten minutes, each wind turbine sends its operating data",
+    "over 22,000 models that can be trained in seconds",
+    "450 wind turbines are monitored with the aid of AI"
+  ],
+  "architecture_clues": [
+    "Telemetry includes bearing temperature, gear-oil temperature, generator speed, outside temperature, wind speed, rotational speed and output.",
+    "Models are specialized by turbine type, component set, location and environmental conditions rather than using one general model.",
+    "New wind turbines must pass through a full annual cycle before models can account for seasonal fluctuations reliably.",
+    "Specialists can restrict turbine output remotely when models indicate imminent failure.",
+    "The team can access elastic compute capacity equivalent to hundreds or thousands of machines for model calculation."
+  ],
+  "source_url": "https://www.enbw.com/company/topics/wind-power/using-ai-for-wind-power.html",
+  "published_date": "2024-10-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The pair are working with artificial intelligence (AI) to subdue the data storm and thus enable them to detect faults and anomalies in the turbines at an early stage.\"",
+    "\"By doing so, they are already saving EnBW around ten million euros per year.\"",
+    "\"Every ten minutes, each wind turbine sends its operating data.\"",
+    "\"We feed the model with these values – and it then learns the dependencies between the individual measured parameters. This is how the model simulates a certain normal behavior.\"",
+    "\"If, for example, they detect that a serious fault is imminent and there is risk of a complete system failure, they restrict the wind turbine’s output.\"",
+    "\"The EnBW team currently monitors 450 wind turbines with the aid of AI.\""
+  ],
+  "source_type": "company"
+}

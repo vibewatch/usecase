@@ -1,0 +1,98 @@
+{
+  "id": "intel-hipposcreen-eeg-diagnostic-ai-optimization",
+  "slug": "intel-hipposcreen-eeg-diagnostic-ai-optimization",
+  "vendor": "Intel",
+  "customer_name": "HippoScreen",
+  "industry": "Healthcare",
+  "region": "Taiwan",
+  "company_size": "SMB",
+  "business_problem": "HippoScreen needed to improve the efficiency, build times, and clinical robustness of its EEG-based AI diagnostic system so it could search large algorithm combinations faster and deliver mental health diagnostic results to clinicians on time.",
+  "solution_summary": "HippoScreen's Stress EEG Assessment (SEA) System combines an EEG amplifier, a clinician-facing GUI, and an AI analytics stack to turn 90-second brainwave recordings into an objective depression-risk score. The amplifier collects and preprocesses EEG signals, while the GUI controls the test workflow and presents results to medical staff. In the compute layer, HippoScreen mixes proprietary algorithms with scikit-learn machine-learning methods for feature extraction, feature selection, clustering, classification, and regression, plus PyTorch deep-learning models such as SCCNet, EEGNet, and Shallow ConvNet. Intel VTune Profiler was used to inspect CPU and software thread behavior across Python environments and identify thread oversubscription; HippoScreen then tuned execution to a five-thread sweet spot. Intel Extension for Scikit-learn and Intel Optimization for PyTorch accelerated model build and validation cycles, helping the team test parameter combinations faster and shorten delivery of diagnostic output. The page names no storage product, but it does cite a large cross-center EEG database supporting the broader solution.",
+  "products_used": [
+    "Stress EEG Assessment (SEA) System",
+    "EEG amplifier",
+    "GUI",
+    "scikit-learn",
+    "PyTorch",
+    "Intel VTune Profiler",
+    "Intel Extension for Scikit-learn",
+    "Intel Optimization for PyTorch"
+  ],
+  "solution_components": [
+    {
+      "name": "Stress EEG Assessment (SEA) System",
+      "role": "HippoScreen's end-to-end diagnostic solution that analyzes EEG signals and outputs a quantified probability of depression."
+    },
+    {
+      "name": "EEG amplifier",
+      "role": "Collects brainwave data and performs signal processing for the diagnostic workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "GUI",
+      "role": "Controls the test process for clinicians and supports use of the diagnostic workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "scikit-learn",
+      "role": "Runs traditional machine-learning algorithms for feature analysis, clustering, classification, and regression in the EEG pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PyTorch",
+      "role": "Runs deep-learning models such as SCCNet, EEGNet, and Shallow ConvNet for EEG analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel VTune Profiler",
+      "role": "Profiles CPU and thread behavior to identify oversubscription and tune the workload for better performance."
+    },
+    {
+      "name": "Intel Extension for Scikit-learn",
+      "role": "Applies Intel software optimizations to the scikit-learn portions of HippoScreen's EEG analysis workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Optimization for PyTorch",
+      "role": "Applies Intel software optimizations to HippoScreen's PyTorch deep-learning models to reduce build times.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Patients' 90-second EEG brainwave signals are captured by the EEG amplifier, processed inside the SEA System, and passed through preprocessing, feature extraction, feature selection, and classifier stages implemented with proprietary algorithms, scikit-learn, and PyTorch models. The system then produces a numerical evaluation index representing depression probability for doctors through the GUI.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "HippoScreen improved model and workload performance, reduced build times for its EEG diagnostic AI, and could broaden Brain Waves AI applications to more psychiatric conditions and diseases while delivering results to medical personnel faster.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "analyzes 90-second brainwave signals",
+    "thread count of 5",
+    "Performance improved by 2x",
+    "HippoScreen achieved 2.4x performance improvements"
+  ],
+  "architecture_clues": [
+    "Brain Waves AI system analyzes EEG data for depression assessment.",
+    "SEA combines an EEG amplifier, signal processing, a GUI, and AI algorithms.",
+    "Workload tuning found a five-thread sweet spot to reduce thread oversubscription.",
+    "HippoScreen cites the largest cross-center EEG-based database on clinical depression in the world.",
+    "Test environments referenced Intel Xeon Silver 4310T and Intel Xeon Gold 6330 CPU systems running Ubuntu 20.04 LTS."
+  ],
+  "source_url": "https://www.intel.com/content/www/us/en/developer/articles/case-study/hipposcreen-boosts-ai-performance-2-4x-with-oneapi.html",
+  "published_date": "2023-02-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The Taiwan-based neurotechnology startup used tools and frameworks in the Intel® oneAPI Base and AI Analytics Toolkits to the improve efficiency and build times of deep-learning models used in its Brain Waves AI system.\"",
+    "\"Comprised of an EEG amplifier for data collection and signal processing, a GUI for test process control, and an AI algorithm for data analysis, SEA analyzes 90-second brainwave signals and provides an objective and quantifiable evaluation index\"",
+    "\"these include HippoScreen's proprietary algorithms, machine learning algorithms implemented by scikit-learn*, and deep learning models implemented by PyTorch*.\"",
+    "\"Intel® VTune™ Profiler ... recommended decreasing the thread count ... We were able to find the sweet spot for maximum performance and minimum CPU utilization with a thread count of 5.\"",
+    "\"We at HippoScreen have been able to take advantage of the software optimizations in Intel® Extension for Scikit-learn and Intel® Optimization for PyTorch to accelerate the build times for the AI models ... by 2.4x.\"",
+    "\"As a result, HippoScreen is able to broaden the system’s applications to a wider range of psychiatric conditions and diseases.\""
+  ],
+  "source_type": "company"
+}

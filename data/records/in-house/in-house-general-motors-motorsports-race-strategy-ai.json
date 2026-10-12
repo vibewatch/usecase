@@ -1,0 +1,55 @@
+{
+  "id": "in-house-general-motors-motorsports-race-strategy-ai",
+  "slug": "in-house-general-motors-motorsports-race-strategy-ai",
+  "vendor": "In-house",
+  "customer_name": "General Motors",
+  "industry": "Automotive",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "GM's race teams must interpret noisy driver radio, live telemetry, lap and track context, and trackside imagery fast enough to make pit and vehicle decisions during a race, creating more real-time data than humans can reliably evaluate on their own.",
+  "solution_summary": "General Motors describes an in-house AI stack used by its motorsports operation from the Charlotte Technical Center in North Carolina. The implementation ingests three live race-day inputs: onboard driver radio, car-to-pit telemetry where series rules allow it, and trackside photographs captured as cars pass. GM says off-the-shelf transcription software could not handle race noise and specialized terminology, so it built proprietary speech AI that transcribes radio instantly and lets analysts follow multiple drivers and topics at once. Separate AI models process telemetry to monitor fuel consumption and run tire-wear simulations that support pit-stop timing. Computer-vision workflows tag incoming images in seconds and alert engineers when crash damage or mechanical issues are detected, or confirm when a car appears undamaged. The outputs are served directly to engineers and strategists in the command room for second-by-second decisions; the source does not identify a named storage platform, only immediate analyst-facing workflows.",
+  "products_used": [],
+  "solution_components": [],
+  "data_flow": "During a race, driver radio audio, permitted car telemetry, and trackside photos flow to GM's Charlotte Technical Center. Proprietary AI transcribes speech, analyzes fuel and tire signals, and tags images for visible damage or mechanical issues. The processed outputs are surfaced to engineers and strategists as near-real-time text, alerts, and decision support used to adjust cars and time pit stops.",
+  "integration_points": [
+    "Drivers' onboard radio communications",
+    "Car-to-pit telemetry systems",
+    "Trackside race photography feeds",
+    "GM Charlotte Technical Center command-room analysts and engineers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "GM gives racing engineers and analysts the most important information almost instantly, helping them make faster pit-strategy and vehicle-condition decisions, avoid unnecessary pit stops, and focus on the highest-priority signals during a race.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "\"a second-by-second view of how the car is performing\"",
+    "\"every photo is AI-tagged in seconds\"",
+    "\"dozens of experts monitoring the car, the driver, the competitors, and the track conditions\""
+  ],
+  "architecture_clues": [
+    "Operated from GM's Charlotte Technical Center in North Carolina.",
+    "Live telemetry use depends on racing-series rules.",
+    "AI outputs are presented to analysts in a command-room setting on a second-by-second basis.",
+    "Trackside photographers provide image inputs for damage and malfunction analysis."
+  ],
+  "source_url": "https://news.gm.com/home.detail.html/Pages/topic/us/en/2024/oct/1011-motorsports-ai.html",
+  "published_date": "2024-10-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The result is a constant, massive flow of data, more than any human could evaluate in real-time.\"",
+    "\"GM developed its own proprietary AI custom-built for the rigors of racing.\"",
+    "\"At the Charlotte Technical Center, AI transcribes drivers' radio conversations instantly, allowing analysts to stay informed and react to feedback from the athlete behind the wheel.\"",
+    "\"By monitoring fuel consumption and using simulations to predict tire wear, AI helps race teams pick the best moment to come in for more fuel and fresh tires.\"",
+    "\"Now, every photo is AI-tagged in seconds, and engineers get alerted whenever damage is detected in an image.\"",
+    "\"Thanks to AI, these experts have the most important data available almost instantly, empowering them to make informed decisions at the speed of racing.\""
+  ],
+  "source_type": "company"
+}

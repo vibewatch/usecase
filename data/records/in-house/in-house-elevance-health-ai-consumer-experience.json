@@ -1,0 +1,107 @@
+{
+  "id": "in-house-elevance-health-ai-consumer-experience",
+  "slug": "in-house-elevance-health-ai-consumer-experience",
+  "vendor": "In-house",
+  "customer_name": "Elevance Health",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Members often struggle to understand coverage, costs, and care options, while care teams need better ways to anticipate member needs and help associates answer complex benefit and claim questions quickly and empathetically.",
+  "solution_summary": "Elevance Health describes a multi-surface AI implementation focused on member navigation, proactive engagement, and associate assistance. In the Sydney Health app, the Virtual Assistant serves as the conversational front end, answering coverage, cost, deductible, and care-location questions for members and returning provider and pricing guidance for specific procedures. It works alongside an AI-driven provider search feature that helps match members to high-quality, lower-cost care. Separately, an AI-driven outreach program analyzes member context and care-gap signals to identify who should receive personalized reminders such as prescription refill prompts or annual wellness outreach. In service operations, a suite of AI tools supports associates with next-best-action suggestions, real-time claim-answering through a conversational chat interface, automated post-call summaries, and sentiment analysis across calls and chats. The source does not name the storage tier or external model providers.",
+  "products_used": [
+    "Sydney Health app",
+    "Virtual Assistant",
+    "provider search feature",
+    "AI-driven outreach program",
+    "program that proactively suggests actions",
+    "conversational chat interface",
+    "post-call wrap-up summaries automation",
+    "sentiment analysis tool"
+  ],
+  "solution_components": [
+    {
+      "name": "Sydney Health app",
+      "role": "Digital member channel where Virtual Assistant is launched and where members access AI-enabled support.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Virtual Assistant",
+      "role": "AI-powered conversational tool that explains coverage, costs, deductible progress, care options, and in-network providers to members.",
+      "layer": "Serving"
+    },
+    {
+      "name": "provider search feature",
+      "role": "Uses AI-driven personalized matching to help members find high-quality, lower-cost care online and in the app.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI-driven outreach program",
+      "role": "Identifies members with care gaps and triggers personalized outreach such as refill reminders and annual wellness prompts."
+    },
+    {
+      "name": "program that proactively suggests actions",
+      "role": "Recommends actions to call center associates during live discussions with members."
+    },
+    {
+      "name": "conversational chat interface",
+      "role": "Helps associates answer claim-related questions in real time by deriving answers from claim details.",
+      "layer": "Serving"
+    },
+    {
+      "name": "post-call wrap-up summaries automation",
+      "role": "Automates wrap-up summaries after member interactions."
+    },
+    {
+      "name": "sentiment analysis tool",
+      "role": "Processes member calls and chats to analyze sentiment and provide insight into why consumers reach out and how associates respond.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Member benefit, deductible, cost, provider-network, and claim-detail data are used by AI services exposed through the Sydney Health app and provider search to answer member questions. A separate outreach program evaluates member health context and care gaps to send personalized text prompts. In the contact center, call and chat interactions plus claim details feed associate tools for action suggestions, real-time answers, automated summaries, and sentiment analysis.",
+  "integration_points": [
+    "Sydney Health app",
+    "online provider search",
+    "provider network directories",
+    "plan coverage and deductible information",
+    "procedure cost information",
+    "claims detail systems",
+    "text messaging outreach",
+    "member calls and chats"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Elevance Health says the implementation makes healthcare journeys simpler and more personalized, gives members faster answers about benefits and care options, enables more proactive outreach, and gives associates more time to focus on empathetic member interactions. Internal research also indicates outreach texting improved participation in annual wellness visits, colorectal cancer screenings, and blood sugar control among identified members.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Virtual Assistant was launched in 2025 in the Sydney Health app.",
+    "Virtual Assistant is available for members of Elevance Health-affiliated commercial plans.",
+    "Virtual Assistant can converse in Spanish.",
+    "The outreach program sends personalized messages based on a member's health situation.",
+    "Associate tools use claim details in real time and automate post-call summaries.",
+    "Interaction analytics span both calls and chats and include sentiment analysis."
+  ],
+  "source_url": "https://www.elevancehealth.com/our-approach-to-health/digitally-enabled-healthcare/how-ai-helps-improve-the-consumer-experience",
+  "published_date": "2025-12-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Virtual Assistant aims to simplify complex healthcare tasks to help people find the information and care they need as quickly and easily as possible.\"",
+    "\"The AI-powered conversational tool can show members whether a medical visit or procedure is covered by their plan, where they can get care, and how much they can expect to pay.\"",
+    "\"It can converse in Spanish, and complements the AI-driven personalized matching capabilities of our provider search feature.\"",
+    "\"The program identifies health plan members who could benefit from proactive outreach that helps them address gaps in their care.\"",
+    "\"In 2024, internal research indicates texting outreach through the program helped increase the rates at which identified members participated in annual wellness visits, completed colorectal cancer screenings, and achieved blood sugar control.\"",
+    "\"A conversational chat interface the associate can use for help answering claim-related questions in real time during a call.\"",
+    "\"A tool that processes interactions such as calls and chats from members and performs sentiment analysis, providing insights into why consumers reach out and how associates respond.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,83 @@
+{
+  "id": "in-house-bnp-paribas-mortgage-loan-idp",
+  "slug": "in-house-bnp-paribas-mortgage-loan-idp",
+  "vendor": "In-house",
+  "customer_name": "BNP Paribas",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "Enterprise",
+  "business_problem": "BNP Paribas needed to reduce stress, delays, and manual errors in mortgage processing, where advisors had to enter, review, and verify large document files and the bank needed an average of 11 days to issue a digital offer.",
+  "solution_summary": "BNP Paribas implemented an in-house AI-assisted mortgage processing workflow in November 2024 to accelerate basic home-loan approvals in France. The solution uses Intelligent Document Processing (IDP) built around the bank's internally developed Doc Factory software and NLP models trained on thousands of mortgage documents. Customer-submitted inputs such as purchase agreements, property tax documents, pay slips, and tax notices are ingested and parsed so the system can extract key fields and compare them with data already entered in the advisor's credit planning tool. The AI performs consistency checks across documents, validates borrower income details against supporting evidence, and checks the authenticity of tax notices. Results are surfaced directly inside the existing loan planning workflow, where IDP acts as a super assistant for advisors by automating document reading and validation rather than replacing human review.",
+  "products_used": [
+    "Intelligent Document Processing",
+    "Doc Factory"
+  ],
+  "solution_components": [
+    {
+      "name": "Intelligent Document Processing",
+      "role": "Reads mortgage application documents, extracts relevant fields, compares them with the case file, and automates consistency and authenticity checks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Doc Factory",
+      "role": "Internally developed software that underpins the IDP workflow used across the Group for document processing in mortgage cases.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customers submit mortgage documents including purchase agreements, property tax records, pay slips, and tax notices. IDP and Doc Factory ingest the files, extract text and key fields with NLP models, validate them against borrower data already entered in the advisor's credit planning tool, and return matched or flagged results to advisors inside the existing mortgage workflow.",
+  "integration_points": [
+    "Advisor's credit planning tool",
+    "Purchase agreements",
+    "Property tax documents",
+    "Pay slips",
+    "Tax notices"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "The system shortens mortgage approval timelines, reduces manual work for advisors, improves file reliability, and helps BNP Paribas deliver a faster and simpler customer experience while strengthening risk checks.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "It currently takes an average of 11 days to issue a digital offer.",
+    "More than 80% of the document data is automatically read by AI",
+    "60% of data is automatically matched and validated by AI.",
+    "a significant time saving of around 30 minutes per file.",
+    "save 5 days and grant a mortgage in less than 30 days.",
+    "80% of our customers' real estate files benefit from IDP",
+    "around 20% of offers"
+  ],
+  "architecture_clues": [
+    "Went live in November 2024 throughout metropolitan France, including Hello bank! and private banking.",
+    "AI is used only for basic mortgage loans, excluding more complex cases such as bridging loans or SCI financing.",
+    "Models were trained on thousands of documents.",
+    "Current coverage centers on four main document types: purchase agreement, property tax, pay slip, and tax notice.",
+    "BNP Paribas plans additional models from 2025 for energy performance certificates and savings account statements.",
+    "The bank plans electronic issuance for around 20% of the simplest offers at the beginning of 2026."
+  ],
+  "source_url": "https://group.bnpparibas/en/news/ai-at-bnp-paribas-3-using-artificial-intelligence-to-speed-up-granting-of-mortgage-loans",
+  "published_date": "2025-03-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"It currently takes an average of 11 days to issue a digital offer.\"",
+    "\"since November 2024 we have implemented an artificial intelligence solution to streamline the entire process and shorten the loan approval time.\"",
+    "\"The solution reads the documents provided by the customer and extracts the information needed to verify the contents of their property finance file.\"",
+    "\"We use classic AI, which we have combined with an internally developed Intelligent Data Processing software called Doc Factory.\"",
+    "\"This IDP solution is already widely used within the Group and is based on NLP (Natural Language Processing) technologies.\"",
+    "\"The AI has been trained on thousands of documents to identify the right data and then perform the appropriate checks.\"",
+    "\"More than 80% of the document data is automatically read by AI and 60% of data is automatically matched and validated by AI.\"",
+    "\"The end result is a significant time saving of around 30 minutes per file.\"",
+    "\"the IDP therefore makes it possible to save 5 days and grant a mortgage in less than 30 days.\"",
+    "\"This AI was integrated directly into the existing loan planning tool\""
+  ],
+  "source_type": "company"
+}

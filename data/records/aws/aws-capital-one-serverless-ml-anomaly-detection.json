@@ -1,0 +1,73 @@
+{
+  "id": "aws-capital-one-serverless-ml-anomaly-detection",
+  "slug": "aws-capital-one-serverless-ml-anomaly-detection",
+  "vendor": "AWS",
+  "customer_name": "Capital One",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Capital One needed early detection of volume anomalies in critical digital transactions such as mobile-app login flows, but as the anomaly-detection model was expanded to cover more transactions, the team faced growing data volume, long training and processing times, memory limits for ML libraries, and significant DevOps toil and scalability challenges in its prior architecture.",
+  "solution_summary": "Capital One migrated its anomaly-detection machine learning workload from a legacy container-oriented design to a serverless implementation on Amazon Web Services (AWS), centered on AWS Lambda. Transaction-volume data from Capital One’s digital platforms, including mobile-app and web-channel critical transactions, is prepared for model training and inference in smaller components rather than one large monolith. To make the workload fit serverless constraints, the team sampled training datasets to cut data volume while preserving model performance, then packaged ML dependencies with Lambda layers and, where necessary, compressed and dynamically installed additional libraries at runtime. Capital One also reviewed any function exceeding Lambda’s runtime ceiling and refactored code or used an AWS asynchronous ML inference option for longer-running steps. Databases on the AWS host automatically scale with demand, while model components are deployed as independently managed microservices to improve scalability, reduce maintenance effort, and speed remediation of customer-impacting anomalies.",
+  "products_used": [
+    "Amazon Web Services (AWS)",
+    "AWS Lambda"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Web Services (AWS)",
+      "role": "Provides the cloud environment and serverless ecosystem hosting Capital One's machine learning model and supporting databases."
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs the anomaly-detection model's serverless functions, using layers and selective dynamic library installation to fit ML dependencies.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Volume data from Capital One's mobile-app and web critical transactions is collected in AWS, sampled to reduce training size, and processed by anomaly-detection functions running in AWS Lambda. Those functions load ML libraries through Lambda layers or compressed runtime installs, interact with automatically scaling databases, and return anomaly signals so teams can investigate and fix customer-impacting transaction issues quickly.",
+  "integration_points": [
+    "Capital One mobile app",
+    "Capital One web channels / browser-based transactions",
+    "Automatically scaling AWS-hosted databases"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Risk Management"
+  ],
+  "business_outcome": "Capital One successfully moved the anomaly-detection model to a serverless architecture, improving scalability and provisioning, reducing maintenance burden on DevOps teams, and helping the company identify customer-facing transaction issues faster so fixes can be made more quickly.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "\"more than 2,000 applications in AWS\"",
+    "\"more than a third of our apps leveraging serverless infrastructure\"",
+    "\"reduce to only an order of magnitude data from the original data volume\"",
+    "\"run up to 250MB in a package, with up to five layers per function\"",
+    "\"Lambda’s limit at the moment is 15 minutes\""
+  ],
+  "architecture_clues": [
+    "Capital One describes itself as serverless-first on AWS.",
+    "The ML model was decomposed into smaller independently deployed components in a microservices-style architecture.",
+    "Lambda layers were used to package ML libraries, with compressed dynamic installs for additional dependencies.",
+    "The team relied on automatically scaling databases in AWS when higher data volumes were sent to the host.",
+    "Long-running functions were reviewed individually and some work was redirected to an AWS asynchronous ML inference option."
+  ],
+  "source_url": "https://www.capitalone.com/tech/machine-learning/serverless-machine-learning/",
+  "published_date": "2024-08-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We built an ML solution that detects volume anomalies for those critical transactions, allowing any necessary fixes to be made as quickly as possible so we can minimize the impact to customers.\"",
+    "\"We successfully moved our ML model to serverless architecture, and found three major improvements.\"",
+    "\"The Capital One team used layers to implement each of the libraries.\"",
+    "\"We started to sample our datasets in order to reduce the size of data and still keep enough information to train the model.\"",
+    "\"Because serverless is a full stack of services you pay for as you go, provisioning is simple.\"",
+    "\"Now we are entirely hands-off with maintenance functions.\""
+  ],
+  "source_type": "company"
+}

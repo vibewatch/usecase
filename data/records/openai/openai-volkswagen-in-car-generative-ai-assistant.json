@@ -1,0 +1,72 @@
+{
+  "id": "openai-volkswagen-in-car-generative-ai-assistant",
+  "slug": "openai-volkswagen-in-car-generative-ai-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "Volkswagen",
+  "industry": "Automotive",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Volkswagen wanted to extend its in-car IDA voice assistant beyond vehicle controls and basic queries so drivers could get broader information and research answers hands-free without adding account setup friction or exposing vehicle data.",
+  "solution_summary": "Volkswagen integrated ChatGPT into its in-car IDA voice assistant for current MEB and MQB evo vehicles that use the latest infotainment generation. The driver continues to invoke IDA with \"Hello IDA\" or the steering-wheel button, and the assistant first handles native vehicle tasks such as infotainment, navigation, and air-conditioning control. When the Volkswagen system cannot answer a request itself, the query is forwarded anonymously through Cerence Chat Pro, which acts as the automotive-grade backend integration layer and draws on multiple sources including ChatGPT. Responses are then returned through the familiar Volkswagen voice interface. Volkswagen states that ChatGPT does not receive vehicle data and that questions and answers are deleted immediately, making privacy and security part of the production design rather than an add-on.",
+  "products_used": [
+    "IDA voice assistant",
+    "Cerence Chat Pro",
+    "ChatGPT"
+  ],
+  "solution_components": [
+    {
+      "name": "IDA voice assistant",
+      "role": "Serves as the in-vehicle voice interface that receives driver requests, handles native car functions, and delivers AI responses back to the user.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cerence Chat Pro",
+      "role": "Provides the automotive-grade backend integration that brokers anonymous requests from IDA and connects to multiple knowledge sources including ChatGPT.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "Supplies generative AI responses for questions the Volkswagen system cannot answer directly.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A driver invokes IDA by voice or the steering-wheel button; IDA first determines whether the request is for a vehicle function, destination search, or temperature change. If Volkswagen's own system cannot answer, the request is sent anonymously via Cerence Chat Pro to sources including ChatGPT, and the response is returned through the Volkswagen voice assistant, with questions and answers deleted immediately.",
+  "integration_points": [
+    "Volkswagen infotainment system",
+    "vehicle navigation system",
+    "air conditioning controls",
+    "steering-wheel voice button",
+    "ChatGPT"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Volkswagen added generative AI-backed research and question answering to production vehicles as a standard in-car feature, giving drivers hands-free access to broader information while preserving the existing voice assistant experience and privacy protections.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Volkswagen will be the first volume manufacturer to offer Chat GPT as a standard feature from the second quarter of 2024 in many production vehicles."
+  ],
+  "architecture_clues": [
+    "Current MEB and MQB evo models using IDA are in scope.",
+    "The feature is offered with the latest generation of infotainment.",
+    "Supported models named in the announcement are ID.7, ID.4, ID.5, ID.3, the all-new Tiguan, the all-new Passat, and the new Golf.",
+    "Requests that Volkswagen cannot answer are forwarded anonymously to AI.",
+    "ChatGPT does not gain access to vehicle data.",
+    "Questions and answers are deleted immediately for data protection."
+  ],
+  "source_url": "https://www.volkswagen-group.com/en/articles/world-premiere-at-ces-volkswagen-integrates-chatgpt-into-its-vehicles-18052",
+  "published_date": "2024-01-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Volkswagen will present the first vehicles in which the artificial-intelligence-based chatbot ChatGPT is integrated into its IDA voice assistant.\"",
+    "\"Current MEB and MQB evo models from VW Group brands that use the IDA voice assistant will have access to automotive-grade ChatGPT integration via Cerence Chat Pro\"",
+    "\"If the request cannot be answered by the Volkswagen system, it is forwarded anonymously to AI and the familiar Volkswagen voice responds.\"",
+    "\"ChatGPT does not gain access to any vehicle data; questions and answers are deleted immediately to ensure the highest possible level of data protection.\"",
+    "\"Volkswagen will be the first volume manufacturer to offer Chat GPT as a standard feature from the second quarter of 2024 in many production vehicles.\""
+  ],
+  "source_type": "company"
+}

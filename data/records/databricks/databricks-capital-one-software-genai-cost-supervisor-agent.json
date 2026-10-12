@@ -1,0 +1,134 @@
+{
+  "id": "databricks-capital-one-software-genai-cost-supervisor-agent",
+  "slug": "databricks-capital-one-software-genai-cost-supervisor-agent",
+  "vendor": "Databricks",
+  "customer_name": "Capital One Software",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Capital One Software found that a static GenAI cost dashboard could show spend and governance KPIs, but could not answer the pointed follow-up questions teams had about model usage, tagging gaps, error costs, chargeback readiness, and savings opportunities.",
+  "solution_summary": "Capital One Software implemented a GenAI FinOps agent on Databricks by turning Databricks System Tables into a reusable knowledge layer. Billing, list-price, endpoint-usage, and served-entity data from system.billing.usage, system.billing.list_prices, system.serving.endpoint_usage, and system.serving.served_entities are exposed through 20 Unity Catalog SQL functions registered in a dedicated schema, documented with COMMENT metadata, and validated by tiered smoke tests. A Supervisor Agent in Databricks AI Playground uses those Unity Catalog tools to answer free-form questions about spend, governance gaps, attribution, errors, and model optimization, including token-share cost allocation across users and models. For production, the same design is exported to Databricks Apps, where agent.py uses the OpenAI Agents SDK, Databricks MCP servers or DatabricksFunctionsClient connect back to the registered functions, and MLflow Agent Server plus MLflow tracing provide deployment, observability, and monitored operation.",
+  "products_used": [
+    "Databricks System Tables",
+    "Unity Catalog",
+    "AI Playground",
+    "Supervisor Agent",
+    "AI Gateway",
+    "Databricks Apps",
+    "MLflow",
+    "OpenAI Agents SDK",
+    "Databricks MCP servers",
+    "DatabricksFunctionsClient",
+    "MLflow Agent Server"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks System Tables",
+      "role": "Provide the billing, list-price, endpoint-usage, and served-entity telemetry that the agent queries as its knowledge base.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Hosts the registered SQL functions, their comments, and the permissions the agent relies on for governed tool access.",
+      "layer": "Governance"
+    },
+    {
+      "name": "AI Playground",
+      "role": "Serves as the built-in interface where the team prototypes and chats with the tool-calling cost supervisor.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Supervisor Agent",
+      "role": "Reasons across the registered functions to answer spend, governance, attribution, and optimization questions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI Gateway",
+      "role": "Supplies serving telemetry and fallback or traffic-splitting behavior that feeds the attribution logic through serving tables.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Databricks Apps",
+      "role": "Packages the prototype into a deployable production application exported from AI Playground.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MLflow",
+      "role": "Captures traces, experiments, and observability data for each deployed interaction.",
+      "layer": "Governance"
+    },
+    {
+      "name": "OpenAI Agents SDK",
+      "role": "Provides the agent framework used in agent.py before the app is wrapped for Databricks-compatible serving.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Databricks MCP servers",
+      "role": "Handle tool discovery, execution, and security between the production agent and Unity Catalog functions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "DatabricksFunctionsClient",
+      "role": "Wraps the registered functions for the production connection pattern used in the experiment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MLflow Agent Server",
+      "role": "Exposes the deployed agent through an async /invocations endpoint with tracing and streaming response support.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Billing, price, endpoint-usage, and served-entity telemetry flow from Databricks System Tables and AI Gateway-backed serving data into 20 Unity Catalog SQL functions in a dedicated schema. The Supervisor Agent in AI Playground calls those functions as tools, combines cost, governance, attribution, and error analyses, and returns natural-language answers. In production, Databricks Apps uses MCP-based function calls while MLflow records traces for each interaction.",
+  "integration_points": [
+    "system.billing.usage",
+    "system.billing.list_prices",
+    "system.serving.endpoint_usage",
+    "system.serving.served_entites",
+    "MLflow experiment",
+    "Databricks model serving endpoint with AI Gateway"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Capital One Software replaced a fixed dashboard with a conversational GenAI cost analyst that can answer ad hoc FinOps questions, surface governance gaps, rank remediation opportunities such as untagged or dormant endpoints, and provide a governed path from prototype to monitored production deployment.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "20 Unity Catalog SQL functions",
+    "20 tools",
+    "6 KPI counters, twelve charts, four detail tables",
+    "20 functions across 5 domains",
+    "Top 25 untagged endpoints ranked by spend",
+    ">2σ from trailing 14-day average"
+  ],
+  "architecture_clues": [
+    "Functions are registered with CREATE OR REPLACE FUNCTION and validated with tiered smoke tests.",
+    "Each function takes a lookback_days parameter and returns a table.",
+    "The agent supervisor configuration is limited to 20 tools.",
+    "Token-share allocation uses a three-CTE pattern: endpoint_cost, user_tokens, and totals.",
+    "Production export records every interaction as a trace in an MLflow experiment described as the agent's flight recorder.",
+    "MLflow Agent Server provides an async FastAPI server with an /invocations endpoint."
+  ],
+  "source_url": "https://www.capitalone.com/software/blog/databricks-genai-cost-supervisor-agent/",
+  "published_date": "2026-03-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"How we turned Databricks System Tables into a knowledge base for an AI agent that answers any GenAI cost questions on demand.\"",
+    "\"No dashboard is going to be able to anticipate every question, but an AI agent can answer any of them, if it has the right knowledge layer to refer to.\"",
+    "\"The entire agent runs in AI Playground, Databricks’ built-in interface for prototyping tool-calling agents.\"",
+    "\"It creates a schema, registers all 20 Unity Catalog SQL functions with CREATE OR REPLACE FUNCTION and runs tiered smoke tests to validate each function against your actual data.\"",
+    "\"Every interaction with the deployed agent—every tool call, every response—gets recorded as a trace in this experiment.\"",
+    "\"Allocated_cost = endpoint_daily_cost x (user_model_tokens / total_endpoint_tokens)\""
+  ],
+  "source_type": "company"
+}

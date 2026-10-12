@@ -1,0 +1,82 @@
+{
+  "id": "nvidia-mastercard-payments-foundation-model-cybersecurity",
+  "slug": "nvidia-mastercard-payments-foundation-model-cybersecurity",
+  "vendor": "NVIDIA",
+  "customer_name": "Mastercard",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Mastercard wants to turn its transaction data into a reusable AI insights engine for payments and commerce, especially to strengthen cybersecurity and fraud detection, improve personalization and loyalty use cases, and reduce the operational burden of building, training, and maintaining thousands of separate market-, customer-, and use-case-specific AI models.",
+  "solution_summary": "Mastercard is building an internal foundation model for payments and commerce around a large tabular model (LTM) trained on structured, anonymized transaction data rather than the unstructured data used by chat-oriented LLMs. The implementation starts with billions of transactions, with planned expansion to hundreds of billions of payment events plus merchant location, fraud, authorization, chargeback, and loyalty program datasets. Personal data is removed before training. Nvidia's advanced accelerated computing platform provides the compute backbone that processes these large datasets at high speed, while Databricks is part of Mastercard's development stack and collaboration model. The LTM learns patterns from raw and lightly guided tabular data, then feeds insights into hybrid cybersecurity systems and other Mastercard tools. Mastercard is also building APIs and toolkits so internal teams can consume the model as a shared insights service across cyber, loyalty, analytics, and commerce applications.",
+  "products_used": [
+    "large tabular model (LTM)",
+    "Nvidia's advanced accelerated computing platform",
+    "Databricks"
+  ],
+  "solution_components": [
+    {
+      "name": "large tabular model (LTM)",
+      "role": "Foundation model trained on anonymized payment and related tabular datasets to predict future transactions and uncover patterns for cybersecurity and commerce insights.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Nvidia's advanced accelerated computing platform",
+      "role": "Provides the accelerated compute used to process large-scale Mastercard datasets and train the foundation model at high speed.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks",
+      "role": "Supports Mastercard's foundation-model development work as part of its ongoing collaboration stack."
+    }
+  ],
+  "data_flow": "Mastercard removes personal data from transaction records, then trains its large tabular model on billions of anonymized transactions and plans to add merchant location, fraud, authorization, chargeback, and loyalty datasets. Nvidia-powered compute processes the data for model training, and the resulting model is exposed through APIs and toolkits so Mastercard teams can embed its predictions and insights into cybersecurity tools and other commerce applications.",
+  "integration_points": [
+    "anonymized transaction data",
+    "merchant location data",
+    "fraud data",
+    "authorization data",
+    "chargeback data",
+    "loyalty program data",
+    "current cybersecurity tools",
+    "teams across Mastercard via APIs and toolkits"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Risk Management"
+  ],
+  "business_outcome": "Mastercard reports strong early testing results, including performance above standard industry machine learning techniques, with the model better identifying legitimate high-value but infrequent purchases and the potential to strengthen cyber defenses while eventually reducing the need to maintain thousands of separate AI models.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "billions of transactions",
+    "hundreds of billions of payments transactions",
+    "thousands of AI models"
+  ],
+  "architecture_clues": [
+    "Foundation model is a large tabular model trained on structured data rather than an LLM trained on unstructured data.",
+    "Personal data is removed from transactions before training.",
+    "Mastercard plans hybrid cybersecurity systems combining current AI models with the new LTM.",
+    "The company is developing APIs and toolkits to let teams across Mastercard build applications on top of the model.",
+    "The source says the work is powered by Nvidia's full-stack accelerated AI platform."
+  ],
+  "source_url": "https://www.mastercard.com/europe/en/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+  "published_date": "2026-03-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We are training our foundation model on Mastercard’s unique datasets, starting with billions of transactions.\"",
+    "\"To protect user privacy, we remove all personal data from these transactions.\"",
+    "\"We plan to use this new foundation model — not to build a chatbot — but as an insights engine that will make many of our tools and services even better, from cyber defenses to loyalty programs to small business tools.\"",
+    "\"This work is powered by Nvidia’s advanced accelerated computing platform.\"",
+    "\"We will also continue our close collaboration with Nvidia and Databricks to push forward all this development work.\"",
+    "\"In our testing, we’ve already seen this new model outperform standard industry machine learning techniques, giving us promising early signs.\"",
+    "\"Additionally, to run our network, we currently need to build, train and maintain thousands of AI models, each for different markets, use cases or customers.\""
+  ],
+  "source_type": "company"
+}

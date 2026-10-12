@@ -1,0 +1,87 @@
+{
+  "id": "in-house-telefonica-brasil-cme-ai-electricity-management",
+  "slug": "in-house-telefonica-brasil-cme-ai-electricity-management",
+  "vendor": "In-house",
+  "customer_name": "Telefónica Brasil",
+  "industry": "Telecommunications",
+  "region": "Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Telefónica Brasil needed to monitor and manage electricity consumption across more than 35,000 sites nationwide, including real-time oversight of medium-voltage locations, while also handling over 35,000 monthly utility invoices in more than 200 formats without building and maintaining many manual digitization models or spending hours on daily data processing.",
+  "solution_summary": "Telefónica Brasil built CME (Energy Monitoring Center), an in-house AI-based energy management system for electricity operations across Brazil. CME ingests telemetry, network traffic, weather data, installed-equipment information, maintenance alarms, population-density inputs, and digitized electricity invoices. The invoice stream is normalized with generative AI so bills in more than 200 formats can be converted into structured data and contribute more than 150 technical and financial variables. AI algorithms implemented in ETL tools then integrate, transform, and analyze these multi-source datasets to predict energy consumption, generate diagnostics and indicators, trigger alarms, automate management workflows, and recommend efficiency actions. CME serves as the centralized operational layer for monitoring more than 35,000 consumption points, with real-time visibility for medium-voltage sites and automated analysis flows feeding proactive energy management.",
+  "products_used": [
+    "CME (Energy Monitoring Center)",
+    "ETL tools",
+    "generative AI"
+  ],
+  "solution_components": [
+    {
+      "name": "CME (Energy Monitoring Center)",
+      "role": "Centralized energy management system that monitors consumption points, generates diagnostics and alarms, and issues efficiency recommendations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ETL tools",
+      "role": "Host the AI algorithms that integrate, transform, and analyze multi-source operational and energy data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "generative AI",
+      "role": "Digitizes electricity invoices across more than 200 formats so billing data can be loaded into the energy management system.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Telemetry, network traffic, weather, equipment, maintenance-alarm, population-density, and invoice data are ingested into CME. Generative AI converts invoice formats into structured variables, then AI algorithms in ETL tools integrate and analyze the combined datasets. The resulting predictions, diagnostics, alarms, indicators, and efficiency recommendations are served through CME for centralized management of sites across Brazil.",
+  "integration_points": [
+    "telemetry",
+    "network traffic",
+    "weather data",
+    "installed equipment data",
+    "maintenance alarms",
+    "population density data",
+    "monthly electricity invoices",
+    "databases"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Document Processing"
+  ],
+  "business_outcome": "The system improved operational intelligence and proactive energy management by centralizing automated analysis across thousands of sites, cutting daily processing time dramatically, reducing manual database loading, and freeing specialized staff for higher-value work while generating automatic suggestions for future energy-efficiency projects.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 35,000 points of electricity consumption",
+    "more than 35,000 monthly invoices",
+    "more than 200 different formats",
+    "more than 150 technical and financial variables",
+    "Manual loading on databases was reduced from 5% to 1%",
+    "reduction of data processing time from 8 hours to only 7 minutes"
+  ],
+  "architecture_clues": [
+    "Nationwide deployment across Brazil",
+    "Real-time monitoring for medium voltage points",
+    "Centralized observability and management of thousands of sites",
+    "Automatic integration of multiple databases and creation of complex analysis flows",
+    "Automatic suggestions for energy efficiency projects based on facility usage profiles"
+  ],
+  "source_url": "https://www.telefonica.com/en/communication-room/blog/energy-monitoring-center-cme-artificial-intelligence-manage-electricity-consumption-brazil/",
+  "published_date": "2025-12-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Telefónica Brasil has developed an innovative energy management system based on artificial intelligence named CME (Centro de Monitoreo Energético/Energy Monitoring Center).\"",
+    "\"This system allows monitoring more than 35,000 points of electricity consumption throughout the country.\"",
+    "\"CME integrates and analyzes data from multiple sources: telemetry, network traffic, weather, installed equipment, maintenance alarms, and population density.\"",
+    "\"Thanks to AI algorithms developed in ETL (Extract, Transform and Load) tools, the system: Predicts energy consumption.\"",
+    "\"the digitization of more than 35,000 monthly invoices with more than 200 different formats, using generative AI\"",
+    "\"allowing more than 150 technical and financial variables to be incorporated into the system\"",
+    "\"Manual loading on databases was reduced from 5% to 1%.\"",
+    "\"the reduction of data processing time from 8 hours to only 7 minutes.\""
+  ],
+  "source_type": "company"
+}

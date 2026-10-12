@@ -1,0 +1,101 @@
+{
+  "id": "nvidia-trend-micro-cybertron-secure-ai-inference",
+  "slug": "nvidia-trend-micro-cybertron-secure-ai-inference",
+  "vendor": "NVIDIA",
+  "customer_name": "Trend Micro",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Trend Micro needed a way to deploy its proprietary cybersecurity LLMs securely and quickly across cloud, hybrid, and on-premises environments while preserving data sovereignty, zero-trust controls, observability, and control over sensitive telemetry and intellectual property.",
+  "solution_summary": "Trend Micro uses its proprietary Trend Cybertron cybersecurity LLM together with the NVIDIA universal LLM NIM microservice to operationalize secure AI inference on NVIDIA Enterprise AI factories. The implementation is built around security-specific inputs including risk intelligence, customer telemetry, adversarial tactics, MITRE ATT&CK techniques, SIEM logs, natural-language risk reports, red-team narratives, security knowledge bases, and threat intelligence. The universal LLM NIM microservice serves Cybertron in cloud, hybrid, and on-premises deployments and abstracts inference backends so Trend can run NVIDIA TensorRT-LLM for high-performance inference or vLLM for throughput and batching. Trend pairs this serving layer with the AI-Q Blueprint to build RAG-style security agents that reason over knowledge bases and telemetry in real time, while NVIDIA NeMo Data Flywheel is used to monitor inference behavior and retrain models to manage drift and sustain accuracy.",
+  "products_used": [
+    "Trend Cybertron",
+    "NVIDIA universal LLM NIM microservice",
+    "NVIDIA Enterprise AI factories",
+    "NVIDIA TensorRT-LLM",
+    "vLLM",
+    "NVIDIA NeMo Data Flywheel",
+    "AI-Q Blueprint"
+  ],
+  "solution_components": [
+    {
+      "name": "Trend Cybertron",
+      "role": "Trend Micro's domain-specific cybersecurity LLM analyzes security language, logs, risk reports, and adversarial tactics for proactive cyber defense.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA universal LLM NIM microservice",
+      "role": "It packages and deploys Cybertron for rapid, backend-agnostic, secure inference across cloud, hybrid, and on-premises environments.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Enterprise AI factories",
+      "role": "They provide the infrastructure environments where Trend runs its custom Cybertron models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT-LLM",
+      "role": "It is one of the inference backends Trend can choose for high-performance Cybertron inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "vLLM",
+      "role": "It is an alternative inference backend used for throughput and batching behind the NIM deployment model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Data Flywheel",
+      "role": "It supports production inference monitoring and retraining workflows to reduce model drift over time.",
+      "layer": "Governance"
+    },
+    {
+      "name": "AI-Q Blueprint",
+      "role": "It is integrated with NIM to build security AI agents that reason over knowledge bases, telemetry logs, and threat intelligence in real time.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Trend feeds Trend Cybertron with security data such as risk intelligence, telemetry, MITRE ATT&CK techniques, SIEM logs, risk reports, red-team narratives, knowledge bases, and threat intelligence. Cybertron is served through the NVIDIA universal LLM NIM microservice on NVIDIA Enterprise AI factories, using TensorRT-LLM or vLLM as the inference backend. AI-Q Blueprint then enables agents to reason over those live security sources, while NVIDIA NeMo Data Flywheel monitors production behavior and retrains models as needed.",
+  "integration_points": [
+    "MITRE ATT&CK techniques",
+    "SIEM logs",
+    "security knowledge bases",
+    "telemetry logs",
+    "threat intelligence"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Trend Micro reports faster and more flexible deployment of private cybersecurity LLMs, support for sovereign and zero-trust inference, real-time security reasoning over enterprise knowledge and telemetry, and improved ability to experiment and respond during live risks.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Deployable in cloud, hybrid, or on-premises environments",
+    "Supports sovereign AI requirements and private self-hosted inference",
+    "Backend-agnostic serving with NVIDIA TensorRT-LLM or vLLM",
+    "Zero-trust inference with tightly controlled and auditable model execution",
+    "End-to-end observability for AI agents handling sensitive data"
+  ],
+  "source_url": "https://www.trendmicro.com/en/research/25/f/cybertron-nvidia-universal-llm-nim-microservices.html",
+  "published_date": "2025-06-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Trend Cybertron proactive cybersecurity LLM — a domain-specific language model trained on years of risk intelligence, telemetry, and adversarial tactics\"",
+    "\"The universal LLM NIM microservice enables us to run these custom models directly on NVIDIA Enterprise AI factories, whether in cloud, hybrid, or on-premises environments.\"",
+    "\"Whether we choose NVIDIA TensorRT-LLM for high-performance inference or vLLM for efficient throughput and batching, universal NIM abstracts away the backend complexity.\"",
+    "\"With NIM deployed on-premise, Cybertron can operate within zero-trust architectures where model inference is tightly controlled and auditable.\"",
+    "\"By integrating NIM with the AI-Q Blueprint, Trend can create AI agents that reason over security knowledge bases, telemetry logs, and threat intelligence in real-time.\"",
+    "\"we can monitor inference behaviors in production and retrain models using NVIDIA NeMo Data Flywheel, ensuring consistent accuracy over time.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "openai-bbva-chatgpt-banking-product-discovery-germany-italy",
+  "slug": "openai-bbva-chatgpt-banking-product-discovery-germany-italy",
+  "vendor": "OpenAI",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "Italy and Germany",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA wanted customers in Italy and Germany to access and compare information about its banking products and services through a natural-language conversational channel without leaving ChatGPT.",
+  "solution_summary": "BBVA implemented a customer-facing conversational experience by making its BBVA app available inside ChatGPT for users in Italy and Germany. In this deployment, ChatGPT serves as the entry point where customers ask questions in natural language, while the BBVA app handles informational queries about the bank’s local digital offerings, including accounts, cards, and savings products. The app returns personalized responses inside the chat and exposes follow-on interaction patterns such as exploring other products and related questions and answers. The experience also links users directly from the conversation to relevant BBVA product pages on the bank’s website, connecting conversational discovery to the bank’s owned digital channels. The source does not describe backend storage or model architecture, but it clearly shows an implemented OpenAI-powered serving layer integrated with BBVA’s digital banking content for Germany and Italy.",
+  "products_used": [
+    "ChatGPT",
+    "BBVA app"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatGPT",
+      "role": "Provides the conversational interface where users discover and interact with the BBVA app in natural language.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BBVA app",
+      "role": "Answers questions about BBVA products in Italy and Germany and returns direct links to relevant product pages.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Users in Italy or Germany open ChatGPT, connect the BBVA app, and submit natural-language questions about banking products. The BBVA app generates personalized answers inside the conversation and sends users to relevant BBVA website pages through direct product links.",
+  "integration_points": [
+    "BBVA websites and product pages",
+    "ChatGPT Apps section",
+    "BBVA digital banks in Italy and Germany"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "BBVA launched a new conversational banking channel inside ChatGPT so customers can explore product information more naturally and access BBVA offerings through channels they already use.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Available only in Italian and German.",
+    "Accessible only to customers using ChatGPT from Italy or Germany.",
+    "Users can invoke the experience by searching BBVA in the ChatGPT Apps section or opening a dedicated link.",
+    "The app provides personalized responses plus options for exploring other products and related questions."
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/bbvas-app-is-now-available-on-chatgpt-in-germany-and-italy/",
+  "published_date": "2026-02-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BBVA is making its conversational application available to ChatGPT users, allowing them to directly access information about the bank’s products and services in Italy and Germany right from the assistant.\"",
+    "\"The app is designed to handle informational queries, enabling ChatGPT users to explore BBVA’s offering in both countries by asking questions in natural language... without leaving ChatGPT.\"",
+    "\"The conversation also provides direct links to these products on the bank’s website.\"",
+    "\"The BBVA app will provide the personalized response and the customer can explore the different app functionalities.\"",
+    "\"Only available in Italian and German for customers accessing ChatGPT from Italy or Germany.\""
+  ],
+  "source_type": "company"
+}

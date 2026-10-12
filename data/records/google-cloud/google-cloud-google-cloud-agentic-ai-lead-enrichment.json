@@ -1,0 +1,85 @@
+{
+  "id": "google-cloud-google-cloud-agentic-ai-lead-enrichment",
+  "slug": "google-cloud-google-cloud-agentic-ai-lead-enrichment",
+  "vendor": "Google Cloud",
+  "customer_name": "Google Cloud",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Google Cloud's demand engine was receiving growing volumes of increasingly complex leads, but lead preparation still depended on manual, batch-based enrichment. That made it difficult to add trusted buyer, account, and market context quickly enough for timely sales engagement and created a bottleneck between marketing and sales.",
+  "solution_summary": "Google Cloud and Accenture rebuilt lead enrichment as an always-on agentic AI operating model embedded directly into Google Cloud's go-to-market workflows. The production system uses a multi-agent design built on Vertex AI, BigQuery, and Gemini to prepare, enrich, validate, and prioritize inbound leads in real time instead of in manual batches. Agents draw on internal data, third-party sources, and refreshed enriched datasets to identify the right buyer contacts, roles, account context, and market signals, then assemble decision-ready lead records for sellers. BigQuery serves as the data foundation for the datasets the agents use and refresh, Gemini provides the model intelligence behind enrichment and validation decisions, and Vertex AI supports the production-scale agent workflow. Quality is governed through direct output review, benchmarking against human performance, risk-based sampling, edge-case routing to human reviewers, continuous audit loops, and operational monitoring for retries and time-outs.",
+  "products_used": [
+    "Vertex AI",
+    "BigQuery",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Vertex AI",
+      "role": "Hosts and runs the production-scale multi-agent lead enrichment and validation workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Provides the data foundation for internal, third-party, and enriched datasets used by the agents.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "Supplies the model intelligence used to enrich leads and validate buyer and account matches.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Inbound lead records enter Google Cloud's go-to-market workflow, where agents pull context from internal data, third-party sources, and refreshed enriched datasets. The multi-agent system built on Vertex AI, BigQuery, and Gemini enriches and validates buyer, account, and market signals in real time, routes edge cases to human review, and returns decision-ready leads to sellers for follow-up.",
+  "integration_points": [
+    "Internal data sources",
+    "Third-party sources",
+    "Refreshed enriched datasets",
+    "Core go-to-market workflows",
+    "Human review team",
+    "Sales teams / sellers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "The agentic AI system delivers faster, higher-quality lead enrichment at production scale, reduces manual preparation work, helps sellers focus on qualified opportunities, increases sales productivity, accelerates conversion, and lowers cost-to-serve while maintaining trust through human oversight and continuous quality controls.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "30x faster lead processing",
+    "4 hours to process 25,000 inbound records — reduced from nearly a week",
+    "reducing cost-to-serve by up to 80%"
+  ],
+  "architecture_clues": [
+    "Multi-agent model orchestrates enrichment and validation as a single adaptive system.",
+    "Embedded in core go-to-market workflows.",
+    "Runs at production scale.",
+    "Quality assurance evolved from direct output review to risk-based sampling.",
+    "Edge cases are routed to a dedicated human review team.",
+    "Continuous audit loops improve performance over time.",
+    "Monitoring handles retries and time-outs under real demand."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/cloud/lead-enrichment-agentic-ai-operating-model",
+  "published_date": "2026-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Google Cloud partnered with Accenture to redesign lead enrichment as an always-on agentic AI engine that prepares and validates leads in real time.\"",
+    "\"Built on Google Cloud's stack (Vertex AI, BigQuery, Gemini) and embedded in core go-to-market workflows, the model runs at production scale.\"",
+    "\"A multi-agent environment draws from internal data, third-party sources, and enriched datasets that can be refreshed as new information emerges.\"",
+    "\"Until recently, this preparation relied heavily on manual, batch-based effort.\"",
+    "\"30x faster lead processing\"",
+    "\"4 hours to process 25,000 inbound records — reduced from nearly a week\"",
+    "\"Google Cloud is increasing sales productivity, accelerating conversion and reducing cost-to-serve by up to 80%\"",
+    "\"Edge cases are routed to a dedicated human review team, protecting decision quality while keeping workflows moving.\""
+  ],
+  "source_type": "company"
+}

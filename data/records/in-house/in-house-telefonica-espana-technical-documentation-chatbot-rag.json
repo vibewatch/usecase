@@ -1,0 +1,71 @@
+{
+  "id": "in-house-telefonica-espana-technical-documentation-chatbot-rag",
+  "slug": "in-house-telefonica-espana-technical-documentation-chatbot-rag",
+  "vendor": "In-house",
+  "customer_name": "Telefónica España",
+  "industry": "Telecommunications",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "Transport-network technicians were spending significant time searching lengthy, complex, multilingual manufacturers' manuals and internal documents to resolve incidents, check component characteristics, and find action sequences.",
+  "solution_summary": "Telefónica España built an in-house technical documentation ChatBot as a GenAI proof of concept for its Optical Network Technology and Configuration team. The serving layer is the technical documentation ChatBot, which gives technicians a natural-language interface in Spanish and returns answers in Spanish. Upstream, the system ingests manufacturers' manuals plus internal configuration documents that had been previously provided to the solution. The orchestration layer is RAG (Retrieval-Augmented Generation), which retrieves the most relevant passages from those documents before generation so answers stay grounded in source material. A language model (LLM) then generates coherent responses and includes references to the manuals where the information was found. Telefónica says the content is being centralized into a single environment and is intended to integrate with the main operation systems, allowing multiple operational teams to query technical knowledge consistently and at scale.",
+  "products_used": [
+    "technical documentation ChatBot",
+    "RAG (Retrieval-Augmented Generation)",
+    "language model (LLM)"
+  ],
+  "solution_components": [
+    {
+      "name": "technical documentation ChatBot",
+      "role": "Provides the Spanish-language interface through which technicians ask questions and receive grounded answers with source references.",
+      "layer": "Serving"
+    },
+    {
+      "name": "RAG (Retrieval-Augmented Generation)",
+      "role": "Retrieves relevant passages from manuals and configuration documents before answer generation to improve contextual accuracy.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "language model (LLM)",
+      "role": "Generates coherent and accurate answers in Spanish using the retrieved documentation context.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Manufacturers' manuals and internal configuration documents are provided to the technical documentation ChatBot, where RAG retrieves the most relevant passages for a query and passes that context to the language model (LLM). The LLM generates a Spanish response with references to the supporting manuals, which is then served back to technicians through the chatbot interface.",
+  "integration_points": [
+    "manufacturers' manuals",
+    "internal configuration documents",
+    "main operation systems"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The chatbot reduced manual consultation effort for technicians, delivered faster and more consistent answers, supported multiple users simultaneously, and was positioned to improve productivity, learning speed, and operational quality as it expands across Telefónica's operations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Proof of concept launched by Telefónica España's Optical Network Technology and Configuration area.",
+    "Designed for devices and equipment in the transport network.",
+    "Answers are returned in Spanish and include references to the manuals used.",
+    "Content is intended to be centralized in a single place and environment.",
+    "Planned integration with the main operation systems.",
+    "Telefónica links the initiative to promoting level 4 autonomy of an operator."
+  ],
+  "source_url": "https://www.telefonica.com/en/communication-room/blog/chatbot-genai-revolution-technical-documentation/",
+  "published_date": "2024-11-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Currently, when a technician needs to consult a specific topic, resolve a specific issue, look up component characteristics or know the sequence of actions to solve an incident, he usually spends a considerable amount of time searching through manufacturers' manuals.\"",
+    "\"Telefónica España, through its Optical Network Technology and Configuration area, decided to launch a proof of concept (PoC) of a technical documentation ChatBot.\"",
+    "\"The ChatBot uses GenAI to consult the technical manuals and internal configuration documents that have been previously provided and generates the answer that the technician needs.\"",
+    "\"The solution is based on the RAG (Retrieval-Augmented Generation) methodology... combines the retrieval of relevant information with the ability to generate answers by a language model (LLM).\"",
+    "\"This response is in the technician's own language and has references to the manuals where the relevant information has been found.\"",
+    "\"Automation of consultation tasks: freeing up time for technicians to focus on more complex activities.\"",
+    "\"Scalability: Can serve multiple users simultaneously from different areas.\""
+  ],
+  "source_type": "company"
+}

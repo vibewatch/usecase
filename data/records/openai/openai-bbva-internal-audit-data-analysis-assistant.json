@@ -1,0 +1,56 @@
+{
+  "id": "openai-bbva-internal-audit-data-analysis-assistant",
+  "slug": "openai-bbva-internal-audit-data-analysis-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA's Internal Audit teams needed to analyze large volumes of data from multiple sources and heterogeneous formats, design and run increasingly complex analytical tests, verify data quality, document assumptions and decisions, and preserve full traceability without relying on inconsistent spreadsheet work or ad hoc code created by individual auditors.",
+  "solution_summary": "BBVA created a purpose-specific assistant within ChatGPT Enterprise for its Internal Audit function to standardize and strengthen large-scale data analysis. Used inside BBVA's controlled corporate environment, the assistant guides auditors through a structured workflow: validating the data initially included in an audit, running quality and consistency checks, helping design specific and complex analytical tests, interpreting the results, and producing reproducible Python or SQL code together with structured analytical explanations for documentation. The implementation is intentionally human-supervised rather than autonomous: auditors review each step, apply professional judgment, and remain responsible for validation and final conclusions. BBVA also applied its governance framework for AI assistants, adding controls for suitable data use, traceability, reproducibility, ongoing monitoring, and periodic review.",
+  "products_used": [
+    "ChatGPT Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatGPT Enterprise",
+      "role": "Hosts BBVA's custom audit assistant, which guides data validation, analytical test design, result interpretation, and generation of reproducible code and documentation artifacts for auditors."
+    }
+  ],
+  "data_flow": "Internal Audit brings data from multiple internal sources and heterogeneous formats into the assistant-led workflow. Within ChatGPT Enterprise, the assistant helps verify the input data, performs quality and consistency checks, supports the design of analytical tests, interprets outputs, and generates reproducible Python or SQL plus structured explanations. Auditors then review those artifacts, document findings, and make the final conclusions.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "BBVA expects the assistant to make analytics use in audit engagements more consistent, controlled, and scalable, reduce manual and repetitive programming and documentation work, free auditors for higher-value risk assessment and anomaly analysis, and improve audit quality while maintaining traceability and human accountability.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "increase productivity by around 10%",
+    "hundreds of audits globally each year"
+  ],
+  "architecture_clues": [
+    "Built as a specific GPT within ChatGPT Enterprise.",
+    "Used within BBVA's controlled corporate environment.",
+    "Human oversight is mandatory; auditors retain validation, professional judgment, and final conclusions.",
+    "Technical controls alert users to the type of data they should use, support quality and traceability, and enable reproducible code generation.",
+    "Subject to ongoing monitoring and periodic review under BBVA's AI assistant governance framework."
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/how-bbva-uses-an-ai-assistant-to-analyze-data-in-internal-audit/",
+  "published_date": "2026-03-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BBVA has created an assistant with ChatGPT Enterprise to support data analysis at Internal Audit, from validating and designing tests to interpreting results.\"",
+    "\"Analyzing large volumes of data from multiple sources and in heterogeneous formats.\"",
+    "\"The assistant guides auditors step by step through verifying the data initially included for each audit, performing quality and consistency checks, designing specific and complex analytical tests, and interpreting the results.\"",
+    "\"It also generates reproducible code in programming languages commonly used in the audit function, such as Python or SQL, as well as structured analytical explanations ready for auditors to use.\"",
+    "\"At each stage, the system documents the constraints and record counts used, giving auditors full visibility into the analysis performed by the assistant\"",
+    "\"it is expected to help increase productivity by around 10% in each data-driven audit.\""
+  ],
+  "source_type": "company"
+}

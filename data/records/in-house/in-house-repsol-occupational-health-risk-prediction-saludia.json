@@ -1,0 +1,77 @@
+{
+  "id": "in-house-repsol-occupational-health-risk-prediction-saludia",
+  "slug": "in-house-repsol-occupational-health-risk-prediction-saludia",
+  "vendor": "In-house",
+  "customer_name": "Repsol",
+  "industry": "Energy",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Repsol needed to move beyond generic occupational-health campaigns and traditional cardiovascular risk tables that were insufficiently personalized, carried male bias, and left employees under 40 effectively unassessed.",
+  "solution_summary": "Repsol built SaludIA as an in-house occupational-health AI system to replace generic wellness campaigns with predictive, individualized cardiovascular prevention. The implementation ingests employee medical examinations, lab analytics, and habit surveys, then uses machine-learning models inside SaludIA to process the combined health dataset and segment the workforce into gender-specific risk clusters, including employees under 40 who are not covered well by SCORE2. The system automates SCORE2-style risk calculation, extends it with additional correlations, and surfaces low-, medium-, and high-risk profiles to doctors and medical staff so they can prioritize appointments, diagnostic tests, and targeted nutrition or weight campaigns. Health data is anonymized and governed under informed consent, GDPR, and compliance controls. Power BI is used as the serving layer to monitor campaign impact and adjust interventions in real time, while the architecture is described as scalable to future musculoskeletal and mental-health models.",
+  "products_used": [
+    "SaludIA",
+    "Power BI"
+  ],
+  "solution_components": [
+    {
+      "name": "SaludIA",
+      "role": "Processes employee health data with machine learning to generate personalized cardiovascular risk profiles and trigger preventive interventions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Power BI",
+      "role": "Monitors campaign impact and helps the team measure and adjust preventive actions in real time.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Medical examinations, analytics, and habit surveys feed SaludIA, which analyzes the combined data and assigns gender-specific cardiovascular risk profiles that extend SCORE2 logic. Doctors and medical reference staff use those profiles to prioritize appointments, diagnostic tests, and targeted prevention campaigns, while Power BI tracks intervention impact for continuous adjustment.",
+  "integration_points": [
+    "Medical examinations",
+    "Analytics",
+    "Habit surveys",
+    "SCORE2 cardiovascular risk table",
+    "Doctors and medical reference staff",
+    "Diagnostic testing workflows",
+    "Power BI dashboard"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Repsol shifted from reactive and generic occupational-health outreach to personalized, predictive cardiovascular prevention, enabling earlier identification of at-risk employees, gender-calibrated interventions, inclusion of younger employees, and real-time monitoring of campaign effectiveness.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "eight distinct clusters",
+    "four groups of profiles for men",
+    "four for women",
+    "under 40",
+    "10-year time horizon",
+    "low, medium, or high"
+  ],
+  "architecture_clues": [
+    "The model performs gender-differential segmentation with separate male and female profile groups.",
+    "The system extends risk scoring to employees under 40 who fall outside SCORE2's normal applicability.",
+    "Advanced anonymization techniques are applied to sensitive health data.",
+    "Governance includes GDPR compliance, internal compliance policies, and informed consent.",
+    "The architecture is described as scalable to musculoskeletal and mental-health prevention use cases."
+  ],
+  "source_url": "https://www.repsol.com/en/energy-move-forward/innovation/ai-that-beats-digital-personalized-prevention/index.cshtml",
+  "published_date": "2025-12-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"SaludIA stems from a deep need: to move from generic health campaigns - the 'one-size-fits-all' that proved insufficient - to a personalized, inclusive, and proactive prevention system.\"",
+    "\"SaludIA is an artificial intelligence system designed to process and analyze large volumes of health data - such as medical examinations, analytics, and habit surveys.\"",
+    "\"Thanks to Machine Learning, we have managed to segment our population into eight distinct clusters: four groups of profiles for men and, crucially, four for women.\"",
+    "\"This project has already made it possible to automate the calculation of cardiovascular risk provided by the SCORE2 table and, more importantly, to overcome it, including those to which the official table does not attribute risk.\"",
+    "\"We are detecting at-risk employees to send them for diagnostic testing before the event occurs.\"",
+    "\"And we do this by monitoring the real impact through a dashboard (Power BI) to measure and improve each action, allowing us to adjust strategies in real time.\""
+  ],
+  "source_type": "company"
+}

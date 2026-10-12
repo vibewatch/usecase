@@ -1,0 +1,80 @@
+{
+  "id": "in-house-bbva-ai-powered-banking-assistants",
+  "slug": "in-house-bbva-ai-powered-banking-assistants",
+  "vendor": "In-house",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA wanted to make digital banking interactions more natural and personalized for customers, while also giving branch employees faster access to current product and service information so they could handle requests more efficiently.",
+  "solution_summary": "BBVA upgraded its in-app virtual assistant Blue and launched a separate AI copilot for branch employees as part of a production generative AI program in Spain. Blue is embedded in the BBVA app as the serving layer for customer interactions and uses large language models (LLM) for intent interpretation and language generation. Within each active session, the assistant uses conversational context, previous interactions, and the customer’s normal transactions to answer questions and execute common account and card operations in natural language. BBVA constrained the assistant to the banking domain and added validations and guardrails so responses stay aligned with commercial, reputational, and legal requirements. Customer data remains inside BBVA environments and is used only in the live conversation. For employees, BBVA built an AI-based assistant over a daily updated catalog of more than 30,000 product and service references so agents can retrieve current information quickly during customer service work.",
+  "products_used": [
+    "Blue",
+    "large language models (LLM)",
+    "AI-based assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "Blue",
+      "role": "BBVA’s in-app virtual assistant handles natural-language banking queries and common account and card transactions for customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "large language models (LLM)",
+      "role": "The models provide interpretation and language generation so Blue can understand context and produce tailored responses.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI-based assistant",
+      "role": "The internal copilot helps agents answer questions using BBVA’s product and service knowledge base.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customers interact with Blue in the BBVA app, where LLMs interpret the request using conversation context, prior interactions, and normal transaction patterns, then return tailored financial information or execute eligible account and card actions. For employees, the AI-based assistant retrieves answers from a daily updated catalog of BBVA product and service references for use during customer support.",
+  "integration_points": [
+    "BBVA app",
+    "customer account information",
+    "customer card transaction workflows",
+    "BBVA product and services catalog"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "BBVA is rolling out a more personalized banking assistant that can answer questions and complete common transactions in natural language, while its employee copilot gives agents faster access to up-to-date information so they spend less time on low-value tasks and more time serving customers.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "up to 150 queries and transactions available for customers",
+    "answering over 3,000 questions",
+    "more than 30,000 references",
+    "available to more than 100 agents"
+  ],
+  "architecture_clues": [
+    "Roll-out starts on February 20th in Spain and will gradually reach all BBVA customers.",
+    "Blue is restricted to the banking domain rather than general-purpose topics.",
+    "Validations and guardrails were added to keep responses aligned with commercial, reputational and legal requirements.",
+    "Private customer information is used only in the active conversation and is not stored or used outside BBVA environments.",
+    "The employee assistant’s knowledge base is updated daily."
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/for-the-first-time-in-spain-bbva-will-offer-ai-powered-account-and-card-management-with-its-virtual-assistant/",
+  "published_date": "2025-02-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Blue now has enhanced abilities to interact with customers using natural language, provide tailored information on their finances, and perform some of the most common account and card transactions.\"",
+    "\"The new Blue kicks off with up to 150 queries and transactions available for customers, which translates into answering over 3,000 questions.\"",
+    "\"the virtual assistant improves user experience thanks to its large language models (LLM) interpretation and language generation capabilities.\"",
+    "\"validations and guardrails were put in place that guarantee that all responses are aligned with the bank’s commercial, reputational and legal requirements\"",
+    "\"The private information of each user is only used in the context of the active conversation, and is not stored or used outside of BBVA environments.\"",
+    "\"The assistant is based on more than 30,000 references, which encompass an entire catalog of BBVA products and services that are updated on a daily basis.\"",
+    "\"This new system is currently available to more than 100 agents\""
+  ],
+  "source_type": "company"
+}

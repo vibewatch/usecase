@@ -1,0 +1,92 @@
+{
+  "id": "microsoft-bayer-ely-agronomy-assistant",
+  "slug": "microsoft-bayer-ely-agronomy-assistant",
+  "vendor": "Microsoft",
+  "customer_name": "Bayer",
+  "industry": "Agriculture",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Bayer needed to help agronomists and other farmer-facing employees answer agronomy, farm management, and Bayer product questions more quickly and accurately, while simplifying crop protection decisions amid regulatory, sustainability, and cost pressures affecting farmers.",
+  "solution_summary": "Bayer built E.L.Y. (Expert Learning for You), a domain-specific generative AI assistant for its Crop Science organization, to give agronomists and other frontline staff faster access to vetted agronomic knowledge. The system combines Bayer's agronomic intelligence, product knowledge, and continuously refreshed agricultural information, then validates responses with Bayer agronomists to improve accuracy and compliance. For crop protection, Bayer and Microsoft developed E.L.Y. Crop Protection as a specialized agriculture-domain small language model based on Microsoft's Phi-3 SLM and made it available through the Azure AI model catalog. In practice, employees submit prompts about agronomy, farm management, and crop protection, the model generates contextually relevant answers, and Bayer's automated update processes keep the knowledge base current so teams can deliver faster, more accurate guidance to advisors, farmers, and agricultural customers.",
+  "products_used": [
+    "E.L.Y.",
+    "E.L.Y. Crop Protection",
+    "Microsoft Phi-3 SLM",
+    "Azure AI model catalog"
+  ],
+  "solution_components": [
+    {
+      "name": "E.L.Y.",
+      "role": "Bayer's domain-specific GenAI assistant gives agronomists and farmer-facing employees fast, compliant answers about agronomy, farm management, and Bayer products.",
+      "layer": "Serving"
+    },
+    {
+      "name": "E.L.Y. Crop Protection",
+      "role": "This specialized agriculture-domain small language model supports crop management and crop protection decision-making for advisors and farmers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Phi-3 SLM",
+      "role": "It is the foundation model Bayer adapted to build E.L.Y. Crop Protection for agriculture-specific question answering.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure AI model catalog",
+      "role": "It is the Microsoft distribution surface where E.L.Y. Crop Protection is available.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Bayer feeds its agronomic intelligence, Bayer product knowledge, and updated agricultural information into E.L.Y., where Bayer agronomists continuously validate output quality. Prompts from frontline employees are answered by the domain-tuned assistant, and the E.L.Y. Crop Protection variant, built on Microsoft Phi-3 SLM and available through the Azure AI model catalog, serves crop-management guidance to advisors and farmers.",
+  "integration_points": [
+    "Bayer's agronomic intelligence",
+    "Bayer agricultural product knowledge",
+    "latest agricultural information",
+    "frontline agronomists and other farmer-facing employees",
+    "advisors",
+    "farmers",
+    "agricultural customers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Bayer reports that E.L.Y. is improving employee productivity and response quality, helping frontline teams deliver faster and more accurate answers to farmers and agricultural customers while increasing user confidence in crop protection decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 1,500 frontline employees in the United States",
+    "90 percent of E.L.Y.'s users are willing to continue using it and recommend it to a colleague",
+    "over a 40 percent improvement in answering questions accurately compared to initial testing with ChatGPT",
+    "time savings of up to four hours per week"
+  ],
+  "architecture_clues": [
+    "Built as a domain-specific GenAI model called E.L.Y. (Expert Learning for You)",
+    "Continuously validated by Bayer agronomists",
+    "Automated processes keep the system updated with the latest agricultural information",
+    "E.L.Y. Crop Protection is a specialized Ag Domain small language model",
+    "Developed by Bayer's Crop Science division in collaboration with Microsoft",
+    "Based on Microsoft's Phi-3 SLM",
+    "Available on the Azure AI model catalog",
+    "Current deployment evidence centers on users in the United States"
+  ],
+  "source_url": "https://www.bayer.com/en/about-us/explore-bayer/our-contributions/stories/genai-for-good",
+  "published_date": "2026-09-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Earlier this year, Bayer announced a pilot that utilizes generative AI (GenAI) to upskill agronomists and other farmer-facing employees, enabling them to quickly and accurately address questions related to agronomy, farm management, and Bayer agricultural products.\"",
+    "\"This new domain-specific GenAI model, called E.L.Y. (Expert Learning for You), positions Bayer as an agri-food frontrunner in developing contextually relevant and compliant responses to user prompts.\"",
+    "\"Continuously validated by Bayer agronomists, E.L.Y. is already enhancing productivity for over 1,500 frontline employees in the United States.\"",
+    "\"Bayer has achieved over a 40 percent improvement in answering questions accurately compared to initial testing with ChatGPT.\"",
+    "\"Additionally, frontline employees report time savings of up to four hours per week, demonstrating how E.L.Y. has accelerated response times and improved customer interactions.\"",
+    "\"To ensure high accuracy, the team has implemented automated processes to keep the system updated with the latest agricultural information.\"",
+    "\"Developed by the Crop Science division at Bayer in collaboration with Microsoft, E.L.Y. Crop Protection is a specialized Ag Domain small language model (SLM) based on Microsoft's Phi-3 SLM and is available on the Azure AI model catalog.\"",
+    "\"Focus group testing indicates that 90 percent of E.L.Y.'s users are willing to continue using it and recommend it to a colleague.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "aws-world-rugby-generative-ai-match-insights",
+  "slug": "aws-world-rugby-generative-ai-match-insights",
+  "vendor": "AWS",
+  "customer_name": "World Rugby",
+  "industry": "Nonprofit",
+  "region": "global",
+  "company_size": "Unknown",
+  "business_problem": "World Rugby wanted to make the Women’s Rugby World Cup 2025 more engaging by unlocking and activating complex match data in real time so broadcasters, commentators, and digital channels could give fans richer insights and better storytelling during matches.",
+  "solution_summary": "World Rugby, Capgemini, Stats Perform, and AWS built TryZone IQ as a generative AI platform for live rugby insight generation. The implementation ingests historical and live Opta match data delivered in real time by Stats Perform, then routes that data into generative AI models hosted on Amazon Bedrock to produce short, match-ready narratives about player impact, team trends, and standout performances. TryZone IQ acts as the orchestration and delivery layer, packaging those model outputs for editorial use. Before distribution, analysts review and approve the generated insights to maintain quality and relevance. Approved insights are then pushed into the live broadcast production workflow for commentators and on-screen graphics, and also published to World Rugby’s online and in-app Match Center plus social channels. The source does not name a separate storage service, so storage is not attributed beyond the historical and live data inputs.",
+  "products_used": [
+    "TryZone IQ",
+    "Opta match data",
+    "Amazon Bedrock"
+  ],
+  "solution_components": [
+    {
+      "name": "TryZone IQ",
+      "role": "Custom-built platform that orchestrates real-time insight generation and distributes approved outputs to broadcast, digital, and social channels.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Opta match data",
+      "role": "Historical and live rugby data source used to generate in-game insights.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Hosts the generative AI models that turn match data into bite-sized insights for commentators and fans.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Historical and live Opta match data is delivered in real time by Stats Perform into TryZone IQ, where generative AI models hosted on Amazon Bedrock create summaries of player impact, team trends, and standout performances. Analysts review and approve the outputs, which are then fed into live broadcast production, World Rugby’s Match Center, in-app digital experiences, and social media clips.",
+  "integration_points": [
+    "Stats Perform live data feeds",
+    "Opta historical match data",
+    "Live broadcast production workflow",
+    "World Rugby Match Center",
+    "BBC match broadcasts",
+    "Instagram",
+    "World Rugby online and in-app digital platforms"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The platform helped World Rugby deliver a more engaging broadcast and digital fan experience with real-time AI-generated commentary insights during the Women’s Rugby World Cup 2025, and it was later extended to other rugby competitions and additional languages.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [
+    "1,521 insights that were used across 147 million viewing hours",
+    "around 70% of fans around the world wanted to know player performance metrics and live conditions in real time during matches",
+    "92% attendance across all matches",
+    "over 400,000 tickets sold in 133 countries",
+    "around 10 insights per game in the first round",
+    "more than 65 per game by the end of the tournament",
+    "439 were promoted via World Rugby Match Center",
+    "36 appeared on BBC match broadcasts",
+    "32 were used on Instagram posts"
+  ],
+  "architecture_clues": [
+    "First use of generative AI in rugby",
+    "Generative AI models were hosted on Amazon Bedrock",
+    "Human review and approval step by analysts before publication",
+    "Three-month development process",
+    "Deployed for the first time at the Women’s Rugby World Cup 2025",
+    "Later expanded to provide insights in French, Italian, Welsh, and English"
+  ],
+  "source_url": "https://www.capgemini.com/news/client-stories/with-ai-world-rugby-leaves-nothing-on-the-field/",
+  "published_date": "2026-07-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Capgemini worked with Stats Perform, Amazon Web Services (AWS), and World Rugby to develop TryZone IQ, an award-winning Generative AI-driven platform that creates insights in real time for use in broadcasts and commentary\"",
+    "\"The platform processes historical and live Opta match data delivered in real time by Stats Perform and leverages generative AI models hosted on Amazon Bedrock to create insights\"",
+    "\"The outputs are reviewed and approved by analysts to ensure quality and relevance.\"",
+    "\"Then, the insights are delivered through the live broadcast production workflow for use by commentators and appearing as on-screen broadcast graphics, as well live insight streams on digital platforms and clips on social media.\"",
+    "\"TryZone IQ played a key role in what was the most successful and watched Women’s Rugby World Cup in history; generating 1,521 insights that were used across 147 million viewing hours\"",
+    "\"Of the 1,521 total insights generated, 439 were promoted via World Rugby Match Center, 36 appeared on BBC match broadcasts, and another 32 were used on Instagram posts.\""
+  ],
+  "source_type": "company"
+}

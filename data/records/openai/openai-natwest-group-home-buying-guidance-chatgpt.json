@@ -1,0 +1,65 @@
+{
+  "id": "openai-natwest-group-home-buying-guidance-chatgpt",
+  "slug": "openai-natwest-group-home-buying-guidance-chatgpt",
+  "vendor": "OpenAI",
+  "customer_name": "NatWest Group",
+  "industry": "Financial Services",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "NatWest wanted to support early home-buying and remortgage planning conversations in the AI channels customers already use, while keeping guidance bank-specific, trustworthy, and connected to formal mortgage advice and application paths.",
+  "solution_summary": "NatWest Group implemented a branded mortgage-guidance experience inside ChatGPT so people can start home-buying or remortgage conversations in an LLM interface and then continue in the bank's own channels. In the front end, the NatWest app is surfaced through the ChatGPT app store and identified in-chat as NatWest, making the assistant the serving layer for customer interactions. For grounding and calculation, ChatGPT calls publicly available NatWest APIs that supply the bank-specific logic and data needed to estimate borrowing capacity, test affordability and deposit scenarios, and return tailored mortgage rates from details such as income and monthly outgoings. The responses stay in the ChatGPT conversation, but users are handed off to NatWest-owned channels for specialist advice, colleague appointments, or digital mortgage applications. The release does not describe a separate storage tier, model-hosting setup, or internal orchestration beyond the API integration and channel handoff.",
+  "products_used": [
+    "ChatGPT",
+    "NatWest APIs"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatGPT",
+      "role": "Hosts the NatWest-branded app experience and returns personalized home-buying and remortgage guidance to users in the chat interface.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NatWest APIs",
+      "role": "Provide the bank-specific calculations and mortgage data used to estimate borrowing, test affordability and deposit scenarios, and return tailored rates.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Users ask mortgage or remortgage questions in the NatWest app inside ChatGPT. ChatGPT passes customer-provided inputs such as income and monthly outgoings to publicly available NatWest APIs, which return borrowing estimates, affordability and deposit-scenario calculations, and tailored mortgage rates. The grounded response is delivered back in the chat, then users are directed into NatWest-owned advice, appointment, or digital mortgage application channels.",
+  "integration_points": [
+    "ChatGPT app store",
+    "NatWest APIs",
+    "NatWest-owned channels for specialist advice",
+    "NatWest colleague support appointments",
+    "NatWest digital mortgage applications"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "NatWest extended mortgage guidance into ChatGPT so customers and non-customers can explore borrowing, affordability, deposit, and remortgage options in a more personalized and accessible way, then move into NatWest advice and digital application channels for next steps.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "NatWest says the experience is delivered as an app in the ChatGPT app store.",
+    "Conversations within the app are clearly branded as NatWest.",
+    "The implementation is grounded on publicly available NatWest APIs rather than generic model responses alone.",
+    "The release describes handoff from ChatGPT to NatWest-owned channels for advice, appointments, and digital applications.",
+    "No separate storage layer, deployment topology, or model-hosting details are disclosed in the source."
+  ],
+  "source_url": "https://www.natwestgroup.com/news-and-insights/news-room/press-releases/ai-and-data/2026/apr/natwest-becomes-first-uk-bank-to-launch-trusted-home-buying-advi.html",
+  "published_date": "2026-04-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"NatWest Group has announced that it has become the first UK bank to offer an app in ChatGPT, providing NatWest-specific home-buying and re-mortgage guidance.\"",
+    "\"customers and non-customers can add and tag the bank in a query to receive NatWest-specific mortgage and home-buying guidance without having to leave the platform.\"",
+    "\"ChatGPT drawing on publicly available NatWest APIs to calculate how much they could borrow, test affordability and deposit scenarios, and receive tailored mortgage rates.\"",
+    "\"Users will then be signposted to NatWest-owned channels to take the next steps, including to access specialist advice, appointments for colleague support or digital mortgage applications.\"",
+    "\"we’re giving consumers more choice in how they explore their options in a more personalised and accessible way.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,80 @@
+{
+  "id": "in-house-bnp-paribas-cardif-call-analyzer-customer-call-analysis",
+  "slug": "in-house-bnp-paribas-cardif-call-analyzer-customer-call-analysis",
+  "vendor": "In-house",
+  "customer_name": "BNP Paribas Cardif",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "BNP Paribas Cardif handles more than 20 million customer phone calls each year, but manual review was too limited and slow to extract actionable insight from conversations for service improvement, product fit checks, and customer journey optimization.",
+  "solution_summary": "BNP Paribas Cardif built an in-house AI solution called Call Analyzer to industrialize analysis of customer phone conversations. The implementation starts with call audio files sent to the application through an API. Call Analyzer uses speech-to-text AI models to transcribe recordings into text, then applies AI analysis to the transcripts to examine vocabulary, speech speed, lexical field, and other conversation signals. The processed outputs are converted into statistics and verbatim comments that feed dashboards in data visualization tools. Those dashboards are consumed by marketing and customer operations teams to monitor KPIs, identify service issues, refine telephone insurance subscription processes, and assess whether products sold over the phone match customer needs. The platform is already operating across several Latin American countries and is being deployed more broadly in Europe, with newer generative AI capabilities now added to deepen analysis.",
+  "products_used": [
+    "Call Analyzer",
+    "Speech to Text artificial intelligence models",
+    "data visualization tools"
+  ],
+  "solution_components": [
+    {
+      "name": "Call Analyzer",
+      "role": "In-house application that receives call recordings, orchestrates transcript analysis, and produces statistics and verbatim outputs for operational review.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Speech to Text artificial intelligence models",
+      "role": "AI models that transcribe customer call audio files into text for downstream analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "data visualization tools",
+      "role": "Dashboarding layer used by business teams to monitor KPIs and act on the analyzed conversation data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer call audio files are sent via an API into Call Analyzer, where speech-to-text AI models transcribe the recordings into text. The system then analyzes transcript content such as vocabulary, speech speed, and lexical field, and turns the results into statistics and verbatim comments that are surfaced in dashboards for marketing and customer operations teams.",
+  "integration_points": [
+    "API for ingesting audio files",
+    "Customer phone call audio files",
+    "Marketing teams",
+    "Customer operations teams",
+    "Dashboards in data visualization tools"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The solution enables faster, broader analysis of customer conversations so BNP Paribas Cardif can improve service quality, optimize telephone insurance processes, strengthen customer loyalty actions, fine-tune sales training, and improve products based on policyholder feedback such as cancellation reasons.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "More than 20 million customer phone calls are handled every year",
+    "At least 30 minutes of listening and analysis for a 15-minute telephone call",
+    "over 10,000 calls in 3 months"
+  ],
+  "architecture_clues": [
+    "Built by the Analytics and IT teams at BNP Paribas Cardif",
+    "Deployed in several Latin American countries and expanding into Europe",
+    "Uses API-based ingestion of audio files",
+    "Produces statistics and verbatim comments for dashboard consumption"
+  ],
+  "source_url": "https://group.bnpparibas/en/news/ai-at-bnp-paribas-2-analyzing-telephone-conversations-with-bnp-paribas-cardif-customers-to-improve-service-quality",
+  "published_date": "2025-02-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"More than 20 million customer phone calls are handled by BNP Paribas Cardif ... and its partners every year.\"",
+    "\"Before artificial intelligence came along, the ability to listen to these calls was limited and time-consuming: at least 30 minutes of listening and analysis for a 15-minute telephone call.\"",
+    "\"Via an API (Application Programming Interface), Call Analyzer receives audio files and transcribes them into text using so-called 'Speech to Text' artificial intelligence models.\"",
+    "\"Then the solution uses AI to analyze the content of these transcripts by looking at vocabulary, speed of speech and lexical field, etc.\"",
+    "\"Call Analyzer ultimately generates statistics and verbatim comments that can be used to create dashboards\"",
+    "\"BNP Paribas Cardif in Peru successfully analyzed over 10,000 calls in 3 months.\"",
+    "\"Call Analyzer now uses some of the capabilities offered by generative AI\""
+  ],
+  "source_type": "company"
+}

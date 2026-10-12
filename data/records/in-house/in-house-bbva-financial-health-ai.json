@@ -1,0 +1,105 @@
+{
+  "id": "in-house-bbva-financial-health-ai",
+  "slug": "in-house-bbva-financial-health-ai",
+  "vendor": "In-house",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA needed to help customers manage spending, savings, investments, and future outgoings with personalized guidance, while also coping with inconsistent transaction data from other banks that was too sparse for simple rule-based categorization.",
+  "solution_summary": "BBVA built an AI-driven financial health workflow around its BBVA app and transactional website to turn raw banking activity into personalized guidance. The serving layer is the customer-facing app, website, and Budgets experience, where users see categorized spending, savings and investment views, forward-looking cash-flow estimates, and alerts. Upstream, BBVA ingests account and card transactions from its own systems plus aggregated transaction records from other banks when customers request it, along with comments left inside the financial health features. Compute is split by data quality: deterministic algorithms classify richly described BBVA transactions in real time, while a neural network model using NLP infers categories from sparse external-bank descriptions. BBVA also uses advanced analytics for segmentation, language models to mine feedback themes, ensemble machine learning to forecast recurring transactions, and an account balance prediction model to flag deviations. The source does not name a separate storage platform.",
+  "products_used": [
+    "BBVA app",
+    "transactional website",
+    "Budgets",
+    "neural network model",
+    "language models",
+    "ensemble machine learning",
+    "account balance prediction model"
+  ],
+  "solution_components": [
+    {
+      "name": "BBVA app",
+      "role": "Serves categorized transactions, forecasts, balance expectations, and alerts to customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "transactional website",
+      "role": "Provides the same financial health experiences and transaction views through BBVA's web channel.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Budgets",
+      "role": "Is surfaced to customer segments that need help making ends meet.",
+      "layer": "Serving"
+    },
+    {
+      "name": "neural network model",
+      "role": "Infers categories for aggregated transactions from other banks using transaction descriptions and other limited fields.",
+      "layer": "Compute"
+    },
+    {
+      "name": "language models",
+      "role": "Extract positive and negative themes from customer comments to improve financial health proposals.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ensemble machine learning",
+      "role": "Predicts future transactions, expected amounts, and dates by combining multiple models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "account balance prediction model",
+      "role": "Uses a neural network to forecast balance evolution and detect out-of-the-ordinary values.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "BBVA pulls account and card transactions from its own banking systems and, when authorized, aggregated transaction data from other banks into classification pipelines. Deterministic rules process detailed BBVA records, while a neural network with NLP interprets sparse external descriptions. The resulting categories, forecasts, segments, and anomaly signals are served through the BBVA app, transactional website, and Budgets tools, where customer edits and comments feed back into model improvement.",
+  "integration_points": [
+    "BBVA account and card transaction systems",
+    "Aggregated transaction data from other banks",
+    "Customer comments submitted within BBVA financial health features",
+    "BBVA mobile app users",
+    "BBVA website users"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "BBVA increased engagement with its digital financial health features and improved customer satisfaction by providing real-time transaction categorization, more tailored financial proposals, forward-looking expense forecasts, and alerts on unusual bills or balance deviations.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [
+    "six out of ten digital users leverage these features",
+    "satisfaction rates nearly 24% higher than non-digital users",
+    "70 million times in Q1 2024, a 23 percent year-over-year increase",
+    "391 million interactions with these features across all the countries where BBVA is present, 49% more than in the same period in 2023"
+  ],
+  "architecture_clues": [
+    "Since June 2023, in Spain, credit card transactions are classified in real time.",
+    "Manual reclassifications by customers also apply instantly.",
+    "Other-bank transaction records are typically limited to bank identifier, transaction type, amount, and a variable description.",
+    "Forecasts cover the current month and the next month.",
+    "The account balance prediction model generates predictions at different probability levels and supports long-term predictions that reflect expected variability."
+  ],
+  "source_url": "https://www.bbva.com/en/innovation/what-ai-algorithms-does-bbva-use-to-boost-its-customers-finances/",
+  "published_date": "2024-08-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BBVA customers are increasingly using the bank's app and website to track spending, make informed financial decisions, and boost savings.\"",
+    "\"BBVA's app and transactional website categorize banking transactions into spending, income, and savings/investment, including accounts from BBVA and other banks upon request.\"",
+    "\"Since June 2023, in Spain, credit card transactions are classified in real time, showing customers how each expense impacts their income and its category immediately.\"",
+    "\"With such inconsistent data, we needed a model to infer categories from descriptions,\" says María Ruiz.",
+    "\"BBVA developed a neural network model, inspired by brain processes and adept at natural language processing (NLP) tasks.\"",
+    "\"Using ensemble machine learning, which combines multiple models, BBVA predicts future transactions, their amounts, and dates.\"",
+    "\"BBVA has also developed an account balance prediction model that allows estimating its future evolution and detecting out-of-the-ordinary values.\"",
+    "\"Spanish customers interacted with AI features 70 million times in Q1 2024, a 23 percent year-over-year increase.\"",
+    "\"This strong adoption highlights AI's potential in personal finance. BBVA's data scientists use advanced algorithms and AI models to enhance these financial health features, driving higher engagement and satisfaction.\""
+  ],
+  "source_type": "company"
+}

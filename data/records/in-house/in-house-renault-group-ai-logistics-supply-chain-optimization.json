@@ -1,0 +1,125 @@
+{
+  "id": "in-house-renault-group-ai-logistics-supply-chain-optimization",
+  "slug": "in-house-renault-group-ai-logistics-supply-chain-optimization",
+  "vendor": "In-house",
+  "customer_name": "Renault Group",
+  "industry": "Automotive",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Renault Group needs to manage highly complex inbound and outbound logistics across more than 100,000 parts, more than 4,000 direct suppliers, 25 manufacturing sites in 11 countries, and global vehicle distribution, while coping with regulation, electrification, decarbonization goals, and political, economic, and climate disruptions.",
+  "solution_summary": "Renault Group built an internal portfolio of AI-driven supply-chain tools to improve logistics decisions across inbound parts flows and outbound vehicle distribution. The implementation uses operational data from supplier deliveries, transport capacity, route constraints, order signals, and disruption events, then applies different AI methods depending on the use case. OPTIM3D generates truck-loading plans that maximize trailer utilization and can be shared directly with suppliers. OPTIMROUTE computes route choices using distance, cost, and time constraints. U-PREDICT estimates transport costs in real time during delays or incidents so planners can choose the least harmful response. SIMILAR PART RECOMMENDER supports documentation and pre-project work by proposing comparable parts, while MEDIA SCREENING analyzes current events to identify strikes, natural disasters, and other supply risks. CHABOTS are embedded in digital tools to answer frequent user questions, and several capabilities are surfaced through Renault's Business Continuity Plan, Parts Logistics, and Vehicle Logistics Control Towers. The source does not identify a separate storage platform or external cloud/AI vendor.",
+  "products_used": [
+    "OPTIM3D",
+    "OPTIMROUTE",
+    "U-PREDICT",
+    "SIMILAR PART RECOMMENDER",
+    "MEDIA SCREENING",
+    "CHABOTS",
+    "Business Continuity Plan (BCP) Control Tower",
+    "Parts Logistics Control Tower",
+    "Vehicle Logistics Control Tower"
+  ],
+  "solution_components": [
+    {
+      "name": "OPTIM3D",
+      "role": "Maximizes truck space utilization for parts shipments between suppliers and factories and produces loading plans for suppliers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OPTIMROUTE",
+      "role": "Calculates the best transport routes for parts using distance, cost, and time constraints.",
+      "layer": "Compute"
+    },
+    {
+      "name": "U-PREDICT",
+      "role": "Estimates transport costs in real time so teams can make informed decisions during delays or incidents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SIMILAR PART RECOMMENDER",
+      "role": "Suggests similar parts during documentation and vehicle pre-project work.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MEDIA SCREENING",
+      "role": "Analyzes current events to detect strikes, natural disasters, and other incidents that could affect suppliers and logistics flows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CHABOTS",
+      "role": "Answer frequent user questions inside Renault's digital tools so experts can focus on more complex cases.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Business Continuity Plan (BCP) Control Tower",
+      "role": "Monitors supplier-ecosystem resilience and operationalizes some of Renault's AI tools in daily logistics management.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Parts Logistics Control Tower",
+      "role": "Monitors part-delivery performance to factories and serves AI-assisted operational oversight.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vehicle Logistics Control Tower",
+      "role": "Monitors vehicle delivery performance to customers and serves AI-assisted operational oversight.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Supplier, transport, order, and disruption data feed Renault's internal AI tools. OPTIM3D turns shipment requirements into loading plans for suppliers, OPTIMROUTE computes route options, U-PREDICT evaluates real-time transport-cost scenarios, and MEDIA SCREENING ingests current events to flag risks. Outputs are consumed by logistics teams through CHABOTS and the three Logistics Control Towers, and by suppliers and dealers in day-to-day operations.",
+  "integration_points": [
+    "4,000 direct suppliers",
+    "tier 1 and tier N suppliers",
+    "25 manufacturing sites",
+    "dealers and points of sale",
+    "current-events sources monitored by MEDIA SCREENING",
+    "three Logistics Control Towers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Risk Management"
+  ],
+  "business_outcome": "Renault reports lower transport and stock-management costs, faster reaction to disruptions, better continuity of production, and lower CO2 emissions through optimized truck loading, route planning, cost prediction, and risk detection.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "more than 100,000 different parts",
+    "more than 4,000 direct suppliers",
+    "25 manufacturing sites",
+    "11 different countries",
+    "10,000 per day",
+    "1,200 lorries",
+    "1,000 ships every day",
+    "140 countries",
+    "savings of around €20 million",
+    "reduced its CO2 emissions by around 20,000 tonnes between 2021 and 2024"
+  ],
+  "architecture_clues": [
+    "A dedicated Supply Chain team designs, deploys, and maintains digital processes and AI solutions for operational performance.",
+    "Some tools are implemented in three Logistics Control Towers: Business Continuity Plan, Parts Logistics, and Vehicle Logistics.",
+    "Renault Digital's Applied Artificial Intelligence team supports operational-research-heavy developments.",
+    "A five-year partnership with CERMICS (2023-2028) supports research, consulting, training, and reusable code bricks.",
+    "OPTIM3D loading plans are shared with suppliers to support execution."
+  ],
+  "source_url": "https://www.renaultgroup.com/en/magazine/technology/artificial-intelligence-in-logistics-driving-our-industrial-performance/",
+  "published_date": "2025-10-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Managing Renault Group's logistics flows is a real daily challenge. It involves delivering more than 100,000 different parts, supplied by more than 4,000 direct suppliers.\"",
+    "\"The OPTIM3D tool, deployed since 2020, maximises space utilisation in trucks transporting parts between our suppliers and our factories.\"",
+    "\"The OPTIMROUTE tool, deployed in 2023, calculates the best routes for transporting parts, taking into account distances, costs and time constraints.\"",
+    "\"The U-PREDICT tool, deployed in 2023, estimates transport costs in real time, enabling informed decisions to be made in the event of problems (delays, incidents, etc.).\"",
+    "\"The MEDIA SCREENING tool, deployed in 2024, analyses current events to detect incidents (strikes, natural disasters, etc.) that could impact the supply chain.\"",
+    "\"Thanks to these two tools, Renault Group has achieved savings of around €20 million and reduced its CO2 emissions by around 20,000 tonnes between 2021 and 2024.\"",
+    "\"Machine learning, operational research and generative AI: these three artificial intelligence technologies are used in our supply chain management tools, depending on the use cases to be addressed.\""
+  ],
+  "source_type": "company"
+}

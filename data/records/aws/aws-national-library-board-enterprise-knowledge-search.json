@@ -1,0 +1,84 @@
+{
+  "id": "aws-national-library-board-enterprise-knowledge-search",
+  "slug": "aws-national-library-board-enterprise-knowledge-search",
+  "vendor": "AWS",
+  "customer_name": "National Library Board",
+  "industry": "Public Sector",
+  "region": "Singapore",
+  "company_size": "Public sector",
+  "business_problem": "As the National Archives of Singapore prepared to release newly declassified records from The Albatross File, the National Library Board needed to broaden public access to historically important archives without compromising the accuracy, context, and authority required for those records.",
+  "solution_summary": "National Library Board, through the National Archives of Singapore, worked with Accenture to build ChatBook @ The Albatross File on AWS as a governed generative AI archive experience. The implementation began by taking source materials from The Albatross File together with related newspaper articles, oral histories, and video, then standardizing those disparate formats into a structured, searchable knowledge base. That knowledge base was connected to Amazon Bedrock so the application could retrieve only relevant archival evidence when answering visitor questions. Within that controlled workflow, Anthropic foundation models generated natural-language responses bounded by the selected records. Accenture also built the user interface, question interpretation, and evidence-selection logic, plus rules that suppress answers when the archive does not support a clear response. The finished system serves answers instantly on exhibit screens, links each answer back to underlying sources, and provides a reusable model NLB can extend to future archive collections.",
+  "products_used": [
+    "AWS",
+    "Amazon Bedrock",
+    "Anthropic foundation models",
+    "ChatBook @ The Albatross File"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS",
+      "role": "Provides the cloud environment on which the ChatBook application and its governed archive experience were built."
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Connects the knowledge base to foundation models and constrains responses to relevant archival records.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Anthropic foundation models",
+      "role": "Generate natural-language answers within the Bedrock workflow while staying grounded in verified archive content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatBook @ The Albatross File",
+      "role": "Serves as the visitor-facing AI chat service and exhibit interface that accepts plain-language questions and displays source-linked answers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Materials from The Albatross File, plus related newspaper articles, oral histories, and video, are standardized into a structured knowledge base on AWS. Visitor questions from ChatBook are processed through Amazon Bedrock, which selects relevant archival evidence and invokes Anthropic foundation models within those boundaries. The system returns answers to the exhibit interface with links to the underlying sources and explanations of their relevance.",
+  "integration_points": [
+    "The Albatross File records",
+    "Related newspaper articles",
+    "Oral histories",
+    "Video content",
+    "Large-screen exhibit displays"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "NLB turned a static archival display into an interactive, evidence-grounded public experience that let visitors explore Singapore's independence records through their own questions while preserving trust and archival integrity. The exhibit drew strong public engagement and established a governed model NLB can reuse across future collections.",
+  "outcome_category": [
+    "Customer Experience",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "100K visitors generating 90,000+ questions through the ChatBook in 5 months",
+    "4K bookings before opening"
+  ],
+  "architecture_clues": [
+    "Responses are displayed instantly on large screens in the exhibit space.",
+    "Each answer links to the underlying archival sources and explains their relevance.",
+    "The system answers only when a question can be resolved through the archival record.",
+    "Where evidence is ambiguous or attribution is contested, the system does not interpret.",
+    "The governed model is designed to extend across future archive collections."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/ai-data/national-library-board",
+  "published_date": "2026-09-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"NLB faced a defining choice: how to broaden access without compromising the accuracy and authority those archives must uphold.\"",
+    "\"The team transformed materials from The Albatross File, as well as related newspaper articles, oral histories, and video, into a structured, searchable knowledge base\"",
+    "\"The knowledge base was then connected to Amazon Bedrock, enabling ChatBook to draw only from relevant archival records when addressing visitor questions.\"",
+    "\"Every answer is grounded in the collection, with Anthropic foundation models operating within those boundaries.\"",
+    "\"It answers only when a question can be resolved through the archival record.\"",
+    "\"100K visitors generating 90,000+ questions through the ChatBook in 5 months\"",
+    "\"4K bookings before opening\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,75 @@
+{
+  "id": "in-house-att-agentic-ai-workflows-customer-service-network-operations",
+  "slug": "in-house-att-agentic-ai-workflows-customer-service-network-operations",
+  "vendor": "In-house",
+  "customer_name": "AT&T",
+  "industry": "Telecommunications",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "AT&T needed a way for teams to automate time-consuming customer service and network-operations tasks across multiple internal systems while keeping humans in control and maintaining privacy, security, and faster response for customers.",
+  "solution_summary": "AT&T uses Ask AT&T Workflows, an internal extension of its Ask AT&T platform, to let employees design multi-agent workflows through a graphical drag-and-drop builder instead of coding each automation from scratch. In the first production deployment, AT&T Business and technology development teams configured agents to accept customer service update requests, synchronize data across internal systems, and auto-install information in real time, with humans overseeing required checkpoints. For retrieval and context, the agents pull enterprise information from Ask Docs and Ask Data, AT&T’s proprietary GenAI tools that securely house company knowledge and data. The same pattern is applied to network operations: agents ingest alerts and telemetry, correlate issue location, retrieve recent change logs and known-issue records, open trouble tickets, propose remediations, and assemble resolution artifacts for engineer review. Logging, data isolation, retention policies, and role-based access govern each handoff between agents.",
+  "products_used": [
+    "Ask AT&T Workflows",
+    "Ask Docs",
+    "Ask Data"
+  ],
+  "solution_components": [
+    {
+      "name": "Ask AT&T Workflows",
+      "role": "Provides the graphical builder and orchestration layer employees use to create and run multi-agent workflows for customer service and network operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Ask Docs",
+      "role": "Supplies securely housed AT&T information that agents retrieve to inform decisions and actions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Ask Data",
+      "role": "Supplies securely housed AT&T data that agents query during workflow execution for informed actions.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Employee-built agents created in Ask AT&T Workflows ingest customer service requests or network alerts, pull enterprise context from Ask Docs and Ask Data plus telemetry, change logs, and known-issue records, then coordinate actions such as synchronizing records, auto-installing information, opening trouble tickets, proposing fixes, and compiling summaries for human review.",
+  "integration_points": [
+    "AT&T customer service systems",
+    "network telemetry feeds",
+    "change logs",
+    "known-issue records",
+    "trouble-ticketing system"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "AT&T reports that the first production workflow is delivering value at scale by improving customer experience, reducing wait times, helping employees focus on higher-priority work, and enabling faster response to network incidents.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "A human oversees the chain of agents and required checkpoints throughout execution.",
+    "Agents operate within AT&T's ecosystem and can hand work from one agent to the next.",
+    "Every action taken by the agents is logged.",
+    "Data isolation, retention policies, and role-based access are enforced across agent handoffs.",
+    "Network-operations agents can correlate telemetry, inspect change logs and known issues, open tickets, draft code patches, and compile post-incident artifacts."
+  ],
+  "source_url": "https://about.att.com/blogs/2025/agentic-ai.html",
+  "source_type": "company",
+  "published_date": "2025-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Ask AT&T Workflows gives teams a graphical drag-and-drop agent builder.\"",
+    "\"The first in-production tool built with Ask AT&T Workflows is already proving its value at scale.\"",
+    "\"AI agents can take customer service update requests, synchronize data across systems, and auto-install information in real time.\"",
+    "\"These agents work within AT&T’s ecosystem, able to pull information and data from Ask Docs and Ask Data, our proprietary GenAI tools that securely house AT&T information, to give uniquely informed insights and actions.\"",
+    "\"Every action the agents take is logged, and when one agent passes off a workload to the next, data isolation, retention policies and role-based access are enforced.\"",
+    "\"An agent can correlate telemetry to identify the location of the alert’s issue, pull recent change logs, check for known issues, and open a trouble ticket.\""
+  ]
+}

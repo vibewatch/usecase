@@ -1,0 +1,91 @@
+{
+  "id": "in-house-thomson-reuters-thomson-cocounsel-tabular-analysis",
+  "slug": "in-house-thomson-reuters-thomson-cocounsel-tabular-analysis",
+  "vendor": "In-house",
+  "customer_name": "Thomson Reuters",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "General-purpose LLMs can produce subtle but consequential errors in legal and compliance work, where professionals need trustworthy, citation-backed analysis across very large document sets.",
+  "solution_summary": "Thomson Reuters built Thomson as a proprietary large language model for legal and compliance work, then deployed it inside CoCounsel rather than exposing the model as a standalone end-user product. The source says Thomson was built on Thomson Reuters proprietary legal content, specifically Westlaw and Practical Law, plus input from human legal experts, giving the model domain depth beyond general-purpose AI. In production, CoCounsel serves as the agentic workspace and application layer, and its Tabular Analysis feature orchestrates the workflow: users define up to 100 questions and submit up to 10,000 documents, then CoCounsel calls Thomson to extract structured answers with linked citations. The page does not name a separate storage platform, but it explicitly identifies Westlaw and Practical Law as the authoritative content foundation and says Thomson is governed through enterprise-grade frameworks for transparency, traceability, verifiability, structured evaluation, and expert validation.",
+  "products_used": [
+    "Thomson",
+    "CoCounsel",
+    "Tabular Analysis",
+    "Westlaw",
+    "Practical Law"
+  ],
+  "solution_components": [
+    {
+      "name": "Thomson",
+      "role": "Proprietary LLM that provides legal comprehension, reasoning, and citation-grounded extraction for high-stakes professional workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CoCounsel",
+      "role": "User-facing agentic workspace that invokes Thomson within legal workflows used by professionals every day.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Tabular Analysis",
+      "role": "CoCounsel feature that runs large-scale structured extraction across document sets and user-defined questions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Westlaw",
+      "role": "Authoritative proprietary legal content used to build and deepen Thomson's legal understanding.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Practical Law",
+      "role": "Proprietary legal content source used to build and refine Thomson for professional legal tasks.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Authoritative legal content from Westlaw and Practical Law, together with Thomson Reuters expert input, is used to build and refine Thomson. In production, legal professionals use CoCounsel's Tabular Analysis to submit up to 10,000 documents and up to 100 questions. CoCounsel calls Thomson to analyze the corpus and return structured, citation-linked answers that attorneys can review and rely on.",
+  "integration_points": [
+    "Westlaw",
+    "Practical Law"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Thomson Reuters launched Thomson in production to power CoCounsel Legal's Tabular Analysis, enabling scalable, more consistent and verifiable document analysis for legal professionals while supporting broad commercial adoption of its GenAI-enabled legal products.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "up to 10,000 documents",
+    "up to 100 questions you define",
+    "As of Q1 2026, CoCounsel has crossed one million users",
+    "The share of our business that's Gen AI-enabled has doubled in a little over a year",
+    "Monthly CoCounsel SKUs in legal have quadrupled year-over-year"
+  ],
+  "architecture_clues": [
+    "Thomson is one of the LLMs that CoCounsel calls on rather than the end-user product itself.",
+    "First implementation launched in CoCounsel Legal's Tabular Analysis feature.",
+    "The model was built on open-source foundations that Thomson Reuters can evolve over time.",
+    "Outputs are described as verifiable and citation-grounded for attorney review.",
+    "Deployment is governed within enterprise-grade frameworks grounded in transparency, traceability, verifiability, structured evaluation, and expert validation."
+  ],
+  "source_url": "https://www.thomsonreuters.com/en-us/blog/why-we-built-thomson-llm/",
+  "published_date": "2026-09-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Thomson Reuters built Thomson, a proprietary LLM designed specifically for high-stakes legal and compliance work.\"",
+    "\"It was built on our proprietary content, including Westlaw and Practical Law, two of the most authoritative legal data sources in the world, and reflects input from our vast network of human legal experts.\"",
+    "\"CoCounsel is the product — the agentic workspace, skills, and workflows legal professionals use every day. Thomson is one of the LLMs CoCounsel calls on.\"",
+    "\"You can extract structured answers from up to 10,000 documents across up to 100 questions you define.\"",
+    "\"As of Q1 2026, CoCounsel has crossed one million users.\"",
+    "\"Monthly CoCounsel SKUs in legal have quadrupled year-over-year.\""
+  ],
+  "source_type": "company"
+}

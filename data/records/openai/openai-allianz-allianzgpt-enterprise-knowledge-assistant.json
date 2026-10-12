@@ -1,0 +1,111 @@
+{
+  "id": "openai-allianz-allianzgpt-enterprise-knowledge-assistant",
+  "slug": "openai-allianz-allianzgpt-enterprise-knowledge-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "Allianz",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Allianz needed a secure, compliant way for employees to use generative AI with internal company content in daily workflows without exposing data to public models or violating ethical AI, compliance, and privacy standards.",
+  "solution_summary": "Allianz built AllianzGPT as an internal generative AI platform for employee workflows and launched it globally in September 2023. The application serves as the user-facing layer for chat, document analysis, translation, summarization, comparisons, and communication support. It ingests prompts together with internal Allianz content and company documents, including content stored in folder and subfolder structures, then routes requests to ring-fenced model instances rather than public services. The initial release used OpenAI's GPT-3.5, and the platform later added OpenAI GPT-4o for chat, DALL-E for image creation, and DeepSeek for additional experimentation. Allianz states that all data shared with these models remains inside the Allianz Azure Cloud provided by Microsoft, which supplies the protected hosting environment for confidential processing. The platform is delivered in Standard and Premium tiers, with Premium instances tailored to functions such as audit, risk consulting, and actuarial work.",
+  "products_used": [
+    "AllianzGPT",
+    "OpenAI's GPT-3.5",
+    "OpenAI GPT-4o",
+    "DALL-E",
+    "DeepSeek",
+    "Allianz Azure Cloud",
+    "AllianzGPT Standard",
+    "AllianzGPT Premium"
+  ],
+  "solution_components": [
+    {
+      "name": "AllianzGPT",
+      "role": "Allianz's internal chatbot provides employees with secure generative AI access, tailored responses, document analysis, and actionable insights.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI's GPT-3.5",
+      "role": "It powered the initial version of AllianzGPT for text generation and language understanding.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI GPT-4o",
+      "role": "It is the current chat model offered within AllianzGPT for employee interactions and task support.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DALL-E",
+      "role": "It provides image creation capabilities inside the AllianzGPT environment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DeepSeek",
+      "role": "It is offered as a ring-fenced internal model so employees can safely test and assess another generative AI option.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Allianz Azure Cloud",
+      "role": "It hosts the protected environment where Allianz says all information shared with AllianzGPT models remains confidential.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AllianzGPT Standard",
+      "role": "It is the general productivity tier available to all employees for everyday AI-assisted work.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AllianzGPT Premium",
+      "role": "It is the specialized tier for functions such as audit, risk consulting, actuarial, and other business areas.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Employees submit prompts and internal documents or knowledge through AllianzGPT, which combines that internal content with ring-fenced model access to GPT-3.5, GPT-4o, DALL-E, or DeepSeek inside the Allianz Azure Cloud. The system analyzes company content, generates responses or document outputs, and returns answers with references such as document sources and page numbers for user verification.",
+  "integration_points": [
+    "Allianz internal content",
+    "Allianz systems",
+    "internal folder and subfolder document structures"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "AllianzGPT gives employees a secure, compliant way to use generative AI at scale, cutting time for summarization, translation, and comparison tasks from hours or days to minutes or seconds while broadening AI adoption across functions such as risk consulting, audit, and actuarial work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 60,000 active users",
+    "all 158,000 Allianz employees worldwide",
+    "weekly engagement usage rate of 95% among active users",
+    "over ten million prompts to date",
+    "sixty instances of AllianzGPT Premium across Allianz"
+  ],
+  "architecture_clues": [
+    "Ring-fenced internal versions of GPT-4o, DALL-E, and DeepSeek are separate from vendors' public cloud services.",
+    "All information shared with models in AllianzGPT stays within the Allianz Azure Cloud.",
+    "The platform has two tiers: AllianzGPT Standard and AllianzGPT Premium.",
+    "Premium supports specific functions including audit, Risk Consulting, and actuarial.",
+    "Responses are designed to include document sources and page numbers for explainability and cross-checking."
+  ],
+  "source_url": "https://www.allianz.com/en/mediacenter/news/articles/250218-ai-at-allianz-the-impact-of-allianzgpt.html",
+  "published_date": "2025-02-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"AllianzGPT, Allianz’s internal chat bot, combines the power of generative AI with secure, internal data integration.\"",
+    "\"Officially launched on September 1, 2023, AllianzGPT now serves over 60,000 active users, with the goal of being available to all 158,000 Allianz employees worldwide.\"",
+    "\"The initial version was based on OpenAI’s GPT-3.5\"",
+    "\"As of early 2025, AllianzGPT offers OpenAI GPT-4o for chat and DALL-E for image creation.\"",
+    "\"All information that’s shared with any of the models in AllianzGPT stays within the Allianz Azure Cloud. The Azure cloud environment, provided by Microsoft, ensures data confidentiality.\"",
+    "\"Tasks that previously took hours or even days, such as document summarization, translation, and complex comparisons, are now being completed within minutes or even seconds.\"",
+    "\"We have a weekly engagement usage rate of 95% among active users, who have generated over ten million prompts to date.\"",
+    "\"The platform strictly adheres to compliance and data privacy standards.\""
+  ],
+  "source_type": "company"
+}

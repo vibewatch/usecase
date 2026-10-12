@@ -1,0 +1,82 @@
+{
+  "id": "sprinklr-bt-group-customer-service-automation",
+  "slug": "sprinklr-bt-group-customer-service-automation",
+  "vendor": "Sprinklr",
+  "customer_name": "BT Group",
+  "industry": "Telecommunications",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "BT Group needed to improve customer support across EE, BT, Business, Consumer, and internal contact channels by giving customers faster, more personalized answers while reducing the load on guides for routine issues such as travel support and billing queries.",
+  "solution_summary": "BT Group rebuilt customer support around Sprinklr's unified customer experience platform, which sits behind EE's virtual assistant Aimee and the real-time online chat experience for EE and BT customers. When a customer seeks help, the platform draws on BT Group's data to generate personalised and accurate responses, including travel-support guidance and detailed billing explanations, and it can enrich conversations with product cards and carousels. BT hosts the AI capabilities on a private cloud instance and uses its internal Data Fabric platform to set data policies, privacy controls, and governance for the data used by the system. The architecture is LLM-agnostic, allowing BT Group to choose different large language models for different use cases while using the same contact platform to support customer interactions and free guides to focus on more complex cases.",
+  "products_used": [
+    "Sprinklr's unified customer experience platform",
+    "Aimee",
+    "Data Fabric"
+  ],
+  "solution_components": [
+    {
+      "name": "Sprinklr's unified customer experience platform",
+      "role": "Provides the customer contact platform that draws on BT Group data, powers Aimee, supports real-time chat, and delivers AI-enhanced sales and support experiences.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Aimee",
+      "role": "Acts as EE's virtual assistant, handling customer conversations for support journeys such as international travel help and billing explanations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Data Fabric",
+      "role": "Sets BT Group's internal data policies and governance controls for the data used by the AI capabilities.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer questions arrive through Aimee or BT/EE online chat. Sprinklr's platform combines the interaction context with BT Group data to generate personalised answers, billing explanations, travel-support guidance, and rich media responses. The result is served back through chat, while harder cases are handled by guides. Data access is governed by Data Fabric, and the AI stack runs in a private cloud instance with safeguards to monitor misuse attempts.",
+  "integration_points": [
+    "BT Group data sources",
+    "EE customer support channels",
+    "BT customer support channels",
+    "Business, Consumer and internal contact channels"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "BT Group increased automated support volume and improved customer experience by using Aimee and generative AI to handle more conversations, explain billing charges more clearly, reduce live-chat demand for some journeys, and free guides to focus on more complex issues.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "Aimee now handles up to 60,000 customer conversations per week",
+    "automation success rates on several types of customer journey now approaching 50%",
+    "the Gen AI-enhanced experience within Aimee which helps customers prepare for international travel has halved the need for online chat/messaging support",
+    "Over 30 separate customer experiences have been defined within Aimee so far",
+    "Aimee's use has risen 51% year on year",
+    "~60,000 conversations per week are now handled through Aimee compared to ~30,000 per week just two years ago"
+  ],
+  "architecture_clues": [
+    "AI capabilities are hosted on a private cloud instance.",
+    "BT Group remains agnostic about which Large Language Model (LLM) it uses and can select the optimal LLM for each use case.",
+    "Safeguards are in place to monitor attempts to get the AI to misbehave.",
+    "BT Group said the architecture will integrate with its new GenAI Gateway in the future."
+  ],
+  "source_url": "https://newsroom.bt.com/bt-group-leans-on-ai-to-transform-customer-service-experience/",
+  "published_date": "2024-12-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BT Group is transforming customer support through the integration of advanced AI and generative AI technologies, in collaboration with Sprinklr.\"",
+    "\"BT Group has integrated Sprinklr's unified customer experience platform, meaning when a customer is seeking support, the platform can draw on BT Group's data to provide a personalised, accurate response.\"",
+    "\"The customer contact platform, which powers EE's virtual assistant Aimee, also provides the messaging capability for real-time online chat with customers.\"",
+    "\"the Gen AI-enhanced experience within Aimee which helps customers prepare for international travel has halved the need for online chat/messaging support\"",
+    "\"~60,000 conversations per week are now handled through Aimee compared to ~30,000 per week just two years ago.\"",
+    "\"AI capabilities are hosted on a private cloud instance, ensuring compliance with data and privacy regulations, and data policies are set by BT Group's internal data management platform, Data Fabric.\"",
+    "\"BT Group remains agnostic about which Large Language Model (LLM) it uses in generative AI, continuing to draw on different LLMs.\""
+  ],
+  "source_type": "company"
+}

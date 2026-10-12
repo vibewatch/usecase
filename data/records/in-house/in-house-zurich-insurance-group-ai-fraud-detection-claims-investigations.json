@@ -1,0 +1,84 @@
+{
+  "id": "in-house-zurich-insurance-group-ai-fraud-detection-claims-investigations",
+  "slug": "in-house-zurich-insurance-group-ai-fraud-detection-claims-investigations",
+  "vendor": "In-house",
+  "customer_name": "Zurich Insurance Group",
+  "industry": "Financial Services",
+  "region": "Switzerland and Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Zurich needed to review very large claims volumes more efficiently, reduce investigator drudgery and false positives, and detect fraudulent claims and emerging fraud patterns quickly enough to protect honest customers and contain unnecessary claims costs.",
+  "solution_summary": "Zurich Insurance Group runs an in-house AI-assisted fraud detection workflow for claims investigations. In Switzerland, incoming non-life claims from the Allegro core claims system are funneled into Zurich’s proprietary fraud scoring tool, which assigns each claim a 0 to 100 score and flags higher-risk cases for the Special Investigation Unit. The scoring process combines rules with a machine learning model that Zurich describes as natural-language-based generative AI trained to detect words commonly present in fraud cases, initially piloted in German for property and commercial lines. Investigators also use Zurich’s internal AI chatbot in daily work. The solution was built by Zurich Customer Active Management (ZCAM), whose specialists tune the models and workflows with claims teams. The article says claims data is stored using cloud computing, but does not name the storage platform. Outputs are risk scores, anomaly signals, fraud trend insights, and faster routing of suspicious versus honest claims.",
+  "products_used": [
+    "Allegro",
+    "Zurich’s proprietary fraud scoring tool",
+    "machine learning model",
+    "Zurich’s internal AI chatbot"
+  ],
+  "solution_components": [
+    {
+      "name": "Allegro",
+      "role": "Acts as the core claims system whose claim records feed the fraud scoring workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Zurich’s proprietary fraud scoring tool",
+      "role": "Scores incoming claims from 0 to 100 and identifies higher-risk cases for investigator review.",
+      "layer": "Compute"
+    },
+    {
+      "name": "machine learning model",
+      "role": "Analyzes claim language to spot words and patterns often present in fraud cases and improve detection accuracy.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Zurich’s internal AI chatbot",
+      "role": "Supports investigators in daily work during claims investigations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Claims entered in Allegro are funneled into Zurich Switzerland’s proprietary fraud scoring tool, where rules and a machine learning NLP model analyze claim details and assign a 0 to 100 score. Higher-scoring cases are escalated to the Special Investigation Unit for human investigation, while investigators also use Zurich’s internal AI chatbot in daily work and insights from the system are used to refine future fraud indicators and trend detection.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Risk Management"
+  ],
+  "business_outcome": "Zurich says the system reduces false positives, increases the number of suspicious and confirmed fraud cases found, helps the company spot fraud trends earlier, and speeds differentiation between honest and fraudulent claims so legitimate claims can be processed faster. In Brazil, Zurich reports that the fraud detection rate in the affinities business trebled after adopting ZCAM’s system.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "more than 600,000 claims it gets annually",
+    "given a score from 0 to 100",
+    "a team of 50 specialists",
+    "The fraud detection rate in the affinities business, for example, has trebled since Zurich Brazil adopted ZCAM’s system",
+    "nearly two months"
+  ],
+  "architecture_clues": [
+    "Allegro was introduced in Zurich Switzerland in 2018 and feeds the fraud scoring tool.",
+    "Most Swiss claims except life insurance claims are funneled through the scored workflow described in the article.",
+    "Zurich Switzerland began a pilot using the German-language version in property and commercial lines of business in February 2024.",
+    "ZCAM is a wholly owned Zurich data analytics company with 50 specialists including data engineers, software designers, and project change management experts.",
+    "Zurich Brazil first piloted the system in its affinities business, then expanded it to motor claims after fine-tuning."
+  ],
+  "source_url": "https://www.zurich.com/insights/business/how-technology-including-ai-gives-claims-investigators-an-edge",
+  "published_date": "2024-09-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Most of the more than 600,000 claims it gets annually, with the exception of life insurance claims, are funneled through the system, and given a score from 0 to 100.\"",
+    "\"Along with a rule-based system, to gain more accuracy and efficiency, Zurich’s Swiss Special Investigation Unit is now testing a machine learning model, a form of generative AI based on natural language processing\"",
+    "\"Zurich’s AI is being trained to spot certain words often present in fraud cases.\"",
+    "\"Besides developing IT solutions in-house, Zurich’s Swiss Special Investigation Unit is also exploring ways to use new technology, including incorporating Zurich’s internal AI chatbot in daily work to support investigations.\"",
+    "\"It’s about reduced false positives,\" says Andrew Fairclough",
+    "\"The fraud detection rate in the affinities business, for example, has trebled since Zurich Brazil adopted ZCAM’s system\"",
+    "\"With our systems, paired with humans, we can better, and more quickly differentiate between honest and fraudulent claims. That should allow honest customers to get their claims processed quickly\""
+  ],
+  "source_type": "company"
+}

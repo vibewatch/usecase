@@ -1,0 +1,70 @@
+{
+  "id": "openai-volkswagen-ida-chatgpt-in-car-assistant",
+  "slug": "openai-volkswagen-ida-chatgpt-in-car-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "Volkswagen",
+  "industry": "Automotive",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Volkswagen wanted to extend its existing IDA in-car voice assistant beyond infotainment, navigation, climate control, and limited Q&A so drivers could ask broader natural-language questions and receive useful spoken answers without extra apps, accounts, or unsafe distraction while driving.",
+  "solution_summary": "Volkswagen embedded ChatGPT into the backend of its IDA voice assistant in vehicles that use the new-generation infotainment system. Drivers invoke IDA by voice or the steering-wheel button, and Volkswagen's own assistant continues to handle core in-car controls such as infotainment, navigation, and climate functions. When a request cannot be answered by Volkswagen's native system, Cerence Chat Pro brokers the fallback and uses sources including ChatGPT to generate a response. The answer is then delivered back through IDA in the familiar Volkswagen voice, so the experience stays inside the vehicle UI rather than a separate app. Access is tied to existing VW Connect or VW Connect Plus accounts, while privacy controls keep ChatGPT away from vehicle data and questions and answers are deleted immediately instead of being retained as a long-term store.",
+  "products_used": [
+    "IDA voice assistant",
+    "Cerence Chat Pro",
+    "ChatGPT"
+  ],
+  "solution_components": [
+    {
+      "name": "IDA voice assistant",
+      "role": "Volkswagen's in-car assistant receives driver requests, handles native vehicle functions, and speaks responses back through the vehicle interface.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cerence Chat Pro",
+      "role": "It brokers Volkswagen's conversational AI flow and uses multiple sources, including ChatGPT, when IDA needs help answering a query.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ChatGPT",
+      "role": "It provides AI-generated answers for queries that Volkswagen's own system cannot resolve.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A driver speaks to IDA through the infotainment system or steering-wheel control. IDA first handles supported vehicle commands and questions itself. If the query cannot be answered by Volkswagen's system, it is forwarded anonymously through Cerence Chat Pro to sources including ChatGPT. The generated answer returns to IDA and is read out in Volkswagen's voice, with no ChatGPT access to vehicle data and immediate deletion of questions and answers.",
+  "integration_points": [
+    "Volkswagen infotainment system",
+    "navigation system",
+    "climate control system",
+    "VW Connect/VW Connect Plus",
+    "Volkswagen app"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Volkswagen expanded IDA into a broader natural-language assistant that can answer general information requests and read results aloud inside the vehicle, improving the in-car user experience while preserving Volkswagen-controlled privacy settings and interaction flows.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Available in all new ID. models as well as the new Golf, new Tiguan and new Passat.",
+    "Available in English (US), English (UK), Spanish, Czech and German.",
+    "No additional account or additional app is required beyond an existing VW Connect or VW Connect Plus account.",
+    "Queries are forwarded to ChatGPT only when Volkswagen's own system cannot answer them.",
+    "ChatGPT does not get access to vehicle data.",
+    "Questions and answers are deleted immediately for data protection."
+  ],
+  "source_url": "https://www.volkswagen-group.com/en/articles/chatgpt-is-now-available-in-many-volkswagen-models-18464",
+  "published_date": "2024-06-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Volkswagen models featuring the new-generation infotainment system are now also equipped with artificial intelligence (AI) of ChatGPT.\"",
+    "\"Only if a query cannot be answered by the Volkswagen system is it forwarded anonymously to ChatGPT; the answer is then provided in the familiar Volkswagen voice.\"",
+    "\"At no point does ChatGPT gain access to vehicle data. Questions and answers are deleted immediately in order to ensure optimal data protection.\"",
+    "\"its Cerence Chat Pro, which uses a variety of sources – including ChatGPT – to enable IDA to provide accurate and relevant responses to nearly every query imaginable.\"",
+    "\"The technology is currently available in the system languages English (US), English (UK), Spanish, Czech and German.\""
+  ],
+  "source_type": "company"
+}

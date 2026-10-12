@@ -1,0 +1,78 @@
+{
+  "id": "in-house-dxc-luxoft-scenari-lux-autonomous-driving-scenario-generation",
+  "slug": "in-house-dxc-luxoft-scenari-lux-autonomous-driving-scenario-generation",
+  "vendor": "In-house",
+  "customer_name": "DXC-Luxoft",
+  "industry": "Commercial and Professional Services",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Autonomous-driving teams need large volumes of precise, machine-readable traffic scenarios for virtual validation and homologation, but writing standardized scenario descriptions is tedious, repetitive, and dependent on scarce domain experts.",
+  "solution_summary": "DXC-Luxoft built scenARI.Lux as a generative AI chatbot application for autonomous-driving validation. The system ingests human-readable traffic situation descriptions and routes them through multiple bots coordinated by a dedicated agent application so the workflow can support different LLM foundation models. To improve answer quality and latency, the pipeline uses Retrieval-Augmented Generation, feeding OpenX standards definitions into the process as an authoritative knowledge base. DXC-Luxoft also fine-tunes the underlying model with manually created scenarios and, optionally, client scenarios. The application generates ASAM OpenDRIVE and ASAM OpenSCENARIO DSL/XML outputs that simulators can execute, turning free-text inputs into standardized scenario artifacts for virtual testing. DXC-Luxoft positions those generated scenarios as inputs to its broader autonomous-driving validation toolchain, including collaboration with MicroVision for real-world scenario abstraction.",
+  "products_used": [
+    "scenARI.Lux",
+    "ASAM OpenDRIVE",
+    "ASAM OpenSCENARIO DSL",
+    "ASAM OpenSCENARIO XML"
+  ],
+  "solution_components": [
+    {
+      "name": "scenARI.Lux",
+      "role": "Generative AI chatbot application that converts natural-language traffic descriptions into standardized, simulation-ready autonomous-driving scenarios.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ASAM OpenDRIVE",
+      "role": "Standard target format used for road-network descriptions in the generated machine-readable scenario outputs."
+    },
+    {
+      "name": "ASAM OpenSCENARIO DSL",
+      "role": "Standard scenario-description format that the application targets when transforming free-text driving situations into executable specifications."
+    },
+    {
+      "name": "ASAM OpenSCENARIO XML",
+      "role": "Machine-readable scenario output format produced for use by simulation engines.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Human-readable traffic descriptions are submitted to scenARI.Lux, where multiple bots coordinated by a dedicated agent application process the input with LLMs. RAG injects OpenX standards definitions, and fine-tuning on manually created and optional client scenarios improves generation. The system then emits ASAM OpenDRIVE and ASAM OpenSCENARIO DSL/XML files for simulators and downstream virtual-validation workflows.",
+  "integration_points": [
+    "Simulation engines",
+    "Client-provided scenarios for optional fine-tuning",
+    "MicroVision collaboration for real-world scenario abstraction"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "DXC-Luxoft says the application lets non-experts create simulator-executable driving scenarios from natural-language descriptions, enabling more scalable virtual validation while saving time, lowering costs, and reducing reliance on scarce domain specialists.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "hundreds of thousands of scenarios"
+  ],
+  "architecture_clues": [
+    "The application supports various LLMs rather than a single fixed model.",
+    "A dedicated agent application orchestrates multiple bots in the workflow.",
+    "RAG uses OpenX standards definitions as an authoritative knowledge base.",
+    "The foundation model is fine-tuned with manually created scenarios and optionally clients' scenarios.",
+    "Generated outputs target ASAM OpenDRIVE and ASAM OpenSCENARIO DSL/XML for simulator execution.",
+    "DXC-Luxoft links the workflow to a broader validation toolchain through its collaboration with MicroVision."
+  ],
+  "source_url": "https://dxc.com/insights/knowledge-base/blogs/generative-ai-autonomous-driving",
+  "published_date": "2026-02-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"carmakers need to test against hundreds of thousands of scenarios (specified in textual form)\"",
+    "\"DXC-Luxoft's generative AI automotive software application lets non-experts transform scenarios specified in natural language into machine-readable scenarios that simulators can execute, saving time.\"",
+    "\"The whole application consists of different bots; and a dedicated agent application orchestrates the bots to get from a human-readable textual description to an OpenDRIVE or OpenSCENARIO XML file.\"",
+    "\"scenARI.Lux uses Retrieval-Augmented Generation (RAG) ... RAG feeds in the OpenX standards' definitions as an additional authoritative knowledge base in the process.\"",
+    "\"we use manually created scenarios (and optionally clients' scenarios) for fine-tuning the foundation model of scenARI.Lux.\"",
+    "\"Such an autonomous driving AI toolchain can generate endless AD-relevant scenario combinations while lowering costs and reducing the need for domain expertise.\""
+  ],
+  "source_type": "company"
+}

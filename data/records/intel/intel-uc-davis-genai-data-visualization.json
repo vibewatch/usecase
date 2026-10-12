@@ -1,0 +1,89 @@
+{
+  "id": "intel-uc-davis-genai-data-visualization",
+  "slug": "intel-uc-davis-genai-data-visualization",
+  "vendor": "Intel",
+  "customer_name": "UC Davis",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "UC Davis researchers needed a practical way to create convincing materials for scientific datasets under multiple lighting conditions, while also overcoming the long runtimes and memory constraints involved in training and refining custom diffusion control models on typical research hardware.",
+  "solution_summary": "UC Davis VIDI built a prompt-driven generative AI pipeline for scientific visualization that combines Stable Diffusion with a custom-trained ControlNet model to author materials and textures for rendering. The workflow ingests text prompts, sphere map examples, lighting-direction controls, and training grids rendered from multiple material models with spot lighting at varied orientations. Stable Diffusion provides the pretrained visual prior, while the custom ControlNet enforces pixel-level lighting-direction constraints so the system can generate coherent sphere-map grids under predefined illumination. Training and inference run on Intel Data Center GPU Max Series hardware, accelerated with Intel Extension for PyTorch. Intel oneAPI Base Toolkit is used to optimize workloads across heterogeneous compute, and Intel Tiber AI Cloud supplies scalable cloud resources so the pipeline can run on systems that would not normally support models of this size. Generated sphere maps are inverted into BRDF-based materials, then used to extract or directly generate textures for downstream scientific rendering workflows.",
+  "products_used": [
+    "Stable Diffusion",
+    "ControlNet",
+    "Intel Extension for PyTorch",
+    "Intel Data Center GPU Max Series",
+    "Intel oneAPI Base Toolkit",
+    "Intel Tiber AI Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Stable Diffusion",
+      "role": "Provides the base diffusion model used to generate sphere maps and textures from prompts for material authoring.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ControlNet",
+      "role": "Applies learned lighting-direction control so generated sphere maps stay consistent with predefined illumination conditions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Extension for PyTorch",
+      "role": "Accelerates training and inference of the diffusion and control models on Intel hardware.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Data Center GPU Max Series",
+      "role": "Supplies the high-performance GPU platform for faster model training and low-latency inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel oneAPI Base Toolkit",
+      "role": "Provides the programming and optimization environment used to tune compute workloads across heterogeneous architectures.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Intel Tiber AI Cloud",
+      "role": "Provides cloud-based high-performance compute resources for scalable training and inference.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Text prompts, sphere map examples, lighting-direction control images, and rendered training grids are fed into a Stable Diffusion plus custom ControlNet pipeline running on Intel GPUs. The model generates sphere maps under controlled lighting, which are then inverted into BRDF-based materials; textures are either extracted from the sphere maps through re-synthesis or generated directly, and the resulting materials are exported for scientific visualization workflows.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The pipeline enabled UC Davis to synthesize realistic materials for scientific visualization while significantly reducing training and inference time, making rapid iteration on model design and material generation practical in a research setting.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "6 times faster training and inference speeds compared to using CPU only",
+    "generate new material maps in as little as 3.18s (4.24 iterations/s)",
+    "CPU inference on a top-of-the-line Intel Xeon Platinum processor (18.98s, 1.36 iterations/s)",
+    "Quadro RTX 8000 at 3.46s, 3.66 iterations/s"
+  ],
+  "architecture_clues": [
+    "The training set uses grids of images rendered with multiple material models and spot lighting at varying orientations to maximize directional information.",
+    "The pipeline generates multiple sphere maps lit from distinct angles and interpolates sparse coverage to form a BRDF-based material.",
+    "Cloud-based compute resources were used so the pipeline could run on systems that normally could not support models of this size.",
+    "The current implementation exports generated materials to a common format; OSPRay support is planned as a future extension."
+  ],
+  "source_url": "https://www.intel.com/content/www/us/en/developer/articles/case-study/ucdavis-accelerates-genai-data-visualization.html",
+  "published_date": "2024-12-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"we address a longstanding challenge in scientific visualization–the creation of convincing materials to apply to scientific datasets\"",
+    "\"Using diffusion models and custom control networks, we create multiple sphere maps, each lit from distinct angles.\"",
+    "\"Our approach combines Stable Diffusion with a custom-trained ControlNet model, leveraging Intel’s compute hardware in conjunction with the Intel Extension for PyTorch for training and inference\"",
+    "\"The Intel® oneAPI Base Toolkit allows seamless optimization of compute workloads, while Intel® Tiber™ AI Cloud provides the high-performance computing environment necessary to handle the complexity of our models.\"",
+    "\"Using the Intel® Data Center GPU Max Series, we can generate new material maps in as little as 3.18s (4.24 iterations/s)\"",
+    "\"Compared to CPU inference on a top-of-the-line Intel® Xeon Platinum processor (18.98s, 1.36 iterations/s) this constitutes 6x the performance\""
+  ],
+  "source_type": "company"
+}

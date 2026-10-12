@@ -1,0 +1,98 @@
+{
+  "id": "in-house-telefonica-critical-infrastructure-drone-ai",
+  "slug": "in-house-telefonica-critical-infrastructure-drone-ai",
+  "vendor": "In-house",
+  "customer_name": "Telefónica",
+  "industry": "Telecommunications",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "Traditional inspection, monitoring and protection of critical infrastructure required sending staff into the field, consuming significant time and money, slowing incident detection and increasing operational risk for assets such as power lines, pipelines and forested areas.",
+  "solution_summary": "Telefónica has built a Drone as a Service operating model for critical infrastructure inspection that combines its drone service, Drone-in-a-Box technology, 5G network, edge computing, computer vision and artificial intelligence. At the ingest layer, drones stationed at the mission site capture high-definition, thermal and visual imagery from assets such as power lines, pipelines and forested areas while a remote pilot operates them from a control centre. The 5G network links the field location to the control centre and carries video and telemetry with licensed-spectrum connectivity and encryption. Rather than sending raw imagery to a central server, edge computing hosts the computer vision and AI workloads close to the network edge, where they detect anomalies, structural defects and intrusions in near real time. The system then filters and prioritises findings, sending conclusions and alerts to human operators for supervised decisions, regulatory compliance and faster response.",
+  "products_used": [
+    "drone service",
+    "Drone-in-a-Box technology",
+    "5G network",
+    "edge computing",
+    "computer vision",
+    "artificial intelligence"
+  ],
+  "solution_components": [
+    {
+      "name": "drone service",
+      "role": "Provides the remotely operated drone capability that captures inspection imagery over long distances for critical infrastructure missions.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Drone-in-a-Box technology",
+      "role": "Keeps the drone on site in standby mode so missions can launch within minutes without sending a pilot to the location.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "5G network",
+      "role": "Connects the remote control centre to the drone mission site and carries encrypted connectivity for flight operations."
+    },
+    {
+      "name": "edge computing",
+      "role": "Runs image analysis close to the network edge so processing happens in real time with minimal latency instead of at a central server.",
+      "layer": "Compute"
+    },
+    {
+      "name": "computer vision",
+      "role": "Analyses thermal and visual images to identify anomalies, structural defects and security intrusions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "artificial intelligence",
+      "role": "Filters, prioritises and converts detected events into conclusions, alerts and recommendations for operators.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "At the mission site, drones and on-board cameras capture thermal and visual imagery from critical assets. The feeds travel over Telefónica's 5G network to edge computing resources near the network edge, where computer vision and AI analyse images in real time instead of sending them to a central server. The platform returns prioritised conclusions and alerts to remote pilots and operators in control centres for validation and response.",
+  "integration_points": [
+    "Centralised control centres used by remote pilots and operators",
+    "Critical infrastructure sites such as power lines, pipelines and forested areas",
+    "On-board drone cameras producing thermal and visual imagery",
+    "AESA authorisation process for BVLOS operations"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Security and Compliance"
+  ],
+  "business_outcome": "Telefónica reports faster remote inspection and monitoring, earlier anomaly detection, lower pilot travel effort and costs, safer operations, and improved real-time decision-making for critical infrastructure management.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "70% or 80% of the total cost of a mission",
+    "over 95 per cent of the population",
+    "in a matter of hours",
+    "in a matter of minutes"
+  ],
+  "architecture_clues": [
+    "AI runs on-board or, more precisely, at the network edge to avoid overloading the drone device.",
+    "The design supports BVLOS drone operations subject to AESA authorisations.",
+    "Telefónica highlights licensed-spectrum 5G connectivity and encryption as a cybersecurity advantage over Wi-Fi or uncontrolled radio frequencies.",
+    "Human oversight remains part of the operating model; AI augments operators rather than replacing them.",
+    "The article describes future scaling to fleets of drones managed from centralised control centres across different parts of the country."
+  ],
+  "source_url": "https://www.telefonica.com/en/communication-room/blog/drones-artificial-intelligence-critical-infrastructure-telefonica/",
+  "published_date": "2026-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Previously, inspecting critical infrastructure — such as a power line, a pipeline or a forested area — involved deploying staff, time and money.\"",
+    "\"with high-definition video and AI analysing the images captured by the camera as it flies.\"",
+    "\"The drone is not the star of the show; it is the entire ecosystem that makes it possible: 5G, edge computing, computer vision and artificial intelligence, all integrated.\"",
+    "\"The 5G network enables a remote connection between the control centre and the location where the drone flight is to take place\"",
+    "\"thanks to edge computing, data analysis does not have to travel to a central server; it takes place at the edge of the network, in real time and with minimal latency.\"",
+    "\"We don’t send images for someone to review; we send conclusions and alerts.\"",
+    "\"We eliminate the pilot’s travel time, which in many cases accounts for 70% or 80% of the total cost of a mission.\""
+  ],
+  "source_type": "company"
+}

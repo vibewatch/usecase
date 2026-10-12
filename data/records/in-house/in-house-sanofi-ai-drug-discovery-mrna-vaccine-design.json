@@ -1,0 +1,71 @@
+{
+  "id": "in-house-sanofi-ai-drug-discovery-mrna-vaccine-design",
+  "slug": "in-house-sanofi-ai-drug-discovery-mrna-vaccine-design",
+  "vendor": "In-house",
+  "customer_name": "Sanofi",
+  "industry": "Healthcare",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Sanofi needed to speed and improve early biologics and mRNA vaccine discovery, where scientists must search enormous candidate spaces, design complex multi-target molecules, improve oral biologic stability, and predict vaccine performance and patient responses earlier in R&D.",
+  "solution_summary": "Sanofi describes an in-house AI stack embedded across early R&D for biologics and mRNA vaccines. In biologics discovery, teams use AI and machine learning to screen large virtual panels, refine molecule designs in silico, and support target selection and engineering of complex trispecific antibodies for HIV and cancer. For mRNA work, Sanofi built CodonBERT, a large language model trained on millions of sequences, and mRNA-LM for full-length mRNA sequence modeling, to explore the vast design space and select promising vaccine sequences. RiboNN adds a deep-learning layer that predicts how efficiently ribosomes translate mRNA into protein. The company says these models are backed by deliberate experimental data generation and internal data infrastructure so the right biological data is produced, made available, and reused for model building. Scientists consume the model outputs to optimize efficacy, manufacturability, oral stability, and early response prediction, while the BioAIM program industrializes AI usage across the biologics portfolio.",
+  "products_used": [
+    "CodonBERT",
+    "mRNA-LM",
+    "RiboNN"
+  ],
+  "solution_components": [
+    {
+      "name": "CodonBERT",
+      "role": "A large language model for mRNA that Sanofi uses to model sequence patterns and help design vaccine candidates.",
+      "layer": "Compute"
+    },
+    {
+      "name": "mRNA-LM",
+      "role": "An extension model for full-length mRNA sequences used to evaluate and design complete vaccine sequences.",
+      "layer": "Compute"
+    },
+    {
+      "name": "RiboNN",
+      "role": "A deep learning model that predicts how efficiently ribosomes will translate an mRNA sequence into a protein.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Sanofi feeds large mRNA sequence collections, experimental data, and early biological signals into in-house models including CodonBERT, mRNA-LM, and RiboNN. These models score, generate, and refine candidate biologics and vaccine sequences in silico, and scientists use the outputs to choose targets, optimize molecule properties, improve manufacturability, and predict responses earlier in development.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Sanofi reports faster and more precise biologics and vaccine discovery, broader use of AI across its portfolio, improved ability to optimize efficacy and manufacturing efficiency, and shorter R&D cycles that help move treatments and vaccines toward patients sooner.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "the number of biologics and vaccines using AI in their development at Sanofi has nearly doubled since 2019",
+    "transforming weeks of research into hours"
+  ],
+  "architecture_clues": [
+    "First-party company source; Sanofi is both the publisher and the adopting organization.",
+    "BioAIM is the internal program launched to industrialize AI across the biologics project portfolio.",
+    "CodonBERT is trained on millions of sequences.",
+    "The source describes internal data infrastructure built to generate and make available the biological data needed for model training.",
+    "AI is used for in silico screening of large candidate panels and for prediction from early biological signals after vaccination."
+  ],
+  "source_url": "https://www.sanofi.com/en/magazine/ai-in-healthcare/ai-across-the-randd-value-chain-drug-discovery",
+  "published_date": "2025-07-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"At Sanofi, we are embedding AI to supercharge every stage of our R&D efforts.\"",
+    "\"The target selection and design of these highly engineered and very complex antibodies are now enabled by AI.\"",
+    "\"the number of biologics and vaccines using AI in their development at Sanofi has nearly doubled since 2019.\"",
+    "\"screening large panels of candidates virtually and refining their design in silico.\"",
+    "\"CodonBERT: A large language model for mRNA, trained on millions of sequences.\"",
+    "\"RiboNN: A deep learning model that predicts how efficiently ribosomes will translate an mRNA sequence into a protein.\"",
+    "\"AI helps optimize both vaccine efficacy and manufacturing efficiency and can even predict human responses to vaccines by analyzing early biological signals after vaccination.\"",
+    "\"By empowering our scientists with AI-driven insights, we're pushing scientific boundaries, transforming weeks of research into hours, and ensuring faster delivery of life-changing treatments to patients.\""
+  ],
+  "source_type": "company"
+}

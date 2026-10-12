@@ -1,0 +1,86 @@
+{
+  "id": "in-house-general-motors-ai-vehicle-software-testing",
+  "slug": "in-house-general-motors-ai-vehicle-software-testing",
+  "vendor": "In-house",
+  "customer_name": "General Motors",
+  "industry": "Automotive",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "GM must validate and debug vehicle software that affects safety, navigation, entertainment, and core vehicle operations before release, because modern vehicles contain more than 100 million lines of code and the company does not want customers acting as software beta testers.",
+  "solution_summary": "General Motors describes an in-house AI software quality pipeline for vehicle code used in safety, navigation, entertainment, and core driving operations. Engineers feed new vehicle software builds into virtual test environments where Automated testing simulates millions of button pushes and screen taps against dashboard touchscreen and infotainment behavior before a human tester uses the system. After lab simulation, engineers drive vehicles with the newest builds at Milford Proving Ground and other sites, then a custom device in company-owned test vehicles continues Automated testing while the cars are parked. AI and machine learning-powered testing run around the clock on lab benches and parked vehicles, with real-world employee drive data used as a backstop to expose bugs earlier in the development cycle and improve release predictability before software is integrated into production vehicles. The source does not identify a separate storage platform.",
+  "products_used": [
+    "AI",
+    "Automated testing",
+    "custom device",
+    "machine learning-powered testing",
+    "virtual testing"
+  ],
+  "solution_components": [
+    {
+      "name": "AI",
+      "role": "Runs software tests around the clock in GM's software quality workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Automated testing",
+      "role": "Simulates millions of button pushes and screen taps to find software defects before human testing and vehicle integration.",
+      "layer": "Compute"
+    },
+    {
+      "name": "custom device",
+      "role": "Runs automated software tests in company-owned vehicles while they are parked overnight."
+    },
+    {
+      "name": "machine learning-powered testing",
+      "role": "Takes over overnight in parked test vehicles to improve predictability at release time.",
+      "layer": "Compute"
+    },
+    {
+      "name": "virtual testing",
+      "role": "Exercises dashboard touchscreen software through simulated everyday use before physical validation.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "GM feeds new vehicle software builds into virtual lab tests that simulate touchscreen and infotainment use. Results are reviewed before code is integrated into vehicles. The same builds are then exercised in real test drives at Milford Proving Ground and other sites, and a custom device continues automated tests overnight in parked company vehicles. Real-world drive data backs up the virtual runs so engineers can find and fix defects earlier before release.",
+  "integration_points": [
+    "new vehicle software builds",
+    "dashboard touchscreens and infotainment systems",
+    "company-owned test vehicles",
+    "real-world data from GM employee test drives"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [],
+  "business_outcome": "GM can run more intelligent software tests every hour of every day, detect bugs earlier in the development cycle, reduce the time required versus physical-only testing, and improve release predictability for safety-critical vehicle software.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "more than 100 million lines of software code",
+    "millions of button pushes and screen taps",
+    "more than 300 test benches"
+  ],
+  "architecture_clues": [
+    "GM operates software testing labs in Michigan, California and Ontario, Canada.",
+    "Engineers test newest software builds at Milford Proving Ground in Michigan and other test sites.",
+    "Some company-owned vehicles run automated software tests overnight while parked.",
+    "Virtual testing is backed up by real-world data from GM employees who test-drive vehicles across the U.S.",
+    "One Michigan facility has more than 300 test benches focused on dashboard infotainment bugs and malfunctions."
+  ],
+  "source_url": "https://news.gm.com/home.detail.html/Pages/topic/us/en/2024/nov/1120-ai.html",
+  "published_date": "2024-11-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We’re using AI to run software tests around the clock.\"",
+    "\"Automated testing simulates millions of button pushes and screen taps, helping us to refine in-cabin software before a human tester ever encounters it on a touchscreen or dashboard display.\"",
+    "\"This automated testing helps GM engineers detect software bugs before the code is integrated into vehicles, allowing us to identify issues – and implement solutions earlier in the development cycle.\"",
+    "\"When those cars are parked overnight, machine learning-powered testing takes over to help enable a more predictable outcome at the time of release.\"",
+    "\"With automation and simulation, we can run these tests in a fraction of the time that physical testing would require.\"",
+    "\"In one Michigan facility alone, more than 300 test benches are dedicated to finding bugs and malfunctions in dashboard infotainment systems.\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,80 @@
+{
+  "id": "in-house-bnp-paribas-chat2trade-rfq-automation",
+  "slug": "in-house-bnp-paribas-chat2trade-rfq-automation",
+  "vendor": "In-house",
+  "customer_name": "BNP Paribas",
+  "industry": "Financial Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "BNP Paribas Global Markets sales teams were manually interpreting client requests for quotes from chat and email and filling response forms on a dedicated platform, which took several minutes per quote and made speed and reliability difficult at high volume.",
+  "solution_summary": "BNP Paribas built Chat2Trade as an internal AI workflow for its Global Markets business to turn unstructured RFQ text into a structured format that downstream pricing systems can use. The system ingests client requests arriving through chat or email, extracts the plain text, and passes it to a pre-trained open-source BERT language model that BNP Paribas fine-tuned internally using historical client requests and synthetic data generated from templates. The model performs text classification and named entity recognition so the request can be understood and tagged with the relevant product characteristics. Those outputs are assembled into a final structured output format and handed off to internal pricing tools, which then generate the quote for sales teams to return to clients. BNP Paribas says the deployment is fully rolled out, closely monitored, and updated with new model versions almost every week.",
+  "products_used": [
+    "Chat2Trade",
+    "BERT",
+    "internal pricing tools"
+  ],
+  "solution_components": [
+    {
+      "name": "Chat2Trade",
+      "role": "The internal AI tool that automates translation of RFQ requests from chat or email into a structured format for quoting workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BERT",
+      "role": "The pre-trained open-source language model fine-tuned internally to classify request text and extract named entities from client RFQs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "internal pricing tools",
+      "role": "These downstream systems consume the structured output produced by Chat2Trade to generate quotes for clients.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Client RFQs arrive through chat or email, where Chat2Trade extracts the plain text and submits it to a fine-tuned BERT model. The model classifies the request and tags entities, and those outputs are converted into a structured output format that internal pricing tools use to produce quotes for BNP Paribas sales teams and their clients.",
+  "integration_points": [
+    "client chat channels",
+    "client email",
+    "internal pricing tools",
+    "Global Markets sales workflow"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The automation lets sales teams answer quote requests faster and with greater reliability, reduces manual work to less than a second for the translation step, and supports high request volumes across multiple asset classes.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "less than a second",
+    "around 50,000 requests across several asset classes every month",
+    "hundreds of hours of manual pricings every month"
+  ],
+  "architecture_clues": [
+    "Built by the Global Markets Data & AI lab in 2016",
+    "Fine-tuned on historical requests from BNP Paribas clients and synthetic data built from templates",
+    "Uses text classification and named entity recognition",
+    "Fully deployed",
+    "Each model is monitored closely",
+    "A new version is released almost every week"
+  ],
+  "source_url": "https://group.bnpparibas/en/news/ai-at-bnp-paribas-1-producing-reliable-quotes-faster-to-help-global-markets-clients-in-trading",
+  "published_date": "2024-10-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Before the AI-based tool 'Chat2Trade' was developed by the Global Markets Data & AI lab in 2016, these requests were managed manually.\"",
+    "\"Chat2Trade automatically translates client requests submitted by chat or email into a structured output format that can be used by internal pricing tools to provide a quote.\"",
+    "\"the request must first be understood. To do this, the Global Markets Data & AI lab uses a pre-trained open-source language model, BERT - developed by Google - that is then fine tunned internally on historical requests from BNP Paribas clients, or synthetic data built from a set of templates.\"",
+    "\"the models learn by performing 'text classification' ... and 'named entity recognition'\"",
+    "\"This step is now reduced to a simple copy-and-paste in less than a second.\"",
+    "\"Chat2Trade now handles around 50,000 requests across several asset classes every month. That volume of requests, without Chat2Trade, would correspond to hundreds of hours of manual pricings every month.\"",
+    "\"Though Chat2Trade is now fully deployed... Each model is also monitored closely, and a new version is released almost every week.\""
+  ],
+  "source_type": "company"
+}

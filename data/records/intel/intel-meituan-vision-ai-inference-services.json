@@ -1,0 +1,79 @@
+{
+  "id": "intel-meituan-vision-ai-inference-services",
+  "slug": "intel-meituan-vision-ai-inference-services",
+  "vendor": "Intel",
+  "customer_name": "Meituan",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Meituan needed to increase throughput for growing computer-vision inference workloads, control the high infrastructure cost of running massive AI inference, and schedule long-tail services flexibly without sacrificing model accuracy or service stability.",
+  "solution_summary": "Meituan reworked its vision AI inference environment into a microservices-based algorithm process that separates CPU services from other accelerator services and uses a middle-layer scheduling service to place workloads on the most suitable hardware. For low-traffic, long-tail inference workloads, Meituan runs models on 4th Gen Intel Xeon Scalable processors to reuse existing CPU resources and reduce dependence on higher-cost discrete GPUs. It then applies Intel Advanced Matrix Extensions (Intel AMX), Intel Extension for PyTorch (Intel IPEX), and Intel Integrated Performance Primitives (Intel IPP) to optimize deep-learning execution, including converting multiple vision models from FP32 to BF16 to raise throughput with limited precision loss. Meituan also separates latency-sensitive online traffic from offline batch jobs and uses dynamic scaling to reallocate off-peak capacity, improving utilization and serving a range of vision AI applications such as image processing, certificate identification, QR code bike locks, package scanning, and identity verification.",
+  "products_used": [
+    "4th Gen Intel Xeon Scalable processors",
+    "Intel Advanced Matrix Extensions (Intel AMX)",
+    "Intel Extension for PyTorch (Intel IPEX)",
+    "Intel Integrated Performance Primitives (Intel IPP)"
+  ],
+  "solution_components": [
+    {
+      "name": "4th Gen Intel Xeon Scalable processors",
+      "role": "They run low-traffic long-tail vision model inference workloads on CPU infrastructure to improve cost efficiency and throughput.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Advanced Matrix Extensions (Intel AMX)",
+      "role": "They accelerate BF16 and INT8 matrix operations used to speed vision AI model inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Extension for PyTorch (Intel IPEX)",
+      "role": "It provides PyTorch-level software optimization so Meituan can better use Intel processor features for inference acceleration.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Integrated Performance Primitives (Intel IPP)",
+      "role": "It is part of the software optimization stack Meituan uses to further tune vision AI inference performance.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Visual data from Meituan business scenarios enters a microservices-based vision AI process where a middle-layer scheduling service routes jobs to CPU services or other accelerator services. Low-traffic long-tail models are executed on Intel Xeon CPU infrastructure, optimized with Intel AMX, Intel IPEX, BF16 conversion, and dynamic scaling. Results are then used by downstream vision applications such as image processing, certificate recognition, QR code bike locks, package scanning, and identity verification.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Meituan improved inference throughput and online resource efficiency, cut service costs, and made vision AI resource scheduling more agile while maintaining acceptable model precision.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "the inference performance of conventional vision models can be improved by around 3.38 – 4.13x",
+    "increased the overall efficiency of its online resources by over 3x",
+    "saved 70% on service costs",
+    "Most of the precision loss of the “Top1” and “Top5” sections can be controlled within the 0.01% – 0.03% range"
+  ],
+  "architecture_clues": [
+    "Meituan transformed the original algorithm service process into a microservices-based vision AI algorithm process.",
+    "The design separates CPU services from other accelerator services.",
+    "Scheduling is performed through a middle-layer scheduling service to improve hardware utilization.",
+    "Latency-sensitive online operations are separated from offline batch processing operations.",
+    "Benchmark details cite 2-node systems with dual Intel Xeon Platinum 8468V processors, 256 GB memory, and CentOS Stream 8."
+  ],
+  "source_url": "https://www.intel.com/content/www/us/en/customer-spotlight/stories/meituan-vision-ai-customer-story.html",
+  "published_date": "2024-06-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"To accelerate AI inference, Meituan utilizes advanced hardware capabilities such as 4th Gen Intel® Xeon® Scalable processors and the built-in Intel® Advanced Matrix Extensions (Intel® AMX).\"",
+    "\"Meituan transformed the original algorithm service process into a microservices-based vision AI algorithm process, separating CPU services from other accelerator services to ensure that different workloads can be run on different devices.\"",
+    "\"Scheduling is performed through the scheduling service in the middle layer, thereby improving hardware utilization.\"",
+    "\"Meituan adopted a CPU-based strategy for its low-traffic long-tail model inference services.\"",
+    "\"Meituan dynamically converts the data type of a variety of vision AI models from FP32 to BF16 with Intel AMX acceleration technology to increase throughput and accelerate inference with an acceptable loss of precision.\"",
+    "\"the inference performance of the model can be improved by 3.38 – 4.13x after conversion to BF16\"",
+    "\"Meituan has increased the overall efficiency of its online resources by over 3x and saved 70% on service costs.\""
+  ],
+  "source_type": "company"
+}

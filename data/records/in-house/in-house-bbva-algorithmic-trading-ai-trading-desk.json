@@ -1,0 +1,84 @@
+{
+  "id": "in-house-bbva-algorithmic-trading-ai-trading-desk",
+  "slug": "in-house-bbva-algorithmic-trading-ai-trading-desk",
+  "vendor": "In-house",
+  "customer_name": "BBVA",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "BBVA's trading desk needs to respond to institutional client requests for bond, interest-rate swap, and foreign-exchange quotes within milliseconds while balancing competitiveness, profitability, portfolio risk, and regulatory control.",
+  "solution_summary": "BBVA describes an in-house AI stack for algorithmic trading that blends predictive models and generative AI into daily trading-desk workflows. Client quote requests arrive through Bloomberg and are evaluated against live market conditions, hedge liquidity, dealer participation, and the desk's current risk exposure. BBVA's algorithms combine those real-time signals with historical trading data to calculate prices and support hedging and execution decisions in milliseconds. The bank's ePricer capability adds a real-time personalization layer by producing \"On the fly ideas\" tailored to each client's needs. For user-facing delivery, BBVA embedded Viriato, an AI assistant, inside its Atalaya platform for fixed-income sales teams and traders. Before release, models are backtested on historical evidence, then assessed with A/B testing in real-world conditions, with Risk and Control involved to maintain robustness and regulatory compliance.",
+  "products_used": [
+    "Bloomberg",
+    "ePricer",
+    "Atalaya",
+    "Viriato"
+  ],
+  "solution_components": [
+    {
+      "name": "Bloomberg",
+      "role": "Carries client requests for prices to buy or sell bonds into BBVA's trading workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "ePricer",
+      "role": "Generates real-time proposal ideas tailored to each client's needs using clear and verifiable economic logic.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Atalaya",
+      "role": "Provides the platform used by fixed-income sales teams and traders to work with AI-enabled trading tools.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Viriato",
+      "role": "Acts as an AI assistant embedded in Atalaya to support sales teams and traders in production workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Institutional clients send quote requests through Bloomberg. BBVA's trading models combine historical trading evidence with real-time market signals, hedge liquidity, dealer participation, and current portfolio risk to calculate prices and execution decisions in milliseconds. ePricer generates tailored ideas in real time, and Atalaya with the embedded Viriato assistant delivers AI support to fixed-income sales teams and traders under Risk and Control governance.",
+  "integration_points": [
+    "Bloomberg",
+    "institutional client electronic channels",
+    "fixed-income sales teams",
+    "traders",
+    "Risk and Control"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "BBVA reports broader coverage of quoted products, faster response times, more competitive pricing, and more cost-effective, personalized solutions for institutional clients while maintaining model robustness and regulatory compliance.",
+  "outcome_category": [
+    "Customer Experience",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "within milliseconds"
+  ],
+  "architecture_clues": [
+    "Trading algorithms are used for bonds, interest rate swaps, and foreign exchange.",
+    "Models are validated against historical evidence through backtesting before production deployment.",
+    "Performance is assessed in live conditions with A/B testing.",
+    "Viriato is integrated into the Atalaya platform for fixed-income sales teams and traders.",
+    "Risk and Control participates in continuous validation and review for regulatory compliance."
+  ],
+  "source_url": "https://www.bbva.com/en/enterprises/the-algorithmic-trader-how-ai-is-redefining-the-trading-desk/",
+  "published_date": "2026-10-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"teams rely on advanced models to analyze vast volumes of data, optimize pricing and streamline execution.\"",
+    "\"Algorithms combine historical data with real-time signals to calculate a quote that strikes a balance between competitiveness, profitability and risk control.\"",
+    "\"Clients see direct benefits: broader coverage of quoted products, faster response times and more competitive pricing.\"",
+    "\"AI also makes it possible to offer more cost-effective and personalized solutions, such as ‘On the fly ideas’, an ePricer feature that generates proposals tailored to each client’s needs in real time\"",
+    "\"Before being deployed into production, each model is validated against historical evidence through backtesting; its performance is then assessed under real-world conditions using techniques such as A/B testing.\"",
+    "\"A year ago, the bank took its first step with Viriato, an assistant integrated into the Atalaya platform for fixed-income sales teams and traders.\""
+  ],
+  "source_type": "company"
+}

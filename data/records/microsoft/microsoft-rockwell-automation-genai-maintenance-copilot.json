@@ -1,0 +1,103 @@
+{
+  "id": "microsoft-rockwell-automation-genai-maintenance-copilot",
+  "slug": "microsoft-rockwell-automation-genai-maintenance-copilot",
+  "vendor": "Microsoft",
+  "customer_name": "Rockwell Automation",
+  "industry": "Manufacturing",
+  "region": "Singapore",
+  "company_size": "Enterprise",
+  "business_problem": "Rockwell needed to reduce the time and inconsistency involved in diagnosing machine faults, preserve retiring workers' tacit shop-floor knowledge, and shorten training time for new technicians supporting hundreds of machines.",
+  "solution_summary": "Rockwell Automation built its GenAI-Powered Maintenance Copilot on Microsoft Azure for the Singapore plant to turn hard-to-find troubleshooting knowledge into real-time guidance on the factory floor. The implementation draws on three explicit sources: veteran engineers’ expert know-how, data from Rockwell’s manufacturing software, and machine instruction manuals. Rockwell organizes this material in a database by symptom, cause and reaction. When a technician submits a natural-language question, Azure AI Search retrieves the most relevant prior fixes and manual passages, and Azure OpenAI Service in Microsoft Foundry uses GPT-5.4-mini to generate a step-by-step diagnosis and recommended actions. The copilot is served to workers on tablets and smart augmented reality goggles, while Azure security, identity and governance services provide enterprise protection and compliance. Microsoft Azure’s cloud-native architecture also supports scaling the design from one factory to deployments in Ohio, Poland and Mexico.",
+  "products_used": [
+    "Microsoft Azure",
+    "Azure OpenAI Service",
+    "Microsoft Foundry",
+    "GPT-5.4-mini",
+    "Azure AI Search",
+    "Azure security, identity and governance services"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Azure",
+      "role": "Runs the maintenance copilot on a cloud-native architecture that can expand from one factory to global deployments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure OpenAI Service",
+      "role": "Generates conversational troubleshooting guidance and reasoning for technicians’ questions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Foundry",
+      "role": "Provides the build environment where Rockwell implemented the Azure OpenAI-based copilot.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPT-5.4-mini",
+      "role": "Serves as the large language model that produces step-by-step answers for machine diagnostics.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure AI Search",
+      "role": "Retrieves relevant troubleshooting knowledge and manual content for conversational responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure security, identity and governance services",
+      "role": "Provide enterprise-grade protection, identity controls and compliance for the AI deployment.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "The copilot ingests veteran engineers’ troubleshooting knowledge, data from Rockwell’s manufacturing software, and machine instruction manuals into a database organized by symptom, cause and reaction. When a technician asks a natural-language question from a tablet or AR goggles, Azure AI Search retrieves relevant records and manual passages, Azure OpenAI Service with GPT-5.4-mini reasons over that context, and the system returns a step-by-step troubleshooting guide.",
+  "integration_points": [
+    "Rockwell manufacturing software",
+    "machine instruction manuals",
+    "database of veteran engineers’ troubleshooting knowledge",
+    "technicians’ tablets",
+    "smart augmented reality goggles"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Rockwell says the maintenance copilot has made troubleshooting faster and more consistent, reduced machine downtime and maintenance-related costs, accelerated onboarding for new workers, and created a reusable architecture for rollout across additional plants.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "lowered their machines’ downtime by 33 percent",
+    "costs are down by about 25 percent",
+    "Instead of it taking nine months for them to learn how to troubleshoot hundreds of machines, it takes three months",
+    "increased units per person-hour by 43%",
+    "reduced defects by 35%",
+    "shortened time-to-competency by 67%"
+  ],
+  "architecture_clues": [
+    "Knowledge is organized in the database by symptom, cause and reaction.",
+    "The knowledge base captures shop-floor expertise from veteran engineers with 20 to 30 years’ experience.",
+    "Technicians query the copilot from tablets and smart augmented reality goggles.",
+    "The initial deployment supports a Singapore manufacturing site overseeing hundreds of machines.",
+    "Microsoft cloud-native architecture is intended to scale from one factory to global deployments.",
+    "Planned rollout includes Rockwell plants in Twinsburg, Ohio, Poland and Mexico."
+  ],
+  "source_url": "https://news.microsoft.com/source/features/digital-transformation/rockwell-automation-pairs-ai-with-decades-of-shop-floor-know-how-so-workers-can-solve-glitches-faster/",
+  "published_date": "2026-09-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Since October 2025, technicians overseeing hundreds of machines at Rockwell Automation’s Singapore site have been using the GenAI-Powered Maintenance Copilot, an in-house AI assistant trained on its workers’ expert knowledge, data from its manufacturing software and the machines’ instruction manuals.”",
+    "“Powered by Microsoft Azure and built using Azure OpenAI in Microsoft Foundry, this AI tool runs on Open AI’s large language model GPT-5.4-mini.”",
+    "“Dey says his team built these AI tools leveraging the breadth of the Microsoft technology stack. This included Azure OpenAI Service and Azure AI Search for conversational experiences and intelligent reasoning, and Azure’s security, identity and governance services to ensure enterprise-grade protection and compliance.”",
+    "“The key thing we want to solve is the loss of knowledge, what we call the tribal knowledge.”",
+    "“This consistent, targeted approach, according to Wang, has lowered their machines’ downtime by 33 percent.”",
+    "“They spend less on servicing and spare parts, with Rockwell’s internal tracking showing costs are down by about 25 percent.”",
+    "“Instead of it taking nine months for them to learn how to troubleshoot hundreds of machines, it takes three months.”",
+    "“Microsoft’s cloud-native architecture supports expansion from a single factory to global deployments.”"
+  ],
+  "source_type": "company"
+}

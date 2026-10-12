@@ -1,0 +1,79 @@
+{
+  "id": "in-house-buzzworthy-ventures-beekind-hive-health-productivity",
+  "slug": "in-house-buzzworthy-ventures-beekind-hive-health-productivity",
+  "vendor": "In-house",
+  "customer_name": "Buzzworthy Ventures (Humble Bee)",
+  "industry": "Agriculture",
+  "region": "India",
+  "company_size": "SMB",
+  "business_problem": "Small-scale beekeepers in rural India lacked sustained scientific support, diagnostics, market access, and practical digital access, which limited hive health, honey quality, crop pollination, and income potential.",
+  "solution_summary": "Buzzworthy Ventures built BeeKind as the operational AI layer for its beekeeping support model rather than as a standalone consumer app. BeeKind uses AI-powered insights and predictive analysis to turn field observations into guidance on hive health, productivity, pollination timing and climate resilience. Because many rural beekeepers, especially women, lack reliable smartphone access or time to use apps, the team added BeeMitra facilitators and created FieldView, a mirror application they use on beekeepers’ behalf for diagnostics, yield tracking, hive health tracking and migration management. FieldView and site visits ingest images, calls, voice inputs and other observations; BeeKind processes them and returns short voice alerts in local languages. An image bot analyzes uploaded hive photos, and field feedback on recommendations that do not match conditions is looped back into model refinement, preserving a human-in-the-loop deployment tuned to local realities.",
+  "products_used": [
+    "BeeKind",
+    "FieldView",
+    "BeeMitra",
+    "image bot"
+  ],
+  "solution_components": [
+    {
+      "name": "BeeKind",
+      "role": "Mobile platform that generates AI-powered and predictive guidance on hive health, productivity, pollination, and climate resilience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "FieldView",
+      "role": "Mirror application used by BeeMitras and field facilitators to capture diagnostics, yield, hive-health, and migration data on behalf of beekeepers.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "BeeMitra",
+      "role": "Trained on-ground facilitator model that helps clusters of beekeepers use the system and operationalize diagnostics, tracking, and migration management.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "image bot",
+      "role": "Analyzes uploaded hive images to provide hive health insights.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "BeeMitras and field facilitators capture hive diagnostics, yield-tracking data, images, calls, voice inputs, and site-visit observations in FieldView on behalf of beekeepers. FieldView mirrors BeeKind, where AI-powered predictive analysis turns those inputs into hive-health, productivity, pollination, and climate-resilience guidance. The resulting insights are delivered back as short voice alerts in local languages, while field feedback on poor recommendations is fed into model refinement.",
+  "integration_points": [
+    "Beekeeper-uploaded images",
+    "Calls and voice inputs from beekeepers",
+    "On-site observations from BeeMitras and field facilitators"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The implementation improved hive management and honey quality, strengthened crop pollination, and increased livelihood impact by boosting hive health, incomes, and crop yields while scaling support for women beekeepers.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "6,000 hives across eight ecological zones",
+    "about 1,800 women beekeepers"
+  ],
+  "architecture_clues": [
+    "Human-in-the-loop operating model with BeeMitras and field coordinators validating AI recommendations.",
+    "Inputs are captured passively through images, calls, voice inputs, and site visits.",
+    "AI-generated insights are communicated through short voice-based alerts in local languages.",
+    "Field feedback is used directly for model refinement.",
+    "Deployment spans eight ecological zones in India."
+  ],
+  "source_url": "https://www.mastercard.com/europe/en/news-and-trends/stories/2026/ai-for-good-buzzworthy-ventures.html",
+  "published_date": "2026-02-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"BeeKind, a mobile platform that uses AI-powered insights and predictive analysis to offer guidance on hive health and productivity, a pollination calendar, climate resilience advice and more.\"",
+    "\"The initiative supports clusters of beekeepers with a BeeMitra, a trained on-ground facilitator who often comes from the same community and helps beekeepers with diagnostics, yield-tracking, hive health tracking, migration management and more.\"",
+    "\"The team created FieldView, a mirror application of BeeKind, for the BeeMitras and field facilitators to use on behalf of the beekeepers\"",
+    "\"The app data is captured passively via images, calls, voice inputs and site visits. The AI-generated insights are then communicated via short voice-based alerts in local languages.\"",
+    "\"Field coordinators and lead women beekeepers regularly flag when AI recommendations don’t match field conditions, and that feedback feeds directly into model refinement.\"",
+    "\"BeeKind has helped deploy 6,000 hives across eight ecological zones, generating employment for about 1,800 women beekeepers\""
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,94 @@
+{
+  "id": "microsoft-vodafone-genai-customer-service-automation",
+  "slug": "microsoft-vodafone-genai-customer-service-automation",
+  "vendor": "Microsoft",
+  "customer_name": "Vodafone",
+  "industry": "Telecommunications",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Vodafone wanted to improve customer experience for complex service interactions by making its virtual assistant better at understanding nuanced enquiries and by reducing repetitive work for care agents so they could resolve harder issues faster without passing customers around.",
+  "solution_summary": "Vodafone built two customer-care AI services, SuperTOBi and SuperAgent, as part of its customer experience programme using Microsoft’s generative AI stack. SuperTOBi extends Vodafone’s existing TOBi virtual assistant with Microsoft Azure OpenAI Service so it can interpret more complex customer enquiries, respond in a more natural way, and personalize responses across Vodafone’s multilingual service footprint. When TOBi cannot resolve an issue, it hands the interaction to a human agent together with a conversation summary, preserving context for the next step. SuperAgent then supports the agent by locating detailed answers from Vodafone’s knowledge base and by checking call and online chat transcripts to identify missing information or training needs. Vodafone also says both solutions operate under its AI Framework, which governs ethical, unbiased, explainable AI use as rollout expands across call centres and markets.",
+  "products_used": [
+    "SuperTOBi",
+    "SuperAgent",
+    "Microsoft Azure OpenAI Service",
+    "Vodafone-wide knowledge database",
+    "AI Framework"
+  ],
+  "solution_components": [
+    {
+      "name": "SuperTOBi",
+      "role": "Vodafone’s GenAI-enhanced virtual assistant handles customer enquiries, personalizes responses, and escalates unresolved issues with context to a human agent.",
+      "layer": "Serving"
+    },
+    {
+      "name": "SuperAgent",
+      "role": "Agent-assist service helps customer care employees find the right information quickly and handle more complex or cross-domain queries.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Azure OpenAI Service",
+      "role": "Provides the generative AI capabilities that improve TOBi’s understanding and response quality for complex enquiries.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vodafone-wide knowledge database",
+      "role": "Supplies the detailed internal information that SuperAgent searches to answer technical and service questions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AI Framework",
+      "role": "Provides governance for ethical, unbiased, and explainable use of AI and machine learning in the customer experience solutions.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer questions enter SuperTOBi, which uses Microsoft Azure OpenAI Service to interpret and answer them in natural language. If the bot cannot resolve an issue, it passes a summary of the conversation to a human agent. SuperAgent then retrieves relevant material from the Vodafone-wide knowledge database and checks call or online chat transcripts so the agent can resolve the case faster and with more context.",
+  "integration_points": [
+    "customer call centre operations",
+    "human customer care agents",
+    "call transcripts",
+    "online chat transcripts"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Vodafone reports better first-time resolution for complex enquiries, shorter customer call times, improved response accuracy and customer satisfaction, less repetitive work for agents, broader employee skills, and the ability to reuse the approach across multiple markets.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "nearly 45 million customer questions per month",
+    "13 countries",
+    "15 different languages",
+    "50% improvement in first-time resolution of critical customer journey’s such as complex billing inquiries",
+    "customer call times have been reduced by at least one minute on average"
+  ],
+  "architecture_clues": [
+    "Tested extensively at one Vodafone call centre before broader rollout",
+    "Designed for reuse across multiple markets from a single development effort",
+    "Supports multilingual service operations across 13 countries and 15 languages",
+    "Uses conversation summarization to transfer unresolved cases from bot to human agent"
+  ],
+  "source_url": "https://www.vodafone.com/news/newsroom/technology/vodafone-supercharging-customer-experience-with-microsoft-s-gen-ai-tools",
+  "published_date": "2024-05-23",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "“Now with Microsoft Azure OpenAI, TOBi can better understand, and respond faster, to complex customer enquiries while providing them with a more personalised experience.”",
+    "“TOBi sends a summary of its customer conversation to the agent, so they can jump right in.”",
+    "“It helps agents solve more complicated problems by quickly locating the relevant information from the Vodafone-wide knowledge database.”",
+    "“SuperAgent can more quickly check call and online chat transcripts to determine whether additional training or information is required.”",
+    "“Initial tests of SuperTOBi show an 50% improvement in first-time resolution of critical customer journey’s such as complex billing inquiries, as well as greater accuracy of responses overall.”",
+    "“by leveraging Microsoft’s GenAI capabilities, customer call times have been reduced by at least one minute on average”",
+    "“TOBi, Vodafone’s existing virtual assistant which is already handling nearly 45 million customer questions per month in 13 countries using 15 different languages.”"
+  ],
+  "source_type": "company"
+}

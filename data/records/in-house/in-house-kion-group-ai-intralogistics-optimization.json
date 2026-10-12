@@ -1,0 +1,79 @@
+{
+  "id": "in-house-kion-group-ai-intralogistics-optimization",
+  "slug": "in-house-kion-group-ai-intralogistics-optimization",
+  "vendor": "In-house",
+  "customer_name": "KION Group",
+  "industry": "Manufacturing",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Large warehouses need faster, more efficient operations, but manually tailoring each warehouse management system and assigning transport orders sequentially or by exhaustively testing options slows delivery, raises costs, and limits throughput.",
+  "solution_summary": "KION describes an in-house AI implementation for intralogistics that combines Generative AI (GenAI), warehouse management systems (WMS), and genetic algorithms. GenAI is used during planning and deployment to turn a detailed description of a warehouse's processes and structures into a customized WMS configuration, reducing the manual engineering effort normally required for each unique site. The same AI-assisted workflow also automates test runs and documentation, helping standardize implementations and reduce human error. In live warehouse operations, genetic algorithms act as the optimization engine for fleet control: they rapidly evaluate many transport-order allocation patterns and select near-best assignments instead of processing orders rigidly one by one or trying every possible combination. The resulting WMS-driven control loop improves resource use, throughput, responsiveness to changing conditions, and overall warehouse efficiency.",
+  "products_used": [
+    "Generative AI (GenAI)",
+    "warehouse management systems (WMS)",
+    "genetic algorithms"
+  ],
+  "solution_components": [
+    {
+      "name": "Generative AI (GenAI)",
+      "role": "Automatically configures a customized WMS from detailed warehouse process and structure descriptions and automates test runs and documentation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "warehouse management systems (WMS)",
+      "role": "Runs the warehouse-specific control logic produced through AI-assisted configuration for planning, implementation, and operation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "genetic algorithms",
+      "role": "Optimize transport-order allocation for warehouse fleet control in fractions of a second during operations.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Detailed descriptions of warehouse processes and structures are fed into Generative AI to create a customized WMS configuration. During deployment, the same AI automates testing and documentation. In operations, incoming transport orders are evaluated by genetic algorithms, which score allocation options and pass near-best assignments into the WMS-driven fleet control process for warehouse vehicle movements.",
+  "integration_points": [
+    "Detailed descriptions of warehouse processes and structures",
+    "Warehouse transport orders",
+    "Warehouse vehicle fleet control"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "KION reports faster planning, implementation, and operation of warehouse software, more standardized and higher-quality WMS adaptations with fewer human errors, and real-time fleet control that increases capacity utilization and throughput while reducing warehouse operating costs.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "in a few seconds what would take human developers several days",
+    "among the best two to three percent of all possibilities",
+    "time savings of up to 20 % compared to other algorithms",
+    "seconds or even minutes are saved per vehicle movement",
+    "whole days over the course of a year"
+  ],
+  "architecture_clues": [
+    "The WMS is auto-configured from a detailed description of warehouse processes and structures.",
+    "AI is used not only for configuration but also for automated test runs and documentation.",
+    "Transport-order allocation is optimized in fractions of a second rather than via rigid sequential processing or exhaustive search.",
+    "KION says the genetic algorithm performance claims were demonstrated in simulations under different warehouse conditions."
+  ],
+  "source_url": "https://www.kiongroup.com/en/Newsroom/Story-Categories/Innovation/Article/How-AI-and-genetic-algorithms-optimize-intralogistics-at-KION.html?storyid=56768",
+  "published_date": "2025-04-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Generative AI can significantly accelerate this adaptation process.\"",
+    "\"artificial intelligence can automatically configure a customized WMS based on a detailed description of all warehouse processes and structures.\"",
+    "\"AI also handles test runs and documentation automatically.\"",
+    "\"genetic algorithms that optimize the allocation of transport orders in fractions of a second.\"",
+    "\"the genetic algorithm achieves time savings of up to 20 % compared to other algorithms, depending on the warehouse conditions\"",
+    "\"This makes it possible to control a highly complex warehouse environment intelligently in real time, resulting in higher capacity utilization, greater throughput\""
+  ],
+  "source_type": "company"
+}
