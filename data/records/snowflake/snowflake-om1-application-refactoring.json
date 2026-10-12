@@ -1,0 +1,75 @@
+{
+  "id": "snowflake-om1-application-refactoring",
+  "slug": "snowflake-om1-application-refactoring",
+  "vendor": "Snowflake",
+  "customer_name": "OM1",
+  "industry": "Healthcare",
+  "region": "Boston, Massachusetts",
+  "company_size": "Enterprise",
+  "business_problem": "simplify a compute-heavy healthcare data ecosystem spread across AWS, Databricks, and custom software so OM1 could deploy ML code faster, reduce maintenance, and keep PHI redaction efficient.",
+  "solution_summary": "OM1 uses Snowflake, Snowpark, and Snowpark Container Services on Snowflake to simplify a compute-heavy healthcare data ecosystem spread across AWS, Databricks, and custom software so OM1 could deploy ML code faster, reduce maintenance, and keep PHI redaction efficient. Patient, claims, and clinician-note data are centralized in Snowflake so data engineers, clinical researchers, and ML teams can work from a faster, more reliable operating view. Snowpark keeps transformation and application logic close to the governed data instead of forcing the team to move workloads into separate compute environments. Keeping ingestion, storage, transformation, and governed access on one platform reduces handoffs, simplifies operations, and makes it easier to reuse trusted data across analytics, reporting, and AI. OM1 achieved 75% savings in processing costs using Snowpark Container Services to redact PII data and 100M+ clinical records redacted in less than 30 minutes to protect patient privacy.",
+  "products_used": [
+    "Snowflake",
+    "Snowpark",
+    "Snowpark Container Services"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake",
+      "role": "Provides the centralized data platform that stores governed datasets and serves analytics or AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowpark",
+      "role": "Runs transformations, analytics, and application logic directly where Snowflake data already lives.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowpark Container Services",
+      "role": "Runs containerized ML, privacy, or application workloads directly against Snowflake-managed data.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "patient, claims, and clinician-note data flow into Snowflake, Snowpark, and Snowpark Container Services; curated data, reports, and model outputs are then served to data engineers, clinical researchers, and ML teams.",
+  "integration_points": [
+    "AWS",
+    "dbt",
+    "Modelbit",
+    "Hex"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Platform",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "OM1 achieved 75% savings in processing costs using Snowpark Container Services to redact PII data and 100M+ clinical records redacted in less than 30 minutes to protect patient privacy.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "75% savings in processing costs using Snowpark Container Services to redact PII data",
+    "100M+ clinical records redacted in less than 30 minutes to protect patient privacy"
+  ],
+  "architecture_clues": [
+    "Snowpark keeps transformation and application logic close to the governed data instead of forcing the team to move workloads into separate compute environments.",
+    "Snowpark Container Services handles specialized privacy or model workloads directly against the same managed data foundation.",
+    "Integrates with AWS, dbt, Modelbit, Hex as part of the broader delivery workflow.",
+    "Operates at the scale described by metrics such as 75% savings in processing costs using Snowpark Container Services to redact PII data."
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/om1/",
+  "published_date": "2025-05-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "75% savings in processing costs using Snowpark Container Services to redact PII data",
+    "100M+ clinical records redacted in less than 30 minutes to protect patient privacy",
+    "To deliver real-world insights from bench to bedside, OM1 moved its complex ecosystem spread across AWS, Databricks and custom software — and discovered newfound simplicity and efficiency in the process",
+    "The sheer size and complexity of OM1’s data sets require a reliable, scalable platform to meet the industry’s rigorous demands for privacy, accuracy and credibility",
+    "OM1 achieved 75% savings in processing costs using Snowpark Container Services to redact PII data and 100M+ clinical records redacted in less than 30 minutes to protect patient privacy"
+  ]
+}
