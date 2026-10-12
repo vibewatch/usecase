@@ -412,12 +412,12 @@ def triage(
     lastmods = {row["url"]: row.get("lastmod") for row in load_jsonl(discovered_path) if row.get("url")}
     counts: Counter[str] = Counter()
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    out = output_path.open("a", encoding="utf-8")
 
     def emit(row: dict[str, Any]) -> None:
-        # Written immediately so an interrupted multi-hour run keeps its progress.
-        out.write(json.dumps(row, ensure_ascii=False) + "\n")
-        out.flush()
+        # Written immediately (reopening the ledger each time, since git pulls
+        # replace the file) so an interrupted multi-hour run keeps its progress.
+        with output_path.open("a", encoding="utf-8") as out:
+            out.write(json.dumps(row, ensure_ascii=False) + "\n")
         counts[row["decision"]] += 1
         for reason in row["reasons"]:
             counts["reason:" + re.sub(r"_\d+.*$|\s.*$", "", reason)] += 1
@@ -434,95 +434,92 @@ def triage(
             return False
         return True
 
-    try:
-        if stage == "pre":
-            for row in load_jsonl(discovered_path):
-                url, vendor = row.get("url"), row.get("vendor")
-                if not url or not vendor or not wanted(url, vendor):
-                    continue
-                lastmod = row.get("lastmod")
-                too_old = bool(lastmod) and lastmod < criteria.since
-                emit(
-                    {
-                        "url": url,
-                        "vendor": vendor,
-                        "stage": "pre",
-                        "decision": "drop" if too_old else "keep",
-                        "reasons": [f"modified_before_{criteria.since}"] if too_old else [],
-                        "score": None,
-                        "published_date": None,
-                        "title": row.get("title"),
-                        "words": None,
-                        "fingerprint": None,
-                        "decided_at": _now(),
-                    }
-                )
-        else:
-            vendor_rules = load_vendor_rules(sources_path)
-            # Fingerprints of pages already kept, so later copies are dropped as duplicates.
-            seen = {
-                row["fingerprint"]: url
-                for url, row in decisions.items()
-                if row.get("decision") == "keep" and row.get("fingerprint")
-            }
-            latest: dict[str, dict[str, Any]] = {}
-            for row in load_jsonl(manifest_path):
-                if isinstance(row.get("url"), str):
-                    latest[row["url"]] = row
-            for row in latest.values():
-                url, vendor = row["url"], row.get("vendor", "")
-                if row.get("status") != 200 or not row.get("raw_path"):
-                    # Removed stories (404/410) are dropped so fetch stops retrying them.
-                    if re.search(r"HTTP Error (404|410)", str(row.get("error") or "")) and wanted(url, vendor):
-                        emit({"url": url, "vendor": vendor, "stage": "post", "decision": "drop",
-                              "reasons": ["gone_404"], "score": None, "published_date": None, "title": None,
-                              "words": None, "fingerprint": None, "decided_at": _now()})
-                    continue
-                previous = decisions.get(url)
-                if previous and previous.get("decision") == "drop" and previous["stage"] == "pre" and not rejudge:
-                    continue
-                if not wanted(url, vendor):
-                    continue
-                rules = vendor_rules.get(vendor)
-                base = {"url": url, "vendor": vendor, "stage": "post"}
-                if _redirected_off_story(row, rules):
-                    emit({**base, "decision": "drop", "reasons": [f"redirected_to {row.get('final_url')}"],
-                          "score": None, "published_date": None, "title": None, "words": None,
-                          "fingerprint": None, "decided_at": _now()})
-                    continue
-                raw_path = Path(row["raw_path"])
-                if not raw_path.exists():
-                    counts["skip_missing_raw"] += 1
-                    continue
-                body = raw_path.read_bytes()
-                try:
-                    title, text, _method = content_to_text(body, content_type=str(row.get("content_type") or ""))
-                except Exception as exc:  # noqa: BLE001 - one bad file must not stop the batch
-                    print(f"  parse failed {url}: {exc}", file=sys.stderr)
-                    counts["skip_parse_error"] += 1
-                    continue
-                result = evaluate_text(
-                    title=title,
-                    text=text,
-                    raw_html=body[:400_000].decode("utf-8", errors="replace"),
-                    lastmod=lastmods.get(url),
-                    criteria=criteria,
-                    story_cues=rules.story_cues if rules else None,
-                    vendor_options=rules.options if rules else None,
-                    date_fallback=None,  # archive lookups run in the separate `dates` stage
-                )
-                if result["decision"] == "keep":
-                    original = seen.get(result["fingerprint"])
-                    if original and original != url:
-                        result["decision"] = "drop"
-                        result["reasons"] = [f"duplicate_of {original}"]
-                    else:
-                        seen[result["fingerprint"]] = url
-                emit({**base, **result, "decided_at": _now()})
-                if sum(counts[key] for key in ("keep", "drop")) % 100 == 0:
-                    print(f"  triaged {counts['keep'] + counts['drop']} (keep={counts['keep']})", file=sys.stderr, flush=True)
-    finally:
-        out.close()
+    if stage == "pre":
+        for row in load_jsonl(discovered_path):
+            url, vendor = row.get("url"), row.get("vendor")
+            if not url or not vendor or not wanted(url, vendor):
+                continue
+            lastmod = row.get("lastmod")
+            too_old = bool(lastmod) and lastmod < criteria.since
+            emit(
+                {
+                    "url": url,
+                    "vendor": vendor,
+                    "stage": "pre",
+                    "decision": "drop" if too_old else "keep",
+                    "reasons": [f"modified_before_{criteria.since}"] if too_old else [],
+                    "score": None,
+                    "published_date": None,
+                    "title": row.get("title"),
+                    "words": None,
+                    "fingerprint": None,
+                    "decided_at": _now(),
+                }
+            )
+    else:
+        vendor_rules = load_vendor_rules(sources_path)
+        # Fingerprints of pages already kept, so later copies are dropped as duplicates.
+        seen = {
+            row["fingerprint"]: url
+            for url, row in decisions.items()
+            if row.get("decision") == "keep" and row.get("fingerprint")
+        }
+        latest: dict[str, dict[str, Any]] = {}
+        for row in load_jsonl(manifest_path):
+            if isinstance(row.get("url"), str):
+                latest[row["url"]] = row
+        for row in latest.values():
+            url, vendor = row["url"], row.get("vendor", "")
+            if row.get("status") != 200 or not row.get("raw_path"):
+                # Removed stories (404/410) are dropped so fetch stops retrying them.
+                if re.search(r"HTTP Error (404|410)", str(row.get("error") or "")) and wanted(url, vendor):
+                    emit({"url": url, "vendor": vendor, "stage": "post", "decision": "drop",
+                          "reasons": ["gone_404"], "score": None, "published_date": None, "title": None,
+                          "words": None, "fingerprint": None, "decided_at": _now()})
+                continue
+            previous = decisions.get(url)
+            if previous and previous.get("decision") == "drop" and previous["stage"] == "pre" and not rejudge:
+                continue
+            if not wanted(url, vendor):
+                continue
+            rules = vendor_rules.get(vendor)
+            base = {"url": url, "vendor": vendor, "stage": "post"}
+            if _redirected_off_story(row, rules):
+                emit({**base, "decision": "drop", "reasons": [f"redirected_to {row.get('final_url')}"],
+                      "score": None, "published_date": None, "title": None, "words": None,
+                      "fingerprint": None, "decided_at": _now()})
+                continue
+            raw_path = Path(row["raw_path"])
+            if not raw_path.exists():
+                counts["skip_missing_raw"] += 1
+                continue
+            body = raw_path.read_bytes()
+            try:
+                title, text, _method = content_to_text(body, content_type=str(row.get("content_type") or ""))
+            except Exception as exc:  # noqa: BLE001 - one bad file must not stop the batch
+                print(f"  parse failed {url}: {exc}", file=sys.stderr)
+                counts["skip_parse_error"] += 1
+                continue
+            result = evaluate_text(
+                title=title,
+                text=text,
+                raw_html=body[:400_000].decode("utf-8", errors="replace"),
+                lastmod=lastmods.get(url),
+                criteria=criteria,
+                story_cues=rules.story_cues if rules else None,
+                vendor_options=rules.options if rules else None,
+                date_fallback=None,  # archive lookups run in the separate `dates` stage
+            )
+            if result["decision"] == "keep":
+                original = seen.get(result["fingerprint"])
+                if original and original != url:
+                    result["decision"] = "drop"
+                    result["reasons"] = [f"duplicate_of {original}"]
+                else:
+                    seen[result["fingerprint"]] = url
+            emit({**base, **result, "decided_at": _now()})
+            if sum(counts[key] for key in ("keep", "drop")) % 100 == 0:
+                print(f"  triaged {counts['keep'] + counts['drop']} (keep={counts['keep']})", file=sys.stderr, flush=True)
     return counts
 
 
@@ -559,7 +556,13 @@ def enrich_dates(
 
     failures = 0
     workers = 3
-    with output_path.open("a", encoding="utf-8") as out, ThreadPoolExecutor(max_workers=workers) as pool:
+    def append(row: dict[str, Any]) -> None:
+        # Reopen per write: git pulls replace the ledger file, and a long-lived
+        # handle would keep writing into the old, unlinked copy.
+        with output_path.open("a", encoding="utf-8") as out:
+            out.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+    with ThreadPoolExecutor(max_workers=workers) as pool:
         for start in range(0, len(pending), workers * 2):
             if failures >= max_consecutive_failures:
                 print("  archive unreachable; stopping (re-run --stage dates later)", file=sys.stderr, flush=True)
@@ -577,8 +580,7 @@ def enrich_dates(
                 page_date = row.get("published_date")
                 if first_seen and page_date and page_date <= first_seen:
                     counts["page_date_earlier"] += 1  # the page's own date is earlier; keep it
-                    out.write(json.dumps(updated, ensure_ascii=False) + "\n")
-                    out.flush()
+                    append(updated)
                     continue
                 if first_seen:
                     counts["dated"] += 1
@@ -594,8 +596,7 @@ def enrich_dates(
                         updated["score"] = round(float(row.get("score") or 0) + float(recency.get(first_seen[:4], 0)) - previous, 2)
                 else:
                     counts["never_archived"] += 1  # likely new: keep as-is
-                out.write(json.dumps(updated, ensure_ascii=False) + "\n")
-                out.flush()
+                append(updated)
             done = min(start + workers * 2, len(pending))
             if done % 60 < workers * 2:
                 print(f"  dated {done}/{len(pending)} (dropped {counts['drop']})", file=sys.stderr, flush=True)
