@@ -1,0 +1,82 @@
+{
+  "id": "ibm-eude-virtual-co-tutor",
+  "slug": "ibm-eude-virtual-co-tutor",
+  "vendor": "IBM",
+  "customer_name": "EUDE",
+  "industry": "Education",
+  "region": "Spain",
+  "company_size": "Unknown",
+  "business_problem": "EUDE needed to support a large online student population spread across time zones without forcing tutors to spend their time answering the same administrative and academic questions repeatedly.",
+  "solution_summary": "EUDE built a virtual co-tutor called EDU on IBM Cloud using IBM watsonx.ai, IBM watsonx Assistant, and IBM Watson Discovery to support students and tutors across its online programs. The assistant accepts natural-language questions about academic, administrative, and logistical topics and uses a governed knowledge base to return immediate answers. Watsonx Assistant provides the conversational front end, watsonx.ai powers generative response behavior, and Watson Discovery extends the system's access to institutional knowledge, while IBM Cloud hosts the solution and keeps control of sources and school data inside the implementation. The initial one-week pilot with three dozen Digital Transformation students showed that the design could reduce routine tutor workload while maintaining fast responses for learners in many time zones. By shifting repetitive support questions to EDU, EUDE is turning generative AI into a scalable support layer around its teaching model.",
+  "products_used": [
+    "IBM Cloud",
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Cloud",
+      "role": "Hosts the EDU virtual co-tutor and the governed data and content used to answer questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Provides the generative AI capabilities behind EDU's question-answering experience.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Acts as the conversational front end for student and tutor questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Supplies access to the broader knowledge base that EDU uses to answer academic and administrative questions.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Students and tutors submit questions in natural language to EDU; watsonx Assistant routes the conversation, Watson Discovery retrieves relevant academic or administrative information, watsonx.ai composes the answer, and IBM Cloud serves the response back under EUDE-controlled data and content policies.",
+  "integration_points": [
+    "academic knowledge base",
+    "administrative knowledge base",
+    "structured data collections"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "EUDE showed that a governed AI co-tutor can improve student response times, help tutors focus on higher-value work, and support a more scalable online-learning experience.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "more than 13,000 virtual students each year",
+    "one-week pilot",
+    "three dozen students in the initial pilot",
+    "9 in prediction accuracy",
+    "8 in test performance",
+    "less than 20 seconds per response"
+  ],
+  "architecture_clues": [
+    "The assistant is named EDU and supports both students and tutors.",
+    "EUDE highlighted full control over response content, sources, and its own data.",
+    "The page mentions structured data access through text-to-SQL logic in the backend description."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/eude",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"EDU is a virtual co-tutor that is intended to offer real-time support to both students and tutors\"",
+    "\"The tool is based on IBM technology including IBM Cloud, IBM watsonx.ai, IBM watsonx Assistant and IBM Watson Discovery\"",
+    "\"the processing speed was less than 20 seconds per response\"",
+    "\"9 in prediction accuracy and 8 in test performance\"",
+    "\"designed to reduce the amount of time tutors need to spend on routine questions\""
+  ]
+}

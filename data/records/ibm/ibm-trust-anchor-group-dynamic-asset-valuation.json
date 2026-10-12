@@ -1,0 +1,74 @@
+{
+  "id": "ibm-trust-anchor-group-dynamic-asset-valuation",
+  "slug": "ibm-trust-anchor-group-dynamic-asset-valuation",
+  "vendor": "IBM",
+  "customer_name": "Trust Anchor Group",
+  "industry": "Financial Services",
+  "region": "Sweden",
+  "company_size": "Unknown",
+  "business_problem": "Trust Anchor Group needed to replace slow, error-prone asset valuation processes that could lag changing market conditions by months and leave investors with outdated views of asset value.",
+  "solution_summary": "Trust Anchor Group worked with IBM through the Fintechx program and IBM Client Engineering workshops to prototype a dynamic asset valuation application powered by IBM watsonx.ai and IBM watsonx Assistant. The solution ingests changing market signals such as reports, press releases, and news feeds, then uses watsonx.ai to summarize events, assess sentiment, contextualize the likely effect on a digital asset's value, and suggest how users should respond. On top of that analysis layer, the team built a natural-language assistant so portfolio owners can question event summaries and drill into valuation findings in real time; Trust Anchor says the assistant is now deployed across its websites. The architecture replaces a manual valuation cycle that previously ran every six or twelve months with an event-driven process that can react within minutes or a day, giving investors and businesses fresher views of asset value and risk.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM watsonx Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Summarizes market events, assesses sentiment, and estimates the impact of those events on asset values.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Lets users ask natural-language questions about valuation findings and event summaries in real time.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Reports, press releases, and news feeds are analyzed by watsonx.ai for summaries, sentiment, and valuation impact, and watsonx Assistant exposes those findings through natural-language Q&A for portfolio owners and website users.",
+  "integration_points": [
+    "reports",
+    "press releases",
+    "news feeds",
+    "Trust Anchor Group websites",
+    "Neuro services"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Trust Anchor Group showed that generative AI can turn asset valuation from a periodic manual task into a near-real-time analysis workflow that improves turnaround time and gives investors fresher decision support.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "about 6 weeks to build and test the pilot",
+    "10 users from IBM and Trust Anchor Group",
+    "up to 96.7% improvement in turnaround time to evaluate an event and its impact on an asset's value",
+    "previous cycle every 6 or 12 months",
+    "analysis can be achieved instantaneously or within a day",
+    "completed in a matter of minutes"
+  ],
+  "architecture_clues": [
+    "The app sits alongside Trust Anchor Group's Neuro asset-digitalization offering.",
+    "The assistant is implemented on all Trust Anchor Group websites.",
+    "The pilot combined event summarization, sentiment analysis, valuation context, and suggested actions in one workflow."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/trust-anchor-group",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Calculate digital asset value in real time by querying multiple data sources such as reports, press releases and news feeds\"",
+    "\"Summarize incoming events, and sentiment surrounding those events, which could impact a real-world asset\"",
+    "\"The IBM watsonx Assistant is now implemented on all Trust Anchor Group's websites.\"",
+    "\"Up to 96.7% improvement in turnaround time to evaluate an event and its impact on an asset's value\"",
+    "\"a matter of minutes\""
+  ]
+}

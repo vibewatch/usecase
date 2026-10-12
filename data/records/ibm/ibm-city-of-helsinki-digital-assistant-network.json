@@ -1,0 +1,97 @@
+{
+  "id": "ibm-city-of-helsinki-digital-assistant-network",
+  "slug": "ibm-city-of-helsinki-digital-assistant-network",
+  "vendor": "IBM",
+  "customer_name": "City of Helsinki",
+  "industry": "Public Sector",
+  "region": "Finland",
+  "company_size": "Public sector",
+  "business_problem": "The City of Helsinki needed to improve citizen service speed and flexibility, reduce pressure on overworked customer-service teams, and connect siloed service organizations without compromising privacy for sensitive public data.",
+  "solution_summary": "The City of Helsinki worked with IBM Consulting to build a network of virtual assistants on IBM watsonx Assistant so citizens could reach city services faster and employees could absorb inquiry volumes. IBM Consulting and the city co-designed chatbot scope, tone, and user experience, then used IBM Garage workshops to build intent models from customer-service expertise when chat logs were unavailable. As the program expanded, assistants were connected to internal departments, other Finnish municipalities, and outside vendors, while IBM Watson Discovery was added to the internal IT assistant so unanswered questions could search a large instruction library. A multi-chatbot serving healthcare and social services also uses IBM Watson Language Translator to deliver Finnish, Swedish, and English experiences. The architecture lets Helsinki reuse training data, run sensitive workloads from a Finland data center when needed, and add new assistants without rebuilding from scratch.",
+  "products_used": [
+    "IBM Consulting",
+    "IBM watsonx Assistant",
+    "IBM Cloud",
+    "IBM Garage",
+    "IBM Watson Discovery",
+    "IBM Watson Language Translator"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Consulting",
+      "role": "Co-designed the virtual-assistant program, user experience, and implementation approach with city teams.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Runs the city's citizen-facing and employee-facing virtual assistants across multiple service domains.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Cloud",
+      "role": "Hosted the initial virtual-assistant deployment for the city.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Garage",
+      "role": "Provided the workshop methodology used to co-create chatbot training and implementation patterns.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Searches a large instruction library when the internal IT assistant cannot answer directly.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Language Translator",
+      "role": "Translates skills training services for the multi-chatbot into Swedish and English.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Citizen or employee questions enter watsonx Assistant over web chat, APIs connect the assistant to city departments and outside systems, Watson Discovery searches instruction content when needed, and Language Translator expands multi-chatbot responses across Finnish, Swedish, and English experiences.",
+  "integration_points": [
+    "regional internal departments",
+    "other Finland cities",
+    "outside vendors",
+    "Helsinki Region Infoshare",
+    "healthcare and social services organizations"
+  ],
+  "technical_area": [
+    "Contact Center",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Helsinki created a scalable digital-assistant foundation that handles significant daily citizen demand, shortens queues, supports employees, and makes it easier to add new multilingual service assistants over time.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "up to 300 customer contacts per day",
+    "6 healthcare and social services combined in the multi-chatbot",
+    "10 virtual assistants currently running",
+    "less than three months from start date to first launch",
+    "over 38,000 employees",
+    "650,000 citizens"
+  ],
+  "architecture_clues": [
+    "The city wanted the solution to run from a local Finland data center when needed for sensitive workloads.",
+    "Chatbot training data was released on Helsinki Region Infoshare so other cities could reuse it.",
+    "The team continues to meet weekly with a local IBM team to plan new assistants and capabilities."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/city-of-helsinki",
+  "published_date": "2023-10-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Chief among the platform requirements were natural language processing and the ability to connect to other systems ... using APIs.\"",
+    "\"The team began work on the digital assistant in December 2020 and launched it in early March of 2021\"",
+    "\"The team then built an internal IT virtual assistant for employees that incorporated IBM Watson Discovery.\"",
+    "\"Currently, the City of Helsinki is running 10 virtual assistants\"",
+    "\"Virtual assistants currently handle up to 300 customer contacts per day\""
+  ]
+}
