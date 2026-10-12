@@ -61,7 +61,7 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
 6. **Author records** — for each freshly produced bundle (those whose `sha256` does not yet have a record):
    1. Read `data/extract_jobs/{vendor_slug}/{sha}.json`. The bundle's `prompt` field already contains the full `case-study-extraction` SKILL text, the taxonomy, the source URL, and the cleaned page text.
    2. Apply the [`case-study-extraction`](../../.agents/skills/case-study-extraction/SKILL.md) skill to produce one strict JSON record.
-   3. If the skill's step 0 finds the page is **not a customer story**, do not write a record. Run `python3 -m pipeline.usecase_intel.triage --stage reject --url "<source_url>" --reason "<reason>"` so the page is never bundled again, count it as `rejected`, and move on (it does not count toward `cap`).
+   3. If the skill's step 0 finds the page is **not a customer story** or **not an AI use case**, do not write a record. Run `python3 -m pipeline.usecase_intel.triage --stage reject --url "<source_url>" --reason "<reason>"` (prefix the reason with `not_ai_use_case: ` for the latter) so the page is never bundled again, count it as `rejected`, and move on (it does not count toward `cap`).
    4. Use the bundle's `published_date` as a default `date` if the source page does not state one.
    5. Compute the slug per the skill: `vendor-slug + "-" + customer-slug + "-" + use-case-slug`. Use the same vendor-slug as the bundle's `vendor_slug` directory name.
    6. Write the record to `data/records/{vendor_slug}/{slug}.json` (pretty-printed JSON, UTF-8, no markdown fences).
@@ -97,7 +97,7 @@ Return a concise summary with these buckets:
 - **fetched**: net new HTML pages downloaded this run (from fetch's `ok=` count).
 - **triaged**: keep/drop counts from both triage stages, with the top drop reasons.
 - **bundles**: prompt bundles emitted this run (from extract's `Jobs=` count).
-- **rejected**: pages the extractor found were not customer stories (recorded with `--stage reject`).
+- **rejected**: pages the extractor found were not customer stories or not AI use cases (recorded with `--stage reject`).
 - **authored**: records successfully written under `data/records/` this run, with one bullet per record: `{vendor}/{customer} — {use_case_category}` and the new file path.
 - **deduped**: bundles skipped because the URL already had a record.
 - **failed**: bundles whose record write or validation failed, with reason and the bundle path.

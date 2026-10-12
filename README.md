@@ -80,11 +80,14 @@ criteria in `pipeline/usecase_intel/config/triage.json`):
 | `pre` | discovery metadata | stories whose sitemap/API date predates the cutoff |
 | `post` | fetched page text | old (page metadata/dateline), thin, non-English, off-topic, duplicate, or redirected-away pages |
 | `dates` | undated survivors | pages the Internet Archive first saw before the cutoff |
-| extraction | the extractor itself | pages that turn out not to be customer stories (`--stage reject`) |
+| extraction | the extractor itself | pages that turn out not to be customer stories, or not AI use cases (`--stage reject`) |
 
-Current criteria: published **2023 or later**, **AI & data** topics (AI-native
+Current criteria: published **2023 or later**, **AI** topics (AI-native
 vendors like OpenAI, Anthropic and LangChain are exempt from the topic check),
-at least 300 words, English. Survivors get a relevance score (topic depth,
+at least 300 words, English (or Chinese for `"language": "zh"` catalogs, whose
+records are written in English). The extractor then keeps only stories where AI
+is actually implemented — pure migration, infrastructure or analytics stories
+are rejected. Survivors get a relevance score (topic depth,
 quantified results, architecture detail, recency) and extraction takes them
 highest-score first. Every decision and its reasons is in `data/triage.jsonl`
 (latest row per URL wins), so drops are auditable and nothing is judged twice.
