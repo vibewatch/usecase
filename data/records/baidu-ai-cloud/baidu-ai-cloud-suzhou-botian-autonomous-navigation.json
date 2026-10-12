@@ -1,0 +1,71 @@
+{
+  "id": "baidu-ai-cloud-suzhou-botian-autonomous-navigation",
+  "slug": "baidu-ai-cloud-suzhou-botian-autonomous-navigation",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Suzhou Botian Automation Technology Co., Ltd. (苏州博田自动化技术有限公司)",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Botian needed a more robust way to guide agricultural robots in rice fields, because traditional image-processing methods could not reliably extract seedling center lines under changing light, floating weeds, missing seedlings, and other noise in unstructured field environments.",
+  "solution_summary": "Botian built an automatic paddy-field navigation-line detection system on PaddlePaddle and PaddleSeg so its agricultural robots could navigate more accurately in real field conditions. The workflow starts by collecting labeled images from two representative growth stages — one week and three weeks after transplanting — at different times of day and exposure settings so the training set covers changing brightness conditions. Botian then chose the ICNet semantic segmentation model because it offers a strong compromise between accuracy and real-time performance for embedded-style machine-vision use cases. Training runs on 640x512 inputs use configurable optimizers, augmentation strategies, and validation checkpoints, while VisualDL is used to inspect loss curves and pick the best model without overfitting. Inference segments the seedlings from background clutter and then extracts row center lines for robot guidance. This turned plant-row detection from a fragile hand-tuned image pipeline into a trainable AI perception stack suited to real agricultural automation.",
+  "products_used": [
+    "PaddlePaddle",
+    "PaddleSeg",
+    "ICNet"
+  ],
+  "solution_components": [
+    {
+      "name": "PaddlePaddle",
+      "role": "Provides the deep-learning framework Botian uses to train and deploy rice-field navigation-line detection models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PaddleSeg",
+      "role": "Supplies the image-segmentation toolkit used to isolate rice seedlings from complex field backgrounds.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ICNet",
+      "role": "Runs the lightweight real-time semantic-segmentation model that extracts seedling rows for navigation on embedded-style agricultural equipment.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Field images captured under different times and exposure settings are labeled and used to train ICNet through PaddleSeg on PaddlePaddle, the model segments seedlings from the noisy background, and the extracted row center lines are fed into agricultural robot navigation workflows.",
+  "integration_points": [
+    "field image collection workflows",
+    "robot navigation systems",
+    "VisualDL validation workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Botian improved the reliability and speed of autonomous field navigation, reducing dependence on manual labor and making agricultural robots more practical in complex rice-field environments.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "extraction accuracy exceeded 95%",
+    "processing time reached about 300 ms per frame",
+    "average angle error dropped from 3.27° to 1.65°"
+  ],
+  "architecture_clues": [
+    "The training data spans different growth stages and exposure settings to make the model robust to field variability.",
+    "ICNet was chosen specifically for high-resolution, low-memory, real-time deployment needs similar to autonomous-driving vision tasks.",
+    "VisualDL is used to choose the best checkpoint based on validation accuracy rather than just training loss."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/botian.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "source_language": "zh",
+  "evidence_quotes": [
+    "Botian developed the paddy-field navigation-line detection system on PaddlePaddle and used the ICNet model in PaddleSeg to segment seedlings from the background and extract center lines precisely. (original: 基于百度飞桨(PaddlePaddle)深度学习平台研发了水田导航线自动检测系统。他们应用飞桨图像分割开发套件PaddleSeg中的ICNet模型将秧苗按列从背景中分割出来，并以此为基础实现了秧苗列中心线的精准提取。)",
+    "The dataset included 400 images from each of two growth stages at different times of day and exposure settings. (original: 技术人员分别在一天内不同时间段采集插秧1周后和插秧3周后两个典型时期的水稻秧苗的图片各400幅，并且在每个时段通过设置不同的曝光时间以采集不同亮度的图片。)",
+    "ICNet was selected because it achieves real-time performance with much lower memory and prediction time while keeping accuracy at an acceptable level. (original: ICNet...属于参数量较小的轻量级语义分割网络...在精度降低较少的情况下大幅度减少了预测时间和占用内存。)",
+    "The final system achieved over 95% extraction accuracy and about 300 ms processing time per image frame. (original: 提取准确率达到95％以上，处理每帧图像耗费的时间...达到300ms左右。)",
+    "Average angle error dropped from 3.27° to 1.65°. (original: 在试验图像中的平均角度误差从3.27°降低到了1.65°。)"
+  ]
+}

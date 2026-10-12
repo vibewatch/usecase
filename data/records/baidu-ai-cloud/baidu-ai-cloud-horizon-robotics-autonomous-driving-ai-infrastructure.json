@@ -1,0 +1,79 @@
+{
+  "id": "baidu-ai-cloud-horizon-robotics-autonomous-driving-ai-infrastructure",
+  "slug": "baidu-ai-cloud-horizon-robotics-autonomous-driving-ai-infrastructure",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Horizon Robotics (地平线)",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Horizon needed to overhaul the storage, compute, and network foundation behind its autonomous-driving training workloads so it could support rapidly growing model volumes, higher concurrency, and the launch requirements of more than 100 new Journey 6 vehicle programs.",
+  "solution_summary": "Baidu AI Cloud became Horizon's largest infrastructure supplier and rebuilt the core training stack for mass-production autonomous-driving models. On storage, Baidu optimized the bottom architecture to deliver EB-scale BOS object storage plus high-performance PFS parallel file storage for large data ingest and training throughput, including millisecond cross-cloud link support under very high query loads. For compute, Horizon deployed a very large CCE container cluster that can manage more than 100,000 concurrent pods and unify management of over 10,000 GPU cards, improving both operational efficiency and GPU pooling. Baidu and Horizon also automated GPU fault discovery and recovery so failures could be handled in minutes instead of interrupting long-running training. Network upgrades added dedicated links and bandwidth expansion to keep the training environment highly available. The overall design created a scalable AI-infrastructure base for Horizon's growing autonomous-driving portfolio while also adding data-compliance support for R&D and production workflows.",
+  "products_used": [
+    "BOS Object Storage",
+    "PFS Parallel File Storage",
+    "CCE Container Cluster"
+  ],
+  "solution_components": [
+    {
+      "name": "BOS Object Storage",
+      "role": "Provides EB-scale object storage for autonomous-driving data and high-concurrency training access patterns.",
+      "layer": "Storage"
+    },
+    {
+      "name": "PFS Parallel File Storage",
+      "role": "Delivers the high-throughput shared file layer needed for large-scale model-training jobs.",
+      "layer": "Storage"
+    },
+    {
+      "name": "CCE Container Cluster",
+      "role": "Runs Horizon's large autonomous-driving training workloads with pooled GPU management and large-scale pod concurrency.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Autonomous-driving data is stored in BOS and PFS, large training jobs run on the CCE container cluster with pooled GPU resources, automated monitoring handles GPU failures in minutes, and the upgraded network keeps data and model workloads moving reliably across the high-concurrency training environment.",
+  "integration_points": [
+    "autonomous-driving training datasets",
+    "GPU fault monitoring workflows",
+    "dedicated network links",
+    "data-compliance workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Horizon gained a high-scale, stable AI foundation for mass-production autonomous-driving training, improving GPU utilization, shortening recovery from infrastructure failures, and supporting aggressive vehicle-program growth while extending into compliance operations.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "100+ Journey 6 vehicle models scheduled for mass production",
+    "8000000 cumulative Journey-family shipments",
+    "310+ cooperative vehicle models",
+    "200+ models already in mass production",
+    "100000+ concurrent pods",
+    "10000+ GPU cards under unified management",
+    "GPU fault handling reduced to the minute level",
+    "1,000,000+ qps high-concurrency support"
+  ],
+  "architecture_clues": [
+    "The storage layer uses both EB-scale object storage and high-performance parallel file storage for different autonomous-driving data patterns.",
+    "GPU failure detection and automated remediation are built into the cluster operations model.",
+    "Dedicated line reconstruction and bandwidth expansion were part of the final design, not just compute and storage upgrades."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/dipingxian.html",
+  "published_date": "2025-06-17",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "source_language": "zh",
+  "evidence_quotes": [
+    "Horizon built a mass-production autonomous-driving compute foundation on Baidu AI Cloud's EB-scale storage, large GPU cluster, and high-availability network architecture. (original: 地平线基于百度智能云EB级存储、万卡GPU集群及高可用网络架构，构建千万级智驾量产算力底座。)",
+    "The storage architecture delivers EB-scale BOS object storage, millisecond cross-cloud links, and support for more than one million qps under high concurrency. (original: 提供超大规模EB级别的BOS对象存储能力，以及能够满足大规模数据吞吐读写需求、毫秒级跨云链路支持，确保在超百万qps的高并发场景下依然游刃有余。)",
+    "The CCE cluster supports over 100,000 concurrent pods and unified management of more than 10,000 GPU cards. (original: 构建超大规模的容器集群CCE，满足业务10万+POD并发运行、万卡GPU算力统一纳管。)",
+    "Baidu and Horizon jointly built automated discovery and handling for GPU failures, reducing processing time to the minute level. (original: 地平线与百度智能云共建了GPU故障监控的自动化发现和处理机制，将GPU故障处理时间降低到分钟级别。)",
+    "Starting in 2025, the Journey 6 series will support the mass production of more than 100 intelligent-driving vehicle models. (original: 自2025年起，地平线征程6系列将赋能超100款智驾车型的量产上市。)"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "id": "baidu-ai-cloud-gac-honda-real-time-analytics",
+  "slug": "baidu-ai-cloud-gac-honda-real-time-analytics",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "GAC Honda (广汽本田)",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "GAC Honda's final-assembly lamp inspection depended on manual visual checks across mixed-model production lines, which made quality control slow, inconsistent, tiring for staff, hard to digitize, and weak for downstream traceability and process analysis.",
+  "solution_summary": "Baidu AI Cloud introduced an industrial vision quality-inspection stack for GAC Honda through Kaiwu Industrial Internet and the Baidu Industrial Vision Platform. The deployment digitized the final lamp-inspection step by combining line-side image capture with end-to-end visual AI model production, including image-data management, data annotation, model training, model prediction, and model distribution. On the line, seven dome cameras capture synchronized views and a high-speed QR scanner identifies the vehicle specification sheet so the system can load the right inspection standard for each configuration. The platform then compares captured light states and equipment details against those standards, storing process data for later traceability. Baidu extended the same architecture beyond lamps to interior, exterior, and chassis inspections, showing that the solution is a reusable computer-vision operating model for mixed-model automotive manufacturing rather than a one-off point tool.",
+  "products_used": [
+    "Kaiwu Industrial Internet",
+    "Baidu Industrial Vision Platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Kaiwu Industrial Internet",
+      "role": "Provides the industrial Internet environment that GAC Honda uses to run the intelligent quality-inspection solution on the assembly line.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Baidu Industrial Vision Platform",
+      "role": "Handles visual-data management, annotation, model training, prediction, and model deployment for automated vehicle-inspection workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Seven dome cameras and a high-speed QR scanner capture vehicle identity and lamp images on the line, the industrial vision platform matches the configuration to inspection standards, runs synchronized AI inference on the captured images, and stores inspection data for quality traceability and later process analysis.",
+  "integration_points": [
+    "assembly-line dome cameras",
+    "high-speed QR scanner",
+    "vehicle configuration standards",
+    "quality-traceability workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "GAC Honda accelerated and standardized visual quality inspection, improved data capture for root-cause analysis, and created a reusable AI inspection pattern that helps keep its manufacturing quality at a global leading level.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "1 second to inspect one vehicle",
+    "data utilization increased by 80%",
+    "analysis efficiency improved by 10 times",
+    "accuracy reached 99%",
+    "automatically identifies up to 6 vehicle models",
+    "22+ lamp checkpoints",
+    "120 detail images processed synchronously"
+  ],
+  "architecture_clues": [
+    "The inspection system synchronously captures 120 detail images from seven cameras for each vehicle.",
+    "Vehicle model and option data are loaded from QR-scanned specification sheets before visual inspection starts.",
+    "The same solution pattern is expanding to interior, exterior, and chassis quality checks."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/honda.html",
+  "published_date": "2025-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "source_language": "zh",
+  "evidence_quotes": [
+    "AI became an effective tool for GAC Honda to keep improving process quality, increasing data utilization by 80% and analysis efficiency by 10 times. (original: 1秒检测一辆车，AI成为帮助广汽本田工艺持续改善的有效工具，将数据利用率提升80%，分析效率提升10倍。)",
+    "The solution provides full-process, visual, no-code AI visual model production including data management, annotation, training, prediction, and model distribution. (original: 这套基于百度工业视觉智能平台的解决方案，实现了全流程、图形化、零代码的 AI 视觉模型生产，帮助广汽本田获得了视觉数据管理、图像数据标注、视觉模型训练、模型预测和模型下发等一整套能力。)",
+    "It automatically recognizes up to six vehicle models and the different lamp configurations of the same model with 99% accuracy. (original: 可自动识别多达6款车型，以及同一款车型的不同车灯配置，准确率高达99%；)",
+    "For a single vehicle model, more than 22 lamp checks are completed in just 1 second by synchronously capturing and computing 120 detail images from seven cameras. (original: 针对单一车型的22种以上车灯，可通过7台相机同步拍摄，同步计算120张细节图片，检测全程仅需1秒；)",
+    "The system stores process data for quality traceability after pulling the configured product standard based on the scanned QR code. (original: 通过高速扫码器自动扫描车头规格纸的二维码自动识别不同型号，根据型号从系统中调取手工配置的产品标准进行检验，并存储过程数据用于质量追溯。)"
+  ]
+}
