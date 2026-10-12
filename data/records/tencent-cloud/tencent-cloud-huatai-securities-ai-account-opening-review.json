@@ -1,0 +1,85 @@
+{
+  "id": "tencent-cloud-huatai-securities-ai-account-opening-review",
+  "slug": "tencent-cloud-huatai-securities-ai-account-opening-review",
+  "vendor": "Tencent Cloud",
+  "customer_name": "Huatai Securities Co., Ltd. (华泰证券股份有限公司)",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Huatai Securities needed to modernize high-volume securities account opening so customers could complete onboarding more conveniently while the operations team preserved security, compliance, and review efficiency as business volume kept rising.",
+  "solution_summary": "Tencent Cloud assembled an intelligent witness and review architecture for Huatai Securities' one-way account-opening process by combining multiple AI services in one workflow. At the front end, Face Recognition and Liveness Detection verify that the applicant is the real account holder, Custom Template OCR extracts and fills document data automatically, and Speech Synthesis plus Speech Recognition support guided prompts and willingness confirmation. The same AI stack continues into the back-office audit path, where face comparison, OCR-based document quality inspection, and speech recognition reduce repetitive manual checks. Tencent positions the solution as an integrated securities workflow rather than isolated APIs: identity verification, document capture, and intent confirmation all feed the same onboarding chain, supporting higher account-opening volume while keeping the process secure, stable, and easier for customers.",
+  "products_used": [
+    "Face Recognition",
+    "Liveness Detection",
+    "Custom Template OCR",
+    "Speech Synthesis",
+    "Speech Recognition"
+  ],
+  "solution_components": [
+    {
+      "name": "Face Recognition",
+      "role": "Matches the applicant's face to identity information during account opening and backend review.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Liveness Detection",
+      "role": "Checks that the account-opening applicant is physically present and not a spoofed identity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Custom Template OCR",
+      "role": "Extracts identity-document information and supports automated document quality inspection.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Speech Synthesis",
+      "role": "Provides guided voice prompts during the account-opening process.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Speech Recognition",
+      "role": "Captures customer responses and supports both willingness judgment and back-office voice review.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Applicants move through a one-way onboarding flow where Face Recognition and Liveness Detection verify identity, Custom Template OCR extracts document fields, and Speech Synthesis and Speech Recognition guide and capture customer intent. The resulting images, extracted document data, and voice records then feed backend review, where the same AI services automate face comparison, document quality checks, and audit support for Huatai's operations team.",
+  "integration_points": [
+    "Securities account-opening workflow",
+    "Identity-document capture",
+    "Backend audit operations",
+    "Customer willingness confirmation"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Huatai Securities made account opening safer, more convenient, and more scalable by automating identity verification, document entry, and review work, which reduced repetitive manual effort while supporting continued business growth.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The solution spans both the customer-facing onboarding flow and the backend operations-review workflow.",
+    "Tencent describes the design as an integrated intelligent witness-review solution for one-way securities account opening.",
+    "The source notes that Tencent's underlying AI capabilities were proven in WeChat, QQ, and Tencent Meeting-scale application scenarios."
+  ],
+  "source_url": "https://cloud.tencent.com/customer/htzq",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Huatai Securities applied face recognition, liveness detection, OCR, and speech recognition to build front-end and back-end intelligent one-way account opening and intelligent operations review (original: 华泰证券通过综合应用人脸识别、活体检测、OCR 识别、语音识别等多种AI能力，构建了覆盖前后端的智能单向开户、智能运营审核体系).",
+    "Tencent Cloud integrated atomic AI capabilities into a complete intelligent witness-review solution for the securities one-way account-opening scenario (original: 腾讯云在证券行业的实践中，通过整合各类 AI 原子能力，打造了覆盖证券单向开户场景的整体智能见证审核解决方案).",
+    "Liveness detection and face recognition verify customer identity, OCR automates document recognition and information filling, and speech recognition plus speech synthesis enable voice prompts and willingness judgment (original: 通过活体检测、人脸识别技术实现了对客户身份的核实…通过 OCR 技术实现了证件的自动识别与信息填写；通过语音识别、语音合成实现了智能语音播报与客户意愿判别).",
+    "In backend review, face comparison, OCR document quality inspection, and speech recognition significantly reduce repetitive and mechanical processes (original: 在开户业务的后端审核场景，通过应用人脸对比、OCR 证件质检、语音识别等 AI 能力，大幅缩减了原来重复性和机械性流程).",
+    "The solution improved customer identity recognition, document entry, and willingness-confirmation workflows while increasing customer experience and successful account-opening rates (original: 改进了证券开户流程中客户身份识别、证件录入、意愿确认等业务流程，有效提升了客户体验和业务办理成功率)."
+  ],
+  "source_language": "zh"
+}

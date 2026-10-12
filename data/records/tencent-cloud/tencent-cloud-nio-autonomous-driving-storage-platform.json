@@ -1,0 +1,86 @@
+{
+  "id": "tencent-cloud-nio-autonomous-driving-storage-platform",
+  "slug": "tencent-cloud-nio-autonomous-driving-storage-platform",
+  "vendor": "Tencent Cloud",
+  "customer_name": "NIO",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "NIO's autonomous-driving program was generating tens of petabytes of data, and growing vehicle-data ingestion plus training-platform access frequency was making public-cloud network and storage costs, efficiency, and compliance constraints increasingly hard to manage.",
+  "solution_summary": "NIO used Tencent Cloud's distributed storage stack to build a private-cloud foundation for autonomous-driving data instead of keeping all data on public-cloud storage. TStor OneCOS massive object storage is the core layer, giving NIO a data-lake and data-center storage base that can scale to trillions of objects and rapid capacity growth. Tencent paired OneCOS with GooseFS so data preparation, model training, inference, and small-file or HDFS-style access could run faster against the same shared pool. YottaStore provides the distributed storage engine with EC 8+4 redundancy, log cache, automatic balancing, and repair, while StarLake servers provide the dense hardware used to scale the platform into the hundreds of petabytes. The result is a hybrid/private storage environment for sensitive data, AI workloads, and lower-cost expansion.",
+  "products_used": [
+    "TStor OneCOS massive object storage",
+    "GooseFS",
+    "YottaStore distributed storage",
+    "StarLake server"
+  ],
+  "solution_components": [
+    {
+      "name": "TStor OneCOS massive object storage",
+      "role": "Acts as the private-cloud object storage and data-lake foundation for autonomous-driving datasets.",
+      "layer": "Storage"
+    },
+    {
+      "name": "GooseFS",
+      "role": "Accelerates small-file, HDFS-style, and nearby data access for data preparation, model training, and inference workflows."
+    },
+    {
+      "name": "YottaStore distributed storage",
+      "role": "Provides the underlying distributed storage engine, redundancy, balancing, and repair mechanisms for the storage pool.",
+      "layer": "Storage"
+    },
+    {
+      "name": "StarLake server",
+      "role": "Supplies the dense server foundation used to assemble the hundreds-of-petabytes storage pool.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Vehicle data and training-platform datasets land in TStor OneCOS, where YottaStore manages durability and cluster balancing. GooseFS then accelerates small-file and HDFS-style access so data preparation, model training, and inference can work against the shared storage pool, while StarLake servers provide the dense hardware layer that scales the environment to hundreds of petabytes.",
+  "integration_points": [
+    "Vehicle data collection systems",
+    "Autonomous-driving training platform",
+    "Data preparation workflows",
+    "Model training workflows",
+    "HDFS file-access workloads"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "NIO met autonomous-driving capacity, performance, compliance, and cost targets with a private-cloud storage platform that supports rapid data growth, EB-scale planning, faster AI-data access, and materially lower hardware spending.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "NIO had already been using public cloud storage for tens of petabytes of data.",
+    "The platform supports 1 trillion+ file indexes.",
+    "It supports 100GB+ read/write bandwidth.",
+    "It supports 1 million+ request QPS access.",
+    "The architecture targets 12 nines of reliability.",
+    "Average site expansion speed reaches 20GB/s.",
+    "Hardware resource cost is reduced by more than 50%."
+  ],
+  "architecture_clues": [
+    "Sensitive data is stored in a local data center for compliance requirements.",
+    "Tencent describes the storage layer as suitable for private and hybrid cloud deployments.",
+    "EC 8+4 redundancy is used to balance space utilization and reliability.",
+    "The storage pool scales to hundreds of petabytes and is intended to support future L4/L5 autonomous-driving models."
+  ],
+  "source_url": "https://intl.cloud.tencent.com/customers/detail/2924",
+  "published_date": "2026-03-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "NIO had been using public-cloud storage for tens of petabytes, but rising vehicle-data and training-platform access frequency was making network and storage efficiency and cost more significant (original: NIO have been using public cloud storage for tens of petabytes of storage… the data collected by vehicles and the data of the training platform need to access the public cloud increasing frequency, and the impact of network and storage on efficiency and cost is becoming more and more significant).",
+    "Because sensitive data also needed to stay in a local data center for compliance, NIO chose to build its own private-cloud storage (original: Also due to compliance requirements, sensitive data also needs to be stored in the local data center. Therefore, NIO choose to build their own private cloud storage).",
+    "TStor OneCOS supports unlimited expansion of a single cluster and trillions of objects in a single bucket, and with GooseFS it supports the full data-service process for data preparation, model training, and reasoning (original: Tstor OneCOS massive object storage adopts… supports unlimited expansion of a single cluster and trillions of objects in a single bucket… combined with big data solutions such as GooseFS, it supports data preparation, model training and reasoning full process data service).",
+    "The platform supports 1 trillion+ file indexes, 100GB+ bandwidth, 1 million+ QPS, 12 nines reliability, and average site expansion of 20GB/s (original: realize 1 trillion+ file indexes, support 100GB+ read and write bandwidth and 1 million+ request QPS… ultra-high reliability of 12 nines… the average speed of customer site scale expansion reaches 20GB/s).",
+    "Total hardware-resource cost was reduced by more than 50% (original: 总成本方面，硬件资源综合成本降低50%以上)."
+  ]
+}

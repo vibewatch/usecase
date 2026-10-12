@@ -1,0 +1,83 @@
+{
+  "id": "tencent-cloud-changan-automobile-cloud-hpc-cae-simulation",
+  "slug": "tencent-cloud-changan-automobile-cloud-hpc-cae-simulation",
+  "vendor": "Tencent Cloud",
+  "customer_name": "Changan Automobile (长安汽车)",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Changan Automobile needed far more HPC capacity for CAE-based vehicle R&D as model counts, simulation domains, and bursty demand kept growing, but self-built clusters could not keep up with the required scale, upgrade cycle, or cost flexibility.",
+  "solution_summary": "Tencent Cloud worked with Changan's global R&D center to move CAE simulation workloads onto an elastic cloud HPC architecture. Engineers can upload simulation files, choose solvers, and set configuration parameters on Tencent's platform instead of waiting for fixed on-premises cluster capacity. The environment combines Tencent Cloud's high-performance computing platform with Intel Ice Lake and AMD EPYC instances, a RoCE V2 100G RDMA network for microsecond latency, A100 and A10 GPU resource pools, and a shared parallel file system with up to 100 GB/s throughput. Tencent adapted the platform for different CAE software packages and kept refreshing the compute generation year by year, so crash, NVH, multibody, fluid, combustion, and electromagnetic simulations could burst on demand while Changan paid through a mix of subscription, pay-as-you-go, and spot-style pricing rather than overbuilding local infrastructure.",
+  "products_used": [
+    "Tencent Cloud High-Performance Computing Platform",
+    "RoCE V2 100G RDMA network",
+    "A100/A10 GPU resource pool",
+    "parallel file system"
+  ],
+  "solution_components": [
+    {
+      "name": "Tencent Cloud High-Performance Computing Platform",
+      "role": "Allocates and manages elastic compute capacity for Changan's CAE simulation workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "RoCE V2 100G RDMA network",
+      "role": "Provides the low-latency fabric that links simulation nodes for tightly coupled HPC jobs."
+    },
+    {
+      "name": "A100/A10 GPU resource pool",
+      "role": "Supplies burstable accelerated compute for simulation and engineering analysis workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "parallel file system",
+      "role": "Stores and serves shared simulation inputs and outputs at high throughput for concurrent jobs.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Changan engineers upload CAE files and choose solvers and configuration parameters on Tencent Cloud. Jobs are scheduled onto elastic CPU and GPU pools connected by the RoCE V2 RDMA fabric, read and write shared datasets through the parallel file system, and return simulation results to Changan's vehicle R&D teams for design validation and iteration.",
+  "integration_points": [
+    "CAE software packages",
+    "Solver configuration workflows",
+    "Vehicle R&D simulation files",
+    "Crash, NVH, multibody, fluid, combustion, and electromagnetic simulation pipelines"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Changan gained continuously refreshed compute generations, elastic HPC capacity, and flexible pricing for CAE workloads, helping the automaker scale simulation-led R&D faster without carrying the same upgrade and overprovisioning burden of a self-built cluster.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Single-node configurations exceeded 100 CPU cores.",
+    "CPU frequency increased to 3.4 GHz.",
+    "RoCE V2 delivers 100G RDMA networking with microsecond latency.",
+    "Tencent Cloud provides a 100,000+ CPU concurrent resource pool in China.",
+    "The parallel file system provides up to 100 GB/s throughput."
+  ],
+  "architecture_clues": [
+    "The platform was adapted for multiple CAE software packages in different engineering scenarios.",
+    "Tencent refreshed the compute generation provided to Changan year by year.",
+    "Flexible pricing options include annual subscriptions, pay-as-you-go billing, and spot-style pricing.",
+    "The solution supports simulation-heavy automotive R&D instead of a fixed-capacity on-premises cluster."
+  ],
+  "source_url": "https://cloud.tencent.com/customer/changan",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Tencent and Changan's global R&D center have cooperated for many years in crash, NVH, multibody, fluid, combustion, and electromagnetic simulation, and Tencent keeps iterating the latest generation of compute for Changan every year (original: 腾讯与长安全球研发中心在碰撞、NVH、多体、流体、燃烧以及电磁仿真等数个领域已有多年合作，每年都为长安提供腾讯内部最新一代算力的迭代).",
+    "As HPC demand doubles year by year, self-built clusters can no longer meet today's R&D and manufacturing requirements, and users can now upload calculation files, choose solvers, and set configuration parameters on the cloud platform (original: 随之而来的 HPC 集群资源需求每年都在成倍增加，车企选择自建 HPC 集群已经无法满足今天市场对研发制造的需求…用户可以实现上传计算文件、选择求解器、确定配置参数等操作).",
+    "Tencent Cloud provides the latest Intel Ice Lake and AMD EPYC processors, a latest-generation RoCEV2 100G RDMA network with microsecond latency, a 100,000+ CPU concurrent resource pool, A100/A10 GPU pools, and a parallel file system with up to 100GB/s throughput (original: 腾讯云目前提供腾讯内部最新的 Intel Ice Lake/AMD EPYC处理器，主频提升至3.4GHz，腾讯内部最新一代的RoCEV2 100G的RDMA网络，微秒级延时，国内10w+CPU并发资源池。同时提供A100/A10GPU资源池，并配合上至100GB/s吞吐的并行文件系统).",
+    "Changan gained elastic HPC resources and flexible billing modes such as annual subscriptions, pay-as-you-go, and bidding-based pricing (original: 获得弹性的 HPC 资源…可根据业务需求采用包年包月，按量计费，竞价等多种灵活多样的计费模式)."
+  ],
+  "source_language": "zh"
+}
