@@ -1,0 +1,85 @@
+{
+  "id": "microsoft-telstra-copilot-m365-employee-productivity",
+  "slug": "microsoft-telstra-copilot-m365-employee-productivity",
+  "vendor": "Microsoft",
+  "customer_name": "Telstra",
+  "industry": "Telecommunications",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Telstra wanted to improve employee productivity in everyday knowledge work such as meeting follow-up, email drafting, research, and content creation, while also addressing data privacy, intellectual property, security, and access-control issues required for safe enterprise use of generative AI.",
+  "solution_summary": "Telstra used early access to Copilot for Microsoft 365 through its Microsoft alliance to run an internal Early Adopters Program and test generative AI in daily work. Copilot for Microsoft 365 was deployed as the central AI layer across Microsoft 365 workflows, operating alongside Microsoft Teams for meeting support, Outlook for email drafting, and Word for document creation. The implementation focused on summarizing meetings, capturing action items per person, finding and cross-referencing documentation, and combining multiple internal sources into drafts and customer profiles. Telstra also treated data readiness as part of the solution, reviewing information architecture, M365 licensing, security checks, risk, data protection, and governance. The rollout included testing which departments and regions could access certain databases and how semantic indexing of user documents should be handled before scaling from a 200+ user pilot to thousands.",
+  "products_used": [
+    "Copilot for Microsoft 365",
+    "Microsoft Teams",
+    "Outlook",
+    "Word"
+  ],
+  "solution_components": [
+    {
+      "name": "Copilot for Microsoft 365",
+      "role": "Acts as the generative AI assistant that summarizes content, drafts communications, captures action items, and synthesizes information from internal sources for employees.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Teams",
+      "role": "Provides meeting content and the collaboration surface where Copilot helps summarize discussions and assign action items.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Outlook",
+      "role": "Provides email context and the interface where employees use Copilot to draft messages faster.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Word",
+      "role": "Provides the document authoring surface where Copilot helps create content from multiple internal sources.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Meeting discussions, emails, chats, internal documentation, user documents, and selected internal databases are accessed inside Microsoft 365 under department- and region-based permissions. Copilot for Microsoft 365 semantically indexes permitted content, then generates summaries, action items, customer profiles, and draft documents that are delivered back to employees in Teams, Outlook, and Word.",
+  "integration_points": [
+    "Email",
+    "Chats",
+    "Internal documentation",
+    "User documents",
+    "Internal databases"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Document Processing"
+  ],
+  "business_outcome": "Telstra reported that employees found Copilot easy to use, increasingly trusted its outputs in daily work, saved time on low-value tasks, ran more efficient meetings, and found information faster; the company also gained operational learning needed to expand the rollout more safely and broadly.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "81% of respondents in Telstra’s wider early adoption group stated that Copilot is easy to use.",
+    "75% of respondents are trusting Copilot to help with their work, accepting and using Copilot output on a daily basis.",
+    "Telstra’s \"advanced user group\" (~20%) were already seeing big time savings and strategic benefits using Copilot for M365.",
+    "As we plan for a wider internal Telstra rollout, aiming to scale from 200+ users to thousands..."
+  ],
+  "architecture_clues": [
+    "Internal Early Adopters Program for Copilot for Microsoft 365.",
+    "Testing which departments and regions could access certain databases to prevent privacy breaches.",
+    "Semantic indexing of user documents was a specific design and governance consideration.",
+    "Readiness work covered M365 licensing, information architecture, security checks, risk, data protection, and governance.",
+    "Rollout is planned to expand from 200+ users to thousands."
+  ],
+  "source_url": "https://www.telstra.com.au/business-enterprise/news-research/articles/telstras-early-success-with-copilot-for-microsoft-365",
+  "published_date": "2024-03-19",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Our strategic alliance with Microsoft has given us early access to Copilot for Microsoft 365 (M365) to launch an internal Telstra Early Adopters Program\"",
+    "\"He’s using it in meetings to ensure all action items are captured per individual, for drafting emails faster, categorising ideas after a brainstorm, summarising lengthy tech guides, and updating his to-do list at the end of the day\"",
+    "\"Using generative AI to create documents by combining multiple internal sources, saving a lot of time in research and content drafting\"",
+    "\"testing which departments and regions could access certain databases to prevent privacy breaches and discuss how best to handle semantic indexing of user documents\"",
+    "\"81% of respondents in Telstra’s wider early adoption group stated that Copilot is easy to use. 75% of respondents are trusting Copilot to help with their work, accepting and using Copilot output on a daily basis\"",
+    "\"As we plan for a wider internal Telstra rollout, aiming to scale from 200+ users to thousands, we’re establishing further secure protocols and standards to mitigate risks and ensure compliance while using Copilot for M365\""
+  ],
+  "source_type": "company"
+}

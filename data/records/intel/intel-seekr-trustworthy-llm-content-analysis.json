@@ -1,0 +1,104 @@
+{
+  "id": "intel-seekr-trustworthy-llm-content-analysis",
+  "slug": "intel-seekr-trustworthy-llm-content-analysis",
+  "vendor": "Intel",
+  "customer_name": "Seekr",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Seekr needed a scalable way to evaluate huge volumes of digital and podcast content for brand safety and suitability without relying on manual, subjective, and expensive review, while also finding enough cost-effective compute capacity for growing LLM training, inference, and deployment workloads.",
+  "solution_summary": "Seekr runs SeekrAlign and its LLM development stack on Intel Tiber AI Cloud to replace costlier self-managed infrastructure and scale trustworthy content analysis. Audio from podcasts and other digital content enters Seekr’s inference pipeline, where Intel Data Center GPU Max Series 1550 systems using Intel Extensions for PyTorch perform transcription and diarization. A 7B model on an 8-node Intel Gaudi 2 AI accelerator cluster then categorizes sensitive content and performs risk assessment. SeekrFlow orchestrates the end-to-end LLM pipeline through an API, versioned executables, custom components, and alignment algorithms. Separate 4th gen Intel Xeon Scalable processor clusters handle application monitoring, storage management, and vector and inverted-index database services that support Seekr’s RAG services and pipeline operations. Results are surfaced in the SeekrAlign dashboard as real-time podcast suitability scores.",
+  "products_used": [
+    "Intel Tiber AI Cloud",
+    "Intel Gaudi 2 AI accelerators",
+    "SeekrFlow",
+    "Intel Data Center GPU Max Series 1550",
+    "Intel Extensions for PyTorch",
+    "Intel Xeon Scalable processors",
+    "SeekrAlign"
+  ],
+  "solution_components": [
+    {
+      "name": "Intel Tiber AI Cloud",
+      "role": "Provides the cloud infrastructure Seekr uses to build, train, and deploy advanced LLMs on cost-effective clusters."
+    },
+    {
+      "name": "Intel Gaudi 2 AI accelerators",
+      "role": "Run the 7B model that powers sensitive-content categorization and risk assessment for SeekrAlign.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SeekrFlow",
+      "role": "Manages Seekr’s end-to-end LLM pipelines as API-driven, versioned, repeatable workflows with custom components and alignment algorithms.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Intel Data Center GPU Max Series 1550",
+      "role": "Powers the cluster used for transcription and diarization processing in the inference pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Extensions for PyTorch",
+      "role": "Enables transcription and diarization workloads to run on Intel GPU-powered systems."
+    },
+    {
+      "name": "Intel Xeon Scalable processors",
+      "role": "Back the cluster used for application monitoring, storage management, and vector and inverted-index database services that support RAG and pipeline operations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SeekrAlign",
+      "role": "Serves podcast content scores and suitability evaluations to users through a real-time dashboard.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Podcast audio and other digital content enter Seekr’s inference pipeline, where Intel Data Center GPU Max Series 1550 systems running Intel Extensions for PyTorch transcribe and diarize the media. The processed content is scored by a 7B LLM on Intel Gaudi 2 clusters for sensitive-content categorization and risk assessment. Intel Xeon-based monitoring, storage, and vector/inverted-index database services support RAG and pipeline operations before results are delivered in the SeekrAlign dashboard.",
+  "integration_points": [
+    "Podcast episode audio",
+    "SeekrAlign dashboard",
+    "Hugging Face Optimum Habana",
+    "Habana PyTorch APIs"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Seekr scaled trustworthy content evaluation and LLM development while reducing cloud costs, improving workload performance, and delivering real-time brand-suitability scoring across large podcast catalogs.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "20 million minutes of podcasts",
+    "up to 40 million by the end of 2024",
+    "more than 8,000 podcast episodes",
+    "more than 10 million minutes of audio",
+    "8-node Intel Gaudi 2 AI accelerator cluster",
+    "7B LLM model"
+  ],
+  "architecture_clues": [
+    "Seekr’s first deployment is described as an 8-node Intel Gaudi 2 AI accelerator cluster.",
+    "Seekr previously hosted a self-managed GPU and CPU server fleet with a regional colocation provider.",
+    "The 7B LLM model is deployed on Intel Gaudi 2 systems for sensitive content categorization and risk assessments.",
+    "4th gen Intel Xeon CPU-enabled clusters provide application monitoring, storage management, and vector and inverted-index database services.",
+    "Seekr is executing a phased migration of its platform into Intel Tiber AI Cloud."
+  ],
+  "source_url": "https://www.intel.com/content/www/us/en/developer/articles/case-study/seekr-build-trustworthy-llms-content-at-scale.html",
+  "published_date": "2024-05-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Seekr, named one of the most innovative companies of 2024 by Fast Company, is using the Intel Tiber AI Cloud to build, train, and deploy advanced LLMs on cost-effective clusters.\"",
+    "\"SeekrAlign solves this challenge by allowing companies to quickly and accurately screen hundreds of thousands of podcasts.\"",
+    "\"The Align platform has already scored 20 million minutes of podcasts, a number that is projected to reach up to 40 million by the end of 2024.\"",
+    "\"The 7B LLM model that powers the SeekrAlign solution is deployed on a cluster of Intel Gaudi 2 systems to perform sensitive content categorization and risk assessments.\"",
+    "\"Seekr uses Intel Extensions for PyTorch for transcription and diarization processing on a cluster of Intel GPU-powered systems.\"",
+    "\"The company uses a cluster of 4th gen Intel Xeon CPU-enabled systems for application monitoring, storage management, and vector and inverted-index database services.\"",
+    "\"This strategic collaboration to accelerate AI helps Seekr meet its ever-increasing demand for compute capacity while reducing its cloud costs and increasing workload performance.\""
+  ],
+  "source_type": "company"
+}

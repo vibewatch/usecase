@@ -1,0 +1,95 @@
+{
+  "id": "microsoft-bayernwerk-next-switchon-document-processing-mlops",
+  "slug": "microsoft-bayernwerk-next-switchon-document-processing-mlops",
+  "vendor": "Microsoft",
+  "customer_name": "Bayernwerk Netz GmbH",
+  "industry": "Energy",
+  "region": "Regensburg, Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Bayernwerk's transformer-station commissioning process relied on paper forms, manual image uploads, and back-office re-entry into SAP, creating weeks-long delays, human error, and difficulty keeping computer-vision models reliable as hardware variants and user volume grew.",
+  "solution_summary": "Bayernwerk digitized transformer-station commissioning with NEXT.SwitchON, a tablet application that captures field data and photos during onsite work. The app uses machine-learning computer vision to identify installed hardware and wiring from tablet images and pre-fill digital documentation. The resulting records are transferred into Bayernwerk's end system, SAP, instead of being re-entered from paper. To make the AI reliable in production, Bayernwerk ran the solution on Socrates, an Azure-based integration platform implemented by DXC, and added DXC MLOps Quickstart for Microsoft Azure. DXC then converted the initial ML approach into scalable, reusable pipelines that automate image augmentation, model training, evaluation, CI/CD-based deployment, continuous monitoring, event-driven retraining, model orchestration, and publishing the newest models back into NEXT.SwitchON.",
+  "products_used": [
+    "NEXT.SwitchON",
+    "Socrates",
+    "Azure",
+    "DXC MLOps Quickstart for Microsoft Azure",
+    "SAP"
+  ],
+  "solution_components": [
+    {
+      "name": "NEXT.SwitchON",
+      "role": "Tablet application used by technicians to capture commissioning data and photos, run image-recognition-assisted documentation, and consume updated models.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Socrates",
+      "role": "Azure-based integration platform that hosts and connects Bayernwerk applications, including the MLOps-enabled environment for NEXT.SwitchON.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Azure",
+      "role": "Cloud foundation for the Socrates platform and the scalable MLOps environment used to operate the machine learning solution.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DXC MLOps Quickstart for Microsoft Azure",
+      "role": "Provides the MLOps capabilities for experimentation, CI/CD deployment, continuous monitoring, retraining, and model orchestration.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "SAP",
+      "role": "System of record that receives the completed digital documentation instead of manual back-office re-entry.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Technicians use NEXT.SwitchON on tablets to capture installation data and take photos of transformer-station work. Computer vision models identify hardware and wiring from the images and pre-fill digital documentation. Through the Socrates platform on Azure, the records are transferred into SAP, while the DXC MLOps Quickstart pipelines augment images, train and evaluate models, monitor them in production, and publish new model versions back to NEXT.SwitchON.",
+  "integration_points": [
+    "Tablet camera/image capture",
+    "SAP",
+    "Technician field workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Bayernwerk standardized and simplified transformer-station documentation, made the computer-vision solution scalable and more reliable, reduced manual model-update work, improved image-recognition accuracy, and cut annual operating costs.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "75% faster station installation documentations",
+    "250,000 euros annually savings",
+    "99% machine learning image recognition accuracy",
+    "saves 3½ days in updating the involved machine learning models",
+    "used to take about 6 days per month for experts to update the application and for technicians to install it for each new model iteration, automation has now reduced the number of days to zero",
+    "7.4% increase – to 99% – in machine learning image recognition accuracy"
+  ],
+  "architecture_clues": [
+    "Socrates is described as an Azure-based integration platform developed and implemented by DXC Technology.",
+    "The platform supports flexible experimentation, streamlined deployment using CI/CD, continuous monitoring, event-driven retraining and model orchestration.",
+    "DXC transferred the initial machine learning approach into scalable and reusable machine learning pipelines.",
+    "The MLOps setup performs continuous automatic image augmentation plus model training and evaluation.",
+    "Latest model versions are published directly to NEXT.SwitchON."
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/bayernwerk-turns-ai-mvps-into-stable-scalable-solutions-with-dxcs-mlops",
+  "published_date": "2026-03-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The problem for Bayernwerk was that documentation was done with paper and pen. Back-office staff then had to manually enter the documentation data into a central SAP system, a lengthy process prone to human error and time delays; it could take weeks\"",
+    "\"NEXT.SwitchON uses advanced machine learning (computer vision) to identify installed hardware and wiring automatically on images taken with the tablet’s camera.\"",
+    "\"This information is then automatically used to pre-fill parts of the digitalized documentation, which gets transferred to the end system.\"",
+    "\"Socrates, an Azure-based integration platform that was developed and implemented by DXC Technology.\"",
+    "\"Socrates was enhanced with cutting-edge MLOps capabilities by DXC using the DXC MLOps Quickstart for Microsoft Azure.\"",
+    "\"This allows continuous automatic image augmentation, as well as model training and evaluation. It also automates the process of publishing the latest model versions directly to NEXT.SwitchON.\"",
+    "\"75% faster station installation documentations\"",
+    "\"250,000 euros annually savings\"",
+    "\"99% machine learning image recognition accuracy\""
+  ],
+  "source_type": "company"
+}

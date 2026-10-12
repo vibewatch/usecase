@@ -1,0 +1,94 @@
+{
+  "id": "unknown-uc-berkeley-efficient-llm-inference-squeezellm",
+  "slug": "unknown-uc-berkeley-efficient-llm-inference-squeezellm",
+  "vendor": "unknown",
+  "customer_name": "University of California Berkeley",
+  "industry": "Education",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "UC Berkeley needed to make generative LLM inference more efficient through low-precision quantization, but its SqueezeLLM approach depended on custom CUDA kernels that took weeks to implement and optimize and would be costly to port manually to Intel GPU hardware.",
+  "solution_summary": "University of California Berkeley used SqueezeLLM to run generative LLM inference with 4-bit quantization, then ported the custom CUDA kernels to SYCL so the same low-precision inference approach could run on Intel hardware. The team used the Intel oneAPI Base Toolkit to run the SYCLomatic tool, which automatically converted CUDA kernel code into SYCL-compatible implementations with the required kernel definition and invocation changes. To preserve the existing inference flow, the Python bindings were adapted from a CUDAExtension build to the PyTorch XPU CPP extension (DPCPPExtension), letting the migrated kernels be installed with setup.py and called from the existing SqueezeLLM Python code with only minor changes. The converted kernels were then benchmarked on Intel Data Center GPU Max Series systems accessed through Intel Tiber Developer Cloud, where quantized matrix-vector operations for the Llama 7B model delivered immediate performance gains without manual tuning.",
+  "products_used": [
+    "SqueezeLLM",
+    "SYCLomatic",
+    "Intel oneAPI Base Toolkit",
+    "PyTorch XPU CPP extension (DPCPPExtension)",
+    "Intel Data Center GPU Max Series",
+    "Intel Tiber Developer Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "SqueezeLLM",
+      "role": "Provides the low-precision quantization method and custom inference kernels used to run generative LLM inference more efficiently.",
+      "layer": "Compute"
+    },
+    {
+      "name": "SYCLomatic",
+      "role": "Converts the existing CUDA kernels to SYCL so the same quantized inference kernels can target Intel GPUs with minimal manual effort.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Intel oneAPI Base Toolkit",
+      "role": "Supplies the development environment used to run SYCLomatic and build the migrated kernel code.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "PyTorch XPU CPP extension (DPCPPExtension)",
+      "role": "Exposes the migrated SYCL kernels to the Python inference code so end-to-end inference can call them from PyTorch.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Intel Data Center GPU Max Series",
+      "role": "Executes the migrated 4-bit inference kernels for benchmarked LLM inference workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Tiber Developer Cloud",
+      "role": "Provides access to the Intel GPU environment used to test and benchmark the ported kernel implementations.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Existing SqueezeLLM Python code sends quantized inference work through DPCPPExtension bindings into SYCL-converted custom kernels built with Intel oneAPI Base Toolkit and migrated by SYCLomatic. Those kernels run matrix-vector operations on Intel Data Center GPU Max Series systems in Intel Tiber Developer Cloud and return results to the PyTorch-based inference flow for Llama 7B token generation.",
+  "integration_points": [
+    "PyTorch"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The migration gave UC Berkeley cross-platform support for its quantized LLM inference kernels with minimal additional engineering work and delivered immediate performance gains on Intel GPUs without manual tuning.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "2.0x speedup on Intel Data Center GPUs",
+    "4-bit quantization",
+    "2.584 seconds baseline fp16 matrix-vector multiplication latency",
+    "1.296 seconds SqueezeLLM 4-bit (0% sparsity) latency",
+    "128 tokens using the Llama 7B model",
+    "1.7x relative to baseline FP16 inference on NVIDIA A100 for 4-bit inference"
+  ],
+  "architecture_clues": [
+    "The migration command shown is dpct quant_cuda_kernel.cu.",
+    "The CUDAExtension-based setup.py packaging was changed to DPCPPExtension and DpcppBuildExtension.",
+    "The port preserved the existing SqueezeLLM Python inference flow with only minor modifications to call migrated kernel bindings.",
+    "Benchmarking focused on matrix-vector multiplication kernels for Llama 7B inference.",
+    "The reported gains were achieved without manual tuning after conversion."
+  ],
+  "source_url": "https://www.intel.com/content/www/us/en/developer/articles/case-study/ucberkeley-optimizes-llm-inference-with-squeezellm.html",
+  "published_date": "2024-09-04",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"We quickly attained a 2.0x speedup on Intel® Data Center GPUs with 4-bit quantization without any manual tuning.\"",
+    "\"Researchers at UC Berkeley have developed SqueezeLLM as a solution to enable efficient and accurate low-precision quantization.\"",
+    "\"We, therefore, wanted a solution to be able to quickly and easily port our custom CUDA kernels to SYCL in order to target Intel Data Center GPUs.\"",
+    "\"Using the CUDA-to-SYCL code migration with SYCLomatic, the efficient kernel methods can be decoupled from the target deployment platform, thereby enabling inference on different target architectures with minimal additional engineering effort.\"",
+    "\"To call the kernel from the Python code, the bindings were adapted to use the PyTorch* XPU CPP extension (DPCPPExtension).\"",
+    "\"After installing the kernel bindings, the converted SYCL kernels could be called from PyTorch code, thereby enabling running end-to-end inference using the converted kernels.\"",
+    "\"The SqueezeLLM team used Intel Data Center GPUs made available through the Intel® Tiber™ Developer Cloud to test and benchmark the ported kernel implementations.\""
+  ],
+  "source_type": "company"
+}

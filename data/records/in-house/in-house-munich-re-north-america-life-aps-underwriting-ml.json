@@ -1,0 +1,105 @@
+{
+  "id": "in-house-munich-re-north-america-life-aps-underwriting-ml",
+  "slug": "in-house-munich-re-north-america-life-aps-underwriting-ml",
+  "vendor": "In-house",
+  "customer_name": "Munich Re North America Life",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Life insurance underwriters had to manually review long, poorly scanned attending physician statements (APS) and other medical records that were not standardized, not searchable, and hard to route to the right underwriter based on true medical complexity.",
+  "solution_summary": "Munich Re North America Life describes an in-house machine learning workflow for underwriting APS medical records. The process starts with scanned APS image PDFs and related printouts, which are ingested as images and digitized with optical character recognition (OCR) so the content becomes machine-readable text. Medical term databases and natural language processing tools then parse that text to identify medical concepts, their locations, and their medical categories. The enriched document is republished as a searchable PDF with medical concept bookmarks so underwriters can jump directly to relevant evidence. Digitized records are also fed into decision models, triage models, and impairment tagging predictive models that predict likely declines, flag impairments such as diabetes, cancer, and coronary disease, and help route cases by complexity. Telemetry from digital underwriting platforms is used to train relevance-ranking and timeline extraction models that guide reviewers inside existing underwriting workflows and software.",
+  "products_used": [
+    "optical character recognition (OCR)",
+    "medical term databases",
+    "natural language processing tools",
+    "decision models",
+    "triage models",
+    "impairment tagging predictive models",
+    "digital underwriting platforms"
+  ],
+  "solution_components": [
+    {
+      "name": "optical character recognition (OCR)",
+      "role": "Converts scanned APS images into machine-readable text for downstream analysis.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "medical term databases",
+      "role": "Help identify medical terms in the digitized record and group them by medical category.",
+      "layer": "Compute"
+    },
+    {
+      "name": "natural language processing tools",
+      "role": "Parse digitized APS text to locate relevant terms, sections, and concepts for review.",
+      "layer": "Compute"
+    },
+    {
+      "name": "decision models",
+      "role": "Consume digitized medical records to predict declined cases and support underwriting decisions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "triage models",
+      "role": "Classify likely declines and help route cases to the appropriate underwriter based on complexity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "impairment tagging predictive models",
+      "role": "Identify key impairments that require additional underwriting scrutiny.",
+      "layer": "Compute"
+    },
+    {
+      "name": "digital underwriting platforms",
+      "role": "Capture reviewer telemetry and present ranked pages, search, and timeline views to underwriters.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Scanned APS PDFs and related medical record printouts enter the workflow as images. OCR digitizes them into text, which medical term databases and NLP tools analyze to mark concepts, sections, and dates. The enriched output is republished as a searchable PDF with bookmarks, then passed to decision, triage, and impairment-tagging models. Results and telemetry-driven relevance and timeline cues are surfaced in digital underwriting platforms and existing underwriting workflows for case review and routing.",
+  "integration_points": [
+    "Attending physician statements (APS) scanned PDFs",
+    "medical records and printouts",
+    "digital underwriting platforms",
+    "existing underwriting workflows and software",
+    "life insurance underwriters"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "The approach turns unsearchable APS packets into searchable and prioritized evidence, helps underwriters focus on the most relevant pages and medical events, improves allocation of cases by complexity, and supports faster, more streamlined risk decisions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "hundreds or even thousands of pages long",
+    "within minutes, if not seconds"
+  ],
+  "architecture_clues": [
+    "Uses horizontal scaling to process very long documents quickly.",
+    "Reformats APS files as searchable PDFs with medical concept bookmarks.",
+    "Uses telemetry data from digital underwriting platforms to learn reviewer behavior.",
+    "Supports predicted relevance ranking for pages based on an underwriter search term.",
+    "Includes timeline extraction to associate pages and medical concepts with dates.",
+    "Feeds outputs into existing underwriting workflows and software."
+  ],
+  "source_url": "https://www.munichre.com/us-life/en/insights/future-of-risk/integrating-machine-learning-efficient-underwriting-attending-physician-statements-records.html",
+  "published_date": "2020-05-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"These scanned paper documents or other printouts can be hundreds or even thousands of pages long\"",
+    "\"optical character recognition (OCR) converts images of text into characters that can be parsed by a computer\"",
+    "\"medical term databases, together with natural language processing tools, can be used to identify which medical terms occur in the document, where they appear and what medical category they fall under\"",
+    "\"The APS can then be reformatted as a fully searchable PDF, indexed with medical concept bookmarks\"",
+    "\"with some clever engineering such as horizontal scaling, all of this processing can be completed within minutes, if not seconds\"",
+    "\"Digitized medical records can be consumed by various decision models, which have demonstrated great success in predicting declined cases and identifying key impairments such as diabetes, cancer and coronary disease\"",
+    "\"Digital underwriting platforms have allowed collection of underwriting activity data – what data scientists call telemetry data\"",
+    "\"machine learning helps underwriters arrive at the right risk decision for each applicant with streamlined effort\""
+  ],
+  "source_type": "company"
+}

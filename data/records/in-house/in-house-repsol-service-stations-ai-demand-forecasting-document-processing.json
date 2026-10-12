@@ -1,0 +1,75 @@
+{
+  "id": "in-house-repsol-service-stations-ai-demand-forecasting-document-processing",
+  "slug": "in-house-repsol-service-stations-ai-demand-forecasting-document-processing",
+  "vendor": "In-house",
+  "customer_name": "Repsol",
+  "industry": "Energy",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Repsol needed to anticipate service-station store demand, reduce stock-outs and waste, and cut manual delivery-note entry so station teams could spend more time on customer service.",
+  "solution_summary": "Repsol built two AI-driven workflows for service-station store operations. The internal Suggested ordering application uses predictive AI and optimization algorithms to estimate replenishment needs for roughly 1,000 items per station and generate order recommendations two or three times a week. About 900 forecasting models and another 900 optimization models run daily, and the system improves as it absorbs new data and learns from decisions made at each station. Recommendations are delivered to station managers, who can accept or adjust them using local context. In parallel, Repsol is piloting Automatic delivery note reading: employees photograph supplier delivery notes on a mobile phone, generative AI extracts fields such as date, supplier, items, and quantities, and the structured output is uploaded into Repsol's system for operator validation. Together, the workflows combine AI automation with human oversight to improve availability and reduce repetitive administrative work.",
+  "products_used": [
+    "Suggested ordering",
+    "Automatic delivery note reading"
+  ],
+  "solution_components": [
+    {
+      "name": "Suggested ordering",
+      "role": "Uses predictive AI and optimization algorithms to calculate replenishment needs and recommend what items each station should restock and in what quantity.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Automatic delivery note reading",
+      "role": "Uses generative AI to read photographed delivery notes and extract structured fields for upload into Repsol's system.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Operational station data feeds daily forecasting and optimization models that produce replenishment suggestions for managers, who accept or adjust the recommendations before orders are placed. For delivery notes, an employee photographs the document on a mobile phone, generative AI extracts date, supplier, items, and quantities, and the validated structured output is uploaded into Repsol's system.",
+  "integration_points": [
+    "Service station managers",
+    "Mobile phones used by station employees",
+    "Supplier delivery notes",
+    "Repsol's internal system for registering delivery-note information"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Document Processing"
+  ],
+  "business_outcome": "Repsol reports higher product availability, fewer stock-outs, orders better aligned with demand, less manual data entry, fewer transcription errors, and more employee time for higher-value customer tasks, while retaining human judgment in operational decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The suggested order system is already operational in over 800 stations",
+    "it reaches 85% accuracy",
+    "generates more than 100,000 product suggestions per month",
+    "Around 1,000 items per station, with orders placed two or three times a week.",
+    "About 900 forecasting models and another 900 optimization models run every day.",
+    "A total of 85% of recommendations are accepted unchanged, and an additional 14% are accepted with quantity adjustments only.",
+    "As of July 2026, the system was deployed in over 900 stations participating in the program."
+  ],
+  "architecture_clues": [
+    "Suggested ordering is deployed at scale across hundreds of stations, while automatic delivery note reading remains in the testing phase at some stations.",
+    "Human validation is built into both workflows: managers can adjust replenishment recommendations, and operators review extracted delivery-note results.",
+    "The delivery-note workflow uses mobile-photo capture as the document ingestion method."
+  ],
+  "source_url": "https://www.repsol.com/en/energy-move-forward/innovation/artificial-intelligence-service-stations/index.cshtml",
+  "published_date": "2026-09-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Repsol uses predictive, analytical, and generative artificial intelligence to anticipate store demand, propose orders, automate delivery note reading and simplify customer service management.\"",
+    "\"The suggested order system is already operational in over 800 stations, it reaches 85% accuracy and generates more than 100,000 product suggestions per month.\"",
+    "\"About 900 forecasting models and another 900 optimization models run every day.\"",
+    "\"The employee takes a photo of the document with their mobile phone and the tool identifies the date, supplier, items, and quantities to upload the information into the system.\"",
+    "\"The goal is to reduce manual data entry, decrease transcription errors, and free up time for higher value customer tasks.\"",
+    "\"A total of 85% of recommendations are accepted unchanged, and an additional 14% are accepted with quantity adjustments only.\""
+  ],
+  "source_type": "company"
+}
