@@ -1,0 +1,76 @@
+{
+  "id": "ibm-burdaforward-product-recommendation-assistant",
+  "slug": "ibm-burdaforward-product-recommendation-assistant",
+  "vendor": "IBM",
+  "customer_name": "BurdaForward",
+  "industry": "Media and Entertainment",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "BurdaForward wanted an automated assistant that could improve customer service and buying advice across a large catalog of reviewed products without requiring the company to hand-build and maintain complex dialog logic for every product path.",
+  "solution_summary": "BurdaForward partnered with IBM Client Engineering and IBM Expert Labs to pilot a conversational buying-assistant architecture that turns its product-review and recommendation content into a mobile- and chat-first experience. The solution combines IBM watsonx Assistant, IBM Watson Discovery, and IBM watsonx.ai. In the implemented workflow, watsonx Assistant runs the semi-structured conversation with the user, watsonx.ai converts natural-language requests into API request filters and helps steer the dialog dynamically, and Discovery supports the retrieval layer behind the product-question workflow. This design lets the team guide shoppers toward suitable products without manually modeling every action path, while still grounding responses in BurdaForward's recommendation assets. Because the architecture can onboard hundreds of products, the pilot established a reusable pattern for conversational commerce across the publisher's digital portfolio instead of a one-off chatbot.",
+  "products_used": [
+    "IBM watsonx Assistant",
+    "IBM Watson Discovery",
+    "IBM watsonx.ai"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Runs the conversational interface that guides users through product questions and purchase-oriented choices.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Supports retrieval over BurdaForward's product-review and recommendation content during the advisory workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Transforms natural-language intents into API request filters and helps adapt the dialog without heavy manual modeling.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A shopper starts a chat-based product query, watsonx Assistant manages the dialog, watsonx.ai converts the user's criteria into API filters, Discovery-backed content helps narrow the candidate products, and the assistant returns recommendations that move the user toward purchase.",
+  "integration_points": [
+    "product review and recommendation content",
+    "mobile and chat channels",
+    "product APIs",
+    "purchase workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "BurdaForward shortened the path from product question to tailored recommendation, improved customer satisfaction, and created a more scalable conversational sales model for a large product catalog.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "10x faster selection process than before",
+    "~15% increase in customer satisfaction",
+    "more than 1,000 products"
+  ],
+  "architecture_clues": [
+    "The dialog is semi-structured so the team can guide users without authoring every branch manually.",
+    "Natural-language questions are converted into API request filters rather than being handled with fixed menus alone.",
+    "The design was built to onboard hundreds of products without complex action modeling."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/burdaforward",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The company was looking for a scalable conversational AI solution that could cover more than 1,000 products.\"",
+    "\"uses watsonx.ai to generate API request filters from natural language\"",
+    "\"guide the dialog dynamically, reducing the modelling effort\"",
+    "\"The selection process is 10 times faster than it was previously\"",
+    "\"customer satisfaction increased by around 15%\""
+  ]
+}

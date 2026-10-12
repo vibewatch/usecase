@@ -1,0 +1,83 @@
+{
+  "id": "ibm-quant-predictive-maintenance",
+  "slug": "ibm-quant-predictive-maintenance",
+  "vendor": "IBM",
+  "customer_name": "Quant",
+  "industry": "Manufacturing",
+  "region": "Sweden",
+  "company_size": "Enterprise",
+  "business_problem": "Quant wanted to deliver more advanced predictive-maintenance services to industrial clients, but fragmented asset data, legacy equipment monitoring, and separate IoT tooling limited its ability to manage assets efficiently at global scale.",
+  "solution_summary": "Quant, AFRY, and IBM modernized the company's maintenance platform around IBM Maximo Application Suite so client asset data, health monitoring, and technician workflows could run from one environment. IBM delivers the suite as a managed service, giving Quant an integrated platform to manage and analyze asset information across global client sites. For modern equipment, OEM sensors feed operating data into the platform; for legacy equipment, Quant adds IoT devices and plans to move that monitoring into IBM Maximo Health so those readings can be analyzed alongside work histories and asset context. Maximo Mobile extends the system to technicians in the field, while Maximo Scheduler replaces spreadsheet-based planning with rules-driven scheduling and work-order management. The design lets Quant consolidate maintenance data, reduce separate infrastructure, and scale predictive and condition-based maintenance across tens of thousands of assets.",
+  "products_used": [
+    "IBM Maximo Application Suite",
+    "IBM Maximo Health",
+    "Maximo Mobile",
+    "Maximo Scheduler"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM Maximo Application Suite",
+      "role": "Provides the integrated managed-service platform for asset management, analytics, and global rollout across client sites.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM Maximo Health",
+      "role": "Analyzes IoT and asset-condition data so Quant can detect issues earlier and move toward predictive maintenance.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Maximo Mobile",
+      "role": "Gives technicians field access to operational data and work information while they service client equipment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Maximo Scheduler",
+      "role": "Automates scheduling and work-order planning that had previously been coordinated with spreadsheets.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Sensor streams from OEM-connected assets and IoT devices added to legacy equipment flow into Maximo Application Suite and Maximo Health, where the data is analyzed alongside asset histories; planners then coordinate work in Maximo Scheduler and technicians consume the resulting tasks and operational context through Maximo Mobile.",
+  "integration_points": [
+    "original equipment manufacturer sensors",
+    "legacy assets fitted with IoT devices",
+    "Quant IoT management platform",
+    "client maintenance operations"
+  ],
+  "technical_area": [
+    "IoT",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "Quant gained a scalable platform for higher-value maintenance services, better asset visibility, lower infrastructure overhead, and stronger support for sustainability and uptime goals across its global client base.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "1 central platform for asset management",
+    "2,000 data streams from IoT sensors",
+    "40 global client sites live",
+    "more than 105,000 assets across 40 client sites",
+    "over 3,000 employees"
+  ],
+  "architecture_clues": [
+    "IBM provides Maximo Application Suite as a managed service for Quant's rollout.",
+    "Legacy equipment is instrumented with IoT devices so it can join the same monitoring fabric as modern sensor-equipped assets.",
+    "Quant plans to decommission its separate IoT management infrastructure by moving that capability into Maximo Health."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/quant",
+  "published_date": "2024-04-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"Maximo Application Suite would enable us to unify our asset management data on a single, integrated platform\"",
+    "\"By moving this capability to IBM Maximo Health ... we'll also be able to decommission our existing IoT management infrastructure\"",
+    "\"At the moment, we run our own IoT management platform.\"",
+    "\"already using the solution to manage more than 105,000 assets across 40 client sites around the world\"",
+    "\"2,000 data streams from IoT sensors\""
+  ]
+}

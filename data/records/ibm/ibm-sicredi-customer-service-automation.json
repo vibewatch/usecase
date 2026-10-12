@@ -1,0 +1,77 @@
+{
+  "id": "ibm-sicredi-customer-service-automation",
+  "slug": "ibm-sicredi-customer-service-automation",
+  "vendor": "IBM",
+  "customer_name": "Sicredi",
+  "industry": "Financial Services",
+  "region": "Brazil",
+  "company_size": "Enterprise",
+  "business_problem": "Sicredi's support representatives had to answer questions across many financial products, and the previous assistant often required escalation to product specialists, which lengthened wait times for members and made support work more frustrating for employees.",
+  "solution_summary": "Sicredi partnered with IBM Client Engineering to co-create a generative-AI assistant for its support representatives, focusing first on questions about the cooperative's consortium product. The pilot combined IBM watsonx.ai, IBM Watson Discovery, and IBM watsonx Assistant so staff could submit natural-language questions of varying complexity and receive grounded answers within seconds. In the implemented flow, watsonx Assistant provides the conversational entry point, Discovery searches Sicredi's support documentation, and watsonx.ai helps generate a response that representatives can use while serving members. Sicredi built the first version in three weeks and then tested it over a 20-day pilot with live customer-support traffic. Rather than replacing representatives, the architecture augments them with faster access to product knowledge, reduces unnecessary escalation to specialists, and creates a reusable support pattern the team plans to expand to all financial products.",
+  "products_used": [
+    "IBM watsonx.ai",
+    "IBM Watson Discovery",
+    "IBM watsonx Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "IBM watsonx.ai",
+      "role": "Helps generate responses to representative questions using the information retrieved from Sicredi's documentation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IBM Watson Discovery",
+      "role": "Searches Sicredi's support documentation to retrieve the information needed to answer product questions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "IBM watsonx Assistant",
+      "role": "Provides the natural-language interface through which support representatives submit questions to the assistant.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Support representatives ask natural-language questions through watsonx Assistant, Watson Discovery searches Sicredi's support documentation, watsonx.ai helps formulate an answer, and the representative uses that response to resolve the member's issue without waiting for a product specialist.",
+  "integration_points": [
+    "Sicredi support documentation",
+    "support representatives",
+    "product specialists",
+    "consortium product support workflow"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Sicredi shortened response times, reduced escalation to specialists, improved the member experience, and gave its service teams a more scalable way to support a broad product portfolio.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "three weeks to co-create the new assistant",
+    "20 days of pilot testing",
+    "6,500 members served during the pilot",
+    "10%–12% improvement in retention, which are cases where the support rep resolved the member's query without involving a product specialist",
+    "1% improvement in net promoter score",
+    "8% decrease in abandonment of support calls due to wait time"
+  ],
+  "architecture_clues": [
+    "The first pilot focused on Sicredi's consortium product before a planned expansion to other financial products.",
+    "The assistant is intended for employee-facing augmentation rather than direct customer self-service.",
+    "Responses are generated in seconds from Sicredi's existing support documentation."
+  ],
+  "source_url": "https://www.ibm.com/case-studies/sicredi-generative-ai-pilot",
+  "published_date": "2024-05-14",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"enabled by the IBM watsonx.ai IBM Watson Discovery and IBM watsonx Assistant solutions\"",
+    "\"the assistant will query Sicredi's support documentation and generate an answer within a matter of seconds\"",
+    "\"10%–12% improvement in retention, which are cases where the support rep resolved the member's query without involving a product specialist\"",
+    "\"8% decrease in abandonment of support calls due to wait time\"",
+    "\"The next step for Sicredi, following the pilot, is to begin expanding the bot's scope to include all other financial products.\""
+  ]
+}
