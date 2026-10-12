@@ -1,0 +1,78 @@
+{
+  "id": "byteplus-transjakarta-customer-service-automation",
+  "slug": "byteplus-transjakarta-customer-service-automation",
+  "vendor": "BytePlus",
+  "customer_name": "TransJakarta",
+  "industry": "Public Sector",
+  "region": "Indonesia",
+  "company_size": "Public sector",
+  "business_problem": "TransJakarta needed to handle growing passenger questions about routes, schedules, and service updates after enquiries rose past 23,000 messages per month, because manual support across its app and social channels left riders waiting around an hour for responses.",
+  "solution_summary": "TransJakarta deployed TARA (TransJakarta Assistant Representative Agent) as a conversational support layer across the TJ: TransJakarta app and the operator's social channels to absorb rising commuter demand. Passenger questions about routes, schedules, and service updates are sent to DeepSeek V3.2 through BytePlus ModelArk, which lets riders ask in natural language and receive contextual responses in about a minute instead of waiting around an hour for manual handling. The implementation does more than answer routine enquiries: TARA classifies incoming messages and routes operational reports directly into TransJakarta's CRM and field teams so incidents reach the right operators faster. This architecture turned BytePlus into both the inference layer and the integration surface for commuter support, giving the bus network a scalable AI foundation while freeing customer service agents to focus on harder cases.",
+  "products_used": [
+    "TARA (TransJakarta Assistant Representative Agent)",
+    "DeepSeek V3.2",
+    "BytePlus ModelArk"
+  ],
+  "solution_components": [
+    {
+      "name": "TARA (TransJakarta Assistant Representative Agent)",
+      "role": "Serves as the rider-facing assistant that answers questions and triages commuter messages.",
+      "layer": "Serving"
+    },
+    {
+      "name": "DeepSeek V3.2",
+      "role": "Provides the language-model inference used to generate contextual commuter responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "BytePlus ModelArk",
+      "role": "Hosts the conversational model layer used by TARA and supports message classification and routing workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Questions arrive from the TJ: TransJakarta app and social channels, TARA sends them through BytePlus ModelArk to DeepSeek V3.2 for contextual answers, and classified operational reports are routed into TransJakarta's CRM and field teams while agents keep the remaining complex cases.",
+  "integration_points": [
+    "TJ: TransJakarta app",
+    "social channels",
+    "TransJakarta CRM",
+    "field teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "TARA reduced passenger response times from around an hour to about a minute, improved operational efficiency by routing reports straight to CRM and field teams, and gave TransJakarta a scalable AI foundation for more responsive commuter support.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 1.4 million passengers daily",
+    "244-kilometre Bus Rapid Transit (BRT) network",
+    "over 23,000 messages each month",
+    "waiting around an hour",
+    "within about a minute"
+  ],
+  "architecture_clues": [
+    "The assistant spans both the TJ: TransJakarta app and social channels",
+    "Operational reports are classified and routed directly into the CRM and field teams",
+    "TransJakarta chose BytePlus for affordability, ease of integration, and dedicated local support",
+    "The deployment is positioned as a scalable AI foundation for future commuter-facing use cases"
+  ],
+  "source_url": "https://www.byteplus.com/en/case-study/transjakarta",
+  "published_date": "unknown",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"As commuter enquiries grew to over 23,000 messages each month across the TJ: TransJakarta app and social channels, manual customer service struggled to keep pace, with passengers waiting around an hour for responses\"",
+    "\"TARA (TransJakarta Assistant Representative Agent), a conversational AI assistant powered by DeepSeek V3.2 through BytePlus ModelArk.\"",
+    "\"TARA enables passengers to ask questions naturally and receive contextual answers within about a minute.\"",
+    "\"routes operational reports directly into TransJakarta's CRM and field teams\"",
+    "\"TARA has significantly reduced response times, improved operational efficiency and enhanced the passenger experience\""
+  ]
+}
