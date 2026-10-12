@@ -14,7 +14,7 @@
     "data:triage": "python3 -m pipeline.usecase_intel.triage --stage pre && python3 -m pipeline.usecase_intel.triage --stage post && python3 -m pipeline.usecase_intel.triage --stage dates && python3 -m pipeline.usecase_intel.triage --stage summary",
     "data:probe-fetch": "python3 -m pipeline.usecase_intel.probe",
     "data:extract": "python3 -m pipeline.usecase_intel.extract",
-    "data:merge": "python3 -m pipeline.usecase_intel.merge_records --include-samples data/case-studies.sample.json",
+    "data:merge": "python3 -m pipeline.usecase_intel.merge_records --prune-duplicates --include-samples data/case-studies.sample.json",
     "data:partition": "python3 -m pipeline.usecase_intel.partition",
     "data:build": "npm run data:merge && npm run data:seed && npm run data:export && npm run data:partition"
   },

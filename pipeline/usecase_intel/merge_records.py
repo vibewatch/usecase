@@ -3,7 +3,8 @@
 The agent-driven extraction workflow writes one normalized JSON record per page
 under `data/records/{vendor_slug}/{slug}.json`. `seed.py` expects a single JSON
 array. This module walks the records tree, optionally folds in a samples file,
-deduplicates by `id`, and writes the combined array to a target path.
+deduplicates by `id` and by story (`source_url`), and writes the combined array
+to a target path.
 """
 
 from __future__ import annotations
@@ -33,15 +34,33 @@ def _load_array(path: Path) -> list[dict[str, Any]]:
     return [item for item in data if isinstance(item, dict)]
 
 
+def _richness(record: dict[str, Any]) -> int:
+    """How much substance an extraction carries; the richer duplicate is kept."""
+    return (
+        100 * len(record.get("solution_components") or [])
+        + 50 * len(record.get("metrics") or [])
+        + 30 * len(record.get("evidence_quotes") or [])
+        + 20 * len(record.get("integration_points") or [])
+        + len(record.get("solution_summary") or "")
+        + len(record.get("data_flow") or "")
+    )
+
+
+def _story_key(record: dict[str, Any]) -> str:
+    return str(record.get("source_url") or "").strip().rstrip("/").lower()
+
+
 def merge_records(
     *,
     records_root: Path,
     output_path: Path,
     include_samples: Path | None = None,
+    prune_duplicates: bool = False,
 ) -> dict[str, int]:
     records_by_id: dict[str, dict[str, Any]] = {}
     sample_count = 0
     record_count = 0
+    pruned = 0
 
     if include_samples and include_samples.exists():
         for sample in _load_array(include_samples):
@@ -52,18 +71,35 @@ def merge_records(
             sample_count += 1
 
     if records_root.exists():
+        loaded: list[tuple[Path, dict[str, Any]]] = []
         for path in sorted(records_root.rglob("*.json")):
             try:
                 record = _load_record(path)
             except (json.JSONDecodeError, ValueError) as exc:
                 print(f"  skip {path}: {exc}", file=sys.stderr)
                 continue
-            rid = record.get("id")
-            if not rid:
+            if not record.get("id"):
                 print(f"  skip {path}: record missing 'id'", file=sys.stderr)
                 continue
+            loaded.append((path, record))
+
+        # One record per story: parallel runs can extract the same page twice under
+        # different slugs. Keep the richest extraction (path breaks ties, so the
+        # choice is stable) and, with prune_duplicates, delete the other files.
+        by_story: dict[str, list[tuple[Path, dict[str, Any]]]] = {}
+        for path, record in loaded:
+            key = _story_key(record) or f"id:{record['id']}"
+            by_story.setdefault(key, []).append((path, record))
+        for key, group in by_story.items():
+            group.sort(key=lambda item: (-_richness(item[1]), str(item[0])))
+            path, record = group[0]
+            for duplicate_path, _duplicate in group[1:]:
+                print(f"  duplicate of {path.name}: {duplicate_path}", file=sys.stderr)
+                if prune_duplicates:
+                    duplicate_path.unlink()
+                pruned += 1
             # Real extractions override sample placeholders with the same id.
-            records_by_id[rid] = record
+            records_by_id[record["id"]] = record
             record_count += 1
 
     merged = list(records_by_id.values())
@@ -75,6 +111,7 @@ def merge_records(
     return {
         "samples": sample_count,
         "extracted": record_count,
+        "duplicates": pruned,
         "total": len(merged),
     }
 
@@ -99,15 +136,22 @@ def main() -> None:
         default=None,
         help="Optional path to a samples JSON array to fold in (real records override on id collision)",
     )
+    parser.add_argument(
+        "--prune-duplicates",
+        action="store_true",
+        help="Delete record files that duplicate a richer record for the same source_url",
+    )
     args = parser.parse_args()
 
     counts = merge_records(
         records_root=args.records_root,
         output_path=args.output,
         include_samples=args.include_samples,
+        prune_duplicates=args.prune_duplicates,
     )
     print(
         f"Merged samples={counts['samples']} extracted={counts['extracted']} "
+        f"duplicates={counts['duplicates']}{' (pruned)' if args.prune_duplicates else ''} "
         f"total={counts['total']} -> {args.output}"
     )
 

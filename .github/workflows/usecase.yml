@@ -253,7 +253,7 @@ jobs:
               exit 1
             fi
             npm run --silent data:build >/dev/null
-            git add data/weekly
+            git add -A data/records data/weekly   # data:merge prunes duplicate extractions of one story
             git diff --cached --quiet || git commit -q --amend --no-edit
             if git push -q origin "HEAD:$BRANCH"; then
               echo "Pushed on attempt $attempt."

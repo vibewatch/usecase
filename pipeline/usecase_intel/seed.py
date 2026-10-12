@@ -35,8 +35,14 @@ def main() -> None:
         connection.execute("pragma foreign_keys = on")
         initialize_database(connection)
         upsert_records(connection, records)
+        # The merged file is the full set: drop rows for records since removed (e.g. pruned duplicates).
+        connection.execute("create temp table current_ids (id text primary key)")
+        connection.executemany("insert or ignore into current_ids values (?)", [(record["id"],) for record in records])
+        connection.execute("delete from case_study_values where case_study_id not in (select id from current_ids)")
+        removed = connection.execute("delete from case_studies where id not in (select id from current_ids)").rowcount
+        connection.commit()
 
-    print(f"Seeded {len(records)} records into {args.output}")
+    print(f"Seeded {len(records)} records into {args.output}" + (f" (removed {removed} stale)" if removed else ""))
 
 
 if __name__ == "__main__":
