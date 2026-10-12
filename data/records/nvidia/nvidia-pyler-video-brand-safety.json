@@ -1,0 +1,96 @@
+{
+  "id": "nvidia-pyler-video-brand-safety",
+  "slug": "nvidia-pyler-video-brand-safety",
+  "vendor": "NVIDIA",
+  "customer_name": "PYLER",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "PYLER needed to verify brand safety across millions of videos per day, but keyword and rule-based moderation could not provide the semantic precision, throughput, or operating cost profile required for real-time advertising decisions.",
+  "solution_summary": "PYLER built a multimodal video-intelligence platform on NVIDIA DGX systems, CUDA, NVLink-connected Blackwell infrastructure, NVIDIA NeMo, and Mission Control to create what it calls semantic primitives for brand safety. Video, audio, text, and metadata are embedded into a single representation, stored in a PostgreSQL vector database with pgvector, and served through SingleStore for high-throughput retrieval and policy evaluation. NVIDIA NeMo Curator automates data curation and filtering, while the DGX environment accelerates model training, hyperparameter search, and large-scale inference. The platform can then label and search millions of videos in near real time so advertisers can validate placements against trust-and-safety rules instead of relying on manual review or brittle keyword heuristics. The result is a neutral validation layer that scales across YouTube and emerging CTV inventory.",
+  "products_used": [
+    "NVIDIA DGX Platform",
+    "NVIDIA NVLink",
+    "NVIDIA NeMo",
+    "NVIDIA CUDA",
+    "NVIDIA Mission Control",
+    "PostgreSQL with pgvector",
+    "SingleStore"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Platform",
+      "role": "Provides the core training and inference infrastructure for PYLER's multimodal models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NVLink",
+      "role": "Connects the GPUs so large multimodal training and inference jobs can run efficiently.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Supports model development and data curation for PYLER's semantic video workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates the video embedding, search, and labeling pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Mission Control",
+      "role": "Helps manage the DGX infrastructure used by the trust-and-safety platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "PostgreSQL with pgvector",
+      "role": "Stores vector embeddings for similarity search across time-aware video contexts.",
+      "layer": "Storage"
+    },
+    {
+      "name": "SingleStore",
+      "role": "Serves high-throughput retrieval and policy-evaluation workloads.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Incoming video, audio, text, and metadata are embedded into unified vectors, stored in PostgreSQL with pgvector, retrieved and scored through SingleStore-backed services, and then evaluated by PYLER's policy logic to classify brand-safe or unsafe video environments in near real time.",
+  "integration_points": [
+    "YouTube",
+    "CTV inventory"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "PYLER processed 2 million videos a day, reduced unsafe content exposure by 76.7% for major advertisers, cut validation time from 30 seconds to 0.011 seconds, and used the consolidated NVIDIA stack to achieve a 10x reduction in operational costs while serving major global brands.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "2 million videos daily",
+    "reducing unsafe content exposure by 76.7%",
+    "30 seconds (human benchmark) to just 0.011 seconds (AI)",
+    "10X reduction in operational costs"
+  ],
+  "architecture_clues": [
+    "PYLER processes roughly 100 GB of video per day and 700 million videos cumulatively.",
+    "The team reduced model training iteration cycles from three months down to one.",
+    "The move to DGX B200 delivered a 3x improvement in multimodal model training speed."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/pyler/",
+  "published_date": "2026-08-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Processed 2 million videos daily-equivalent to 60 years of content every 24 hours.",
+    "Reducing unsafe content exposure by 76.7% for major advertisers.",
+    "Validation times from 30 seconds (human benchmark) to just 0.011 seconds (AI).",
+    "leveraging NVIDIA Video Search & Summarization (VSS), and NVIDIA NeMo to achieve a 10X reduction in operational costs."
+  ]
+}

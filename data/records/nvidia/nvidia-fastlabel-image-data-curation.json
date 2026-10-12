@@ -1,0 +1,76 @@
+{
+  "id": "nvidia-fastlabel-image-data-curation",
+  "slug": "nvidia-fastlabel-image-data-curation",
+  "vendor": "NVIDIA",
+  "customer_name": "FastLabel",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Unknown",
+  "business_problem": "FastLabel needed to prepare large computer-vision datasets for autonomous-driving and industrial workloads, but manual captioning and duplicate review made image curation slow, expensive, and too error-prone to keep up with customer demand.",
+  "solution_summary": "FastLabel built an image-data curation service on NVIDIA NeMo Curator running on NVIDIA A100 GPUs in Google Cloud Platform. The workflow starts with large autonomous-driving image sets and generates detailed domain-specific captions through vision-language models hosted on GCP. Those captions are embedded and then processed through NeMo Curator's semantic deduplication pipeline so the service can identify visually redundant examples that rule-based filters would miss. By turning image semantics into text, FastLabel made it practical to curate long-tail datasets for perception systems while drastically reducing manual review. The same pipeline now underpins FastLabel Data Curation, a productized service that produces automatically tagged, deduplicated image datasets faster, at lower cost, and with less wasted training compute for customers building autonomous and industrial vision models.",
+  "products_used": [
+    "NVIDIA NeMo Curator",
+    "NVIDIA A100",
+    "Google Cloud Platform",
+    "vision language models"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Performs the semantic deduplication and image-data processing at the core of FastLabel's service.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA A100",
+      "role": "Accelerates captioning, embedding, and deduplication workloads for large image sets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Cloud Platform",
+      "role": "Hosts the GPUs and supporting models used in FastLabel's curation pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "vision language models",
+      "role": "Generate domain-specific image captions that drive semantic deduplication.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Raw image datasets are captioned by vision-language models on GCP, captions are embedded and passed into NeMo Curator on A100 GPUs, semantically similar examples are removed, and the cleaned datasets are delivered through FastLabel's data-curation service for downstream autonomous-vision training.",
+  "integration_points": [
+    "Google Cloud Platform"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "FastLabel reduced a 10,000-image captioning effort from 333 hours to 14.6 hours, ran text embedding and semantic deduplication in minutes, lowered the total cost of processing 10,000 images to under $57, and used the pipeline to launch its commercial FastLabel Data Curation service.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "333 hours (the equivalent of 42 workdays) to caption 10,000 images",
+    "10,000 images in approximately 14.6 hours",
+    "text embedding and semantic deduplication reduced to just 6 and 4 minutes",
+    "less than $57",
+    "$0.26 on an A100 GPU"
+  ],
+  "architecture_clues": [
+    "The service used NVIDIA A100 GPUs on Google Cloud Platform.",
+    "FastLabel automatically flagged 242 out of 1,076 duplicate parked car images.",
+    "The company turned the workflow into the FastLabel Data Curation service."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/fastlabel-accelerates-image-data-processing-with-nemo-curator/",
+  "published_date": "2026-02-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "FastLabel implemented the NeMo Curator image processing features on NVIDIA A100 GPUs on Google Cloud Platform.",
+    "Captioning of 10,000 images in approximately 14.6 hours.",
+    "The core semantic deduplication step costing only $0.26 using an A100 GPU on Google Cloud.",
+    "For FastLabel, the solution enabled the launch of its FastLabel Data Curation service, providing customers with rapid, reliable access to high-quality, automatically tagged, and deduplicated datasets."
+  ]
+}

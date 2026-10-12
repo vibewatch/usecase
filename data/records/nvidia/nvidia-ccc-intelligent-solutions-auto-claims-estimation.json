@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-ccc-intelligent-solutions-auto-claims-estimation",
+  "slug": "nvidia-ccc-intelligent-solutions-auto-claims-estimation",
+  "vendor": "NVIDIA",
+  "customer_name": "CCC Intelligent Solutions Inc.",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "CCC needed to train and iterate on large computer-vision models for insurance claims automation, but hybrid data movement, bursty GPU demand, and developer orchestration made it hard for data scientists to move models from experimentation to production quickly.",
+  "solution_summary": "CCC built a hybrid AI development pipeline around NVIDIA DGX Cloud, NVIDIA Base Command Platform, and DGX A100 systems to support the models behind CCC Estimate-STP. The company extracts structured and unstructured claims data from its production environment into sub-lakes, anonymizes it, and manages the resulting datasets in Base Command Platform so data scientists can schedule jobs consistently across on-premises and cloud GPU resources. Base Command's open API and Kubernetes compatibility let CCC integrate scheduling and resource management directly into its internal model-development workflow, while DGX Cloud provides 24x7 access to additional GPUs whenever training demand spikes. That platform supports the computer-vision and ensemble-model experiments used to turn mobile phone photos into line-level repair estimates in seconds, instead of leaving adjusters to rely on manual workflows that can take days.",
+  "products_used": [
+    "NVIDIA DGX Cloud",
+    "NVIDIA Base Command Platform",
+    "NVIDIA DGX A100",
+    "NVIDIA AI Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Supplies burst GPU capacity for CCC's large computer-vision training runs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Base Command Platform",
+      "role": "Manages datasets, schedules jobs, and orchestrates hybrid model-development workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA DGX A100",
+      "role": "Provides on-premises accelerated infrastructure for CCC's model experiments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Supports the governed software stack used in CCC's AI pipeline.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Claims data is extracted from production into sub-lakes, anonymized and loaded into Base Command Platform, model-training jobs are scheduled across DGX A100 and DGX Cloud capacity, and the resulting computer-vision models feed CCC Estimate-STP so insurers can generate repair estimates from smartphone photos.",
+  "integration_points": [
+    "Kubernetes API",
+    "production data sub-lakes"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "CCC reported a 2x speedup in running experiments, compressed some model-development cycles from months to days, and used the platform to launch CCC Estimate-STP, which can deliver detailed line-level collision estimates in seconds from photos instead of relying on workflows that can take several days.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "2X speedup in running data scientists' experiments",
+    "more than 16 million claims using CCC solutions each year",
+    "more than 14 million unique claims using CCC's computer vision AI through 2022"
+  ],
+  "architecture_clues": [
+    "CCC runs a 100 percent cloud production environment with additional on-premises AI resources.",
+    "Base Command Platform integrates with CCC's internal pipeline through open APIs and Kubernetes compatibility.",
+    "The team can shift to DGX Cloud when a run needs 10 million additional data points."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/delivering-millions-of-ai-powered-auto-repair-estimates-for-better-claims-experiences/",
+  "published_date": "2023-10-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "CCC Estimate (STP) uses AI, insurer-driven rules, and CCC's vast ecosystem to digitize the claims estimation process in seconds.",
+    "Within DGX Cloud, we are using Base Command Platform's open API and compatibility with Kubernetes API to easily integrate it into our internal model development pipeline.",
+    "Using Base Command Platform's dataset management and orchestration capabilities, our data scientists have reported a 2X speedup in running experiments.",
+    "CCC Estimate-STP can deliver a detailed line-level estimation of a collision based on insurer rules in seconds from just a few pictures from a mobile phone."
+  ]
+}

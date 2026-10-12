@@ -1,0 +1,101 @@
+{
+  "id": "nvidia-zaha-hadid-architects-design-ai-pipeline",
+  "slug": "nvidia-zaha-hadid-architects-design-ai-pipeline",
+  "vendor": "NVIDIA",
+  "customer_name": "Zaha Hadid Architects",
+  "industry": "unknown",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Zaha Hadid Architects needed to shorten weeklong feedback cycles for highly detailed design scenes, protect a proprietary 40-year design archive, and scale AI-assisted visualization without sending sensitive client or intellectual-property data to external services.",
+  "solution_summary": "Zaha Hadid Architects built a local AI design pipeline around NVIDIA RTX 6000 Ada Generation GPUs, NVIDIA Omniverse, OpenUSD, and NVIDIA NIM large language models. High-end workstations with up to four GPUs handle rendering, simulation, model fine-tuning, and inference onsite so the firm can keep its 3D scenes, imagery, and client work local. ZHA combines Stable Diffusion, DALL-E 2, Rhino.ai, and custom LoRA workflows to turn parametric concepts into client-ready visuals faster, while NIM-backed tagging and search services organize its proprietary image archive for style transfer and geometry analysis. Through its CODE group, the firm also built more than ten Omniverse extensions and the ZSPACE Create interface so geometry processing, robotic simulation, environmental analysis, and rendering can share the same OpenUSD-based workflow instead of forcing teams to manually reformat scenes between tools.",
+  "products_used": [
+    "NVIDIA RTX 6000 Ada Generation GPUs",
+    "NVIDIA Omniverse",
+    "OpenUSD",
+    "NVIDIA NIM large language models",
+    "Stable Diffusion",
+    "DALL-E 2",
+    "Rhino.ai",
+    "ZSPACE Create"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA RTX 6000 Ada Generation GPUs",
+      "role": "Provide the local compute needed for rendering, simulation, model fine-tuning, and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Omniverse",
+      "role": "Acts as the collaboration and workflow hub for ZHA's AI-augmented design stack.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenUSD",
+      "role": "Carries live scene and asset data between design tools in the Omniverse pipeline.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NIM large language models",
+      "role": "Tag, search, and retrain models against ZHA's proprietary image archive.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Stable Diffusion",
+      "role": "Generates and refines architectural visuals from abstract concepts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DALL-E 2",
+      "role": "Supports rapid ideation and image generation inside the design workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Rhino.ai",
+      "role": "Connects parametric design strategies to AI-assisted visualization workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ZSPACE Create",
+      "role": "Provides a unified interface for geometry, manufacturing, sustainability, and rendering tools.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Design geometry and proprietary image assets stay on local RTX workstations, flow through OpenUSD into Omniverse, are tagged and searched by NIM-backed services, and are then combined with generative models such as Stable Diffusion and DALL-E 2 to produce client visuals and design-analysis outputs.",
+  "integration_points": [
+    "HP Inc.",
+    "custom Omniverse extensions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "ZHA reduced client feedback loops from one week to under 24 hours, fine-tuned custom LoRAs and Stable Diffusion models on proprietary design data, and created an extensible Omniverse-based platform that reuses decades of portfolio content while keeping sensitive design data on premises.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Compliance"
+  ],
+  "metrics": [
+    "reduced client feedback loops from one week to under 24 hours",
+    "scene datasets up to 60 million polygons",
+    "over ten custom Omniverse extensions",
+    "40-year portfolio"
+  ],
+  "architecture_clues": [
+    "Workstations are equipped with up to four NVIDIA RTX 6000 Ada Generation GPUs.",
+    "ZHA built more than ten custom Omniverse extensions.",
+    "The AI workflow operates against over 40 years of proprietary models and imagery."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/zaha-hadid-architects-with-omniverse-and-usd/",
+  "published_date": "2024-11-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "ZHA reduced client feedback loops from one week to under 24 hours using AI-assisted pipelines and Omniverse.",
+    "Workstations equipped with up to four NVIDIA RTX 6000 Ada Generation GPUs deliver a high-performance local compute environment.",
+    "ZHA manages an extensive, proprietary image database using NVIDIA NIM large language models to tag, search, and retrain models.",
+    "They have developed over ten custom Omniverse extensions integrated into its Spatial Technology Stack."
+  ]
+}

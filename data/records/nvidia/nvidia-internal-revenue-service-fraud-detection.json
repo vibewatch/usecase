@@ -1,0 +1,71 @@
+{
+  "id": "nvidia-internal-revenue-service-fraud-detection",
+  "slug": "nvidia-internal-revenue-service-fraud-detection",
+  "vendor": "NVIDIA",
+  "customer_name": "Internal Revenue Service",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "IRS investigators needed to search multi-terabyte tax and transaction data to expose fraud and identity-theft rings, but CPU clusters and manual data stitching could not finish graph-heavy jobs quickly enough to support mission-critical investigations.",
+  "solution_summary": "The IRS modernized fraud analytics with Cloudera and NVIDIA GPU acceleration so graph analysis, machine learning, and Spark-based data engineering could run against very large tax datasets. Investigators start with decades of records and multi-hop relationship data, then push those workloads through Cloudera on NVIDIA GPUs to accelerate both preparation and analysis. Initial runs saw immediate speedups without code changes, and after NVIDIA data scientists reviewed the code paths, optimized Spark-GPU workflows delivered much larger gains at lower cost. The accelerated stack also opened the door for the IRS to extend beyond historical fraud analysis into faster AI inference and natural-language analytics, all on the same GPU-backed foundation. Instead of breaking the dataset apart across CPU servers and manually stitching results together, the agency can now evaluate much more of the full signal in one governed analytics environment.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "NVIDIA RAPIDS",
+    "Cloudera"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the enterprise AI stack used to operationalize accelerated fraud analytics.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA RAPIDS",
+      "role": "Accelerates Spark and data-science workloads over large fraud datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloudera",
+      "role": "Hosts the IRS data-engineering and analytics workflows that run on NVIDIA GPUs.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Large tax and transaction datasets flow into Cloudera-based Spark and graph workloads, RAPIDS and GPU acceleration speed the data engineering and analytics stages, and investigators use the results to trace suspicious relationships and flag potential fraud or identity-theft patterns.",
+  "integration_points": [
+    "Apache Spark"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "The IRS achieved more than 20x speed improvements at half the cost for data engineering and data science workflows, moved from failed overnight CPU jobs to production-scale fraud analytics, and created a foundation it can reuse for future NLP and inference workloads in government operations.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "3+ terabyte dataset",
+    "up to 5X faster with no code changes",
+    "over 20x speed improvements",
+    "50 percent lower cost"
+  ],
+  "architecture_clues": [
+    "The original investigation involved a 3+ terabyte dataset and multi-hop graph analysis.",
+    "Spark-GPU infrastructure is the next target for NLP and inference jobs.",
+    "The modernized stack uses Cloudera on NVIDIA GPUs."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/fraud-detection-applications/",
+  "published_date": "2023-12-06",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "To combat tax fraud and uncover bad actors, IRS investigators must analyze decades' worth of data.",
+    "With Cloudera running on NVIDIA GPUs, workloads immediately ran up to 5X faster with no code changes.",
+    "We're currently implementing this integration, and are already seeing over 20x speed improvements at half the cost.",
+    "With improved computing infrastructure and AI implementation, the IRS is cutting costs and better protecting taxpayers by preventing fraud and identity theft."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "nvidia-databento-market-data-analytics",
+  "slug": "nvidia-databento-market-data-analytics",
+  "vendor": "NVIDIA",
+  "customer_name": "Databento",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Databento needed to deliver institutional market data with very low latency over the internet, but legacy finance networking products were expensive, fragmented, and hard to operate at the bandwidth required for hundreds of billions of updates per day.",
+  "solution_summary": "Databento rebuilt its private-cloud market-data backbone on NVIDIA networking. Across four data centers and more than 30 PB of storage, the company uses NVIDIA Spectrum Ethernet switches, ConnectX SuperNICs, and Cumulus Linux so network devices can be managed with the same automation patterns as servers. For latency-sensitive packet delivery, ConnectX NICs work with DPDK and VMA to keep host-to-host forwarding deterministic, while Netris provides software-defined overlays that help the infrastructure scale elastically as traffic and storage needs grow. The result is a unified network that can serve ultra-low-latency options data to cloud customers, support preprocessing and format customization for downstream machine-learning pipelines, and avoid the cost and operational sprawl of niche proprietary market-data networking stacks.",
+  "products_used": [
+    "NVIDIA Cumulus Linux",
+    "NVIDIA Spectrum-X",
+    "NVIDIA ConnectX",
+    "NVIDIA Spectrum Ethernet switches",
+    "Netris"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Cumulus Linux",
+      "role": "Standardizes network-switch automation and management across Databento's private cloud.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Spectrum-X",
+      "role": "Provides the high-performance Ethernet foundation for large-scale market-data delivery.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA ConnectX",
+      "role": "Delivers ultra-low-latency packet processing for real-time feeds.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Spectrum Ethernet switches",
+      "role": "Handle deterministic, high-throughput switching across Databento's data centers.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Netris",
+      "role": "Adds software-defined networking overlays so the private cloud can grow elastically.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Exchange updates enter Databento's private cloud, traverse Spectrum switches and ConnectX NICs with DPDK acceleration, are customized and serialized for client APIs and ML workflows, and then are delivered over the internet with deterministic latency from the four-data-center backbone.",
+  "integration_points": [
+    "DPDK",
+    "VMA",
+    "private cloud infrastructure"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Databento achieved median latency below 60 microseconds, delivered U.S. options data online in under 242 microseconds, lowered networking costs by 20%, reduced network-management effort by more than 60%, and enabled customers to avoid expensive colocation by getting very low latency over the public internet.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "under 242 microseconds",
+    "under 60 microseconds",
+    "more than 60%",
+    "20%",
+    "3,800% annual revenue growth",
+    "over 200 billion market updates each day"
+  ],
+  "architecture_clues": [
+    "Databento runs the network across four data centers with more than 30 PB of storage.",
+    "The company regularly exceeds 80 Gbps during peak periods.",
+    "Hardware timestamping on ConnectX improves sequencing of market-data events."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/databento/",
+  "published_date": "2026-02-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Delivered U.S. options data online in under 242 microseconds and achieved super-fast median response times of under 60 microseconds.",
+    "Cut network management workload by more than 60%.",
+    "Lowered data center networking costs by 20% compared to other vendors.",
+    "Databento regularly exceeds 80 Gbps and handles over 200 billion market updates each day."
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "nvidia-higgsfield-ai-video-production",
+  "slug": "nvidia-higgsfield-ai-video-production",
+  "vendor": "NVIDIA",
+  "customer_name": "Higgsfield",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Higgsfield needed to turn experimental generative video models into a reliable production platform for millions of creators and brands, but training speed, inference reliability, and multi-cloud orchestration at that scale were too difficult to manage with fragmented tools.",
+  "solution_summary": "Higgsfield built a software-defined video production platform on NVIDIA accelerated computing with Nebius and other NVIDIA Cloud Partners. Training and inference run on NVIDIA Blackwell-based HGX B200 and HGX B300 systems connected with NVIDIA Quantum InfiniBand and coordinated through CUDA and NCCL so Higgsfield can train long-context generative models and serve millions of daily jobs. The company pairs its proprietary SOUL 2 models with third-party models such as Veo and Kling but keeps orchestration and professional control inside one stack, including 1,296 virtual camera lenses. For reliability, it uses open-source NVSentinel and NVIDIA Data Center GPU Manager to watch millions of generations and automate self-healing when hardware or service issues arise. That infrastructure turned AI-native video creation into a repeatable production system instead of a collection of brittle point tools.",
+  "products_used": [
+    "NVIDIA Blackwell",
+    "NVIDIA HGX B200",
+    "NVIDIA HGX B300",
+    "NVIDIA Quantum InfiniBand Networking",
+    "NVIDIA CUDA",
+    "NVIDIA Collective Communications Library (NCCL)",
+    "NVSentinel",
+    "NVIDIA Data Center GPU Manager",
+    "Nebius AI cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Blackwell",
+      "role": "Provides the base GPU architecture for Higgsfield's training and inference fleet.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA HGX B200",
+      "role": "Runs large-scale generative-model training and serving in the cloud platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA HGX B300",
+      "role": "Extends the Blackwell fleet for higher-speed training and inference workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum InfiniBand Networking",
+      "role": "Connects distributed GPU nodes for stable high-throughput training.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates the software-defined video training and inference stack.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Collective Communications Library (NCCL)",
+      "role": "Coordinates distributed workloads across the GPU cluster.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVSentinel",
+      "role": "Monitors inference infrastructure and triggers automated recovery when failures occur.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA Data Center GPU Manager",
+      "role": "Provides GPU observability for millions of daily generations.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Nebius AI cloud",
+      "role": "Hosts a major portion of the training infrastructure and co-engineering support.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Creative prompts and control settings are served into Higgsfield's orchestration layer, Blackwell-based GPU clusters train and run SOUL 2 and partner models, observability services track inference health, and the resulting videos are returned to creators through a unified browser-accessible production platform.",
+  "integration_points": [
+    "Nebius",
+    "Veo",
+    "Kling"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Higgsfield reduced model training time by 30%, scaled the platform to 22 million users and more than 6 million generated assets per day, and added self-healing observability so enterprise-grade video generation can run continuously across a global inference estate.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "30% reduced model training time",
+    "22 million users",
+    "over 6 million pieces of AI-generated content per day",
+    "1,296 virtual camera lenses"
+  ],
+  "architecture_clues": [
+    "Higgsfield transitioned to NVIDIA HGX B200 and HGX B300 systems.",
+    "The platform uses NVSentinel and DCGM for self-healing observability.",
+    "The production stack supports 1,296 virtual camera lenses."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/higgsfield/",
+  "published_date": "2026-05-08",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By migrating to NVIDIA Blackwell and Blackwell Ultra on Nebius AI cloud and other NVIDIA Cloud Partners, Higgsfield reduced model training time by 30%.",
+    "Since its launch in April 2025, Higgsfield's platform has already scaled to 22 million users, powering over 6 million pieces of content per day.",
+    "Higgsfield leverages NVIDIA NVSentinel and DCGM for granular observability and automated self-healing.",
+    "The platform utilizes NVIDIA CUDA libraries, NCCL, and NVIDIA InfiniBand networking to orchestrate its proprietary SOUL 2 video generation models."
+  ]
+}

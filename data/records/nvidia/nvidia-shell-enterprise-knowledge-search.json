@@ -1,0 +1,70 @@
+{
+  "id": "nvidia-shell-enterprise-knowledge-search",
+  "slug": "nvidia-shell-enterprise-knowledge-search",
+  "vendor": "NVIDIA",
+  "customer_name": "Shell",
+  "industry": "Energy",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Shell needed a domain-specific AI assistant for chemistry and R&D knowledge, but its vast archive of scientific documents required data curation, domain adaptation, and faster training than generic RAG and open-source frameworks could provide.",
+  "solution_summary": "Shell built a custom chemistry-focused LLM workflow on NVIDIA NeMo to improve knowledge retrieval and document understanding for its R&D teams. The project began by curating 300,000 technical documents collected over decades and filtering them down to 154,000 high-quality documents using exact and fuzzy deduplication, quality filters, language detection, and domain classification. Shell then used the NeMo Framework for domain-adaptive pretraining and supervised fine-tuning so the model could learn Shell's scientific vocabulary rather than rely on generic web language. NeMo's parallelism techniques reduced training time while keeping the workflow on enterprise data. The resulting chatbot is designed to answer questions over Shell's internal chemistry corpus, support document analysis, and evolve through ongoing evaluation and retraining, with future multimodal support planned for images and video.",
+  "products_used": [
+    "NVIDIA NeMo",
+    "NVIDIA NeMo Curator",
+    "NVIDIA NeMo Framework"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Provides the model-building stack Shell uses for its domain-specific chatbot initiative.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Curates Shell's technical document corpus by deduplicating and filtering the source data.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA NeMo Framework",
+      "role": "Runs domain-adaptive pretraining and supervised fine-tuning on Shell's chemistry data.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Technical documents are cleaned and deduplicated with NeMo Curator, selected domain content is fed into domain-adaptive pretraining and supervised fine-tuning in the NeMo Framework, and the resulting model serves chemistry and document-analysis queries for Shell staff.",
+  "integration_points": [
+    "internal chemistry document repositories"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Shell reported a 30% increase in benchmark accuracy for the custom LLM, a 20% reduction in training time versus other open-source frameworks, and a path to multimodal knowledge support that can further improve decision-making and productivity across R&D workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "30% increase in accuracy on a custom benchmark",
+    "20% with NeMo's parallelism techniques",
+    "300,000 technical documents",
+    "154,000 high-quality documents"
+  ],
+  "architecture_clues": [
+    "Shell reduced its source corpus from 300,000 to 154,000 curated documents.",
+    "The workflow used domain-adaptive pretraining and supervised fine-tuning.",
+    "Shell plans to extend the chatbot to multimodal inputs such as images and videos."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/shell-trains-custom-ai-chatbot-with-nemo/",
+  "published_date": "2025-06-20",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Initially, Shell had access to 300,000 technical documents collected over decades. These documents were curated down to 154,000 high-quality documents.",
+    "Shell's custom LLM, trained with NVIDIA NeMo, achieves a 30% increase in accuracy on a custom benchmark.",
+    "Shell accelerated its AI model training time by 20% with NeMo's parallelism techniques.",
+    "With the AI-powered chatbot developed by Shell, technology staff would have the possibility to quickly access detailed chemical documents and data."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "nvidia-controlexpert-motor-claims-management",
+  "slug": "nvidia-controlexpert-motor-claims-management",
+  "vendor": "NVIDIA",
+  "customer_name": "ControlExpert",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "ControlExpert needed to process more than 18 million motor claims a year across 30-plus countries, but manual review of vehicle photos, documents, invoices, and fraud indicators slowed down insurers and made consistent claims decisions hard to scale.",
+  "solution_summary": "ControlExpert built an end-to-end AI claims platform on NVIDIA AI Enterprise running on NVIDIA-Certified Systems with NVIDIA A100 GPUs, NVIDIA Triton Inference Server, PyTorch, and VMware vSphere. The workflow accepts accident notifications, customer-uploaded vehicle photos, and supporting documentation, then uses computer vision to classify images, identify vehicle make, model, color, and license plate, segment visible parts, and estimate repair severity and cost. In parallel, NLP models extract and analyze data from invoices, appraisals, and emails so the platform can recommend payment decisions and flag anomalies. ControlExpert also trained fraud-prevention models that detect manipulated images before a claim moves further downstream. Triton standardizes model serving and lets the insurer-facing pipeline combine image, text, and decisioning tasks in one production stack for insurance carriers around the world.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "NVIDIA-Certified Systems",
+    "NVIDIA Triton Inference Server",
+    "PyTorch",
+    "VMware vSphere"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the enterprise software platform for ControlExpert's claims AI stack.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA-Certified Systems",
+      "role": "Host the GPU-backed infrastructure for production inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Triton Inference Server",
+      "role": "Serves the computer-vision and NLP models used in claims processing.",
+      "layer": "Serving"
+    },
+    {
+      "name": "PyTorch",
+      "role": "Supports development of the claims-analysis and fraud-detection models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "VMware vSphere",
+      "role": "Provides the virtualization layer for the production deployment.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer-submitted photos and documents enter the claims platform, image models classify vehicles and damage, NLP models extract details from invoices and emails, fraud models check for manipulation, and Triton-hosted services return repair descriptions, estimates, and payment recommendations to insurers.",
+  "integration_points": [
+    "Dell R750 hardware",
+    "insurance company claims systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Document Processing"
+  ],
+  "business_outcome": "ControlExpert turned motor claims into a mostly automated digital workflow that can classify evidence, generate repair-cost estimates, and detect fraud across a global insurance customer base, helping insurers process large claim volumes faster and with more consistent decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "over 18 million claims a year",
+    "more than 30 countries",
+    "more than 300 insurance companies worldwide"
+  ],
+  "architecture_clues": [
+    "The deployment uses NVIDIA A100 GPUs on Dell R750 servers.",
+    "The production software stack includes Triton Inference Server, PyTorch, and VMware vSphere.",
+    "The workflow combines computer vision, NLP, and fraud-prevention models in one claims platform."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/motor-insurance-claims-management-with-ai/",
+  "published_date": "2024-10-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Receiving over 18 million claims a year, ControlExpert needed a solution that could quickly process large amounts of data.",
+    "The solution automatically classifies the content of images, such as vehicle photos or documentation.",
+    "Using NLP, AI models can extract and analyze data from documentation, including invoices, appraisals, and emails.",
+    "ControlExpert developed AI-based fraud prevention that analyzes and detects manipulated images."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "nvidia-delfi-diagnostics-cancer-screening",
+  "slug": "nvidia-delfi-diagnostics-cancer-screening",
+  "vendor": "NVIDIA",
+  "customer_name": "DELFI Diagnostics",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "DELFI Diagnostics needed to speed genomic analysis for cancer screening and therapeutic monitoring, but CPU-bound alignment and somatic variant-calling steps created turnaround-time and cost bottlenecks that limited how quickly the company could move assays into clinical use.",
+  "solution_summary": "DELFI evaluated NVIDIA Parabricks as a drop-in accelerator for the genomic pipelines behind FirstLook Lung and DELFI-TF. The company already used low-pass and deeper whole-genome sequencing on cell-free DNA to screen for lung cancer and monitor recurrence, so the key opportunity was to replace slow CPU-based secondary-analysis stages without rewriting upstream or downstream workflows. Parabricks FQ2BAM took over alignment and preprocessing tasks such as BWA-MEM, SAM sorting, duplicate marking, and optional BQSR, while GPU-accelerated variant callers including MutectCaller and DeepSomatic made genome-wide somatic analysis practical for DELFI-TF. Because inputs and outputs remain compatible with existing pipelines, DELFI can add GPU acceleration directly into its production flow, cut compute time and cost, and open the door to deeper sequencing coverage and faster clinical turnaround as sample volumes grow.",
+  "products_used": [
+    "NVIDIA Parabricks",
+    "Parabricks FQ2BAM",
+    "MutectCaller",
+    "DeepSomatic"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Parabricks",
+      "role": "Provides GPU-accelerated secondary analysis for DELFI's genomic workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Parabricks FQ2BAM",
+      "role": "Replaces CPU-based alignment and preprocessing inside existing DELFI pipelines.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MutectCaller",
+      "role": "Adds GPU-accelerated somatic variant calling for disease-monitoring workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DeepSomatic",
+      "role": "Expands DELFI's ability to run genome-wide somatic analysis at practical cost.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Sequencing reads from DELFI's liquid-biopsy assays enter Parabricks for GPU-accelerated alignment and preprocessing, variant-calling tools such as MutectCaller and DeepSomatic analyze the resulting data, and the outputs feed DELFI's screening and therapeutic-monitoring products without changing the surrounding pipeline contracts.",
+  "integration_points": [
+    "FirstLook Lung",
+    "DELFI-TF",
+    "Ultima sequencing"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [],
+  "business_outcome": "DELFI showed that Parabricks can cut compute time 5.4x with a 4.1x cost reduction for FirstLook Lung and 6.6x with an 8.1x cost reduction for DELFI-TF, helping the company shorten turnaround times, make genome-wide somatic calling affordable, and prepare its monitoring workflow for clinical-scale sample growth.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "5.4x faster compute time and a 4.1x cost reduction",
+    "6.6x faster compute time and an 8.1x reduction in compute cost",
+    "10–20 business days",
+    "approximately 150x depth"
+  ],
+  "architecture_clues": [
+    "DELFI-TF currently runs at 4x depth, and DELFI tested approximately 150x depth with Ultima sequencing.",
+    "Parabricks FQ2BAM replaces BWA-MEM, SAM sorting, duplicate marking, and optional BQSR.",
+    "MutectCaller and DeepSomatic make genome-wide somatic calling computationally practical."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/delfi-diagnostics/",
+  "published_date": "2026-09-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "incorporating this technology can achieve 6.6x faster compute time and an 8.1x reduction in compute cost.",
+    "For FirstLook Lung, running Parabricks on a low-pass WGS pipeline yielded 5.4x faster compute time and a 4.1x reduction in cost for sequence alignment.",
+    "Parabricks' FQ2BAM is a GPU-accelerated tool that replaces the CPU-based alignment and preprocessing steps.",
+    "DELFI-TF's current turnaround time is 10–20 business days."
+  ]
+}

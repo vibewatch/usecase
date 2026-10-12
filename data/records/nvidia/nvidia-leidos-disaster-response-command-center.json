@@ -1,0 +1,82 @@
+{
+  "id": "nvidia-leidos-disaster-response-command-center",
+  "slug": "nvidia-leidos-disaster-response-command-center",
+  "vendor": "NVIDIA",
+  "customer_name": "Leidos",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Leidos needed to reduce information overload and improve coordination in fast-moving disaster scenarios where human commanders must ingest video, radio, sensor, and public-safety signals quickly enough to allocate resources before conditions change.",
+  "solution_summary": "Leidos and NVIDIA built a multi-agent emergency-response command center that aggregates radio-frequency, audio, video, and tactical data into a single operational picture. AI agents analyze roadway and public cameras, weather feeds, emergency vehicle locators, automated 911 transcripts, and radio communications, then summarize and route those observations through tactical guidance software for a human commander. NVIDIA NIM and NVIDIA AI Enterprise package and govern the generative services, while NVIDIA Metropolis supports the video analytics layer and NVIDIA vGPU with RTX Virtual Workstation speeds development and test on modest infrastructure. Instead of relying on static models and manual triage, the command center uses interactive orchestration so a human decision-maker can ask for context, hand work to specialized agents, and get near-real-time recommendations about the regions, assets, or citizens that need attention first.",
+  "products_used": [
+    "NVIDIA vGPU",
+    "NVIDIA RTX Virtual Workstation",
+    "NVIDIA NIM",
+    "NVIDIA AI Enterprise",
+    "NVIDIA Metropolis"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA vGPU",
+      "role": "Virtualizes GPU resources so Leidos can develop and test the disaster-response stack efficiently.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RTX Virtual Workstation",
+      "role": "Supports interactive AI and visualization workstations for the command-center environment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Packages the generative services used by the command-center agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the governed enterprise software layer for the deployment.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA Metropolis",
+      "role": "Processes video feeds that feed the emergency-response agents.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Video, RF, audio, weather, vehicle-location, 911, and radio feeds are aggregated into the command center, analyzed by AI agents and video services, combined with tactical guidance software, and presented through an interactive agent that helps the human commander coordinate action.",
+  "integration_points": [
+    "roadway intersection cameras",
+    "weather data",
+    "public camera feeds",
+    "automated 911 transcripts",
+    "radio communications"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "The multi-agent system gives commanders faster, more accurate situational awareness, reduces cognitive load on responders, and lowers the cost of development and rollout by using GPU virtualization while improving coordination across multiple agencies during emergencies.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Leidos and NVIDIA began the disaster-response collaboration in 2024.",
+    "The solution combines AI agents with tactical guidance software.",
+    "The deployment uses NVIDIA vGPU to keep development and testing on modest hardware."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/leidos-uses-ai-agents-to-improve-disaster-response/",
+  "published_date": "2026-01-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The system reduces cognitive load, boosts situational awareness, and enables coordinated response across multiple agencies.",
+    "The AI agents processing data from roadway intersection cameras, weather data, public camera feeds, emergency vehicle locators, automated 911 transcripts, and radio communications are combined with tactical guidance software.",
+    "Virtualization with NVIDIA virtual GPU (vGPU) accelerates AI development and testing on modest hardware, cutting rollout time and infrastructure costs."
+  ]
+}

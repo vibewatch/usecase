@@ -1,0 +1,85 @@
+{
+  "id": "nvidia-harry-reid-international-airport-passenger-analytics",
+  "slug": "nvidia-harry-reid-international-airport-passenger-analytics",
+  "vendor": "NVIDIA",
+  "customer_name": "Harry Reid International Airport",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Harry Reid International Airport needed real-time visibility into queues and passenger flows, but a legacy lidar system and manual phone-driven monitoring could not provide actionable analytics across two terminals, 110 gates, and 500-plus camera locations.",
+  "solution_summary": "Harry Reid International Airport deployed Zensors' physical-intelligence platform across more than 500 existing security cameras and ran the analytics pipeline on NVIDIA software, including NVIDIA Dynamo-Triton, TensorRT, CUDA, and Metropolis. Instead of installing new sensor hardware, the airport reused its camera network to collect live checkpoint and passenger-movement data, then processed the spiky video workloads on GPUs so the system could blend streaming and batch operations without CPU bottlenecks. The platform tracks queue conditions, staffing needs, and wait-time trends in real time, then shares those metrics across airport operations teams and partners so they can proactively open checkpoints or redirect passengers. That software-first architecture gave LAS predictive analytics and real-time operational intelligence while avoiding a capital-intensive hardware refresh.",
+  "products_used": [
+    "NVIDIA Dynamo",
+    "NVIDIA TensorRT",
+    "NVIDIA CUDA",
+    "NVIDIA Metropolis",
+    "Zensors physical intelligence platform"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Dynamo",
+      "role": "Handles inference scheduling for Zensors' airport analytics pipeline.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes the multimodal transformer inference used on airport video streams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA CUDA",
+      "role": "Accelerates the GPU processing used across the video pipeline.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Metropolis",
+      "role": "Supports the vision analytics stack for processing airport camera feeds.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Zensors physical intelligence platform",
+      "role": "Turns the airport's existing camera estate into a real-time operational analytics system.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Security-camera feeds are ingested from 500-plus locations, processed through Zensors on NVIDIA GPU services, converted into wait-time and congestion metrics, and delivered to airport operators and partners so they can adjust staffing and checkpoint operations in real time.",
+  "integration_points": [
+    "existing security cameras",
+    "airport operations systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "LAS avoided more than $5 million in capital costs, reduced the frequency of waits over 20 minutes, and saved about $140,000 a year in operational costs by automating checkpoint monitoring and reusing camera infrastructure instead of deploying new sensors.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Over $5 million saved in capital costs",
+    "Operational savings of $140,000 annually",
+    "nearly 60 million passengers annually",
+    "500 existing security cameras"
+  ],
+  "architecture_clues": [
+    "The platform was deployed in two months with zero capital expenditure.",
+    "LAS processes thousands of hours of video data daily.",
+    "The airport runs across two terminals and 110 aircraft gates."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/zensors-ai-las-passenger-experience/",
+  "published_date": "2026-03-01",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By deploying Zensors' physical intelligence platform across 500 existing security cameras, LAS reimagined the passenger experience and airport workflows.",
+    "Deployed in two months with zero capital expenditure.",
+    "Over $5 million saved in capital costs.",
+    "Operational savings of $140,000 annually."
+  ]
+}

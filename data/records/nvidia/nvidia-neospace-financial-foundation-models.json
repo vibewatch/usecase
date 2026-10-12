@@ -1,0 +1,92 @@
+{
+  "id": "nvidia-neospace-financial-foundation-models",
+  "slug": "nvidia-neospace-financial-foundation-models",
+  "vendor": "NVIDIA",
+  "customer_name": "NeoSpace",
+  "industry": "Software / SaaS",
+  "region": "Latin America",
+  "company_size": "Unknown",
+  "business_problem": "NeoSpace needed to make tabular foundation models viable for financial institutions that serve tens of millions of customers, but time-to-train, inference latency, and the cost of running transformer workloads on traditional ML infrastructure blocked real-time decisioning at production scale.",
+  "solution_summary": "NeoSpace built its NeoData platform on NVIDIA accelerated computing so banks can run foundation models over trillions of tabular, event, and unstructured records. In production on Oracle Cloud Infrastructure, NeoSpace uses NVIDIA GB200 NVL72 systems and the CUDA software stack to train and serve domain models for tasks such as credit propensity scoring. Its platform combines CUDA Toolkit, NCCL, NVSHMEM, GPUDirect, cuBLAS, CUTLASS, CuTe, RAPIDS, TensorRT LLM, and Dask, while an internal orchestration layer called NeoCore runs directly on bare-metal hosts to distribute workloads across multi-cloud environments. The architecture lets NeoSpace replace fragmented ML pipelines with a single predictive layer that can ingest enterprise feature stores, historical transactions, and customer events and then return real-time scores for underwriting and marketing decisions.",
+  "products_used": [
+    "NVIDIA GB200 NVL72",
+    "NVIDIA CUDA libraries",
+    "NVIDIA TensorRT LLM",
+    "RAPIDS",
+    "Oracle Cloud Infrastructure (OCI)",
+    "NeoCore"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA GB200 NVL72",
+      "role": "Provides the high-density GPU infrastructure NeoSpace uses for foundation-model training and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CUDA libraries",
+      "role": "Accelerate the numerical kernels and GPU programming primitives inside NeoData.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA TensorRT LLM",
+      "role": "Optimizes large-model serving for NeoSpace's financial inference workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "RAPIDS",
+      "role": "Accelerates data science and feature processing over large enterprise datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Oracle Cloud Infrastructure (OCI)",
+      "role": "Hosts NeoSpace's production GB200 deployment for major Latin American banks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NeoCore",
+      "role": "Distributes GPU workloads across NeoSpace's bare-metal multi-cloud environment.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Enterprise feature stores, eligibility variables, transaction records, and behavioral history are processed through NeoData on OCI; RAPIDS and CUDA-accelerated jobs prepare and train the models; NeoCore orchestrates serving, and TensorRT LLM returns real-time predictions that banks use for credit and marketing decisions.",
+  "integration_points": [
+    "CRM feature stores",
+    "Oracle Cloud Infrastructure (OCI)"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "NeoSpace reported 30% to 50% higher model accuracy than traditional ML, a 19% lift versus its own baseline after more training iterations, and a 10% increase in installment credit offers at a major Latin American bank while improving hiring and conversion rates in the top scoring decile.",
+  "outcome_category": [
+    "Revenue Growth",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "30%–50% higher model accuracy compared with traditional ML approaches",
+    "19% lift over NeoSpace's baseline model",
+    "10% increase in installment credit offers",
+    "more than 60 million customers",
+    "more than 10 TB of data covering over 50 million customers"
+  ],
+  "architecture_clues": [
+    "NeoSpace is among the first companies in Latin America to deploy NVIDIA GB200 NVL72 systems in production through OCI.",
+    "The flagship deployment impacted 6 million customers in production and used more than 10 TB of data.",
+    "NeoCore runs directly on bare-metal hosts in NeoSpace's multi-cloud environments."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/neospace/",
+  "published_date": "2026-06-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "NeoData now operates at scale across a multi-cloud environment for one of Latin America's largest private banks with more than 60 million customers.",
+    "NeoSpace is among the first companies in Latin America to deploy NVIDIA GB200 NVL72 systems in production, through Oracle Cloud Infrastructure (OCI).",
+    "30%–50% higher model accuracy compared with traditional ML approaches.",
+    "10% increase in installment credit offers."
+  ]
+}

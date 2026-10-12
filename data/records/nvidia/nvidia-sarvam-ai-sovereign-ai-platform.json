@@ -1,0 +1,103 @@
+{
+  "id": "nvidia-sarvam-ai-sovereign-ai-platform",
+  "slug": "nvidia-sarvam-ai-sovereign-ai-platform",
+  "vendor": "NVIDIA",
+  "customer_name": "Sarvam AI",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "Sarvam AI needed to train and serve multilingual foundation models for India at national scale, but unreliable GPU clusters, slow preprocessing of noisy code-mixed text and speech data, and long deployment cycles kept real-time sovereign AI services out of reach.",
+  "solution_summary": "Sarvam built a sovereign AI factory on NVIDIA accelerated computing so it could train, align, and serve models for India's languages and dialects. The stack combines H100 GPUs, NVIDIA Quantum InfiniBand networking, Nemotron datasets, NeMo libraries, NIM microservices, Base Command Platform, TensorRT, and Cloud Functions. During training, the company uses large-scale GPU clusters with Megatron-LM 6D parallelism to keep 100B-plus parameter mixture-of-expert models running efficiently across more than 4,096 GPUs on Yotta. Cloud Functions compress production deployment from weeks to minutes, while NIM and TensorRT support low-latency inference for voice-agentic flows that combine speech recognition, LLM reasoning, and text-to-speech. That unified architecture gives Sarvam a single platform for public-sector deployments such as Aadhaar feedback and for enterprise automation across India.",
+  "products_used": [
+    "NVIDIA H100 GPUs",
+    "NVIDIA Quantum InfiniBand",
+    "NVIDIA Nemotron",
+    "NVIDIA NeMo",
+    "NVIDIA NIM",
+    "NVIDIA Base Command Platform",
+    "NVIDIA TensorRT",
+    "NVIDIA Cloud Functions"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Train and serve Sarvam's large multilingual foundation models at national scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum InfiniBand",
+      "role": "Removes networking bottlenecks across Sarvam's large distributed training clusters.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA Nemotron",
+      "role": "Provides datasets used in Sarvam's multilingual model-development workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Supplies the libraries used to build and align Sarvam's models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Serves optimized model endpoints for production multilingual inference.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Base Command Platform",
+      "role": "Supports large-scale model training orchestration.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA TensorRT",
+      "role": "Optimizes low-latency voice and text inference for production agents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA Cloud Functions",
+      "role": "Cuts deployment time from weeks to minutes for production-scale inference.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Noisy multilingual text and speech corpora are preprocessed into training datasets, large MoE models are trained across thousands of H100 GPUs, optimized services are deployed through Cloud Functions, and NIM plus TensorRT power low-latency voice-agentic applications for Aadhaar and enterprise users.",
+  "integration_points": [
+    "Yotta",
+    "UIDAI Aadhaar"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Sarvam reduced time-to-first production inference from weeks to minutes, achieved near-linear scaling across 4,096+ H100 GPUs, delivered multilingual voice feedback and fraud alerts for Aadhaar, and created a reusable sovereign AI platform for public and enterprise services across India.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "1.4 billion people",
+    "4,096+ NVIDIA H100 GPUs",
+    "weeks to minutes",
+    "Sarvam 30B and 105B open models"
+  ],
+  "architecture_clues": [
+    "The training stack uses Megatron-LM 6D parallelism across more than 4,096 H100 GPUs.",
+    "Sarvam built end-to-end voice agentic pipelines that combine ASR, LLMs, and text-to-speech.",
+    "UIDAI uses Sarvam AI for Aadhaar voice feedback and fraud alerts."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/sarvam-sovereign-ai/",
+  "published_date": "2026-07-02",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Sarvam set out to train, align, and serve foundation models for a nation of 1.4 billion people speaking dozens of languages and hundreds of dialects.",
+    "Near-linear GPU scaling was achieved across 4,096+ NVIDIA H100 GPUs.",
+    "Time-to-first-inference for production scale was reduced from weeks to minutes using NVIDIA Cloud Functions.",
+    "UIDAI uses Sarvam's AI for Aadhaar, India's national digital identity program, to deliver near-real-time, voice-based feedback and fraud alerts to India's entire population in their native languages."
+  ]
+}

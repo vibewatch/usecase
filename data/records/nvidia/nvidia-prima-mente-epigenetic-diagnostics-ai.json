@@ -1,0 +1,69 @@
+{
+  "id": "nvidia-prima-mente-epigenetic-diagnostics-ai",
+  "slug": "nvidia-prima-mente-epigenetic-diagnostics-ai",
+  "vendor": "NVIDIA",
+  "customer_name": "Prima Mente",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Prima Mente needed to model genome-scale epigenetic and DNA signals for neuroscience and precision diagnostics, but whole-genome methylation data, clinical benchmark sets, and foundation-model training all exceeded what conventional biology tooling could process quickly enough for rapid iteration.",
+  "solution_summary": "Prima Mente built the Pleiades family of biological foundation models on NVIDIA DGX Cloud running in Nebius AI Cloud to jointly learn DNA sequence and methylation patterns across human cell types. The team curated large human methylation and genomic datasets, then pretrained and fine-tuned autoregressive transformer decoders in 90M, 600M, and 7B parameter variants on 1.9 trillion tokens of epigenetic data. NVIDIA Quantum InfiniBand networking connected the GPU cluster so large training jobs and evaluation runs could move efficiently across the environment. The resulting platform lets Prima Mente reconstruct cell-free DNA fragments, enrich rare cell-type signals, and score early-stage neurological disease risk from blood-based data, giving researchers a reusable compute and model stack for precision-diagnostics and neuroscience workflows.",
+  "products_used": [
+    "NVIDIA DGX Cloud",
+    "Nebius AI Cloud",
+    "NVIDIA Quantum InfiniBand Networking"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Provides the GPU training environment for Pleiades foundation-model pretraining and fine-tuning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Nebius AI Cloud",
+      "role": "Hosts the AI platform infrastructure where Prima Mente runs the DGX Cloud workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum InfiniBand Networking",
+      "role": "Connects the training cluster so large distributed jobs can run at high throughput.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Human methylation and genomic datasets are curated into training corpora, loaded into Pleiades jobs on DGX Cloud in Nebius AI Cloud, processed by transformer models over the InfiniBand-connected cluster, and then used for fragment reconstruction and disease-prediction inference for diagnostics research.",
+  "integration_points": [
+    "Nebius AI Cloud",
+    "University of Oxford research collaborators"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Pleiades generated DNA fragments with 83% per-nucleotide accuracy, increased the amount of DNA from specific cell types in a blood sample by up to 20x, and reached 0.89 accuracy for early-stage Alzheimer's and Parkinson's detection, rising to 0.97 when protein tests were added.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "83% accuracy using blood samples",
+    "0.89 accuracy, rising to 0.97 with protein tests",
+    "increase the amount of DNA from specific cell types in a blood sample by up to 20x"
+  ],
+  "architecture_clues": [
+    "Pleiades is available in 90M, 600M, and 7B parameter variants.",
+    "The models were trained on 1.9 trillion tokens of epigenetic data.",
+    "The Nebius data center in Finland was powered by NVIDIA GPUs."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/primamente/",
+  "published_date": "2026-02-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Their first goal is to understand the brain across health, age and disease to cure severe human diseases like Alzheimer's.",
+    "Pleiades has been trained using 1.9 trillion tokens of epigenetic data.",
+    "Pleiades generated DNA fragments with 83% accuracy using blood samples.",
+    "For early detection of Alzheimer's and Parkinson's, Pleiades achieved 0.89 accuracy, rising to 0.97 with protein tests."
+  ]
+}

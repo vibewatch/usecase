@@ -1,0 +1,72 @@
+{
+  "id": "nvidia-amgen-biologics-drug-discovery",
+  "slug": "nvidia-amgen-biologics-drug-discovery",
+  "vendor": "NVIDIA",
+  "customer_name": "Amgen",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Amgen needed to train custom protein language models on proprietary biologics data, but sparse public models, long screening cycles, and expensive post-training analysis slowed its ability to evaluate and optimize candidate molecules.",
+  "solution_summary": "Amgen used NVIDIA DGX Cloud and the NVIDIA BioNeMo service to build and fine-tune custom biomolecular language models for biologics discovery. Researchers start with vast protein-sequence and proprietary assay datasets, then use DGX Cloud instances with eight A100 80GB GPUs to pretrain and adapt models that can reason about protein properties, structures, and side effects. NVIDIA Base Command Platform handles job scheduling and orchestration, while RAPIDS accelerates post-training analysis such as large-input reading and clustering of generated results. The resulting workflow lets Amgen move from raw data to large-model training in a matter of days, generate candidate molecules more quickly, and run protein structure predictions in seconds instead of waiting on much slower conventional analysis. That gives the biologics organization a reusable AI platform for design, screening, and optimization across multiple therapeutic programs.",
+  "products_used": [
+    "NVIDIA DGX Cloud",
+    "NVIDIA BioNeMo service",
+    "NVIDIA Base Command Platform",
+    "NVIDIA RAPIDS"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Supplies the multi-GPU training environment for Amgen's protein language models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA BioNeMo service",
+      "role": "Provides the biomolecular model stack used for protein design and prediction.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Base Command Platform",
+      "role": "Schedules and orchestrates Amgen's training and analysis jobs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA RAPIDS",
+      "role": "Speeds the post-training analysis and clustering of generated results.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Protein-sequence and proprietary biologics data are loaded into DGX Cloud training jobs, BioNeMo models are pretrained and fine-tuned, Base Command orchestrates the work, RAPIDS accelerates post-training analysis, and the outputs feed biologics design and structure-prediction workflows.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Amgen shortened the path from initial access to model training to just a few days, achieved up to 100x faster post-training analysis with RAPIDS, and reported protein structure predictions as fast as 20 seconds per structure, enabling faster and more iterative biologics discovery.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "up to 100X faster post-training analysis",
+    "just a few days",
+    "20 seconds per structure"
+  ],
+  "architecture_clues": [
+    "Amgen used DGX Cloud instances with eight NVIDIA A100 80GB Tensor Core GPUs.",
+    "Base Command Platform handles job scheduling and orchestration.",
+    "The workflow focuses on training and inferencing state-of-the-art biomolecular models with a focus on proteins."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/amgen-biologics-discovery-and-development/",
+  "published_date": "2024-04-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Using NVIDIA DGX Cloud and BioNeMo, Amgen trains large language models on their proprietary data to help predict properties of proteins.",
+    "They leveraged NVIDIA DGX Cloud and NVIDIA BioNeMo for rapid training and fine-tuning of protein LLMs and NVIDIA RAPIDS for up to 100X faster post-training analysis.",
+    "BioNeMo on DGX Cloud is a turnkey solution that enabled Amgen to get up and running quickly, moving from initial login to training large models in just a few days.",
+    "Faster protein structure predictions-as fast as 20 seconds per structure."
+  ]
+}

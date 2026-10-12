@@ -1,0 +1,71 @@
+{
+  "id": "nvidia-topaz-labs-video-processing",
+  "slug": "nvidia-topaz-labs-video-processing",
+  "vendor": "NVIDIA",
+  "customer_name": "Topaz Labs",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Topaz Labs had to ship and maintain large sets of static inference engines across millions of PCs and many RTX GPU generations, which made releases heavy, slowed updates, and added weeks of precompilation work whenever the company changed its AI models.",
+  "solution_summary": "Topaz Labs refactored the inference architecture behind Topaz Video around NVIDIA TensorRT for RTX so model engines can be generated on device instead of being precompiled and bundled for every target GPU. Previously, the company had to maintain and distribute hundreds of static engines across GeForce RTX 20, 30, 40, and 50 series systems, which increased installer size and made new releases cumbersome. With TensorRT for RTX integrated into the application, Topaz now ships a single package and lets each Windows PC create optimized engines locally for its specific hardware. The change preserved high-performance AI video enhancement while simplifying deployment, reducing storage requirements, and positioning the product to support future diffusion-based restoration and real-time enhancements without repeatedly rebuilding the distribution pipeline from scratch.",
+  "products_used": [
+    "NVIDIA TensorRT for RTX",
+    "NVIDIA RTX Systems",
+    "NVIDIA GeForce RTX 5090 GPU"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA TensorRT for RTX",
+      "role": "Generates and optimizes inference engines on the end user's PC at runtime.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA RTX Systems",
+      "role": "Provide the target hardware fleet that Topaz now supports with one package.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 5090 GPU",
+      "role": "Serves as the benchmark platform demonstrating the acceleration gains of the new approach.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Topaz ships one application package, each RTX PC generates a local TensorRT engine for the installed model, and video frames then flow through that hardware-specific engine for upscale, denoise, and enhancement inference on the user's device.",
+  "integration_points": [
+    "Windows PCs"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "The new deployment model cut processing time by more than 20% in benchmark tests, reduced engine storage by 3x to 4x, eliminated the need to ship dozens of static engines, and let Topaz move faster on future AI features for its large RTX install base.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "More than 20% speedup",
+    "1,620 frames of video from 1080p to 4K",
+    "4 hours and 9 minutes to just 3 hours and 30 minutes",
+    "3-4x"
+  ],
+  "architecture_clues": [
+    "The prior approach required storing and shipping hundreds of precompiled static engines.",
+    "The platform now supports GeForce RTX 20, 30, 40, and 50 series GPUs with one package.",
+    "Benchmarking used an NVIDIA GeForce RTX 5090 GPU and AMD Ryzen 9 9950X CPU."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/topaz-labs/",
+  "published_date": "2026-04-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By leveraging NVIDIA TensorRT for RTX, Topaz Labs shifted to on-device engine generation.",
+    "More than 20% speedup in processing time to upscale 1,620 frames of video from 1080p to 4K on NVIDIA GeForce RTX 5090 GPU.",
+    "Topaz Labs successfully eliminated the need to ship dozens of static engines.",
+    "The team had to pre-generate and ship large, static inference engines for multiple GPU types."
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "nvidia-epri-local-ai-research-and-weather",
+  "slug": "nvidia-epri-local-ai-research-and-weather",
+  "vendor": "NVIDIA",
+  "customer_name": "EPRI",
+  "industry": "Energy",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "EPRI needed to run large reasoning models and AI weather simulations on premises for critical-infrastructure research, but data-sovereignty, compliance, and limited scheduling flexibility made shared remote compute a poor fit for energy-sector workflows.",
+  "solution_summary": "EPRI built two local AI workflows on NVIDIA deskside systems. Power Chat runs on DGX Spark in a Dell Pro Max with GB10 and serves gpt-oss-120b through the NVIDIA vLLM NGC container with prefix caching, letting researchers load technical documents into a one-million-token cache and ask questions without moving any data outside controlled environments. For operational planning, DGX Station runs AI weather prediction models such as GenCast and NVIDIA FourCastNet and uses NVIDIA CorrDiff and CBottle to downscale climate data into higher-resolution ensemble forecasts. Both workflows are air-gap capable, keep model weights, caches, and inference on premises, and give researchers immediate access to large-scale AI without waiting for shared cluster slots. The result is a sovereign research platform that supports both document analysis and grid-planning forecasts from the same family of local NVIDIA systems.",
+  "products_used": [
+    "NVIDIA DGX Spark",
+    "Dell Pro Max with GB10",
+    "NVIDIA DGX Station",
+    "NVIDIA vLLM NGC Container",
+    "gpt-oss-120b",
+    "NVIDIA FourCastNet",
+    "NVIDIA CorrDiff"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Spark",
+      "role": "Hosts the local Power Chat document-research assistant.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dell Pro Max with GB10",
+      "role": "Provides the deskside hardware platform for the DGX Spark deployment.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA DGX Station",
+      "role": "Runs larger local workloads such as weather-forecast ensembles and downscaling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA vLLM NGC Container",
+      "role": "Serves the Power Chat language model with prefix caching on local hardware.",
+      "layer": "Serving"
+    },
+    {
+      "name": "gpt-oss-120b",
+      "role": "Powers conversational document analysis inside Power Chat.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA FourCastNet",
+      "role": "Provides an AI weather-prediction model for EPRI's transmission-planning workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA CorrDiff",
+      "role": "Downscales coarse weather data into higher-resolution forecasts for grid planning.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Technical documents are loaded into Power Chat's local cache on DGX Spark for conversational analysis, while gridded weather and climate data is processed on DGX Station through GenCast, FourCastNet, and CorrDiff to produce high-resolution local forecasts for grid planners.",
+  "integration_points": [
+    "Dell Technologies"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "EPRI demonstrated that local AI can serve 35 tokens per second to one researcher and 150 tokens per second across 10 Power Chat users, while a DGX Station GB300 produced a 50-member GenCast ensemble in 150 seconds instead of the 10-plus hours estimated for a CPU server, all without leaving controlled environments.",
+  "outcome_category": [
+    "Compliance",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "35 tokens/second",
+    "150 tokens/second aggregate across 10 concurrent users",
+    "150 seconds",
+    "10+ hours",
+    "120-billion-parameter",
+    "one-million-token"
+  ],
+  "architecture_clues": [
+    "Power Chat keeps a one-million-token KV cache resident on one deskside system.",
+    "DGX Station stages a 50-member ensemble forecast in a single pass.",
+    "Both workflows are air-gap capable with no external network dependency."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/epri/",
+  "published_date": "2026-10-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Power Chat runs a 120-billion-parameter open-weight LLM entirely on one deskside system.",
+    "streaming 35 tokens/second to a single researcher and 150 tokens/second aggregate across 10 concurrent users.",
+    "NVIDIA DGX Station GB300 generates a full 50-member GenCast ensemble weather forecasts in 150 seconds, compared to an estimated 10+ hours on a CPU server.",
+    "Both workflows run entirely on premises and are air-gap capable."
+  ]
+}

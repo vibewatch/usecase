@@ -1,0 +1,77 @@
+{
+  "id": "nvidia-terray-therapeutics-small-molecule-drug-discovery",
+  "slug": "nvidia-terray-therapeutics-small-molecule-drug-discovery",
+  "vendor": "NVIDIA",
+  "customer_name": "Terray Therapeutics",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Terray Therapeutics needed to search an almost infinite chemical space with generative models, but multi-node training, terabyte-scale datasets, and iterative hyperparameter experiments were too cumbersome on a mix of on-premises and generic cloud systems.",
+  "solution_summary": "Terray built the COATI and TerraBind model-development workflow on NVIDIA DGX Cloud, NVIDIA Base Command Platform, and later NVIDIA cuEquivariance. The company starts from a massive experimental engine that measures hundreds of millions of molecule-target interactions daily and stores more than 50 billion biophysical measurements. Those data are used to train COATI, a multimodal encoder-decoder that translates molecules into numerical representations and back again so the company can generate new compounds with desired properties. DGX Cloud simplified multi-node training and Base Command Platform standardized job launch and orchestration, which let Terray move from manual remote-cluster management to push-button 32-GPU experiments. Terray then accelerated TerraBind models further with cuEquivariance, improving potency-prediction performance while cutting the time and cost required to iterate on new drug candidates.",
+  "products_used": [
+    "NVIDIA DGX Cloud",
+    "NVIDIA Base Command Platform",
+    "COATI",
+    "NVIDIA cuEquivariance"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX Cloud",
+      "role": "Provides Terray with a dedicated multi-node training environment for generative chemistry models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Base Command Platform",
+      "role": "Schedules and orchestrates Terray's cloud training jobs and dataset workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "COATI",
+      "role": "Encodes and decodes molecular structures so Terray can generate compounds with target properties.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA cuEquivariance",
+      "role": "Accelerates TerraBind kernels for faster potency-prediction training and inference.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Terray's experimental measurements feed COATI training on DGX Cloud, Base Command orchestrates large distributed runs, generated molecule embeddings flow into screening and optimization loops, and cuEquivariance-accelerated TerraBind models return potency and structure predictions for new candidates.",
+  "integration_points": [
+    "wet-lab experimentation pipeline"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Terray increased resource utilization by 4x compared with alternative clouds, cut model training from a week to a day, and later used cuEquivariance to accelerate TerraBind by 3x to 4x with about 70% cost savings, giving researchers far more room to search for rare high-value molecules.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "50 billion experimental biophysical measurements",
+    "4x more utilization",
+    "used to take us a week to train a model, and we were getting it done in a day",
+    "3–4x",
+    "70% cost savings",
+    "32-GPU cluster"
+  ],
+  "architecture_clues": [
+    "Terray's platform measures hundreds of millions of interactions daily.",
+    "Researchers can now scale from a single node to a 32-GPU cluster with push-button simplicity.",
+    "cuEquivariance accelerated TerraBind by 3–4x compared to PyTorch."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/generative-ai-for-small-molecule-drug-discovery/",
+  "published_date": "2023-12-10",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Terray platform measures hundreds of millions of interactions between small molecules and biological targets daily, with a growing database of 50 billion experimental biophysical measurements.",
+    "DGX Cloud offered us a solution that worked seamlessly with the ease and simplicity of cloud.",
+    "It used to take us a week to train a model, and we were getting it done in a day.",
+    "Terray Therapeutics has further advanced its computational capabilities by integrating NVIDIA's cuEquivariance technology into its proprietary TerraBind models."
+  ]
+}

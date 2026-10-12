@@ -1,0 +1,67 @@
+{
+  "id": "nvidia-trillion-labs-korean-llm-data-curation",
+  "slug": "nvidia-trillion-labs-korean-llm-data-curation",
+  "vendor": "NVIDIA",
+  "customer_name": "Trillion Labs",
+  "industry": "Software / SaaS",
+  "region": "South Korea",
+  "company_size": "Unknown",
+  "business_problem": "Trillion Labs needed to build highly accurate Korean and multilingual LLMs, but the scarcity of high-quality Korean data and the CPU-heavy cost of language filtering, deduplication, and shuffling made large-scale data curation too slow for rapid experimentation.",
+  "solution_summary": "Trillion Labs used NVIDIA NeMo Curator to build a GPU-accelerated curation pipeline for very large Korean-language training corpora. The workflow identifies Korean text, applies custom quality heuristics on top of NeMo Curator filters, and performs semantic and exact deduplication so only high-value content flows into model training. Running the pipeline on 8x H100 GPUs let Trillion Labs process 1.7 trillion tokens in hours instead of a full day on CPU infrastructure, which increased the number of training experiments the team could run and improved the accuracy of its Korean models. NeMo Curator's Dask-based distributed data engine also let Trillion Labs keep scaling curation and training without reworking the entire platform as model size and multilingual coverage expanded.",
+  "products_used": [
+    "NVIDIA NeMo Curator",
+    "NVIDIA H100 GPUs",
+    "Dask"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Filters, deduplicates, and prepares the Korean-language datasets used for model training.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA H100 GPUs",
+      "role": "Accelerate the large-scale curation jobs so Trillion Labs can process trillions of tokens quickly.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Dask",
+      "role": "Provides the distributed data-processing framework underneath the NeMo Curator pipeline.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Raw Korean-language corpora are filtered and language-tagged in NeMo Curator, deduplicated and cleaned on H100 GPUs through Dask-based distributed jobs, then emitted as higher-quality datasets that Trillion Labs feeds into its multilingual LLM training runs.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "GPU-accelerated curation cut processing time for 1.7 trillion tokens from 24 hours to 3.4 hours, improved Korean-language accuracy by 5% with 100B tokens of curated data, and delivered up to 10x savings in cost and energy compared with CPU-based processing.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Training time was reduced from 24 hours on CPU to 3.4 hours on 8x H100s for 1.7 trillion tokens of Korean language data.",
+    "5% accuracy improvement for the Korean language using 100B tokens of curated data.",
+    "up to 10x savings in both cost and energy consumption"
+  ],
+  "architecture_clues": [
+    "The pipeline handled 1.7 trillion tokens of Korean language data.",
+    "Trillion Labs ran the curation workload on 8x H100 GPUs.",
+    "NeMo Curator is based on Dask for parallel and distributed processing."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/trillion-labs/",
+  "published_date": "2026-01-24",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Korean AI company Trillion Labs is advancing national AI development to overcome the challenge of building highly accurate LLMs for Korea.",
+    "Deduplication is one of the most time-consuming processes when handling a very large dataset.",
+    "Training time was reduced from 24 hours on CPU to 3.4 hours on 8x H100s for 1.7 trillion tokens of Korean language data.",
+    "5% accuracy improvement for the Korean language using 100B tokens of curated data."
+  ]
+}

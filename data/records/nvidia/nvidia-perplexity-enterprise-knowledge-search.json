@@ -1,0 +1,78 @@
+{
+  "id": "nvidia-perplexity-enterprise-knowledge-search",
+  "slug": "nvidia-perplexity-enterprise-knowledge-search",
+  "vendor": "NVIDIA",
+  "customer_name": "Perplexity",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Perplexity needed to customize frontier models for a search experience that returns direct answers instead of links, but rapid model releases, high query volume, and the need for low latency and high throughput made continuous post-training and retrieval optimization a core challenge.",
+  "solution_summary": "Perplexity used NVIDIA NeMo to create and refresh its Sonar family of online language models for the company's answer engine. The team relies on NeMo to scale supervised fine-tuning, direct preference optimization, and proximal policy optimization across a range of model sizes and architectures, including Llama and Mistral families. Retrieval-augmented generation connects those tuned models to live source material so answers stay current and grounded, while NeMo's distributed training support lets Perplexity experiment quickly after new open-source models appear. The same stack is also used to fine-tune open-source embedding models that improve the retrieval layer itself. This architecture lets Perplexity update both generation and retrieval in a matter of days, rather than leaving a web-scale search product tied to static generic models that are slower and less factual.",
+  "products_used": [
+    "NVIDIA NeMo",
+    "Llama",
+    "Mistral",
+    "Sonar"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA NeMo",
+      "role": "Provides the distributed post-training framework for Sonar and retrieval-model tuning.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Llama",
+      "role": "Serves as one of the frontier base-model families Perplexity fine-tunes for search.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mistral",
+      "role": "Provides another base-model family that Perplexity customizes for answer quality and efficiency.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Sonar",
+      "role": "Delivers the production online language models used in Perplexity's answer engine.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Search intent and retrieved web context flow into Sonar models that were post-trained in NeMo with SFT, DPO, and PPO; tuned embedding models improve retrieval quality; and the resulting RAG pipeline returns concise grounded answers to users and enterprise integrations.",
+  "integration_points": [
+    "retrieval-augmented generation pipeline",
+    "enterprise workflow integrations"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Perplexity processed 340 million queries a month, integrated into more than 1,500 organizations, and used NeMo-based tuning to produce Sonar models that improved search quality by 20% over newly released base models within days while preserving the low latency users expect.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "340 million queries per month",
+    "over 1,500 organizations have integrated Perplexity into their workflows",
+    "20% improved over the base model on search"
+  ],
+  "architecture_clues": [
+    "Perplexity scaled fine-tuning from 0.5B parameters to 400B+ parameters with NeMo.",
+    "The team uses SFT, DPO, and PPO to align search models.",
+    "Perplexity fine-tunes open-source embedding models to improve retrieval."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/perplexity-enhances-model-performance-with-nemo/",
+  "published_date": "2024-11-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Within a few days of a new open-source release, the team had a new Sonar model that was 20% improved over the base model on search.",
+    "As of October 2024, the platform processes an impressive 340 million queries per month.",
+    "Perplexity has applied fine-tuning to frontier models, including Llama and Mistral model families, and is leveraging retrieval-augmented generation.",
+    "NeMo allows Perplexity to quickly finetune a variety of open-source embedding models."
+  ]
+}

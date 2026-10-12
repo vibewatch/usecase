@@ -1,0 +1,77 @@
+{
+  "id": "nvidia-mit-and-recursion-protein-co-folding",
+  "slug": "nvidia-mit-and-recursion-protein-co-folding",
+  "vendor": "NVIDIA",
+  "customer_name": "MIT and Recursion",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "MIT and Recursion needed an open model that could co-fold protein complexes and predict binding affinity with the speed of foundation-model inference instead of the cost and delay of physics-based simulation, but training that model required supercomputer-scale infrastructure and efficient GPU kernels.",
+  "solution_summary": "MIT's Jameel Clinic and CSAIL researchers partnered with Recursion to build Boltz-2, an open-source biomolecular foundation model trained on Recursion's BioHive-2 supercomputer. The team used an NVIDIA DGX SuperPOD composed of 63 DGX H100 systems tied together with NVIDIA Quantum-2 InfiniBand networking so the model could train on roughly 3 million assay-labeled examples and process the large structural workloads needed for protein co-folding. NVIDIA cuEquivariance kernels accelerated triangle operations and reduced memory requirements during training, while an accelerated NVIDIA BioNeMo NIM microservice packaged the model for production inference. The result is a model that predicts both structure and binding affinity in one workflow, can return results in about 20 seconds on a single A100 GPU, and can be retrained or fine-tuned by the broader research community because code and weights are released under an MIT license.",
+  "products_used": [
+    "NVIDIA DGX SuperPOD with DGX H100",
+    "NVIDIA Quantum-2 InfiniBand networking",
+    "NVIDIA cuEquivariance",
+    "NVIDIA BioNeMo NIM microservice"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA DGX SuperPOD with DGX H100",
+      "role": "Provides the BioHive-2 training infrastructure for Boltz-2.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Quantum-2 InfiniBand networking",
+      "role": "Connects the H100 systems for distributed model training at supercomputer scale.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA cuEquivariance",
+      "role": "Accelerates structure-model kernels and cuts memory use during training and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA BioNeMo NIM microservice",
+      "role": "Packages Boltz-2 as a deployable inference service for production users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Assay-labeled biomolecular training data flows into the BioHive-2 DGX SuperPOD, cuEquivariance accelerates the co-folding model kernels during training, and the resulting weights can be served through the BioNeMo NIM microservice for structure-and-affinity inference workloads.",
+  "integration_points": [
+    "BioHive-2 supercomputer",
+    "MIT Jameel Clinic",
+    "MIT CSAIL"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Boltz-2 matched much slower physics-based approaches closely enough for practical discovery work, accelerated triangle operations by up to 5x, sped up NIM inference by 2x to 3x over the open implementation, and brought open-source protein co-folding and affinity prediction to the broader life-sciences community.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "accelerate triangle operations up to 5x",
+    "accelerates protein structure prediction inference up to 2x–3x",
+    "about 20 seconds on one A100 GPU",
+    "63 DGX H100 systems"
+  ],
+  "architecture_clues": [
+    "BioHive-2 is an NVIDIA DGX SuperPOD powered by 63 DGX H100 systems.",
+    "The model was retrained on about 3 million assay-labeled examples.",
+    "Recursion's platform processes 50 petabytes of biological, chemical, and patient data."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/mit-recursion-open-source-protein-co-folding-model/",
+  "published_date": "2026-02-13",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Leveraging the BioHive GPU supercomputer, cuEquivariance kernels, and a ready-to-deploy NIM microservice, the team trained and released an open-sourced Boltz-2.",
+    "cuEquivariance implementations accelerate triangle operations up to 5x.",
+    "Boltz-2 NIM accelerates protein structure prediction inference up to 2x–3x over the open-source implementation.",
+    "Training of the Boltz-2 model was enabled by Recursion's BioHive-2 Supercomputer."
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "id": "nvidia-att-customer-service-automation",
+  "slug": "nvidia-att-customer-service-automation",
+  "vendor": "NVIDIA",
+  "customer_name": "AT&T",
+  "industry": "Telecommunications",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "AT&T needed to scale AI-powered customer-care agents without letting latency, operating cost, stale documentation, or model drift degrade the quality of service delivered across a massive and constantly changing support environment.",
+  "solution_summary": "AT&T built a feedback-driven AI platform around NVIDIA AI Enterprise, NVIDIA NeMo microservices, and NVIDIA NIM to continuously improve the Ask AT&T agent stack. The company uses NeMo Curator to cleanse and filter training data from domain experts and historical logs, NeMo Customizer to fine-tune candidate base models such as Mistral, Mixtral, and Llama, NeMo Evaluator to score answer quality with Rouge and BERT F1, and NeMo Retriever to connect agents to fast-changing internal repositories. Fine-tuned models are then deployed as NIM microservices on secure infrastructure, where a data flywheel feeds production feedback back into curation and retraining. This architecture lets AT&T trade heavyweight generic models for lightweight optimized ones while keeping agents current as thousands of documents change each week.",
+  "products_used": [
+    "NVIDIA AI Enterprise",
+    "NVIDIA NeMo Curator",
+    "NVIDIA NeMo Customizer",
+    "NVIDIA NeMo Evaluator",
+    "NVIDIA NeMo Retriever",
+    "NVIDIA NIM"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA AI Enterprise",
+      "role": "Provides the governed enterprise platform for building and running AT&T's agent workflows.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA NeMo Curator",
+      "role": "Cleans and filters domain data and historical logs before fine-tuning.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "NVIDIA NeMo Customizer",
+      "role": "Fine-tunes candidate base models so AT&T can optimize for accuracy and efficiency.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA NeMo Evaluator",
+      "role": "Measures response quality with task-specific metrics during post-training evaluation.",
+      "layer": "Governance"
+    },
+    {
+      "name": "NVIDIA NeMo Retriever",
+      "role": "Connects agents to fresh internal repositories so decisions use current information.",
+      "layer": "Serving"
+    },
+    {
+      "name": "NVIDIA NIM",
+      "role": "Packages the optimized models as deployable microservices for production inference.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Application logs and internal documents are curated with NeMo Curator, candidate models are fine-tuned and evaluated with NeMo microservices, current enterprise knowledge is retrieved at inference time, and NIM microservices serve the optimized agents while production feedback loops back into the next curation cycle.",
+  "integration_points": [
+    "Quantiphi",
+    "Arize AI",
+    "internal repositories"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "AT&T improved AI-agent accuracy by up to 40% on key metrics, lowered latency and operational cost with lightweight fine-tuned models, and used the platform to cut call-center analytics cost by 84% while establishing a reusable fine-tuning platform for additional enterprise use cases.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "84% decrease in call center analytics cost",
+    "up to 40% improvement in accuracy",
+    "nearly 10,000 documents updated multiple times a week"
+  ],
+  "architecture_clues": [
+    "AT&T uses a data flywheel to keep multi-agent systems current.",
+    "The company evaluated models with Rouge and BERT F1 scores.",
+    "Nearly 10,000 documents are updated multiple times a week."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/att-drives-ai-agents-with-nemo/",
+  "published_date": "2025-04-25",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "AT&T leveraged NVIDIA NeMo microservices to create a self-sustaining cycle of data curation, model fine-tuning, and real-time evaluation.",
+    "AT&T used NeMo Retriever to set up pipelines with quick access to the company's repository.",
+    "AI agent responses showed up to 40% improvement in accuracy in responses with post-training.",
+    "The deployment of Ask AT&T with NVIDIA NIM and NeMo enabled AT&T to realize an 84% decrease in call center analytics cost."
+  ]
+}

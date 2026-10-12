@@ -1,0 +1,100 @@
+{
+  "id": "nvidia-innophore-drug-discovery",
+  "slug": "nvidia-innophore-drug-discovery",
+  "vendor": "NVIDIA",
+  "customer_name": "Innophore",
+  "industry": "Healthcare",
+  "region": "Austria",
+  "company_size": "Unknown",
+  "business_problem": "Innophore needed to predict protein-ligand interactions and off-target effects much earlier in drug discovery, but the scale of biomolecular computation made traditional CPU workflows too slow and too expensive for practical screening.",
+  "solution_summary": "Innophore built its Cavitomix platform on NVIDIA GPUs, NVIDIA RAPIDS, NVIDIA BioNeMo, and AWS to encode proteins and nucleic acids into digital catalophores that can be searched and compared at scale. The company trained convolutional neural networks on thousands of protein-binding-site catalophores using NVIDIA T4 and V100 GPUs, while cloud elasticity on AWS let it burst through 270,000 GPU hours of work instead of maintaining the hardware itself. The platform also generated atomistic structures for more than 42,000 human proteins through AlphaFold, OpenFold, and ESMFold so Innophore could assemble a proteome-wide structural library for virtual off-target screening. With that stack, Cavitomix can run millions of molecular computations in seconds, compare binding sites across biomolecules, and feed drug-safety and efficacy predictions back to researchers before they commit to slower wet-lab work.",
+  "products_used": [
+    "NVIDIA T4 GPUs",
+    "NVIDIA V100 GPUs",
+    "NVIDIA RAPIDS",
+    "NVIDIA BioNeMo",
+    "AWS",
+    "AlphaFold",
+    "OpenFold",
+    "ESMfold"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA T4 GPUs",
+      "role": "Accelerate molecular prediction workloads inside the Cavitomix platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA V100 GPUs",
+      "role": "Provide additional accelerated capacity for Innophore's neural-network training and inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RAPIDS",
+      "role": "Speeds the data-science workflows that feed the biomolecular models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA BioNeMo",
+      "role": "Supports biomolecular AI workflows used in protein-ligand analysis.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS",
+      "role": "Supplies the on-demand cloud capacity Innophore uses for large bursts of molecular computation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AlphaFold",
+      "role": "Generates structural predictions used to build the human-proteome collection.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenFold",
+      "role": "Adds alternate structure-prediction capacity for proteome-scale modeling.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ESMfold",
+      "role": "Contributes structure generation for the proteome-wide structural library.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Protein and nucleic-acid structures are generated and encoded into catalophores, processed on AWS GPU infrastructure, and then compared across a large structural library so Innophore can predict off-target effects and binding affinity before wet-lab validation.",
+  "integration_points": [
+    "AWS cloud systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Innophore cut protein-protein binding affinity predictions from 2,000 CPU hours to 15 minutes at about 5% of the original cost, ran millions of molecular computations per day, evaluated more than 15 million SARS-CoV-2 variants, and reached 5 million off-target predictions per second.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Speed to Market",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "2,000 CPU hours down to 15 minutes",
+    "5% of the original cost",
+    "270,000 NVIDIA GPU hours on AWS",
+    "15 million new variants of SARS-CoV-2",
+    "five million off-target predictions per second",
+    "8,000 times faster than by using CPUs only"
+  ],
+  "architecture_clues": [
+    "Innophore used 270,000 NVIDIA GPU hours on AWS.",
+    "The structural collection covers more than 42,000 human proteins.",
+    "The platform can make five million off-target predictions per second."
+  ],
+  "source_url": "https://www.nvidia.com/en-us/case-studies/innophore-ai-drug-discovery/",
+  "published_date": "2026-01-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Innophore's AI algorithms reduced computation time considerably, from 2,000 CPU hours down to 15 minutes per protein-protein binding affinity prediction, and just 5% of the original cost.",
+    "Innophore has spent 270,000 NVIDIA GPU hours on AWS.",
+    "This enabled Innophore to evaluate more than 15 million new variants of SARS-CoV-2.",
+    "NVIDIA boosted our performance so that we can run five million off-target predictions per second."
+  ]
+}
