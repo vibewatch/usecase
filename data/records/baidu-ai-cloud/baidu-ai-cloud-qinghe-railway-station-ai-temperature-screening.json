@@ -1,0 +1,84 @@
+{
+  "id": "baidu-ai-cloud-qinghe-railway-station-ai-temperature-screening",
+  "slug": "baidu-ai-cloud-qinghe-railway-station-ai-temperature-screening",
+  "vendor": "Baidu AI Cloud",
+  "customer_name": "Qinghe Railway Station (清河火车站)",
+  "industry": "Public Sector",
+  "region": "China",
+  "company_size": "Public sector",
+  "business_problem": "During the COVID-19 outbreak, major transport hubs needed non-contact temperature screening that could work accurately with masked passengers and dense crowds without creating bottlenecks or increasing the risk of cross-infection.",
+  "solution_summary": "Baidu deployed its AI temperature-screening system at Qinghe Railway Station to turn fever screening from a manual checkpoint into a high-throughput automated process. The installation combines an infrared camera, a face-recognition camera, a local algorithm computer, and a display-and-alert screen into one coordinated lane. Passengers simply walk through while AI models detect masks and other face coverings, locate facial key points, and align those positions with the infrared temperature matrix so the system can identify each person's forehead temperature in real time. Baidu also added adaptive and self-calibration algorithms to reduce environmental distortion and improve long-distance measurement accuracy. When the platform spots an abnormal reading, the display highlights the traveler so staff can perform secondary forehead-thermometer checks. The same approach later spread to transport hubs, campuses, hospitals, and residential sites as a reusable public-safety screening workflow.",
+  "products_used": [
+    "Infrared Camera System",
+    "Face Recognition Service",
+    "AI Temperature Screening Algorithms",
+    "Display and Alert System"
+  ],
+  "solution_components": [
+    {
+      "name": "Infrared Camera System",
+      "role": "Captures the thermal imagery used to measure crowd temperatures without stopping passengers.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Face Recognition Service",
+      "role": "Identifies and locates the correct face region so each thermal reading can be mapped to the right traveler.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Temperature Screening Algorithms",
+      "role": "Fuse face positioning, mask detection, infrared temperature-matrix analysis, and self-calibration into the real-time screening logic.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Display and Alert System",
+      "role": "Shows live screening results and flags abnormal readings for staff follow-up.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Passengers move through the screening lane while the infrared and face-recognition cameras capture thermal and visual signals. Baidu's algorithms align facial regions with temperature points, calibrate for environmental interference, and push abnormal readings to the display so staff can isolate the traveler for a secondary forehead-temperature check.",
+  "integration_points": [
+    "Infrared camera",
+    "Face-recognition camera",
+    "Algorithm computer",
+    "Display screen",
+    "Qinghe Railway Station exit lane",
+    "Secondary forehead-thermometer inspection workflow"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Qinghe Railway Station gained a faster and safer screening process that reduced manual contact, handled large passenger flows, and proved reusable enough for broader deployment across public venues during epidemic-control operations.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "The system can screen more than 200 passengers per minute in a single-file passageway.",
+    "Qinghe Railway Station can see peak holiday traffic of about 30,000 passengers per day.",
+    "By early April, the system had completed more than 27 million rapid temperature checks nationwide."
+  ],
+  "architecture_clues": [
+    "The deployed system combines a camera layer, an algorithm computer, and a display-and-alert layer.",
+    "Mask-detection models and face key-point localization are used to map thermal anomalies to the correct traveler.",
+    "Adaptive and self-calibration algorithms compensate for environmental factors in long-distance measurement."
+  ],
+  "source_url": "https://cloud.baidu.com/customer/case/cewen.html",
+  "published_date": "2025-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Baidu's AI temperature-screening system helps epidemic prevention and control by using custom mask-detection models, face-keypoint localization, and infrared temperature-matrix analysis (original: 依托于百度对于口罩等佩戴物的检测模型定制开发、人脸检测关键点定位、图像红外温度点阵温度分析算法，可有效地解决这一问题).",
+    "The system deployed at Qinghe Railway Station is made up of a camera system, an algorithm system, and a display system (original: 这套系统由三部分组成。一是摄像系统，包括红外摄像机和人脸识别摄像机…一是算法系统…一是显示系统).",
+    "Passengers do not need to stop one by one, and the system can detect more than 200 people in one minute in a single-person passageway (original: 出站人流无须停留挨个测体温，实现即走即测。在单人通道顺序通行条件下，百度 AI 测温系统可在 1 分钟内实现对逾 200 人同时通过的体温实时检测).",
+    "Baidu said the AI system can accurately match abnormal temperature readings to the right face area and automatically raise alerts (original: 实现了温度定位和人脸定位的一致，可准确匹配、锁定异常温度“面部区域”及其实际对应的人员并可自动告警).",
+    "By early April, the system had already completed more than 27 million rapid temperature checks nationwide (original: 截至 4 月上旬，在全国范围内已完成超过 2700 万人次的快速体温检测)."
+  ],
+  "source_language": "zh"
+}
