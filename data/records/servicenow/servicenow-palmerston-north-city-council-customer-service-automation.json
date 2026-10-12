@@ -1,0 +1,86 @@
+{
+  "id": "servicenow-palmerston-north-city-council-customer-service-automation",
+  "slug": "servicenow-palmerston-north-city-council-customer-service-automation",
+  "vendor": "ServiceNow",
+  "customer_name": "Palmerston North City Council",
+  "industry": "Public Sector",
+  "region": "Palmerston North, New Zealand",
+  "company_size": "Public sector",
+  "business_problem": "Palmerston North City Council was processing land information memorandum requests through email, internet banking, manual payment confirmation, third-party document assembly, and clunky contact-center tools, which made public-record delivery slow, error-prone, and hard to adapt to new legislation.",
+  "solution_summary": "Palmerston North City Council rebuilt LIM fulfillment and broader resident support on the ServiceNow AI Platform. Public Sector Digital Services and the Government Service Portal now let property buyers search an address, confirm it on a map, pay online, and trigger a fully digital LIM workflow instead of emailing forms and waiting days for back-office checks. ServiceNow pulls parcel and property IDs from ArcGIS, integrates with the council's finance system for payment confirmation, uses Service Request Playbook to guide officers through each compliance step, generates the PDF report, and writes the final document into the records-management system used for Public Record Act compliance. The council also modernized its contact center with Customer Service Management and Genesys Cloud so agents can work from better search, case summarization, and shared data. Reusable APIs and workflow patterns now support other councils and future services such as permits and consents.",
+  "products_used": [
+    "Public Sector Digital Services",
+    "Government Service Portal",
+    "Customer Service Management",
+    "Service Request Playbook"
+  ],
+  "solution_components": [
+    {
+      "name": "Public Sector Digital Services",
+      "role": "Runs the digital public-service workflow for LIM requests and legislative compliance steps.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Government Service Portal",
+      "role": "Provides the self-service front end where residents request and download LIM documents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Customer Service Management",
+      "role": "Modernizes the council contact center with structured case handling and search-based support.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Service Request Playbook",
+      "role": "Guides LIM officers through the checklist, history, and release steps for each case.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Residents submit LIM requests through the Government Service Portal, where ServiceNow pulls parcel identifiers from ArcGIS, confirms payment through the finance integration, and guides officers through the compliance checklist in Playbook. The platform then generates the PDF, writes it to the records system, and returns the document by email or portal download while related contact-center requests flow through Customer Service Management.",
+  "integration_points": [
+    "ArcGIS",
+    "finance system",
+    "electronic documents and records management system",
+    "Genesys Cloud"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Industry Cloud",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "The council cut LIM fulfillment time by more than 88%, pushed online LIM payments from zero to 90%, reduced contact-center resolution times by about 20%, digitized a process that once took up to eight days into less than half an hour, and now gathers 46 of 51 required land-parcel data objects in 25 seconds.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    ">88% less time to fulfill a land information request",
+    "90% online LIM payment uptake, up from zero previously",
+    "~20% decrease in contact center case resolution times",
+    "A process that previously took up to eight days is now digitally processed in less than half an hour",
+    "46 of 51 data objects are collected in just 25 seconds",
+    "Support scaled to 46 local councils and nine businesses"
+  ],
+  "architecture_clues": [
+    "ServiceNow automatically writes generated LIM PDFs into the council's Public Record Act compliance system.",
+    "The digital build was designed internally and made reusable for other services such as permits and consents.",
+    "The platform supports out-of-hours service for other councils across New Zealand."
+  ],
+  "source_url": "https://www.servicenow.com/customers/palmerston-north-city-council.html",
+  "published_date": "2026-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The council rolled out ServiceNow Public Sector Digital Services with the Government Service Portal to simplify this process.",
+    "ServiceNow automatically pulls land parcel and property IDs from the ArcGIS geospatial platform.",
+    "ServiceNow is now used to generate the PDF, which it also automatically writes to the electronic documents and records management system, the council's Public Record Act compliance tool.",
+    "The modernization of contact center project used ServiceNow Customer Service Management and Genesys Cloud.",
+    "A process that previously took up to eight days is now digitally processed in less than half an hour."
+  ]
+}

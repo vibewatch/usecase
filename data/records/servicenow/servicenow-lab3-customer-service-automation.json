@@ -1,0 +1,100 @@
+{
+  "id": "servicenow-lab3-customer-service-automation",
+  "slug": "servicenow-lab3-customer-service-automation",
+  "vendor": "ServiceNow",
+  "customer_name": "LAB3 Pty Ltd",
+  "industry": "Software / SaaS",
+  "region": "Melbourne, Australia",
+  "company_size": "SMB",
+  "business_problem": "LAB3 needed to modernize service management so support engineers were not spending a week chasing follow-ups, validating request items manually, and answering routine queries instead of delivering higher-value customer service.",
+  "solution_summary": "LAB3 standardized service delivery on the ServiceNow AI Platform instead of building separate AI tooling in house. It deployed Now Assist across IT Service Management, Customer Service Management, and Creator so engineers could generate case summaries, resolution notes, and workflow logic from natural-language prompts. Customer requests enter through a hybrid service portal and Microsoft Teams, where AI Search returns personalized answers and deflects common requests before they hit the desk. When work does become a case, ITSM and CSM route it through Agent Workspace with AI context already attached, reducing follow-up traffic and speeding handoffs between responders and managers. LAB3 also used Creator AI features to generate app and workflow code more quickly, helping junior developers build and automate service processes without compromising security for regulated customers.",
+  "products_used": [
+    "ServiceNow AI Platform",
+    "Now Assist",
+    "IT Service Management",
+    "Customer Service Management",
+    "AI Search",
+    "Agent Workspace",
+    "Creator"
+  ],
+  "solution_components": [
+    {
+      "name": "ServiceNow AI Platform",
+      "role": "Provides the shared workflow and AI foundation for LAB3's customer and employee service operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Now Assist",
+      "role": "Generates case summaries, resolution notes, and conversational guidance for support staff.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IT Service Management",
+      "role": "Runs incident, request, and fulfillment workflows for LAB3 support operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Customer Service Management",
+      "role": "Coordinates customer-facing case handling on the same platform as IT support.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI Search",
+      "role": "Returns personalized answers in the service portal so users can self-resolve common requests.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Agent Workspace",
+      "role": "Gives support engineers a single interface with embedded AI assistance and case context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Creator",
+      "role": "Uses AI-powered code and workflow generation to speed app and automation development.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customer and employee questions arrive through the service portal or Microsoft Teams, where AI Search and Now Assist answer or classify requests first. Unresolved work is routed through ITSM and CSM into Agent Workspace, where engineers use generated summaries and notes to resolve cases faster, while Creator AI accelerates the supporting workflow and app logic behind the scenes.",
+  "integration_points": [
+    "Microsoft Teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "LAB3 cut mean time to resolution by 47%, reduced workflow bottlenecks by 46%, improved self-service rates by 20%, shortened request validation by 37%, and reported a 100x increase in service-portal usage while onboarding junior developers in weeks instead of months.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "47% reduction in mean time to resolution",
+    "46% reduction in workflow bottleneck",
+    "20% uplift in self-service rate",
+    "37% cut in time to validate request items",
+    "100x increase in usage via the service portal",
+    "Reduced onboarding time from months to weeks"
+  ],
+  "architecture_clues": [
+    "LAB3 runs a hybrid service model with a separate domain for customers in regulated industries.",
+    "The AI rollout started with the service desk before expanding to employees and then customers.",
+    "LAB3 processes over 7,000 customer tickets a week on the platform."
+  ],
+  "source_url": "https://www.servicenow.com/customers/lab3.html",
+  "published_date": "2026-07-30",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "LAB3 chose to implement Now Assist for IT Service Management (ITSM), Customer Service Management (CSM), and Creator, for improved productivity and continuous access to support offered by ServiceNow.",
+    "Using the AI and GenAI capabilities of Now Assist, support engineers can now easily generate case summaries and resolution notes at the click of a button.",
+    "By leveraging AI Search in the ServiceNow AI Platform, we have uplifted our self-service rate by 20%, which has also reduced the call volume to the service desk.",
+    "According to Anthony, the integration has significantly improved the ease of communication within the existing Agent Workspace and achieved higher deflection rates.",
+    "Using Creator's AI features, we have removed the complexity of creating those automatic workflows and reduced the onboarding time from months to weeks."
+  ]
+}

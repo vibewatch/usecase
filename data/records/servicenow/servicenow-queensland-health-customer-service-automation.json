@@ -1,0 +1,81 @@
+{
+  "id": "servicenow-queensland-health-customer-service-automation",
+  "slug": "servicenow-queensland-health-customer-service-automation",
+  "vendor": "ServiceNow",
+  "customer_name": "Queensland Health",
+  "industry": "Healthcare",
+  "region": "Queensland, Australia",
+  "company_size": "Public sector",
+  "business_problem": "Queensland Health's Surgery Connect team was handling growing referral volume with scanned PDFs, paper copies, phone calls, and manual invoice collection, so eligible patients could wait days for referrals to move between public hospitals and private providers.",
+  "solution_summary": "Queensland Health modernized Surgery Connect with the Surgery Connect Activity Navigator (SCAN), a custom application built on ServiceNow App Engine and then expanded with targeted automations. SCAN integrates with the state data warehouse so Health and Hospital Services staff can create referrals and upload patient documents directly into the application instead of scanning and mailing forms. Private providers receive notifications, review the record in SCAN, confirm clinical suitability and capacity, and send postoperative updates back through the same workflow. The platform stores and archives documents, validates submitted invoices, and exposes built-in dashboards so the team can monitor referral status, spot bottlenecks, and escalate near-breach cases. Queensland Health then added Predictive Pricing to inject real-time payment rates into the workflow and an Exceptions Register to surface referral issues early, removing lookup delays and manual troubleshooting from the process.",
+  "products_used": [
+    "Surgery Connect Activity Navigator (SCAN)",
+    "ServiceNow App Engine",
+    "Predictive Pricing",
+    "Exceptions Register"
+  ],
+  "solution_components": [
+    {
+      "name": "Surgery Connect Activity Navigator (SCAN)",
+      "role": "Acts as the end-to-end referral, document, and invoice workflow application for Surgery Connect.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ServiceNow App Engine",
+      "role": "Provides the platform Queensland Health used to build and run the SCAN application.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Predictive Pricing",
+      "role": "Injects real-time pricing data into SCAN so staff no longer manually search contractual documents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Exceptions Register",
+      "role": "Flags referral exceptions proactively so the team can accelerate decisions before delays grow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Referral and patient data flows from Queensland Health's data warehouse into SCAN, where HHS staff create referrals and upload documents. Private providers receive notifications, review and update the case, submit invoices, and send postoperative documentation back through the same workflow, while dashboards, Predictive Pricing, and the Exceptions Register monitor throughput and bottlenecks.",
+  "integration_points": [
+    "Queensland Health data warehouse"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "Queensland Health increased accepted referrals by 550% per month, processed 12,300 patient referrals from February to June 2025 alone, handled 63% more invoices from May to October 2025 than in all of 2024, reduced payment-rate lookup time from 30 minutes to zero, and used the resulting visibility to justify funding growth from AUD8.5 million to AUD260 million.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "550% increase in patient referrals accepted monthly",
+    "12,300 patient referrals accepted from February to June 2025 alone",
+    "63% more invoices processed from May to October 2025 compared to the entire previous year",
+    "Reduced identification time from 30 minutes to zero",
+    "Funding for Surgery Connect increased to AUD260 million in 2025, up from AUD8.5 million at its inception",
+    "499 users actively access SCAN"
+  ],
+  "architecture_clues": [
+    "SCAN integrates with a government data warehouse containing waitlists and patient information.",
+    "The deployment spans 225 private providers, 238 HHS partners, and 41 Surgery Connect staff.",
+    "ServiceNow dashboards are used to monitor referral status and impending contracted-timeframe breaches."
+  ],
+  "source_url": "https://www.servicenow.com/customers/queensland-health.html",
+  "published_date": "2026-06-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The Surgery Connect team built the Surgery Connect Activity Navigator (SCAN) application using ServiceNow App Engine to improve visibility and efficiency.",
+    "By integrating SCAN with the government's data warehouse containing waitlists and patient information, HHS staff can now create referrals and upload patient documents directly into the application.",
+    "SCAN also enables postoperative documentation to flow back to HHS, closing out episodes of care. Private providers submit invoices via the system, which are then validated before payment.",
+    "Before 2023, it could take 30 minutes to locate payment rates per procedure. We have now reduced identification time to zero, helping us process 63% more invoices from May to October 2025 compared to the entire previous year.",
+    "The improved visibility gives confidence to Queensland Health that we are spending public funds as intended, to get patients treated. As a result, funding for Surgery Connect increased to AUD260 million in 2025, up from AUD8.5 million at its inception."
+  ]
+}

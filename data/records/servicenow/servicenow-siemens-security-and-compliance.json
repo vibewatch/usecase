@@ -1,0 +1,77 @@
+{
+  "id": "servicenow-siemens-security-and-compliance",
+  "slug": "servicenow-siemens-security-and-compliance",
+  "vendor": "ServiceNow",
+  "customer_name": "Siemens",
+  "industry": "Manufacturing",
+  "region": "Germany",
+  "company_size": "Enterprise",
+  "business_problem": "Siemens lacked a unified way to see and secure thousands of distributed OT assets across factory floors, which made vulnerability prioritization, firmware updates, and lifecycle planning too slow for a highly variable production environment.",
+  "solution_summary": "At Siemens' Bad Neustadt electric-motor factory, ServiceNow became the bridge between OT and IT operations. The solution combines Siemens Industrial Asset Hub and SINEC Security Guard with ServiceNow OT Visibility and OT Vulnerability capabilities so factory teams can discover assets, assess firmware risk, and manage remediation from one operational view. OT data is fed into the Configuration Management Database, where lifecycle status, dependencies, and replacement information become visible alongside IT context. Service teams can then remotely connect to devices, apply approved updates, document each action, and verify authorization without losing production traceability. The result is an operational-security layer that does more than inventory machines: it connects vulnerability analysis, patching, lifecycle management, and future agentic-AI use cases on a single platform designed to protect uptime in complex manufacturing environments.",
+  "products_used": [
+    "Industrial Asset Hub",
+    "SINEC Security Guard",
+    "OT Visibility",
+    "Configuration Management Database"
+  ],
+  "solution_components": [
+    {
+      "name": "Industrial Asset Hub",
+      "role": "Supplies detailed OT asset and lifecycle data from the factory floor.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "SINEC Security Guard",
+      "role": "Provides the OT security signals used to identify firmware and vulnerability risk.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OT Visibility",
+      "role": "Gives Siemens a unified operational view for monitoring and managing OT assets alongside IT context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Configuration Management Database",
+      "role": "Stores OT asset relationships, lifecycle information, and dependency context used for remediation planning.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Industrial Asset Hub and SINEC Security Guard feed OT asset and risk data into ServiceNow, where OT Visibility and the CMDB combine that information with IT context. Teams then identify vulnerable devices, plan updates, remotely apply authorized firmware or configuration changes, and use the same system to track lifecycle and replacement needs.",
+  "integration_points": [],
+  "technical_area": [
+    "Cybersecurity",
+    "IoT",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Siemens expects to identify and prioritize vulnerabilities 90% faster, reduce security-fix time by 38%, accelerate OT asset onboarding into the CMDB by 70%, and improve lifecycle planning and production uptime by bringing OT and IT data into one management plane.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "90% expected acceleration in identifying security vulnerabilities",
+    "38% expected reduction in security fix times",
+    "70% expected acceleration in onboarding of new OT assets into CMDB"
+  ],
+  "architecture_clues": [
+    "The deployment starts at Siemens' Bad Neustadt factory as the company's internal customer-zero environment.",
+    "The solution supports remote firmware and configuration updates with documented authorization checks.",
+    "Lifecycle data is enriched with replacement part numbers, exchange instructions, and stock availability."
+  ],
+  "source_url": "https://www.servicenow.com/customers/siemens-ot.html",
+  "published_date": "2026-07-21",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "The solution pairs Siemens' Industrial Asset Hub and SINEC Security Guard with ServiceNow's OT Visibility and OT Vulnerability capabilities.",
+    "For the first time, Siemens can manage its OT assets with the same visibility it has across IT assets.",
+    "Siemens now expects to identify and prioritize vulnerabilities 90% faster.",
+    "Service teams can now remotely connect to devices and install updated firmware or configurations.",
+    "Asset onboarding is now expected to be 70% faster through automation."
+  ]
+}
