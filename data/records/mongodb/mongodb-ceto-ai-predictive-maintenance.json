@@ -1,0 +1,68 @@
+{
+  "customer_name": "Ceto AI",
+  "industry": "Logistics",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Ceto AI needed to turn massive streams of real-time vessel data into usable anomaly and root-cause insights so it could prevent machinery failures, streamline fleet operations, and manage maritime insurance risk.",
+  "solution_summary": "Ceto AI built its maritime decision-support platform on MongoDB Atlas and Atlas Vector Search so it could combine machine learning with real-time fleet telemetry without locking itself into rigid schemas. Thousands of onboard sensors feed high-frequency vessel data into Atlas, where Ceto stores rapidly growing data sets and labels 'points of interest' around anomalies. Atlas Vector Search adds contextual retrieval for those labeled events, helping the platform relate fresh anomalies to similar patterns and likely root causes. That lets Ceto surface AI-driven guidance for insurers and ship operators before failures escalate. Because Atlas scales without heavy schema management, the team can plug in new data quickly, deploy models faster, and keep a single operational store for ingest, context building, and predictive decision support as fleets grow.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores and scales Ceto AI's high-frequency fleet telemetry and labeled anomaly data so models can reason over one operational data set.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Vector Search",
+      "role": "Retrieves similar points of interest and contextual patterns to help explain likely root causes when anomalies are detected.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Telemetry from thousands of sensors across customer fleets is ingested into MongoDB Atlas, where Ceto labels points of interest and stores anomaly context; Atlas Vector Search then retrieves similar patterns so AI and ML models can propose likely causes and preventative actions for operators and insurers.",
+  "integration_points": [
+    "fleet sensors",
+    "customer fleets",
+    "maritime insurance workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Ceto AI can predict and preempt equipment failures earlier, deploy models quickly, and give maritime operators and insurers more proactive visibility into operational risk.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "These ships do not stop—365 days a year, 24 hours a day, seven days a week—they move 90% of global trade.",
+    "The company is using MongoDB Atlas and MongoDB Atlas Vector Search to integrate AI with real-time data collected from thousands of sensors across its customers' fleets.",
+    "We're growing quickly. We don't really know where we're going to be six months, 12 months, 18 months from now."
+  ],
+  "architecture_clues": [
+    "Anomalies are enriched with labeled 'points of interest' before retrieval.",
+    "The decision-support system pairs machine learning models with vector search context.",
+    "Ceto chose a non-relational database so new fleet data can be added quickly without heavy schema management."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/ceto-ai",
+  "published_date": "2024-10-05",
+  "evidence_quotes": [
+    "We capture and analyze high-frequency data to prevent machinery breakdowns and deliver connected insurance products to ship owners.",
+    "We're using machine learning models and AI models to detect these patterns and spot trends, similarities, and anomalies before we typically could.",
+    "Vector Search is becoming more and more important in our decision support system.",
+    "We needed a non-relational database that can scale that we don't have to be worrying too much about schemas for."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Vector Search"
+  ],
+  "id": "mongodb-ceto-ai-predictive-maintenance",
+  "slug": "mongodb-ceto-ai-predictive-maintenance",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

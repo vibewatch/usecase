@@ -1,0 +1,70 @@
+{
+  "customer_name": "Wattsense",
+  "industry": "Energy",
+  "region": "Europe",
+  "company_size": "Mid-market",
+  "business_problem": "Wattsense needed a low-overhead database that could ingest building-sensor data, device configurations, and metadata at scale while supporting rapid iteration, reliable operations, and efficient search across a heterogeneous IoT estate.",
+  "solution_summary": "Wattsense chose MongoDB Atlas as the data platform behind its connected-building service so one engineering team could manage device configurations, metadata, and time-series telemetry without stitching together multiple fragile systems. Atlas's document model stores large, deeply nested building and device configurations, while the aggregation framework is used to target and process specific data inside nested arrays. When native time series collections became available, Wattsense collapsed a separate SQL time-series stack into MongoDB as well, leaving Atlas to manage roughly 600GB of physical data and 1TB of logical data in one place. Atlas also scales capacity up and down automatically as demand changes, which lets Wattsense ingest parallel data from legacy equipment and LoRaWAN sensors across Europe without downtime. The result is a simpler architecture that supports plug-and-play building connectivity, Terraform-based infrastructure management, and future Atlas Search adoption.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Wattsense's device configurations, metadata, and core operational data while scaling automatically with building activity.",
+      "layer": "Storage"
+    },
+    {
+      "name": "time series collections",
+      "role": "Hold streaming telemetry inside MongoDB so Wattsense no longer needs a separate SQL time-series database.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Building sensors, LoRaWAN devices, and equipment metadata flow into MongoDB Atlas, where nested configuration documents and time series collections are processed through aggregation pipelines and then served to remote monitoring, control, and building-efficiency workflows.",
+  "integration_points": [
+    "LoRaWAN sensors",
+    "HVAC systems",
+    "Terraform",
+    "4G connectivity"
+  ],
+  "technical_area": [
+    "IoT",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Wattsense achieved a more reliable and easier-to-manage IoT stack, consolidated data systems, and maintained efficient growth as connected-building deployments expanded across Europe.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Across the European Union, 75% of buildings are not energy efficient.",
+    "The company processes data from more than 1500 pre-defined compatible sources, including 800 LoRaWAN sensors.",
+    "Today, MongoDB manages around 600 gigabytes of physical data and 1TB of logical data.",
+    "Since 2018, Wattsense has experienced zero downtime with MongoDB Atlas.",
+    "We've never had an issue with it, even though overall it's almost 4x the amount."
+  ],
+  "architecture_clues": [
+    "Wattsense uses large nested documents as digital-twin-like device configurations.",
+    "Native time series collections replaced a separate SQL time-series database in 2021.",
+    "The Atlas estate was later moved to an infrastructure-as-code workflow with Terraform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/wattsense",
+  "published_date": "2025-07-27",
+  "evidence_quotes": [
+    "Now we rely almost 100% on MongoDB for almost everything.",
+    "MongoDB Atlas makes it easy for us to use.",
+    "We knew from the beginning that MongoDB Atlas is well suited for ingesting a lot of data in parallel.",
+    "Since 2018, Wattsense has experienced zero downtime with MongoDB Atlas."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas",
+    "time series collections"
+  ],
+  "id": "mongodb-wattsense-real-time-analytics",
+  "slug": "mongodb-wattsense-real-time-analytics",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

@@ -1,0 +1,66 @@
+{
+  "customer_name": "McKesson",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "McKesson had to meet new pharmaceutical traceability regulations at extreme scale, but its monolithic Postgres and SAP environment could not reliably handle the serialization, verification, and latency demands of the DSCSA deadline.",
+  "solution_summary": "McKesson redesigned its pharmaceutical traceability stack around MongoDB Atlas to separate massive serialization workloads from the rest of its legacy supply-chain systems. Instead of forcing DSCSA traffic through a monolithic Postgres and SAP environment, the team created a Distributed Serial Repository to absorb verification calls from 60 warehouses and a Central Data Repository to manage downstream data for more than 350,000 customers per day. Atlas became the unified document database behind both systems because its flexible model matched the hierarchical structure of DSCSA records and could run across cloud and on-prem environments. Internal benchmarks verified that Atlas could handle the real-time verification load, while integrated services simplified development and operations. The new architecture centralizes serialization data, authenticates prescription containers back to manufacturers, and gives McKesson a scalable core for compliance and future AI use cases.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the scalable document database foundation for McKesson's serial-verification and central data repositories.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Serialization and verification events from 60 warehouses flow into MongoDB Atlas-backed repositories, where hierarchical DSCSA records are processed and matched to manufacturer traceability data before authenticated results are served to McKesson's downstream customer and supply-chain workflows.",
+  "integration_points": [
+    "60 warehouses",
+    "manufacturers",
+    "on-premises systems",
+    "cloud systems"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "McKesson met the DSCSA deadline, absorbed a 300x demand spike without service disruption, and created a compliant foundation that protects patient safety while supporting future innovation.",
+  "outcome_category": [
+    "Compliance",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "McKesson distributes one-third of the country's pharmaceuticals.",
+    "By 2025, the regulation had evolved to require wholesalers to develop systems to track the serial numbers of every prescription drug container they had out in the marketplace.",
+    "McKesson distributes over 1.2 billion containers annually.",
+    "The Distributed Serial Repository handles the immense volume of verification calls from 60 warehouses.",
+    "The Central Data Repository manages data for over 350,000 customers daily.",
+    "The number of daily requests it handled increased by 300 times at launch."
+  ],
+  "architecture_clues": [
+    "McKesson split the solution into a Distributed Serial Repository and a Central Data Repository.",
+    "The document model was chosen because it fit the hierarchical structure of DSCSA data.",
+    "Developers can code once and deploy across both on-premises and cloud environments."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mckesson",
+  "published_date": "2026-01-03",
+  "evidence_quotes": [
+    "The data is just as important as the medication.",
+    "MongoDB Atlas proved to be the perfect fit.",
+    "It allowed our developers to code once and deploy anywhere we needed to make our business successful.",
+    "It was so performant, we didn't even notice. There was no blip on the map."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "id": "mongodb-mckesson-security-and-compliance",
+  "slug": "mongodb-mckesson-security-and-compliance",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

@@ -1,0 +1,74 @@
+{
+  "customer_name": "GEP",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "GEP needed to rework how it builds and deploys supply-chain software so it could move faster across multiple clouds, avoid downtime, and stop forcing developers to query fragmented databases for each client workflow.",
+  "solution_summary": "GEP made MongoDB Atlas the operational core of its multi-cloud supply-chain software strategy so developers could ship smaller, faster, and more specialized services without wrestling with separate databases at every workflow step. Atlas gives GEP one managed control plane across AWS, Microsoft Azure, and Google Cloud, while security partitions isolate client data and keep metrics and transactions visible in a single dashboard. Instead of forcing engineers to query separate SQL stores for each stage of a client's supply chain, the document model lets GEP present lifecycle data as one database and move it across microservices more easily. GEP is also testing MongoDB Atlas Search in its flagship product to power autocomplete and custom scoring for contracts, line items, and milestones. Together, Atlas and Atlas Search support low-code prototyping, faster deployment, and high-performance retrieval for a globally distributed SaaS portfolio.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides GEP's multi-cloud operational data layer, client security partitions, and centralized observability across its supply-chain software estate.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Adds autocomplete and custom-scoring search across contracts, line items, milestones, and other lifecycle data in GEP's flagship product.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Client and supply-chain data is stored in MongoDB Atlas across a multi-cloud footprint, queried through microservices as a unified lifecycle data set, and surfaced through Atlas Search for features such as autocomplete and ranked retrieval over contracts, line items, and milestones.",
+  "integration_points": [
+    "AWS",
+    "Microsoft Azure",
+    "Google Cloud",
+    "contracts",
+    "line items",
+    "milestones"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "GEP accelerated prototyping and client-specific innovation, improved transaction performance and search across supply-chain data, and created a multi-cloud platform that can evolve quickly without downtime.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "A proof of concept demonstrated a 35-40% performance advantage for Atlas.",
+    "Pre-COVID, the platform handled three million transactions; by late 2022 it is nearer 20 million.",
+    "We strive to have 90% of transactions processed within 330 milliseconds.",
+    "There are certain transactions that need to be completed within 200 milliseconds, others in 50 milliseconds.",
+    "Atlas enables GEP to access a database in over 90 regions on AWS, Azure, and Google Cloud.",
+    "Atlas Search helps users find documentation across 30+ databases."
+  ],
+  "architecture_clues": [
+    "GEP is restructuring outdated monoliths into microservices.",
+    "Atlas provides a single pane of glass with individual security partitions per client.",
+    "The platform is designed so code can move across AWS, Azure, and Google Cloud."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/gep",
+  "published_date": "2024-04-10",
+  "evidence_quotes": [
+    "Our primary goal was that every line of code should be deployable across every cloud.",
+    "MongoDB Atlas gives us a single pane of glass for every client, with individual security partitions.",
+    "With MongoDB we can present that as a single database across a complete lifecycle.",
+    "To support their users' ability to search for data like contracts, line items, and milestones, GEP is also currently testing MongoDB Atlas Search."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search"
+  ],
+  "id": "mongodb-gep-application-refactoring",
+  "slug": "mongodb-gep-application-refactoring",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

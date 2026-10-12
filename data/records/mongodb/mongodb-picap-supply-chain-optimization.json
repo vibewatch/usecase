@@ -1,0 +1,76 @@
+{
+  "customer_name": "Picap",
+  "industry": "Logistics",
+  "region": "Latin America",
+  "company_size": "Mid-market",
+  "business_problem": "Picap needed a scalable mobile-first data platform for ride-hailing and delivery services that could handle geolocation, transactions, and time-stamped logistics data across multiple Latin American markets without the rigidity of SQL systems.",
+  "solution_summary": "Picap built its transport and logistics platform on MongoDB Atlas so both its ride-hailing business and its Pibox delivery service could run from the same flexible, high-performance data foundation. Atlas acts as the transactional store for the main platform, with a large cluster dedicated to Pibox business transactions and separate clusters for location data, metadata, driver working logs, and geolocation events. MongoDB Time Series Collections were added to process time-stamped logistics data such as driver activity more efficiently, while Atlas Device SDKs gave the mobile application local persistence and synchronization support across AWS and Google Cloud environments. This architecture lets Picap keep Ruby and Flutter development fast, handle real-time updates for drivers and customers, and expand from last-mile delivery into warehouse-as-a-service without rebuilding the platform around a different database model.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs Picap's transactional clusters for ride-hailing, delivery, location, metadata, and geolocation workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Time Series Collections",
+      "role": "Process large volumes of time-stamped logistics data such as driver working hours with better speed and efficiency.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Device SDKs",
+      "role": "Provide local persistence and synchronization features that improve the mobile experience for drivers and customers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Transactions, geolocation events, driver logs, and metadata are written into MongoDB Atlas clusters; time-stamped logistics data is processed through Time Series Collections, and Atlas Device SDKs keep mobile apps synchronized in real time across Picap's AWS and Google Cloud-backed environment.",
+  "integration_points": [
+    "AWS",
+    "Google Cloud",
+    "Ruby",
+    "Flutter"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Picap improved app performance and reliability, scaled delivery and logistics services across Latin America, and freed the team to focus more on innovation and social-impact initiatives.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "By 2021, Picap was delivering around 400,000 packages per month.",
+    "The company designed software to digitalize 90% of the processes behind transport and logistics.",
+    "Latency has decreased by between 60-70%.",
+    "Charitable foundations impact more than 100,000 families in Colombia."
+  ],
+  "architecture_clues": [
+    "Picap uses separate Atlas clusters for transactional, location, metadata, and geolocation workloads.",
+    "Time Series Collections were introduced for driver-working-hours and other high-volume logistics data.",
+    "Atlas Device SDKs support on-device persistence as the mobile app spans AWS and Google Cloud."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/picap",
+  "published_date": "2024-04-22",
+  "evidence_quotes": [
+    "Atlas enabled us to grow significantly from a startup and today, our platform is entirely based on MongoDB.",
+    "This setup enables us to achieve optimal efficiency around handling and processing data.",
+    "The specialized columnar storage format and efficient data-handling capabilities allow us to process high volumes of time-stamped data with unprecedented speed and accuracy.",
+    "MongoDB is a pillar of our business. All transactions run on MongoDB."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Time Series Collections",
+    "Atlas Device SDKs"
+  ],
+  "id": "mongodb-picap-supply-chain-optimization",
+  "slug": "mongodb-picap-supply-chain-optimization",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

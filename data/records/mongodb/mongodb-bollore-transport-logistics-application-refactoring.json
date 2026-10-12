@@ -1,0 +1,63 @@
+{
+  "customer_name": "Bolloré Transport & Logistics",
+  "industry": "Logistics",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Bollore Transport & Logistics needed to break down siloed global systems and growing local microservices into a consistent architecture that could handle special freight cases and country-specific regulatory requirements.",
+  "solution_summary": "Bollore Transport & Logistics created an enterprise-microservices architecture on MongoDB to standardize how services and data are exposed across its global logistics business. Each microservice combines an API exposure layer, a cloud-native execution engine, and a MongoDB-managed single source of truth for the business entity it owns, such as quotation or order-form workflows. This pattern lets the company virtualize and normalize data from historically separate subsidiaries and departments without eliminating manual services or rewriting every legacy package. MongoDB Atlas underpins the architecture with horizontal scalability, sharding, and TTL support, while the same enterprise microservices are being positioned as data sources for a future lakehouse and a lakehouse-as-a-service model. The result is a reusable blueprint that removes single points of failure and gives Bollore a flexible way to add track-and-trace, courier, customer-preference, and carbon-data services over time.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Acts as the single source of truth for Bollore's enterprise microservices and provides the scaling features behind the new pattern.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Requests enter through portal or manual service channels, are virtualized and standardized by enterprise microservices, stored in MongoDB-backed repositories for business entities such as quotations and orders, and then passed to service producers and, over time, to lakehouse-style analytical services.",
+  "integration_points": [
+    "web portal",
+    "manual quotation service",
+    "service producers",
+    "lakehouse"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Supply Chain Optimization"
+  ],
+  "business_outcome": "Bollore gained a resilient architecture pattern that can unify logistics services, support country-specific requirements, and expand digital freight capabilities without multiplying operational fragility.",
+  "outcome_category": [
+    "Scalability",
+    "Speed to Market",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Bollore Transport & Logistics has 35,000 employees in 109 countries on five continents.",
+    "We have therefore established a core model supplemented by 80% software packages and 20% Microservices.",
+    "Today, there are 2 Enterprises Microservices: the quotation and the order form."
+  ],
+  "architecture_clues": [
+    "Each enterprise microservice has an API layer, a cloud-native engine, and a MongoDB-backed single source of truth.",
+    "Atlas, horizontal scalability, sharding, and TTL are all used in the pattern.",
+    "Future services include Track and Trace, Courier, Customer Preference, and CO2-focused microservices."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/bollere-logistics",
+  "published_date": "2025-01-15",
+  "evidence_quotes": [
+    "A Microservice consists of an exposure layer in the form of an API, an engine generally developed in the native Cloud, and a Single Source of Truth managed via MongoDB.",
+    "MongoDB offers unrivaled enterprise data visibility, extracting information from silos into a single, unified view.",
+    "EM is based on technologies that must be extremely reliable.",
+    "MongoDB has the huge advantage of removing single points of failure for accessing data that would have been produced by a service."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "id": "mongodb-bollore-transport-logistics-application-refactoring",
+  "slug": "mongodb-bollore-transport-logistics-application-refactoring",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

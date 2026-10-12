@@ -1,0 +1,71 @@
+{
+  "customer_name": "City of Chicago",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Public sector",
+  "business_problem": "Chicago needed to break city data out of departmental silos and analyze millions of changing operational signals in real time so managers could coordinate responses, predict issues, and improve public services.",
+  "solution_summary": "The City of Chicago built WindyGrid on MongoDB to create a real-time municipal operations platform without replacing the many departmental systems already generating data. MongoDB acts as the city's central geospatial and analytics store, ingesting structured and unstructured feeds from police, transportation, fire, 311, 911, buses, social media, roadwork systems, and other city services. Because the document model can absorb changing schemas, Chicago can continuously add new feeds and link them by location, then query them with real-time analytics, geospatial indexes, and text search to expose issues on visual maps as events unfold. The platform's scalable architecture gives managers a single operational view of the city, supports historical analysis and predictive modeling, and feeds open-data applications without hard-coding every future question into a rigid relational schema.",
+  "solution_components": [
+    {
+      "name": "MongoDB",
+      "role": "Stores and links Chicago's structured and unstructured operational data so WindyGrid can query it in real time.",
+      "layer": "Storage"
+    },
+    {
+      "name": "WindyGrid",
+      "role": "Provides the map-based operational interface that city managers use to analyze live and historical conditions across departments.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Data from departments such as police, transportation, fire, 311, 911, bus systems, and social feeds is aggregated into MongoDB, geospatially linked inside WindyGrid, and then surfaced on live maps and analytics views so city managers can coordinate responses and investigate trends.",
+  "integration_points": [
+    "311 complaints",
+    "911 health emergencies",
+    "public tweets",
+    "bus locations",
+    "police department",
+    "transportation department",
+    "fire department"
+  ],
+  "technical_area": [
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Chicago gained a unified operational view that helps departments respond faster, anticipate issues such as rodent outbreaks or traffic disruption, and open city data to broader public innovation.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "WindyGrid pulls together seven million different pieces of data from city departments every day.",
+    "The platform makes sense of the millions of pieces of information gathered daily from Chicago's 15 most crucial departments.",
+    "The city has opened its data to the public, publishing more than 450 sets of data.",
+    "After statistically predicting that within seven days of a garbage complaint a rodent complaint occurs, the city is able to get ahead of rat problems."
+  ],
+  "architecture_clues": [
+    "Chicago started with a single MongoDB node and expanded the platform iteratively.",
+    "Geolocation is the linking key that joins data from formerly siloed systems.",
+    "The stack relies on geospatial, secondary, and text indexing plus horizontal sharding."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/city-of-chicago",
+  "published_date": "2024-05-19",
+  "evidence_quotes": [
+    "WindyGrid is an intelligent operations platform built on MongoDB.",
+    "With MongoDB, WindyGrid created a central nervous system for Chicago.",
+    "Chicago's new system didn't just need to combine floods of structured and unstructured data. It needed powerful analytics that could parse that data in real time.",
+    "With MongoDB's flexible data model, WindyGrid doesn't have to go back and redo the schema for each new piece of data."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB",
+    "WindyGrid"
+  ],
+  "id": "mongodb-city-of-chicago-real-time-analytics",
+  "slug": "mongodb-city-of-chicago-real-time-analytics",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

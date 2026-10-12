@@ -1,0 +1,91 @@
+{
+  "customer_name": "ZF",
+  "industry": "Automotive",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "ZF needed a database architecture that could handle massive real-time fleet telemetry for its SCALAR orchestration platform while supporting cloud migration, multi-cloud ambitions, and a simpler operating model for development teams.",
+  "solution_summary": "ZF rebuilt the data foundation behind its SCALAR orchestration platform on MongoDB Atlas so it could ingest fleet telemetry in real time, unify current and historical vehicle state, and keep a simple operating model as volumes climbed. Atlas serves as the secure multi-cloud database layer for SaaS microservices that process driver-console traffic, route-optimization events, and technical-health data from more than 300,000 connected vehicles. MongoDB Time Series collections store current, historical, and subscription-oriented metrics, while Atlas Online Archive moves older data to cold storage without splitting query access across different systems. Atlas Charts publishes billing and cost insights to downstream product teams, and Atlas Search helps users find documentation across more than 30 databases. ZF also shards data horizontally across clusters and automates provisioning so developers can focus on new orchestration features instead of database administration.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides the core multi-cloud operational database layer for SCALAR's fleet-orchestration services.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Time Series collections",
+      "role": "Store current, historical, and subscription-oriented vehicle metrics for real-time and trend-based use cases.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Online Archive",
+      "role": "Moves older fleet data into cold storage while preserving a single query entry point.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Charts",
+      "role": "Visualizes billing information and sends cost insights downstream to product teams.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Atlas Search",
+      "role": "Helps users find documentation across ZF's data estate.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Vehicle and driver-console events stream into MongoDB Atlas, where time-series collections retain current and historical metrics; recent data stays hot for fast queries, older data moves to Atlas Online Archive, and Atlas Charts and Atlas Search surface billing insights and searchable operational information to internal and customer-facing workflows.",
+  "integration_points": [
+    "driver consoles",
+    "onboard sensors",
+    "AWS",
+    "Microsoft Azure",
+    "Google Cloud",
+    "product teams"
+  ],
+  "technical_area": [
+    "IoT",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "ZF can give customers faster, more proactive fleet orchestration while developers gain a scalable, cost-effective platform that is ready for future multi-cloud growth and new logistics services.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "With more than 300K vehicles connected to ZF's SCALAR infrastructure and 1.3 million messages exchanged per day.",
+    "SCALAR handles 90,000 messages per minute.",
+    "That amounts to 50 gigabytes of incoming data every day.",
+    "Atlas Search helps users find documentation across 30+ databases.",
+    "MongoDB has proven itself in the nine years we've been using it."
+  ],
+  "architecture_clues": [
+    "ZF keeps a limited amount of recent data in hot storage and moves older data to Atlas Online Archive.",
+    "Data is sharded horizontally across clusters to prepare for future growth.",
+    "Templates and automation reduce manual provisioning work for developers."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/zf",
+  "published_date": "2024-04-22",
+  "evidence_quotes": [
+    "MongoDB Atlas ticked all our boxes.",
+    "ZF uses MongoDB Time Series collections and Atlas Online Archive.",
+    "Atlas Search helps users find documentation across 30+ databases.",
+    "It helps us to innovate quickly and release new features faster."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Time Series collections",
+    "Atlas Online Archive",
+    "Atlas Charts",
+    "Atlas Search"
+  ],
+  "id": "mongodb-zf-supply-chain-optimization",
+  "slug": "mongodb-zf-supply-chain-optimization",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}

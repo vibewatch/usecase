@@ -1,0 +1,68 @@
+{
+  "customer_name": "Mentra",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "SMB",
+  "business_problem": "Mentra needed a backend that would let a small team iterate rapidly on AI-native smart glasses while storing fast-changing app data, multimodal notes, and retrieval-ready embeddings for user context.",
+  "solution_summary": "Mentra built its AI-native smart-glasses platform on MongoDB Atlas from day one so the team could move from prototype changes to production features without fighting database migrations. Atlas stores user settings, operating-system state, and backend data for built-in and third-party apps, while BSON keeps the persistence model close to the way data is handled at runtime in the application. The Mentra Notes app ingests what the wearer sees and hears, stores that multimodal history in MongoDB, and creates vector embeddings for each conversation. Using MongoDB Voyage AI, Mentra can retrieve relevant conversations later from a natural-language query and return summaries or context to the wearer. Atlas profiling and management tooling also helps engineers debug slow queries quickly, which matters for a startup building open-source hardware and software that must scale into manufacturing, accessibility, and always-on contextual AI use cases.",
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores Mentra's user settings, OS state, app data, and multimodal note history while supporting fast schema evolution.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Voyage AI",
+      "role": "Provides vector-based recall so Mentra Notes can retrieve relevant conversations from natural-language queries.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Audio, visual, and settings data from Mentra's smart glasses apps is stored in MongoDB Atlas; Mentra Notes creates embeddings for conversations and MongoDB Voyage AI retrieves matching context later so users can search, summarize, and revisit what they saw or heard.",
+  "integration_points": [
+    "YouTube",
+    "Twitch",
+    "third-party apps",
+    "smart glasses sensors"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "IoT",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Mentra can ship new smart-glasses experiences quickly, support accessible captioning and note retrieval, and give third-party developers a backend that extends the platform beyond a single device app.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "For me, building smart glasses started around six years ago.",
+    "The goal is to fit around 80 to 90% of faces with one frame.",
+    "We recently launched Mentra Live, which is our take on the Meta Ray-Bans."
+  ],
+  "architecture_clues": [
+    "MongoDB has been used since day one because its BSON model is close to Mentra's runtime objects.",
+    "Mentra Notes stores what users see and hear, then queries vector embeddings for later recall.",
+    "Third-party developers get a MongoDB-backed persistence layer when they build on the platform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mentra",
+  "published_date": "2026-06-21",
+  "evidence_quotes": [
+    "We've been using MongoDB since day one.",
+    "The number one way is the MongoDB Atlas platform. It is a huge time saver.",
+    "We store all user settings and OS data in MongoDB.",
+    "We have vector embeddings for every single conversation, and we use the MongoDB Voyage AI tool to recall those conversations based on the user's query."
+  ],
+  "vendor": "MongoDB",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Voyage AI"
+  ],
+  "id": "mongodb-mentra-enterprise-knowledge-search",
+  "slug": "mongodb-mentra-enterprise-knowledge-search",
+  "confidence_score": 0.0,
+  "maturity_score": 0
+}
