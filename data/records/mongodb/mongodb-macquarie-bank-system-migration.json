@@ -1,0 +1,63 @@
+{
+  "id": "mongodb-macquarie-bank-system-migration",
+  "slug": "mongodb-macquarie-bank-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Macquarie Bank",
+  "industry": "Financial Services",
+  "region": "Australia",
+  "company_size": "Enterprise",
+  "business_problem": "Macquarie Bank needed an always-on data platform for Australia's New Payments Platform that could support real-time payments, multi-cloud deployment, rolling upgrades, and strict security without slowing agile development.",
+  "solution_summary": "Macquarie Bank built its New Payments Platform service on MongoDB Atlas using a cloud-first, multi-cloud microservices architecture designed for 24/7 real-time banking. Atlas stores payment and customer workflow documents behind the bank's always-on services, while the document model let engineers evolve schemas as features changed instead of freezing design months in advance. Because Atlas is fully managed, developers could self-provision environments, load-test aggressively, and keep control over disk, RAM, and CPU without waiting on centralized database teams. The platform also integrates with Kubernetes-based workloads across AWS and Google Cloud, preserves enterprise security through encryption, RBAC, and network isolation, and delivers rolling upgrades without outages—exactly what the bank needed for Australia's national real-time payments network.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores payment and customer workflow data for Macquarie's always-on New Payments Platform services.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Payment requests flow from Macquarie's customer channels into microservices backed by MongoDB Atlas, where workflow documents are stored and updated in real time. The Atlas-backed platform then serves always-on payment processing across AWS and Google Cloud while monitoring and rolling upgrades keep the service live.",
+  "integration_points": [
+    "AWS",
+    "Google Cloud",
+    "Kubernetes",
+    "Australia's New Payments Platform"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Data Platform",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Macquarie launched the new payments platform with no issues, processed more than 3 million transactions, and now ships multiple daytime releases while keeping payments available 24/7.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "24/7, 365 days a year",
+    "over 3 million transactions",
+    "We went live 2 months into the COVID pandemic"
+  ],
+  "architecture_clues": [
+    "The payments platform follows a cloud-first, multi-cloud microservices architecture.",
+    "MongoDB Atlas is used across AWS and Google Cloud alongside Kubernetes workloads.",
+    "Developers self-provision database resources and perform extensive load testing before go-live.",
+    "Built-in Atlas encryption, role-based access management, and network isolation support banking security requirements."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/macquarie",
+  "published_date": "2024-04-18",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "People want to move money in real time.",
+    "With this solution we can run on any cloud provider we want.",
+    "We went live 2 months into the COVID pandemic. A flick of the switch and payments started flowing.",
+    "We've had over 3 million transactions now. No issues, it just simply worked."
+  ]
+}

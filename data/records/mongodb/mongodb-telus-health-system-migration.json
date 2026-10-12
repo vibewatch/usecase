@@ -1,0 +1,76 @@
+{
+  "id": "mongodb-telus-health-system-migration",
+  "slug": "mongodb-telus-health-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "TELUS Health",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "TELUS Health One had outgrown a self-managed MongoDB Community Edition deployment and needed a more scalable, secure, and operationally mature cloud database for a global mental-health platform serving 50,000 employers and 10 million employees.",
+  "solution_summary": "TELUS Health migrated TELUS Health One from self-managed MongoDB Community Edition to MongoDB Atlas to support a global mental-health platform serving web, iOS, and Android applications. Working with MongoDB Professional Services, the team assessed the legacy environment, ensured dependent services could run against both the old database and Atlas, then moved the full database in less than six months without breaking business continuity. Atlas now sits in the core layer of TELUS Health One's onion-style architecture behind the client apps, microservices layer, and monolithic services, while built-in encryption at rest and in transit reduces compliance risk for sensitive mental-health data. The team also adopted Atlas Charts for visibility into performance and plans to extend reporting with Data Federation as demand grows.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Professional Services",
+    "MongoDB Atlas Charts"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores core TELUS Health One data and underpins the microservices and monolithic services behind the platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Professional Services",
+      "role": "Guided the migration planning, compatibility work, and production move from Community Edition to Atlas.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MongoDB Atlas Charts",
+      "role": "Provides data visualization so the team can observe performance and optimize the Atlas deployment.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "TELUS Health One's web, iOS, and Android apps communicate with a microservices layer that passes requests to core monolithic services backed by MongoDB Atlas. Atlas stores the operational data, while Atlas Charts surfaces performance insights and the platform's encrypted data path helps protect sensitive health information.",
+  "integration_points": [
+    "web app",
+    "iOS app",
+    "Android app",
+    "microservices layer"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "TELUS Health migrated the full database in less than six months, largely eliminated self-managed scaling pain, accelerated some queries by nearly 30x, and strengthened privacy controls for a mission-critical healthcare application.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "about 50,000 global employers and 10 million employees",
+    "available in over 50 languages",
+    "entire database to MongoDB Atlas in less than 6 months",
+    "queries can run nearly 30 times faster"
+  ],
+  "architecture_clues": [
+    "TELUS Health One uses an onion-style architecture with apps, microservices, monolith services, and MongoDB Atlas at the core.",
+    "Services had to remain compatible with both Community Edition and Atlas during migration.",
+    "MongoDB Atlas provides encryption at rest and in transit for sensitive healthcare data.",
+    "Atlas Charts is already in use for observability, with Data Federation planned for future reporting."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/telus-health",
+  "published_date": "2024-12-05",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Once the teams laid the groundwork, they migrated TELUS Health One's entire database to MongoDB Atlas in less than 6 months.",
+    "Our architecture is a bit like an onion",
+    "MongoDB Atlas provides advanced security features out of the box, including encryption of data both in transit and at rest.",
+    "some developers reporting that their queries can run nearly 30 times faster"
+  ]
+}

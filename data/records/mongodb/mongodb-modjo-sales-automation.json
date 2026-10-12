@@ -1,0 +1,73 @@
+{
+  "id": "mongodb-modjo-sales-automation",
+  "slug": "mongodb-modjo-sales-automation",
+  "vendor": "MongoDB",
+  "customer_name": "Modjo",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Mid-market",
+  "business_problem": "Modjo's Atlas-backed conversational-intelligence platform was hitting 100% CPU saturation because inefficient connection handling, unclosed sessions, and large requests were driving performance bottlenecks and unnecessary infrastructure cost.",
+  "solution_summary": "Modjo uses MongoDB Atlas as the operational database behind its conversational-intelligence platform, which ingests customer-call data from Zoom, Skype, and Google Meet and runs separate transcription and speaker-identification pipelines. Atlas stores orchestration state, logging, and next-step decisions; writes reach Atlas through a custom API built on AWS Lambda and API Gateway while downstream services read directly. As load grew, inefficient connection management, unclosed sessions, and large per-request datasets drove 100% CPU saturation on an oversized cluster. MongoDB Professional Services first reworked schema and indexing, then traced persistent hot spots to per-operation client creation and leaked sessions, guiding code changes that reused a single client and explicitly closed sessions after retrieval.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Professional Services"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores orchestration state, logs, and workflow metadata for Modjo's conversational-intelligence pipelines.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Professional Services",
+      "role": "Diagnosed the workload, validated schema changes, and guided the connection and session fixes that resolved the CPU bottleneck.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Conversation data from Zoom, Skype, and Google Meet feeds Modjo's transcription and speaker-identification pipelines. Orchestrator services write task states and next-step decisions through AWS Lambda and API Gateway to MongoDB Atlas, while downstream services read Atlas directly to drive analytics and the end-user application.",
+  "integration_points": [
+    "Zoom",
+    "Skype",
+    "Google Meet",
+    "AWS Lambda",
+    "Amazon API Gateway"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Cost Optimization"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "After minor code changes, Modjo cut CPU usage from 100% to 20%, reduced query targeting from 40,000 to 1, downsized its Atlas cluster from M60 to M30, and lowered monthly Atlas costs by 75%.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Currently serving over 400 sales organizations",
+    "100% CPU saturation",
+    "dramatically reduced query targeting from 40,000 to 1",
+    "Within a few hours, CPU usage dropped from 100% to 20%",
+    "reduce its MongoDB Atlas instance size from M60 to M30",
+    "75% reduction in monthly MongoDB Atlas costs"
+  ],
+  "architecture_clues": [
+    "Separate transcription and speaker-identification pipelines process conversation data.",
+    "MongoDB Atlas stores orchestrator state, logging task statuses, and next-step decisions.",
+    "Writes to Atlas go through a custom API built on Lambda and API Gateway, while reads are direct.",
+    "The fix reused a single MongoDB client and explicitly closed database sessions after reads."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/modjo",
+  "published_date": "2025-09-11",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Modjo’s solution is designed to process calls using two data science pipelines; one for transcription and one for speaker identification.",
+    "Writes to the database are performed via a custom API (Lambda + API Gateway), while reads are direct.",
+    "Within a few hours, CPU usage dropped from 100% to 20%",
+    "resulted in a 75% reduction in monthly MongoDB Atlas costs"
+  ]
+}

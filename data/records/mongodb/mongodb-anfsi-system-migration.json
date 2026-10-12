@@ -1,0 +1,77 @@
+{
+  "id": "mongodb-anfsi-system-migration",
+  "slug": "mongodb-anfsi-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "ANFSI",
+  "industry": "Public Sector",
+  "region": "France",
+  "company_size": "Public sector",
+  "business_problem": "ANFSI had to move critical internal-security applications and 2TB of data off a latency-prone SQL/private-cloud environment in just three months, while protecting sensitive data and supporting 280,000 terminals with a small team that had limited MongoDB experience.",
+  "solution_summary": "ANFSI migrated critical internal-security communications applications and 2TB of data from a private cloud SQL environment to MongoDB in just three months. The new design combined MongoDB Atlas for database services with MongoDB Ops Manager for deployment automation, monitoring, backup, and restore across development and production clusters. MongoDB consultants trained ANFSI's small team, helped simplify schemas to reduce memory usage, optimized application code, and removed infrastructure bottlenecks so the agency could scale support for 280,000 terminals exchanging geolocation and configuration data. ANFSI also hardened the platform with Queryable Encryption and an updated KMIP-based key-management flow so sensitive personal and health data stayed encrypted while remaining queryable, improving both resilience and compliance.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Ops Manager",
+    "MongoDB Queryable Encryption"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores application and terminal data for ANFSI's modernized communications platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Ops Manager",
+      "role": "Automates deployment, monitoring, backup, restore, and cluster rebuild tasks across ANFSI environments.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MongoDB Queryable Encryption",
+      "role": "Keeps sensitive personal and health data encrypted while still allowing ANFSI to run queries against it.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Terminal geolocation, configuration, and application data flows from ANFSI's secure services into MongoDB Atlas. Ops Manager provisions and monitors development and production clusters, while Queryable Encryption and the KMIP-based key flow protect sensitive fields without blocking application queries.",
+  "integration_points": [
+    "VPNs",
+    "mobile device management systems",
+    "application servers",
+    "KMIP server"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Cybersecurity",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Security and Compliance"
+  ],
+  "business_outcome": "ANFSI completed migration of 280,000 terminals and 2TB of data in three months, rebuilt production in 30 minutes during stress testing, and strengthened security and compliance through Queryable Encryption and updated key management.",
+  "outcome_category": [
+    "Compliance",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "280,000 terminals",
+    "2TB of data",
+    "three months",
+    "within 30 minutes"
+  ],
+  "architecture_clues": [
+    "ANFSI supports an ecosystem of data servers, VPNs, mobile device management systems, and application servers.",
+    "Ops Manager was used to deploy and rebuild development and production clusters.",
+    "Queryable Encryption protects personal and health data while preserving expressive queries.",
+    "ANFSI updated its custom KMIP server to manage encrypted data keys directly."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/anfsi",
+  "published_date": "2025-07-16",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "ANFSI completes 3-month app migration for 280,000 terminals using MongoDB",
+    "Using scripts and MongoDB Ops manager, they successfully rebuilt ANFSI's system within 30 minutes",
+    "A key innovation was the MongoDB Queryable Encryption feature",
+    "We are very happy that MongoDB has become one of the standard solutions at ANFSI."
+  ]
+}

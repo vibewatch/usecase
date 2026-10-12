@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-sky-airline-system-migration",
+  "slug": "mongodb-sky-airline-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Sky Airline",
+  "industry": "Logistics",
+  "region": "Chile",
+  "company_size": "Enterprise",
+  "business_problem": "Sky Airline had to migrate its booking experience to Sabre without downtime while keeping customer, ticketing, and flight data accessible across 15 clusters and preserving security during ongoing growth.",
+  "solution_summary": "Sky Airline uses MongoDB Atlas as the data backbone for content management, basic search, and e-commerce services that support its booking experience. During migration to Sabre, the airline had to keep 15 data clusters available so customers and staff could continue accessing ticketing, flight, and profile data without interruption. Atlas's document model let the team run the same workloads across on-premises and cloud environments, while MongoDB Compass gave engineers a consistent way to inspect data during production passes. Atlas also automated credential renewal around releases, reducing security risk as transaction peaks and version upgrades continued. The result was a host migration with zero downtime and post-migration Atlas version updates that complete in under 10 minutes, preserving always-on customer access.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Compass"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores booking, customer, ticketing, and flight data for Sky Airline's digital channels and migration workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Compass",
+      "role": "Helps engineers inspect and validate data while they run production passes and migration work.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Booking, customer, and flight records feed MongoDB Atlas, which serves content management, search, and e-commerce services. During the Sabre migration, Atlas kept 15 clusters available while production-pass workflows used MongoDB Compass to inspect data and ensure the customer-facing platform stayed online.",
+  "integration_points": [
+    "Sabre",
+    "content management services",
+    "basic search services",
+    "e-commerce services"
+  ],
+  "technical_area": [
+    "Cloud Migration",
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Sky Airline migrated to Sabre with zero downtime, kept 15 clusters online, and now completes Atlas version updates in under 10 minutes while sustaining transaction peaks and continued growth.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "over 40 destinations throughout the Americas",
+    "sustain access to 15 of its data clusters",
+    "resolve quickly in under 10 minutes"
+  ],
+  "architecture_clues": [
+    "Atlas underpins content management, basic search, and e-commerce backend operations.",
+    "The deployment spans on-premises and cloud-based infrastructures during migration.",
+    "MongoDB automatically renews credentials during production passes on the ticketing platform.",
+    "The migration kept 15 clusters online while moving the booking host to Sabre."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/sky-airlines",
+  "published_date": "2026-06-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "MongoDB Atlas and MongoDB Compass provided the flexible, scalable infrastructure Sky Airline needed to avoid downtime.",
+    "Migrating to a new host without downtime required Sky Airline to sustain access to 15 of its data clusters",
+    "During its migration to Sabre, Sky Airline achieved zero downtime",
+    "Post-migration, these services remain uninterrupted amid MongoDB Atlas version updates—which resolve quickly in under 10 minutes"
+  ]
+}

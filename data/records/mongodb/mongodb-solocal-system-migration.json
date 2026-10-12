@@ -1,0 +1,71 @@
+{
+  "id": "mongodb-solocal-system-migration",
+  "slug": "mongodb-solocal-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Solocal",
+  "industry": "Media and Entertainment",
+  "region": "France",
+  "company_size": "Enterprise",
+  "business_problem": "Solocal needed to modernize PagesJaunes from a monolith and very large on-premises MongoDB deployment to a cloud-native architecture that reduced cost, simplified operations, and improved search and release speed.",
+  "solution_summary": "Solocal evolved PagesJaunes from monolithic systems and one of the world's largest on-premises MongoDB deployments into a cloud-native microservices architecture on MongoDB Atlas running on Google Cloud. Atlas became the operational store for search, listings, maps, reviews, and asynchronous workflows, allowing Solocal to retire a separate Elasticsearch VM, a MongoDB-to-Elasticsearch mirror, and custom edge-case infrastructure. Automatic indexing, backup, restore, and auto-scaling reduced the operational burden while keeping all search data in one platform. By consolidating core data and search inside Atlas and MongoDB Search on Atlas, Solocal can answer millisecond user queries, provision releases far faster, and extend modern search-driven testing and directory experiences without maintaining separate clusters.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Search on Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores PagesJaunes directory, review, map, and workflow data in Solocal's cloud-native platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Search on Atlas",
+      "role": "Runs integrated search so Solocal no longer needs a separate Elasticsearch stack for discovery workloads.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Directory listings, maps, reviews, and asynchronous task data are stored in MongoDB Atlas on Google Cloud. MongoDB Search on Atlas indexes the same data for user-facing and internal search, eliminating the old mirror into Elasticsearch and allowing releases, testing, backup, and scaling to happen in one managed platform.",
+  "integration_points": [
+    "PagesJaunes website",
+    "Google Cloud"
+  ],
+  "technical_area": [
+    "Media and Content",
+    "Cloud Migration",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "System Migration",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Solocal raised availability to 99.995%, cut database costs from 30% to 4% of the IT budget, reduced release work from a week by a team to one hour by one operator, and dramatically simplified search operations.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "nearly 5 million professional brands",
+    "one in two French internet users",
+    "99.995%",
+    "database costs now account for just 4% of Solocal's IT budget, down from 30% previously",
+    "an entire week to transition to a new release, but now a single operator can complete the process in just an hour"
+  ],
+  "architecture_clues": [
+    "Solocal shifted from a monolith to microservices starting in 2013.",
+    "The Atlas deployment runs on Google Cloud in a PaaS model.",
+    "MongoDB Search on Atlas replaced a separate Elasticsearch VM and mirror pipeline.",
+    "Auto-scaling, automated backups, and restores are part of the managed design."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/solocal",
+  "published_date": "2024-05-26",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Solocal evolves from monolith systems to microservices, and transitions one of the world's largest on-premise clusters to MongoDB Atlas.",
+    "Now, we no longer need additional clusters—with MongoDB Atlas, everything is in the same place.",
+    "Availability has increased to 99.995%",
+    "database costs, which today account for just 4% of Solocal's IT budget, down from 30% previously"
+  ]
+}

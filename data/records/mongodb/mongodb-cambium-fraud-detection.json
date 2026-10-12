@@ -1,0 +1,69 @@
+{
+  "id": "mongodb-cambium-fraud-detection",
+  "slug": "mongodb-cambium-fraud-detection",
+  "vendor": "MongoDB",
+  "customer_name": "Cambium",
+  "industry": "Software / SaaS",
+  "region": "Israel",
+  "company_size": "Mid-market",
+  "business_problem": "Cambium's Marvad AI examination platform had to detect cheating and plagiarism across tens of thousands of papers, but vector-search latency reached 55 minutes and false positives surged as production volumes approached 15 million vectors.",
+  "solution_summary": "Cambium used MongoDB Atlas as the data platform for Marvad AI, a national examination system that scans uploaded exam papers and flags cheating or plagiarism through vector-based similarity search. As production data volumes climbed toward tens of thousands of documents and roughly 15 million vectors, search latency ballooned to 55 minutes and false positives threatened the launch. Working with MongoDB Professional Services, Cambium tuned index sizing, memory, and search-node configuration instead of simply adding servers; the team vertically scaled to two S60 search nodes with 64 GB RAM each and reset vector-search parameters to improve precision. The result was a platform that moved from nearly an hour per query to minutes, restored real-time viability, and gave Cambium repeatable guidance for future large-vector AI projects.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Professional Services"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores embeddings and exam-paper data while running the vector-search workload behind Marvad AI.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Professional Services",
+      "role": "Advised Cambium on search-node sizing, memory tuning, and vector-search configuration before launch.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Scanned exam papers are uploaded to Marvad AI, embedded into vectors, and stored in MongoDB Atlas for similarity search. Atlas search nodes compare new submissions against the existing corpus, and tuned vector-search parameters drive the alerting workflow that flags likely cheating or plagiarism to the exam platform.",
+  "integration_points": [
+    "national examination portal",
+    "scanned exam papers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "After tuning Atlas search nodes and vector-search settings, Cambium cut similarity-search latency from up to 55 minutes to about three minutes and got Marvad AI live in time for a national rollout.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "around 15 million vectors",
+    "could take up to 55 minutes",
+    "tens of thousands of documents almost in real time",
+    "moving to two search nodes at the S60 level, each with 64GB of memory",
+    "having one come in three minutes"
+  ],
+  "architecture_clues": [
+    "Marvad AI runs vector similarity search over exam-paper embeddings in MongoDB Atlas.",
+    "The production problem centered on oversized indexes, page faults, and memory pressure on search nodes.",
+    "MongoDB Professional Services recommended vertical scaling plus parameter resets instead of just adding servers.",
+    "The tuned deployment uses two S60 search nodes with 64 GB RAM each."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/cambium",
+  "published_date": "2026-05-15",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "Marvad AI's job is to then check each one for duplications, and trigger an alert if a close match is detected",
+    "around 15 million vectors could take up to 55 minutes",
+    "We scaled vertically to larger search nodes with more RAM",
+    "Overnight, we jumped from waiting almost an hour for a search response to having one come in three minutes."
+  ]
+}
