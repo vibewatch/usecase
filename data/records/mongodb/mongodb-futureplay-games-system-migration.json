@@ -1,0 +1,61 @@
+{
+  "id": "mongodb-futureplay-games-system-migration",
+  "slug": "mongodb-futureplay-games-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Futureplay Games",
+  "industry": "Media and Entertainment",
+  "region": "Finland",
+  "company_size": "Mid-market",
+  "business_problem": "Futureplay needed to move live game operations off a third-party backend so it could iterate faster and support millions of players after a major game relaunch.",
+  "solution_summary": "Futureplay built a new in-house backend on MongoDB Atlas to take control of live operations for Merge Gardens after the game's rebrand pushed player growth to around 10 million users. Atlas runs two core databases on Google Cloud: one for operational systems such as campaigns and configurations, and another for player login, session, and account data. That split gives product managers and designers direct control over events and offers while letting engineers monitor clusters, define infrastructure as code with Terraform, and progressively migrate more player-progress data from the third-party platform. The new architecture gives the studio more control, smoother monitoring, and a faster path to fresh player experiences without disturbing ongoing gameplay.",
+  "products_used": [
+    "MongoDB Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores operations, campaign, and player-account data for Futureplay's in-house backend.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Campaign configuration data and player login, session, and account data are stored in separate Atlas databases, then exposed to in-house dashboards that tune offers, events, and live operations.",
+  "integration_points": [
+    "Google Cloud",
+    "Terraform",
+    "private endpoints",
+    "player experience dashboard"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Migration",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Futureplay gained direct control over live operations, smoother monitoring, and a faster path to new player experiences as its audience grew to 10 million.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "Player numbers are currently around 10 million.",
+    "Futureplay now has a team of 73.",
+    "Conversations began with MongoDB in April 2023 and Futureplay released the first version of its server in November."
+  ],
+  "architecture_clues": [
+    "Two Atlas databases separate operations-system data from player-account data.",
+    "Private endpoints are used so Futureplay can consume data securely from Atlas clusters within its own servers.",
+    "Terraform infrastructure-as-code definitions are part of cluster management."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/futureplay-games",
+  "published_date": "2024-06-09",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "What Futureplay lacked however was its own server backend, a means of managing live operations within the game in terms of campaigns, offers, events for players, and bringing those together.",
+    "The first is an operations systems database, designed for campaigns and configurations.",
+    "The second is a player database, where data like player login information, player sessions, and account information are stored."
+  ]
+}

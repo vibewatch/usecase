@@ -1,0 +1,72 @@
+{
+  "id": "mongodb-evana-document-processing",
+  "slug": "mongodb-evana-document-processing",
+  "vendor": "MongoDB",
+  "customer_name": "EVANA",
+  "industry": "Software / SaaS",
+  "region": "Germany",
+  "company_size": "Mid-market",
+  "business_problem": "EVANA needed to eliminate data sprawl and unstable SQL-based workflows that slowed document search, AI classification, and customer response times.",
+  "solution_summary": "EVANA centralized its property-document platform on MongoDB Atlas after years of tech sprawl across PostgreSQL, Azure SQL, Elasticsearch, and other databases made data inconsistent and expensive to replicate for AI workloads. Atlas now serves as the single source of truth for structured and unstructured real-estate documents, while MongoDB Atlas Search powers natural-language and follow-up queries across data rooms and collections of millions of files. The platform also integrates OCR, AI classification, and OIDC-based identity controls so EVANA can ingest documents, categorize them, secure access, and release new features rapidly without creating new tables or schemas. This modernization dramatically improved throughput, accuracy, and release velocity while making the customer-facing service more reliable and cost effective.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Atlas Search",
+    "OpenID Connect (OIDC)"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Acts as EVANA's single source of truth for property documents and extracted metadata.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Atlas Search",
+      "role": "Supports natural-language and follow-up queries across transaction data rooms and document collections.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenID Connect (OIDC)",
+      "role": "Secures human and machine identities without passwords.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Documents enter EVANA through OCR and AI classification pipelines, are stored in MongoDB Atlas, queried via MongoDB Atlas Search, and shared through secure data rooms and natural-language workflows guarded by OIDC.",
+  "integration_points": [
+    "optical character recognition (OCR)",
+    "digital transaction data rooms",
+    "AI models"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "EVANA now processes far more documents at higher accuracy, ships features multiple times a day, and gives customers faster, more reliable AI-powered property insights.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "EVANA can deploy new features much faster, with up to eight releases a day.",
+    "Accuracy improved as the volume of documents increased from 6,000 to 30,000 per hour.",
+    "Accuracy reached 95% over 38 million scanned pages."
+  ],
+  "architecture_clues": [
+    "EVANA is phasing out PostgreSQL, Azure SQL, and other legacy databases in favor of one Atlas-based source of truth.",
+    "Atlas Search supports natural-language document queries and follow-up questions.",
+    "One DevOps resource now monitors performance and metrics while Atlas handles updates and maintenance."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/evana",
+  "published_date": "2026-01-03",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "From PostgreSQL to Azure SQL, Elastic Search and MongoDB, data was everywhere and inconsistent.",
+    "Using MongoDB Atlas Search, customers can run natural language queries on their data.",
+    "Accuracy has improved as the volume of documents has increased from 6,000 to 30,000 per hour, reaching 95% accuracy over 38 million scanned pages."
+  ]
+}

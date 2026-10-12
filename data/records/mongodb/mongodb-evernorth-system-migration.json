@@ -1,0 +1,71 @@
+{
+  "id": "mongodb-evernorth-system-migration",
+  "slug": "mongodb-evernorth-system-migration",
+  "vendor": "MongoDB",
+  "customer_name": "Evernorth",
+  "industry": "Healthcare",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Evernorth needed a resilient, isolated data layer and CDC-friendly cloud architecture to modernize critical services without breaking 24/7 operations.",
+  "solution_summary": "Evernorth adopted MongoDB Atlas as the core data layer for a modernization program that serves about 130 million customer relationships across more than 30 countries and jurisdictions. The architecture follows domain-driven design and microservice principles, giving each service its own private Atlas datastore instead of sharing brittle legacy databases. Each datastore also exposes its own change-data API and streaming interface, while Qlik Replicate and Confluent Kafka move CDC events to and from legacy systems as the company incrementally re-platforms onto AWS. That design simplified migration and validation of critical data, improved fault isolation and resiliency, and let Evernorth move CDC pipelines to the cloud without disrupting downstream consumers.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Qlik Replicate",
+    "Confluent Kafka"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Provides an isolated datastore for each microservice in Evernorth's modernized platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Qlik Replicate",
+      "role": "Moves change-data-capture events between Atlas and legacy systems.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Confluent Kafka",
+      "role": "Streams real-time deltas to and from legacy systems during the migration.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Each microservice writes to its own MongoDB Atlas datastore, while Qlik Replicate and Confluent Kafka move CDC events between Atlas and legacy systems so real-time deltas flow without interrupting 24/7 operations.",
+  "integration_points": [
+    "AWS",
+    "legacy systems",
+    "change-data APIs",
+    "microservices"
+  ],
+  "technical_area": [
+    "Application Modernization",
+    "Cloud Migration",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "System Migration"
+  ],
+  "business_outcome": "Evernorth moved CDC pipelines to the cloud with less risk, modernized critical services incrementally, and kept the business running 24/7.",
+  "outcome_category": [
+    "Scalability",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Evernorth Health Services is focused on improving health and vitality for approximately 130 million customer relationships, spanning over 30 countries and jurisdictions."
+  ],
+  "architecture_clues": [
+    "Each microservice has its own private and isolated datastore.",
+    "Each datastore has its own change-data API and streaming interface.",
+    "The modernization program uses AWS for incremental re-platforming while the business continues running 24/7."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/evernorth",
+  "published_date": "2024-04-22",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "MongoDB was chosen as the underlying data platform, which enabled each microservice to have its own private and isolated datastore.",
+    "Each datastore was deployed with its own change-data API and streaming interface, allowing real-time deltas to flow to and from legacy systems, via CDC events, facilitated by Qlik's Replicate product and Confluent Kafka.",
+    "The use of MongoDB Atlas, coupled with additional tooling from Qlik and MongoDB partner Confluent, helped greatly in simplifying the migration and validation of Evernorth's most critical data."
+  ]
+}

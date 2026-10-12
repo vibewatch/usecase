@@ -1,0 +1,64 @@
+{
+  "id": "mongodb-finlex-enterprise-knowledge-search",
+  "slug": "mongodb-finlex-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Finlex",
+  "industry": "Financial Services",
+  "region": "Germany",
+  "company_size": "Mid-market",
+  "business_problem": "Finlex needed a secure, multi-tenant platform that could integrate partner data, make insurance products searchable, and scale as the business grew.",
+  "solution_summary": "Finlex built its commercial and industrial insurance platform on MongoDB and later MongoDB Atlas so it could integrate partner data, expose it through APIs, and let brokers search policies in a multi-tenant environment from day one. Atlas now underpins all Finlex microservices, giving developers a common document model that reduces mistakes and speeds feature delivery while MongoDB handles administration, security, maintenance, and server provisioning. The company is also using Atlas Search because it is already built into Atlas and avoids provisioning more search infrastructure as Finlex expands into new markets. This design supports rapid growth, easier broker onboarding, and a premium customer experience with less operational overhead.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Search"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Runs the core multi-tenant insurance platform and all Finlex microservices.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Search",
+      "role": "Makes insurance products searchable without adding a separate search stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Insurance product and broker data from partner systems is stored in MongoDB Atlas, queried by Finlex microservices, and searched through Atlas Search so brokers and customers can quickly compare policies.",
+  "integration_points": [
+    "partner systems",
+    "brokers",
+    "APIs"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Cloud Native",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Finlex scales faster, onboards brokers more easily, and can launch searchable insurance features with less operational overhead.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Founded in Germany in 2015, the company is already breaking into Austria and France and has doubled revenues and headcount every year since 2017."
+  ],
+  "architecture_clues": [
+    "The platform is multi-tenanted and API-driven.",
+    "All microservices run on MongoDB.",
+    "Atlas Search is being introduced as an integrated search capability instead of a separate toolset."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/finlex",
+  "published_date": "2025-08-07",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We service customers in a multi-tenanted way, so it was important to find a scalable database that supports APIs and has great security.",
+    "The company implemented MongoDB with support from a managed service provider in 2015, switching to MongoDB Atlas in 2017.",
+    "Atlas Search has a significant edge over competing alternatives because it is already built into MongoDB Atlas, doesn't require provisioning of additional tools and has significant impact on reducing the development effort."
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "mongodb-mountain-warehouse-application-refactoring",
+  "slug": "mongodb-mountain-warehouse-application-refactoring",
+  "vendor": "MongoDB",
+  "customer_name": "Mountain Warehouse",
+  "industry": "Retail",
+  "region": "United Kingdom",
+  "company_size": "Enterprise",
+  "business_problem": "Mountain Warehouse needed offline-first store apps that could keep stock, pricing, and parcel workflows synchronized despite patchy in-store connectivity.",
+  "solution_summary": "Mountain Warehouse uses MongoDB Atlas as the data backbone for a growing suite of retail store apps built to work even when shop-floor Wi-Fi is unreliable. Product, stock, pricing, returns, and click-and-collect data is pushed from the company's SQL data warehouse into Atlas, then synchronized to Android and React Native applications through Atlas Device Sync and App Services so changes appear as soon as a device reconnects. The same platform supports Product Checker, Stock Count, and parcel-scanning workflows, while partitioning ensures staff only receive the right regional product and currency data. This architecture replaced manual store tasks with app-assisted workflows and helped the retailer scale to 25 MongoDB-backed microservices and applications.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Atlas Device Sync",
+    "App Services"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores product, stock, pricing, and parcel data for store-assistant applications.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Atlas Device Sync",
+      "role": "Synchronizes offline-first mobile app data back to Atlas when devices reconnect.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "App Services",
+      "role": "Enables partition-based sync configuration for store and regional data.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Product and stock data is pushed from the SQL warehouse into MongoDB Atlas, synchronized to offline-first mobile apps through Atlas Device Sync and App Services, and routed back to managers as staff scan products and parcels.",
+  "integration_points": [
+    "SQL data warehouse",
+    "Android applications",
+    "React Native applications",
+    "point-of-sale tills"
+  ],
+  "technical_area": [
+    "Cloud Native",
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Mountain Warehouse replaced manual store tasks with resilient mobile apps, improved on-floor customer service, and scaled the approach to 25 microservices and applications.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "Mountain Warehouse has 400 stores across the world.",
+    "Today, Mountain Warehouse has 25 microservices and applications running on MongoDB."
+  ],
+  "architecture_clues": [
+    "The retail apps were designed with an offline-first approach.",
+    "Atlas Device Sync updates apps as soon as a device reconnects to the network.",
+    "Data is partitioned so prices in UK currency are not synced to products in New Zealand."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mountain-warehouse",
+  "published_date": "2024-08-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "We decided to take an offline first approach.",
+    "Data from the company's SQL data warehouse is pushed into MongoDB Atlas and displayed in the app.",
+    "Today, Mountain Warehouse has 25 microservices and applications running on MongoDB, and they were all created to improve the in store experience."
+  ]
+}

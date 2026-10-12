@@ -1,0 +1,70 @@
+{
+  "id": "mongodb-bpifrance-real-time-analytics-2",
+  "slug": "mongodb-bpifrance-real-time-analytics-2",
+  "vendor": "MongoDB",
+  "customer_name": "Bpifrance",
+  "industry": "Financial Services",
+  "region": "France",
+  "company_size": "Public sector",
+  "business_problem": "Bpifrance needed to modernize legacy batch core-banking and information systems so chatbot answers, risk calculations, audits, and cross-business research could happen in real time.",
+  "solution_summary": "Bpifrance expanded its use of MongoDB Atlas from four applications into a broader cloud data platform that now supports 35 applications across several clusters for 250 users. The bank uses Atlas to add context back into chatbot interactions by digitally slicing business-line information into MongoDB and comparing it with user questions, while Confluent streams core-banking changes so outstanding balances and risk can be calculated in real time instead of D+1 or batch windows. For analytics and reporting, Atlas Data Federation lets teams combine, enrich, and transform data across multiple sources to build their own risk-analysis datasets. This architecture improves answer quality, auditability, and self-service access to trusted financial data.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Confluent",
+    "MongoDB Atlas Data Federation"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores contextual business-line and core-banking data for chatbot, audit, and research workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Confluent",
+      "role": "Streams core-banking changes so real-time deltas reach MongoDB-driven services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MongoDB Atlas Data Federation",
+      "role": "Combines and transforms data across clusters and sources for reporting and risk analysis."
+    }
+  ],
+  "data_flow": "Business-line data is sliced into MongoDB Atlas, where chatbot context and core-banking events are matched in real time; Confluent streams changes, and Atlas Data Federation combines cluster data for risk reports and 360-degree research.",
+  "integration_points": [
+    "chatbot",
+    "core banking systems",
+    "multiple business lines"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Data Analytics",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Bpifrance improved chatbot relevance, moved core banking and risk calculations into real time, and made audits and 360-degree research easier for teams.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "Bpifrance's MongoDB platform had 4 applications before 2021.",
+    "Two years ago, the public entity opted for MongoDB Atlas, which contains 35 applications spread over several clusters for 250 users."
+  ],
+  "architecture_clues": [
+    "Legacy batch and D+1 processing was replaced with real-time streaming for core banking.",
+    "Atlas Data Federation is used to combine and transform data across multiple sources.",
+    "MongoDB Atlas stores the contextual slices used to ground chatbot responses."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/bpifrance",
+  "published_date": "2024-08-12",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "By combining several technologies within the project known as MPA, information from Bpifrance will be digitally \"sliced\" into a MongoDB Atlas database, then compared with information from a chatbot user.",
+    "Thanks to the combination of Confluent and MongoDB, we have moved to real-time Core Banking.",
+    "Through Data Federation, Atlas users will be able to combine, enrich, and transform data, run federated queries across multiple data sources, and generate data to their preferred destination."
+  ]
+}

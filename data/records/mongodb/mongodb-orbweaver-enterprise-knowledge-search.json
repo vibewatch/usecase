@@ -1,0 +1,67 @@
+{
+  "id": "mongodb-orbweaver-enterprise-knowledge-search",
+  "slug": "mongodb-orbweaver-enterprise-knowledge-search",
+  "vendor": "MongoDB",
+  "customer_name": "Orbweaver",
+  "industry": "Manufacturing",
+  "region": "United States",
+  "company_size": "Mid-market",
+  "business_problem": "Orbweaver needed to replace an expensive, fragile DocumentDB plus Elasticsearch stack for multi-million-part search and procurement workflows.",
+  "solution_summary": "Orbweaver consolidated its parts-search platform onto MongoDB Atlas and MongoDB Search on Atlas to support a digital-native procurement workflow for the electronics industry. The company loads supplier and catalog data with millions of parts and up to 40 attributes per part into Atlas, then uses integrated Lucene-based search to power its Parts Search API, quoting, sales automation, and customer-supplier integration services. By removing the separate Elasticsearch and ETL layers, Orbweaver simplified operations, improved resilience, and made indexing dramatically faster, with new indexes across gigabytes of data taking under a minute. That design cut latency by more than 70 percent while also lowering cloud spend and engineering overhead.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Search on Atlas"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores supplier, catalog, quoting, and integration data for Orbweaver's platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Search on Atlas",
+      "role": "Indexes part attributes and powers the Parts Search API for buyers and manufacturers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Supplier part files and product attributes are loaded into MongoDB Atlas, indexed by MongoDB Search on Atlas, and served through the Parts Search API to buyers and manufacturers without a separate ETL or search stack.",
+  "integration_points": [
+    "Parts Search API",
+    "supplier flat files",
+    "buyers",
+    "manufacturers"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Orbweaver lowered latency by more than 70%, cut cloud spend, and removed ETL and search-stack complexity from its parts-search platform.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Part catalogs easily span into the millions with each part having up to 40 different attributes.",
+    "Creating a new index across gigabytes of data takes less than a minute.",
+    "The migration resulted in a latency decrease of over 70%."
+  ],
+  "architecture_clues": [
+    "MongoDB Search on Atlas replaced Elasticsearch for core search functionality.",
+    "The new stack removed a separate ETL tool from the architecture.",
+    "Orbweaver can ingest flat-file supplier lists and rapidly stand up a parts API."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/orbweaver",
+  "published_date": "2024-05-29",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "With MongoDB Atlas everything is just in a document and you search on it - it's a much simpler model.",
+    "With MongoDB Atlas, creating a new index across gigabytes of data takes less than a minute, so the time savings are huge and the time to query is fast.",
+    "The migration resulted in a latency decrease of over 70%."
+  ]
+}
