@@ -1,0 +1,101 @@
+{
+  "id": "mongodb-hippo-innovations-marketing-personalization",
+  "slug": "mongodb-hippo-innovations-marketing-personalization",
+  "vendor": "MongoDB",
+  "customer_name": "Hippo Innovations",
+  "industry": "Software / SaaS",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "Hippo Innovations needed to replace rigid relational databases and bolt-on search services with a simpler platform that could support highly variable product data, heavy e-commerce traffic, and new AI-driven search and personalization features without growing operational overhead.",
+  "solution_summary": "Hippo Innovations consolidated StoreHippo's data and AI stack on MongoDB Atlas after moving away from self-managed databases and bolt-on services. Atlas holds the platform's operational data, including product catalogs, orders, inventory, customer accounts, and payment information, in tenant-isolated databases that can scale across regions and clouds. MongoDB Search handles full-text retrieval, autocomplete, facets, and relevance tuning against the same live documents, eliminating separate index-remapping and sync logic with external search engines. MongoDB Vector Search and Voyage AI extend that same data layer into semantic search and retrieval-augmented generation workflows, while MongoDB Data API lets front-end code query data over HTTPS and MongoDB Atlas Charts exposes campaign-performance visualizations to merchants. Multi-region replication and Atlas operations let the team move customer data with no downtime and ship features faster.",
+  "products_used": [
+    "MongoDB Atlas",
+    "MongoDB Search",
+    "MongoDB Vector Search",
+    "Voyage AI",
+    "MongoDB Atlas Charts",
+    "MongoDB Data API"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores StoreHippo's tenant-isolated operational data and provides the managed, multi-region database foundation for the platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB Search",
+      "role": "Runs product search, autocomplete, facets, and relevance tuning directly on live StoreHippo data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Vector Search",
+      "role": "Adds semantic retrieval on top of StoreHippo's operational data for AI-powered search experiences.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Voyage AI",
+      "role": "Generates embeddings that Hippo Innovations uses with Vector Search and RAG workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MongoDB Atlas Charts",
+      "role": "Surfaces promotional-campaign and merchant-facing visualizations from StoreHippo data.",
+      "layer": "Serving"
+    },
+    {
+      "name": "MongoDB Data API",
+      "role": "Lets front-end code query StoreHippo data directly from the client browser over HTTPS.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Merchant catalog, order, inventory, payment, and customer data land in tenant-specific MongoDB Atlas databases. MongoDB Search queries those live documents for autocomplete, facets, and relevance tuning; MongoDB Vector Search plus Voyage AI create embeddings and support semantic and RAG retrieval; MongoDB Data API exposes data over HTTPS to client features, and MongoDB Atlas Charts surfaces campaign insights to merchants.",
+  "integration_points": [
+    "merchant storefronts",
+    "client browsers over HTTPS",
+    "Google Cloud",
+    "Microsoft Azure"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Application Refactoring"
+  ],
+  "business_outcome": "StoreHippo cut release-cycle time in half, reduced query latency, saved engineering time and storage cost, simplified search operations, and gained a cloud-agnostic foundation for multilingual search, personalization, and AI retrieval.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "\"over 1.5 billion secure API calls per month\"",
+    "\"adapt and scale 3x faster\"",
+    "\"8x larger document sizes\"",
+    "\"saves around 10% of our total engineering cycles\"",
+    "\"saves 50% storage capacity and costs\"",
+    "\"twice as fast\" for developers to roll out new features",
+    "\"30% lower query latency\""
+  ],
+  "architecture_clues": [
+    "Each merchant is provisioned with its own single-tenant MongoDB database and search engine for security and performance isolation.",
+    "Multi-cloud and multi-region deployment policies are used to place data closer to customers and satisfy residency requirements.",
+    "Search and database lookups now run in a single application call instead of separate database and search-engine queries.",
+    "Vector search and automatic embeddings are used in StoreHippo's retrieval-augmented generation pipelines."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/hippo-innovations",
+  "published_date": "2026-09-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"The platform serves over 1.5 billion secure API calls per month.\"",
+    "\"The StoreHippo platform offered customers a choice of using the Algolia or Azure Cognitive search engines, but this made the technology stack complex and costly.\"",
+    "\"With a few clicks in the Atlas UI, we can move customer data on-demand, with no downtime.\"",
+    "\"I'd estimate running in MongoDB Atlas saves around 10% of our total engineering cycles, which we can now reinvest in innovation.\"",
+    "\"Separate queries that were previously run independently against the bolt-on search engine and database are now run in a single application call, leading to 30% lower query latency.\""
+  ]
+}

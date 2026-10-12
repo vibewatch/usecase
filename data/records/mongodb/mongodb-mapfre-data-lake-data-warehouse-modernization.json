@@ -1,0 +1,78 @@
+{
+  "id": "mongodb-mapfre-data-lake-data-warehouse-modernization",
+  "slug": "mongodb-mapfre-data-lake-data-warehouse-modernization",
+  "vendor": "MongoDB",
+  "customer_name": "MAPFRE",
+  "industry": "Financial Services",
+  "region": "Spain",
+  "company_size": "Enterprise",
+  "business_problem": "MAPFRE needed to untangle point-to-point legacy integrations, duplicated data spread across 200-plus systems, and fragmented customer, policy, and claims records while lowering maintenance cost and improving governance.",
+  "solution_summary": "MAPFRE reworked its insurance data estate from an application-centric landscape into a platform ecosystem organized around nine business domains and two shared platforms. In the new design, MongoDB Atlas on AWS stores Golden Records that act as the authoritative profile for customers, policies, and claims. Legacy COBOL-based cores, application servers, and relational databases remain in place for transactional processing, but MAPFRE decouples read and query workloads from those systems through change-data-capture and an event-driven pipeline built with Kafka and Flink. Those streams continuously project updates into Atlas, where flexible document storage and specialized query models support high-volume reads without schema fragmentation. Reusable archetypes from MAPFRE's internal engineering platform standardize deployment, governance, and lifecycle ownership across domains, giving teams a scalable hybrid foundation for consistent data access.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Kafka",
+    "Flink"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores MAPFRE's Golden Records and provides the scalable query layer for customer, policy, and claims entities.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Kafka",
+      "role": "Carries event streams from legacy on-premises cores into the Golden Record pipeline in real time.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Flink",
+      "role": "Processes CDC-driven streams before they are persisted as Golden Records in MongoDB Atlas.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Legacy on-premises core systems emit change-data-capture events that Kafka and Flink stream into Golden Record documents in MongoDB Atlas on AWS; functional platforms then query those records instead of hitting core transactional systems directly, while reusable archetypes standardize rollout across domains.",
+  "integration_points": [
+    "legacy on-premises core systems",
+    "application servers",
+    "legacy relational databases",
+    "AWS"
+  ],
+  "technical_area": [
+    "Data Platform",
+    "Application Modernization",
+    "Cloud Migration"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Application Refactoring"
+  ],
+  "business_outcome": "MAPFRE established a single source of truth for business entities, improved operational efficiency and data governance, scaled high-volume queries without stressing core systems, and sped up delivery of customer-facing innovation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market",
+    "Compliance"
+  ],
+  "metrics": [
+    "\"over 200 systems containing duplicated information\"",
+    "\"nine functional business domains supported by two technical platforms for engineering and integration\"",
+    "\"200+ systems\""
+  ],
+  "architecture_clues": [
+    "The Golden Record platform runs as a hybrid on-premises and cloud architecture.",
+    "MongoDB Atlas is deployed on AWS while COBOL-era core systems remain on-premises.",
+    "CDC plus an event-driven design with Kafka and Flink keeps business-entity records current in real time.",
+    "MAPFRE industrialized rollout with reusable archetypes and standard infrastructure from its internal engineering platform."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/mapfre-golden-record",
+  "published_date": "2026-06-28",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "evidence_quotes": [
+    "\"This involved point-to-point connections, and data dispersed across multiple databases and over 200 systems containing duplicated information.\"",
+    "\"We developed a purpose to centralize our data consumption and offer a single source of truth instead of a fragmented and disconnected environment.\"",
+    "\"A key component of this architecture is the implementation of 'Golden Records' - single, accurate sources of truth for business entities - stored in MongoDB Atlas on AWS.\"",
+    "\"The Golden Records solution employs a hybrid architecture that uses change-data-capture (CDC) and an event-driven design with Kafka and Flink to stream data from legacy on-premises cores to the cloud in real time.\"",
+    "\"On a practical level, this new data environment has delivered operational efficiency, streamlining key processes and reducing costs, enabling faster time to market for customer innovations.\""
+  ]
+}
