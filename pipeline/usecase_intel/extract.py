@@ -63,6 +63,11 @@ PROMPT_TEMPLATE = """You are an extraction agent. Follow the SKILL below exactly
 === PAGE TITLE ===
 {title}
 
+=== SOURCE METADATA ===
+Detected publication date: {published_date}
+Publication date source: {published_date_source}
+Retrieved at: {retrieved_at}
+
 === PAGE TEXT ===
 {body}
 
@@ -77,6 +82,9 @@ def build_prompt(
     source_url: str,
     title: str,
     body: str,
+    published_date: str = "unknown",
+    published_date_source: str = "unknown",
+    retrieved_at: str = "unknown",
     body_char_limit: int = 18000,
 ) -> str:
     if len(body) > body_char_limit:
@@ -86,6 +94,9 @@ def build_prompt(
         taxonomy=taxonomy_text.strip(),
         source_url=source_url,
         title=title or "(no title)",
+        published_date=published_date or "unknown",
+        published_date_source=published_date_source or "unknown",
+        retrieved_at=retrieved_at or "unknown",
         body=body,
     )
 
@@ -282,6 +293,16 @@ def extract_jobs(
             source_url=row["url"],
             title=title,
             body=body,
+            published_date=(decisions.get(row["url"]) or {}).get("published_date")
+            or url_to_lastmod.get(row["url"])
+            or "unknown",
+            published_date_source=(
+                "vendor metadata"
+                if (decisions.get(row["url"]) or {}).get("published_source") == "discovery"
+                else (decisions.get(row["url"]) or {}).get("published_source")
+                or ("sitemap" if url_to_lastmod.get(row["url"]) else "unknown")
+            ),
+            retrieved_at=str(row.get("fetched_at") or "unknown"),
         )
 
         job_path.write_text(
@@ -403,4 +424,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

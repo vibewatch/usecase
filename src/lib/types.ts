@@ -4,6 +4,26 @@ export interface SolutionComponent {
   layer?: string;
 }
 
+export interface ScoreCriterion {
+  criterion: string;
+  score: number;
+  max_score: number;
+  explanation: string;
+}
+
+export interface SourceReference {
+  id: string;
+  title: string;
+  publisher: string;
+  url: string;
+  source_type: string;
+  authority: string;
+  published_date: string;
+  published_date_source: string;
+  retrieved_at: string;
+  supports: string[];
+}
+
 export interface CaseStudyRecord {
   id: string;
   slug: string;
@@ -26,9 +46,15 @@ export interface CaseStudyRecord {
   architecture_clues: string[];
   source_url: string;
   published_date: string;
+  published_date_source?: string;
   confidence_score: number;
+  confidence_breakdown?: ScoreCriterion[];
   maturity_score: number;
+  value_score?: number;
+  value_breakdown?: ScoreCriterion[];
   evidence_quotes: string[];
+  source_references?: SourceReference[];
+  field_sources?: Record<string, string[]>;
   /** ISO 639-1 code when the source story is not in English (the record is translated). */
   source_language?: string;
   /** "company" when the story was published on the adopting company's own website. */

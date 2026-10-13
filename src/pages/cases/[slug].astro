@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { caseStudies } from "../../lib/caseStudies";
 import {
   formatDate,
+  formatDateTime,
   formatPercent,
   groupComponentsByLayer,
   hasSolutionComponents,
@@ -11,6 +12,9 @@ import {
   maturityLabel,
   relatedRecords,
   solutionComponents,
+  sourceReferences,
+  confidenceLabel,
+  valueLabel,
 } from "../../lib/analytics";
 import { href } from "../../lib/paths";
 import type { CaseStudyRecord } from "../../lib/types";
@@ -38,14 +42,40 @@ const dataFlow = record.data_flow?.trim() ?? "";
 const metrics = record.metrics.slice(0, 4);
 const related = relatedRecords(record, caseStudies, 3);
 const published = isParseableDate(record.published_date) ? formatDate(record.published_date) : "Not stated";
-const collected =
-  record.collected_week && record.collected_week !== "undated" ? `Week of ${weekLabel(record.collected_week)}` : "Reference set";
-const dots = [0, 1, 2, 3, 4, 5];
+const collected = record.collected_at ? formatDateTime(record.collected_at) : (
+  record.collected_week && record.collected_week !== "undated" ? `Week of ${weekLabel(record.collected_week)}` : "Not documented"
+);
 const sourceLanguage = record.source_language?.trim().toLowerCase();
 const translatedFrom =
   sourceLanguage && sourceLanguage !== "en"
     ? (new Intl.DisplayNames(["en"], { type: "language" }).of(sourceLanguage) ?? sourceLanguage)
     : "";
+const references = sourceReferences(record);
+const valueScore = record.value_score ?? 0;
+const valueBreakdown = record.value_breakdown ?? [];
+const confidenceBreakdown = record.confidence_breakdown ?? [];
+const fieldLabels: Record<string, string> = {
+  customer_name: "Customer",
+  industry: "Industry",
+  region: "Region",
+  company_size: "Company size",
+  business_problem: "Business problem",
+  solution_summary: "Solution",
+  products_used: "Products",
+  solution_components: "Solution components",
+  data_flow: "Data flow",
+  integration_points: "Integrations",
+  business_outcome: "Business outcome",
+  metrics: "Metrics",
+  architecture_clues: "Architecture",
+  published_date: "Publication date",
+};
+const profileFields = ["customer_name", "industry", "region", "company_size", "business_problem", "solution_summary", "business_outcome", "metrics"];
+const unsourcedFields = profileFields.filter((field) => !(record.field_sources?.[field]?.length));
+const dateSourceLabel = (value?: string) => {
+  if (!value || value === "unknown") return "Not documented";
+  return value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+};
 
 // Search index (Pagefind): filters, sort keys and the fields result cards need.
 const card = toCardRecord(record);
@@ -122,16 +152,15 @@ const searchMeta: Record<string, string> = {
         </div>
 
         <aside class="score-card" aria-label="Quality scores">
-          <span class="score-card__label">Solution maturity</span>
-          <strong class="score-card__value">{record.maturity_score}<span>/6</span></strong>
-          <span class="maturity maturity--lg" aria-hidden="true">
-            {dots.map((index) => <span class:list={["maturity__dot", { "is-on": index < record.maturity_score }]}></span>)}
-          </span>
-          <span class="score-card__pill">{maturityLabel(record.maturity_score)}</span>
+          <span class="score-card__label">Customer reference value</span>
+          <strong class="score-card__value">{valueScore}<span>/100</span></strong>
+          <span class="score-card__pill">{valueLabel(valueScore)}</span>
           <dl class="score-card__facts">
-            <div><dt>Confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
+            <div><dt>Evidence confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
+            <div><dt>Evidence stage</dt><dd>{record.maturity_score}/6 · {maturityLabel(record.maturity_score)}</dd></div>
             <div><dt>Published</dt><dd>{published}</dd></div>
-            <div><dt>Collected</dt><dd>{collected}</dd></div>
+            <div><dt>Date basis</dt><dd>{dateSourceLabel(record.published_date_source)}</dd></div>
+            <div><dt>Retrieved</dt><dd>{collected}</dd></div>
           </dl>
         </aside>
       </div>
@@ -159,6 +188,47 @@ const searchMeta: Record<string, string> = {
               <p>{dataFlow}</p>
             </>
           )}
+        </article>
+
+        <article class="panel">
+          <header class="panel__head">
+            <div>
+              <h2>Score rubric</h2>
+              <p class="panel__intro">Value measures how useful this story is as a customer reference. Confidence measures the quality and traceability of the available evidence—not whether the claimed outcome was independently audited.</p>
+            </div>
+          </header>
+          <div class="rubric-grid">
+            <section class="rubric">
+              <div class="rubric__head">
+                <div><span>Customer reference value</span><strong>{valueScore}/100</strong></div>
+                <span class="tag tag--accent">{valueLabel(valueScore)}</span>
+              </div>
+              <ul class="rubric__criteria">
+                {valueBreakdown.map((item) => (
+                  <li>
+                    <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
+                    <span class="rubric__track"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
+                    <small>{item.explanation}</small>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section class="rubric">
+              <div class="rubric__head">
+                <div><span>Evidence confidence</span><strong>{formatPercent(record.confidence_score)}</strong></div>
+                <span class="tag">{confidenceLabel(record.confidence_score)}</span>
+              </div>
+              <ul class="rubric__criteria">
+                {confidenceBreakdown.map((item) => (
+                  <li>
+                    <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
+                    <span class="rubric__track rubric__track--confidence"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
+                    <small>{item.explanation}</small>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
         </article>
 
         <article class="panel">
@@ -210,6 +280,48 @@ const searchMeta: Record<string, string> = {
             </div>
           </article>
         )}
+
+        <article class="panel" id="sources">
+          <header class="panel__head">
+            <div>
+              <h2>Sources &amp; provenance</h2>
+              <p class="panel__intro">Every consulted source should appear here. Field coverage shows which facts each source supports; retrieval time is separate from the story's publication date.</p>
+            </div>
+            <span class="panel__meta">{references.length} {references.length === 1 ? "source" : "sources"}</span>
+          </header>
+          <ol class="source-list">
+            {references.map((reference) => (
+              <li class="source-card">
+                <div class="source-card__head">
+                  <div>
+                    <span class="source-card__publisher">{reference.publisher}</span>
+                    <h3>{reference.title}</h3>
+                  </div>
+                  <span class="tag">{reference.authority}</span>
+                </div>
+                <a class="source-card__url" href={reference.url} target="_blank" rel="noreferrer">{reference.url}</a>
+                <dl class="source-card__meta">
+                  <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
+                  <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
+                  <div><dt>Date basis</dt><dd>{dateSourceLabel(reference.published_date_source)}</dd></div>
+                  <div><dt>Retrieved</dt><dd>{formatDateTime(reference.retrieved_at)}</dd></div>
+                </dl>
+                <div class="source-card__supports">
+                  <span>Supports</span>
+                  <ul class="tag-cloud">
+                    {reference.supports.map((field) => <li class="tag">{fieldLabels[field] ?? field.replaceAll("_", " ")}</li>)}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ol>
+          {unsourcedFields.length > 0 && (
+            <div class="provenance-warning">
+              <strong>Not separately sourced</strong>
+              <span>{unsourcedFields.map((field) => fieldLabels[field] ?? field).join(", ")}. Treat these normalized attributes as lower-confidence until a dedicated source is added.</span>
+            </div>
+          )}
+        </article>
       </div>
 
       <aside class="detail-side">

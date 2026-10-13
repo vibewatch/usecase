@@ -13,21 +13,31 @@ the dashboard reads.
 For the full system design (data flow, component responsibilities, schemas,
 extension recipes, and known design debt) see [ARCHITECTURE.md](ARCHITECTURE.md).
 
-## Current dataset
+## Evidence, provenance, and scoring
 
-66 records · 58 extracted from live vendor pages · 8 synthetic seeds.
+Every generated record contains a source ledger (`source_references`) and a
+field-to-source map (`field_sources`). Each source records its publisher, URL,
+authority, source type, publication date and provenance, retrieval timestamp,
+and the fields it supports. The use-case page exposes this ledger directly;
+normalized attributes without a separately documented source are called out.
 
-| Vendor        | Records |
-| ------------- | ------- |
-| Alibaba Cloud | 15      |
-| Databricks    | 15      |
-| Oracle        | 13      |
-| Microsoft     | 10      |
-| Google Cloud  | 9       |
-| AWS           | 4       |
-| Seed samples  | 8       |
+Scores are rebuilt deterministically on every `data:seed`:
 
-Average confidence ≈ 0.97, average maturity ≈ 5.9 / 6.
+- **Evidence confidence (0–100%)**: source authority (25), claim traceability
+  (25), direct evidence (20), publication-date provenance (10), independent
+  corroboration (10), and implementation specificity (10).
+- **Customer reference value (0–100)**: problem clarity (20), implementation
+  depth (25), outcome specificity (20), quantified impact (25), and deployment
+  scale (10).
+- **Evidence stage (0–6)**: a compact card/sort signal based on problem,
+  products, architecture, outcome, quantified impact, and corroboration.
+
+These scores describe the evidence available in the cited sources. They are
+not independent verification of vendor claims and do not predict guaranteed
+ROI.
+
+The deployed site also publishes the complete normalized dataset at
+`/data.json` and the latest collected stories as RSS at `/feed.xml`.
 
 ## Solution depth
 

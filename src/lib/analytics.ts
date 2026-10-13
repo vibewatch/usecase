@@ -1,4 +1,4 @@
-import type { CaseStudyRecord, CountItem, MatrixRow, SolutionComponent } from './types';
+import type { CaseStudyRecord, CountItem, MatrixRow, SolutionComponent, SourceReference } from './types';
 
 export function uniqueSorted(values: string[]): string[] {
   return Array.from(new Set(values)).sort((left, right) => left.localeCompare(right));
@@ -37,9 +37,22 @@ export function averageConfidence(records: CaseStudyRecord[]): number {
 }
 
 export function maturityLabel(score: number): string {
-  if (score >= 5) return 'Strong reference';
-  if (score >= 3) return 'Useful but limited';
-  return 'Marketing-level';
+  if (score >= 5) return 'Deployment evidenced';
+  if (score >= 3) return 'Implementation described';
+  return 'Limited evidence';
+}
+
+export function valueLabel(score: number): string {
+  if (score >= 80) return "High-value reference";
+  if (score >= 60) return "Strong reference";
+  if (score >= 40) return "Useful but limited";
+  return "Limited customer evidence";
+}
+
+export function confidenceLabel(score: number): string {
+  if (score >= 0.8) return "High evidence confidence";
+  if (score >= 0.6) return "Moderate evidence confidence";
+  return "Low evidence confidence";
 }
 
 export function maturityDistribution(records: CaseStudyRecord[]): CountItem[] {
@@ -91,6 +104,18 @@ export function formatDate(value: string): string {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(
     new Date(value),
   );
+}
+
+export function formatDateTime(value: string): string {
+  if (!isParseableDate(value)) return value && value !== "unknown" ? value : "Not documented";
+  return new Intl.DateTimeFormat("en", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZoneName: "short",
+  }).format(new Date(value));
 }
 
 const UNCATEGORIZED_LAYER = "Uncategorized";
@@ -181,4 +206,8 @@ export function headlineMetric(record: CaseStudyRecord): string {
 
 export function integrationPointCounts(records: CaseStudyRecord[]): CountItem[] {
   return countValues(records.flatMap((record) => record.integration_points ?? []));
+}
+
+export function sourceReferences(record: CaseStudyRecord): SourceReference[] {
+  return record.source_references ?? [];
 }

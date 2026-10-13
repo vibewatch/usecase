@@ -15,7 +15,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from .settings import MERGED_CASE_STUDIES_PATH, RECORDS_ROOT
+from .settings import MERGED_CASE_STUDIES_PATH, RECORDS_ROOT, TRIAGE_PATH
+from .utils import load_jsonl
 
 
 def _load_record(path: Path) -> dict[str, Any]:
@@ -49,6 +50,28 @@ def _richness(record: dict[str, Any]) -> int:
 def _story_key(record: dict[str, Any]) -> str:
     return str(record.get("source_url") or "").strip().rstrip("/").lower()
 
+def _date_provenance(path: Path | None) -> dict[str, tuple[str, str]]:
+    if path is None:
+        return {}
+    latest: dict[str, dict[str, Any]] = {}
+    for row in load_jsonl(path):
+        url = row.get("url")
+        if isinstance(url, str) and url:
+            latest[url.strip().rstrip("/").lower()] = row
+
+    provenance: dict[str, tuple[str, str]] = {}
+    source_labels = {
+        "page": "page",
+        "discovery": "vendor metadata",
+        "wayback_first_capture": "wayback_first_capture",
+    }
+    for url, row in latest.items():
+        published_date = row.get("published_date")
+        source = source_labels.get(str(row.get("published_source") or ""))
+        if isinstance(published_date, str) and published_date and source:
+            provenance[url] = (published_date, source)
+    return provenance
+
 
 def merge_records(
     *,
@@ -56,11 +79,13 @@ def merge_records(
     output_path: Path,
     include_samples: Path | None = None,
     prune_duplicates: bool = False,
+    triage_path: Path | None = None,
 ) -> dict[str, int]:
     records_by_id: dict[str, dict[str, Any]] = {}
     sample_count = 0
     record_count = 0
     pruned = 0
+    date_provenance = _date_provenance(triage_path)
 
     if include_samples and include_samples.exists():
         for sample in _load_array(include_samples):
@@ -81,6 +106,13 @@ def merge_records(
             if not record.get("id"):
                 print(f"  skip {path}: record missing 'id'", file=sys.stderr)
                 continue
+            date_evidence = date_provenance.get(_story_key(record))
+            if (
+                date_evidence
+                and record.get("published_date") == date_evidence[0]
+                and not record.get("published_date_source")
+            ):
+                record["published_date_source"] = date_evidence[1]
             loaded.append((path, record))
 
         # One record per story: parallel runs can extract the same page twice under
@@ -148,6 +180,7 @@ def main() -> None:
         output_path=args.output,
         include_samples=args.include_samples,
         prune_duplicates=args.prune_duplicates,
+        triage_path=TRIAGE_PATH,
     )
     print(
         f"Merged samples={counts['samples']} extracted={counts['extracted']} "

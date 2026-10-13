@@ -53,9 +53,9 @@ const explore = (param: string, value: string) => href(`/explore/?${param}=${enc
 
 const methodSteps = [
   { title: "Track", text: "New customer stories are picked up from leading cloud and AI vendors every day, newest first." },
-  { title: "Read", text: "Each story is read end to end — architecture details, measurable results and customer quotes included." },
-  { title: "Structure", text: "Every story becomes a consistent profile: business problem, solution architecture, products, outcomes and evidence." },
-  { title: "Compare", text: "Profiles are scored for maturity and grouped by week, so you can compare deployments across vendors and industries." },
+  { title: "Trace", text: "Claims are linked to named sources, publication dates and retrieval timestamps so provenance stays visible." },
+  { title: "Score", text: "Evidence confidence and customer reference value are scored separately with a visible, deterministic rubric." },
+  { title: "Compare", text: "Use consistent problems, architectures, products and outcomes to find repeatable patterns—not just polished stories." },
 ];
 ---
 
@@ -68,11 +68,12 @@ const methodSteps = [
         <div class="hero__copy">
           <span class="pill pill--live"><span class="pill__dot" aria-hidden="true"></span>Live · refreshed daily from {vendors.length} vendors</span>
           <h1 class="hero__title">
-            Real-world AI use cases, <span class="text-gradient">decoded.</span>
+            Find AI deployments <span class="text-gradient">worth learning from.</span>
           </h1>
           <p class="hero__lead">
-            Customer stories from {leadVendors.join(", ")} and more — collected every day and normalized
-            into problems, architectures, products and measurable outcomes you can compare side by side.
+            For strategy, product, architecture and go-to-market teams: turn scattered customer stories from
+            {` ${leadVendors.join(", ")}`} and more into comparable evidence about the problem solved, what was built,
+            and whether the reported value is credible.
           </p>
 
           <form class="hero-search" action={href("/explore/")} method="get" role="search">
@@ -83,10 +84,15 @@ const methodSteps = [
           </form>
 
           <div class="hero__quick">
-            <span>Popular:</span>
+            <span>Start with:</span>
             {quickUseCases.map((entry) => (
               <a class="chip chip--glass" href={facetHref("use-cases", entry.label)}>{entry.label}</a>
             ))}
+          </div>
+          <div class="hero__data-links">
+            <span>Open data</span>
+            <a href={href("/data.json")}>Download JSON</a>
+            <a href={href("/feed.xml")}>Follow the RSS feed</a>
           </div>
         </div>
 
@@ -163,6 +169,41 @@ const methodSteps = [
       </div>
     </section>
 
+    <section class="section decision-section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">The decision problem</p>
+            <h2 class="section__title">From marketing claims to usable customer evidence</h2>
+          </div>
+          <p class="section__subtitle">
+            Use the library to shortlist relevant deployments, inspect the architecture and outcome, then validate every important fact against its source before applying the pattern to your customer.
+          </p>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-card">
+            <span class="decision-card__index">01</span>
+            <h3>Who it is for</h3>
+            <p>AI strategy, product, architecture, sales and research teams evaluating what has actually been deployed for customers like theirs.</p>
+          </article>
+          <article class="decision-card">
+            <span class="decision-card__index">02</span>
+            <h3>How to use it</h3>
+            <p>Filter by industry or use case, compare customer reference value, inspect the confidence breakdown, and open the cited sources before making a recommendation.</p>
+          </article>
+          <article class="decision-card decision-card--data">
+            <span class="decision-card__index">03</span>
+            <h3>How to take it with you</h3>
+            <p>The normalized dataset is exportable as JSON. Subscribe to RSS for newly collected stories; the catalog refreshes daily and retains retrieval timestamps.</p>
+            <div class="decision-card__actions">
+              <a class="btn btn--secondary btn--small" href={href("/data.json")}>Download JSON</a>
+              <a class="btn btn--secondary btn--small" href={href("/feed.xml")}>Subscribe via RSS</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="latest">
       <div class="container">
         <div class="section__head">
@@ -228,10 +269,10 @@ const methodSteps = [
         <div class="section__head">
           <div>
             <p class="eyebrow">Methodology</p>
-            <h2 class="section__title">From customer story to comparable insight</h2>
+            <h2 class="section__title">Transparent by design</h2>
           </div>
           <p class="section__subtitle">
-            The library refreshes every day. Each new story is turned into a structured profile, so you can see what was built, with which products, and what it delivered.
+            Scores expose the strength of the available evidence, not certainty or guaranteed ROI. Single-source vendor stories can be useful references, but they cannot receive perfect confidence without traceable, corroborating evidence.
           </p>
         </div>
         <ol class="steps">
@@ -245,8 +286,8 @@ const methodSteps = [
         </ol>
         <div class="cta">
           <div>
-            <h2 class="cta__title">Find proven patterns for your next project.</h2>
-            <p class="cta__text">Search by vendor, industry, use case or product, and go straight to the architecture and outcomes behind each deployment.</p>
+            <h2 class="cta__title">Find the strongest reference for your customer.</h2>
+            <p class="cta__text">Search by vendor, industry, use case or product, then compare value, evidence confidence, architecture and source provenance side by side.</p>
           </div>
           <div class="cta__actions">
             <a class="btn btn--primary" href={href("/explore/")}>Explore use cases</a>

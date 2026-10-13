@@ -157,21 +157,23 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | [`fetch.py`](pipeline/usecase_intel/fetch.py) | For each unfetched URL in `discovered_urls.jsonl`, fetch and write `raw_content/{vendor}/{sha256}.*` plus a `fetch_manifest.jsonl` line | Skip if URL already in manifest with `status == 200` unless `--refresh`; records `retrieval_source` and `profile` for diagnostics |
 | [`clean.py`](pipeline/usecase_intel/clean.py) | `content_to_text(bytes) → (title, body, method)`. Uses BeautifulSoup for HTML main-content cleanup, pypdf for PDFs, and stdlib fallbacks for malformed HTML/plain text | One Python text extraction path for origin HTML, reader text, archived HTML, and PDFs |
 | [`media.py`](pipeline/usecase_intel/media.py) | `extract_related_images(bytes) → related_images[]` and `materialize_related_images(...)`. Discovers article `img`/`picture`/`source`, low-confidence CSS background images, inline SVG, and metadata images; scores visible context plus decoded URL/file-name hints, filters low-value candidates, and requires useful hints for non-diagram images before attempting a bounded local asset plan | Agents can inspect local `local_path` images instead of reparsing HTML or fetching remote assets by hand; failed downloads remain annotated with `asset_error` and do not consume the asset budget |
-| [`extract.py`](pipeline/usecase_intel/extract.py) | Read manifest, run `clean` + `media`, assemble prompt bundle `{vendor, source_url, sha256, title, raw_path, content_type, retrieval_source, profile, extraction_method, related_images, prompt, created_at}` | Each bundle is self-sufficient: inlines SKILL.md + taxonomy.json + cleaned text and carries local article visual assets for diagram extraction |
+| [`extract.py`](pipeline/usecase_intel/extract.py) | Read manifest, run `clean` + `media`, assemble prompt bundle `{vendor, source_url, sha256, title, raw_path, content_type, retrieval_source, profile, extraction_method, related_images, prompt, created_at}` | Each bundle is self-sufficient: inlines SKILL.md + taxonomy.json + cleaned text, date provenance, retrieval time, and local article visual assets |
 | [`probe.py`](pipeline/usecase_intel/probe.py) | Probe origin profiles, reader, and wayback for hard URLs; optionally update the host strategy map | Uses the same public fetch attempt API as `FetchClient` |
-| [`models.py`](pipeline/usecase_intel/models.py) | `load_records(path) → list[dict]` with `normalize_record` validation | Required string fields must be non-empty strings; required list fields must be lists of strings |
-| [`scoring.py`](pipeline/usecase_intel/scoring.py) | `compute_maturity_score(record) → 0–6`, `compute_confidence_score(record) → 0–1` | Pure functions of field presence; deterministic |
+| [`models.py`](pipeline/usecase_intel/models.py) | `load_records(path) → list[dict]` with `normalize_record` validation | Validates record shape plus source references and field-to-source ids; legacy records receive a conservative primary-story reference |
+| [`scoring.py`](pipeline/usecase_intel/scoring.py) | Deterministic evidence-confidence, customer-reference-value, and evidence-stage rubrics with criterion-level breakdowns | Confidence measures source/evidence quality, not field completeness; value and confidence stay separate |
 | [`storage.py`](pipeline/usecase_intel/storage.py) | `initialize_database`, `upsert_records`. Schema: `case_studies` (1 row per record) + `case_study_values` (KV table for multi-value fields keyed by `kind`) | All multi-value fields have a single `MULTI_VALUE_FIELDS` mapping; `raw_json` stores the canonical record |
-| [`merge_records.py`](pipeline/usecase_intel/merge_records.py) | Walk `data/records/**/*.json`, optionally fold in samples, dedupe by `id`, write a single array | Real records override sample placeholders on `id` collision |
-| [`seed.py`](pipeline/usecase_intel/seed.py) | `enrich_scores` + `upsert_records` | Computes scores if missing; never overwrites a score the author set |
+| [`merge_records.py`](pipeline/usecase_intel/merge_records.py) | Walk `data/records/**/*.json`, optionally fold in samples, dedupe by `id`, attach matching date provenance from triage, write a single array | Date provenance is attached only when the ledger date exactly matches the authored date |
+| [`seed.py`](pipeline/usecase_intel/seed.py) | `enrich_scores` + `upsert_records` | Recomputes every score and breakdown on every build so stale authored scores cannot survive |
 | [`export.py`](pipeline/usecase_intel/export.py) | Round-trip records out of SQLite, reattaching multi-value lists via the KV table | Order is `vendor, customer_name` for deterministic diffs |
 
 ### Astro dashboard (`src/`)
 
 | File | Responsibility |
 | ---- | -------------- |
-| [`src/pages/index.astro`](src/pages/index.astro) | Dashboard: hero stats, top-use-cases / top-products bars, outcomes chip cloud, maturity stack, vendor × use-case + industry × use-case matrices, filterable record table |
-| [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Per-record detail. `getStaticPaths` generates one route per record |
+| [`src/pages/index.astro`](src/pages/index.astro) | Product positioning, audience/workflow guidance, latest records, market insights, methodology, and JSON/RSS access |
+| [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Per-record detail with solution architecture, score breakdowns, evidence, field-level source ledger, and related records |
+| [`src/pages/data.json.ts`](src/pages/data.json.ts) | Static downloadable export of the complete normalized dataset |
+| [`src/pages/feed.xml.ts`](src/pages/feed.xml.ts) | RSS feed ordered by collection time for update notifications |
 | [`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro) | Site chrome. Banner is dynamic: real vs sample counts come from `caseStudies` so the UI never lies |
 | [`src/lib/caseStudies.ts`](src/lib/caseStudies.ts) | The single import point for the dataset (`data/case-studies.generated.json`). If you want to read records anywhere in `src/`, import from here |
 | [`src/lib/analytics.ts`](src/lib/analytics.ts) | Pure aggregation helpers: `uniqueSorted`, `flattenValues`, `countValues`, `topValues`, `buildMatrix`, `averageConfidence`, `maturityDistribution`, `formatPercent`, `formatDate` (defensive — unparseable dates fall through to the raw string), `isParseableDate` |
@@ -203,6 +205,19 @@ interface SolutionComponent {
   layer?: string;              // taxonomy.component_layers value
 }
 
+interface SourceReference {
+  id: string;
+  title: string;
+  publisher: string;
+  url: string;
+  source_type: string;
+  authority: string;
+  published_date: string;
+  published_date_source: string;
+  retrieved_at: string;
+  supports: string[];
+}
+
 interface CaseStudyRecord {
   id: string;                    // stable; record path of truth
   slug: string;                  // URL slug; must be unique
@@ -225,8 +240,14 @@ interface CaseStudyRecord {
   architecture_clues: string[];  // free-form bag for short technical notes
   source_url: string;
   published_date: string;        // ISO date or "unknown"
-  confidence_score: number;      // 0–1
-  maturity_score: number;        // 0–6
+  published_date_source?: string;
+  source_references?: SourceReference[];
+  field_sources?: Record<string, string[]>;
+  confidence_score: number;      // 0–1 evidence quality
+  confidence_breakdown?: ScoreCriterion[];
+  maturity_score: number;        // 0–6 compact evidence stage
+  value_score?: number;          // 0–100 customer reference value
+  value_breakdown?: ScoreCriterion[];
   evidence_quotes: string[];     // verbatim spans backing the extraction
   is_sample?: boolean;           // true for synthetic seeds
 }
@@ -236,6 +257,9 @@ The optional fields (`solution_components`, `data_flow`, `integration_points`)
 give solution depth without breaking older records: the dashboard falls back
 to the flat `products_used` chip list when `solution_components` is absent,
 and simply hides the data-flow / integration sections when empty.
+`normalize_record` also supplies a conservative primary-story source reference
+for legacy records while deliberately leaving company size, region, and
+industry without separate attribution.
 
 ### `data/sources.json` (vendor source config)
 
@@ -345,11 +369,10 @@ Things the current implementation does **not** do, knowingly:
 - **`extract.py` truncates at 18000 chars.** Long pages may lose the
   metrics / architecture paragraphs near the end. Switching to a
   "head + tail" or "paragraph-aware" trim is queued.
-- **`maturity_score` ceiling is hard-coded in three places** (`scoring.py`,
-  `[slug].astro`, `maturityLabel()`). Hoist to a shared constant once.
-- **No automated tests.** The dataset itself is the regression suite for
-  now — `npm run build` will fail if `formatDate` or `getStaticPaths` chokes
-  on a malformed record. Real tests come when behaviour stabilises.
+- **Legacy records usually have one source.** The UI exposes missing
+  corroboration and separately unsourced profile attributes; adding additional
+  customer or independent sources remains an enrichment task rather than an
+  inferred default.
 
 These are intentional gaps, not unknowns. See the matching section in
 [README.md](README.md) for the user-visible status.

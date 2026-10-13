@@ -30,6 +30,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}
     {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="alternate" type="application/rss+xml" title="Use Case Intelligence — latest use cases" href={href("/feed.xml")} />
     <link rel="icon" type="image/svg+xml" href={`${href("/favicon.svg")}?v=2`} />
     <title>{title}</title>
     {import.meta.env.PROD && (
@@ -104,6 +105,8 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
             <li><a href={href("/browse/")}>All use cases</a></li>
             <li><a href={href("/insights/")}>Market insights</a></li>
             <li><a href={href("/#method")}>Methodology</a></li>
+            <li><a href={href("/data.json")}>Download JSON</a></li>
+            <li><a href={href("/feed.xml")}>RSS updates</a></li>
           </ul>
         </div>
         <div class="site-footer__col">

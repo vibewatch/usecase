@@ -124,6 +124,13 @@ def partition(
         week = iso_week(moment) if moment else UNDATED
         record["collected_at"] = collected_at
         record["collected_week"] = week
+        for reference in record.get("source_references") or []:
+            if (
+                isinstance(reference, dict)
+                and _url_key(str(reference.get("url", ""))) == _url_key(str(record.get("source_url", "")))
+                and reference.get("retrieved_at") in (None, "", "unknown")
+            ):
+                reference["retrieved_at"] = collected_at or "unknown"
         weeks.setdefault(week, []).append(record)
 
     return weeks

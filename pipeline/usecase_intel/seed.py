@@ -5,21 +5,13 @@ import sqlite3
 from pathlib import Path
 
 from .models import load_records
-from .scoring import compute_confidence_score, compute_maturity_score
+from .scoring import score_record
 from .settings import MERGED_CASE_STUDIES_PATH, SQLITE_PATH
 from .storage import initialize_database, upsert_records
 
 
 def enrich_scores(records: list[dict]) -> list[dict]:
-    enriched = []
-    for record in records:
-        next_record = dict(record)
-        if not next_record.get("maturity_score"):
-            next_record["maturity_score"] = compute_maturity_score(next_record)
-        if not next_record.get("confidence_score"):
-            next_record["confidence_score"] = compute_confidence_score(next_record)
-        enriched.append(next_record)
-    return enriched
+    return [score_record(record) for record in records]
 
 
 def main() -> None:
