@@ -98,7 +98,7 @@ const searchMeta: Record<string, string> = {
   title={`${record.customer_name} × ${record.vendor} — ${record.use_case_category[0] ?? "Use case"} | Use Case Intelligence`}
   description={record.business_problem.slice(0, 160)}
 >
-  <main data-pagefind-body>
+  <main class="case-detail" data-pagefind-body>
     <div hidden data-pagefind-ignore="index">
       {searchFilters.map(([name, values]) => values.map((value) => <span data-pagefind-filter={name}>{value}</span>))}
       {Object.entries(searchMeta).map(([name, value]) => <span data-pagefind-meta={name}>{value}</span>)}
@@ -141,16 +141,6 @@ const searchMeta: Record<string, string> = {
             <a class="btn btn--glass" href={href("/explore/")}>Explore all use cases</a>
           </div>
         </div>
-
-        <aside class="outcome-card" aria-labelledby="outcome-title">
-          <span>Reported business outcome</span>
-          <h2 id="outcome-title">{record.business_outcome}</h2>
-          {record.outcome_category.length > 0 && (
-            <ul>
-              {record.outcome_category.map((outcome) => <li>{outcome}</li>)}
-            </ul>
-          )}
-        </aside>
       </div>
     </section>
 
@@ -167,65 +157,82 @@ const searchMeta: Record<string, string> = {
 
     <div class="container detail-layout">
       <div class="detail-main">
-        <article class="panel prose-panel">
-          <h2>Solution</h2>
-          <p>{record.solution_summary}</p>
-          {dataFlow && (
-            <>
-              <h3>Data flow</h3>
-              <p>{dataFlow}</p>
-            </>
-          )}
-        </article>
-
-        <article class="panel">
-          <header class="panel__head">
-            <h2>Solution architecture</h2>
-            <span class="panel__meta">
-              {hasSolutionComponents(record)
-                ? `${components.length} components · ${componentsByLayer.length} ${componentsByLayer.length === 1 ? "layer" : "layers"}`
-                : `${record.products_used.length} products mentioned`}
-            </span>
-          </header>
-          {hasSolutionComponents(record) ? (
-            <ol class="arch-stack">
-              {componentsByLayer.map(({ layer, items }) => (
-                <li class="arch-layer">
-                  <span class="arch-layer__label">{layer}</span>
-                  <ul class="arch-layer__items">
-                    {items.map((item) => (
-                      <li class="arch-component">
-                        <strong>{item.name}</strong>
-                        <span>{item.role}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <ul class="tag-cloud">
-              {record.products_used.map((product) => <li class="tag tag--lg">{product}</li>)}
-            </ul>
-          )}
-        </article>
-
-        {record.architecture_clues.length > 0 && (
-          <article class="panel">
-            <header class="panel__head"><h2>Architecture clues</h2></header>
-            <ul class="check-list">
-              {record.architecture_clues.map((clue) => <li>{clue}</li>)}
-            </ul>
+        <section class="case-group" aria-label="Use case summary">
+          <article class="case-block outcome-panel">
+            <p class="eyebrow">Reported impact</p>
+            <h2>Business outcome</h2>
+            <p>{record.business_outcome}</p>
+            {record.outcome_category.length > 0 && (
+              <ul class="tag-cloud">
+                {record.outcome_category.map((outcome) => <li class="tag tag--accent">{outcome}</li>)}
+              </ul>
+            )}
           </article>
-        )}
+
+          <article class="case-block prose-panel">
+            <h2>Solution</h2>
+            <p>{record.solution_summary}</p>
+            {dataFlow && (
+              <>
+                <h3>Data flow</h3>
+                <p>{dataFlow}</p>
+              </>
+            )}
+          </article>
+        </section>
+
+        <section class="case-group" aria-label="Technical implementation">
+          <article class="case-block">
+            <header class="panel__head">
+              <h2>Solution architecture</h2>
+              <span class="panel__meta">
+                {hasSolutionComponents(record)
+                  ? `${components.length} components · ${componentsByLayer.length} ${componentsByLayer.length === 1 ? "layer" : "layers"}`
+                  : `${record.products_used.length} products mentioned`}
+              </span>
+            </header>
+            {hasSolutionComponents(record) ? (
+              <ol class="arch-stack">
+                {componentsByLayer.map(({ layer, items }) => (
+                  <li class="arch-layer">
+                    <span class="arch-layer__label">{layer}</span>
+                    <ul class="arch-layer__items">
+                      {items.map((item) => (
+                        <li class="arch-component">
+                          <strong>{item.name}</strong>
+                          <span>{item.role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <ul class="tag-cloud">
+                {record.products_used.map((product) => <li class="tag tag--lg">{product}</li>)}
+              </ul>
+            )}
+          </article>
+
+          {record.architecture_clues.length > 0 && (
+            <article class="case-block">
+              <header class="panel__head"><h2>Architecture clues</h2></header>
+              <ul class="check-list">
+                {record.architecture_clues.map((clue) => <li>{clue}</li>)}
+              </ul>
+            </article>
+          )}
+        </section>
 
         {record.evidence_quotes.length > 0 && (
-          <article class="panel">
-            <header class="panel__head"><h2>Evidence from the source</h2></header>
-            <div class="quotes">
-              {record.evidence_quotes.map((quote) => <blockquote class="quote">{quote}</blockquote>)}
-            </div>
-          </article>
+          <section class="case-group" aria-labelledby="source-evidence-title">
+            <article class="case-block">
+              <header class="panel__head"><h2 id="source-evidence-title">Evidence from the source</h2></header>
+              <div class="quotes">
+                {record.evidence_quotes.map((quote) => <blockquote class="quote">{quote}</blockquote>)}
+              </div>
+            </article>
+          </section>
         )}
 
       </div>
