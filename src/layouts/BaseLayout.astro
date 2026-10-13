@@ -32,6 +32,18 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     {canonical && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/svg+xml" href={`${href("/favicon.svg")}?v=2`} />
     <title>{title}</title>
+    {import.meta.env.PROD && (
+      <>
+        {/* Google Analytics (GA4). Production builds only, so local previews send no hits. */}
+        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0QQZ5LMYSD"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag("js", new Date());
+          gtag("config", "G-0QQZ5LMYSD");
+        </script>
+      </>
+    )}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
