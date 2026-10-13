@@ -142,6 +142,9 @@ jobs:
           stage bundle || true
           stage author --limit "$LIMIT" --model "$MODEL" --workers 6 || true
           stage status || true
+          # Surface the aggregate pending counts as a run annotation (visible without opening logs).
+          pending=$(grep -E '^status:' /tmp/newsroom-logs/status.log | tail -1 | sed 's/^status: //')
+          [ -n "$pending" ] && echo "::notice title=Newsroom pending::$pending"
 
       - name: Rebuild and validate site data
         run: |
