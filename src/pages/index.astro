@@ -29,6 +29,12 @@ const industries = uniqueSorted(caseStudies.map((record) => record.industry));
 const vendorCounts = countValues(signal.map((record) => record.vendor));
 const industryCounts = countValues(signal.map((record) => record.industry));
 const topUseCases = topValues(flattenValues(signal, (record) => record.use_case_category), 8);
+// Company-newsroom stories add many one-story vendors: the strip shows the established
+// ones (and In-house) and links the long tail to the vendor hub.
+const STRIP_MIN = 5;
+const stripVendors = vendorCounts.filter((entry) => entry.count >= STRIP_MIN);
+const tailVendors = vendorCounts.length - stripVendors.length;
+const leadVendors = vendorCounts.filter((entry) => entry.label !== "In-house").slice(0, 5).map((entry) => entry.label);
 
 // Weekly collection batches (data/weekly), used for the KPIs.
 const groups = groupByWeek(caseStudies);
@@ -65,7 +71,7 @@ const methodSteps = [
             Real-world AI use cases, <span class="text-gradient">decoded.</span>
           </h1>
           <p class="hero__lead">
-            Customer stories from {vendors.slice(0, 5).join(", ")} and more — collected every day and normalized
+            Customer stories from {leadVendors.join(", ")} and more — collected every day and normalized
             into problems, architectures, products and measurable outcomes you can compare side by side.
           </p>
 
@@ -134,7 +140,7 @@ const methodSteps = [
         </dl>
 
         <ul class="vendor-strip" aria-label="Stories per vendor">
-          {vendorCounts.map((entry) => {
+          {stripVendors.map((entry) => {
             const style = vendorStyle(entry.label);
             return (
               <li>
@@ -146,6 +152,13 @@ const methodSteps = [
               </li>
             );
           })}
+          {tailVendors > 0 && (
+            <li>
+              <a class="vendor-strip__item vendor-strip__item--more" href={href("/vendors/")}>
+                <span>+{tailVendors} more vendors</span>
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </section>

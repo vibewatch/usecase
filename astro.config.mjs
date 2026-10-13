@@ -10,8 +10,10 @@ export default defineConfig({
   // Neutral, hash-only asset names (no framework or component names in URLs).
   vite: {
     build: {
-      // Inline page scripts into the HTML (no separately named script files).
-      assetsInlineLimit: 100 * 1024,
+      // Inline page scripts into the HTML (no separately named script files) — but
+      // never fonts: inlined, every unicode-range subset would load on every page.
+      assetsInlineLimit: (filePath, content) =>
+        /\.(woff2?|ttf|otf)$/.test(filePath) ? false : content.length < 100 * 1024,
       rollupOptions: {
         output: {
           entryFileNames: 'assets/[hash].js',

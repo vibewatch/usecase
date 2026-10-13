@@ -1,4 +1,7 @@
 ---
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/instrument-sans";
+import "@fontsource-variable/jetbrains-mono";
 import "../styles/global.css";
 import { href } from "../lib/paths";
 
@@ -21,15 +24,13 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#060816" />
+    <meta name="theme-color" content="#1a1714" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}
     {canonical && <link rel="canonical" href={canonical} />}
-    <link rel="icon" type="image/svg+xml" href={href("/favicon.svg")} />
-    <link rel="preconnect" href="https://rsms.me/" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/svg+xml" href={`${href("/favicon.svg")}?v=2`} />
     <title>{title}</title>
   </head>
   <body>
@@ -38,7 +39,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     <header class="site-header" data-site-header>
       <div class="container site-nav">
         <a class="brand" href={href("/")}>
-          <img class="brand__mark" src={href("/favicon.svg")} alt="" width="32" height="32" />
+          <img class="brand__mark" src={`${href("/favicon.svg")}?v=2`} alt="" width="32" height="32" />
           <span class="brand__name">Use Case <strong>Intelligence</strong></span>
         </a>
         <nav aria-label="Primary">
@@ -61,7 +62,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
       <div class="container site-footer__grid">
         <div class="site-footer__brand">
           <a class="brand" href={href("/")}>
-            <img class="brand__mark" src={href("/favicon.svg")} alt="" width="32" height="32" />
+            <img class="brand__mark" src={`${href("/favicon.svg")}?v=2`} alt="" width="32" height="32" />
             <span class="brand__name">Use Case <strong>Intelligence</strong></span>
           </a>
           <p>Vendor customer stories, collected daily and normalized into a comparable market signal.</p>

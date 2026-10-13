@@ -11,8 +11,9 @@ type Props = {
   columnValues: (record: CaseStudyRecord) => string[];
 };
 
-// Sequential single-hue ramp (light -> dark = few -> many); counts are direct-labeled.
-const HEAT_RAMP = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95"];
+// Sequential single-hue teal ramp (light -> dark = few -> many), validated with the
+// dataviz ordinal checks against the paper surface; counts are direct-labeled.
+const HEAT_RAMP = ["#72bdb0", "#47a596", "#1f8b7b", "#0f7364", "#095a4f", "#06413a"];
 const { records, rowLabel, rows, columns, rowValues, columnValues } = Astro.props;
 const matrix = buildMatrix(records, rows, columns, rowValues, columnValues).filter((row) => row.total > 0);
 const max = matrix.reduce((highest, row) => Math.max(highest, ...row.cells.map((cell) => cell.count)), 1);
