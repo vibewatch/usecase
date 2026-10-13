@@ -62,7 +62,7 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
    1. Read `data/extract_jobs/{vendor_slug}/{sha}.json`. The bundle's `prompt` field already contains the full `case-study-extraction` SKILL text, the taxonomy, the source URL, and the cleaned page text.
    2. Apply the [`case-study-extraction`](../../.agents/skills/case-study-extraction/SKILL.md) skill to produce one strict JSON record.
    3. If the skill's step 0 finds the page is **not a customer story** or **not an AI use case**, do not write a record. Run `python3 -m pipeline.usecase_intel.triage --stage reject --url "<source_url>" --reason "<reason>"` (prefix the reason with `not_ai_use_case: ` for the latter) so the page is never bundled again, count it as `rejected`, and move on (it does not count toward `cap`).
-   4. Use the bundle's `published_date` as a default `date` if the source page does not state one.
+   4. Use the bundle's `published_date` as a default `date` if the source page does not state one. If the page itself states a publication date before 2023-01-01, do not write a record: reject it with `--reason "published_before_2023: story dated <date>"` as in item 3.
    5. Compute the slug per the skill: `vendor-slug + "-" + customer-slug + "-" + use-case-slug`. Use the same vendor-slug as the bundle's `vendor_slug` directory name.
    6. Write the record to `data/records/{vendor_slug}/{slug}.json` (pretty-printed JSON, UTF-8, no markdown fences).
    7. If a record file at the target path already exists with a different `source_url`, append `-2`, `-3`, ... to the slug to avoid clobbering — but if the existing file's `source_url` matches the bundle, treat the URL as already authored and skip.

@@ -493,6 +493,13 @@ def author(workers: int = 6, model: str = "gpt-5.4", limit: Optional[int] = None
                     reject(url, f"{kind}: {record.get('reason', '')}", output_path=TRIAGE_PATH, vendor=job["vendor"])
                     counts["rejected"] += 1
                 return
+            stated = str(record.get("published_date") or "")
+            if re.match(r"^\d{4}-\d{2}-\d{2}$", stated) and stated < SINCE:
+                # The story's own date beats an archive first-capture upper bound.
+                with lock:
+                    reject(url, f"published_before_2023: story dated {stated}", output_path=TRIAGE_PATH, vendor=job["vendor"])
+                    counts["rejected"] += 1
+                return
             record["source_url"] = url
             record["source_type"] = "company"
             if not record.get("published_date") or record["published_date"] == "unknown":
