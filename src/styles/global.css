@@ -531,6 +531,26 @@ a.chip--glass:hover {
   background-size: calc(100% - 24px) 2px;
 }
 
+.header-rss {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 2px;
+  color: var(--on-night-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+}
+
+.header-rss:hover {
+  color: var(--accent-bright);
+}
+
+.header-search__short {
+  display: none;
+}
+
 /* --- Ink bands (hero, detail hero, 404) ------------------------------------ */
 
 .hero,
@@ -2871,42 +2891,20 @@ a.chip--glass:hover {
 /* --- Footer ---------------------------------------------------------------- */
 
 .site-footer {
-  padding: 64px 0 32px;
+  padding: 32px 0 22px;
   border-top: 4px solid var(--accent);
   background: var(--night);
   color: var(--on-night-muted);
 }
 
-.site-footer__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: 40px;
+.site-footer__summary {
+  padding-bottom: 24px;
 }
 
 .site-footer__brand p {
-  max-width: 320px;
-  margin-top: 14px;
+  max-width: 640px;
+  margin-top: 10px;
   font-size: 14px;
-}
-
-.site-footer__col h2 {
-  margin-bottom: 14px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent-bright);
-}
-
-.site-footer__col ul {
-  display: grid;
-  gap: 10px;
-  font-size: 14px;
-}
-
-.site-footer__col a:hover {
-  color: var(--on-night);
 }
 
 .site-footer__legal {
@@ -3426,8 +3424,29 @@ a.chip--glass:hover {
     margin-left: 0;
   }
 
-  .site-nav > .btn {
+  .site-nav {
+    gap: 8px;
+  }
+
+  .header-rss {
+    justify-content: center;
+    width: 30px;
+    height: 30px;
     margin-left: auto;
+    padding: 0;
+  }
+
+  .header-rss span,
+  .header-search__long {
+    display: none;
+  }
+
+  .header-search__short {
+    display: inline;
+  }
+
+  .site-nav > .btn {
+    margin-left: 0;
   }
 
   .brand__name {
@@ -3535,8 +3554,8 @@ a.chip--glass:hover {
     font-size: 21px;
   }
 
-  .site-footer__grid {
-    grid-template-columns: minmax(0, 1fr);
+  .site-footer {
+    padding-top: 28px;
   }
 }
 

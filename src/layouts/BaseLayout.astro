@@ -81,7 +81,17 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
             <li><a href={href("/insights/")}>Insights</a></li>
           </ul>
         </nav>
-        <a class="btn btn--primary btn--small" href={href("/explore/")}>Search use cases</a>
+        <a class="header-rss" href={href("/feed.xml")} aria-label="RSS updates">
+          <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true">
+            <circle cx="3" cy="13" r="1.5" fill="currentColor"></circle>
+            <path d="M2 7.2A6.8 6.8 0 0 1 8.8 14M2 2a12 12 0 0 1 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"></path>
+          </svg>
+          <span>RSS</span>
+        </a>
+        <a class="btn btn--primary btn--small header-search" href={href("/explore/")}>
+          <span class="header-search__long">Search use cases</span>
+          <span class="header-search__short">Search</span>
+        </a>
       </div>
     </header>
 
@@ -90,31 +100,13 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     </div>
 
     <footer class="site-footer">
-      <div class="container site-footer__grid">
+      <div class="container site-footer__summary">
         <div class="site-footer__brand">
           <a class="brand" href={href("/")}>
             <img class="brand__mark" src={`${href("/favicon.svg")}?v=2`} alt="" width="32" height="32" />
             <span class="brand__name">Use Case <strong>Intelligence</strong></span>
           </a>
           <p>Vendor customer stories, collected daily and normalized into a comparable market signal.</p>
-        </div>
-        <div class="site-footer__col">
-          <h2>Explore</h2>
-          <ul>
-            <li><a href={href("/explore/")}>Search &amp; filter</a></li>
-            <li><a href={href("/browse/")}>All use cases</a></li>
-            <li><a href={href("/insights/")}>Market insights</a></li>
-            <li><a href={href("/#method")}>Methodology</a></li>
-            <li><a href={href("/feed.xml")}>RSS updates</a></li>
-          </ul>
-        </div>
-        <div class="site-footer__col">
-          <h2>Browse by</h2>
-          <ul>
-            <li><a href={href("/vendors/")}>Vendor</a></li>
-            <li><a href={href("/industries/")}>Industry</a></li>
-            <li><a href={href("/use-cases/")}>Use case</a></li>
-          </ul>
         </div>
       </div>
       <div class="container site-footer__legal">
