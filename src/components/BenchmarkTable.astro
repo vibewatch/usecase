@@ -1,0 +1,52 @@
+---
+type BenchmarkRow = {
+  label: string;
+  count: number;
+  medianValue: number;
+  medianConfidence: number;
+  impactRate: number;
+  confirmedDateRate: number;
+};
+
+type Props = {
+  rows: BenchmarkRow[];
+  linkTo: (label: string) => string;
+  labelHeading: string;
+};
+
+const { rows, linkTo, labelHeading } = Astro.props;
+const percent = (value: number) => `${Math.round(value * 100)}%`;
+---
+
+<div class="benchmark-scroll">
+  <table class="benchmark-table">
+    <thead>
+      <tr>
+        <th>{labelHeading}</th>
+        <th>Stories</th>
+        <th>Median value</th>
+        <th>Median confidence</th>
+        <th>Quantified impact</th>
+        <th>Confirmed date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          <th scope="row"><a href={linkTo(row.label)}>{row.label}</a></th>
+          <td>{row.count.toLocaleString("en")}</td>
+          <td><strong>{Math.round(row.medianValue)}</strong><span>/100</span></td>
+          <td>{percent(row.medianConfidence)}</td>
+          <td>
+            <span class="benchmark-rate"><span style={`width: ${row.impactRate * 100}%`}></span></span>
+            <strong>{percent(row.impactRate)}</strong>
+          </td>
+          <td>
+            <span class="benchmark-rate benchmark-rate--date"><span style={`width: ${row.confirmedDateRate * 100}%`}></span></span>
+            <strong>{percent(row.confirmedDateRate)}</strong>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

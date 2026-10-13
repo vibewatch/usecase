@@ -1275,6 +1275,175 @@ a.chip--glass:hover {
   grid-column: 1 / -1;
 }
 
+.coverage-list {
+  display: grid;
+  gap: 18px;
+}
+
+.coverage-list li {
+  display: grid;
+  gap: 6px;
+}
+
+.coverage-list__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.coverage-list__row strong {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.coverage-list__track {
+  display: block;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--chart-track);
+}
+
+.coverage-list__track span {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+}
+
+.coverage-list small {
+  line-height: 1.45;
+  color: var(--ink-3);
+}
+
+.insight-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.insight-stats > div {
+  display: grid;
+  gap: 3px;
+  padding: 16px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.insight-stats dt {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.insight-stats dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.insight-stats small {
+  margin-top: 5px;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+.insight-warning {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.benchmark-scroll {
+  overflow-x: auto;
+}
+
+.benchmark-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.benchmark-table th,
+.benchmark-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--hairline);
+  text-align: right;
+  vertical-align: middle;
+}
+
+.benchmark-table thead th {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.benchmark-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  min-width: 210px;
+  text-align: left;
+  background: var(--surface);
+}
+
+.benchmark-table tbody th {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.benchmark-table tbody th a:hover {
+  color: var(--teal-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.benchmark-table td > span:not(.benchmark-rate) {
+  color: var(--ink-3);
+}
+
+.benchmark-table td:nth-last-child(-n + 2) {
+  min-width: 140px;
+}
+
+.benchmark-rate {
+  display: inline-block;
+  width: 56px;
+  height: 6px;
+  margin-right: 8px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--chart-track);
+  vertical-align: middle;
+}
+
+.benchmark-rate span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.benchmark-rate--date span {
+  background: var(--teal);
+}
+
+.benchmark-note {
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
 .bar-list {
   display: grid;
   gap: 4px;
@@ -1390,7 +1559,7 @@ a.chip--glass:hover {
   white-space: nowrap;
 }
 
-.panel--wide .columns {
+.columns {
   margin-bottom: 28px;
 }
 
@@ -3010,6 +3179,10 @@ a.chip--glass:hover {
 
   .insight-grid,
   .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .insight-stats {
     grid-template-columns: minmax(0, 1fr);
   }
 

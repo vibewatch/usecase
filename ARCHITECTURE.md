@@ -171,7 +171,8 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | File | Responsibility |
 | ---- | -------------- |
 | [`src/pages/index.astro`](src/pages/index.astro) | Product positioning, audience/workflow guidance, latest records, market insights, methodology, and JSON/RSS access |
-| [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Per-record detail with solution architecture, score breakdowns, evidence, field-level source ledger, and related records |
+| [`src/pages/insights.astro`](src/pages/insights.astro) | Decision-oriented analytics: evidence coverage, source bias/concentration, median segment benchmarks, architecture coverage, confirmed-date trends, ranked dimensions, and heatmaps |
+| [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Per-record detail with solution architecture, evidence, related records, and progressive disclosures for score breakdowns and field-level source provenance |
 | [`src/pages/data.json.ts`](src/pages/data.json.ts) | Static downloadable export of the complete normalized dataset |
 | [`src/pages/feed.xml.ts`](src/pages/feed.xml.ts) | RSS feed ordered by collection time for update notifications |
 | [`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro) | Site chrome. Banner is dynamic: real vs sample counts come from `caseStudies` so the UI never lies |

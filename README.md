@@ -218,6 +218,9 @@ outputs belong under `data/diagrams/` and are ignored by git.
 
 - `src/pages/index.astro` — home: hero search, latest arrivals, newest use
   cases, insight charts, industry × use-case heatmap, methodology.
+- `src/pages/insights.astro` — evidence coverage, source concentration and
+  bias indicators, use-case/outcome benchmarks, architecture-layer coverage,
+  confirmed-date trends, ranked dimensions, and cross-tab heatmaps.
 - `src/pages/explore.astro` — Pagefind-powered search with filters, sorting
   and pagination.
 - `src/pages/browse/[...page].astro` — static paginated list of all stories.
@@ -227,7 +230,7 @@ outputs belong under `data/diagrams/` and are ignored by git.
   solution architecture, evidence, related use cases); also carries the
   search-index filters, metadata and sort keys.
 - `src/components/` — `CaseCard` (also the client-side card template),
-  `CaseListing`, `Pagination`, `BarList`.
+  `CaseListing`, `Pagination`, `BarList`, `BenchmarkTable`.
 - `src/scripts/cards.ts` — builds result cards in the browser from search metadata.
 - `src/lib/` — `caseStudies.ts` data import, `analytics.ts` aggregations,
   `facets.ts` facet grouping/slugs/sorting, `weeks.ts` week grouping + card

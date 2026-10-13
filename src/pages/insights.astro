@@ -1,10 +1,13 @@
 ---
 import BarList from "../components/BarList.astro";
+import BenchmarkTable from "../components/BenchmarkTable.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Heatmap from "../components/Heatmap.astro";
 import { countValues, flattenValues, topValues } from "../lib/analytics";
 import { caseStudies } from "../lib/caseStudies";
 import { href } from "../lib/paths";
+import type { CaseStudyRecord } from "../lib/types";
+import taxonomy from "../../taxonomy.json";
 
 const records = caseStudies.filter((record) => !record.is_sample);
 const explore = (param: string, value: string) => href(`/explore/?${param}=${encodeURIComponent(value)}`);
@@ -15,9 +18,73 @@ const vendors = countValues(records.map((record) => record.vendor));
 const areas = countValues(flattenValues(records, (record) => record.technical_area));
 const outcomes = countValues(flattenValues(records, (record) => record.outcome_category));
 const products = topValues(flattenValues(records, (record) => record.products_used), 15);
-const withMetrics = records.filter((record) => record.metrics.length > 0).length;
+const hasQuantifiedImpact = (record: CaseStudyRecord) =>
+  (record.value_breakdown ?? []).some((item) => item.criterion === "Quantified impact" && item.score > 0);
+const withImpact = records.filter(hasQuantifiedImpact).length;
+const withConfirmedDate = records.filter((record) => record.published_date !== "unknown").length;
+const withComponents = records.filter((record) => (record.solution_components?.length ?? 0) > 0).length;
+const withDataFlow = records.filter((record) => Boolean(record.data_flow)).length;
+const withIntegrations = records.filter((record) => (record.integration_points?.length ?? 0) > 0).length;
+const withMultipleSources = records.filter((record) => (record.source_references?.length ?? 0) > 1).length;
+const companyPublished = records.filter((record) => record.source_type === "company").length;
+const rate = (count: number) => count / Math.max(records.length, 1);
+const percent = (value: number) => `${Math.round(value * 100)}%`;
 
-// Adoption over time: stories per publication quarter (the stories' own dates, 2023 onward).
+const coverageSignals = [
+  { label: "Structured components", count: withComponents, detail: "Named implementation components with deployment-specific roles." },
+  { label: "End-to-end data flow", count: withDataFlow, detail: "A source-supported path from input through processing to consumption." },
+  { label: "Named integrations", count: withIntegrations, detail: "External systems, upstream sources, or downstream consumers are identified." },
+  { label: "Quantified impact", count: withImpact, detail: "At least one metric describes measurable customer impact." },
+  { label: "Confirmed publication date", count: withConfirmedDate, detail: "Date is stated on the page or in documented publisher metadata." },
+  { label: "Multiple sources", count: withMultipleSources, detail: "More than one source is attached to the same normalized record." },
+].map((item) => ({ ...item, share: rate(item.count) }));
+
+const median = (values: number[]) => {
+  if (values.length === 0) return 0;
+  const sorted = [...values].sort((left, right) => left - right);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+};
+
+const benchmarks = (values: (record: CaseStudyRecord) => string[], minimum = 20) => {
+  const groups = new Map<string, CaseStudyRecord[]>();
+  for (const record of records) {
+    for (const value of new Set(values(record).filter(Boolean))) {
+      if (!groups.has(value)) groups.set(value, []);
+      groups.get(value)!.push(record);
+    }
+  }
+  return Array.from(groups.entries())
+    .filter(([, group]) => group.length >= minimum)
+    .map(([label, group]) => ({
+      label,
+      count: group.length,
+      medianValue: median(group.map((record) => record.value_score ?? 0)),
+      medianConfidence: median(group.map((record) => record.confidence_score)),
+      impactRate: group.filter(hasQuantifiedImpact).length / group.length,
+      confirmedDateRate: group.filter((record) => record.published_date !== "unknown").length / group.length,
+    }))
+    .sort((left, right) => right.count - left.count || left.label.localeCompare(right.label));
+};
+
+const useCaseBenchmarks = benchmarks((record) => record.use_case_category).slice(0, 12);
+const outcomeBenchmarks = benchmarks((record) => record.outcome_category, 10);
+
+const topFiveVendorShare = vendors.slice(0, 5).reduce((sum, item) => sum + item.count, 0) / Math.max(records.length, 1);
+const largestIndustryShare = (industries[0]?.count ?? 0) / Math.max(records.length, 1);
+const vendorHhi = vendors.reduce((sum, item) => sum + (item.count / records.length) ** 2, 0);
+const effectiveVendorCount = vendorHhi ? 1 / vendorHhi : 0;
+
+const layerCoverage = (taxonomy.component_layers as string[])
+  .map((layer) => ({
+    label: layer,
+    count: records.filter((record) => record.solution_components?.some((component) => component.layer === layer)).length,
+  }))
+  .filter((item) => item.count > 0)
+  .sort((left, right) => right.count - left.count)
+  .map((item) => ({ ...item, share: item.count / records.length }));
+
+// Adoption over time uses only confirmed publication dates.
 const quarterOf = (date: string) => (/^20\d\d-\d\d/.test(date) ? `${date.slice(0, 4)} Q${Math.ceil(Number(date.slice(5, 7)) / 3)}` : "");
 const quarters = countValues(records.map((record) => quarterOf(record.published_date)).filter((q) => q >= "2023"))
   .sort((a, b) => a.label.localeCompare(b.label));
@@ -43,7 +110,7 @@ const heatVendors = vendors.slice(0, 12).map((entry) => entry.label);
           <div class="kpi"><dt>Vendors</dt><dd>{vendors.length}</dd></div>
           <div class="kpi"><dt>Industries</dt><dd>{industries.length}</dd></div>
           <div class="kpi"><dt>Use-case categories</dt><dd>{useCases.length}</dd></div>
-          <div class="kpi"><dt>With measured results</dt><dd>{Math.round((withMetrics / Math.max(records.length, 1)) * 100)}%</dd></div>
+          <div class="kpi"><dt>With quantified impact</dt><dd>{percent(rate(withImpact))}</dd></div>
         </dl>
       </div>
     </section>
@@ -51,11 +118,101 @@ const heatVendors = vendors.slice(0, 12).map((entry) => entry.label);
     <section class="section section--compact">
       <div class="container">
         <div class="insight-grid">
+          <article class="panel">
+            <header class="panel__head">
+              <div>
+                <h3>Decision-ready data coverage</h3>
+                <p class="panel__intro">How often the dataset contains evidence needed to evaluate and reproduce a deployment.</p>
+              </div>
+              <span class="panel__meta">share of all stories</span>
+            </header>
+            <ul class="coverage-list">
+              {coverageSignals.map((item) => (
+                <li>
+                  <div class="coverage-list__row">
+                    <span>{item.label}</span>
+                    <strong>{percent(item.share)}</strong>
+                  </div>
+                  <span class="coverage-list__track"><span style={`width: ${item.share * 100}%`}></span></span>
+                  <small>{item.count.toLocaleString("en")} stories · {item.detail}</small>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <div>
+                <h3>Dataset shape &amp; bias</h3>
+                <p class="panel__intro">Coverage reflects what publishers disclose and what the catalog collects—not market share.</p>
+              </div>
+            </header>
+            <dl class="insight-stats">
+              <div>
+                <dt>Top 5 vendor share</dt>
+                <dd>{percent(topFiveVendorShare)}</dd>
+                <small>Vendor concentration in the source corpus.</small>
+              </div>
+              <div>
+                <dt>Effective vendor count</dt>
+                <dd>{effectiveVendorCount.toFixed(1)}</dd>
+                <small>Inverse HHI; lower than {vendors.length} because records are unevenly distributed.</small>
+              </div>
+              <div>
+                <dt>Largest industry share</dt>
+                <dd>{percent(largestIndustryShare)}</dd>
+                <small>{industries[0]?.label ?? "—"} is the most represented industry.</small>
+              </div>
+              <div>
+                <dt>Customer-published share</dt>
+                <dd>{percent(rate(companyPublished))}</dd>
+                <small>The remainder is primarily vendor-published customer evidence.</small>
+              </div>
+            </dl>
+            {withMultipleSources === 0 && (
+              <p class="insight-warning"><strong>Corroboration gap:</strong> no current record has more than one attached source. Confidence scores intentionally penalize this.</p>
+            )}
+          </article>
+
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <div>
+                <h3>Use-case evidence benchmark</h3>
+                <p class="panel__intro">Compare the largest use-case segments using medians and evidence rates, not only story volume.</p>
+              </div>
+              <span class="panel__meta">categories with 20+ stories</span>
+            </header>
+            <BenchmarkTable rows={useCaseBenchmarks} labelHeading="Use case" linkTo={(label) => explore("usecase", label)} />
+            <p class="benchmark-note">A story may belong to multiple use-case categories. “Quantified impact” means the source states a measurable customer result; it does not independently verify the claim.</p>
+          </article>
+
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <div>
+                <h3>Outcome evidence benchmark</h3>
+                <p class="panel__intro">See which claimed outcomes are most often backed by quantified impact and confirmed dates.</p>
+              </div>
+              <span class="panel__meta">categories with 10+ stories</span>
+            </header>
+            <BenchmarkTable rows={outcomeBenchmarks} labelHeading="Claimed outcome" linkTo={(label) => explore("outcome", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <h3>Architecture layers observed</h3>
+              <span class="panel__meta">stories naming each layer</span>
+            </header>
+            <BarList items={layerCoverage} noun="stories" />
+          </article>
+
           {quarters.length > 1 && (
-            <article class="panel panel--wide">
+            <article class="panel">
               <header class="panel__head">
-                <h3>AI adoption stories over time</h3>
-                <span class="panel__meta">stories per publication quarter</span>
+                <div>
+                  <h3>AI stories over time</h3>
+                  <p class="panel__intro">{withConfirmedDate.toLocaleString("en")} records with confirmed publication dates; unconfirmed dates are excluded.</p>
+                </div>
+                <span class="panel__meta">confirmed stories per quarter</span>
               </header>
               <div class="columns" role="img" aria-label={`Stories per quarter, ${quarters[0].label} to ${quarters.at(-1)?.label}`}>
                 {quarters.map((entry) => (
