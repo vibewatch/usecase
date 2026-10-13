@@ -558,7 +558,7 @@ def status() -> dict[str, int]:
 
 def compact() -> None:
     """Shrink the ledgers carried between CI runs: latest triage row per URL, and
-    manifest rows only for pages still awaiting a decision or extraction."""
+    manifest rows only for kept pages still awaiting extraction."""
     from .triage import load_decisions
 
     decisions = load_decisions(TRIAGE_PATH)
@@ -567,8 +567,10 @@ def compact() -> None:
     latest: dict[str, dict[str, Any]] = {}
     for row in load_jsonl(MANIFEST_PATH):
         latest[row["url"]] = row
+    # Only kept pages are carried over (bundling needs them). Undecided pages are dropped so
+    # the next run fetches them again: CI keeps no page bodies, so triage could never read them.
     keep = [row for url, row in latest.items() if row.get("status") == 200
-            and (url not in decisions or decisions[url].get("decision") == "keep")]
+            and decisions.get(url, {}).get("decision") == "keep"]
     MANIFEST_PATH.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in keep), encoding="utf-8")
     discovered = {row["url"]: row for row in load_jsonl(DISCOVERED_PATH)}
     DISCOVERED_PATH.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in discovered.values()), encoding="utf-8")
