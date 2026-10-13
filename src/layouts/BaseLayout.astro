@@ -34,13 +34,31 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     <title>{title}</title>
     {import.meta.env.PROD && (
       <>
-        {/* Google Analytics (GA4). Production builds only, so local previews send no hits. */}
-        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0QQZ5LMYSD"></script>
+        {/* Google Analytics (GA4) in basic consent mode: gtag.js is loaded and cookies are
+            set only after the visitor accepts the banner. Production builds only. */}
         <script is:inline>
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
+          gtag("consent", "default", {
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            analytics_storage: "denied",
+          });
           gtag("js", new Date());
           gtag("config", "G-0QQZ5LMYSD");
+          window.ucLoadAnalytics = function () {
+            gtag("consent", "update", { analytics_storage: "granted" });
+            if (window.ucAnalyticsLoaded) return;
+            window.ucAnalyticsLoaded = true;
+            var script = document.createElement("script");
+            script.async = true;
+            script.src = "https://www.googletagmanager.com/gtag/js?id=G-0QQZ5LMYSD";
+            document.head.appendChild(script);
+          };
+          try {
+            if (localStorage.getItem("uc-analytics-consent") === "granted") window.ucLoadAnalytics();
+          } catch (error) {}
         </script>
       </>
     )}
@@ -100,6 +118,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
       <div class="container site-footer__legal">
         <span>© {year} Use Case Intelligence. Case study content belongs to the respective vendors and customers.</span>
         <span class="site-footer__credit">
+          {import.meta.env.PROD && <><button class="site-footer__link" type="button" data-consent-open>Cookie settings</button> · </>}
           Refreshed daily · Built by
           <a href="https://www.linkedin.com/in/yingting-huang-9622bb20/" target="_blank" rel="noopener noreferrer" aria-label="Yingting Huang on LinkedIn">
             Yingting Huang
@@ -110,6 +129,65 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
     </footer>
 
     <div class="tooltip" role="tooltip" data-tooltip hidden></div>
+
+    {import.meta.env.PROD && (
+      <>
+        <section class="consent" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-text" data-consent hidden>
+          <h2 class="consent__title" id="consent-title">Cookies, briefly</h2>
+          <p class="consent__text" id="consent-text">
+            With your OK, we use Google Analytics cookies to see which pages and searches are useful. No ads, no profiling, and
+            nothing is loaded until you accept. You can change this any time under “Cookie settings” in the footer.
+          </p>
+          <div class="consent__actions">
+            <button class="btn btn--primary btn--small" type="button" data-consent-choice="granted">Accept analytics</button>
+            <button class="btn btn--secondary btn--small" type="button" data-consent-choice="denied">Decline</button>
+          </div>
+        </section>
+        <script is:inline>
+          (function () {
+            var KEY = "uc-analytics-consent";
+            var banner = document.querySelector("[data-consent]");
+            if (!banner) return;
+            var stored = null;
+            try { stored = localStorage.getItem(KEY); } catch (error) {}
+            if (stored !== "granted" && stored !== "denied") banner.hidden = false;
+
+            function clearAnalyticsCookies() {
+              var host = location.hostname;
+              var domains = ["", host, "." + host, "." + host.split(".").slice(-2).join(".")];
+              document.cookie.split(";").forEach(function (cookie) {
+                var name = cookie.split("=")[0].trim();
+                if (name !== "_ga" && name.indexOf("_ga_") !== 0) return;
+                domains.forEach(function (domain) {
+                  document.cookie = name + "=; Max-Age=0; path=/" + (domain ? "; domain=" + domain : "");
+                });
+              });
+            }
+
+            banner.addEventListener("click", function (event) {
+              var button = event.target.closest("[data-consent-choice]");
+              if (!button) return;
+              var choice = button.getAttribute("data-consent-choice");
+              try { localStorage.setItem(KEY, choice); } catch (error) {}
+              if (choice === "granted") {
+                window.ucLoadAnalytics();
+              } else {
+                gtag("consent", "update", { analytics_storage: "denied" });
+                clearAnalyticsCookies();
+              }
+              banner.hidden = true;
+            });
+
+            document.addEventListener("click", function (event) {
+              if (!event.target.closest("[data-consent-open]")) return;
+              banner.hidden = false;
+              var first = banner.querySelector("button");
+              if (first) first.focus();
+            });
+          })();
+        </script>
+      </>
+    )}
 
     <script>
       const header = document.querySelector("[data-site-header]");

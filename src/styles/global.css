@@ -1988,6 +1988,60 @@ a.chip--glass:hover {
   color: var(--on-night);
 }
 
+.site-footer__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.site-footer__link:hover {
+  color: var(--on-night);
+}
+
+/* --- Cookie consent ---------------------------------------------------------- */
+
+.consent {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 90;
+  display: grid;
+  gap: 10px;
+  width: min(440px, calc(100% - 40px));
+  padding: 20px 22px;
+  border: var(--rule);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.consent[hidden] {
+  display: none;
+}
+
+.consent__title {
+  font-size: 20px;
+}
+
+.consent__text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
 /* --- Explore, listings & hubs ---------------------------------------------- */
 
 .page-hero {
