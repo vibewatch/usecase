@@ -161,6 +161,29 @@ const searchMeta: Record<string, string> = {
             <a class="btn btn--glass" href={href("/explore/")}>Explore all use cases</a>
           </div>
         </div>
+        <aside class="quality-summary quality-summary--hero" aria-labelledby="quality-summary-title">
+          <h2 id="quality-summary-title">Evidence quality</h2>
+          <div class="quality-summary__scores">
+            <div>
+              <span>Reference value</span>
+              <strong>{valueScore}<small>/100</small></strong>
+              <em>{valueLabel(valueScore)}</em>
+            </div>
+            <div>
+              <span>Confidence</span>
+              <strong>{formatPercent(record.confidence_score)}</strong>
+              <em>Evidence rubric</em>
+            </div>
+          </div>
+          <dl class="quality-summary__facts">
+            <div><dt>{dateSummary.label}</dt><dd>{dateSummary.value}</dd></div>
+            <div><dt>Sources</dt><dd>{references.length}</dd></div>
+          </dl>
+          <div class="quality-summary__links">
+            <a href="#score-methodology">Scoring methodology</a>
+            <a href="#sources">Sources &amp; provenance</a>
+          </div>
+        </aside>
       </div>
     </section>
 
@@ -284,29 +307,6 @@ const searchMeta: Record<string, string> = {
               </ul>
             </>
           )}
-          <section class="quality-summary" aria-labelledby="quality-summary-title">
-            <h3 id="quality-summary-title">Evidence quality</h3>
-            <div class="quality-summary__scores">
-              <div>
-                <span>Reference value</span>
-                <strong>{valueScore}<small>/100</small></strong>
-                <em>{valueLabel(valueScore)}</em>
-              </div>
-              <div>
-                <span>Confidence</span>
-                <strong>{formatPercent(record.confidence_score)}</strong>
-                <em>Evidence rubric</em>
-              </div>
-            </div>
-            <dl class="quality-summary__facts">
-              <div><dt>{dateSummary.label}</dt><dd>{dateSummary.value}</dd></div>
-              <div><dt>Sources</dt><dd>{references.length}</dd></div>
-            </dl>
-            <div class="quality-summary__links">
-              <a href="#score-methodology">Scoring methodology</a>
-              <a href="#sources">Sources &amp; provenance</a>
-            </div>
-          </section>
         </article>
       </aside>
     </div>
