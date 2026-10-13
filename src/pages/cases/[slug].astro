@@ -38,7 +38,6 @@ const integrationPoints = record.integration_points ?? [];
 const dataFlow = record.data_flow?.trim() ?? "";
 const metrics = record.metrics.slice(0, 4);
 const related = relatedRecords(record, caseStudies, 3);
-const published = isParseableDate(record.published_date) ? formatDate(record.published_date) : "Not stated";
 const sourceLanguage = record.source_language?.trim().toLowerCase();
 const translatedFrom =
   sourceLanguage && sourceLanguage !== "en"
@@ -46,6 +45,21 @@ const translatedFrom =
     : "";
 const references = sourceReferences(record);
 const dateEvidence = record.date_evidence ?? [];
+const isUnknown = (value: string | undefined) => !value?.trim() || value.trim().toLowerCase() === "unknown";
+const regionDisplay = isUnknown(record.region) ? "Not documented" : record.region;
+const companySizeDisplay = isUnknown(record.company_size) ? "Not documented" : record.company_size;
+const archiveEvidence = dateEvidence.find((evidence) => evidence.type === "First archived" && isParseableDate(evidence.date));
+const sitemapEvidence = dateEvidence.find((evidence) => evidence.type === "Sitemap last modified" && isParseableDate(evidence.date));
+const collectedDate = record.collected_at?.slice(0, 10) ?? "";
+const dateSummary = isParseableDate(record.published_date)
+  ? { label: "Published", value: formatDate(record.published_date) }
+  : archiveEvidence
+    ? { label: "First archived", value: formatDate(archiveEvidence.date) }
+    : sitemapEvidence
+      ? { label: "Source modified", value: formatDate(sitemapEvidence.date) }
+      : isParseableDate(collectedDate)
+        ? { label: "Collected", value: formatDate(collectedDate) }
+        : { label: "Date", value: "Not documented" };
 const dateEvidenceNote = (type: string) => {
   if (type === "First archived") return "First Wayback Machine capture; confirms the page existed by this date, not when it was published.";
   if (type === "Sitemap last modified") return "Publisher-reported modification timestamp; not a publication date.";
@@ -129,7 +143,7 @@ const searchMeta: Record<string, string> = {
               {record.vendor}
             </span>
             <span class="chip chip--glass">{record.industry}</span>
-            <span class="chip chip--glass">{record.region}</span>
+            {!isUnknown(record.region) && <span class="chip chip--glass">{record.region}</span>}
             {translatedFrom && <span class="chip chip--glass" title="This summary was translated to English from the original story">Translated from {translatedFrom}</span>}
             {record.source_type === "company" && <span class="chip chip--glass" title={`Published by ${record.customer_name} on its own website`}>Company newsroom</span>}
             {record.is_sample && <span class="chip chip--warn">Sample</span>}
@@ -249,8 +263,8 @@ const searchMeta: Record<string, string> = {
           <dl class="facts">
             <div><dt>Customer</dt><dd>{record.customer_name}</dd></div>
             <div><dt>Industry</dt><dd>{record.industry}</dd></div>
-            <div><dt>Region</dt><dd>{record.region}</dd></div>
-            <div><dt>Company size</dt><dd>{record.company_size}</dd></div>
+            <div><dt>Region</dt><dd>{regionDisplay}</dd></div>
+            <div><dt>Company size</dt><dd>{companySizeDisplay}</dd></div>
           </dl>
           <h3>Technical areas</h3>
           <ul class="tag-cloud">
@@ -285,7 +299,7 @@ const searchMeta: Record<string, string> = {
               </div>
             </div>
             <dl class="quality-summary__facts">
-              <div><dt>Published</dt><dd>{published}</dd></div>
+              <div><dt>{dateSummary.label}</dt><dd>{dateSummary.value}</dd></div>
               <div><dt>Sources</dt><dd>{references.length}</dd></div>
             </dl>
             <div class="quality-summary__links">
@@ -374,9 +388,10 @@ const searchMeta: Record<string, string> = {
                     <span class="tag">{reference.authority}</span>
                   </div>
                   <a class="source-card__url" href={reference.url} target="_blank" rel="noreferrer">{reference.url}</a>
+                  {reference.evidence && <p class="source-card__evidence">{reference.evidence}</p>}
                   <dl class="source-card__meta">
                     <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
-                    <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
+                    {isParseableDate(reference.published_date) && <div><dt>Published</dt><dd>{formatDate(reference.published_date)}</dd></div>}
                   </dl>
                   <div class="source-card__supports">
                     <span>Supports</span>

@@ -865,12 +865,101 @@ def reject(url: str, reason: str, output_path: Path = TRIAGE_PATH, vendor: str =
     print(f"Rejected {url}: {reason}")
 
 
+def confirm_date(
+    *,
+    url: str,
+    published_date: str,
+    published_source: str,
+    evidence_url: str,
+    evidence_publisher: str,
+    evidence_authority: str,
+    output_path: Path = TRIAGE_PATH,
+    vendor: str = "",
+) -> None:
+    """Append a publisher-confirmed publication date without changing triage disposition."""
+    try:
+        datetime.strptime(published_date, "%Y-%m-%d")
+    except ValueError as exc:
+        raise ValueError("published_date must be a real YYYY-MM-DD date") from exc
+    if published_source not in {"page", "page metadata", "vendor metadata", "api"}:
+        raise ValueError("published_source must be page, page metadata, vendor metadata, or api")
+    if not evidence_url or not evidence_publisher or not evidence_authority:
+        raise ValueError("date confirmation requires evidence URL, publisher, and authority")
+
+    prior = load_decisions(output_path).get(url, {})
+    row = {
+        **prior,
+        "url": url,
+        "vendor": vendor or prior.get("vendor", ""),
+        "stage": "date-research",
+        "decision": prior.get("decision", "keep"),
+        "published_date": published_date,
+        "published_source": published_source,
+        "published_evidence_url": evidence_url,
+        "published_evidence_publisher": evidence_publisher,
+        "published_evidence_authority": evidence_authority,
+        "date_checked": True,
+        "decided_at": _now(),
+    }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("a", encoding="utf-8") as out:
+        out.write(json.dumps(row, ensure_ascii=False) + "\n")
+    print(f"Confirmed publication date {published_date} for {url}")
+
+
+def mark_date_unresolved(
+    *,
+    url: str,
+    notes: str,
+    output_path: Path = TRIAGE_PATH,
+    vendor: str = "",
+) -> None:
+    """Record a completed date search so bounded batches advance without inventing a date."""
+    prior = load_decisions(output_path).get(url, {})
+    if prior.get("published_date") and prior.get("published_source") in {
+        "page",
+        "page metadata",
+        "vendor metadata",
+        "api",
+    }:
+        raise ValueError("cannot mark a publisher-confirmed date as unresolved")
+    row = {
+        **prior,
+        "url": url,
+        "vendor": vendor or prior.get("vendor", ""),
+        "stage": "date-research",
+        "decision": prior.get("decision", "keep"),
+        "date_checked": True,
+        "date_research_result": "unresolved",
+        "date_research_notes": notes.strip(),
+        "decided_at": _now(),
+    }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("a", encoding="utf-8") as out:
+        out.write(json.dumps(row, ensure_ascii=False) + "\n")
+    print(f"Recorded unresolved publication-date research for {url}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Filter discovered stories before extraction.")
-    parser.add_argument("--stage", choices=["pre", "post", "metadata", "dates", "summary", "reject"], required=True)
+    parser.add_argument(
+        "--stage",
+        choices=["pre", "post", "metadata", "dates", "summary", "reject", "confirm-date", "mark-date-unresolved"],
+        required=True,
+    )
     parser.add_argument("--limit", type=int, default=None, help="Max pages to process in metadata/date enrichment")
     parser.add_argument("--url", type=str, default=None, help="URL to reject (--stage reject)")
     parser.add_argument("--reason", type=str, default="not a customer story", help="Rejection reason (--stage reject)")
+    parser.add_argument("--date", type=str, default=None, help="Confirmed YYYY-MM-DD publication date")
+    parser.add_argument(
+        "--date-source",
+        choices=["page", "page metadata", "vendor metadata", "api"],
+        default=None,
+    )
+    parser.add_argument("--evidence-url", type=str, default=None)
+    parser.add_argument("--evidence-publisher", type=str, default=None)
+    parser.add_argument("--evidence-authority", type=str, default="First-party")
+    parser.add_argument("--research-notes", type=str, default="")
     parser.add_argument("--config", type=Path, default=TRIAGE_CONFIG_PATH)
     parser.add_argument("--since", type=str, default=None, help="Override the config date cutoff (YYYY-MM-DD)")
     parser.add_argument("--vendor", type=str, default=None)
@@ -895,6 +984,32 @@ def main() -> None:
         if not args.url:
             raise SystemExit("--stage reject requires --url")
         reject(args.url, args.reason, args.output, vendor=args.vendor or "")
+        return
+    if args.stage == "confirm-date":
+        if not args.url or not args.date or not args.date_source or not args.evidence_url or not args.evidence_publisher:
+            raise SystemExit(
+                "--stage confirm-date requires --url, --date, --date-source, --evidence-url, and --evidence-publisher"
+            )
+        confirm_date(
+            url=args.url,
+            published_date=args.date,
+            published_source=args.date_source,
+            evidence_url=args.evidence_url,
+            evidence_publisher=args.evidence_publisher,
+            evidence_authority=args.evidence_authority,
+            output_path=args.output,
+            vendor=args.vendor or "",
+        )
+        return
+    if args.stage == "mark-date-unresolved":
+        if not args.url:
+            raise SystemExit("--stage mark-date-unresolved requires --url")
+        mark_date_unresolved(
+            url=args.url,
+            notes=args.research_notes,
+            output_path=args.output,
+            vendor=args.vendor or "",
+        )
         return
     if args.stage == "dates":
         counts = enrich_dates(

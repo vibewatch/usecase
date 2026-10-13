@@ -94,6 +94,21 @@ def _normalize_sources(record: dict[str, Any], index: int) -> None:
                 "supports": supports,
             }
         ]
+    elif not isinstance(references, list):
+        raise ValueError(f"record {index} source_references must be a list when present")
+    else:
+        references = list(references)
+
+    enrichment = record.get("company_enrichment")
+    enrichment_references: list[dict[str, Any]] = []
+    if enrichment is not None:
+        if not isinstance(enrichment, dict):
+            raise ValueError(f"record {index} company_enrichment must be an object when present")
+        raw_sources = enrichment.get("sources", [])
+        if not isinstance(raw_sources, list):
+            raise ValueError(f"record {index} company_enrichment.sources must be a list")
+        enrichment_references = [dict(source) for source in raw_sources if isinstance(source, dict)]
+        references.extend(enrichment_references)
     if not isinstance(references, list) or not references:
         raise ValueError(f"record {index} source_references must be a non-empty list when present")
 
@@ -121,13 +136,19 @@ def _normalize_sources(record: dict[str, Any], index: int) -> None:
             raise ValueError(f"record {index} source_references[{position}].supports must be a list of strings")
 
     field_sources = record.get("field_sources")
+    if field_sources is not None and not isinstance(field_sources, dict):
+        raise ValueError(f"record {index} field_sources must be an object when present")
     if field_sources is None:
         field_sources = {}
         for reference in references:
             for field in reference.get("supports", []):
                 field_sources.setdefault(field, []).append(reference["id"])
-    if not isinstance(field_sources, dict):
-        raise ValueError(f"record {index} field_sources must be an object when present")
+    else:
+        for reference in enrichment_references:
+            for field in reference.get("supports", []):
+                ids = field_sources.setdefault(field, [])
+                if reference["id"] not in ids:
+                    ids.append(reference["id"])
     for field, ids in field_sources.items():
         if not isinstance(field, str) or not isinstance(ids, list) or any(not isinstance(item, str) for item in ids):
             raise ValueError(f"record {index} field_sources values must be lists of source ids")

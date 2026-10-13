@@ -164,6 +164,8 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | [`media.py`](pipeline/usecase_intel/media.py) | `extract_related_images(bytes) → related_images[]` and `materialize_related_images(...)`. Discovers article `img`/`picture`/`source`, low-confidence CSS background images, inline SVG, and metadata images; scores visible context plus decoded URL/file-name hints, filters low-value candidates, and requires useful hints for non-diagram images before attempting a bounded local asset plan | Agents can inspect local `local_path` images instead of reparsing HTML or fetching remote assets by hand; failed downloads remain annotated with `asset_error` and do not consume the asset budget |
 | [`extract.py`](pipeline/usecase_intel/extract.py) | Read manifest, run `clean` + `media`, assemble prompt bundle `{vendor, source_url, sha256, title, raw_path, content_type, retrieval_source, profile, extraction_method, related_images, prompt, created_at}` | Each bundle is self-sufficient: inlines SKILL.md + taxonomy.json + cleaned text, date provenance, retrieval time, and local article visual assets |
 | [`probe.py`](pipeline/usecase_intel/probe.py) | Probe origin profiles, headless browser, reader, and Wayback for hard URLs; optionally update the host strategy map | Uses the same public fetch attempt API as `FetchClient` |
+| [`company_enrichment.py`](pipeline/usecase_intel/company_enrichment.py) | Validate/apply customer-level region and company-size evidence and generate bounded research jobs | Existing known values are never overwritten; every applied field links to a cited opened source |
+| [`date_enrichment.py`](pipeline/usecase_intel/date_enrichment.py) | Generate bounded research jobs for records without a confirmed publication date | Jobs explicitly separate publish evidence from archive, modification, collection, and search-snippet clues |
 | [`models.py`](pipeline/usecase_intel/models.py) | `load_records(path) → list[dict]` with `normalize_record` validation | Validates record shape plus source references and field-to-source ids; legacy records receive a conservative primary-story reference |
 | [`scoring.py`](pipeline/usecase_intel/scoring.py) | Deterministic evidence-confidence, customer-reference-value, and evidence-stage rubrics with criterion-level breakdowns | Confidence measures source/evidence quality, not field completeness; value and confidence stay separate |
 | [`storage.py`](pipeline/usecase_intel/storage.py) | `initialize_database`, `upsert_records`. Schema: `case_studies` (1 row per record) + `case_study_values` (KV table for multi-value fields keyed by `kind`) | All multi-value fields have a single `MULTI_VALUE_FIELDS` mapping; `raw_json` stores the canonical record |
@@ -222,6 +224,7 @@ interface SourceReference {
   published_date_source: string;
   retrieved_at: string;
   supports: string[];
+  evidence?: string;             // exact enrichment fact supported by this source
 }
 
 interface DateEvidence {
@@ -276,11 +279,14 @@ and simply hides the data-flow / integration sections when empty.
 for legacy records while deliberately leaving company size, region, and
 industry without separate attribution.
 
-`merge_records` applies the publication-date policy across the whole dataset:
-page dates and documented publisher catalog dates remain `published_date`;
-Internet Archive first captures and unverified legacy dates move to
-`date_evidence`. Sorting may use that weaker evidence, but the UI labels it
-explicitly and never calls it a publication date.
+`merge_records` applies customer profiles from
+`data/company-enrichment.jsonl` only when the authored field is unknown. It
+also applies the publication-date policy across the whole dataset: page dates
+and documented publisher catalog dates remain `published_date`; Internet
+Archive first captures, sitemap modification dates, and unverified legacy
+dates stay in `date_evidence`. The UI selects the clearest available label in
+this order: Published → First archived → Source modified → Collected → Not
+documented. None of the fallback labels is presented as a publication date.
 
 ### `data/sources.json` (vendor source config)
 

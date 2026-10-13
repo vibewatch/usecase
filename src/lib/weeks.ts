@@ -95,6 +95,7 @@ function truncate(value: string, limit: number): string {
 
 export function toCardRecord(record: CaseStudyRecord): CardRecord {
   const { color, mark } = vendorStyle(record.vendor);
+  const region = record.region.trim().toLowerCase() === "unknown" ? "Not documented" : record.region;
   return {
     slug: record.slug,
     url: caseHref(record.slug),
@@ -103,7 +104,7 @@ export function toCardRecord(record: CaseStudyRecord): CardRecord {
     vendorColor: color,
     customer: record.customer_name,
     industry: record.industry,
-    region: record.region,
+    region,
     useCases: record.use_case_category,
     areas: record.technical_area,
     products: record.products_used.slice(0, 3),

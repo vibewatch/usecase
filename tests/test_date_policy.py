@@ -62,6 +62,35 @@ class DatePolicyTests(unittest.TestCase):
         self.assertEqual(record["published_date"], "2025-04-15")
         self.assertEqual(record["published_date_source"], "vendor metadata")
 
+    def test_sitemap_lastmod_is_modification_evidence_only(self) -> None:
+        record = record_fixture()
+        record["published_date"] = "unknown"
+
+        _apply_date_policy(record, None, "2025-08-09")
+
+        self.assertEqual(record["published_date"], "unknown")
+        self.assertEqual(record["published_date_source"], "unknown")
+        self.assertEqual(record["date_evidence"][0]["type"], "Sitemap last modified")
+
+    def test_researched_date_preserves_explicit_source_metadata(self) -> None:
+        record = record_fixture()
+
+        _apply_date_policy(
+            record,
+            (
+                "2025-04-15",
+                "api",
+                "https://example.com/catalog",
+                "Example Publisher",
+                "First-party",
+            ),
+        )
+
+        evidence = record["date_evidence"][0]
+        self.assertEqual(evidence["url"], "https://example.com/catalog")
+        self.assertEqual(evidence["publisher"], "Example Publisher")
+        self.assertEqual(evidence["authority"], "First-party")
+
     def test_html_meta_date_is_detected_regardless_of_attribute_order(self) -> None:
         html = '<meta content="2025-03-06T09:30:00Z" property="article:published_time">'
 

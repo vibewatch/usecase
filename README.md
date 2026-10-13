@@ -27,6 +27,15 @@ Archive first captures, sitemap modification dates, and unverified legacy
 dates remain available under `date_evidence` with their exact label and source,
 but are never presented as publication dates.
 
+Missing company attributes use a separate customer-level enrichment ledger,
+[`data/company-enrichment.jsonl`](data/company-enrichment.jsonl). Existing
+authored values are never overwritten. Headquarters region and employee-count
+evidence must come from an opened source, not a search snippet; size is then
+normalized as SMB (0–249), Mid-market (250–999), or Enterprise (1,000+).
+Every enrichment source is added to the case source ledger and linked through
+`field_sources`. Unresolved values render as **Not documented** rather than a
+prominent `Unknown`.
+
 Scores are rebuilt deterministically on every `data:seed`:
 
 - **Evidence confidence (0–100%)**: source authority (25), claim traceability
@@ -77,6 +86,9 @@ npm run data:fetch      # fetch raw content → data/raw_content/, append data/f
 npm run data:triage     # filter + date provenance (pre → post → metadata → dates) → data/triage.jsonl
 npm run data:probe-fetch -- <url>  # probe/update Python fetch strategies for a hard host
 npm run data:extract    # build prompt bundles for triage-kept pages in data/extract_jobs/{vendor}/
+npm run data:enrich-companies # queue customer region/size research jobs
+npm run data:enrich-dates     # queue publisher-date research jobs
+npm run data:validate-enrichment # validate the company enrichment ledger
 npm run data:merge      # fold data/records/**/*.json + samples → data/case-studies.merged.json
 npm run data:partition  # assign records to collection weeks → data/weekly/** (+ stamp generated JSON)
 npm run data:build      # merge → seed SQLite → export → partition
@@ -134,6 +146,17 @@ highest-score first. Every decision and its reasons is in `data/triage.jsonl`
   author up to `cap` records), rebuilds the data, validates the site build,
   and commits `data/records/**`, `data/weekly/**`, `data/triage.jsonl` and the
   URL/fetch ledgers. Requires the `COPILOT_PAT` and `USECASE_PAT` secrets.
+- **Evidence enrichment** —
+  [`.github/workflows/enrichment.yml`](.github/workflows/enrichment.yml) runs
+  daily and on demand with a combined 1–40 job cap. It exits before invoking
+  an agent when both queues are empty. The
+  [`UseCase Enrichment`](.github/agents/usecase-enrichment.agent.md) agent
+  researches missing company attributes and exact publisher-confirmed dates,
+  appends only validated ledger entries, rebuilds the site, and commits the
+    resulting evidence. Completed searches with no defensible value are recorded
+    so later batches advance instead of retrying the same job; pass
+    `--retry-researched` to the queue command for a deliberate recheck. It
+    requires `COPILOT_PAT` and `USECASE_PAT`.
 - **GitHub Pages** — [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
   rebuilds and deploys the dashboard on every push to `main` that touches
   records or site code, which includes the daily collection commit. One-time
@@ -249,6 +272,8 @@ outputs belong under `data/diagrams/` and are ignored by git.
 - `data/sources.json` — vendor source config (sitemaps, index pages, regex
   filters).
 - `data/records/{vendor_slug}/{slug}.json` — authored records (tracked).
+- `data/company-enrichment.jsonl` — append-only, customer-level region and
+  company-size evidence (tracked).
 - `data/weekly/` — weekly partitions of the dataset (tracked; see
   [Weekly storage](#weekly-storage)).
 - `data/case-studies.sample.json` — synthetic seed records (`is_sample: true`).

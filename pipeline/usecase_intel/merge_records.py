@@ -15,7 +15,14 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from .settings import MERGED_CASE_STUDIES_PATH, RECORDS_ROOT, TRIAGE_PATH
+from .company_enrichment import apply_company_enrichment, load_company_enrichments
+from .settings import (
+    COMPANY_ENRICHMENT_PATH,
+    DISCOVERED_URLS_PATH,
+    MERGED_CASE_STUDIES_PATH,
+    RECORDS_ROOT,
+    TRIAGE_PATH,
+)
 from .utils import load_jsonl
 
 
@@ -50,7 +57,20 @@ def _richness(record: dict[str, Any]) -> int:
 def _story_key(record: dict[str, Any]) -> str:
     return str(record.get("source_url") or "").strip().rstrip("/").lower()
 
-def _date_provenance(path: Path | None) -> dict[str, tuple[str, str]]:
+
+def _sitemap_lastmods(path: Path | None) -> dict[str, str]:
+    if path is None:
+        return {}
+    values: dict[str, str] = {}
+    for row in load_jsonl(path):
+        url = row.get("url")
+        lastmod = row.get("lastmod")
+        if isinstance(url, str) and isinstance(lastmod, str) and lastmod:
+            values[url.strip().rstrip("/").lower()] = lastmod[:10]
+    return values
+
+
+def _date_provenance(path: Path | None) -> dict[str, tuple[str, ...]]:
     if path is None:
         return {}
     latest: dict[str, dict[str, Any]] = {}
@@ -59,18 +79,26 @@ def _date_provenance(path: Path | None) -> dict[str, tuple[str, str]]:
         if isinstance(url, str) and url:
             latest[url.strip().rstrip("/").lower()] = row
 
-    provenance: dict[str, tuple[str, str]] = {}
+    provenance: dict[str, tuple[str, ...]] = {}
     source_labels = {
         "page": "page",
         "page metadata": "page metadata",
         "discovery": "vendor metadata",
+        "vendor metadata": "vendor metadata",
+        "api": "api",
         "wayback_first_capture": "wayback_first_capture",
     }
     for url, row in latest.items():
         published_date = row.get("published_date")
         source = source_labels.get(str(row.get("published_source") or ""))
         if isinstance(published_date, str) and published_date and source:
-            provenance[url] = (published_date, source)
+            provenance[url] = (
+                published_date,
+                source,
+                str(row.get("published_evidence_url") or url),
+                str(row.get("published_evidence_publisher") or row.get("vendor") or ""),
+                str(row.get("published_evidence_authority") or "First-party"),
+            )
     return provenance
 
 
@@ -84,22 +112,29 @@ def _date_evidence(date: str, kind: str, publisher: str, url: str, authority: st
     }
 
 
-def _apply_date_policy(record: dict[str, Any], evidence: tuple[str, str] | None) -> None:
+def _apply_date_policy(
+    record: dict[str, Any],
+    evidence: tuple[str, ...] | None,
+    sitemap_lastmod: str | None = None,
+) -> None:
     authored_date = str(record.get("published_date") or "unknown")
     source_url = str(record.get("source_url") or "")
     publisher = record["customer_name"] if record.get("source_type") == "company" else record["vendor"]
 
-    if evidence and evidence[1] in {"page", "page metadata", "vendor metadata"}:
-        published_date, source = evidence
+    if evidence and evidence[1] in {"page", "page metadata", "vendor metadata", "api"}:
+        published_date, source = evidence[0], evidence[1]
+        evidence_url = evidence[2] if len(evidence) > 2 and evidence[2] else source_url
+        evidence_publisher = evidence[3] if len(evidence) > 3 and evidence[3] else publisher
+        evidence_authority = evidence[4] if len(evidence) > 4 and evidence[4] else "First-party"
         record["published_date"] = published_date
         record["published_date_source"] = source
         record["date_evidence"] = [
             _date_evidence(
                 published_date,
                 "Published on source page" if source in {"page", "page metadata"} else "Publisher catalog date",
-                publisher,
-                source_url,
-                "First-party",
+                evidence_publisher,
+                evidence_url,
+                evidence_authority,
             )
         ]
         return
@@ -117,6 +152,16 @@ def _apply_date_policy(record: dict[str, Any], evidence: tuple[str, str] | None)
                 "Independent",
             )
         ]
+        if sitemap_lastmod and sitemap_lastmod != first_seen:
+            record["date_evidence"].append(
+                _date_evidence(
+                    sitemap_lastmod,
+                    "Sitemap last modified",
+                    publisher,
+                    source_url,
+                    "Publisher metadata",
+                )
+            )
         if authored_date not in {"", "unknown", first_seen}:
             record["date_evidence"].append(
                 _date_evidence(authored_date, "Unverified extracted date", publisher, source_url, "Unknown")
@@ -131,11 +176,21 @@ def _apply_date_policy(record: dict[str, Any], evidence: tuple[str, str] | None)
 
     record["published_date"] = "unknown"
     record["published_date_source"] = "unknown"
-    record["date_evidence"] = (
-        [_date_evidence(authored_date, "Unverified extracted date", publisher, source_url, "Unknown")]
-        if authored_date not in {"", "unknown"}
-        else []
-    )
+    record["date_evidence"] = []
+    if sitemap_lastmod:
+        record["date_evidence"].append(
+            _date_evidence(
+                sitemap_lastmod,
+                "Sitemap last modified",
+                publisher,
+                source_url,
+                "Publisher metadata",
+            )
+        )
+    if authored_date not in {"", "unknown"}:
+        record["date_evidence"].append(
+            _date_evidence(authored_date, "Unverified extracted date", publisher, source_url, "Unknown")
+        )
 
 
 def merge_records(
@@ -145,12 +200,16 @@ def merge_records(
     include_samples: Path | None = None,
     prune_duplicates: bool = False,
     triage_path: Path | None = None,
+    discovered_path: Path | None = DISCOVERED_URLS_PATH,
+    company_enrichment_path: Path | None = COMPANY_ENRICHMENT_PATH,
 ) -> dict[str, int]:
     records_by_id: dict[str, dict[str, Any]] = {}
     sample_count = 0
     record_count = 0
     pruned = 0
     date_provenance = _date_provenance(triage_path)
+    sitemap_lastmods = _sitemap_lastmods(discovered_path)
+    company_profiles = load_company_enrichments(company_enrichment_path) if company_enrichment_path else {}
 
     if include_samples and include_samples.exists():
         for sample in _load_array(include_samples):
@@ -171,7 +230,9 @@ def merge_records(
             if not record.get("id"):
                 print(f"  skip {path}: record missing 'id'", file=sys.stderr)
                 continue
-            _apply_date_policy(record, date_provenance.get(_story_key(record)))
+            story_key = _story_key(record)
+            _apply_date_policy(record, date_provenance.get(story_key), sitemap_lastmods.get(story_key))
+            apply_company_enrichment(record, company_profiles)
             loaded.append((path, record))
 
         # One record per story: parallel runs can extract the same page twice under
@@ -227,6 +288,8 @@ def main() -> None:
         default=None,
         help="Optional path to a samples JSON array to fold in (real records override on id collision)",
     )
+    parser.add_argument("--discovered", type=Path, default=DISCOVERED_URLS_PATH)
+    parser.add_argument("--company-enrichment", type=Path, default=COMPANY_ENRICHMENT_PATH)
     parser.add_argument(
         "--prune-duplicates",
         action="store_true",
@@ -240,6 +303,8 @@ def main() -> None:
         include_samples=args.include_samples,
         prune_duplicates=args.prune_duplicates,
         triage_path=TRIAGE_PATH,
+        discovered_path=args.discovered,
+        company_enrichment_path=args.company_enrichment,
     )
     print(
         f"Merged samples={counts['samples']} extracted={counts['extracted']} "

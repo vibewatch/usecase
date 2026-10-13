@@ -22,6 +22,7 @@ export interface SourceReference {
   published_date_source: string;
   retrieved_at: string;
   supports: string[];
+  evidence?: string;
 }
 
 export interface DateEvidence {
