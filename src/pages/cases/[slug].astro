@@ -150,68 +150,10 @@ const searchMeta: Record<string, string> = {
             <div><dt>Evidence confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
             <div><dt>Published</dt><dd>{published}</dd></div>
           </dl>
-          <button
-            class="floating-panel-trigger floating-panel-trigger--dark"
-            id="score-method-trigger"
-            type="button"
-            popovertarget="score-method-panel"
-            aria-haspopup="dialog"
-            aria-controls="score-method-panel"
-            aria-expanded="false"
-          >
+          <a class="evidence-jump evidence-jump--dark" href="#score-methodology">
             <span>How scores are calculated</span>
             <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3 7.25h7.44L7.47 4.28l1.06-1.06L13.31 8l-4.78 4.78-1.06-1.06 2.97-2.97H3z"/></svg>
-          </button>
-          <div
-            class="floating-panel floating-panel--dark"
-            id="score-method-panel"
-            popover="auto"
-            data-floating-panel
-            data-anchor="score-method-trigger"
-            role="dialog"
-            aria-labelledby="score-method-title"
-          >
-            <header class="floating-panel__header">
-              <div>
-                <span>Scoring methodology</span>
-                <h2 id="score-method-title">How scores are calculated</h2>
-              </div>
-              <button class="floating-panel__close" type="button" popovertarget="score-method-panel" popovertargetaction="hide" aria-label="Close score methodology">
-                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m3.7 2.64 4.3 4.3 4.3-4.3 1.06 1.06L9.06 8l4.3 4.3-1.06 1.06L8 9.06l-4.3 4.3-1.06-1.06L6.94 8l-4.3-4.3z"/></svg>
-              </button>
-            </header>
-            <div class="floating-panel__body score-card__breakdown">
-              <p>Value measures usefulness as a customer reference. Confidence measures the quality and traceability of available evidence, not independent verification.</p>
-              <section class="rubric">
-                <div class="rubric__head">
-                  <div><span>Customer reference value</span><strong>{valueScore}/100</strong></div>
-                </div>
-                <ul class="rubric__criteria">
-                  {valueBreakdown.map((item) => (
-                    <li>
-                      <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
-                      <span class="rubric__track"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
-                      <small>{item.explanation}</small>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-              <section class="rubric">
-                <div class="rubric__head">
-                  <div><span>Evidence confidence</span><strong>{formatPercent(record.confidence_score)}</strong></div>
-                </div>
-                <ul class="rubric__criteria">
-                  {confidenceBreakdown.map((item) => (
-                    <li>
-                      <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
-                      <span class="rubric__track rubric__track--confidence"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
-                      <small>{item.explanation}</small>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </div>
-          </div>
+          </a>
         </aside>
       </div>
     </section>
@@ -329,93 +271,129 @@ const searchMeta: Record<string, string> = {
               </ul>
             </>
           )}
-          <button
-            class="floating-panel-trigger floating-panel-trigger--light"
-            id="sources"
-            type="button"
-            popovertarget="provenance-panel"
-            aria-haspopup="dialog"
-            aria-controls="provenance-panel"
-            aria-expanded="false"
-          >
-            <span class="floating-panel-trigger__label">
+          <a class="evidence-jump evidence-jump--light" href="#sources">
+            <span class="evidence-jump__label">
               <span>Sources &amp; provenance</span>
-              <span class="floating-panel-trigger__count">{references.length}</span>
+              <span class="evidence-jump__count">{references.length}</span>
             </span>
             <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3 7.25h7.44L7.47 4.28l1.06-1.06L13.31 8l-4.78 4.78-1.06-1.06 2.97-2.97H3z"/></svg>
-          </button>
-          <div
-            class="floating-panel floating-panel--light floating-panel--provenance"
-            id="provenance-panel"
-            popover="auto"
-            data-floating-panel
-            data-anchor="sources"
-            role="dialog"
-            aria-labelledby="provenance-title"
-          >
-            <header class="floating-panel__header">
-              <div>
-                <span>Traceability</span>
-                <h2 id="provenance-title">Sources &amp; provenance</h2>
-              </div>
-              <button class="floating-panel__close" type="button" popovertarget="provenance-panel" popovertargetaction="hide" aria-label="Close sources and provenance">
-                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m3.7 2.64 4.3 4.3 4.3-4.3 1.06 1.06L9.06 8l4.3 4.3-1.06 1.06L8 9.06l-4.3 4.3-1.06-1.06L6.94 8l-4.3-4.3z"/></svg>
-              </button>
-            </header>
-            <div class="floating-panel__body">
-              <p class="floating-panel__intro">Field coverage shows which facts each source supports. Dates are shown only when documented by the source.</p>
-              <ol class="source-list">
-                {references.map((reference) => (
-                  <li class="source-card">
-                    <div class="source-card__head">
-                      <div>
-                        <span class="source-card__publisher">{reference.publisher}</span>
-                        <h3>{reference.title}</h3>
-                      </div>
-                      <span class="tag">{reference.authority}</span>
-                    </div>
-                    <a class="source-card__url" href={reference.url} target="_blank" rel="noreferrer">{reference.url}</a>
-                    <dl class="source-card__meta">
-                      <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
-                      <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
-                    </dl>
-                    <div class="source-card__supports">
-                      <span>Supports</span>
-                      <ul class="tag-cloud">
-                        {reference.supports.map((field) => <li class="tag">{fieldLabels[field] ?? field.replaceAll("_", " ")}</li>)}
-                      </ul>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-              {dateEvidence.length > 0 && (
-                <div class="date-evidence">
-                  <h3>Date evidence</h3>
-                  <ul>
-                    {dateEvidence.map((item) => (
-                      <li>
-                        <div>
-                          <strong>{item.type}</strong>
-                          <span>{formatDate(item.date)} · {item.publisher} · {item.authority}</span>
-                        </div>
-                        <a href={item.url} target="_blank" rel="noreferrer">Open date source</a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {unsourcedFields.length > 0 && (
-                <div class="provenance-warning">
-                  <strong>Not separately sourced</strong>
-                  <span>{unsourcedFields.map((field) => fieldLabels[field] ?? field).join(", ")}. Treat these normalized attributes as lower-confidence until a dedicated source is added.</span>
-                </div>
-              )}
-            </div>
-          </div>
+          </a>
           <a class="btn btn--secondary btn--block" href={record.source_url} target="_blank" rel="noreferrer">Open source page</a>
         </article>
       </aside>
     </div>
+
+    <section class="evidence-section" aria-labelledby="evidence-title">
+      <div class="container">
+        <header class="evidence-section__head">
+          <div>
+            <p class="eyebrow">Transparency</p>
+            <h2 id="evidence-title">Evidence &amp; methodology</h2>
+          </div>
+          <p>Review how this reference was scored and trace each normalized claim back to its documented source.</p>
+        </header>
+
+        <div class="evidence-section__grid">
+          <article class="evidence-sheet evidence-sheet--score" id="score-methodology">
+            <header class="evidence-sheet__head">
+              <span>01</span>
+              <div>
+                <p>Scoring methodology</p>
+                <h3>How scores are calculated</h3>
+              </div>
+            </header>
+            <p class="evidence-sheet__intro">Customer Reference Value measures usefulness as a customer reference. Evidence Confidence measures the quality and traceability of available evidence, not independent verification.</p>
+            <div class="evidence-score-grid">
+              <section class="rubric">
+                <div class="rubric__head">
+                  <div><span>Customer reference value</span><strong>{valueScore}/100</strong></div>
+                </div>
+                <ul class="rubric__criteria">
+                  {valueBreakdown.map((item) => (
+                    <li>
+                      <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
+                      <span class="rubric__track"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
+                      <small>{item.explanation}</small>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+              <section class="rubric">
+                <div class="rubric__head">
+                  <div><span>Evidence confidence</span><strong>{formatPercent(record.confidence_score)}</strong></div>
+                </div>
+                <ul class="rubric__criteria">
+                  {confidenceBreakdown.map((item) => (
+                    <li>
+                      <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
+                      <span class="rubric__track rubric__track--confidence"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
+                      <small>{item.explanation}</small>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </article>
+
+          <article class="evidence-sheet evidence-sheet--sources" id="sources">
+            <header class="evidence-sheet__head">
+              <span>02</span>
+              <div>
+                <p>Traceability</p>
+                <h3>Sources &amp; provenance</h3>
+              </div>
+            </header>
+            <p class="evidence-sheet__intro">Field coverage shows which facts each source supports. Dates are shown only when documented by the source.</p>
+            <ol class="source-list">
+              {references.map((reference) => (
+                <li class="source-card">
+                  <div class="source-card__head">
+                    <div>
+                      <span class="source-card__publisher">{reference.publisher}</span>
+                      <h3>{reference.title}</h3>
+                    </div>
+                    <span class="tag">{reference.authority}</span>
+                  </div>
+                  <a class="source-card__url" href={reference.url} target="_blank" rel="noreferrer">{reference.url}</a>
+                  <dl class="source-card__meta">
+                    <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
+                    <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
+                  </dl>
+                  <div class="source-card__supports">
+                    <span>Supports</span>
+                    <ul class="tag-cloud">
+                      {reference.supports.map((field) => <li class="tag">{fieldLabels[field] ?? field.replaceAll("_", " ")}</li>)}
+                    </ul>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            {dateEvidence.length > 0 && (
+              <div class="date-evidence">
+                <h3>Date evidence</h3>
+                <ul>
+                  {dateEvidence.map((item) => (
+                    <li>
+                      <div>
+                        <strong>{item.type}</strong>
+                        <span>{formatDate(item.date)} · {item.publisher} · {item.authority}</span>
+                      </div>
+                      <a href={item.url} target="_blank" rel="noreferrer">Open date source</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {unsourcedFields.length > 0 && (
+              <div class="provenance-warning">
+                <strong>Not separately sourced</strong>
+                <span>{unsourcedFields.map((field) => fieldLabels[field] ?? field).join(", ")}. Treat these normalized attributes as lower-confidence until a dedicated source is added.</span>
+              </div>
+            )}
+          </article>
+        </div>
+      </div>
+    </section>
 
     {related.length > 0 && (
       <section class="section section--tinted" data-pagefind-ignore="all">
@@ -435,45 +413,4 @@ const searchMeta: Record<string, string> = {
     )}
   </main>
 
-  <script>
-    const floatingPanels = Array.from(document.querySelectorAll<HTMLElement>("[data-floating-panel]"));
-
-    function positionFloatingPanel(panel: HTMLElement) {
-      const anchorId = panel.dataset.anchor;
-      const anchor = anchorId ? document.getElementById(anchorId) : null;
-      if (!anchor || !panel.matches(":popover-open")) return;
-
-      const margin = 12;
-      const gap = 10;
-      const anchorRect = anchor.getBoundingClientRect();
-      const panelRect = panel.getBoundingClientRect();
-      const left = Math.max(
-        margin,
-        Math.min(anchorRect.right - panelRect.width, window.innerWidth - panelRect.width - margin),
-      );
-      const below = anchorRect.bottom + gap;
-      const above = anchorRect.top - panelRect.height - gap;
-      const top = below + panelRect.height <= window.innerHeight - margin || above < margin
-        ? Math.min(below, window.innerHeight - panelRect.height - margin)
-        : above;
-
-      panel.style.left = `${left}px`;
-      panel.style.top = `${Math.max(margin, top)}px`;
-    }
-
-    for (const panel of floatingPanels) {
-      panel.addEventListener("toggle", () => {
-        const anchor = panel.dataset.anchor ? document.getElementById(panel.dataset.anchor) : null;
-        const open = panel.matches(":popover-open");
-        anchor?.setAttribute("aria-expanded", String(open));
-        if (open) requestAnimationFrame(() => positionFloatingPanel(panel));
-      });
-    }
-
-    const repositionOpenPanels = () => {
-      for (const panel of floatingPanels) positionFloatingPanel(panel);
-    };
-    window.addEventListener("resize", repositionOpenPanels);
-    window.addEventListener("scroll", repositionOpenPanels, { passive: true });
-  </script>
 </BaseLayout>
