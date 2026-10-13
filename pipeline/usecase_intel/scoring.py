@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 from typing import Any
-from urllib.parse import urlparse
 
 TRACEABLE_FIELDS = [
     "customer_name",
@@ -55,6 +54,32 @@ def _quantified_impact_metrics(record: dict[str, Any]) -> list[str]:
     ]
 
 
+def _source_transparency_score(references: list[dict[str, Any]]) -> tuple[int, str]:
+    if not references:
+        return 0, "No structured source reference is available."
+
+    scores: list[int] = []
+    for reference in references:
+        score = 0
+        if reference.get("title") and reference.get("publisher"):
+            score += 2
+        if reference.get("url") and reference.get("source_type"):
+            score += 2
+        if str(reference.get("authority") or "").lower() not in {"", "unknown"}:
+            score += 2
+        if str(reference.get("retrieved_at") or "").lower() not in {"", "unknown"}:
+            score += 2
+        if reference.get("supports"):
+            score += 2
+        scores.append(score)
+
+    result = round(sum(scores) / len(scores))
+    return result, (
+        f"{len(references)} source reference{'s' if len(references) != 1 else ''} document "
+        "publisher, URL, authority, retrieval, and supported fields."
+    )
+
+
 def compute_confidence_breakdown(record: dict[str, Any]) -> list[dict[str, Any]]:
     references = _source_references(record)
     source_types = " ".join(str(reference.get("source_type") or "") for reference in references).lower()
@@ -93,20 +118,7 @@ def compute_confidence_breakdown(record: dict[str, Any]) -> list[dict[str, Any]]
         date_score = 0
         date_text = "The publication date has no documented provenance."
 
-    domains = {
-        urlparse(str(reference.get("url") or "")).netloc.lower()
-        for reference in references
-        if urlparse(str(reference.get("url") or "")).netloc
-    }
-    if len(references) >= 2 and len(domains) >= 2:
-        corroboration_score = 10
-        corroboration_text = "Claims are supported across multiple independently hosted sources."
-    elif len(references) >= 2:
-        corroboration_score = 5
-        corroboration_text = "More than one source is listed, but independent hosting is limited."
-    else:
-        corroboration_score = 0
-        corroboration_text = "The record relies on a single source and is not independently corroborated."
+    transparency_score, transparency_text = _source_transparency_score(references)
 
     specificity_score = 0
     if record.get("solution_components"):
@@ -133,7 +145,7 @@ def compute_confidence_breakdown(record: dict[str, Any]) -> list[dict[str, Any]]
             f"{quote_count} direct source quote{'s' if quote_count != 1 else ''} retained.",
         ),
         _criterion("Date provenance", date_score, 10, date_text),
-        _criterion("Corroboration", corroboration_score, 10, corroboration_text),
+        _criterion("Source transparency", transparency_score, 10, transparency_text),
         _criterion(
             "Implementation specificity",
             specificity_score,
@@ -221,13 +233,14 @@ def compute_value_breakdown(record: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def compute_maturity_score(record: dict[str, Any]) -> int:
+    date_source = str(record.get("published_date_source") or "unknown").lower()
     checks = [
         len(str(record.get("business_problem") or "")) >= 50,
         bool(record.get("products_used")),
         bool(record.get("solution_components") or record.get("data_flow") or record.get("architecture_clues")),
         len(str(record.get("business_outcome") or "")) >= 50,
         bool(_quantified_impact_metrics(record)),
-        len(_source_references(record)) >= 2,
+        date_source in {"page", "page metadata", "vendor metadata", "api"},
     ]
     return sum(1 for check in checks if check)
 

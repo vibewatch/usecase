@@ -300,7 +300,7 @@ def extract_jobs(
         confirmed_source = (
             "vendor metadata"
             if detected_source == "discovery"
-            else detected_source if detected_source == "page"
+            else detected_source if detected_source in {"page", "page metadata"}
             else "unknown"
         )
         observed_date = detected_date if is_archive_proxy else url_to_lastmod.get(row["url"]) or "unknown"

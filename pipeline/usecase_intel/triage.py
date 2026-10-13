@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import json
 import re
 import sys
@@ -33,6 +34,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Callable, Optional
 from urllib.parse import urlencode, urlsplit
@@ -64,12 +66,6 @@ MONTHS = {
     )
     for name in names
 }
-META_DATE_RE = re.compile(
-    r"""(?:article:published_time|datePublished|date_published|publish[_-]?date|"""
-    r"""dc\.date|og:published_time|pubdate)["']?\s*(?:content\s*=|:|=)\s*["']\s*([^"'<>]{6,40})""",
-    re.IGNORECASE,
-)
-TIME_TAG_RE = re.compile(r"<time[^>]*datetime=[\"']([^\"']{6,40})", re.IGNORECASE)
 MONTH_NAMES = "|".join(sorted(MONTHS, key=len, reverse=True))
 ISO_DATE_RE = re.compile(r"\b(20\d{2})-(\d{2})-(\d{2})")
 US_DATE_RE = re.compile(r"\b(\d{1,2})/(\d{1,2})/(20\d{2})\b")  # 09/22/2025 (Drupal-style metadata)
@@ -175,22 +171,126 @@ def parse_date_value(value: str) -> Optional[str]:
     return None
 
 
-def detect_published_date(raw_html: str, text: str, date_pattern: Optional[re.Pattern[str]] = None) -> Optional[str]:
+PUBLISHED_META_KEYS = {
+    "article:published_time",
+    "og:published_time",
+    "datepublished",
+    "date_published",
+    "publishdate",
+    "publish_date",
+    "publication_date",
+    "pubdate",
+    "dc.date",
+    "dc.date.issued",
+    "dcterms.created",
+    "parsely-pub-date",
+    "sailthru.date",
+}
+
+
+def _metadata_key(value: str) -> str:
+    return re.sub(r"\s+", "", value.strip().lower())
+
+
+class _PublicationMetadataParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.values: list[str] = []
+        self.json_ld: list[str] = []
+        self._in_json_ld = False
+        self._json_chunks: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, Optional[str]]]) -> None:
+        values = {key.lower(): value or "" for key, value in attrs}
+        if tag.lower() == "meta":
+            keys = [values.get(name, "") for name in ("property", "name", "itemprop")]
+            if any(_metadata_key(key) in PUBLISHED_META_KEYS for key in keys):
+                candidate = values.get("content") or values.get("value") or values.get("datetime")
+                if candidate:
+                    self.values.append(candidate)
+        elif tag.lower() == "time":
+            descriptor = " ".join(values.get(name, "") for name in ("itemprop", "class", "id", "name")).lower()
+            is_published = (
+                _metadata_key(values.get("itemprop", "")) == "datepublished"
+                or ("publish" in descriptor and "modif" not in descriptor and "update" not in descriptor)
+            )
+            if is_published and values.get("datetime"):
+                self.values.append(values["datetime"])
+        elif tag.lower() == "script" and "ld+json" in values.get("type", "").lower():
+            self._in_json_ld = True
+            self._json_chunks = []
+
+    def handle_data(self, data: str) -> None:
+        if self._in_json_ld:
+            self._json_chunks.append(data)
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "script" and self._in_json_ld:
+            self.json_ld.append("".join(self._json_chunks))
+            self._in_json_ld = False
+            self._json_chunks = []
+
+
+def _json_published_dates(value: Any) -> list[str]:
+    dates: list[str] = []
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key.lower() == "datepublished" and isinstance(item, (str, int, float)):
+                dates.append(str(item))
+            else:
+                dates.extend(_json_published_dates(item))
+    elif isinstance(value, list):
+        for item in value:
+            dates.extend(_json_published_dates(item))
+    return dates
+
+
+def detect_page_metadata_date(raw_html: str) -> Optional[str]:
+    """Return a publication date only from publication-specific HTML metadata."""
+    parser = _PublicationMetadataParser()
+    try:
+        parser.feed(raw_html)
+    except Exception:
+        return None
+
+    candidates: list[str] = []
+    for payload in parser.json_ld:
+        cleaned = html.unescape(payload).strip().removeprefix("<!--").removesuffix("-->").strip()
+        try:
+            candidates.extend(_json_published_dates(json.loads(cleaned)))
+        except (json.JSONDecodeError, TypeError, ValueError):
+            continue
+    candidates.extend(parser.values)
+    for candidate in candidates:
+        value = parse_date_value(candidate)
+        if value and "2000" <= value[:4] <= "2100":
+            return value
+    return None
+
+
+def detect_published_date_info(
+    raw_html: str,
+    text: str,
+    date_pattern: Optional[re.Pattern[str]] = None,
+) -> tuple[Optional[str], Optional[str]]:
     """Best-effort publish date: a vendor-specific pattern (first match), structured
     metadata, a date standing alone in the first lines (e.g. Microsoft's
     "January 19, 2024" above the title), then a keyword dateline ("Published May
     2024", "发布时间：2024-05-13") near the top."""
     if date_pattern and (match := date_pattern.search(raw_html)) and (value := parse_date_value(match[1])):
-        return value
-    meta = [parse_date_value(value) for value in META_DATE_RE.findall(raw_html) + TIME_TAG_RE.findall(raw_html)]
-    meta = [value for value in meta if value and "2000" <= value[:4] <= "2100"]
-    if meta:
-        return min(meta)
+        return value, "page"
+    if value := detect_page_metadata_date(raw_html):
+        return value, "page metadata"
     for line in [line.strip() for line in text.splitlines() if line.strip()][:5]:
         if len(line) <= 24 and _is_whole_date(line) and (value := parse_date_value(line)):
-            return value
+            return value, "page"
     match = DATELINE_RE.search(text[:2000]) or CN_DATELINE_RE.search(text[:2000])
-    return parse_date_value(match[1]) if match else None
+    return (parse_date_value(match[1]), "page") if match else (None, None)
+
+
+def detect_published_date(raw_html: str, text: str, date_pattern: Optional[re.Pattern[str]] = None) -> Optional[str]:
+    """Compatibility wrapper returning only the detected publication date."""
+    return detect_published_date_info(raw_html, text, date_pattern)[0]
 
 
 def _is_whole_date(line: str) -> bool:
@@ -294,8 +394,7 @@ def evaluate_text(
     cjk = len(CJK_RE.findall(text)) if chinese else 0
     words = len(tokens) + int(cjk / criteria.cjk_chars_per_word)
     date_pattern = re.compile(options["date_pattern"]) if options.get("date_pattern") else None
-    published = detect_published_date(raw_html, text, date_pattern)
-    published_source = "page" if published else None
+    published, published_source = detect_published_date_info(raw_html, text, date_pattern)
     if not published and lastmod and options.get("lastmod_is_published"):
         published, published_source = lastmod, "discovery"
 
@@ -372,7 +471,9 @@ def bulk_dates(decisions: dict[str, dict[str, Any]]) -> set[tuple[str, str]]:
     counts = Counter(
         (row.get("vendor"), row.get("published_date"))
         for row in decisions.values()
-        if row.get("stage") == "post" and row.get("published_source") == "page" and row.get("published_date")
+        if row.get("stage") == "post"
+        and row.get("published_source") in {"page", "page metadata"}
+        and row.get("published_date")
     )
     return {key for key, count in counts.items() if count >= BULK_DATE_MIN_PAGES}
 
@@ -383,7 +484,10 @@ def date_settled(row: dict[str, Any], bulk: set[tuple[str, str]]) -> bool:
         return True
     if not row.get("published_date"):
         return False
-    return row.get("published_source") != "page" or (row.get("vendor"), row["published_date"]) not in bulk
+    return (
+        row.get("published_source") not in {"page", "page metadata"}
+        or (row.get("vendor"), row["published_date"]) not in bulk
+    )
 
 
 def _record_urls(records_root: Path) -> set[str]:
@@ -645,6 +749,78 @@ def enrich_dates(
     return counts
 
 
+def enrich_metadata_dates(
+    *,
+    manifest_path: Path = FETCH_MANIFEST_PATH,
+    output_path: Path = TRIAGE_PATH,
+    vendor_filter: Optional[str] = None,
+    limit: Optional[int] = None,
+) -> Counter[str]:
+    """Backfill publication dates from cached source-page HTML metadata.
+
+    Existing visible-page or publisher-catalog dates win on conflict. Archive,
+    sitemap, and unknown dates may be replaced by publication-specific JSON-LD,
+    meta, itemprop, or time-tag metadata from the original page.
+    """
+    counts: Counter[str] = Counter()
+    decisions = load_decisions(output_path)
+    latest_manifest: dict[str, dict[str, Any]] = {}
+    for row in load_jsonl(manifest_path):
+        url = row.get("url")
+        if isinstance(url, str):
+            latest_manifest[url] = row
+
+    candidates = [
+        row
+        for row in latest_manifest.values()
+        if row.get("status") == 200
+        and row.get("raw_path")
+        and (not vendor_filter or str(row.get("vendor") or "").lower() == vendor_filter.lower())
+    ]
+    if limit is not None:
+        candidates = candidates[:limit]
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("a", encoding="utf-8") as out:
+        for row in candidates:
+            raw_path = Path(str(row["raw_path"]))
+            if not raw_path.exists():
+                counts["missing_raw"] += 1
+                continue
+            prior = decisions.get(str(row["url"]))
+            if not prior or prior.get("stage") != "post":
+                counts["missing_decision"] += 1
+                continue
+
+            raw_html = raw_path.read_bytes()[:400_000].decode("utf-8", errors="replace")
+            published = detect_page_metadata_date(raw_html)
+            if not published:
+                counts["no_metadata_date"] += 1
+                continue
+
+            previous_date = str(prior.get("published_date") or "")
+            previous_source = str(prior.get("published_source") or "")
+            if previous_source in {"page", "page metadata", "discovery"} and previous_date:
+                if previous_date != published:
+                    counts["conflict"] += 1
+                    continue
+                if previous_source == "page metadata":
+                    counts["already_current"] += 1
+                    continue
+
+            updated = {
+                **prior,
+                "published_date": published,
+                "published_source": "page metadata",
+                "date_checked": True,
+                "decided_at": _now(),
+            }
+            out.write(json.dumps(updated, ensure_ascii=False) + "\n")
+            decisions[str(row["url"])] = updated
+            counts["updated"] += 1
+    return counts
+
+
 def summarize(path: Path = TRIAGE_PATH, records_root: Path = RECORDS_ROOT) -> None:
     decisions = load_decisions(path)
     done = _record_urls(records_root)
@@ -691,8 +867,8 @@ def reject(url: str, reason: str, output_path: Path = TRIAGE_PATH, vendor: str =
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Filter discovered stories before extraction.")
-    parser.add_argument("--stage", choices=["pre", "post", "dates", "summary", "reject"], required=True)
-    parser.add_argument("--limit", type=int, default=None, help="Max pages to date (--stage dates)")
+    parser.add_argument("--stage", choices=["pre", "post", "metadata", "dates", "summary", "reject"], required=True)
+    parser.add_argument("--limit", type=int, default=None, help="Max pages to process in metadata/date enrichment")
     parser.add_argument("--url", type=str, default=None, help="URL to reject (--stage reject)")
     parser.add_argument("--reason", type=str, default="not a customer story", help="Rejection reason (--stage reject)")
     parser.add_argument("--config", type=Path, default=TRIAGE_CONFIG_PATH)
@@ -700,10 +876,20 @@ def main() -> None:
     parser.add_argument("--vendor", type=str, default=None)
     parser.add_argument("--rejudge", action="store_true", help="Re-evaluate URLs that already have a decision")
     parser.add_argument("--output", type=Path, default=TRIAGE_PATH)
+    parser.add_argument("--manifest", type=Path, default=FETCH_MANIFEST_PATH)
     args = parser.parse_args()
 
     if args.stage == "summary":
         summarize(args.output)
+        return
+    if args.stage == "metadata":
+        counts = enrich_metadata_dates(
+            manifest_path=args.manifest,
+            output_path=args.output,
+            vendor_filter=args.vendor,
+            limit=args.limit,
+        )
+        print(" ".join(f"{key}={value}" for key, value in sorted(counts.items())))
         return
     if args.stage == "reject":
         if not args.url:

@@ -37,16 +37,16 @@ def record_fixture() -> dict:
 
 
 class ScoringTests(unittest.TestCase):
-    def test_single_source_record_is_not_perfect_confidence(self) -> None:
+    def test_single_source_record_earns_source_transparency(self) -> None:
         record = normalize_record(record_fixture(), 0)
         scored = score_record(record)
 
         self.assertGreater(scored["confidence_score"], 0.5)
         self.assertLess(scored["confidence_score"], 1.0)
-        corroboration = next(
-            item for item in scored["confidence_breakdown"] if item["criterion"] == "Corroboration"
+        transparency = next(
+            item for item in scored["confidence_breakdown"] if item["criterion"] == "Source transparency"
         )
-        self.assertEqual(corroboration["score"], 0)
+        self.assertGreaterEqual(transparency["score"], 8)
 
     def test_missing_metrics_lowers_value_and_maturity(self) -> None:
         strong = score_record(normalize_record(record_fixture(), 0))
@@ -58,8 +58,9 @@ class ScoringTests(unittest.TestCase):
         self.assertLess(weak["value_score"], strong["value_score"])
         self.assertLess(weak["maturity_score"], strong["maturity_score"])
 
-    def test_second_independent_source_adds_corroboration(self) -> None:
+    def test_second_source_is_not_required_for_confidence(self) -> None:
         record = normalize_record(record_fixture(), 0)
+        single_source = score_record(record)
         record["source_references"].append(
             {
                 "id": "customer-release",
@@ -75,11 +76,12 @@ class ScoringTests(unittest.TestCase):
             }
         )
         scored = score_record(record)
-        corroboration = next(
-            item for item in scored["confidence_breakdown"] if item["criterion"] == "Corroboration"
+        transparency = next(
+            item for item in scored["confidence_breakdown"] if item["criterion"] == "Source transparency"
         )
 
-        self.assertEqual(corroboration["score"], 10)
+        self.assertGreaterEqual(transparency["score"], 8)
+        self.assertGreaterEqual(scored["confidence_score"], single_source["confidence_score"])
         self.assertEqual(scored["maturity_score"], 6)
 
 

@@ -46,6 +46,12 @@ const translatedFrom =
     : "";
 const references = sourceReferences(record);
 const dateEvidence = record.date_evidence ?? [];
+const dateEvidenceNote = (type: string) => {
+  if (type === "First archived") return "First Wayback Machine capture; confirms the page existed by this date, not when it was published.";
+  if (type === "Sitemap last modified") return "Publisher-reported modification timestamp; not a publication date.";
+  if (type === "Unverified extracted date") return "Legacy extracted date without source-page confirmation.";
+  return "";
+};
 const valueScore = record.value_score ?? 0;
 const valueBreakdown = record.value_breakdown ?? [];
 const confidenceBreakdown = record.confidence_breakdown ?? [];
@@ -391,6 +397,7 @@ const searchMeta: Record<string, string> = {
                       <div>
                         <strong>{item.type}</strong>
                         <span>{formatDate(item.date)} · {item.publisher} · {item.authority}</span>
+                        {dateEvidenceNote(item.type) && <small>{dateEvidenceNote(item.type)}</small>}
                       </div>
                       <a href={item.url} target="_blank" rel="noreferrer">Open date source</a>
                     </li>

@@ -30,13 +30,13 @@ but are never presented as publication dates.
 Scores are rebuilt deterministically on every `data:seed`:
 
 - **Evidence confidence (0–100%)**: source authority (25), claim traceability
-  (25), direct evidence (20), publication-date provenance (10), independent
-  corroboration (10), and implementation specificity (10).
+  (25), direct evidence (20), publication-date provenance (10), source
+  transparency (10), and implementation specificity (10).
 - **Customer reference value (0–100)**: problem clarity (20), implementation
   depth (25), outcome specificity (20), quantified impact (25), and deployment
   scale (10).
 - **Evidence stage (0–6)**: a compact card/sort signal based on problem,
-  products, architecture, outcome, quantified impact, and corroboration.
+  products, architecture, outcome, quantified impact, and confirmed date provenance.
 
 These scores describe the evidence available in the cited sources. They are
 not independent verification of vendor claims and do not predict guaranteed
@@ -74,7 +74,7 @@ npm run build        # astro check && astro build && pagefind --site dist → di
 # Pipeline (Python 3)
 npm run data:discover   # walk data/sources.json sitemaps/APIs → data/discovered_urls.jsonl
 npm run data:fetch      # fetch raw content → data/raw_content/, append data/fetch_manifest.jsonl
-npm run data:triage     # filter before extraction (pre → post → dates) → data/triage.jsonl
+npm run data:triage     # filter + date provenance (pre → post → metadata → dates) → data/triage.jsonl
 npm run data:probe-fetch -- <url>  # probe/update Python fetch strategies for a hard host
 npm run data:extract    # build prompt bundles for triage-kept pages in data/extract_jobs/{vendor}/
 npm run data:merge      # fold data/records/**/*.json + samples → data/case-studies.merged.json
@@ -95,6 +95,7 @@ criteria in `pipeline/usecase_intel/config/triage.json`):
 |---|---|---|
 | `pre` | discovery metadata | stories whose sitemap/API date predates the cutoff |
 | `post` | fetched page text | old (page metadata/dateline), thin, non-English, off-topic, duplicate, or redirected-away pages |
+| `metadata` | cached source HTML | backfills publication-specific JSON-LD, Open Graph/meta, itemprop, and `<time>` dates without replacing conflicting authoritative dates |
 | `dates` | undated survivors | pages the Internet Archive first saw before the cutoff |
 | extraction | the extractor itself | pages that turn out not to be customer stories, or not AI use cases (`--stage reject`) |
 
@@ -176,8 +177,10 @@ End-to-end agent loop:
 6. `npm run data:build` to merge, seed SQLite, and refresh the dashboard JSON.
 
 `npm run data:fetch` uses the full Python-native fetch chain by default: it
-tries the project user agent, known per-host profile strategies, and
-reader/wayback recovery before giving up.
+tries the project user agent, search-bot and browser header profiles, an
+on-demand headless Chrome render for JavaScript-dependent pages, and then
+reader/Wayback recovery. Downloads and rendered HTML are size-bounded, and
+HTTP 429 responses honor `Retry-After` before moving to the next strategy.
 
 ## Diagram extraction
 
@@ -242,7 +245,7 @@ outputs belong under `data/diagrams/` and are ignored by git.
   `extract`, `merge_records`, `seed`, `scoring`, `export`, `partition`, plus `fetch_client`,
   `settings`, `utils`, and `config/host-strategies.json`.
 - `requirements.txt` — Python extraction dependencies (`beautifulsoup4`,
-  `pypdf`) used by the fetch/extract pipeline.
+  `playwright`, `pypdf`) used by the fetch/extract pipeline.
 - `data/sources.json` — vendor source config (sitemaps, index pages, regex
   filters).
 - `data/records/{vendor_slug}/{slug}.json` — authored records (tracked).

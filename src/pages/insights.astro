@@ -36,7 +36,7 @@ const coverageSignals = [
   { label: "Named integrations", count: withIntegrations, detail: "External systems, upstream sources, or downstream consumers are identified." },
   { label: "Quantified impact", count: withImpact, detail: "At least one metric describes measurable customer impact." },
   { label: "Confirmed publication date", count: withConfirmedDate, detail: "Date is stated on the page or in documented publisher metadata." },
-  { label: "Multiple sources", count: withMultipleSources, detail: "More than one source is attached to the same normalized record." },
+  { label: "Multi-source records", count: withMultipleSources, detail: "Optional customer or independent sources supplement the primary story." },
 ].map((item) => ({ ...item, share: rate(item.count) }));
 
 const median = (values: number[]) => {
@@ -170,7 +170,7 @@ const heatVendors = vendors.slice(0, 12).map((entry) => entry.label);
               </div>
             </dl>
             {withMultipleSources === 0 && (
-              <p class="insight-warning"><strong>Corroboration gap:</strong> no current record has more than one attached source. Confidence scores intentionally penalize this.</p>
+              <p class="insight-warning"><strong>Single-source corpus:</strong> current records rely on one primary story. Confidence scores assess source transparency and claim traceability; independent corroboration remains an enrichment signal.</p>
             )}
           </article>
 

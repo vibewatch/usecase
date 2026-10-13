@@ -40,12 +40,13 @@ Three runtimes cooperate by writing files into `data/`:
 
 | Runtime | Where | What it does | Why this runtime |
 | ------- | ----- | ------------ | ---------------- |
-| **Python pipeline** | `pipeline/usecase_intel/` | Sitemap discovery, HTTP fetch, profile/reader/wayback fallback fetch, HTML→text, prompt bundle assembly, SQLite seeding, JSON export | One batch entry point with deterministic manifests and no manual fetch side path |
+| **Python pipeline** | `pipeline/usecase_intel/` | Sitemap discovery, HTTP fetch, header/browser/reader/Wayback fallback fetch, HTML→text, prompt bundle assembly, SQLite seeding, JSON export | One batch entry point with deterministic manifests and no manual fetch side path |
 | **Astro dashboard** | `src/` | Static-site build of one index + N detail pages over the dataset | File-based routing, zero client JS by default, builds in <2 s |
 
 `fetch.py` is the canonical batch entry point. `FetchClient` first uses the
-configured project `User-Agent`, then can retry per-host profile strategies and
-reader/wayback fallbacks while still writing the same raw HTML + manifest
+configured project `User-Agent`, then can retry per-host profile strategies,
+render the page in headless Chrome, and use reader/Wayback fallbacks while
+still writing the same raw HTML + manifest
 contract.
 
 ## 3. End-to-end data flow
@@ -72,7 +73,7 @@ flowchart TD
   disc -- triage.py pre --> triage
   disc -- fetch.py skips drops --> raw
   fetch.py --> manifest
-  raw -- triage.py post + dates --> triage
+  raw -- triage.py post + metadata + dates --> triage
   triage -- keep, by score --> job
   raw -- extract.py + clean.py --> job
   job -- "agent reads & authors" --> rec
@@ -95,7 +96,10 @@ resumable — kill it mid-run, fix a bug, rerun.
   sitemap is cheap to walk; fetching 415 pages is not. Keeping them separate
   lets us re-filter / re-cap candidates without re-fetching.
 - **fetch** is single-threaded with per-host delay and an always-on fallback
-  chain. It writes raw response bytes by SHA so identical bodies dedupe naturally on disk.
+  chain. Lightweight HTTP/header attempts run first; headless Chrome is launched
+  only when they fail, before external reader/archive recovery. Responses are
+  size-bounded, 429 retries honor `Retry-After`, and raw bytes are written by SHA
+  so identical bodies dedupe naturally on disk.
 - **clean/media → extract** turns fetched content into a self-contained prompt bundle:
   source URL, cleaned text, article-scoped visual candidates with local assets,
   the taxonomy, and the extraction SKILL.md inlined. The bundle is the **agent
@@ -152,13 +156,14 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | ------ | -------------- | -------------- |
 | [`settings.py`](pipeline/usecase_intel/settings.py) | Shared path and runtime defaults for command modules | One place for data paths, skill/taxonomy paths, user agent, delay, and host strategy config |
 | [`utils.py`](pipeline/usecase_intel/utils.py) | Small shared helpers: slugify, JSONL load, and JSON load/write | Keeps command modules thin and consistent |
-| [`fetch_client.py`](pipeline/usecase_intel/fetch_client.py) | `FetchClient`: stdlib `urllib.request`, per-host rate limit, optional disk cache by URL SHA, profile/reader/wayback fallback fetching | Single-threaded; never bursts; sets `User-Agent` from `sources.json`; fallbacks are always enabled |
+| [`fetch_client.py`](pipeline/usecase_intel/fetch_client.py) | `FetchClient`: stdlib `urllib.request`, per-host rate limit, bounded responses, 429 backoff, optional disk cache by URL SHA, and header/browser/reader/Wayback recovery | Single-threaded; never bursts; sets `User-Agent` from `sources.json`; fallbacks are always enabled |
+| [`browser_fetch.py`](pipeline/usecase_intel/browser_fetch.py) | Lazy Playwright/Chrome renderer for JavaScript-dependent or challenge-gated pages | Reuses one browser per process, isolates each page in a fresh context, blocks heavy media, bounds rendered HTML, and records `retrieval_source=browser` |
 | [`discover.py`](pipeline/usecase_intel/discover.py) | Walk sitemap index → child sitemaps → urls. Walk vendor "index pages" for `<a href>` candidates. Apply include/exclude regexes. Cap with `--enough` early-exit. | Output is append-only JSONL; reruns dedupe against existing rows |
 | [`fetch.py`](pipeline/usecase_intel/fetch.py) | For each unfetched URL in `discovered_urls.jsonl`, fetch and write `raw_content/{vendor}/{sha256}.*` plus a `fetch_manifest.jsonl` line | Skip if URL already in manifest with `status == 200` unless `--refresh`; records `retrieval_source` and `profile` for diagnostics |
 | [`clean.py`](pipeline/usecase_intel/clean.py) | `content_to_text(bytes) → (title, body, method)`. Uses BeautifulSoup for HTML main-content cleanup, pypdf for PDFs, and stdlib fallbacks for malformed HTML/plain text | One Python text extraction path for origin HTML, reader text, archived HTML, and PDFs |
 | [`media.py`](pipeline/usecase_intel/media.py) | `extract_related_images(bytes) → related_images[]` and `materialize_related_images(...)`. Discovers article `img`/`picture`/`source`, low-confidence CSS background images, inline SVG, and metadata images; scores visible context plus decoded URL/file-name hints, filters low-value candidates, and requires useful hints for non-diagram images before attempting a bounded local asset plan | Agents can inspect local `local_path` images instead of reparsing HTML or fetching remote assets by hand; failed downloads remain annotated with `asset_error` and do not consume the asset budget |
 | [`extract.py`](pipeline/usecase_intel/extract.py) | Read manifest, run `clean` + `media`, assemble prompt bundle `{vendor, source_url, sha256, title, raw_path, content_type, retrieval_source, profile, extraction_method, related_images, prompt, created_at}` | Each bundle is self-sufficient: inlines SKILL.md + taxonomy.json + cleaned text, date provenance, retrieval time, and local article visual assets |
-| [`probe.py`](pipeline/usecase_intel/probe.py) | Probe origin profiles, reader, and wayback for hard URLs; optionally update the host strategy map | Uses the same public fetch attempt API as `FetchClient` |
+| [`probe.py`](pipeline/usecase_intel/probe.py) | Probe origin profiles, headless browser, reader, and Wayback for hard URLs; optionally update the host strategy map | Uses the same public fetch attempt API as `FetchClient` |
 | [`models.py`](pipeline/usecase_intel/models.py) | `load_records(path) → list[dict]` with `normalize_record` validation | Validates record shape plus source references and field-to-source ids; legacy records receive a conservative primary-story reference |
 | [`scoring.py`](pipeline/usecase_intel/scoring.py) | Deterministic evidence-confidence, customer-reference-value, and evidence-stage rubrics with criterion-level breakdowns | Confidence measures source/evidence quality, not field completeness; value and confidence stay separate |
 | [`storage.py`](pipeline/usecase_intel/storage.py) | `initialize_database`, `upsert_records`. Schema: `case_studies` (1 row per record) + `case_study_values` (KV table for multi-value fields keyed by `kind`) | All multi-value fields have a single `MULTI_VALUE_FIELDS` mapping; `raw_json` stores the canonical record |
@@ -172,14 +177,14 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | ---- | -------------- |
 | [`src/pages/index.astro`](src/pages/index.astro) | Product positioning, audience/workflow guidance, latest records, market insights, methodology, and JSON/RSS access |
 | [`src/pages/insights.astro`](src/pages/insights.astro) | Decision-oriented analytics: evidence coverage, source bias/concentration, median segment benchmarks, architecture coverage, confirmed-date trends, ranked dimensions, and heatmaps |
-| [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Per-record detail with solution architecture, evidence, related records, and progressive disclosures for score breakdowns and field-level source provenance |
+| [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Compact per-record research brief with grouped outcome, solution, architecture, evidence, related records, and a folded score/provenance workspace |
 | [`src/pages/data.json.ts`](src/pages/data.json.ts) | Static downloadable export of the complete normalized dataset |
 | [`src/pages/feed.xml.ts`](src/pages/feed.xml.ts) | RSS feed ordered by collection time for update notifications |
 | [`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro) | Site chrome. Banner is dynamic: real vs sample counts come from `caseStudies` so the UI never lies |
 | [`src/lib/caseStudies.ts`](src/lib/caseStudies.ts) | The single import point for the dataset (`data/case-studies.generated.json`). If you want to read records anywhere in `src/`, import from here |
 | [`src/lib/analytics.ts`](src/lib/analytics.ts) | Pure aggregation helpers: `uniqueSorted`, `flattenValues`, `countValues`, `topValues`, `buildMatrix`, `averageConfidence`, `maturityDistribution`, `formatPercent`, `formatDate` (defensive — unparseable dates fall through to the raw string), `isParseableDate` |
 | [`src/lib/types.ts`](src/lib/types.ts) | `CaseStudyRecord` and dashboard view models. **The TypeScript schema is the single source of truth that has to stay in sync with `models.py` and `storage.py`.** |
-| [`src/styles/global.css`](src/styles/global.css) | All styling. Hand-rolled CSS; no Tailwind. Tokens derived from the Miro design system reference in `DESIGN.md`. |
+| [`src/styles/global.css`](src/styles/global.css) | All styling. Hand-rolled CSS; no Tailwind. Global width, gutter, spacing, type-scale, radius, section, panel, and card tokens define a compact standard shared by every page; case details add only research-brief-specific grouping. |
 
 The dashboard intentionally has no client-side data fetching. The full
 dataset is inlined at build time, so every page is a static HTML file in
@@ -385,10 +390,10 @@ Things the current implementation does **not** do, knowingly:
 - **`extract.py` truncates at 18000 chars.** Long pages may lose the
   metrics / architecture paragraphs near the end. Switching to a
   "head + tail" or "paragraph-aware" trim is queued.
-- **Legacy records usually have one source.** The UI exposes missing
-  corroboration and separately unsourced profile attributes; adding additional
-  customer or independent sources remains an enrichment task rather than an
-  inferred default.
+- **Legacy records usually have one source.** Confidence measures whether that
+  source is authoritative, transparent, and linked to each claim; it does not
+  penalize a story merely for having one publisher. Additional customer or
+  independent sources remain an optional enrichment signal.
 
 These are intentional gaps, not unknowns. See the matching section in
 [README.md](README.md) for the user-visible status.

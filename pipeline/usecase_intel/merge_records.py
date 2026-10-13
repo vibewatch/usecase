@@ -62,6 +62,7 @@ def _date_provenance(path: Path | None) -> dict[str, tuple[str, str]]:
     provenance: dict[str, tuple[str, str]] = {}
     source_labels = {
         "page": "page",
+        "page metadata": "page metadata",
         "discovery": "vendor metadata",
         "wayback_first_capture": "wayback_first_capture",
     }
@@ -88,14 +89,14 @@ def _apply_date_policy(record: dict[str, Any], evidence: tuple[str, str] | None)
     source_url = str(record.get("source_url") or "")
     publisher = record["customer_name"] if record.get("source_type") == "company" else record["vendor"]
 
-    if evidence and evidence[1] in {"page", "vendor metadata"}:
+    if evidence and evidence[1] in {"page", "page metadata", "vendor metadata"}:
         published_date, source = evidence
         record["published_date"] = published_date
         record["published_date_source"] = source
         record["date_evidence"] = [
             _date_evidence(
                 published_date,
-                "Published on source page" if source == "page" else "Publisher catalog date",
+                "Published on source page" if source in {"page", "page metadata"} else "Publisher catalog date",
                 publisher,
                 source_url,
                 "First-party",
