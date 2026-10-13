@@ -55,14 +55,27 @@ PRIMARY_SOURCE_FIELDS = [
     "metrics",
     "architecture_clues",
     "evidence_quotes",
-    "published_date",
 ]
 
 
 def _normalize_sources(record: dict[str, Any], index: int) -> None:
+    date_evidence = record.get("date_evidence", [])
+    if not isinstance(date_evidence, list):
+        raise ValueError(f"record {index} date_evidence must be a list when present")
+    for position, item in enumerate(date_evidence):
+        if not isinstance(item, dict):
+            raise ValueError(f"record {index} date_evidence[{position}] must be an object")
+        for field in ("date", "type", "publisher", "url", "authority"):
+            value = item.get(field)
+            if not isinstance(value, str) or not value.strip():
+                raise ValueError(f"record {index} date_evidence[{position}].{field} must be a non-empty string")
+
     references = record.get("source_references")
     if references is None:
         source_id = "primary-story"
+        supports = list(PRIMARY_SOURCE_FIELDS)
+        if record.get("published_date") != "unknown":
+            supports.append("published_date")
         references = [
             {
                 "id": source_id,
@@ -78,7 +91,7 @@ def _normalize_sources(record: dict[str, Any], index: int) -> None:
                 "published_date": record["published_date"],
                 "published_date_source": record.get("published_date_source", "unknown"),
                 "retrieved_at": record.get("collected_at") or "unknown",
-                "supports": PRIMARY_SOURCE_FIELDS,
+                "supports": supports,
             }
         ]
     if not isinstance(references, list) or not references:

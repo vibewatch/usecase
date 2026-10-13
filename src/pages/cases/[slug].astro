@@ -51,6 +51,7 @@ const translatedFrom =
     ? (new Intl.DisplayNames(["en"], { type: "language" }).of(sourceLanguage) ?? sourceLanguage)
     : "";
 const references = sourceReferences(record);
+const dateEvidence = record.date_evidence ?? [];
 const valueScore = record.value_score ?? 0;
 const valueBreakdown = record.value_breakdown ?? [];
 const confidenceBreakdown = record.confidence_breakdown ?? [];
@@ -160,6 +161,7 @@ const searchMeta: Record<string, string> = {
             <div><dt>Evidence stage</dt><dd>{record.maturity_score}/6 · {maturityLabel(record.maturity_score)}</dd></div>
             <div><dt>Published</dt><dd>{published}</dd></div>
             <div><dt>Date basis</dt><dd>{dateSourceLabel(record.published_date_source)}</dd></div>
+            {dateEvidence[0] && <div><dt>{dateEvidence[0].type}</dt><dd>{formatDate(dateEvidence[0].date)}</dd></div>}
             <div><dt>Retrieved</dt><dd>{collected}</dd></div>
           </dl>
         </aside>
@@ -315,6 +317,22 @@ const searchMeta: Record<string, string> = {
               </li>
             ))}
           </ol>
+          {dateEvidence.length > 0 && (
+            <div class="date-evidence">
+              <h3>Date evidence</h3>
+              <ul>
+                {dateEvidence.map((item) => (
+                  <li>
+                    <div>
+                      <strong>{item.type}</strong>
+                      <span>{formatDate(item.date)} · {item.publisher} · {item.authority}</span>
+                    </div>
+                    <a href={item.url} target="_blank" rel="noreferrer">Open date source</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {unsourcedFields.length > 0 && (
             <div class="provenance-warning">
               <strong>Not separately sourced</strong>

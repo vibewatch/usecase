@@ -73,6 +73,70 @@ def _date_provenance(path: Path | None) -> dict[str, tuple[str, str]]:
     return provenance
 
 
+def _date_evidence(date: str, kind: str, publisher: str, url: str, authority: str) -> dict[str, str]:
+    return {
+        "date": date,
+        "type": kind,
+        "publisher": publisher,
+        "url": url,
+        "authority": authority,
+    }
+
+
+def _apply_date_policy(record: dict[str, Any], evidence: tuple[str, str] | None) -> None:
+    authored_date = str(record.get("published_date") or "unknown")
+    source_url = str(record.get("source_url") or "")
+    publisher = record["customer_name"] if record.get("source_type") == "company" else record["vendor"]
+
+    if evidence and evidence[1] in {"page", "vendor metadata"}:
+        published_date, source = evidence
+        record["published_date"] = published_date
+        record["published_date_source"] = source
+        record["date_evidence"] = [
+            _date_evidence(
+                published_date,
+                "Published on source page" if source == "page" else "Publisher catalog date",
+                publisher,
+                source_url,
+                "First-party",
+            )
+        ]
+        return
+
+    if evidence and evidence[1] == "wayback_first_capture":
+        first_seen = evidence[0]
+        record["published_date"] = "unknown"
+        record["published_date_source"] = "unknown"
+        record["date_evidence"] = [
+            _date_evidence(
+                first_seen,
+                "First archived",
+                "Internet Archive",
+                f"https://web.archive.org/web/*/{source_url}",
+                "Independent",
+            )
+        ]
+        if authored_date not in {"", "unknown", first_seen}:
+            record["date_evidence"].append(
+                _date_evidence(authored_date, "Unverified extracted date", publisher, source_url, "Unknown")
+            )
+        return
+
+    if record.get("published_date_source") in {"page", "page metadata", "vendor metadata", "api"}:
+        record["date_evidence"] = [
+            _date_evidence(authored_date, "Published on source page", publisher, source_url, "First-party")
+        ]
+        return
+
+    record["published_date"] = "unknown"
+    record["published_date_source"] = "unknown"
+    record["date_evidence"] = (
+        [_date_evidence(authored_date, "Unverified extracted date", publisher, source_url, "Unknown")]
+        if authored_date not in {"", "unknown"}
+        else []
+    )
+
+
 def merge_records(
     *,
     records_root: Path,
@@ -106,13 +170,7 @@ def merge_records(
             if not record.get("id"):
                 print(f"  skip {path}: record missing 'id'", file=sys.stderr)
                 continue
-            date_evidence = date_provenance.get(_story_key(record))
-            if (
-                date_evidence
-                and record.get("published_date") == date_evidence[0]
-                and not record.get("published_date_source")
-            ):
-                record["published_date_source"] = date_evidence[1]
+            _apply_date_policy(record, date_provenance.get(_story_key(record)))
             loaded.append((path, record))
 
         # One record per story: parallel runs can extract the same page twice under

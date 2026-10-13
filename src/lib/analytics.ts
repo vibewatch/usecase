@@ -161,7 +161,8 @@ export function componentLayerCounts(records: CaseStudyRecord[]): CountItem[] {
 
 /** Sort key that puts records with an unknown publish date last. */
 export function recencyKey(record: CaseStudyRecord): string {
-  return isParseableDate(record.published_date) ? record.published_date : "";
+  if (isParseableDate(record.published_date)) return record.published_date;
+  return record.date_evidence?.find((item) => isParseableDate(item.date))?.date ?? "";
 }
 
 export function sortByRecency(records: CaseStudyRecord[]): CaseStudyRecord[] {
@@ -210,4 +211,10 @@ export function integrationPointCounts(records: CaseStudyRecord[]): CountItem[] 
 
 export function sourceReferences(record: CaseStudyRecord): SourceReference[] {
   return record.source_references ?? [];
+}
+
+export function dateDisplay(record: CaseStudyRecord): string {
+  if (isParseableDate(record.published_date)) return formatDate(record.published_date);
+  const evidence = record.date_evidence?.find((item) => isParseableDate(item.date));
+  return evidence ? `${evidence.type}: ${formatDate(evidence.date)}` : "";
 }

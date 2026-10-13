@@ -109,7 +109,16 @@ Use this skill when the user asks to:
   "architecture_clues": ["short technical notes not covered by other fields: regions, topology, capacity, observability"],
   "source_url": "original URL",
   "published_date": "YYYY-MM-DD or unknown",
-  "published_date_source": "page | page metadata | vendor metadata | sitemap | wayback_first_capture | unknown",
+  "published_date_source": "page | page metadata | vendor metadata | unknown",
+  "date_evidence": [
+    {
+      "date": "YYYY-MM-DD",
+      "type": "Published on source page | Publisher catalog date | First archived | Sitemap last modified | Unverified extracted date",
+      "publisher": "organization providing this date evidence",
+      "url": "exact URL where the date evidence can be checked",
+      "authority": "First-party | Independent | Unknown"
+    }
+  ],
   "source_references": [
     {
       "id": "primary-story",
@@ -139,7 +148,7 @@ Use this skill when the user asks to:
 
 - Non-English source (e.g. a Chinese-language case from Tencent Cloud or Baidu AI Cloud): write every field of the record in English — translate faithfully, without embellishing. Keep the customer's official English name when the source or the company uses one; otherwise give the pinyin or translated name followed by the original in parentheses, e.g. `"Guangdong Provincial Government Services and Data Administration (广东省政务服务和数据管理局)"`. Keep product names as the vendor brands them in English (e.g. `Qianfan`, `ERNIE`, `Hunyuan`). Each `evidence_quotes` item is the English translation followed by the verbatim original: `"<English translation> (original: <source text>)"`. Keep `metrics` exact (numbers and units unchanged), translated to English. Add `"source_language": "<ISO 639-1 code, e.g. zh>"` to the record. Omit `source_language` for English sources.
 - Missing publication date: use `unknown`; do not invent a date from page freshness or copyright text.
-- A sitemap `lastmod`, collection timestamp, or archive capture is not a publication date. Preserve it only with the matching `published_date_source`, and prefer `unknown` over presenting a modification or retrieval date as publication.
+- A sitemap `lastmod`, collection timestamp, or archive capture is not a publication date. Set `published_date` to `unknown` and preserve the signal only in `date_evidence` with its exact type. A publisher catalog/API date may be used only when that field is explicitly documented as a publish date.
 - Company size, region, company background, and similar enrichment must either cite a separate supporting source or remain conservative/unknown. Do not silently hydrate them from outside knowledge.
 - Vendor tag conflicts with source facts: trust explicit source text, preserve evidence, and flag the conflict outside JSON if needed.
 - Customer name is unclear: use the named organization most central to the story; if still unclear, use `unknown` and lower confidence downstream.
@@ -162,6 +171,7 @@ Use this skill when the user asks to:
 - Taxonomy fields use project vocabulary where possible (including `component_layers`).
 - Important claims have evidence quotes.
 - Every consulted source is listed, every source has retrieval metadata, and `field_sources` references valid source ids.
+- `published_date` contains only a page- or publisher-confirmed publication date; archive, modification, collection, and unverified dates appear only in `date_evidence`.
 - Records from non-English sources are fully in English, carry `source_language`, and their evidence quotes keep the original text.
 - Unknowns remain explicit rather than hidden by speculation.
 - Downstream scoring can recompute `confidence_score` and `maturity_score` deterministically.

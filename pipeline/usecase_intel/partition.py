@@ -150,6 +150,16 @@ def _reference(record: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _date_sort_key(record: dict[str, Any]) -> str:
+    published = str(record.get("published_date") or "")
+    if published != "unknown":
+        return published
+    for evidence in record.get("date_evidence") or []:
+        if isinstance(evidence, dict) and isinstance(evidence.get("date"), str):
+            return evidence["date"]
+    return ""
+
+
 def write_partitions(weeks: dict[str, list[dict[str, Any]]], root: Path) -> list[dict[str, Any]]:
     """Write one file per week plus index.json; remove week files that emptied out."""
     root.mkdir(parents=True, exist_ok=True)
@@ -163,7 +173,7 @@ def write_partitions(weeks: dict[str, list[dict[str, Any]]], root: Path) -> list
             weeks[week],
             key=lambda record: (
                 record.get("collected_at") or "",
-                record.get("published_date") or "",
+                _date_sort_key(record),
                 record["id"],
             ),
             reverse=True,

@@ -1,4 +1,4 @@
-import { formatDate, headlineMetric, isParseableDate, recencyKey } from "./analytics";
+import { dateDisplay, headlineMetric, recencyKey } from "./analytics";
 import { caseHref } from "./paths";
 import type { CaseStudyRecord } from "./types";
 import { vendorStyle } from "./vendors";
@@ -109,7 +109,7 @@ export function toCardRecord(record: CaseStudyRecord): CardRecord {
     products: record.products_used.slice(0, 3),
     problem: truncate(record.business_problem, 220),
     metric: headlineMetric(record),
-    published: isParseableDate(record.published_date) ? formatDate(record.published_date) : "",
+    published: dateDisplay(record),
     maturity: record.maturity_score,
     sample: Boolean(record.is_sample),
     week: recordWeek(record),

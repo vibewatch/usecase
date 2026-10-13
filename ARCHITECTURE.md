@@ -218,6 +218,14 @@ interface SourceReference {
   supports: string[];
 }
 
+interface DateEvidence {
+  date: string;
+  type: string;                 // confirmed publication, first archive, modified, or unverified
+  publisher: string;
+  url: string;
+  authority: string;
+}
+
 interface CaseStudyRecord {
   id: string;                    // stable; record path of truth
   slug: string;                  // URL slug; must be unique
@@ -243,6 +251,7 @@ interface CaseStudyRecord {
   published_date_source?: string;
   source_references?: SourceReference[];
   field_sources?: Record<string, string[]>;
+  date_evidence?: DateEvidence[];
   confidence_score: number;      // 0–1 evidence quality
   confidence_breakdown?: ScoreCriterion[];
   maturity_score: number;        // 0–6 compact evidence stage
@@ -260,6 +269,12 @@ and simply hides the data-flow / integration sections when empty.
 `normalize_record` also supplies a conservative primary-story source reference
 for legacy records while deliberately leaving company size, region, and
 industry without separate attribution.
+
+`merge_records` applies the publication-date policy across the whole dataset:
+page dates and documented publisher catalog dates remain `published_date`;
+Internet Archive first captures and unverified legacy dates move to
+`date_evidence`. Sorting may use that weaker evidence, but the UI labels it
+explicitly and never calls it a publication date.
 
 ### `data/sources.json` (vendor source config)
 

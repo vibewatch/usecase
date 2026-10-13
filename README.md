@@ -21,6 +21,12 @@ authority, source type, publication date and provenance, retrieval timestamp,
 and the fields it supports. The use-case page exposes this ledger directly;
 normalized attributes without a separately documented source are called out.
 
+Publication dates are intentionally strict: only a date stated on the source
+page or in documented publisher metadata appears as **Published**. Internet
+Archive first captures, sitemap modification dates, and unverified legacy
+dates remain available under `date_evidence` with their exact label and source,
+but are never presented as publication dates.
+
 Scores are rebuilt deterministically on every `data:seed`:
 
 - **Evidence confidence (0–100%)**: source authority (25), claim traceability

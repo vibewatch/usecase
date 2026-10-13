@@ -1,4 +1,4 @@
-import { isParseableDate } from "./analytics";
+import { isParseableDate, recencyKey } from "./analytics";
 import { href } from "./paths";
 import type { CaseStudyRecord } from "./types";
 
@@ -41,7 +41,7 @@ export function facetGroups(kind: FacetKind, records: CaseStudyRecord[]) {
 
 /** Newest first by publish date; undated stories sort last (collection date breaks ties). */
 export function newestKey(record: CaseStudyRecord): string {
-  return isParseableDate(record.published_date) ? record.published_date : "";
+  return recencyKey(record);
 }
 
 export function sortNewest(records: CaseStudyRecord[]): CaseStudyRecord[] {

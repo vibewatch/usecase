@@ -24,6 +24,14 @@ export interface SourceReference {
   supports: string[];
 }
 
+export interface DateEvidence {
+  date: string;
+  type: string;
+  publisher: string;
+  url: string;
+  authority: string;
+}
+
 export interface CaseStudyRecord {
   id: string;
   slug: string;
@@ -55,6 +63,7 @@ export interface CaseStudyRecord {
   evidence_quotes: string[];
   source_references?: SourceReference[];
   field_sources?: Record<string, string[]>;
+  date_evidence?: DateEvidence[];
   /** ISO 639-1 code when the source story is not in English (the record is translated). */
   source_language?: string;
   /** "company" when the story was published on the adopting company's own website. */

@@ -66,6 +66,8 @@ PROMPT_TEMPLATE = """You are an extraction agent. Follow the SKILL below exactly
 === SOURCE METADATA ===
 Detected publication date: {published_date}
 Publication date source: {published_date_source}
+Observed date: {observed_date}
+Observed date type: {observed_date_type}
 Retrieved at: {retrieved_at}
 
 === PAGE TEXT ===
@@ -84,6 +86,8 @@ def build_prompt(
     body: str,
     published_date: str = "unknown",
     published_date_source: str = "unknown",
+    observed_date: str = "unknown",
+    observed_date_type: str = "unknown",
     retrieved_at: str = "unknown",
     body_char_limit: int = 18000,
 ) -> str:
@@ -96,6 +100,8 @@ def build_prompt(
         title=title or "(no title)",
         published_date=published_date or "unknown",
         published_date_source=published_date_source or "unknown",
+        observed_date=observed_date or "unknown",
+        observed_date_type=observed_date_type or "unknown",
         retrieved_at=retrieved_at or "unknown",
         body=body,
     )
@@ -287,21 +293,33 @@ def extract_jobs(
                 max_assets=image_assets_limit,
             )
         counts["image_assets"] += sum(1 for image in related_images if image.get("local_path"))
+        detected_date = (decisions.get(row["url"]) or {}).get("published_date")
+        detected_source = (decisions.get(row["url"]) or {}).get("published_source")
+        is_archive_proxy = detected_source == "wayback_first_capture"
+        confirmed_date = "unknown" if is_archive_proxy else detected_date or "unknown"
+        confirmed_source = (
+            "vendor metadata"
+            if detected_source == "discovery"
+            else detected_source if detected_source == "page"
+            else "unknown"
+        )
+        observed_date = detected_date if is_archive_proxy else url_to_lastmod.get(row["url"]) or "unknown"
+        observed_date_type = (
+            "First archived"
+            if is_archive_proxy
+            else "Sitemap last modified" if url_to_lastmod.get(row["url"])
+            else "unknown"
+        )
         prompt = build_prompt(
             skill_text=skill_text,
             taxonomy_text=taxonomy_text,
             source_url=row["url"],
             title=title,
             body=body,
-            published_date=(decisions.get(row["url"]) or {}).get("published_date")
-            or url_to_lastmod.get(row["url"])
-            or "unknown",
-            published_date_source=(
-                "vendor metadata"
-                if (decisions.get(row["url"]) or {}).get("published_source") == "discovery"
-                else (decisions.get(row["url"]) or {}).get("published_source")
-                or ("sitemap" if url_to_lastmod.get(row["url"]) else "unknown")
-            ),
+            published_date=confirmed_date,
+            published_date_source=confirmed_source,
+            observed_date=observed_date,
+            observed_date_type=observed_date_type,
             retrieved_at=str(row.get("fetched_at") or "unknown"),
         )
 
@@ -318,8 +336,10 @@ def extract_jobs(
                     "profile": row.get("profile"),
                     "extraction_method": extraction_method,
                     "related_images": related_images,
-                    "published_date": (decisions.get(row["url"]) or {}).get("published_date")
-                    or url_to_lastmod.get(row["url"]),
+                    "published_date": confirmed_date,
+                    "published_date_source": confirmed_source,
+                    "observed_date": observed_date,
+                    "observed_date_type": observed_date_type,
                     "triage_score": (decisions.get(row["url"]) or {}).get("score"),
                     "prompt": prompt,
                     "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
