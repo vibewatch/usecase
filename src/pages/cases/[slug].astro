@@ -13,7 +13,6 @@ import {
   relatedRecords,
   solutionComponents,
   sourceReferences,
-  confidenceLabel,
   valueLabel,
 } from "../../lib/analytics";
 import { href } from "../../lib/paths";
@@ -164,6 +163,43 @@ const searchMeta: Record<string, string> = {
             {dateEvidence[0] && <div><dt>{dateEvidence[0].type}</dt><dd>{formatDate(dateEvidence[0].date)}</dd></div>}
             <div><dt>Retrieved</dt><dd>{collected}</dd></div>
           </dl>
+          <details class="score-card__details">
+            <summary>
+              <span>How scores are calculated</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3.2 5.8 8 10.6l4.8-4.8 1 1L8 12.6 2.2 6.8z"/></svg>
+            </summary>
+            <div class="score-card__breakdown">
+              <p>Value measures usefulness as a customer reference. Confidence measures the quality and traceability of available evidence, not independent verification.</p>
+              <section class="rubric">
+                <div class="rubric__head">
+                  <div><span>Customer reference value</span><strong>{valueScore}/100</strong></div>
+                </div>
+                <ul class="rubric__criteria">
+                  {valueBreakdown.map((item) => (
+                    <li>
+                      <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
+                      <span class="rubric__track"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
+                      <small>{item.explanation}</small>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+              <section class="rubric">
+                <div class="rubric__head">
+                  <div><span>Evidence confidence</span><strong>{formatPercent(record.confidence_score)}</strong></div>
+                </div>
+                <ul class="rubric__criteria">
+                  {confidenceBreakdown.map((item) => (
+                    <li>
+                      <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
+                      <span class="rubric__track rubric__track--confidence"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
+                      <small>{item.explanation}</small>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          </details>
         </aside>
       </div>
     </section>
@@ -190,47 +226,6 @@ const searchMeta: Record<string, string> = {
               <p>{dataFlow}</p>
             </>
           )}
-        </article>
-
-        <article class="panel">
-          <header class="panel__head">
-            <div>
-              <h2>Score rubric</h2>
-              <p class="panel__intro">Value measures how useful this story is as a customer reference. Confidence measures the quality and traceability of the available evidence—not whether the claimed outcome was independently audited.</p>
-            </div>
-          </header>
-          <div class="rubric-grid">
-            <section class="rubric">
-              <div class="rubric__head">
-                <div><span>Customer reference value</span><strong>{valueScore}/100</strong></div>
-                <span class="tag tag--accent">{valueLabel(valueScore)}</span>
-              </div>
-              <ul class="rubric__criteria">
-                {valueBreakdown.map((item) => (
-                  <li>
-                    <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
-                    <span class="rubric__track"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
-                    <small>{item.explanation}</small>
-                  </li>
-                ))}
-              </ul>
-            </section>
-            <section class="rubric">
-              <div class="rubric__head">
-                <div><span>Evidence confidence</span><strong>{formatPercent(record.confidence_score)}</strong></div>
-                <span class="tag">{confidenceLabel(record.confidence_score)}</span>
-              </div>
-              <ul class="rubric__criteria">
-                {confidenceBreakdown.map((item) => (
-                  <li>
-                    <div class="rubric__row"><span>{item.criterion}</span><strong>{item.score}/{item.max_score}</strong></div>
-                    <span class="rubric__track rubric__track--confidence"><span style={`width: ${(item.score / item.max_score) * 100}%`}></span></span>
-                    <small>{item.explanation}</small>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </div>
         </article>
 
         <article class="panel">
@@ -283,63 +278,6 @@ const searchMeta: Record<string, string> = {
           </article>
         )}
 
-        <article class="panel" id="sources">
-          <header class="panel__head">
-            <div>
-              <h2>Sources &amp; provenance</h2>
-              <p class="panel__intro">Every consulted source should appear here. Field coverage shows which facts each source supports; retrieval time is separate from the story's publication date.</p>
-            </div>
-            <span class="panel__meta">{references.length} {references.length === 1 ? "source" : "sources"}</span>
-          </header>
-          <ol class="source-list">
-            {references.map((reference) => (
-              <li class="source-card">
-                <div class="source-card__head">
-                  <div>
-                    <span class="source-card__publisher">{reference.publisher}</span>
-                    <h3>{reference.title}</h3>
-                  </div>
-                  <span class="tag">{reference.authority}</span>
-                </div>
-                <a class="source-card__url" href={reference.url} target="_blank" rel="noreferrer">{reference.url}</a>
-                <dl class="source-card__meta">
-                  <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
-                  <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
-                  <div><dt>Date basis</dt><dd>{dateSourceLabel(reference.published_date_source)}</dd></div>
-                  <div><dt>Retrieved</dt><dd>{formatDateTime(reference.retrieved_at)}</dd></div>
-                </dl>
-                <div class="source-card__supports">
-                  <span>Supports</span>
-                  <ul class="tag-cloud">
-                    {reference.supports.map((field) => <li class="tag">{fieldLabels[field] ?? field.replaceAll("_", " ")}</li>)}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ol>
-          {dateEvidence.length > 0 && (
-            <div class="date-evidence">
-              <h3>Date evidence</h3>
-              <ul>
-                {dateEvidence.map((item) => (
-                  <li>
-                    <div>
-                      <strong>{item.type}</strong>
-                      <span>{formatDate(item.date)} · {item.publisher} · {item.authority}</span>
-                    </div>
-                    <a href={item.url} target="_blank" rel="noreferrer">Open date source</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {unsourcedFields.length > 0 && (
-            <div class="provenance-warning">
-              <strong>Not separately sourced</strong>
-              <span>{unsourcedFields.map((field) => fieldLabels[field] ?? field).join(", ")}. Treat these normalized attributes as lower-confidence until a dedicated source is added.</span>
-            </div>
-          )}
-        </article>
       </div>
 
       <aside class="detail-side">
@@ -379,6 +317,64 @@ const searchMeta: Record<string, string> = {
               </ul>
             </>
           )}
+          <details class="provenance-details" id="sources">
+            <summary>
+              <span>Sources &amp; provenance</span>
+              <span class="provenance-details__count">{references.length}</span>
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3.2 5.8 8 10.6l4.8-4.8 1 1L8 12.6 2.2 6.8z"/></svg>
+            </summary>
+            <div class="provenance-details__body">
+              <p>Field coverage shows which facts each source supports. Retrieval time is separate from publication date.</p>
+              <ol class="source-list">
+                {references.map((reference) => (
+                  <li class="source-card">
+                    <div class="source-card__head">
+                      <div>
+                        <span class="source-card__publisher">{reference.publisher}</span>
+                        <h3>{reference.title}</h3>
+                      </div>
+                      <span class="tag">{reference.authority}</span>
+                    </div>
+                    <a class="source-card__url" href={reference.url} target="_blank" rel="noreferrer">{reference.url}</a>
+                    <dl class="source-card__meta">
+                      <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
+                      <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
+                      <div><dt>Date basis</dt><dd>{dateSourceLabel(reference.published_date_source)}</dd></div>
+                      <div><dt>Retrieved</dt><dd>{formatDateTime(reference.retrieved_at)}</dd></div>
+                    </dl>
+                    <div class="source-card__supports">
+                      <span>Supports</span>
+                      <ul class="tag-cloud">
+                        {reference.supports.map((field) => <li class="tag">{fieldLabels[field] ?? field.replaceAll("_", " ")}</li>)}
+                      </ul>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              {dateEvidence.length > 0 && (
+                <div class="date-evidence">
+                  <h3>Date evidence</h3>
+                  <ul>
+                    {dateEvidence.map((item) => (
+                      <li>
+                        <div>
+                          <strong>{item.type}</strong>
+                          <span>{formatDate(item.date)} · {item.publisher} · {item.authority}</span>
+                        </div>
+                        <a href={item.url} target="_blank" rel="noreferrer">Open date source</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {unsourcedFields.length > 0 && (
+                <div class="provenance-warning">
+                  <strong>Not separately sourced</strong>
+                  <span>{unsourcedFields.map((field) => fieldLabels[field] ?? field).join(", ")}. Treat these normalized attributes as lower-confidence until a dedicated source is added.</span>
+                </div>
+              )}
+            </div>
+          </details>
           <a class="btn btn--secondary btn--block" href={record.source_url} target="_blank" rel="noreferrer">Open source page</a>
         </article>
       </aside>

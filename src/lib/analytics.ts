@@ -49,12 +49,6 @@ export function valueLabel(score: number): string {
   return "Limited customer evidence";
 }
 
-export function confidenceLabel(score: number): string {
-  if (score >= 0.8) return "High evidence confidence";
-  if (score >= 0.6) return "Moderate evidence confidence";
-  return "Low evidence confidence";
-}
-
 export function maturityDistribution(records: CaseStudyRecord[]): CountItem[] {
   return countValues(
     records.map((record) => maturityLabel(record.maturity_score)),

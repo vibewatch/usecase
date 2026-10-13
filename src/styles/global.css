@@ -1754,6 +1754,90 @@ a.chip--glass:hover {
   color: var(--on-night);
 }
 
+.score-card__details {
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--glass-line);
+}
+
+.score-card__details summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--accent-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.score-card__details summary::-webkit-details-marker {
+  display: none;
+}
+
+.score-card__details summary svg {
+  flex: none;
+  transition: transform 0.15s ease;
+}
+
+.score-card__details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.score-card__breakdown {
+  display: grid;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.score-card__breakdown > p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--on-night-muted);
+}
+
+.score-card .rubric {
+  padding: 14px;
+  border-color: var(--glass-line);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.score-card .rubric__head {
+  margin-bottom: 14px;
+}
+
+.score-card .rubric__head > div > span,
+.score-card .rubric__criteria small {
+  color: var(--on-night-muted);
+}
+
+.score-card .rubric__head strong,
+.score-card .rubric__row {
+  color: var(--on-night);
+}
+
+.score-card .rubric__head strong {
+  font-size: 24px;
+}
+
+.score-card .rubric__criteria {
+  gap: 14px;
+}
+
+.score-card .rubric__row {
+  font-size: 12.5px;
+}
+
+.score-card .rubric__track {
+  background: var(--glass-strong);
+}
+
+.score-card .rubric__criteria small {
+  font-size: 11px;
+}
+
 .metric-strip {
   position: relative;
   z-index: 2;
@@ -1825,6 +1909,128 @@ a.chip--glass:hover {
 
 .detail-side .btn--block {
   margin-top: 24px;
+}
+
+.provenance-details {
+  margin-top: 24px;
+  border-block: 1px solid var(--hairline-strong);
+}
+
+.provenance-details summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+
+.provenance-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.provenance-details summary svg {
+  transition: transform 0.15s ease;
+}
+
+.provenance-details[open] summary svg {
+  transform: rotate(180deg);
+}
+
+.provenance-details__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--teal-soft);
+  color: var(--teal-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.provenance-details__body {
+  display: grid;
+  gap: 14px;
+  padding: 4px 0 18px;
+}
+
+.provenance-details__body > p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+.provenance-details .source-list {
+  gap: 10px;
+}
+
+.provenance-details .source-card {
+  gap: 10px;
+  padding: 14px;
+}
+
+.detail-side .source-card h3 {
+  margin: 3px 0 0;
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.provenance-details .source-card__head {
+  display: grid;
+}
+
+.provenance-details .source-card__head > .tag {
+  justify-self: start;
+}
+
+.provenance-details .source-card__meta {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+
+.provenance-details .source-card__meta div {
+  font-size: 12px;
+}
+
+.provenance-details .source-card__supports .tag-cloud {
+  gap: 4px;
+}
+
+.provenance-details .source-card__supports .tag {
+  padding: 3px 6px;
+  font-size: 10.5px;
+}
+
+.provenance-details .date-evidence {
+  margin-top: 0;
+}
+
+.detail-side .date-evidence h3 {
+  margin: 0;
+  font-size: 11px;
+}
+
+.provenance-details .date-evidence li {
+  display: grid;
+  gap: 8px;
+}
+
+.provenance-details .date-evidence a {
+  justify-self: start;
+}
+
+.provenance-details .provenance-warning {
+  margin-top: 0;
+  font-size: 12px;
 }
 
 .panel--accent {
@@ -1933,12 +2139,6 @@ a.chip--glass:hover {
 .quotes {
   display: grid;
   gap: 14px;
-}
-
-.rubric-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
 }
 
 .rubric {
@@ -2809,8 +3009,7 @@ a.chip--glass:hover {
   }
 
   .insight-grid,
-  .steps,
-  .rubric-grid {
+  .steps {
     grid-template-columns: minmax(0, 1fr);
   }
 
