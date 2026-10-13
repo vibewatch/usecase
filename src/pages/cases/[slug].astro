@@ -4,12 +4,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { caseStudies } from "../../lib/caseStudies";
 import {
   formatDate,
-  formatDateTime,
   formatPercent,
   groupComponentsByLayer,
   hasSolutionComponents,
   isParseableDate,
-  maturityLabel,
   relatedRecords,
   solutionComponents,
   sourceReferences,
@@ -18,7 +16,7 @@ import {
 import { href } from "../../lib/paths";
 import type { CaseStudyRecord } from "../../lib/types";
 import { vendorStyle } from "../../lib/vendors";
-import { toCardRecord, weekLabel } from "../../lib/weeks";
+import { toCardRecord } from "../../lib/weeks";
 import { facetHref, newestKey, publishedYear } from "../../lib/facets";
 import taxonomy from "../../../taxonomy.json";
 
@@ -41,9 +39,6 @@ const dataFlow = record.data_flow?.trim() ?? "";
 const metrics = record.metrics.slice(0, 4);
 const related = relatedRecords(record, caseStudies, 3);
 const published = isParseableDate(record.published_date) ? formatDate(record.published_date) : "Not stated";
-const collected = record.collected_at ? formatDateTime(record.collected_at) : (
-  record.collected_week && record.collected_week !== "undated" ? `Week of ${weekLabel(record.collected_week)}` : "Not documented"
-);
 const sourceLanguage = record.source_language?.trim().toLowerCase();
 const translatedFrom =
   sourceLanguage && sourceLanguage !== "en"
@@ -72,10 +67,6 @@ const fieldLabels: Record<string, string> = {
 };
 const profileFields = ["customer_name", "industry", "region", "company_size", "business_problem", "solution_summary", "business_outcome", "metrics"];
 const unsourcedFields = profileFields.filter((field) => !(record.field_sources?.[field]?.length));
-const dateSourceLabel = (value?: string) => {
-  if (!value || value === "unknown") return "Not documented";
-  return value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
-};
 
 // Search index (Pagefind): filters, sort keys and the fields result cards need.
 const card = toCardRecord(record);
@@ -157,18 +148,39 @@ const searchMeta: Record<string, string> = {
           <span class="score-card__pill">{valueLabel(valueScore)}</span>
           <dl class="score-card__facts">
             <div><dt>Evidence confidence</dt><dd>{formatPercent(record.confidence_score)}</dd></div>
-            <div><dt>Evidence stage</dt><dd>{record.maturity_score}/6 · {maturityLabel(record.maturity_score)}</dd></div>
             <div><dt>Published</dt><dd>{published}</dd></div>
-            <div><dt>Date basis</dt><dd>{dateSourceLabel(record.published_date_source)}</dd></div>
-            {dateEvidence[0] && <div><dt>{dateEvidence[0].type}</dt><dd>{formatDate(dateEvidence[0].date)}</dd></div>}
-            <div><dt>Retrieved</dt><dd>{collected}</dd></div>
           </dl>
-          <details class="score-card__details">
-            <summary>
-              <span>How scores are calculated</span>
-              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3.2 5.8 8 10.6l4.8-4.8 1 1L8 12.6 2.2 6.8z"/></svg>
-            </summary>
-            <div class="score-card__breakdown">
+          <button
+            class="floating-panel-trigger floating-panel-trigger--dark"
+            id="score-method-trigger"
+            type="button"
+            popovertarget="score-method-panel"
+            aria-haspopup="dialog"
+            aria-controls="score-method-panel"
+            aria-expanded="false"
+          >
+            <span>How scores are calculated</span>
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3 7.25h7.44L7.47 4.28l1.06-1.06L13.31 8l-4.78 4.78-1.06-1.06 2.97-2.97H3z"/></svg>
+          </button>
+          <div
+            class="floating-panel floating-panel--dark"
+            id="score-method-panel"
+            popover="auto"
+            data-floating-panel
+            data-anchor="score-method-trigger"
+            role="dialog"
+            aria-labelledby="score-method-title"
+          >
+            <header class="floating-panel__header">
+              <div>
+                <span>Scoring methodology</span>
+                <h2 id="score-method-title">How scores are calculated</h2>
+              </div>
+              <button class="floating-panel__close" type="button" popovertarget="score-method-panel" popovertargetaction="hide" aria-label="Close score methodology">
+                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m3.7 2.64 4.3 4.3 4.3-4.3 1.06 1.06L9.06 8l4.3 4.3-1.06 1.06L8 9.06l-4.3 4.3-1.06-1.06L6.94 8l-4.3-4.3z"/></svg>
+              </button>
+            </header>
+            <div class="floating-panel__body score-card__breakdown">
               <p>Value measures usefulness as a customer reference. Confidence measures the quality and traceability of available evidence, not independent verification.</p>
               <section class="rubric">
                 <div class="rubric__head">
@@ -199,7 +211,7 @@ const searchMeta: Record<string, string> = {
                 </ul>
               </section>
             </div>
-          </details>
+          </div>
         </aside>
       </div>
     </section>
@@ -317,14 +329,41 @@ const searchMeta: Record<string, string> = {
               </ul>
             </>
           )}
-          <details class="provenance-details" id="sources">
-            <summary>
+          <button
+            class="floating-panel-trigger floating-panel-trigger--light"
+            id="sources"
+            type="button"
+            popovertarget="provenance-panel"
+            aria-haspopup="dialog"
+            aria-controls="provenance-panel"
+            aria-expanded="false"
+          >
+            <span class="floating-panel-trigger__label">
               <span>Sources &amp; provenance</span>
-              <span class="provenance-details__count">{references.length}</span>
-              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3.2 5.8 8 10.6l4.8-4.8 1 1L8 12.6 2.2 6.8z"/></svg>
-            </summary>
-            <div class="provenance-details__body">
-              <p>Field coverage shows which facts each source supports. Retrieval time is separate from publication date.</p>
+              <span class="floating-panel-trigger__count">{references.length}</span>
+            </span>
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M3 7.25h7.44L7.47 4.28l1.06-1.06L13.31 8l-4.78 4.78-1.06-1.06 2.97-2.97H3z"/></svg>
+          </button>
+          <div
+            class="floating-panel floating-panel--light floating-panel--provenance"
+            id="provenance-panel"
+            popover="auto"
+            data-floating-panel
+            data-anchor="sources"
+            role="dialog"
+            aria-labelledby="provenance-title"
+          >
+            <header class="floating-panel__header">
+              <div>
+                <span>Traceability</span>
+                <h2 id="provenance-title">Sources &amp; provenance</h2>
+              </div>
+              <button class="floating-panel__close" type="button" popovertarget="provenance-panel" popovertargetaction="hide" aria-label="Close sources and provenance">
+                <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="m3.7 2.64 4.3 4.3 4.3-4.3 1.06 1.06L9.06 8l4.3 4.3-1.06 1.06L8 9.06l-4.3 4.3-1.06-1.06L6.94 8l-4.3-4.3z"/></svg>
+              </button>
+            </header>
+            <div class="floating-panel__body">
+              <p class="floating-panel__intro">Field coverage shows which facts each source supports. Dates are shown only when documented by the source.</p>
               <ol class="source-list">
                 {references.map((reference) => (
                   <li class="source-card">
@@ -339,8 +378,6 @@ const searchMeta: Record<string, string> = {
                     <dl class="source-card__meta">
                       <div><dt>Source type</dt><dd>{reference.source_type}</dd></div>
                       <div><dt>Published</dt><dd>{isParseableDate(reference.published_date) ? formatDate(reference.published_date) : "Not documented"}</dd></div>
-                      <div><dt>Date basis</dt><dd>{dateSourceLabel(reference.published_date_source)}</dd></div>
-                      <div><dt>Retrieved</dt><dd>{formatDateTime(reference.retrieved_at)}</dd></div>
                     </dl>
                     <div class="source-card__supports">
                       <span>Supports</span>
@@ -374,7 +411,7 @@ const searchMeta: Record<string, string> = {
                 </div>
               )}
             </div>
-          </details>
+          </div>
           <a class="btn btn--secondary btn--block" href={record.source_url} target="_blank" rel="noreferrer">Open source page</a>
         </article>
       </aside>
@@ -397,4 +434,46 @@ const searchMeta: Record<string, string> = {
       </section>
     )}
   </main>
+
+  <script>
+    const floatingPanels = Array.from(document.querySelectorAll<HTMLElement>("[data-floating-panel]"));
+
+    function positionFloatingPanel(panel: HTMLElement) {
+      const anchorId = panel.dataset.anchor;
+      const anchor = anchorId ? document.getElementById(anchorId) : null;
+      if (!anchor || !panel.matches(":popover-open")) return;
+
+      const margin = 12;
+      const gap = 10;
+      const anchorRect = anchor.getBoundingClientRect();
+      const panelRect = panel.getBoundingClientRect();
+      const left = Math.max(
+        margin,
+        Math.min(anchorRect.right - panelRect.width, window.innerWidth - panelRect.width - margin),
+      );
+      const below = anchorRect.bottom + gap;
+      const above = anchorRect.top - panelRect.height - gap;
+      const top = below + panelRect.height <= window.innerHeight - margin || above < margin
+        ? Math.min(below, window.innerHeight - panelRect.height - margin)
+        : above;
+
+      panel.style.left = `${left}px`;
+      panel.style.top = `${Math.max(margin, top)}px`;
+    }
+
+    for (const panel of floatingPanels) {
+      panel.addEventListener("toggle", () => {
+        const anchor = panel.dataset.anchor ? document.getElementById(panel.dataset.anchor) : null;
+        const open = panel.matches(":popover-open");
+        anchor?.setAttribute("aria-expanded", String(open));
+        if (open) requestAnimationFrame(() => positionFloatingPanel(panel));
+      });
+    }
+
+    const repositionOpenPanels = () => {
+      for (const panel of floatingPanels) positionFloatingPanel(panel);
+    };
+    window.addEventListener("resize", repositionOpenPanels);
+    window.addEventListener("scroll", repositionOpenPanels, { passive: true });
+  </script>
 </BaseLayout>
