@@ -1,0 +1,127 @@
+{
+  "id": "huawei-cloud-techsun-ai-native-marketing-platform",
+  "slug": "huawei-cloud-techsun-ai-native-marketing-platform",
+  "vendor": "Huawei Cloud",
+  "customer_name": "Techsun",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Techsun needed to remove concurrency bottlenecks, unify fragmented customer-interaction data, and simplify operations so its AI marketing platform could scale across geographies and global retail brands.",
+  "solution_summary": "Techsun and Huawei Cloud turned the Socialhub.AI marketing platform into a cloud-native AI CRM, marketing-automation, and customer-data-platform stack for multinational retail and brand customers. GaussDB for MySQL acts as the system of record, DMS for Kafka ingests and moves interaction data in real time, and DCS for Redis accelerates hot reads and reduces database pressure. Cloud Container Engine CCE containerizes the application for high availability and elastic expansion, while ETL pipelines add governance and security controls before data is used for analytics and automated marketing decisions. This platform lets Techsun consolidate distributed customer-interaction data, run AI-native segmentation and decisioning, and deploy into multiple regions on a single architecture rather than disconnected regional stacks. Combined with Huawei Cloud's automation tooling, the design improves system responsiveness, stability, and launch speed for new services.",
+  "products_used": [
+    "Socialhub.AI",
+    "GaussDB for MySQL",
+    "DMS for Kafka",
+    "DCS for Redis",
+    "Cloud Container Engine CCE"
+  ],
+  "solution_components": [
+    {
+      "name": "Socialhub.AI",
+      "role": "Serves as the AI-native marketing, CRM, and CDP application delivered to retail and brand customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GaussDB for MySQL",
+      "role": "Stores the core operational data used by the marketing platform.",
+      "layer": "Storage"
+    },
+    {
+      "name": "DMS for Kafka",
+      "role": "Collects and streams interaction data in real time for downstream processing and decisioning.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "DCS for Redis",
+      "role": "Caches hot data to speed response times and reduce load on the primary database.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Container Engine CCE",
+      "role": "Provides high-availability container orchestration and elastic scaling for the SaaS platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Interaction data from distributed customer systems is streamed through DMS for Kafka, persisted in GaussDB for MySQL, and accelerated through Redis caching. ETL and governance processes prepare the data for analytics and AI marketing decisions, which are then served through Socialhub.AI on CCE across regional deployments.",
+  "integration_points": [
+    "global brand and retail customer systems",
+    "AI CRM workflows",
+    "marketing-automation workflows",
+    "customer-data-platform pipelines",
+    "cross-country and cross-region deployments"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Techsun improved platform responsiveness, data throughput, operational efficiency, and launch speed, giving its AI marketing stack a more scalable base for global expansion.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "system response speed improved 5 times",
+    "99.99% service stability",
+    "data flow and processing efficiency improved 300%",
+    "automated marketing decision accuracy improved 40%",
+    "operations efficiency improved 60%",
+    "operations cost reduced 30%",
+    "new-service launch speed improved 70%"
+  ],
+  "architecture_clues": [
+    "The platform is positioned as an AI-native CRM, MA, and CDP baseline solution.",
+    "The data plane combines a relational system of record, real-time event streaming, and Redis caching.",
+    "CCE handles the containerized SaaS deployment and elastic scaling layer.",
+    "ETL governance and security controls are part of the production data pipeline."
+  ],
+  "source_url": "https://www.huaweicloud.com/cases/techsun.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "source_language": "zh",
+  "evidence_quotes": [
+    "\"Techsun and Huawei created an AI-native marketing product, Socialhub.AI, for AI CRM, marketing automation, and CDP scenarios that supports cross-country and cross-region deployment. (original: 自主研发的AI原生营销云产品\"Socialhub.AI\"... 联合打造面向品牌连锁、零售行业的AI CRM、MA、CDP场景的\"基线解决方案\"... 同时支持跨国跨区域部署。)\"",
+    "\"GaussDB for MySQL stores core data, DMS for Kafka handles real-time collection and processing, and DCS for Redis accelerates access and reduces database pressure. (original: Techsun利用GuassDB for MySQL作为核心数据库... 通过DMS for Kafka进行实时数据收集和处理... DCS for Redis作为缓存层，加速了数据访问，减轻了数据库负担。)\"",
+    "\"CCE containerization gives Socialhub.AI high availability and elastic scaling, while ETL governance and security controls improve data quality and compliance. (original: CCE（Cloud Container Engine）通过容器化部署，使得应用能够快速扩展和灵活管理... 在ETL流程中加入的数据治理和安全措施，确保了数据的质量和合规性。)\"",
+    "\"System response speed improved 5 times, service stability reached 99.99%, data flow efficiency improved 300%, and automated marketing decision accuracy improved 40%. (original: 系统响应速度提升了5倍... 达到99.99%的服务稳定性... 数据流转和处理效率提高了300%... 自动化营销决策的准确性提升了40%。)\"",
+    "\"Huawei Cloud automation raised operations efficiency 60%, cut operations cost 30%, and sped up new-service launches 70%. (original: 华为云的自动化运维工具使Techsun的运维效率提升了60%，降低了30%的运维成本。云原生架构的灵活性使得新服务推出速度提升了70%。)\""
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Techsun_客户案例_初创生态-华为云",
+      "publisher": "Huawei Cloud",
+      "url": "https://www.huaweicloud.com/cases/techsun.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:42:34+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "date_evidence": [],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0
+}

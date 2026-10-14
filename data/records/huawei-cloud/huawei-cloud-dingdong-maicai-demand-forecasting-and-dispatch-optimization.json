@@ -1,0 +1,135 @@
+{
+  "id": "huawei-cloud-dingdong-maicai-demand-forecasting-and-dispatch-optimization",
+  "slug": "huawei-cloud-dingdong-maicai-demand-forecasting-and-dispatch-optimization",
+  "vendor": "Huawei Cloud",
+  "customer_name": "Dingdong Maicai",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Dingdong Maicai needed more accurate demand forecasting, rider dispatch, and inventory optimization for time-sensitive fresh delivery, but its old big-data platform and algorithm environment were costly to run and hard to scale during peak periods.",
+  "solution_summary": "Dingdong Maicai rebuilt its analytics and AI foundation on Huawei Cloud so forecasting and dispatch models could keep up with fresh-grocery delivery. The architecture separates storage and compute by using Object Storage Service OBS as a shared data layer for transaction, browsing, supply-chain, warehouse, weather, and fulfillment data, while MapReduce Service MRS provides elastic large-data clusters for offline and real-time analysis. On top of that base, the company transformed its algorithm platform with CCE Turbo, heterogeneous X86/Kunpeng/Ascend resources, and high-performance GPU compute instances so training jobs and temporary workloads can scale automatically during lunch and dinner peaks. Models then use user, order-time, rider, route, warehouse, product, and weather signals to recommend products, forecast front-warehouse demand, and generate optimal fulfillment paths.",
+  "products_used": [
+    "Object Storage Service OBS",
+    "MapReduce Service MRS",
+    "Cloud Container Engine CCE",
+    "CCE Turbo",
+    "high-performance GPU compute instances",
+    "algorithm platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Object Storage Service OBS",
+      "role": "Stores the shared transaction, user, supply-chain, and fulfillment datasets used by analytics and AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MapReduce Service MRS",
+      "role": "Runs the elastic offline and real-time analytics jobs that feed forecasting and fulfillment models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Container Engine CCE",
+      "role": "Provides the container platform on which the cloud-native algorithm environment operates.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "CCE Turbo",
+      "role": "Supplies second-level elastic scaling and heterogeneous resource scheduling for model workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "high-performance GPU compute instances",
+      "role": "Accelerate model training and AI inference for recommendation, prediction, and dispatch tasks.",
+      "layer": "Compute"
+    },
+    {
+      "name": "algorithm platform",
+      "role": "Hosts the recommendation, demand-forecasting, and dispatch models used in daily operations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Transaction, browsing, order, supply-chain, warehouse, rider, weather, and route data lands in OBS and is processed in MRS for offline and real-time analytics. The algorithm platform then trains and serves recommendation, demand, and dispatch models on CCE Turbo and GPU resources, returning predictions to warehouse stocking and delivery-routing workflows.",
+  "integration_points": [
+    "front-warehouse operations",
+    "rider dispatch workflows",
+    "weather data",
+    "route and location systems",
+    "supply-chain and order-fulfillment data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Dingdong improved prediction and dispatch quality while lifting large-data efficiency, lowering cost, and helping the business deliver faster service with higher order conversion and lower waste.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "fastest delivery in 29 minutes",
+    "system performance improved 25%",
+    "average monthly orders per user increased by more than 30%",
+    "big-data job compute efficiency improved 20%",
+    "overall cost reduced 25%",
+    "per-PB storage expansion cost reduced 30%",
+    "storage cost reduced by more than 80%",
+    "AI computing performance improved 3-5 times"
+  ],
+  "architecture_clues": [
+    "The design explicitly separates storage and compute with OBS and MRS.",
+    "CCE Turbo mixes X86, Kunpeng, and Ascend resources for the algorithm platform.",
+    "GPU resources are shared across multiple containers for temporary AI training tasks.",
+    "The platform supports both real-time dispatch inference and offline demand forecasting."
+  ],
+  "source_url": "https://www.huaweicloud.com/cases/prime-insight-dingdongmaicai.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "source_language": "zh",
+  "evidence_quotes": [
+    "\"Dingdong and Huawei built a unified big-data foundation, generate best delivery paths in real time, and use cloud-native transformation to accelerate algorithm iteration. (original: 叮咚买菜与华为云合作，构建统一的大数据底座，实时生成配送最佳路径，并使用云原生改造算法平台，加速算法迭代。)\"",
+    "\"The models analyze users, front warehouses, order time, rider capacity, weather, product type, and fulfillment cost to assign each order to the best rider and forecast warehouse demand. (original: 通过基于大数据和算法平台训练的模型进行实时推理，将用户、前置仓、订单时间、骑手能力、实时天气条件、履行成本、产品类型等因素进行关联分析... 同时针对... 订单、浏览信息等，构建预测模型。)\"",
+    "\"OBS provides unified data storage and MRS improves offline and real-time analytics by 25%, while cutting per-PB expansion cost by 30%. (original: 基于华为云OBS进行统一的数据存储... 相比之前大数据存储每PB扩容成本降低30%；基于华为云MRS... 提升离线及实时分析性能25%。)\"",
+    "\"CCE Turbo supports heterogeneous X86, Kunpeng, and Ascend resources, and high-performance GPU instances lift AI computing performance by 3-5 times. (original: 基于华为云CCE Turbo支持X86、鲲鹏、昇腾等多种异构算力能力... 采用华为云高性能GPU计算实例... 在AI计算性能上比通用方案提升3-5倍以上。)\"",
+    "\"The program improved big-data job efficiency by 20%, cut overall cost 25%, and increased average monthly orders per user by more than 30%. (original: 大数据作业的计算效率提升20%，整体成本降低25%... 平均每个用户月度订单提升30%以上。)\""
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "卓越运营客户成功故事-叮咚买菜-华为云",
+      "publisher": "Huawei Cloud",
+      "url": "https://www.huaweicloud.com/cases/prime-insight-dingdongmaicai.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:42:32+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "date_evidence": [],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0
+}
