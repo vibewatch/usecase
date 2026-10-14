@@ -7,9 +7,51 @@ import json
 from pathlib import Path
 from typing import Any
 
+from .browser_fetch import BrowserFetcher
+from .clean import content_to_text
 from .settings import DATE_ENRICHMENT_JOBS_ROOT, GENERATED_CASE_STUDIES_PATH, TRIAGE_PATH
-from .triage import load_decisions
+from .triage import detect_published_date_info, load_decisions
 from .utils import write_json
+
+
+def inspect_rendered_publication_date(
+    url: str,
+    *,
+    output_path: Path | None = None,
+    timeout_seconds: float = 45.0,
+    fetcher: BrowserFetcher | None = None,
+) -> dict[str, Any]:
+    owns_fetcher = fetcher is None
+    browser = fetcher or BrowserFetcher(timeout_seconds=timeout_seconds, max_response_bytes=8_000_000)
+    try:
+        result = browser.fetch(url)
+    finally:
+        if owns_fetcher:
+            browser.close()
+
+    if not 200 <= result.status < 400:
+        raise RuntimeError(f"rendered page returned HTTP {result.status}")
+    if output_path is not None:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_bytes(result.body)
+
+    raw_html = result.body.decode("utf-8", errors="replace")
+    title, text, extraction_method = content_to_text(
+        result.body,
+        content_type="text/html; charset=utf-8",
+        max_chars=200_000,
+    )
+    published_date, published_source = detect_published_date_info(raw_html, text)
+    return {
+        "url": url,
+        "final_url": result.final_url,
+        "status": result.status,
+        "title": title,
+        "published_date": published_date,
+        "published_source": published_source,
+        "rendered_output": str(output_path) if output_path is not None else None,
+        "extraction_method": extraction_method,
+    }
 
 
 def build_date_research_jobs(
@@ -81,13 +123,28 @@ def build_date_research_jobs(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build publication-date research jobs.")
-    parser.add_argument("command", choices=["queue", "status"])
+    parser.add_argument("command", choices=["queue", "status", "inspect-url"])
     parser.add_argument("--records", type=Path, default=GENERATED_CASE_STUDIES_PATH)
     parser.add_argument("--output-root", type=Path, default=DATE_ENRICHMENT_JOBS_ROOT)
     parser.add_argument("--triage", type=Path, default=TRIAGE_PATH)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--retry-researched", action="store_true")
+    parser.add_argument("--url", type=str, default=None)
+    parser.add_argument("--rendered-output", type=Path, default=None)
+    parser.add_argument("--timeout", type=float, default=45.0)
     args = parser.parse_args()
+
+    if args.command == "inspect-url":
+        if not args.url:
+            raise SystemExit("inspect-url requires --url")
+        result = inspect_rendered_publication_date(
+            args.url,
+            output_path=args.rendered_output,
+            timeout_seconds=args.timeout,
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+
     counts = build_date_research_jobs(
         records_path=args.records,
         output_root=args.output_root,

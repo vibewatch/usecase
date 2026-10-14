@@ -94,6 +94,16 @@ npm run data:partition  # assign records to collection weeks → data/weekly/** 
 npm run data:build      # merge → seed SQLite → export → partition
 ```
 
+For an undated story, inspect the browser-rendered original before searching
+publisher catalogs:
+
+```bash
+uv run --with-requirements requirements.txt python \
+  -m pipeline.usecase_intel.date_enrichment inspect-url \
+  --url "https://publisher.example/customer-story" \
+  --rendered-output /tmp/customer-story-rendered.html
+```
+
 The dashboard imports `data/case-studies.generated.json`, so any rerun of
 `npm run data:build` is picked up by the next `npm run dev` / `build`.
 

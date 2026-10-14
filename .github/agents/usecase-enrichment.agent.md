@@ -23,7 +23,7 @@ Alternate company and date jobs until the combined processed count reaches `cap`
 
 For each company job:
 
-1. Search for the exact organization, using the story URL and industry to disambiguate.
+1. Start with a web search for the exact organization. Use queries combining the quoted customer name with `headquarters`, `employees`, the industry, and the story URL or vendor to disambiguate similarly named organizations.
 2. Source priority:
    - Official company website.
    - Government or regulatory registry.
@@ -52,15 +52,18 @@ For each company job:
 
 For each date job:
 
-1. Search the exact source URL and title, then inspect the original page and publisher-controlled indexes.
-2. A confirmed publication date must come from one of:
+1. Render the original URL with the project's protected headless browser before searching elsewhere:
+   `uv run --with-requirements requirements.txt python -m pipeline.usecase_intel.date_enrichment inspect-url --url "<source URL>" --rendered-output "/tmp/<record-id>-rendered.html"`.
+   Inspect the command result and rendered DOM for a visible publication date and publication-specific JSON-LD, Open Graph, meta, itemprop, or `<time>` evidence. Do not use generic, modified, or copyright dates.
+2. If the rendered original still has no publication date, search the exact source URL and title and inspect publisher-controlled catalogs, APIs, RSS feeds, newsroom listings, or customer-story indexes.
+3. A confirmed publication date must come from one of:
    - A visible publication date on the original story.
    - Publication-specific HTML, JSON-LD, Open Graph, or itemprop metadata.
    - An official publisher catalog, API, RSS feed, newsroom listing, or customer-story index.
-3. These are never publication dates: sitemap `lastmod`, HTTP `Last-Modified`, Internet Archive capture, collection date, copyright year, or an unverified search snippet.
-4. If confirmed, record it only through:
+4. These are never publication dates: sitemap `lastmod`, HTTP `Last-Modified`, Internet Archive capture, collection date, copyright year, or an unverified search snippet.
+5. If confirmed, record it only through:
    `python3 -m pipeline.usecase_intel.triage --stage confirm-date --url "<source URL>" --date YYYY-MM-DD --date-source "<page|page metadata|vendor metadata|api>" --evidence-url "<exact evidence URL>" --evidence-publisher "<publisher>" --evidence-authority "First-party"`.
-5. If no publisher-controlled evidence exists, leave the publication date unknown and record the completed attempt with:
+6. If no publisher-controlled evidence exists, leave the publication date unknown and record the completed attempt with:
    `python3 -m pipeline.usecase_intel.triage --stage mark-date-unresolved --url "<source URL>" --research-notes "<short description of publisher-controlled sources checked>"`.
    The dashboard will continue to show qualified archive, modification, or collection evidence.
 

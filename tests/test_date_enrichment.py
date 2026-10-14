@@ -5,11 +5,34 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from pipeline.usecase_intel.date_enrichment import build_date_research_jobs
+from pipeline.usecase_intel.browser_fetch import BrowserFetchResult
+from pipeline.usecase_intel.date_enrichment import build_date_research_jobs, inspect_rendered_publication_date
 from pipeline.usecase_intel.triage import confirm_date, load_decisions, mark_date_unresolved
 
 
 class DateEnrichmentTests(unittest.TestCase):
+    def test_rendered_inspection_detects_publication_metadata(self) -> None:
+        class FakeFetcher:
+            def fetch(self, url: str) -> BrowserFetchResult:
+                return BrowserFetchResult(
+                    status=200,
+                    final_url=url,
+                    body=(
+                        b'<html><head><title>Example story</title>'
+                        b'<meta property="article:published_time" content="2025-06-12T09:30:00Z">'
+                        b"</head><body><main>Customer story</main></body></html>"
+                    ),
+                )
+
+        result = inspect_rendered_publication_date(
+            "https://example.com/story",
+            fetcher=FakeFetcher(),
+        )
+
+        self.assertEqual(result["published_date"], "2025-06-12")
+        self.assertEqual(result["published_source"], "page metadata")
+        self.assertEqual(result["title"], "Example story")
+
     def test_confirm_date_preserves_decision_and_records_evidence(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             path = Path(temporary) / "triage.jsonl"
