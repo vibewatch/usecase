@@ -1,0 +1,152 @@
+{
+  "id": "alibaba-cloud-moonshot-ai-llm-data-preprocessing",
+  "slug": "alibaba-cloud-moonshot-ai-llm-data-preprocessing",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Moonshot AI (月之暗面)",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Moonshot AI needed a more stable and elastic way to preprocess TB-scale multimodal training data for Kimi. Its self-managed Ray and Spark environment struggled with large-cluster stability, could not scale bursty short jobs efficiently, and lacked the job-level observability and priority controls needed by multiple internal teams sharing the same preprocessing estate.",
+  "solution_summary": "Moonshot AI rebuilt Kimi's data-preprocessing pipeline on Alibaba Cloud around Alibaba Cloud Container Service for Kubernetes (ACK) and managed Ray and Spark tooling. Text, image, audio, and video corpora are processed by Managed KubeRay and ack-spark-operator workloads inside ACK instead of self-maintained clusters. ACK schedules jobs across ECS capacity and Container Compute Service (ACS), including ACS BestEffort pools for short, fault-tolerant bursts, while Object Storage Service (OSS) provides the shared storage and recovery layer for datasets and event logs. Managed Service for Prometheus, Spark/Ray History Server, and Log Service (SLS) add job-level metrics, dashboards, and centralized logs so teams can watch progress, resource usage, and failures in real time. The result is a more elastic preprocessing platform that improves stability, lowers cost, and gives Moonshot tighter control over Kimi model-data workloads.",
+  "products_used": [
+    "Alibaba Cloud Container Service for Kubernetes (ACK)",
+    "Managed KubeRay",
+    "ack-spark-operator",
+    "Container Compute Service (ACS)",
+    "ACS BestEffort",
+    "Object Storage Service (OSS)",
+    "Managed Service for Prometheus",
+    "Spark/Ray History Server",
+    "Log Service (SLS)"
+  ],
+  "solution_components": [
+    {
+      "name": "Alibaba Cloud Container Service for Kubernetes (ACK)",
+      "role": "Provides the managed Kubernetes control plane that runs and scales Moonshot AI's Ray and Spark preprocessing workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Managed KubeRay",
+      "role": "Runs RayCluster and RayJob workloads for large-model data preprocessing without requiring Moonshot AI to maintain KubeRay itself.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ack-spark-operator",
+      "role": "Submits and manages Spark preprocessing jobs on ACK through Kubernetes-native custom resources.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Container Compute Service (ACS)",
+      "role": "Supplies serverless container compute so Spark and Ray jobs can expand quickly when preprocessing demand spikes.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ACS BestEffort",
+      "role": "Provides lower-cost elastic capacity for short-lived, fault-tolerant preprocessing jobs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores large training datasets, versioned objects, and event logs that support the preprocessing pipeline.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Managed Service for Prometheus",
+      "role": "Collects metrics from Ray clusters so teams can monitor preprocessing health and performance.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Spark/Ray History Server",
+      "role": "Exposes job execution history and web dashboards backed by logs written to OSS.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Log Service (SLS)",
+      "role": "Centralizes engine and business logs from ECS and ACS pods for troubleshooting and analysis.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Multimodal training data is written to OSS, then Spark and Ray jobs launched through ack-spark-operator and Managed KubeRay run on ACK across ECS and ACS capacity. Metrics flow into Prometheus, execution history and event logs are written back to OSS and History Server, and ECS and ACS pod logs are centralized in SLS so teams can monitor progress and tune job priority or capacity.",
+  "integration_points": [
+    "ECS fixed instances",
+    "Airflow",
+    "Argo",
+    "OSS buckets"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Moonshot AI raised burst-task resource utilization 3x, cut overall compute cost by 45%, reached 99.95% stability for TB-scale single-job preprocessing, and improved observability so high-priority model-data jobs can be scheduled and troubleshot faster.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "burst-task resource utilization improved 3x",
+    "overall compute cost reduced 45%",
+    "single-task TB-scale data-processing stability reached 99.95%",
+    "fault-location efficiency improved 60%",
+    "high-priority task SLA reached 99%+",
+    "anomaly-response speed improved 50%",
+    "log-analysis efficiency improved 40%"
+  ],
+  "architecture_clues": [
+    "The preprocessing estate handles text, image, audio, and video data for large-model training.",
+    "Moonshot AI runs Spark and Ray side by side on ACK instead of on self-built clusters.",
+    "ACS BestEffort is reserved for short, fault-tolerant jobs where lower-cost elastic capacity is acceptable.",
+    "OSS versioning and bucket-level traffic controls are used to protect recoverability and throughput.",
+    "Prometheus, History Server, and SLS provide the monitoring and logging plane for job-level observability."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-moonshot",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "月之暗面 Kimi 大模型基于阿里云 ACK 实现海量数据预处理",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-moonshot",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:32:13+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Moonshot AI needed cost-effective and elastic CPU and GPU capacity for model-data preprocessing so it could speed up Kimi's training iteration. (original: 月之暗面作为基础模型创业公司，为了加速大模型的训练迭代，在模型数据预处理方面，需要高性价比、弹性灵活的 CPU 和 GPU 算力满足模型迭代的业务需求。)",
+    "Under the original architecture, preprocessing ran on self-built Ray and Spark frameworks, but TB-scale jobs suffered from poor large-cluster stability. (original: 在用户原有的架构下，数据预处理任务均基于自建的 Ray 和 Spark 框架开展... 大规模 Spark/Ray 集群稳定性较差，难以保障 TB 级数据预处理任务的稳定执行。)",
+    "ACK's fully managed operations solved large-cluster stability issues and delivered extreme on-demand elasticity with diverse compute options. (original: 通过 ACK 的全托管免运维，解决了大规模集群的稳定性问题。同时充分发挥 ACK 在极致弹性和多样算力方面的关键能力，实现了任务的按需极致弹性伸缩。)",
+    "Moonshot AI used ACS BestEffort for many jobs, which both kept execution efficient and reduced compute cost. (original: 在部分任务场景中，月之暗面大量采用了 ACS BestEffort 算力，不仅确保了任务的高效执行，还有效地节省了计算成本。)",
+    "With the Alibaba Cloud architecture, single-task TB-scale processing stability reached 99.95%, burst-task resource utilization improved 3x, and overall compute cost fell 45%. (original: 单任务 TB 级数据处理稳定性达到 99.95%... 突发性任务资源利用率提升 3 倍，综合计算成本降低 45%。)"
+  ],
+  "source_language": "zh"
+}

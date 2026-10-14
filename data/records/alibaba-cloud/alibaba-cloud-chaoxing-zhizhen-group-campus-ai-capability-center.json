@@ -1,0 +1,148 @@
+{
+  "id": "alibaba-cloud-chaoxing-zhizhen-group-campus-ai-capability-center",
+  "slug": "alibaba-cloud-chaoxing-zhizhen-group-campus-ai-capability-center",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Chaoxing Zhizhen Group (超星指针集团)",
+  "industry": "Education",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Chaoxing Zhizhen Group needed a way to connect isolated campus systems and fragmented knowledge resources, deliver more personalized services to teachers and students, and turn large-model technology into production-ready applications for teaching, campus management, and research workflows.",
+  "solution_summary": "Chaoxing Zhizhen Group worked with Alibaba Cloud to build a university AI capability center on Alibaba Cloud Bailian that connects data governance, knowledge management, agent delivery, and applications. The architecture is organized as end user, business scenario, and capability middle platform: campus systems, teaching resources, and management content are ingested into a centralized layer, where Bailian's multi-source data-governance tooling creates a dual-track knowledge system with institution-specific repositories plus a public shared library. On top of that foundation, the group packages AI functions into an AI agent platform, AI knowledge-base platform, and AI tool platform so universities can assemble multimodal Q&A assistants, recommendations, and business workflows without writing low-level model code. Qwen models and Bailian APIs provide the inference layer, while natural-language instructions and visual configuration shorten agent creation and rollout.",
+  "products_used": [
+    "Alibaba Cloud Bailian",
+    "Qwen large models",
+    "AI capability middle platform",
+    "Dedicated knowledge base",
+    "Public shared knowledge base",
+    "AI agent platform",
+    "AI knowledge-base platform",
+    "AI tool platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Alibaba Cloud Bailian",
+      "role": "Supplies the large-model services, data-governance tooling, and APIs that power the university AI capability center.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen large models",
+      "role": "Provide the language understanding and generation layer behind campus agents and AI tools.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI capability middle platform",
+      "role": "Centralizes scheduling and management of AI capabilities across teaching, management, and research scenarios.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Dedicated knowledge base",
+      "role": "Stores institution-specific data and knowledge for each university's own assistants and workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Public shared knowledge base",
+      "role": "Holds common resources that can be reused across campuses as part of the dual-track knowledge system.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AI agent platform",
+      "role": "Lets universities build and deploy campus-specific agents through natural-language instructions and visual configuration.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI knowledge-base platform",
+      "role": "Serves retrieval-backed question answering and knowledge services to campus users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI tool platform",
+      "role": "Packages reusable AI tools that departments can call without building their own model stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Campus information systems, teaching resources, and management content feed the AI capability middle platform, where Bailian's data-governance functions organize them into dedicated and public knowledge bases. Qwen-powered agents and tools then retrieve from those stores and return multimodal Q&A, recommendations, and workflow outputs through campus-facing applications.",
+  "integration_points": [
+    "campus information systems",
+    "teaching systems",
+    "business management platforms",
+    "research systems",
+    "smart-campus applications"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The AI capability center raised large-model output accuracy to nearly 90%, expanded campuses to more than 40 AI tools, drove high adoption of staff and student productivity tools, and cut agent-development effort and delivery time so schools can launch new smart-campus experiences faster and at lower operating cost.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "large-model output accuracy improved to nearly 90%",
+    "platform provides 40+ AI tools",
+    "PPT assistant usage reached 80%",
+    "agent development efficiency improved 85%",
+    "average agent development cycle reduced to 1 hour",
+    "labor cost reduced 70%",
+    "operations and maintenance cost reduced 40%"
+  ],
+  "architecture_clues": [
+    "The architecture is explicitly organized as end user, business scenario, and capability middle platform layers.",
+    "Knowledge is split into institution-specific and shared repositories rather than a single undifferentiated store.",
+    "Natural-language instructions plus visual configuration are used to generate campus agents.",
+    "AI functions are modularized into separate agent, knowledge-base, and tool platforms on top of Bailian APIs."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/education-2026-chaoxing",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "超星集团携手阿里云百炼构建高校 AI 能力中心，驱动教学数智化变革",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/education-2026-chaoxing",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:52+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Chaoxing described isolated systems, fragmented knowledge, limited personalization, and weak AI-to-business integration as the main barriers in smart-campus transformation. (original: 系统数据割裂，形成信息孤岛... 服务模式单一，个性化能力不足... AI 融合乏力，技术落地门槛较高。)",
+    "To solve those issues, the group and Alibaba Cloud built an education large-model capability center on Bailian that covers the full chain from model scheduling to application scenarios. (original: 为了解决上述挑战，超星指针集团选择与阿里云合作，基于大模型服务平台百炼，共同构建了面向高校的 AI 能力中心，实现了从模型调度到应用场景的全链路赋能。)",
+    "Bailian's multi-source data-governance capabilities were used to create a dual-track knowledge system made of institution-specific repositories plus a public shared library. (original: 借助阿里云百炼的多源数据治理能力，打造超星指针“单位专属库+公共共享库”双轨知识体系。)",
+    "The solution packages complex AI technology into an AI agent platform, AI knowledge-base platform, and AI tool platform so business teams can use visual configuration instead of low-level engineering. (original: 基于阿里云百炼 API 服务，超星指针集团将复杂 AI 技术封装为 AI 智能体平台、AI 知识库平台、AI 工具平台三大核心模块。)",
+    "The project lifted output accuracy to nearly 90%, provided more than 40 AI tools, raised PPT assistant usage to 80%, improved development efficiency 85%, shortened average development to 1 hour, and reduced labor cost 70%. (original: 借助 RAG 技术，大模型输出准确率提升至近 90%... AI 能力平台提供近 40+ 个 AI 工具... PPT 辅助工具使用率攀升至 80%... 开发效率提升 85%，平均开发周期缩短至 1 小时... 人力成本降低 70%。)"
+  ],
+  "source_language": "zh"
+}

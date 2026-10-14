@@ -1,0 +1,133 @@
+{
+  "id": "alibaba-cloud-bespin-global-enterprise-agent-platform",
+  "slug": "alibaba-cloud-bespin-global-enterprise-agent-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Bespin Global",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Bespin needed to industrialize enterprise AI agents without forcing customers to stitch together model stacks, orchestration frameworks, and multimodal data pipelines by hand. It also needed better document understanding for Word, PDF, image, and Excel inputs and a faster way to import proprietary enterprise knowledge into production agents.",
+  "solution_summary": "Bespin Global built its ChatOmni enterprise agent platform on Alibaba Cloud Bailian so it could package model access, evaluation, multimodal parsing, and RAG into one delivery stack. Bailian provides the model-training, deployment, knowledge-base, and moderation services, while Qwen-VL and Qwen text models handle image and document understanding for Word, PDF, image, and Excel inputs. Parsed content flows into a vectorized RAG layer that turns dispersed enterprise material into reusable knowledge, then ChatOmni wraps those services with customer-specific business logic and open-source orchestration using LangChain and CrewAI. Prompt-engineering utilities and review controls improve answer quality before responses reach end users. This lets Bespin ship document-factory workflows and enterprise knowledge assistants as configurable products instead of one-off integrations.",
+  "products_used": [
+    "ChatOmni",
+    "Alibaba Cloud Bailian",
+    "Qwen-VL",
+    "Qwen large models",
+    "LangChain",
+    "CrewAI"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatOmni",
+      "role": "Packages Bespin's customer-facing agent applications, document workflows, and knowledge services into a configurable enterprise platform.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Alibaba Cloud Bailian",
+      "role": "Provides the model training, deployment, evaluation, knowledge-base, RAG, prompt, and moderation services that underpin ChatOmni.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qwen-VL",
+      "role": "Handles multimodal image and document understanding for files that need visual parsing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen large models",
+      "role": "Generate answers, reasoning steps, and enterprise-agent outputs on top of the parsed and retrieved content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "LangChain",
+      "role": "Coordinates higher-level agent logic and custom workflow assembly above the model layer.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "CrewAI",
+      "role": "Supports the multi-agent collaboration patterns Bespin uses in customer-specific deployments.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Word, PDF, image, and Excel files enter Bailian's OCR and parsing pipeline, where Qwen-VL and Qwen extract and normalize content. The processed material is vectorized into a RAG knowledge base, then ChatOmni uses LangChain and CrewAI orchestration, prompt templates, and review controls to generate answers, document outputs, or agent actions for enterprise users.",
+  "integration_points": [
+    "Word documents",
+    "PDF files",
+    "image files",
+    "Excel files",
+    "enterprise knowledge sources",
+    "automated rule engine"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Bespin expanded supported corpora to more than 20 file types, increased image-parsing precision from 55% to 85%, improved overall accuracy by 50%, and reduced a typical multi-agent delivery cycle from about one day to roughly two hours, lifting overall service efficiency by 70%.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "supported 20+ file types",
+    "image parsing precision increased from 55% to 85%",
+    "overall accuracy improved 50%",
+    "delivery cycle reduced from 1 day to about 2 hours",
+    "overall service efficiency improved 70%"
+  ],
+  "architecture_clues": [
+    "The platform combines Bailian's model services with Bespin's own ChatOmni application layer.",
+    "Multimodal document understanding uses OCR, document parsing, Qwen-VL, and Qwen text models together.",
+    "Enterprise knowledge is vectorized into a Bailian-backed RAG layer before agents answer questions.",
+    "Prompt-engineering and content-review controls are embedded in the delivery stack to improve quality and compliance."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-bespin",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "基于阿里云百炼构建 AI 智能体应用平台，贝斯平大幅提升智能体构建效率_互联网与信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-bespin",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:58+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Bespin said enterprises face high complexity choosing, combining, and maintaining the right large-model stack when they build AI agents themselves. (original: 企业在自建 AI 智能体时，面临如何从众多模型和开源框架中选择、组合和维护最优技术栈的挑战，这需要巨大的技术投入和试错成本。)",
+    "ChatOmni is Bespin's self-developed enterprise agent application platform for reconstructing office and business processes with AI. (original: ChatOmni 是由贝斯平自主研发的企业级智能体应用平台。该平台致力于运用 AI 技术对企业办公和业务流程进行重构。)",
+    "Bailian's OCR and document-parsing engine, combined with Qwen-VL and Qwen, gives ChatOmni high-precision extraction and table reconstruction for Word, PDF, image, and Excel files. (original: 依托阿里云百炼集成的 OCR 与文档解析引擎，并融合 Qwen-VL 视觉模型与 Qwen 文本大模型，ChatOmni 实现了对 Word/PDF/图片/Excel 等多种格式文档的高精度内容提取与表格重建能力。)",
+    "Bespin built an enterprise knowledge hub on Bailian's knowledge-base and RAG engine by bulk-ingesting scattered materials and vectorizing them. (original: 基于阿里云百炼的知识库和 RAG（检索增强生成）引擎构建了企业知识中枢。通过批量接入分散资料完成向量化。)",
+    "After embedding Bailian, ChatOmni expanded to more than 20 file types, raised image parsing from 55% to 85%, improved overall accuracy by 50%, and reduced delivery cycles from 1 day to about 2 hours. (original: 从传统的 pdf/word/excel 扩大到常见的 20 多种文件类型，并借助视觉模型识别将图片解析的精准度从传统方案的 55% 跃升到 85%... 整体准确率提升 50%... 交付周期由原本的 1 天压缩至 2 小时左右。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,141 @@
+{
+  "id": "alibaba-cloud-china-faw-group-hongqi-yunmei-enterprise-agents",
+  "slug": "alibaba-cloud-china-faw-group-hongqi-yunmei-enterprise-agents",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "China FAW Group",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "China FAW needed one AI layer that could make unstructured enterprise knowledge searchable, automate employee business handling across many internal systems, and shorten management reporting cycles that still depended on specialist-built BI reports and slow manual coordination.",
+  "solution_summary": "China FAW and Alibaba Cloud built Hongqi Yunmei as a hybrid-cloud enterprise agent layer for employee knowledge, workflow automation, and management analytics. Alibaba Cloud Bailian supplies elastic model training and inference plus the toolchain used to launch intent-recognition and domain-specific agents, while sensitive or latency-critical functions run as private deployments on FAW's cloud-native platform. Enterprise policies and business knowledge from multiple departments are vectorized into knowledge stores so employees can retrieve answers without manually searching scattered documents. For transaction workflows, Hongqi Yunmei extracts fields from natural-language requests and generates microservice calls to complete forms and approvals. For decision support, the assistant connects to FAW's data middle platform, generates SQL against cleaned corporate data, and returns analysis to management. The result is a single mobile entry point for office work and business insight.",
+  "products_used": [
+    "Hongqi Yunmei",
+    "Alibaba Cloud Bailian",
+    "FAW cloud-native platform",
+    "Enterprise knowledge vector database",
+    "Intent-recognition agent",
+    "Domain-specific agents",
+    "FAW data middle platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Hongqi Yunmei",
+      "role": "Serves as the employee-facing enterprise assistant for knowledge search, workflow handling, and management insight.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Alibaba Cloud Bailian",
+      "role": "Provides the elastic large-model platform and tooling used to train, run, and iterate FAW's enterprise agents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "FAW cloud-native platform",
+      "role": "Hosts private deployments for sensitive or low-latency functions that should not run only on the public-cloud side.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Enterprise knowledge vector database",
+      "role": "Stores vectorized enterprise knowledge so employees can retrieve policies and know-how through natural-language questions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Intent-recognition agent",
+      "role": "Interprets each user request and routes it to the right domain workflow or knowledge service.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Domain-specific agents",
+      "role": "Handle departmental tasks such as knowledge answers, automated processing, and role-specific assistance.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "FAW data middle platform",
+      "role": "Supplies cleaned enterprise data that Hongqi Yunmei turns into SQL-based analysis for managers.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "An employee request enters Hongqi Yunmei, where the intent-recognition agent routes it either to the knowledge vector database for retrieval, to domain agents that generate microservice calls for workflow handling, or to the data middle platform for natural-language-to-SQL analysis. Public-cloud model services on Bailian and private services on FAW's cloud-native platform return the final response to staff or management.",
+  "integration_points": [
+    "HR systems",
+    "travel systems",
+    "finance systems",
+    "IT operations systems",
+    "administrative service systems",
+    "legal and regulatory knowledge sources",
+    "business-system microservices",
+    "FAW data middle platform"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Industry Cloud"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Hongqi Yunmei expanded enterprise knowledge access and automated service handling while cutting BI report creation from seven days to five seconds and reducing the number of service staff needed by 50%, giving FAW faster decisions and lower handling effort across office workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "BI report development cycle reduced from 7 days to 5 seconds",
+    "service staff reduced 50%"
+  ],
+  "architecture_clues": [
+    "The deployment uses a hybrid-cloud split: public-cloud elasticity and tooling on Bailian, private deployment on FAW's cloud-native platform for sensitive functions.",
+    "Enterprise knowledge is vectorized into a shared knowledge store for retrieval-based question answering.",
+    "Intent-recognition and domain-specific agents are separated so new business domains can be added without disturbing existing ones.",
+    "Management analytics relies on natural-language SQL generation against cleaned enterprise data in the data middle platform."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/automotive-2025-faw",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "中国一汽携手阿里云建设企业智能体-红旗云妹",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/automotive-2025-faw",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:09+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "China FAW said unstructured knowledge was hard to search, BI reports depended too much on specialists, and staff had to navigate too many system entry points to complete business tasks. (original: 企业各个业务领域非结构化知识规模越来越大，知识管理和检索困难... 业务 BI 分析报告开发高度依赖专业技术人员... 员工在进行业务办理时，存在业务系统入口多。)",
+    "FAW and Alibaba Cloud built the employee mobile intelligent service assistant Hongqi Yunmei to reshape daily office work, process handling, and enterprise decision support. (original: 中国一汽和阿里云共同协作打造企业移动端智能服务助手——红旗云妹，重塑全员的日常办公、业务流程办理与企业经营决策等模式。)",
+    "Hongqi Yunmei uses a hybrid-cloud architecture in which Alibaba Cloud Bailian provides elastic compute and tooling, while security-sensitive and low-latency functions are privately deployed on FAW's cloud-native platform. (original: 红旗云妹整体采用混合云架构部署，基于阿里云百炼平台的高可用性弹性算力与成熟工具链... 对于安全性高、时效性高的功能在一汽云原生平台上私有化部署。)",
+    "The assistant vectorizes knowledge from multiple business domains, automatically fills workflow information from natural-language requests, and generates SQL plus results from the data middle platform for managers. (original: 将企业各领域知识向量化... 从用户的自然语言中获取关键信息，自动生成业务系统微服务的调用信息... 根据用户问题自动生成精准的 SQL 语句与数据结果。)",
+    "FAW reduced BI report development from 7 days to 5 seconds and cut service staff by 50%. (original: 将 BI 报表的开发周期从传统的 7 天缩短至 5 秒... 已为企业减少 50% 服务类员工。)"
+  ],
+  "source_language": "zh"
+}
