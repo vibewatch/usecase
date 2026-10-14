@@ -1,0 +1,120 @@
+{
+  "id": "huawei-cloud-shengshu-technology-multimodal-video-generation",
+  "slug": "huawei-cloud-shengshu-technology-multimodal-video-generation",
+  "vendor": "Huawei Cloud",
+  "customer_name": "Shengshu Technology",
+  "industry": "Software / SaaS",
+  "region": "Beijing, China",
+  "company_size": "Unknown",
+  "business_problem": "Shengshu Technology needed a controllable and cost-effective infrastructure for rapidly training and iterating its multimodal video model while ensuring compute continuity, storage performance, and enough downstream scenarios to validate commercialization.",
+  "solution_summary": "Shengshu Technology used Huawei Cloud to productionize Vidu, its self-developed multimodal video model, on a controllable domestic AI stack. Ascend Cloud Service supplies the main training and inference compute, while ModelArts provides the end-to-end development toolchain so hardware or network faults do not interrupt jobs. SFS Turbo AI storage supports high-bandwidth, low-latency data loading, snapshot writes, and recovery during model training. Shengshu also manages multi-environment infrastructure through crossplane and IaC so the base model can iterate quickly without operational bottlenecks. The resulting pipeline supports long-duration, high-consistency, multi-subject video generation on the Vidu platform and gives Shengshu a repeatable way to move image and video models from training into global production scenarios such as entertainment, animation, and marketing.",
+  "products_used": [
+    "Vidu",
+    "Ascend Cloud Service",
+    "ModelArts",
+    "SFS Turbo AI high-performance storage",
+    "crossplane"
+  ],
+  "solution_components": [
+    {
+      "name": "Vidu",
+      "role": "Serves the multimodal video-generation model and batch video-production service to end users and enterprise customers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Ascend Cloud Service",
+      "role": "Provides the main training and inference compute capacity for the multimodal video model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ModelArts",
+      "role": "Supplies the end-to-end cloud toolchain for model development, training, and deployment.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "SFS Turbo AI high-performance storage",
+      "role": "Stores training data and snapshots with the bandwidth and latency needed for model training and recovery.",
+      "layer": "Storage"
+    },
+    {
+      "name": "crossplane",
+      "role": "Coordinates infrastructure across multiple environments through cross-infrastructure and cross-cloud management.",
+      "layer": "Orchestration"
+    }
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Huawei Cloud helped Shengshu stabilize and accelerate Vidu model training, expand production scenarios, and roll the service out globally for creative and enterprise users.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "job failure rate less than 5 per thousand",
+    "recovery time less than 10 minutes in non-automatic scenarios",
+    "serves creators and institutions in more than 200 countries and regions"
+  ],
+  "architecture_clues": [
+    "Vidu is described as a long-duration, high-consistency, highly dynamic video model.",
+    "Ascend Cloud Service is used for both training and inference.",
+    "SFS Turbo is used to reduce data loading, snapshot storage, and snapshot recovery time.",
+    "crossplane is used to connect multi-cloud and multi-environment infrastructure management."
+  ],
+  "source_url": "https://www.huaweicloud.com/cases/shengshukeji.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "生数科技_客户案例_初创生态-华为云",
+      "publisher": "Huawei Cloud",
+      "url": "https://www.huaweicloud.com/cases/shengshukeji.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:16+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"In 2024, Shengshu released Vidu, China's first fully self-developed long-duration, high-consistency, highly dynamic video large model. (original: 2024年，生数科技联合国内顶尖大学发布了中国首个原创全自研，长时长、高一致性、高动态性的视频大模型Vidu，目前已面向全球上线。)\"",
+    "\"Ascend Cloud Service provides cost-effective AI compute, and based on ModelArts it delivers an end-to-end cloud toolchain; job failure rate is less than five per thousand and non-automatic recovery takes less than 10 minutes. (original: 昇腾云服务为生数科技提供了高性价比的AI算力，同时基于ModelArts平台，提供全链路云化工具链，硬件故障、网络故障应用无感知，作业失败率小于千分之五，训练作业故障自动恢复，非自动场景下恢复时长小于10分钟，有力支持了生数科技的模型训练。)\"",
+    "\"SFS Turbo reduces data loading, snapshot storage, and snapshot recovery time during model training and provides higher bandwidth with low latency. (original: 华为云全自研高性能文件系统，降低在模型训练过程中数据加载、快照存储、快照恢复的时间，提升算力利用率。同时，SFS Turbo提供同等容量下更大带宽，支撑模型训练所需求的高IO读写和低时延要求。)\"",
+    "\"Huawei Cloud accelerated the iteration and launch of image- and video-generation models and used crossplane to manage multi-cloud, multi-environment infrastructure. (original: 华为云昇腾云通过不断优化算法，大幅提升了训练效率和稳定性，加速了图片生成、视频生成模型的迭代与上线进程。同时，通过crossplane跨基础设施/跨云管理对接IAC平台，实现代码管理多云多环境基础设施，充分节省运维技术人员投入。)\"",
+    "\"Shengshu now provides Vidu as a MaaS and application product to AI video creators and institutions in more than 200 countries and regions. (original: 生数科技是多模态生成领域的全球领航者，为200+国家和地区的AI视频创作者及机构提供高度专业化、多元场景化的MaaS与应用级产品Vidu，助力用户高效进行创意内容的生产，面向文旅、广电、动漫、泛互娱乐等领域提供赋能。)\""
+  ],
+  "source_language": "zh",
+  "data_flow": "Training data is loaded through SFS Turbo into Ascend compute jobs managed by ModelArts, with snapshots and recovery points written back to storage during iteration. The trained Vidu models are then served to batch video-generation workflows for global creators and enterprise use cases.",
+  "integration_points": [
+    "ModelArts development workflow",
+    "cross-infrastructure and cross-cloud IaC platform",
+    "downstream entertainment and advertising production workflows"
+  ]
+}

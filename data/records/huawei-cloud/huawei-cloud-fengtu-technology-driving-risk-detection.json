@@ -1,0 +1,131 @@
+{
+  "id": "huawei-cloud-fengtu-technology-driving-risk-detection",
+  "slug": "huawei-cloud-fengtu-technology-driving-risk-detection",
+  "vendor": "Huawei Cloud",
+  "customer_name": "Fengtu Technology",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Fengtu Technology needed to run GPU-heavy inspection and safety models in the cloud without wasting compute, while also improving fatigue detection and commercial-vehicle risk response for logistics customers.",
+  "solution_summary": "Fengtu Technology used Huawei Cloud FunctionGraph to build a serverless inference platform for transport safety and vehicle-quality inspection workloads. The platform turns model execution into event-driven functions that automatically scale GPU-backed instances with request concurrency, so the team can run inference and device self-check logic without managing fixed clusters. For commercial-vehicle safety, Fengtu combines driving-assistance hardware, a transport supervision platform, 24/7 operations support, and a cloud safety platform for risk prediction, real-time intervention, investigation reporting, and alarm workflows. Its DMS fatigue-detection pipeline uses cloud compensation and alert cleaning to detect fatigue, distraction, smoking, phone use, and camera occlusion, while a lightweight ResNet classifier checks camera status. Image-heavy self-test steps run inside FunctionGraph using fractional GPU allocation and built-in monitoring logs.",
+  "products_used": [
+    "FunctionGraph",
+    "quality-inspection inference platform",
+    "safety cloud platform",
+    "DMS fatigue detection",
+    "ResNet image classifier"
+  ],
+  "solution_components": [
+    {
+      "name": "FunctionGraph",
+      "role": "Runs event-driven inference and device self-check functions with elastic GPU-backed execution.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "quality-inspection inference platform",
+      "role": "Serves request-driven quality-inspection and transport-safety inference workloads.",
+      "layer": "Serving"
+    },
+    {
+      "name": "safety cloud platform",
+      "role": "Coordinates risk prediction, real-time intervention, investigations, reports, and alarms for commercial-vehicle safety.",
+      "layer": "Serving"
+    },
+    {
+      "name": "DMS fatigue detection",
+      "role": "Detects fatigue, distraction, smoking, phone use, and camera occlusion in long-haul driving scenarios.",
+      "layer": "Serving"
+    },
+    {
+      "name": "ResNet image classifier",
+      "role": "Classifies camera status and supports automated cleaning and compensation of safety alerts.",
+      "layer": "Compute"
+    }
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Fengtu improved fatigue-risk detection, cut invalid alerts and operating cost, and turned GPU-heavy inference into an elastic cloud service with higher business reliability.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "high-risk event recall improved by 32%",
+    "camera-status accuracy reached 99%",
+    "more than 40% reduction in invalid alerts",
+    "around 10% reduction in escort labor input",
+    "cost reduced by 30%",
+    "reliability improved to 100%"
+  ],
+  "architecture_clues": [
+    "Inference is event-driven and scaled automatically according to concurrency.",
+    "GPU resources are allocated at a minimum granularity of 1/16.",
+    "Device self-check steps offload image computation to FunctionGraph.",
+    "Built-in monitoring logs are used to observe model and service execution."
+  ],
+  "source_url": "https://www.huaweicloud.com/cases/fengtu.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2025-08-26",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.huaweicloud.com/cases/fengtu.html",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "丰图科技携手华为云Serverless，搭建质检推理平台，可靠性提升至100%_华为云",
+      "publisher": "Huawei Cloud",
+      "url": "https://www.huaweicloud.com/cases/fengtu.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:01:00+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The platform uses FunctionGraph to make inference algorithms event-driven and automatically scale compute instances by request concurrency; GPU can be configured down to 1/16 granularity and billed by usage. (original: 该平台利用华为云函数工作流FunctionGraph，实现了推理算法事件驱动，全自动按请求并发量弹性计算实例，保障了资源及时响应业务请求；同时GPU最小1/16粒度配置,按使用量计费，避免算力闲置浪费。)\"",
+    "\"Fengtu built a three-in-one safety-driving solution with smart driving-assistance hardware, a smart traffic supervision platform, and 24/7 operational support. (original: 丰图科技还通过驾驶辅助智能硬件、智慧交通监督平台、7*24小时运营支撑,实现了三位一体的安全驾驶解决方案。)\"",
+    "\"The DMS fatigue-detection pipeline automatically detects fatigue, distraction, smoking, phone use, and camera occlusion; camera-state accuracy reached 99%, invalid alerts dropped by more than 40%, and high-risk recall improved by 32%. (original: 针对长途货运司机容易疲劳驾驶的问题,丰图科技的安全驾驶解决方案引入了DMS疲劳检测... 基于精简版ResNet图像分类,对摄像头状态判断准确率达到99%。能够减少40%以上的无效告警和10%左右的护航人力投入,高危等级风险事件召回率提升32%。)\"",
+    "\"FunctionGraph cut cost by 30% and raised reliability to 100%. (original: 华为云FunctionGraph助力丰图科技成本降低30%,可靠性提升100%。)\""
+  ],
+  "source_language": "zh",
+  "data_flow": "Images and driving-event inputs are routed into FunctionGraph, where GPU-backed functions run inference and self-check steps on demand. Detection outputs flow into the safety cloud platform, which cleans alerts, triggers alarms, supports investigations, and feeds risk-intervention workflows for commercial-vehicle operators.",
+  "integration_points": [
+    "driving-assistance smart hardware",
+    "transport supervision platform",
+    "24/7 operations support",
+    "commercial-vehicle safety workflows"
+  ]
+}
