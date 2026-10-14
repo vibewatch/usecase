@@ -1,0 +1,167 @@
+{
+  "id": "tencent-cloud-biodoc-facial-recognition-healthcare-authentication",
+  "slug": "tencent-cloud-biodoc-facial-recognition-healthcare-authentication",
+  "vendor": "Tencent Cloud",
+  "customer_name": "Biodoc",
+  "industry": "Healthcare",
+  "region": "Brazil",
+  "company_size": "Unknown",
+  "business_problem": "Biodoc needed a more scalable, cost-efficient, and resilient platform for real-time healthcare service authorization and facial-recognition-based patient validation as its customer base grew.",
+  "solution_summary": "Biodoc modernized its healthcare authentication stack by extending its previously AWS-only environment into a multi-cloud architecture that uses Tencent Cloud for AI-heavy identity workflows. The deployment centers on Kubernetes (TKE) to run production and sandbox environments, with GPU-backed compute accelerating facial-recognition models and other AI workloads. PostgreSQL and MongoDB store operational and scalable data, while messaging services support real-time healthcare processing. Tencent Cloud eKYC adds 1:1 and 1:N liveness checks so patient validation can combine facial recognition with stronger anti-fraud identity verification. Rather than replacing everything at once, Biodoc integrated Tencent Cloud with its existing AWS stack to improve elasticity, business continuity, and secure real-time authorization for clinics, hospitals, and healthcare operators.",
+  "products_used": [
+    "Kubernetes (TKE)",
+    "GPU resources",
+    "PostgreSQL",
+    "MongoDB",
+    "Messaging services",
+    "Tencent Cloud eKYC"
+  ],
+  "solution_components": [
+    {
+      "name": "Kubernetes (TKE)",
+      "role": "Runs Biodoc's production and sandbox environments for the new healthcare authentication platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GPU resources",
+      "role": "Provide accelerated compute for facial-recognition models and other AI workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PostgreSQL",
+      "role": "Stores structured application data for the healthcare authorization environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "MongoDB",
+      "role": "Stores scalable operational data used by Biodoc's authentication services.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Messaging services",
+      "role": "Coordinate real-time processing across the healthcare validation workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Tencent Cloud eKYC",
+      "role": "Applies 1:1 and 1:N liveness-based identity verification to strengthen healthcare authentication.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Healthcare operators send patient-validation workloads into Biodoc services running on TKE. GPU-backed facial-recognition models process the checks, messaging services keep the workflow real time, PostgreSQL and MongoDB persist operational data, and Tencent Cloud eKYC applies 1:1 and 1:N liveness verification before authorization results are returned to clinics, hospitals, and healthcare payers.",
+  "integration_points": [
+    "Existing AWS environment (ECS, RDS, MongoDB, S3, SQS, and CloudWatch)",
+    "Clinics, hospitals, and healthcare operators",
+    "Healthcare service authorization workflows",
+    "Real-time patient validation"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Application Modernization",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Fraud Detection",
+    "Risk Management"
+  ],
+  "business_outcome": "Biodoc reduced infrastructure cost by 30% while gaining more scalable, elastic, and resilient support for facial-recognition and healthcare authentication workloads, improving business continuity and the reliability of real-time patient validation.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "30% lower infrastructure costs compared to its previous setup."
+  ],
+  "architecture_clues": [
+    "The Tencent Cloud environment includes separate production and sandbox deployments.",
+    "The solution is explicitly multi-cloud and integrates with Biodoc's existing AWS footprint.",
+    "GPU-backed compute is used to optimize facial-recognition models and AI workloads.",
+    "PostgreSQL, MongoDB, and messaging services support real-time healthcare processing."
+  ],
+  "source_url": "https://intl.cloud.tencent.com/customers/detail/3530",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Biodoc | Tencent Cloud",
+      "publisher": "Tencent Cloud",
+      "url": "https://intl.cloud.tencent.com/customers/detail/3530",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:16+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Biodoc is a Brazilian health tech company specializing in healthcare service authorization through facial recognition and artificial intelligence.",
+    "Biodoc needed to ensure availability, performance, and scalability in its healthcare data processing and facial recognition services.",
+    "With Tencent Cloud, Biodoc built a modernized architecture centered on Kubernetes (TKE) for efficient container management, leveraging GPU resources to optimize facial recognition models and AI workloads.",
+    "The new environment includes production and sandbox deployments on Tencent Cloud, PostgreSQL and MongoDB databases for scalable data management, and messaging services enabling real-time processing.",
+    "Biodoc adopted Tencent Cloud's eKYC services, utilizing 1:1 and 1:N liveness APIs to strengthen identity verification and elevate its core healthcare authentication services.",
+    "By migrating to Tencent Cloud, Biodoc achieved 30% lower infrastructure costs compared to its previous setup, while gaining greater scalability and processing power to support AI and facial recognition workloads."
+  ]
+}
