@@ -1,0 +1,174 @@
+{
+  "id": "alibaba-cloud-shuyao-technology-risk-management",
+  "slug": "alibaba-cloud-shuyao-technology-risk-management",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Shuyao Technology",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Shuyao Technology needed to replace a brittle, manually maintained financial risk rule engine. Its decision process spanned 516 nodes and 878 evaluation indicators, with tightly coupled logic, redundant checks, and slow policy updates that could not keep pace with changing fraud patterns. The company wanted a model that could understand the full decision flow, discover latent rules, and keep risk decisions explainable enough for regulated financial use.",
+  "solution_summary": "Shuyao Technology and Alibaba Cloud built a financial risk-decision training pipeline around Platform for AI (PAI), Qwen3, and AI Stack. The team first converted BPMN decision flows into structured corpora that captured node topology, rule-package logic, and end-to-end decision paths, then used a staged recipe of continued pretraining, cold start, supervised fine-tuning, and reinforcement learning to turn the base model into a risk specialist. Alibaba also optimized the stack for long-context training by compressing 501K-token source flows into usable 57K-token samples, removing repetitive rule IDs, and applying DeepSpeed ZeRO-3, Liger Kernel, AutoTP, and YARN dynamic RoPE so 64K-context training and 40K+ token reasoning could run without truncating critical cases. The resulting model plugs into Shuyao's risk-control workflow to propose and explain decisions instead of relying only on hand-written rules.",
+  "products_used": [
+    "Platform for AI (PAI)",
+    "Qwen3",
+    "AI Stack"
+  ],
+  "solution_components": [
+    {
+      "name": "Platform for AI (PAI)",
+      "role": "Runs the staged CPT, cold-start, supervised fine-tuning, and reinforcement-learning jobs that train Shuyao's risk model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen3",
+      "role": "Serves as the base large language model that Shuyao adapts into a financial risk-decision specialist.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI Stack",
+      "role": "Provides the long-context model training environment and optimization stack that lets the team process 40K+ token risk workflows."
+    }
+  ],
+  "data_flow": "Shuyao converts BPMN risk workflows and rule packages into structured training corpora, feeds them into PAI and AI Stack for continued pretraining, cold-start tuning, supervised fine-tuning, and reinforcement learning on Qwen3, and then uses the resulting model to analyze complex financial decision flows, recommend rules, and explain outcomes for lending risk operations.",
+  "integration_points": [
+    "BPMN decision flows",
+    "rule packages",
+    "financial institution risk workflows",
+    "loan-lifecycle decision data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Shuyao raised critical rule-matching accuracy to 86.83%, reached 98.51% similarity between model reasoning and the original decision path, improved explainability for financial audit and compliance needs, and created a reusable long-context training pattern that led the customer to expand its purchase of AI services and compute capacity.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "516 decision nodes",
+    "878 evaluation indicators",
+    "7,387 training samples",
+    "CPT training ran for 22 hours",
+    "500 cold-start samples",
+    "7,523 supervised fine-tuning samples",
+    "48.67% accuracy after SFT",
+    "8,023 preference samples",
+    "reinforcement learning training ran for 113 hours",
+    "critical rule-matching accuracy rose from under 30% to 86.83%",
+    "reasoning-step similarity (LCS) reached 98.51%",
+    "80% of training samples exceeded 20K tokens",
+    "the longest sample reached 57K tokens",
+    "reasoning steps fell from 93 to 21",
+    "information density improved 78%",
+    "memory usage dropped 65%",
+    "overall training efficiency improved 4%",
+    "context support improved 3.2x at the same cost"
+  ],
+  "architecture_clues": [
+    "Training data encoded node topology, branching conditions, and end-to-end decision paths from BPMN workflows.",
+    "DeepSpeed ZeRO-3, Liger Kernel, and AutoTP reduced memory usage enough to support 64K-context training.",
+    "YARN dynamic RoPE extension enabled stable 40K+ token reasoning during reinforcement learning.",
+    "Dataset restructuring reduced average reasoning traces from 93 steps to 21 steps."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2025-shuyao",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Shuyao builds a financial-grade large-model decision framework on Alibaba PAI",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2025-shuyao",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:39+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The risk-control decision process contained 516 nodes and 878 evaluation indicators, with tightly coupled logic and redundant checks (original: 其风控决策流程极为复杂，包含 516 个节点、878 项评估指标，规则之间高度耦合，决策流中普遍存在无规律符号、冗余逻辑与重复判断等问题).",
+    "The core objective was to let a large model deeply understand complex risk-control logic, automatically mine latent rules, and continuously optimize strategy loops (original: 核心诉求明确：让大模型深度理解复杂的风控决策逻辑，自动挖掘潜在规则，并实现策略的持续优化闭环).",
+    "After two reinforcement-learning iterations, critical rule-matching accuracy jumped to 86.83% and reasoning-step similarity reached 98.51% (original: 经过两轮精细迭代优化（RL 训练总耗时 113 小时），模型的关键规则匹配准确率从初始的不足 30% 跃升至 86.83%，风控推理步骤相似度（LCS）达 98.51%).",
+    "The optimization stack reduced memory usage by 65% and enabled 64K-context training without truncating 40K+ samples (original: 引入 DeepSpeed ZeRO-3 + Liger Kernel + AutoTP 显存优化技术，实现显存占用降低 65%，支持 64K 上下文训练，彻底消除此前对 40K+ 样本的截断问题).",
+    "At the same cost, the project increased context support by 3.2x and produced a reusable best practice for long-text training in financial risk control (original: 在 APG 利用上实现突破——同等成本下上下文支持能力提升 3.2 倍，训练效率与显存优化成效显著)."
+  ],
+  "source_language": "zh"
+}

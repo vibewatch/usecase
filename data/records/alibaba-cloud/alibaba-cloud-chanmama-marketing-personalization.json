@@ -1,0 +1,146 @@
+{
+  "id": "alibaba-cloud-chanmama-marketing-personalization",
+  "slug": "alibaba-cloud-chanmama-marketing-personalization",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Chanmama",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Chanmama needed a better retrieval stack for similar-product recommendation and creator merchandising. Its prior vector-search approach and self-managed Spark cluster struggled with high-dimensional search performance, storage efficiency, frequent vector updates, and cluster operations, which raised cost, slowed offline jobs, and increased failure risk.",
+  "solution_summary": "Chanmama redesigned its recommendation pipeline around EMR Serverless Spark and Vector Search Service Milvus Edition so product data and embeddings could be processed as a managed, elastic workflow instead of a self-operated cluster. Periodic offline jobs extract product records from StarRocks, including IDs, titles, and descriptions, then use a machine-learning model service to convert product titles into vectors. Serverless Spark combines those vectors with product metadata and batch-loads them into Milvus, which becomes the low-latency similarity-search layer for recommendation and creator product-selection workloads. Because the compute layer is serverless, the team can scale resources only when jobs run; because Milvus is purpose-built for large vector collections, the platform avoids the indexing and storage penalties of the previous search stack. The result is a cheaper, more stable recommendation architecture that matches analyst workflows and recommendation use cases.",
+  "products_used": [
+    "EMR Serverless Spark",
+    "Vector Search Service Milvus Edition"
+  ],
+  "solution_components": [
+    {
+      "name": "EMR Serverless Spark",
+      "role": "Runs periodic offline jobs that extract product data, create embeddings, and batch-load vector data into the search layer.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Vector Search Service Milvus Edition",
+      "role": "Stores product vectors and metadata and returns similar-product matches for recommendation and merchandising workflows.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Periodic Serverless Spark jobs read product data from StarRocks, call a machine-learning model service to create title embeddings, batch-write vectors and metadata into Milvus, and then expose low-latency similarity search to recommendation and creator product-selection services.",
+  "integration_points": [
+    "StarRocks database",
+    "machine-learning model service",
+    "product-catalog interfaces",
+    "recommendation workflows",
+    "creator product-selection workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Chanmama reduced vector retrieval cost by 75%, cut offline job runtime by 40%, lowered task failure rates by 80%, and gained an autoscaling, pay-as-you-go recommendation pipeline that is easier to operate and better suited to large product catalogs.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "vector retrieval cost dropped 75%",
+    "offline task runtime fell 40%",
+    "task failure rate dropped 80%"
+  ],
+  "architecture_clues": [
+    "Serverless Spark jobs are scheduled periodically rather than run on a permanently provisioned cluster.",
+    "Milvus is used as the vector storage and similarity-search layer for large-scale recommendation workloads.",
+    "The pipeline separates product extraction, embedding generation, vector storage, and serving into distinct stages."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-chanxuan",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Chanmama uses EMR and Milvus to build an efficient vector retrieval system",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-chanxuan",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:01:17+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Chanmama chose Alibaba Cloud EMR Serverless Spark and Milvus to build an engineering solution that matches recommendation and search workflows (original: 为了应对新的业务挑战，蝉妈妈选择与阿里云合作，利用其 EMR Serverless Spark 和 Milvus，构建符合搜索推荐业务场景和数据分析师习惯的工程解决方案).",
+    "In Serverless Spark, periodic offline jobs extract product data from StarRocks, call a model service to turn titles into vectors, and batch-write the vectors into Milvus for similarity search (original: 在 Serverless Spark 中，通过周期性的离线任务，从 StarRocks 数据库中提取商品数据... 调用机器学习模型服务，将商品标题转换为向量表示... 批量写入阿里云 Milvus 向量数据库).",
+    "The new architecture is suitable for recommendation systems and personalized marketing because it supports large-scale, low-latency similar-product retrieval (original: 该架构支持大规模、低延迟的相似商品检索，适用于推荐系统、个性化营销等应用场景).",
+    "Compared with the previous approach, Milvus reduced vector retrieval cost by 75%, while offline task time fell 40% and task failure rate fell 80% (original: 与传统搜索方案相比，阿里云 Milvus 实现向量检索的成本降低了 75%... 离线任务耗时减少 40%... 任务失败率降低 80%).",
+    "Because the compute layer is pay-as-you-go and automatically scales, resources are only consumed when tasks run (original: 真正的按量付费，不使用时没有资源消耗；提供多种资源包选择，进一步降低成本)."
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,150 @@
+{
+  "id": "alibaba-cloud-suntime-enterprise-knowledge-search",
+  "slug": "alibaba-cloud-suntime-enterprise-knowledge-search",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Suntime",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Suntime needed an authoritative, source-traceable research assistant for professional investors, but its self-built retrieval stack struggled with the semantic complexity, latency, and operations burden created by huge volumes of financial reports, announcements, research notes, news, and fund data.",
+  "solution_summary": "Suntime built its AI Xiaoer investment-research assistant on top of Alibaba Cloud's Vector Search Service Milvus Edition to turn large financial document collections into a low-latency semantic retrieval layer. The architecture is organized in layers: raw announcements, research reports, financial statements, news, and fund data are collected at the bottom; parsing and embedding steps convert those documents into vectors; then Milvus stores and filters the vectors so the system can retrieve relevant evidence for natural-language questions. AI Xiaoer sits above that retrieval layer and uses the returned passages to power functions such as intelligent Q&A, rapid research, deep analysis, thematic recommendation, and report generation. The platform gives Suntime a scalable path from heterogeneous data ingestion to semantic retrieval and cited answer generation without the performance and maintenance limits of its prior PostgreSQL-based vector stack.",
+  "products_used": [
+    "AI Xiaoer",
+    "Vector Search Service Milvus Edition"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Xiaoer",
+      "role": "Serves as the user-facing investment-research assistant that issues natural-language queries and returns cited analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Vector Search Service Milvus Edition",
+      "role": "Stores embedded financial documents and executes semantic retrieval with metadata filtering at low latency.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Financial announcements, reports, news, and fund data are parsed and embedded into vectors, stored in Milvus for semantic retrieval, and then retrieved passages are passed to AI Xiaoer so the assistant can answer investor questions, summarize evidence, and generate research outputs with traceable source material.",
+  "integration_points": [
+    "listed-company announcements",
+    "financial statements",
+    "sell-side research reports",
+    "news feeds",
+    "fund data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Suntime improved retrieval speed by more than 10x, cut operations work by 80%, and kept the service stable through more than 100 peak-traffic events over six months, giving researchers faster access to authoritative evidence while reducing the burden of maintaining a custom vector search stack.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "query latency dropped from 600ms to 50ms",
+    "query speed improved more than 10x",
+    "operations workload fell 80%",
+    "over 3 million sell-side research reports",
+    "vector volume reached the billion scale",
+    "0 failures and 0 interruptions across more than 100 peak-access events in six months"
+  ],
+  "architecture_clues": [
+    "The system uses a layered design from raw document ingestion to embeddings, vector storage, semantic retrieval, and AI answer generation.",
+    "Milvus supports hybrid retrieval with vector search plus scalar filtering on financial datasets.",
+    "The platform is designed for low-latency, high-concurrency access during trading hours."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2025-suntime",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Suntime uses Alibaba Cloud Milvus to build its AI Xiaoer financial research assistant",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2025-suntime",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:03+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "AI Xiaoer combines generative AI with Alibaba Cloud Milvus to deliver intelligent Q&A, rapid research, deep analysis, thematic recommendations, and report generation (original: AI 小二基于生成式 AI 能力，结合阿里云向量检索服务 Milvus 版... 打造了集“智能问答、极速研究、深度分析、主题推荐、报表生成”于一体的智能化投研平台).",
+    "The system uses a layered architecture in which parsed and embedded documents are stored in Milvus and exposed through standardized low-latency retrieval APIs (original: 底层... 中间层... 并存入阿里云 Milvus；上层... 实现多模态召回；接入层：通过标准化接口为 AI 小二提供低延迟、高并发的检索服务).",
+    "Suntime had to manage unstructured and semi-structured financial data such as announcements, reports, news, and fund data, and traditional keyword search could not understand semantic relationships well enough (original: 朝阳永续需处理包括上市公司公告、财报、卖方研究报告、新闻资讯、基金数据在内的海量非结构化与半结构化数据... 传统的关键词检索方式难以理解语义关联).",
+    "Average response time fell from 600ms on the open-source PostgreSQL vector stack to 50ms on Alibaba Cloud Milvus (original: 开源 PG 库平均响应速度 600ms，阿里云 Milvus 平均响应速度 50ms).",
+    "Across more than one hundred peak-traffic events over half a year, Alibaba Cloud Milvus maintained 0 failures and 0 interruptions (original: 阿里云 Milvus 历经半年百余次瞬时访问峰值考验，始终保持 0 故障、0 中断)."
+  ],
+  "source_language": "zh"
+}

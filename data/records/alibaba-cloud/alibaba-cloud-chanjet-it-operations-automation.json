@@ -1,0 +1,176 @@
+{
+  "id": "alibaba-cloud-chanjet-it-operations-automation",
+  "slug": "alibaba-cloud-chanjet-it-operations-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Chanjet",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Chanjet needed user-centric observability and faster incident handling for a multitenant, multi-center SaaS platform serving millions of small businesses. Its traditional monitoring stack could not detect customer-experience issues early, alert storms buried urgent incidents, and emergency response still depended too heavily on expert operator judgment.",
+  "solution_summary": "Chanjet and Alibaba Cloud rebuilt operations around a five-layer observability model and an AI-driven STAROps control plane. Infrastructure, middleware, application, business, and end-user experience signals are collected into the Cloud Monitor 2.0 stack, where Cloud Monitor CMS, Log Service SLS, and Application Real-Time Monitoring Service ARMS provide the shared telemetry base. STAROps then uses UModel-based digital-twin topology to correlate applications, resources, tenants, and call chains so the team can move from a single user-facing alert to the affected instance, dependency, and tenant. On top of that data layer, Chanjet deployed AI inspection, alert deduplication, diagnosis, self-healing, capacity prediction, and configuration validation workflows, with tickets and recovery actions flowing through standardized runbooks instead of ad hoc operator memory. The result is an AI-first operating model with human review for high-risk actions.",
+  "products_used": [
+    "STAROps",
+    "Cloud Monitor CMS",
+    "Log Service SLS",
+    "Application Real-Time Monitoring Service (ARMS)"
+  ],
+  "solution_components": [
+    {
+      "name": "STAROps",
+      "role": "Coordinates AI inspections, alert reduction, diagnosis, self-healing, and operator-facing digital cockpit workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Monitor CMS",
+      "role": "Collects infrastructure and service metrics across Chanjet's five-layer monitoring model and drives alerting.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Stores and queries log data that powers inspection jobs, business error detection, and large-scale operations analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Captures application traces, latency, and runtime health signals that feed tenant-aware root-cause analysis.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Infrastructure, middleware, application, business, and user-experience telemetry is ingested by CMS, SLS, and ARMS, correlated into application-resource-tenant topology views in STAROps, and then fed into AI inspection, diagnosis, alert-reduction, and self-healing workflows that create tickets, notify staff, and trigger recovery actions.",
+  "integration_points": [
+    "Redis",
+    "databases",
+    "message queues",
+    "Kubernetes resources",
+    "CMDB",
+    "CI/CD workflows",
+    "DingTalk",
+    "SMS",
+    "email"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Chanjet raised overall service availability from 99.9% to 99.995%, cut fault-location time from more than 10 minutes to under 30 seconds, improved the MTTK step by more than 20x, and reached its target of preventing 99% of incidents before users are affected while shifting daily operations toward an AI-first, human-review model.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "service availability improved from 99.9% to 99.995%",
+    "fault-location time dropped from more than 10 minutes to under 30 seconds",
+    "MTTK efficiency improved more than 20x",
+    "99% of incidents are targeted for prevention before impact",
+    "10-minute emergency containment target",
+    "30-second full-link analysis target"
+  ],
+  "architecture_clues": [
+    "The operating model is built around a five-layer observability design: infrastructure, middleware, application, business, and user experience.",
+    "A UModel digital twin links applications, resources, tenants, and dependency topology for root-cause analysis.",
+    "The SaaS platform runs as a multitenant, multi-center cloud-native architecture.",
+    "AI capabilities are delivered through an intelligent cockpit, digital employee, and Skill or MCP-based workflows."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-chanjet",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Chanjet and Alibaba Cloud use STAROps for AI-driven intelligent operations",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-chanjet",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:24+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Chanjet wanted to raise overall SLA from 99.9% to 99.995%, achieve 99% pre-incident prevention, and finish emergency containment within 10 minutes (original: 畅捷通明确升级目标：将整体服务可用性 SLA 从 99.9% 提升至 99.995%，构建 99% 故障事前预防、10 分钟内完成应急止损的运维能力).",
+    "Cloud Monitor 2.0 unifies SLS, ARMS, CMS, and STAROps so Chanjet can aggregate, store, and analyze five layers of monitoring data on one platform (original: 云监控 2.0 将阿里云上的日志服务 SLS、应用实时监控服务 ARMS、云监控 CMS、全域智能运维平台 STAROps 这几个产品整合到一个平台中).",
+    "UModel organizes cloud products, Kubernetes resources, applications, and enterprise extensions into one semantic model so operators can drill down from a single user-experience alert to the affected instance, resource, and tenant (original: UModel 以统一图模型组织实体、关系、观测数据和运维知识... 运维人员可从单条用户体验告警逐层下钻，快速定位异常实例、资源瓶颈及受影响租户).",
+    "The final AI operating model adds intelligent inspection, alerting, diagnosis, self-healing, capacity prediction, and configuration validation so work shifts from human-led to AI-led with human review (original: 在平台化和方法论双重基础上全面叠加 AI 能力，工作模式从“以人为主”彻底转向“AI 为主、人审核”).",
+    "Overall SLA rose to 99.995%, fault-location time fell from more than 10 minutes to under 30 seconds, and MTTK efficiency improved by more than 20x (original: 整体 SLA 从 99.9% 提升至 99.995%... 故障定位时间从平均 10 分钟以上压缩至 30 秒以内，MTTR 中的 MTTK 环节效率提升超过 20 倍)."
+  ],
+  "source_language": "zh"
+}
