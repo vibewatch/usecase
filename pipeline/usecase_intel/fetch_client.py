@@ -10,6 +10,7 @@ from __future__ import annotations
 import gzip
 import hashlib
 import io
+import json
 import re
 import time
 from dataclasses import dataclass
@@ -295,39 +296,24 @@ class FetchClient:
         headers["Accept-Encoding"] = "gzip"
         return user_agent, {str(key): str(value) for key, value in headers.items()}
 
-    def fetch_once(self, attempt: FetchAttempt) -> FetchResult:
-        url = attempt.url
+    def _request_once(
+        self,
+        url: str,
+        *,
+        profile: str = "default",
+        source: str = "origin",
+        data: Optional[bytes] = None,
+        extra_headers: Optional[dict[str, str]] = None,
+    ) -> FetchResult:
         parts = urlparse(url)
         if not parts.scheme or not parts.netloc:
             raise ValueError(f"invalid url: {url}")
 
-        if attempt.source == "browser":
-            if not self.enable_browser:
-                raise RuntimeError("headless browser fallback is disabled")
-            if self._browser_fetcher is None:
-                self._browser_fetcher = BrowserFetcher(
-                    timeout_seconds=self.timeout,
-                    max_response_bytes=self.max_response_bytes,
-                )
-            rendered = self._browser_fetcher.fetch(url)
-            return FetchResult(
-                url=url,
-                status=rendered.status,
-                body=rendered.body,
-                content_type="text/html; charset=utf-8",
-                sha256=hashlib.sha256(rendered.body).hexdigest(),
-                from_cache=False,
-                final_url=rendered.final_url,
-                retrieval_source="browser",
-                profile=attempt.profile,
-            )
-
-        user_agent, headers = self._profile_request_headers(attempt.profile)
-
+        user_agent, headers = self._profile_request_headers(profile)
         self._wait_for_host(parts.netloc)
 
-        request_headers = {"User-Agent": user_agent, **headers}
-        request = Request(url, headers=request_headers)
+        request_headers = {"User-Agent": user_agent, **headers, **(extra_headers or {})}
+        request = Request(url, data=data, headers=request_headers)
 
         try:
             with urlopen(request, timeout=self.timeout) as response:
@@ -370,10 +356,64 @@ class FetchClient:
             sha256=hashlib.sha256(raw).hexdigest(),
             from_cache=False,
             final_url=final_url,
-            retrieval_source=attempt.source,
-            profile=attempt.profile,
+            retrieval_source=source,
+            profile=profile,
             retry_after_seconds=retry_after,
         )
+
+    def fetch_once(self, attempt: FetchAttempt) -> FetchResult:
+        url = attempt.url
+        parts = urlparse(url)
+        if not parts.scheme or not parts.netloc:
+            raise ValueError(f"invalid url: {url}")
+
+        if attempt.source == "browser":
+            if not self.enable_browser:
+                raise RuntimeError("headless browser fallback is disabled")
+            if self._browser_fetcher is None:
+                self._browser_fetcher = BrowserFetcher(
+                    timeout_seconds=self.timeout,
+                    max_response_bytes=self.max_response_bytes,
+                )
+            rendered = self._browser_fetcher.fetch(url)
+            return FetchResult(
+                url=url,
+                status=rendered.status,
+                body=rendered.body,
+                content_type="text/html; charset=utf-8",
+                sha256=hashlib.sha256(rendered.body).hexdigest(),
+                from_cache=False,
+                final_url=rendered.final_url,
+                retrieval_source="browser",
+                profile=attempt.profile,
+            )
+
+        return self._request_once(
+            url,
+            profile=attempt.profile,
+            source=attempt.source,
+        )
+
+    def post_json(self, url: str, payload: object) -> FetchResult:
+        body = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        result: Optional[FetchResult] = None
+        for retry in range(self.rate_limit_retries + 1):
+            result = self._request_once(
+                url,
+                data=body,
+                extra_headers={"Accept": "application/json", "Content-Type": "application/json"},
+            )
+            if result.status != 429 or retry >= self.rate_limit_retries:
+                break
+            delay = result.retry_after_seconds
+            if delay is None:
+                delay = min(self.max_retry_delay_seconds, 2.0**retry)
+            time.sleep(min(self.max_retry_delay_seconds, delay))
+        if result is None:  # pragma: no cover - loop always runs at least once
+            raise RuntimeError(f"failed to POST JSON to {url}")
+        if not 200 <= result.status < 400:
+            raise HTTPError(url, result.status, f"HTTP status {result.status}", None, None)
+        return result
 
     def _fallback_plan(self, url: str) -> list[FetchAttempt]:
         plan: list[FetchAttempt] = []

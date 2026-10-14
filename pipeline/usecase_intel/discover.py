@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Iterable, Optional
-from urllib.parse import quote, urlencode, urljoin
+from urllib.parse import quote, urlencode, urljoin, urlsplit, urlunsplit
 from xml.etree import ElementTree
 
 from .fetch_client import FetchClient
@@ -198,6 +198,65 @@ def _walk_aws_directory(
     return matched
 
 
+def _walk_huawei_datahub(
+    client: FetchClient,
+    api: dict,
+    *,
+    include_patterns: list[re.Pattern[str]],
+    exclude_patterns: list[re.Pattern[str]],
+    enough: Optional[int] = None,
+) -> list[tuple[str, Optional[str], Optional[str]]]:
+    page_size = int(api.get("page_size", 100))
+    page = 1
+    matched: list[tuple[str, Optional[str], Optional[str]]] = []
+    seen: set[str] = set()
+    total_pages: Optional[int] = None
+
+    while total_pages is None or page <= total_pages:
+        payload = {
+            "pid": api["pid"],
+            "type": api.get("entity_type", "customer-detail-case"),
+            "releaseStage": api.get("release_stage", "PROD"),
+            "filters": [
+                {"fieldName": "site", "operation": "EQ", "fieldValue": api.get("site", "china")},
+                {"fieldName": "lang", "operation": "EQ", "fieldValue": api.get("language", "zh-cn")},
+            ],
+            "summaryFilters": [],
+            "orders": [{"fieldName": "contentTime", "direction": "DESC"}],
+            "pageSize": page_size,
+            "pageNumber": page,
+            "aggregators": [],
+        }
+        print(f"  huawei datahub page {page}", file=sys.stderr, flush=True)
+        try:
+            response = json.loads(client.post_json(api["url"], payload).body)
+        except Exception as exc:  # noqa: BLE001
+            print(f"  huawei datahub failed on page {page}: {exc}", file=sys.stderr, flush=True)
+            break
+        data = response.get("data") or {}
+        records = data.get("records") or []
+        total_pages = int(data.get("totalPages") or page)
+        for record in records:
+            fields = record.get("extendMap") or {}
+            url = str(fields.get("url") or "").split("?")[0].split("#")[0]
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            if include_patterns and not any(pattern.search(url) for pattern in include_patterns):
+                continue
+            if any(pattern.search(url) for pattern in exclude_patterns):
+                continue
+            title = str(fields.get("companyName") or "").strip() or None
+            matched.append((url, None, title))
+            if enough is not None and len(matched) >= enough:
+                return matched
+        if not records:
+            break
+        page += 1
+    print(f"  huawei datahub done: {page - 1} page(s), {len(matched)} matches", file=sys.stderr, flush=True)
+    return matched
+
+
 def _extract_index_links(client: FetchClient, index_url: str) -> list[str]:
     print(f"  index {index_url}", file=sys.stderr, flush=True)
     try:
@@ -232,6 +291,8 @@ def _filter_urls(
     matched: list[str] = []
     seen: set[str] = set()
     for url in candidates:
+        parts = urlsplit(url)
+        url = urlunsplit((parts.scheme, parts.netloc, parts.path, "", ""))
         if url in seen:
             continue
         seen.add(url)
@@ -291,17 +352,28 @@ def discover(
             filtered_sitemap: list[tuple[str, Optional[str]]] = []
             titles: dict[str, str] = {}
             for api in source.get("apis", []):
-                if api.get("type") != "aws-directory":
-                    print(f"  unknown api type: {api.get('type')}", file=sys.stderr, flush=True)
+                api_type = api.get("type")
+                if api_type == "aws-directory":
+                    found = _walk_aws_directory(
+                        client,
+                        api,
+                        include_patterns=include,
+                        exclude_patterns=exclude,
+                        since=since,
+                        enough=limit_per_vendor,
+                    )
+                elif api_type == "huawei-datahub":
+                    found = _walk_huawei_datahub(
+                        client,
+                        api,
+                        include_patterns=include,
+                        exclude_patterns=exclude,
+                        enough=limit_per_vendor,
+                    )
+                else:
+                    print(f"  unknown api type: {api_type}", file=sys.stderr, flush=True)
                     continue
-                for url, lastmod, title in _walk_aws_directory(
-                    client,
-                    api,
-                    include_patterns=include,
-                    exclude_patterns=exclude,
-                    since=since,
-                    enough=limit_per_vendor,
-                ):
+                for url, lastmod, title in found:
                     filtered_sitemap.append((url, lastmod))
                     if title:
                         titles[url] = title
@@ -321,6 +393,7 @@ def discover(
                         break
 
             filtered_index: list[str] = []
+            filtered_index.extend(_filter_urls(source.get("seed_urls", []), include, exclude))
             if use_index_pages:
                 for index in source.get("index_pages", []):
                     raw_links = _extract_index_links(client, index)

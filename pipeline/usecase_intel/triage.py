@@ -398,9 +398,10 @@ def evaluate_text(
     if not published and lastmod and options.get("lastmod_is_published"):
         published, published_source = lastmod, "discovery"
 
-    if words < criteria.min_words:
+    min_words = int(options.get("min_words", criteria.min_words))
+    if words < min_words:
         reasons.append(f"thin_{words}_words")
-    elif cjk < criteria.min_words and sum(1 for token in tokens if token in STOPWORDS) / max(len(tokens), 1) < criteria.min_stopword_ratio:
+    elif cjk < min_words and sum(1 for token in tokens if token in STOPWORDS) / max(len(tokens), 1) < criteria.min_stopword_ratio:
         # Mostly-Latin text must read as English; substantially Chinese text passes for "zh" sources.
         reasons.append("not_english")
 
@@ -420,9 +421,10 @@ def evaluate_text(
     if not published and not reasons and not (lastmod and lastmod < criteria.since) and date_fallback:
         published = date_fallback()
         published_source = "wayback_first_capture" if published else None
-    if published and published < criteria.since:
+    qualified_published = published if published_source != "wayback_first_capture" else None
+    if qualified_published and qualified_published < criteria.since:
         reasons.append(f"published_before_{criteria.since}")
-    elif not published and lastmod and lastmod < criteria.since:
+    elif not qualified_published and lastmod and lastmod < criteria.since:
         reasons.append(f"modified_before_{criteria.since}")
 
     weights = criteria.weights
@@ -431,14 +433,14 @@ def evaluate_text(
     if chinese:
         metrics += len(criteria.zh_metric_re.findall(text))
         architecture = sum(1 for pattern in criteria.latin_arch_res + criteria.zh_arch_res if pattern.search(text))
-    year = (published or "")[:4]
+    year = (qualified_published or "")[:4]
     score = (
         distinct * float(weights["topic_distinct"])
         + min(total_hits, int(weights["topic_hits_cap"])) * float(weights["topic_hits"])
         + min(metrics, int(weights["metrics_cap"])) * float(weights["metrics"])
         + min(architecture, int(weights["architecture_cap"])) * float(weights["architecture"])
         + float(weights["recency_by_year"].get(year, 0))
-        - (float(weights["unknown_date_penalty"]) if not published else 0.0)
+        - (float(weights["unknown_date_penalty"]) if not qualified_published else 0.0)
     )
     return {
         "decision": "drop" if reasons else "keep",
@@ -517,7 +519,11 @@ def load_vendor_rules(sources_path: Path) -> dict[str, VendorRules]:
         rules[source["vendor"]] = VendorRules(
             story_cues=re.compile(cues, re.IGNORECASE) if cues else None,
             include=[re.compile(pattern) for pattern in source.get("url_patterns", [])],
-            options={key: source[key] for key in ("always_on_topic", "lastmod_is_published", "language", "date_pattern") if key in source},
+            options={
+                key: source[key]
+                for key in ("always_on_topic", "lastmod_is_published", "language", "date_pattern", "min_words")
+                if key in source
+            },
         )
     return rules
 

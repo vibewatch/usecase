@@ -141,6 +141,28 @@ class FetchClientTests(unittest.TestCase):
         self.assertEqual(fetch_once.call_count, 2)
         sleep.assert_called_once_with(0.25)
 
+    def test_post_json_retries_rate_limit_and_sets_json_headers(self) -> None:
+        client = FetchClient(
+            user_agent="test",
+            per_host_delay_seconds=0,
+            rate_limit_retries=1,
+            max_retry_delay_seconds=5,
+        )
+        responses = [result(429, retry_after=0.25), result(200, body=b'{"status":"SUCCESS"}')]
+
+        with (
+            patch.object(client, "_request_once", side_effect=responses) as request_once,
+            patch("pipeline.usecase_intel.fetch_client.time.sleep") as sleep,
+        ):
+            fetched = client.post_json("https://example.com/api", {"page": 1})
+
+        self.assertEqual(fetched.status, 200)
+        self.assertEqual(request_once.call_count, 2)
+        kwargs = request_once.call_args.kwargs
+        self.assertEqual(kwargs["extra_headers"]["Content-Type"], "application/json")
+        self.assertEqual(kwargs["extra_headers"]["Accept"], "application/json")
+        sleep.assert_called_once_with(0.25)
+
 
 if __name__ == "__main__":
     unittest.main()

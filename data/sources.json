@@ -107,17 +107,24 @@
       "vendor": "Alibaba Cloud",
       "sitemaps": [],
       "index_pages": [
-        "https://www.alibabacloud.com/customers"
+        "https://www.alibabacloud.com/customers",
+        "https://www.aliyun.com/customer-stories/customer-case-index",
+        "https://enterprise.aliyun.com/customer/customer-case"
       ],
       "url_patterns": [
-        "^https://www\\.alibabacloud\\.com/customers/[^/?#]+/?$"
+        "^https://www\\.alibabacloud\\.com/customers/[^/?#]+/?$",
+        "^https://(?:www|cn)\\.aliyun\\.com/customer-stories/[a-z0-9]+(?:-[a-z0-9]+)*/?$",
+        "^https://enterprise\\.aliyun\\.com/customer/[A-Za-z0-9_-]+/?$"
       ],
       "exclude_patterns": [
         "/customers/?$",
         "/customers/search",
+        "/customer-stories/customer-case-index/?$",
+        "enterprise\\.aliyun\\.com/customer/customer-case/?$",
         "#",
         "\\?"
-      ]
+      ],
+      "language": "zh"
     },
     {
       "vendor": "LangChain",
@@ -355,15 +362,21 @@
         "https://intl.cloud.tencent.com/customers",
         "https://cloud.tencent.com/customer/"
       ],
+      "seed_urls": [
+        "https://partner.cloud.tencent.com/customers/zhinengjiqi",
+        "https://partner.cloud.tencent.com/customers/jingzhanggui"
+      ],
       "url_patterns": [
         "^https://intl\\.cloud\\.tencent\\.com/customers/detail/\\d+$",
-        "^https://cloud\\.tencent\\.com/customer/[A-Za-z0-9_-]+$"
+        "^https://cloud\\.tencent\\.com/customer/[A-Za-z0-9_-]+$",
+        "^https://partner\\.cloud\\.tencent\\.com/customers/[A-Za-z0-9_-]+$"
       ],
       "exclude_patterns": [
         "#",
         "\\?"
       ],
-      "language": "zh"
+      "language": "zh",
+      "min_words": 180
     },
     {
       "vendor": "Baidu AI Cloud",
@@ -384,16 +397,33 @@
     {
       "vendor": "Huawei Cloud",
       "sitemaps": [],
+      "apis": [
+        {
+          "type": "huawei-datahub",
+          "url": "https://portal.huaweicloud.com/rest/portalobjectservice/v1/datahub/query-entity",
+          "pid": "4e18a04052d241f09dad8004e59a7b24",
+          "entity_type": "customer-detail-case",
+          "site": "china",
+          "language": "zh-cn",
+          "page_size": 100
+        }
+      ],
       "index_pages": [
-        "https://www.huaweicloud.com/intl/en-us/cases.html"
+        "https://www.huaweicloud.com/intl/en-us/cases.html",
+        "https://www.huaweicloud.com/cases",
+        "https://www.huaweicloud.com/cases.html",
+        "https://startup.huaweicloud.com/case.html"
       ],
       "url_patterns": [
-        "^https://www\\.huaweicloud\\.com/intl/en-us/cases/[A-Za-z0-9_-]+\\.html$"
+        "^https://www\\.huaweicloud\\.com/intl/en-us/cases/[A-Za-z0-9_-]+\\.html$",
+        "^https://www\\.huaweicloud\\.com/cases/[A-Za-z0-9_-]+\\.html$",
+        "^https://www\\.huaweicloud\\.com/solution/case/[A-Za-z0-9_-]+\\.html$"
       ],
       "exclude_patterns": [
         "#",
         "\\?"
-      ]
+      ],
+      "language": "zh"
     },
     {
       "vendor": "BytePlus",
