@@ -1,0 +1,147 @@
+{
+  "id": "tencent-cloud-ryt-bank-conversational-ai-payments",
+  "slug": "tencent-cloud-ryt-bank-conversational-ai-payments",
+  "vendor": "Tencent Cloud",
+  "customer_name": "Ryt Bank",
+  "industry": "Financial Services",
+  "region": "Malaysia",
+  "company_size": "Unknown",
+  "business_problem": "Ryt Bank needed to replace rigid, multi-screen banking journeys with a conversational payment experience while still meeting the low-latency, auditability, and security requirements of a regulated financial institution.",
+  "solution_summary": "Ryt Bank built a conversational payment-transfer experience around its own Ryt AI engine and Tencent Cloud's messaging services so customers can move money with natural-language or image-based requests instead of stepwise banking screens. Natural-language and image inputs enter a chat interface backed by Tencent Cloud Chat(IM), which provides the core message-delivery channel for high-stakes banking interactions. Flexible APIs let Ryt Bank's multi-layer AI agents listen to incoming requests, verify intent, and trigger real-time payment execution, while Tencent RTC supplies the stable communication layer used during secure transaction processing. The architecture is designed for regulated banking workloads, so the same message pipeline must stay auditable, low-latency, and resilient enough to support more than 140,000 monthly transactional interactions without disrupting customer trust.",
+  "products_used": [
+    "Ryt AI",
+    "Tencent Cloud Chat(IM)",
+    "Tencent RTC"
+  ],
+  "solution_components": [
+    {
+      "name": "Ryt AI",
+      "role": "Interprets customer payment instructions, verifies intent, and drives the conversational transfer workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Tencent Cloud Chat(IM)",
+      "role": "Carries the message stream that connects customers to the conversational banking experience.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Tencent RTC",
+      "role": "Provides the stable real-time communication channel used during secure transaction processing.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customers submit text or image-based transfer requests through Ryt Bank's chat interface; Tencent Cloud Chat(IM) transports those messages to Ryt AI, which listens, verifies, and executes the payment flow, while Tencent RTC underpins the secure real-time communication channel used to complete and record the transaction.",
+  "integration_points": [
+    "Conversational chat interface",
+    "Image-based payment requests",
+    "Real-time payment transfer workflows",
+    "Regulated banking records"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Ryt Bank launched an AI-powered transfer experience that reduced a traditional eight-step payment process to a single sentence while preserving the low latency, transparency, and operational safety expected of a regulated bank.",
+  "outcome_category": [
+    "Customer Experience",
+    "Compliance",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The infrastructure must handle more than 140,000 monthly transactional interactions without service disruption.",
+    "Ryt Bank launched with 50,000 active users from day one.",
+    "In just 4 months since launch, RYT Bank has attracted nearly one million downloads.",
+    "60% of customers engage with its core innovation, RYT AI.",
+    "Hallucination rates are below 1.5% overall and <0.5% for high stakes flows."
+  ],
+  "architecture_clues": [
+    "The messaging layer is treated as a core banking component rather than a supplementary chat feature.",
+    "Flexible APIs let Ryt Bank plug multi-layer AI agents directly into the live message flow.",
+    "The experience supports both natural-language and image-based payment interactions.",
+    "The design is built for mission-critical, low-latency banking execution."
+  ],
+  "source_url": "https://intl.cloud.tencent.com/customers/detail/3549",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Ryt bank | Tencent Cloud",
+      "publisher": "Tencent Cloud",
+      "url": "https://intl.cloud.tencent.com/customers/detail/3549",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:11+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Ryt bank enables customers to perform secure, real-time payment transfers through natural language and image-based conversations.",
+    "The adoption of a conversational, chat-based interface as the primary interaction layer allow[s] users to communicate intent using natural language and images within a single, continuous flow.",
+    "The underlying infrastructure therefore needs to meet enterprise-grade security and compliance requirements, support auditability, and operate reliably at scale-handling more than 140,000 monthly transactional interactions without service disruption.",
+    "They chose Tencent Cloud Chat(IM) to power their messaging backbone.",
+    "A traditional 8-step transfer process (login, select account, input amount, etc.) is now reduced to a single sentence: 'Send $100 to Amelia.'"
+  ]
+}

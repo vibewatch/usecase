@@ -1,0 +1,138 @@
+{
+  "id": "tencent-cloud-cafe24-llm-router-model-access",
+  "slug": "tencent-cloud-cafe24-llm-router-model-access",
+  "vendor": "Tencent Cloud",
+  "customer_name": "Cafe24 Corp.",
+  "industry": "Software / SaaS",
+  "region": "South Korea",
+  "company_size": "Enterprise",
+  "business_problem": "Cafe24 needed to expand the range of enterprise-grade AI models available through its LLM Router without sacrificing availability, performance, or the operational simplicity required to support diverse customer workloads.",
+  "solution_summary": "Cafe24 extended its existing LLM Router by integrating Tencent Cloud TokenHub so merchants and developers can reach multiple generative AI models through one control plane instead of wiring each provider separately. Cafe24 LLM Router remains the front door for AI requests, handling unified access, real-time model routing, and automatic failover across supported models. Tencent Cloud TokenHub sits behind that router and exposes multiple leading large language models through a single OpenAI-compatible API, letting Cafe24 broaden the model portfolio without adding one-off integrations for every vendor. This architecture supports AI features across Cafe24's broader commerce ecosystem, including product recommendations, marketing automation, and multilingual store operations, while preserving service continuity and flexible model choice. The result is a more resilient generative AI platform that shortens experimentation and deployment cycles for customers pursuing AI transformation.",
+  "products_used": [
+    "Cafe24 LLM Router",
+    "Tencent Cloud TokenHub"
+  ],
+  "solution_components": [
+    {
+      "name": "Cafe24 LLM Router",
+      "role": "Provides unified access, real-time routing, and automatic failover across multiple AI models.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Tencent Cloud TokenHub",
+      "role": "Supplies multiple leading large language models through a single OpenAI-compatible API.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Cafe24 applications send AI requests to Cafe24 LLM Router, which routes them through Tencent Cloud TokenHub's OpenAI-compatible API to the selected model and fails over in real time when needed before responses return to commerce, marketing, and multilingual storefront workloads.",
+  "integration_points": [
+    "Product recommendations",
+    "Marketing automation",
+    "Multilingual store management",
+    "Developer and business applications"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Cafe24 broadened model choice and simplified AI adoption by giving developers and businesses one API path to multiple LLMs, improving resilience and making experimentation, deployment, and AI transformation faster.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Cafe24 supports 2M store brands.",
+    "Cafe24 supports 6.2M accounts.",
+    "Cafe24 has $9.2B in platform GMV.",
+    "Cafe24 helps merchants sell across 200+ countries."
+  ],
+  "architecture_clues": [
+    "The design uses a single OpenAI-compatible API to reach multiple models.",
+    "Real-time model routing and automatic failover are built into the request path.",
+    "The integration is positioned as part of Cafe24's broader LLM Router architecture."
+  ],
+  "source_url": "https://intl.cloud.tencent.com/customers/detail/3588",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Cafe24 Corp. | Tencent Cloud",
+      "publisher": "Tencent Cloud",
+      "url": "https://intl.cloud.tencent.com/customers/detail/3588",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:58:54+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Cafe24's LLM Router provides unified access to multiple leading AI models through a single API, with real-time model routing and automatic failover, simplifying AI adoption for developers and businesses.",
+    "Tencent Cloud TokenHub provides unified access to multiple leading large language models through a single OpenAI-compatible API.",
+    "Through its LLM Router, Cafe24 aims to reduce the complexity of integrating multiple AI providers and provide customers with a flexible AI infrastructure that supports faster experimentation, deployment, and adoption of AI services.",
+    "With 2M store brands, 6.2M accounts, and $9.2B in platform GMV, Cafe24 helps merchants sell across 200+ countries with integrated payments, shipping, and multilingual support."
+  ]
+}
