@@ -1,0 +1,115 @@
+{
+  "id": "alibaba-cloud-rokid-spatial-computing-gpu-pipeline",
+  "slug": "alibaba-cloud-rokid-spatial-computing-gpu-pipeline",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Rokid",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Rokid's 3D mapping and AR-experience pipeline needed far more GPU elasticity than a small set of ECS GPU machines could provide. Long videos took hours to process serially, engineers had to request and release ECI capacity manually, and asynchronous step orchestration plus weak monitoring made failures and cost leaks hard to control.",
+  "solution_summary": "Rokid refactored its spatial-computing pipeline around Alibaba Cloud Function Compute so the GPU-intensive 3D-mapping portion of the workflow could run as a true serverless service. The company packages its processing logic into container images and lets Function Compute allocate GPU resources on demand, which removes the manual process of requesting, operating, and releasing ECI instances for each job. Function Compute's asynchronous system also lets Rokid chain multi-step 3D-modeling tasks so the output of one stage automatically triggers the next instead of relying on a separate coordination service. Built-in metrics, alerts, traces, and logs improve observability across the whole processing lifecycle, while warm-resource capabilities and reserved instances reduce the latency of subsequent invocations. For the real-time scene-experience module, where sub-second response is mandatory, Rokid still keeps ECI capacity scheduled ahead of peak times, giving the company a split architecture optimized for both offline GPU throughput and real-time AR response.",
+  "products_used": [
+    "Function Compute",
+    "Elastic Container Instance (ECI)",
+    "Container Registry (ACR)",
+    "Reserved GPU instances"
+  ],
+  "solution_components": [
+    {
+      "name": "Function Compute",
+      "role": "Runs Rokid's GPU-intensive 3D-mapping and asynchronous processing steps on demand.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Container Registry (ACR)",
+      "role": "Stores the images used to launch Function Compute GPU workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Reserved GPU instances",
+      "role": "Keep pre-initialized runtime state available for faster follow-on requests.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Elastic Container Instance (ECI)",
+      "role": "Handles the real-time scene-experience module that requires consistently sub-second response.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Captured venue video and scene assets are split into asynchronous processing stages and sent to Function Compute GPU jobs launched from container images. Each stage emits outputs that trigger the next step in the 3D-modeling pipeline, while the real-time AR positioning service is served separately from scheduled ECI capacity.",
+  "integration_points": [
+    "3D scene capture",
+    "video-processing workflows",
+    "AR positioning services",
+    "scene-creation tools"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Rokid shortened job completion times, lowered GPU spend for offline processing, and improved observability across a complex spatial-computing workflow. The company can now use serverless GPU elasticity for batch processing while reserving fixed capacity only where real-time AR latency truly demands it.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "products are used in 80+ countries and regions",
+    "1 hour of video originally took about 3 hours on a single ECS GPU machine",
+    "GPU utilization can reach 60% to nearly 100% during active processing",
+    "compute cost for the 3D-mapping module dropped about 40%"
+  ],
+  "architecture_clues": [
+    "Rokid splits offline 3D modeling and real-time positioning into different runtime patterns instead of forcing both into one service model.",
+    "Function Compute handles step chaining through its async system, eliminating an extra orchestration layer for batch GPU jobs.",
+    "Reserved instances are used to reduce subsequent startup time without returning to permanently provisioned GPU servers."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/ai-2024-rokid",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云Serverless服务助力Rokid人机交互平台实现降本增效_人工智能_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/ai-2024-rokid",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Rokid said one hour of captured video could take about three hours to process on a single ECS GPU machine before the redesign. (original: 通常一个 1 小时的视频资料，通过一台 ECS GPU 机器处理需要耗费约 3 小时。)",
+    "Function Compute solved the need to request and release ECI manually, handled asynchronous step chaining, and added metrics, alarms, traces, and logs for full lifecycle operations. (original: 函数计算会根据请求流量，动态的拉起与请求量匹配的后端 GPU 算力资源... 通过函数计算的异步系统，在一个步骤的任务完成后，可以自动触发下一个任务... 内置了指标监控、异常告警、链路追踪、调用日志。)",
+    "Since the February 2023 launch, the 3D-mapping module cut compute cost by about 40%, while GPU utilization during active work can reach 60% to nearly 100%. (original: 该改造自 2023 年 2 月上线以来... 算力成本降低了 40%... GPU 计算利用率可以达到 60% 甚至接近 100%。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,103 @@
+{
+  "id": "alibaba-cloud-sibionics-diabetes-ai-service-platform",
+  "slug": "alibaba-cloud-sibionics-diabetes-ai-service-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Sibionics (硅基仿生)",
+  "industry": "Health Care",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Sibionics was iterating AI-assisted chronic-disease services such as intelligent Q&A and educational recommendations, but its previous fixed-server architecture slowed testing and training. The company also wasted resources during low traffic and still risked instability when pulse traffic arrived.",
+  "solution_summary": "Sibionics moved its diabetes-focused AI services onto Alibaba Cloud ACK with Knative so product teams could release and scale medical-assistance workloads with less infrastructure friction. Knative gives the company a fast way to deploy service revisions to Kubernetes during frequent testing cycles, which matters because intelligent Q&A and related patient-support products require ongoing iteration. The same serverless layer also brings elastic scaling for spiky usage, queue-proxy request observation, and request-based gray release with multi-version management, so Sibionics can publish updates throughout the day without rebuilding its whole operations model. On top of that base, the company runs a diabetes intelligent Q&A system, a science-article recommendation system, blood-glucose and AGP analysis assistants, and a diabetes-event knowledge-graph labeling platform. The result is a fully serverless medical AI service layer rather than a collection of fixed-capacity application servers.",
+  "products_used": [
+    "Container Service for Kubernetes (ACK)",
+    "Knative"
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Provides the Kubernetes platform that hosts Sibionics' diabetes AI services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Knative",
+      "role": "Adds fast service deployment, elastic scaling, queue observation, and multi-version release controls.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Medical-support requests are sent to Sibionics' Knative services on ACK, where the platform scales with demand and routes traffic to the current model version. The resulting Q&A answers, article recommendations, glucose analyses, and labeled event data are then fed back into patient-support and research workflows.",
+  "integration_points": [
+    "diabetes intelligent Q&A",
+    "patient education article recommendations",
+    "blood-glucose analysis assistant",
+    "AGP analysis assistant",
+    "knowledge-graph labeling platform"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Sibionics removed much of the deployment overhead around chronic-disease AI services and gained a release model that better fits frequent experimentation and fluctuating traffic. The platform now supports a growing diabetes knowledge base and several patient-facing or clinician-support assistants on a fully serverless foundation.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "company size exceeds 500 employees",
+    "business systems are now 100% serverless",
+    "diabetes Q&A system has collected more than 140,000 Q&A pairs"
+  ],
+  "architecture_clues": [
+    "Sibionics uses one Knative substrate for both interactive Q&A and background knowledge or labeling services.",
+    "Queue-proxy traffic observation and multi-version release management are part of the production medical-AI workflow.",
+    "The serverless design is used to support both patient-facing education scenarios and internal knowledge-graph preparation."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/health-care-2023-sibionics",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "硅基仿生业务全面 Serverless 容器化的增效降本之旅_互联网_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/health-care-2023-sibionics",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Sibionics said its old architecture lowered development efficiency for intelligent Q&A models and wasted resources because fixed servers were tight at peaks and idle at low traffic. (original: 智能问答模型，需要反复进行测试和训练... 原有的技术架构需要运维人员不断检测部署... 使用固定资源的服务器，在高峰期会出现资源紧张，甚至宕机... 在低谷期，又会出现资源浪费。)",
+    "The company uses Knative on Kubernetes for rapid deployment, elastic scaling, queue-based traffic observation, and multi-version gray release. (original: 现在采用 Knative 快速部署服务到 Kubernetes... Knative 内置 queue-proxy 容器能够与业务容器结合，实时观察请求流量并进行流量告警。再结合基于请求的灰度发布和多版本管理。)",
+    "Sibionics said the new stack now supports 100% serverless business systems and a diabetes intelligent Q&A system with 14 万+ entries. (original: 当前通过 Knative 完全支撑了硅基仿生的业务系统，实现硅基仿生业务 100% Serverless 化：糖尿病智能问答系统... 收集了 14 万+ 的问答库。)"
+  ],
+  "source_language": "zh"
+}

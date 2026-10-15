@@ -1,0 +1,119 @@
+{
+  "id": "alibaba-cloud-xiaopeng-digital-employee-platform",
+  "slug": "alibaba-cloud-xiaopeng-digital-employee-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Xpeng Motors (小鹏汽车)",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Xpeng needed one secure AI platform for employees instead of a growing collection of disconnected tools. Internal knowledge was sprawling across many departments, employees wanted generative AI for writing, reporting, and design tasks, and the company had to keep sensitive information inside strict access and compliance boundaries.",
+  "solution_summary": "Xpeng built a company-wide digital employee platform on Alibaba Cloud to unify knowledge search, content generation, workflow assistance, and management insight under one governed AI layer. The platform blends RAG over FAQs, internal documents, external knowledge, and open search with knowledge-graph enrichment and multi-path retrieval so employees can get concise answers without manually navigating many systems. At the model layer, Xpeng uses a hybrid architecture that routes sensitive or high-permission requests to privately deployed models on PAI while AI Gateway can burst overflow traffic to Bailian during peaks and apply policy across both environments. AI safety guardrails add HTTPS transport, content filtering, and intent classification so internal questions that touch private knowledge stay within the private domain. On top of that base, digital employees cover help-desk Q&A, chatbots, document generation, multimodal creation, training, task handling, and management analytics.",
+  "products_used": [
+    "Platform for AI (PAI)",
+    "Bailian",
+    "API Gateway",
+    "AI Safety Guardrails"
+  ],
+  "solution_components": [
+    {
+      "name": "Platform for AI (PAI)",
+      "role": "Hosts private model deployments for sensitive internal tasks and enterprise knowledge requests.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Bailian",
+      "role": "Supplies public-cloud model capacity and downstream AI application support during burst demand.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "API Gateway",
+      "role": "Routes model traffic across private and public environments and enforces unified access policy.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI Safety Guardrails",
+      "role": "Filters unsafe content and enforces intent-based controls for sensitive requests.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Employee questions, search requests, and generation tasks enter the digital employee layer, which retrieves context from internal and external knowledge sources through RAG and knowledge-graph enrichment. API Gateway then routes the request either to private models on PAI or to Bailian burst capacity, while AI safety controls filter content and restrict sensitive data to the private environment before answers or generated assets are returned.",
+  "integration_points": [
+    "service-desk Q&A",
+    "chatbots",
+    "internal documents",
+    "knowledge bases",
+    "multimodal content generation",
+    "management analytics"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Xpeng gave employees a unified AI service entrance instead of fragmented tools. The platform accelerates internal information access, automates office work, supports multimodal creation and training, and provides managers with new data-driven insight while keeping sensitive knowledge under governed routing and safety controls.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Compliance",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "launched within 100 days",
+    "covers 44 service-desk knowledge domains",
+    "supports 85 chatbots"
+  ],
+  "architecture_clues": [
+    "The platform uses multi-path retrieval and knowledge-graph enrichment rather than a single retrieval source.",
+    "Traffic is split between private PAI models and public Bailian capacity through one gateway layer.",
+    "Intent classification is used to keep sensitive internal requests inside private model infrastructure."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/automotive-2025-xiaopeng",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "小鹏汽车数字员工解决方案",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/automotive-2025-xiaopeng",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Xpeng said employees needed AI for internal process handling, design-image generation, creative material generation, rapid reporting, and secure knowledge access. (original: 员工对 AI 工具的需求快速增长... 如基于文本生成设计图稿、活动创意素材自动生成、快速数据报表分析与可视化... 内部知识体系持续快速膨胀。)",
+    "The company uses RAG governance, knowledge graphs, and multi-path concurrent retrieval for knowledge search, while AI Gateway coordinates private PAI models with Bailian burst capacity. (original: 实施精细化的 RAG 治理策略，并结合知识图谱构建实现语义关联与结构化表达... 结合 AI 网关的智能路由与流量调度能力，实现 PAI 平台上私有化部署的模型与公有云百炼模型的无缝协同。)",
+    "The digital employee platform launched within 100 days and already covers 44 service-desk Q&A domains and 85 chatbots. (original: 该项目实现百日内完成系统上线... 覆盖 44 个服务台问答、85 个聊天机器人。)"
+  ],
+  "source_language": "zh"
+}

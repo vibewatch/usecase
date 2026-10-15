@@ -1,0 +1,110 @@
+{
+  "id": "alibaba-cloud-cathay-insurance-ai-gateway-governance",
+  "slug": "alibaba-cloud-cathay-insurance-ai-gateway-governance",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Cathay Property Insurance (国泰产险)",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Cathay Property Insurance was adopting large models across outbound calling, customer service, and content generation, but every provider had different request formats, authentication methods, and cost visibility. The company needed one way to govern multi-model access, tenant permissions, content safety, audit trails, and token-based spend across both internal and external model providers.",
+  "solution_summary": "Cathay Property Insurance standardized its growing LLM estate behind Alibaba Cloud's cloud-native API Gateway so model consumption could be governed as infrastructure rather than as one-off integrations. The gateway gives the insurer a unified protocol surface across more than a dozen model providers and hides each vendor's distinct request and response structure from downstream business teams. It also centralizes API key custody, multi-tenant authentication, and consumer-level access control so different internal or external callers can use approved models without directly handling model-provider credentials. Around that access layer, Cathay connected Alibaba Cloud Content Security for request and response inspection, and enabled AI observability across metrics, logs, and traces so token usage can be attributed by request, model, and consumer. The result is a governed model-access plane that supports customer-service and content workflows while lowering compliance and cost-management risk.",
+  "products_used": [
+    "Cloud-native API Gateway",
+    "Content Security",
+    "Higress"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud-native API Gateway",
+      "role": "Provides the unified access layer for multiple model providers, authentication, routing, and token observability.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Content Security",
+      "role": "Scans inbound and outbound model content for sensitive or unsafe text before it is accepted.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Higress",
+      "role": "Supplies the Envoy-based gateway core for hot updates, stream handling, and protection against AI-specific traffic attacks.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business applications send LLM requests through Cloud-native API Gateway, which normalizes provider protocols, applies authentication and tenant policy, and forwards traffic to the selected model provider. Request and response payloads are scanned by Content Security, while metrics, logs, traces, and token counts are recorded so Cathay can audit usage and control cost after responses are returned.",
+  "integration_points": [
+    "customer-service workflows",
+    "outbound calling scenarios",
+    "content-generation tools",
+    "internal audit and risk controls"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Cathay moved all large-model traffic behind a single governance layer and made sensitive-content inspection, consumer attribution, and cost observation mandatory rather than optional. The company can now scale model-backed insurance workflows while knowing who used each token, which scenario used it, and whether risky content or abnormal consumption needs intervention.",
+  "outcome_category": [
+    "Compliance",
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "registered capital RMB 2.63 billion",
+    "supports nearly 100 million tokens of model traffic per day",
+    "all model traffic now proxies through the cloud-native API gateway"
+  ],
+  "architecture_clues": [
+    "The insurer uses one gateway abstraction to normalize heterogeneous model-provider protocols before business apps consume them.",
+    "Token observability is a first-class control and is recorded by request, model, and consumer rather than only at the aggregate level.",
+    "The gateway is also part of the safety posture, with content scanning and traceable audit hooks for risky conversations."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2025-cathay-insurance",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "云原生 API 网关助力国泰产险实现 AI 网关革新",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2025-cathay-insurance",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Cathay said it was already connecting large models to outbound calling, customer service, and content generation, but each provider used different interfaces and access methods. (original: 在外呼、客服、内容生成等场景均在进行大模型的接入使用... 不同接入方式中请求与响应的数据结构都具有差异。)",
+    "Alibaba Cloud's cloud-native API gateway gives Cathay one protocol surface, unified authentication, content-security checks, and token-level observability across model providers. (original: 云原生 API 网关支持使用统一的协议对接多种 LLM... 提供了包括 JWT、HMAC、API Key 等多种认证鉴权方式... 能够对经过网关的请求/响应内容进行安全检测... 提供了完善的 AI 可观测体系。)",
+    "Cathay said all model traffic now passes through the gateway and consumes nearly 100 million tokens per day while every request is audited and filtered for sensitive information. (original: 目前国泰所有访问大模型的流量均通过阿里云云原生 API 网关代理，在日均消耗近亿 Token 的同时，做到了对每个请求都进行敏感信息过滤... 都进行了全面审计。)"
+  ],
+  "source_language": "zh"
+}

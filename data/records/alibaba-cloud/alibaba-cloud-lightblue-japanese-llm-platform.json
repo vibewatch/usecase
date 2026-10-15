@@ -1,0 +1,113 @@
+{
+  "id": "alibaba-cloud-lightblue-japanese-llm-platform",
+  "slug": "alibaba-cloud-lightblue-japanese-llm-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Lightblue Co., Ltd.",
+  "industry": "Software / SaaS",
+  "region": "Japan",
+  "company_size": "Unknown",
+  "business_problem": "Lightblue needed a base model and cloud platform that could support high-quality Japanese-language foundation-model development. Popular public models performed well in English, but the company needed stronger Japanese understanding, scalable training infrastructure, and a path to productize generative AI services.",
+  "solution_summary": "Lightblue used Alibaba Cloud to build and operate Japanese-language generative AI systems rather than relying on generic chatbot APIs. The company evaluated prominent open models such as Llama 2 and Mistral Large, then chose the open-source edition of Tongyi Qianwen (Qwen) as the base model for its Karasu and Qarasu models because Qwen handled Japanese materially better. Elastic Compute Service provides the scalable compute needed to deploy virtual servers for model and application workloads, Server Load Balancer distributes traffic to keep the service available, and Object Storage Service stores large volumes of unstructured data used across training and product workflows. On top of that stack, Lightblue is improving Lightblue Assistant, a RAG-based SaaS product intended to replace reliance on third-party APIs and eventually support customer-friendly local deployment.",
+  "products_used": [
+    "Tongyi Qianwen (Qwen)",
+    "Elastic Compute Service (ECS)",
+    "Server Load Balancer (SLB)",
+    "Object Storage Service (OSS)",
+    "Lightblue Assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "Tongyi Qianwen (Qwen)",
+      "role": "Serves as the base model Lightblue fine-tuned to build Japanese-language foundation models.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Elastic Compute Service (ECS)",
+      "role": "Supplies the on-demand compute used to deploy Lightblue virtual-server workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Server Load Balancer (SLB)",
+      "role": "Distributes traffic across backend servers to keep the application highly available.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores large volumes of unstructured data for model and application workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lightblue Assistant",
+      "role": "Provides the customer-facing RAG application Lightblue is improving on top of its model stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Training and application data is stored in OSS, processed on ECS-backed workloads, and routed through Lightblue's Qwen-based model stack. Generated responses are served through load-balanced application endpoints, while Lightblue Assistant layers RAG retrieval on top for downstream enterprise use cases.",
+  "integration_points": [
+    "Karasu",
+    "Qarasu",
+    "Lightblue Assistant",
+    "third-party APIs",
+    "customer local environments"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Alibaba Cloud helped Lightblue ship Japanese-language foundation models and strengthen the technical base for its RAG assistant product. Qwen gave the company a better Japanese starting point than other public alternatives, while the surrounding cloud stack supplied the compute, storage, and availability controls needed to turn model research into a productized service.",
+  "outcome_category": [
+    "Speed to Market",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Lightblue used Qwen as a base model for fine-tuning rather than only as an inference API.",
+    "The cloud design separates compute, load balancing, and object storage so model work and SaaS delivery can scale independently.",
+    "Lightblue Assistant is a RAG-based downstream application layered on the same model and data estate."
+  ],
+  "source_url": "https://www.alibabacloud.com/customers/lightblue",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "lightblue - Alibaba Cloud",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.alibabacloud.com/customers/lightblue",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"We chose Qwen because our LLM's accuracy significantly improved when fine-tuned with a base model capable of understanding Japanese.\"",
+    "\"The support of Alibaba Cloud's Tongyi Qianwen (Qwen) was crucial for the release of its Karasu and Qarasu models around December 2023.\"",
+    "\"Lightblue employed several other Alibaba Cloud solutions,\" including ECS for scalable virtual servers, SLB for high availability, and OSS for large volumes of unstructured data."
+  ]
+}

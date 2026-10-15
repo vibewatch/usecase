@@ -1,0 +1,114 @@
+{
+  "id": "alibaba-cloud-midea-iot-aiops-log-platform",
+  "slug": "alibaba-cloud-midea-iot-aiops-log-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Midea IoT",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Midea IoT depended on an ELK-based device-log pipeline that was becoming hard to scale as connected-device volume and analysis demand rose. The architecture involved too many hops, separate data silos for real-time, offline, and monitoring use cases, and a heavy self-managed Elasticsearch footprint.",
+  "solution_summary": "Midea IoT rebuilt its observability and log-analysis backbone on Alibaba Cloud with SLS as the unified data substrate and STAROps as the AI operations hub. Filebeat was replaced by LoongCollector for direct collection into SLS, Kafka-originated business data is ingested through SLS write processors, and the same data base supports real-time query, subscription consumption, and offline archiving rather than copying logs across several systems. Offline data is compressed into MaxCompute, while OSS and unified data APIs replace much of the old Elasticsearch dependency. On top of the new log architecture, STAROps combines cross-domain observability data with large-language-model reasoning and AI-friendly Skills, CLI tools, and agents so internal monitoring teams can perform natural-language query and root-cause analysis directly against the new substrate. The result is a serverless, lower-ops observability platform that scales with IoT growth.",
+  "products_used": [
+    "STAROps",
+    "Log Service SLS",
+    "MaxCompute",
+    "Object Storage Service (OSS)",
+    "LoongCollector"
+  ],
+  "solution_components": [
+    {
+      "name": "Log Service SLS",
+      "role": "Acts as the unified ingest, query, consumption, and archival substrate for device logs.",
+      "layer": "Storage"
+    },
+    {
+      "name": "LoongCollector",
+      "role": "Collects logs directly into SLS in place of Filebeat-based ingestion.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "MaxCompute",
+      "role": "Receives offline compressed archives and supports large-scale analysis on historical log data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "STAROps",
+      "role": "Provides AI-assisted natural-language query and root-cause analysis on top of unified observability data.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Device logs and business Kafka data are collected into SLS through LoongCollector and SLS write processors, then exposed through APIs, subscriptions, and direct platform reads for monitoring and analysis. Historical data is archived into MaxCompute and OSS, while STAROps reasons over the cross-domain observability data for natural-language analysis and incident diagnosis.",
+  "integration_points": [
+    "device logs",
+    "business Kafka streams",
+    "internal monitoring systems",
+    "root-cause analysis workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Midea IoT eliminated much of the self-managed ELK overhead and replaced it with a serverless observability substrate that is easier to scale with device growth. Query speed improved, self-built ES clusters and cleaning services were retired, and AI-assisted operations became a native capability of the log platform rather than a separate tool.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "device-log query and bulk data retrieval efficiency improved 50%",
+    "self-built ES clusters and log-cleaning services were fully retired"
+  ],
+  "architecture_clues": [
+    "SLS is treated as the single data substrate for real-time query, subscription, and archive flows instead of duplicating logs into multiple systems.",
+    "STAROps is tightly integrated with Midea's internal monitoring systems so natural-language query and diagnosis work on the same unified data base.",
+    "Historical archives are pushed into MaxCompute and OSS instead of being left in a hot-search cluster indefinitely."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/manufacturing-2026-midea",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "美的IoT基于阿里云SLS+STAROps重构设备日志链路及智能运维_制造_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/manufacturing-2026-midea",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Midea IoT said its ELK-based device-log pipeline was under pressure as connected-device scale and analysis demand increased. (original: 美的 IoT 联网设备体量大，增长快，业务对设备日志的分析需求有重要依赖... 随着业务规模增长，面临一些技术挑战。)",
+    "The company rebuilt the stack with SLS as the unified data base, LoongCollector for direct collection, MaxCompute for archive, and STAROps as the intelligent-operations hub. (original: 以 SLS 为统一数据底座，以 STAROps 为智能运维中枢... Filebeat 替换为 LoongCollector 直采入 SLS... 离线数据投递 MaxCompute 压缩归档。)",
+    "After the redesign, Midea reported 50% faster log-query and bulk-retrieval efficiency while enabling natural-language query and root-cause analysis through STAROps. (original: 设备日志查询与大数据拉取时效提升 50%；同时通过 STAROps... 支持自然语言智能查询、根因分析等 AIOps 智能运维能力。)"
+  ],
+  "source_language": "zh"
+}

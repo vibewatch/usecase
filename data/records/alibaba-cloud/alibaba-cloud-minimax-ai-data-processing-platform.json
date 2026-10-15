@@ -1,0 +1,115 @@
+{
+  "id": "alibaba-cloud-minimax-ai-data-processing-platform",
+  "slug": "alibaba-cloud-minimax-ai-data-processing-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "MiniMax",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "MiniMax needed a more elastic and reliable way to preprocess PB-scale multimodal training data for rapidly iterating foundation models. Its earlier Python-centric workflows struggled with OOM errors, file-size limits, limited visibility, and the operational cost of maintaining custom data-processing pipelines.",
+  "solution_summary": "MiniMax built a fully managed Data+AI preprocessing platform on Alibaba Cloud around MaxCompute and MaxFrame so large-model training could draw on a stable, elastic data pipeline. Raw structured and unstructured corpora are kept in MaxCompute, while MaxFrame gives the team a unified Python development experience with distributed operators such as Pandas-compatible transforms and MinHash deduplication. The platform supports large-scale preprocessing, batch inference, and multimodal data operations that previously suffered from memory blowups, file-size bottlenecks, or fragile homegrown scripts. Elastic CPU resources can scale to tens of thousands of cores for short preprocessing bursts, and MaxCompute's storage tiering cuts historical retention cost for colder data. Around that core, DataWorks provides managed development and orchestration while Hologres supports downstream interactive analysis, giving MiniMax a single cloud-native data estate for training-oriented AI workflows.",
+  "products_used": [
+    "MaxCompute",
+    "MaxFrame",
+    "DataWorks",
+    "Hologres"
+  ],
+  "solution_components": [
+    {
+      "name": "MaxCompute",
+      "role": "Stores and processes the large structured and unstructured datasets used in MiniMax model-data workflows."
+    },
+    {
+      "name": "MaxFrame",
+      "role": "Provides the distributed Python processing framework for preprocessing, deduplication, and batch inference jobs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DataWorks",
+      "role": "Handles managed development, orchestration, and operations around the Data+AI pipeline.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Hologres",
+      "role": "Supports downstream interactive analysis on processed data assets."
+    }
+  ],
+  "data_flow": "Multimodal raw data lands in MaxCompute, where MaxFrame runs preprocessing, classification, deduplication, and batch inference tasks on elastic CPU capacity. The refined datasets are then handed to downstream training and analysis workflows, with DataWorks managing pipelines and Hologres exposing processed results for interactive use.",
+  "integration_points": [
+    "multimodal datasets",
+    "batch inference jobs",
+    "training-data preprocessing pipelines",
+    "interactive analysis workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "MiniMax raised resource efficiency while cutting the cost and operations burden of large-scale AI data preparation. The company can now burst to very large CPU pools for preprocessing, keep historical data cheaper through storage tiering, and run a managed Data+AI workflow that supports global model and application expansion with less infrastructure toil.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "served more than 157 million individual users in 200+ countries and regions",
+    "served more than 50,000 enterprise customers and developers in 90+ countries and regions",
+    "resource utilization improved 30%",
+    "historical data storage cost reduced 40%",
+    "operations resource input reduced 50%"
+  ],
+  "architecture_clues": [
+    "MiniMax uses MaxFrame to keep a Python-centric development experience while moving preprocessing to distributed managed infrastructure.",
+    "The platform is designed for multimodal and PB-scale preprocessing rather than a single structured ETL pipeline.",
+    "Cold-hot storage tiering is part of the AI data strategy, not a separate archival afterthought."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-minimax",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "MiniMax 基于MaxCompute 搭建AI数据处理平台_互联网&信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-minimax",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "MiniMax said model training now demands short bursts of large elastic resources plus a unified governance layer for large-scale data processing. (original: 模型训练节奏快，常需临时调用大规模弹性资源，对 PB 级数据进行短时高效预处理... 对计算弹性、预处理算子性能及统一数据治理体系提出了更高要求。)",
+    "The company built a one-stop Data+AI platform on MaxCompute and MaxFrame for unified management and elastic preprocessing of structured, unstructured, and multimodal data. (original: MiniMax 基于阿里云 MaxCompute 构建了全托管、一站式 Data+AI 数据处理平台，并通过 MaxFrame 分布式计算框架实现了对多类数据（结构化与非结构化、多模态等）的统一管理与弹性伸缩的大规模预处理能力。)",
+    "MiniMax reported 30% higher resource utilization, 40% lower historical-storage cost, and 50% less operations resource input after the redesign. (original: 实现计算资源利用率提升 30%... 历史数据存储成本降低 40%... 运维资源投入减少 50%。)"
+  ],
+  "source_language": "zh"
+}

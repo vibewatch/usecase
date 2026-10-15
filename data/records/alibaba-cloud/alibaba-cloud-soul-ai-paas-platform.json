@@ -1,0 +1,116 @@
+{
+  "id": "alibaba-cloud-soul-ai-paas-platform",
+  "slug": "alibaba-cloud-soul-ai-paas-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Soul",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Soul's AI-heavy social platform relied on virtual-machine deployments that made model development, release, and operations slow and repetitive. Engineers had to spend too much time on GPU drivers, CUDA environments, OSS data access, and fragmented infrastructure instead of improving matching, OCR, multimodal, and chatbot features.",
+  "solution_summary": "Soul rebuilt its AI delivery layer on Alibaba Cloud Container Service for Kubernetes (ACK) Cloud-Native AI Suite to create a unified internal AI PaaS. The platform covers the full model lifecycle from data management to job release and model evaluation, which gives AI teams one operating surface instead of many ad hoc VM-based pipelines. Unified heterogeneous-resource management automates GPU node handling, separates algorithm code from standard images, and uses auto-scaling inference services so teams can deploy and operate models without repeatedly hand-tuning low-level infrastructure. Soul also uses GPU-sharing mechanisms and Fluid data acceleration to make large AI datasets easier to feed into workloads and to raise resource utilization across the fleet. In practice, the platform has grown from tens of GPUs to nearly a thousand while supporting voice matching, chatbots, OCR, image recognition, and other social-product AI services.",
+  "products_used": [
+    "Container Service for Kubernetes (ACK) Cloud-Native AI Suite",
+    "Fluid",
+    "Object Storage Service (OSS)",
+    "Elastic Compute Service (ECS)",
+    "GPU cloud servers"
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes (ACK) Cloud-Native AI Suite",
+      "role": "Provides the unified AI PaaS layer for data management, AI job release, evaluation, and inference operations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Fluid",
+      "role": "Accelerates data access for AI workloads so datasets can be reused more efficiently.",
+      "layer": "Storage"
+    },
+    {
+      "name": "GPU cloud servers",
+      "role": "Provide accelerated compute for the social platform's AI model workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Acts as the shared data source that previously required repetitive environment setup.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Training data and model assets are stored in OSS-backed datasets and accelerated through Fluid, while ACK Cloud-Native AI Suite manages job submission, evaluation, deployment, and inference scaling. AI services such as voice matching, chatbots, OCR, and multimodal workloads then run on shared GPU fleets through the unified platform.",
+  "integration_points": [
+    "voice matching",
+    "chatbots",
+    "text OCR",
+    "image recognition",
+    "multimodal social-product features"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Soul converted fragmented AI engineering into a common internal platform, which sped releases, reduced repeated infrastructure work, and improved GPU utilization enough to lower cost materially. The company can now support far larger AI fleets and much higher deployment frequency without expanding operations effort at the same rate.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "scaled from dozens of GPUs to nearly 1000 GPUs",
+    "supports hundreds of AI releases per day",
+    "development iteration efficiency improved 2x to 5x",
+    "cost savings reached about 50% after utilization improvements"
+  ],
+  "architecture_clues": [
+    "Soul treats its AI estate as an internal platform with lifecycle tooling rather than as individual model deployments.",
+    "GPU sharing and Fluid are used together to improve effective utilization of compute and data.",
+    "The same platform supports heterogeneous social-product AI scenarios rather than a single model type."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-2024-soul",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "任意门基于云原生AI套件打造人工智能社交网络平台_社交与互联网_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-2024-soul",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Soul said AI and machine learning are core to the app, but VM-based deployment created slow iteration, repetitive operations work, and low resource utilization. (original: AI 机器学习是公司核心业务，但在传统的虚拟机部署方式下... 业务工作流不流畅，开发迭代效率低下，运维管理复杂且资源利用率低下。)",
+    "The company built an AI PaaS platform on ACK Cloud-Native AI Suite with data management, AI job release, model evaluation, GPU sharing, and Fluid acceleration. (original: 通过阿里云容器服务 ACK 云原生 AI 套件，构建了... AI PaaS 平台... 涵盖了数据管理、AI 任务发布和模型评测... 提供专业的 GPU 共享机制及 Fluid 数据加速能力。)",
+    "Soul reported that the platform now manages from dozens of GPU cards to nearly a thousand, supports hundreds of AI releases per day, and improves iteration efficiency by 2~5 times with about 50% cost savings. (original: 高效地管理了从初期的数十张 GPU 卡到近千张的超大规模，日承载 AI 业务发布数百次... 整体开发迭代效率提升 2~5 倍... 带来了 50% 的成本节省。)"
+  ],
+  "source_language": "zh"
+}

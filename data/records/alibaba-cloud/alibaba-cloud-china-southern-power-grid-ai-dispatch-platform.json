@@ -1,0 +1,125 @@
+{
+  "id": "alibaba-cloud-china-southern-power-grid-ai-dispatch-platform",
+  "slug": "alibaba-cloud-china-southern-power-grid-ai-dispatch-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "China Southern Power Grid (南方电网)",
+  "industry": "Energy and Utilities",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "China Southern Power Grid needed a more elastic and data-rich dispatch architecture to manage fast-growing market complexity, new energy sources, and weather-sensitive grid operations. Its traditional centralized systems were hard to scale, hard to upgrade, and unable to turn years of protected dispatch data into reliable AI and forecasting capabilities.",
+  "solution_summary": "China Southern Power Grid and Alibaba Cloud transformed the utility's dispatch platform from a concentrated architecture into a distributed cloud foundation and then added a supercomputing layer for AI- and weather-intensive workloads. The dispatch cloud uses multi-region design, unified identity and monitoring, hierarchical operations, and distributed stream, batch, and AI processing so grid data can be modeled instead of sitting idle on disk. On top of that base, the utility built a cloud-native SCADA platform that can expand compute resources in seconds, process more than sixty thousand messages per second, and deploy the whole system in about seventy seconds. In 2021 it also launched the power sector's first dispatch-cloud supercomputing platform on Apsara and Shenlong infrastructure, which gave the grid elastic high-performance compute for fine-grained weather prediction, typhoon response, spot-market clearing, and new-energy power forecasting. The combined platform turns dispatch, forecasting, and market operations into one data-driven AI control plane.",
+  "products_used": [
+    "Apsara Enterprise",
+    "Resource Access Management (RAM)",
+    "Realtime Compute for Apache Flink",
+    "Dispatch Cloud Platform",
+    "Cloud-native SCADA",
+    "Feitian Cloud Operating System",
+    "Shenlong Supercomputing Cluster"
+  ],
+  "solution_components": [
+    {
+      "name": "Dispatch Cloud Platform",
+      "role": "Provides the distributed dispatch foundation with unified identity, monitoring, and distributed data processing.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud-native SCADA",
+      "role": "Handles second-level elastic dispatch control and high-throughput operational messaging.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Shenlong Supercomputing Cluster",
+      "role": "Supplies the elastic high-performance compute used for weather forecasting and market calculation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Realtime Compute for Apache Flink",
+      "role": "Processes streaming grid data as part of the distributed dispatch architecture.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Dispatch, market, and operational telemetry is ingested into the distributed dispatch cloud, where streaming, batch, and AI services analyze and model grid behavior. The results feed cloud-native SCADA for real-time operations and the supercomputing layer for heavy tasks such as weather prediction, power-market clearing, and new-energy forecasting before dispatch teams act on the outputs.",
+  "integration_points": [
+    "dispatch operations",
+    "spot-market trading",
+    "weather-forecast systems",
+    "new-energy power forecasting",
+    "emergency typhoon command"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Risk Management"
+  ],
+  "business_outcome": "The utility raised dispatch accuracy, shortened deployment and scaling cycles, and created a cloud-HPC base for weather and market decisions that directly affect grid reliability and cost. The same platform now supports AI load forecasting, faster market settlement, and more accurate extreme-weather response across a supply area serving hundreds of millions of people.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "supply area covers more than 254 million people",
+    "load-forecast accuracy reached 97.63%",
+    "processes more than 60,000 messages per second",
+    "full system one-click deployment takes 70 seconds",
+    "capacity expansion takes 10 seconds",
+    "Shenlong platform reaches 825 trillion floating-point operations per second",
+    "7-day 9 km typhoon forecast dropped from 8 hours to 1.7 hours",
+    "one large industrial daily power bill dropped from RMB 190,000 to RMB 78,000"
+  ],
+  "architecture_clues": [
+    "The dispatch redesign combines distributed stream, batch, and AI processing instead of adding AI to an unchanged centralized control plane.",
+    "SCADA is rebuilt as a cloud-native service with second-level elasticity and extremely high message throughput.",
+    "The supercomputing layer is exposed as cloud services so downstream applications do not need to be rewritten to consume HPC capacity."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/power-industry-2022-csg",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "南方电网：智能化的“最高调度指挥官”_电力-阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/power-industry-2022-csg",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The dispatch cloud raised whole-network load-forecast accuracy to 97.63%, and in 2021 the company launched the power sector's first dispatch-cloud supercomputing platform. (original: 基于调度云平台开发的 AI 应用，将南网总调的全网负荷预测准确率提升到 97.63%。2021 年，南方电网与阿里云合作上线国内电力行业首个调度云超算平台。)",
+    "On the distributed dispatch platform, South Grid built the first cloud-native SCADA system in the industry with 60,000+ messages per second, 70-second one-click deployment, and 10-second expansion. (original: 研发出业内首个可秒级扩展计算资源、即插即用的云化 SCADA 系统... 实现了每秒处理消息超过 6 万条、全系统 70 秒一键部署、10 秒快速扩容。)",
+    "The supercomputing platform can perform 825 trillion floating-point operations per second, cutting 7-day 9 km typhoon forecasting from 8 hours to 1.7 hours. (original: 每秒钟可进行 825 万亿次浮点运算... 对于未来 7 天台风 9 公里的预测... 只需用 16 台超算服务器运行 1.7 个小时。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "alibaba-cloud-shuhe-technology-risk-model-serverless",
+  "slug": "alibaba-cloud-shuhe-technology-risk-model-serverless",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Shuhe Technology (数禾科技)",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Shuhe Technology had to run growing numbers of online risk models for pricing, limits, and loan-term decisions, but the infrastructure under those services could not scale fast enough with request volume. As inference services multiplied, resource waste and version-management pain increased, driving up both model-serving cost and maintenance effort.",
+  "solution_summary": "Shuhe Technology moved its online risk-model services to an ACK plus Knative deployment model so serving capacity could track request demand instead of staying fixed. Knative gave the team request-based auto-scaling, scale-to-zero behavior for idle services, and built-in multi-version management for gradual rollouts or side-by-side model releases. Because Shuhe already ran on Alibaba Cloud infrastructure, the integrated ACK packaging of Knative shortened deployment and debugging time and let the team introduce serverless model serving without reworking its whole platform. After launch, the company also refactored its internal model-delivery pipeline so new models are published through the same ACK+Knative path, which standardizes online deployment while keeping operating cost predictable. This turned risk-model serving into an elastic cloud-native platform rather than a growing collection of static services.",
+  "products_used": [
+    "ACK Serverless Knative",
+    "Elastic Container Instance (ECI)"
+  ],
+  "solution_components": [
+    {
+      "name": "ACK Serverless Knative",
+      "role": "Hosts Shuhe's online risk-model services with request-based scaling, scale-to-zero, and multi-version delivery.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Elastic Container Instance (ECI)",
+      "role": "Provides elastic container capacity around the serverless model-serving deployment.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Risk-management workloads send scoring requests to model services deployed on ACK+Knative, where capacity scales with live demand and different model versions can serve traffic concurrently. Deployment pipelines publish new models into the same serving path so updated scores flow back into credit limits, pricing, and term decisions without manual infrastructure changes.",
+  "integration_points": [
+    "credit-limit adjustments",
+    "pricing decisions",
+    "loan-term decisions",
+    "model deployment pipelines"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Shuhe improved the stability of model services under bursty financial traffic and reduced the cost of running them at scale. It also standardized future model releases on the same serverless deployment pattern, making gradual releases and multi-version coexistence normal parts of the risk-model lifecycle.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "model-serving cost reduced about 60%",
+    "all new models now deploy online through ACK+Knative"
+  ],
+  "architecture_clues": [
+    "Shuhe uses Knative's multi-version management to support coexistence and gray releases for online risk models.",
+    "Model-serving capacity is driven by request demand rather than static machine allocation.",
+    "The deployment model is integrated into the internal model-release pipeline so future services inherit the same serverless controls."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2024-shuhegroup-serverless",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "数禾科技 AI 模型服务基于阿里云容器服务实现 Serverless 容器化",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2024-shuhegroup-serverless",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Shuhe said risk management required large batch and model computations for limit, pricing, and term adjustments, but underlying resources could not flex with request volume. (original: 在风险管理业务中... 包括用户额度、定价、可借期限... 支撑模型计算的底层应用资源无法灵活且快速地根据请求量来智能化调整机器资源支持运算能力。)",
+    "It adopted ACK+Knative so model services could scale by request, shrink to zero when idle, and support multi-version model delivery. (original: 基于 Knative 的 Serverless 服务方案，实现了根据请求的扩缩容能力、允许 Pod 缩容到 0 的冷启动能力以及多版本的管理能力。)",
+    "After launch, Shuhe reported a roughly 60% cost saving and said all new models are now deployed online through the ACK+Knative pipeline. (original: 资源的使用效率也获得了显著提高，节约成本约 60%... 目前数禾的所有新增模型均已通过 ACK+Knative 方式部署在线上提供服务。)"
+  ],
+  "source_language": "zh"
+}

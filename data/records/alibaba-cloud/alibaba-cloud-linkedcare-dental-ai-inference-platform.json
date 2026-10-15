@@ -1,0 +1,112 @@
+{
+  "id": "alibaba-cloud-linkedcare-dental-ai-inference-platform",
+  "slug": "alibaba-cloud-linkedcare-dental-ai-inference-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Linkedcare (领健)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Linkedcare had to run orthodontic AI inference for dental clinics on infrastructure that was expensive when idle and too slow when demand spiked. Fixed GPU servers stayed underused in quiet periods, yet peak loads still caused long request queues and weak visibility during model iteration.",
+  "solution_summary": "Linkedcare moved its orthodontic AI inference stack from fixed GPU servers to Alibaba Cloud Function Compute so clinic demand could determine capacity instead of long-lived infrastructure guesses. The team packages the orthodontic model as a standard container image in ACR, and Function Compute pulls that image, attaches GPU resources, and starts the inference runtime only when requests arrive. Pre-reserved GPU instances provide a low-latency floor for real-time use, while elastic scale-out handles demand spikes without keeping large monthly GPU fleets online. The platform also contributes built-in monitoring, logs, and alerts, which matters because the model is under ongoing iteration and failures need to be caught before clinics report them manually. In practice, a front-end dental request triggers GPU-backed inference, returns a result for review, and then lets resources scale back after demand drops.",
+  "products_used": [
+    "Function Compute",
+    "GPU cloud servers",
+    "Container Registry (ACR)",
+    "Reserved GPU instances"
+  ],
+  "solution_components": [
+    {
+      "name": "Function Compute",
+      "role": "Runs the orthodontic inference service on demand instead of on permanently provisioned GPU hosts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Container Registry (ACR)",
+      "role": "Stores the standard container image that packages Linkedcare's orthodontic algorithm.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Reserved GPU instances",
+      "role": "Provide warm GPU capacity for low-latency inference when real-time requests arrive.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPU cloud servers",
+      "role": "Represent the earlier fixed-capacity deployment model that Function Compute replaces."
+    }
+  ],
+  "data_flow": "Clinic-facing applications submit orthodontic requests, Function Compute pulls the algorithm image from ACR, attaches GPU resources, runs the inference workload, and returns the diagnostic output. Metrics, logs, and alerts from the same runtime give the team visibility into model behavior and scaling events.",
+  "integration_points": [
+    "clinic front ends",
+    "orthodontic imaging requests",
+    "dental diagnosis workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Linkedcare cut the cost of running orthodontic AI while improving responsiveness and observability for dental customers. The company no longer has to keep underused GPU fleets online, peak queues are eliminated, and the team can troubleshoot inference problems through built-in logs and alerts instead of waiting for clinics to notice failures.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "more than 20 branch offices nationwide",
+    "GPU utilization was only about 5% before the redesign",
+    "single requests could queue for 10 minutes at peak",
+    "resource cost dropped about 90%",
+    "fault troubleshooting time was reduced by more than 50%"
+  ],
+  "architecture_clues": [
+    "Linkedcare deploys the AI algorithm as a container image rather than managing long-lived inference VMs directly.",
+    "Reserved GPU instances are used to hide cold-start effects for real-time dental inference.",
+    "Observability is part of the managed runtime, which matters because model iterations can introduce intermittent failures."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/health-care-2024-linkedcare",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "函数计算助力领健信息为“看牙”注入AI活力_医疗健康_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/health-care-2024-linkedcare",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Linkedcare said its monthly GPU fleet stayed at only about 5% utilization during normal periods, yet peak loads had caused individual requests to queue for as long as 10 minutes. (original: 平峰期利用率不高，总体资源利用率维持在 5% 左右... 在业务最高峰，曾经出现单个请求排队 10 分钟的情况。)",
+    "The new flow packages the orthodontic algorithm into ACR, lets Function Compute initialize GPU instances from that image, and then runs inference on the newly created application. (original: 客户将正畸算法做成标准镜像放入阿里云镜像仓库 ACR... 函数计算通过拉取 ACR 中镜像以及底层 GPU 资源完成实例的初始化工作... 正畸计算请求发送至新创建的 GPU 应用上进行计算。)",
+    "After moving to Function Compute, Linkedcare reported about 90% lower resource cost and said clinics no longer experienced long waiting queues. (original: 相比早前的按月持有 GPU 资源，资源费用降低了 90% 左右... 门店再也没有出现长时间排队的情况。)"
+  ],
+  "source_language": "zh"
+}

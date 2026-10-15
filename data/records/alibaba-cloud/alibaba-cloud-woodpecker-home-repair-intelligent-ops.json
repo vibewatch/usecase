@@ -1,0 +1,100 @@
+{
+  "id": "alibaba-cloud-woodpecker-home-repair-intelligent-ops",
+  "slug": "alibaba-cloud-woodpecker-home-repair-intelligent-ops",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Woodpecker Home Repair (啄木鸟家庭维修)",
+  "industry": "Commercial and Professional Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Woodpecker's large home-repair platform was generating too many alerts and too much fragmented observability data for human-only troubleshooting. Root-cause analysis depended on experience, self-built AI explorations were unstable, and engineering teams had to lean on operations staff for even routine diagnosis.",
+  "solution_summary": "Woodpecker adopted Alibaba Cloud STAROps and Cloud Monitor 2.0 to build a unified intelligent-operations analysis platform for its national home-services business. STAROps uses UModel-style observability context and large-model reasoning so engineers can investigate incidents through natural-language queries instead of stitching together logs and alerts manually. The company embedded STAROps into its internal operations platform through APIs, which lets developers run first-line data queries and root-cause analysis without logging into Alibaba Cloud consoles or waiting for the operations team. To reduce alert noise, Woodpecker also configured long-running tasks that summarize critical incidents and push them to the right owner so key issues are not buried by low-value alarms. The result is a more self-service incident workflow in which platform data, diagnosis, and remediation guidance are available through one AI-assisted interface.",
+  "products_used": [
+    "STAROps",
+    "Cloud Monitor 2.0"
+  ],
+  "solution_components": [
+    {
+      "name": "STAROps",
+      "role": "Performs natural-language diagnosis, root-cause analysis, and repair suggestion generation for operations incidents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Monitor 2.0",
+      "role": "Unifies metrics, traces, and logs as the observability base for AI-driven operations analysis.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Metrics, traces, and logs are unified in Cloud Monitor 2.0 and then consumed by STAROps for conversational diagnosis. STAROps returns likely root causes and repair suggestions, while API embedding sends the same analysis into Woodpecker's internal operations platform for developers and operators.",
+  "integration_points": [
+    "internal operations platform",
+    "critical-alert routing",
+    "developer self-service diagnostics"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Woodpecker reduced the time and coordination needed to handle incidents across its platform. Teams can now use AI-assisted diagnostics directly inside their own operations environment, operations tickets are lower, and critical alerts are less likely to be lost in alert storms.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "service covers hundreds of cities",
+    "fault-location efficiency improved 3x",
+    "operations work orders fell 60%"
+  ],
+  "architecture_clues": [
+    "STAROps is embedded into the customer's own platform by API so diagnosis can be delegated closer to developers.",
+    "Long-running alert missions are used to summarize critical incidents rather than only responding to one alert at a time.",
+    "The platform unifies metrics, traces, and logs before AI diagnosis instead of letting each data source remain siloed."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-zmn",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "啄木鸟借力阿里云 STAROps 打造智能运维平台，故障定位快3倍_互联网与信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-zmn",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Woodpecker said root-cause analysis still depended heavily on human experience, and even its self-built SRE agent was too slow and unstable for fast diagnosis. (original: 当前问题定位高度依赖人工经验... 虽然内部也在自建 SRE Agent 探索 AI 排障，但存在分析速度慢、任务运行不稳定、易异常中断等问题。)",
+    "The company adopted STAROps, integrated it into its internal platform by API, and used long-running critical-alert tasks to improve signal quality and response. (original: 采用了阿里云云原生团队提供的 STAROps 全域运维解决方案... 通过 API 集成到内部运维平台... 配置了长期运行任务，将 Critical 级别的告警信息自动汇总并同步给对应责任人。)",
+    "After the rollout, Woodpecker reported 3x faster fault localization and a 60% reduction in operations work orders. (original: 故障定位效率提升 3 倍... 运维工单数量减少 60%。)"
+  ],
+  "source_language": "zh"
+}

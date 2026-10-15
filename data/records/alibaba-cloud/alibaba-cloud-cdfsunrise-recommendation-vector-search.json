@@ -1,0 +1,93 @@
+{
+  "id": "alibaba-cloud-cdfsunrise-recommendation-vector-search",
+  "slug": "alibaba-cloud-cdfsunrise-recommendation-vector-search",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "CDF Sunrise (中免日上)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "CDF Sunrise relied on a self-built open-source Milvus cluster to power recommendations across its app and mini-program, but recommendation traffic and vector volumes were growing faster than the team could manage. The self-hosted cluster became harder to keep stable, harder to scale, and more expensive to operate as the ecommerce platform expanded.",
+  "solution_summary": "CDF Sunrise migrated the vector-search core of its recommendation system from a self-built Milvus cluster to Alibaba Cloud Vector Search Service Milvus Edition. The managed service preserved compatibility with open-source Milvus so the team could move existing recommendation workloads without redesigning the application logic, but it added the operational tooling the self-hosted cluster lacked. Recommendation vectors for app and mini-program homepage modules now run on a platform with built-in observability, more flexible vertical and horizontal scaling, and managed version operations for testing or upgrading cluster behavior. Alibaba Cloud also exposes more than one hundred monitoring signals such as CPU, memory, QPS, and response time, which lets the team detect issues earlier and tune resources before customer experience suffers. The result is a more reliable similarity-search layer for ecommerce recommendations and a lower-ops path for continued growth.",
+  "products_used": [
+    "Vector Search Service Milvus Edition"
+  ],
+  "solution_components": [
+    {
+      "name": "Vector Search Service Milvus Edition",
+      "role": "Runs the vector-similarity engine for recommendation scenarios across the app and mini-program.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Product and recommendation vectors from the CDF Sunrise commerce platform are stored in managed Milvus, where similarity searches power homepage recommendation modules in the app and mini-program. Monitoring, alerting, and scaling signals from the managed service feed operations workflows that keep the recommendation engine healthy.",
+  "integration_points": [
+    "app homepage recommendations",
+    "mini-program recommendations",
+    "ecommerce product catalog"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "CDF Sunrise gained a more stable recommendation backbone and reduced the engineering burden of operating vector infrastructure. The migration improved performance, gave the team deeper observability into recommendation traffic, and created a smoother path to scale as new products and recommendation demand continue to grow.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "performance improved more than 10% versus the open-source deployment",
+    "monitoring covers 100+ indicators including CPU, memory, QPS, and RT"
+  ],
+  "architecture_clues": [
+    "The platform uses managed Milvus as the vector-search core while preserving compatibility with the open-source API surface.",
+    "Recommendation workloads span both the main app and a mini-program, so scaling and observability must cover multiple channels.",
+    "Managed version upgrades are part of the experimentation flow for future recommendation tuning."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2025-cdfsunrise",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云向量检索服务 Milvus 版助力中免日上搭建在线推荐系统",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2025-cdfsunrise",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "CDF Sunrise said app and mini-program recommendation modules had become a major traffic entrance and generated massive vector data, which exposed the limits of its self-built Milvus cluster. (original: App 及小程序首页推荐栏目成为重要的流量入口... 因此产生了海量的向量数据... 随着业务规模快速增长，自建 Milvus 的限制也逐渐出现。)",
+    "After testing, the team found Alibaba Cloud Milvus delivered more than 10% better performance than the open-source version and decided to migrate all recommendation clusters. (original: 与开源版本相比，阿里云 Milvus 在多项性能指标上提升超过 10%... 决定，将 App 及小程序内推荐系统涉及的自建 Milvus 集群，全部搬迁至阿里云向量检索服务 Milvus 版上。)",
+    "Alibaba Cloud also exposed more than 100 monitoring metrics and flexible vertical or horizontal scaling, improving stability and cluster control. (original: 涉及超过 100 项监控指标... 且支持自定义报警规则... 提供更灵活的资源调整方案，包含垂直升降配与横向扩缩容。)"
+  ],
+  "source_language": "zh"
+}

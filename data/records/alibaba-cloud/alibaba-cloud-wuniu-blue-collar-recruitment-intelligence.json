@@ -1,0 +1,103 @@
+{
+  "id": "alibaba-cloud-wuniu-blue-collar-recruitment-intelligence",
+  "slug": "alibaba-cloud-wuniu-blue-collar-recruitment-intelligence",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Chengdu Wuniu Technology (成都午牛科技有限公司)",
+  "industry": "Commercial and Professional Services",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Wuniu was handling messy blue-collar recruiting data with manual teams and brittle keyword rules. Resumes were informal and hard to parse, job postings often bundled multiple roles or contained compliance risks, and reviewers spent too much time cleaning and checking high-volume content.",
+  "solution_summary": "Wuniu used Alibaba Cloud Bailian and Qwen-Plus to turn blue-collar recruiting data into a structured AI workflow instead of a manual back-office process. Candidate resumes and employer job postings arrive as natural-language text with missing fields, colloquial phrasing, or policy risks, so the company calls Qwen-Plus through Bailian and uses prompt engineering to force standardized JSON output that downstream systems can parse automatically. On the candidate side, the model extracts identities, contact details, roles, skills, and work history, normalizes loose expressions such as forklift-driving or manual-loading ability, and blocks politically sensitive, sexual, violent, or otherwise illegal content. On the employer side, the same stack splits multi-role postings into standard job cards and flags discrimination, compensation, or compliance problems before publication. The result is a recruiting data loop that is simultaneously structured, safer, and far less labor intensive.",
+  "products_used": [
+    "Alibaba Cloud Bailian",
+    "Qwen-Plus"
+  ],
+  "solution_components": [
+    {
+      "name": "Alibaba Cloud Bailian",
+      "role": "Provides the managed platform Wuniu uses to call and orchestrate large-model recruiting workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qwen-Plus",
+      "role": "Performs resume parsing, language normalization, job splitting, and compliance analysis on recruiting content.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Resume text and employer job descriptions are submitted to Bailian, where Qwen-Plus turns free-form language into standardized JSON. Structured outputs feed downstream recruiting workflows, while the same inference pass flags risky content and publishing problems before data is shown to users.",
+  "integration_points": [
+    "Niu Xiaoer recruiting platform",
+    "candidate resumes",
+    "employer job postings",
+    "downstream recruiting workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Wuniu sharply reduced manual recruiting operations while making matching and compliance more consistent. One model layer now parses unstructured resumes, standardizes employer postings, and runs always-on content checks, letting the team focus on higher-value service and operations work instead of repetitive data cleanup.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "processing efficiency improved more than 80%",
+    "work that previously required 5 people now needs 1 person plus the system",
+    "extraction accuracy improved about 40%",
+    "supports 7x24 automated compliance review"
+  ],
+  "architecture_clues": [
+    "The workflow avoids a heavyweight rules engine by forcing the model to emit standardized JSON that business systems can parse directly.",
+    "The same model stack is used for both data structuring and compliance review, reducing duplicate pipelines.",
+    "Wuniu applies prompt engineering to normalize colloquial labor-market language before matching or approval."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-wuniu",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "成都午牛基于千问大模型打造蓝领招聘智能闭环数据_互联网与信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-wuniu",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Wuniu said blue-collar resumes were highly colloquial and irregular, which made traditional keyword extraction inaccurate for jobs, skills, and experience. (original: 蓝领求职者提交的简历普遍口语化严重、格式混乱。传统关键词匹配技术难以准确提取工种、技能、经验等关键字段。)",
+    "The company built an agent on Bailian and Qwen-Plus that outputs standardized JSON, parses resumes, splits multi-role job postings, and provides compliance warnings. (original: 基于阿里云百炼平台集成千问大模型... 以 Prompt 工程引导模型输出标准化的 JSON 格式数据... 模型可精准识别并拆分为独立的标准化岗位卡片... 自动识别岗位描述中的合规风险。)",
+    "After going live, overall processing efficiency improved by more than 80%, extraction accuracy rose about 40%, and work once handled by 5 people could be completed by 1 person and the system. (original: 信息处理效率整体提升 80% 以上... 提取准确率提高约 40%... 原需 5 人完成的简历与岗位处理任务，现仅需 1 人协同系统即可完成。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,114 @@
+{
+  "id": "alibaba-cloud-rokid-ai-app-serverless-platform",
+  "slug": "alibaba-cloud-rokid-ai-app-serverless-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Rokid",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Rokid needed a better way to run GPU-intensive AR guidance services for digital-culture experiences. The company wanted demand-based GPU elasticity, faster release and rollback, better control of burst capacity, and a standard serverless pattern that could support real-time scene-experience services without a maze of Kubernetes objects and manual tuning.",
+  "solution_summary": "Rokid used Alibaba Cloud ACK with Knative to serverless-ize the online service layer behind its AR exhibition-guidance applications. Knative gives the team request- and concurrency-based scaling, traffic-based gray release, rollback, and multi-version management so new application versions can ship without rebuilding a large set of Kubernetes primitives for each rollout. To reduce the lag of conventional HPA scaling, Rokid also adopted ACK's AHPA prediction so pods can be prepared ahead of expected traffic increases rather than only after metrics cross a static threshold. The deployment mixes ECS and ECI capacity and applies a custom ResourcePolicy so normal load prefers long-lived ECS capacity while burst traffic spills into ECI, and scale-down releases ECI first. Together, those controls let Rokid pursue GPU efficiency, faster delivery, and more deterministic real-time service behavior for AR scene experiences.",
+  "products_used": [
+    "Container Service for Kubernetes (ACK)",
+    "Knative",
+    "Elastic Container Instance (ECI)",
+    "Elastic Compute Service (ECS)",
+    "AHPA",
+    "ResourcePolicy"
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Hosts the serverless AI application environment that runs Rokid's online AR services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Knative",
+      "role": "Adds request-driven scaling, multi-version delivery, and traffic-based rollout controls for GPU-backed services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AHPA",
+      "role": "Predicts upcoming demand and pre-scales pods before traffic surges hit the service.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Elastic Container Instance (ECI)",
+      "role": "Supplies burst container capacity when request spikes exceed baseline resources.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "AR scene-experience requests enter Knative services on ACK, where traffic levels drive scaling and version-routing behavior. AHPA predicts capacity needs ahead of spikes, while ResourcePolicy determines whether workloads land on ECS or ECI resources before responses are returned to location-aware AR clients.",
+  "integration_points": [
+    "3D mapping services",
+    "scene-creation services",
+    "AR scene-experience services",
+    "location-based AR clients"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Rokid improved rollout speed and demand responsiveness for AI-backed AR services while keeping GPU use closer to actual traffic. The company can now gray-release or roll back versions more easily, respond to burst demand with mixed ECS and ECI capacity, and run the online service layer on a more standard cloud-native serverless pattern.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "products are used in 80+ countries and regions",
+    "AHPA plans capacity across 1440 minutes per day"
+  ],
+  "architecture_clues": [
+    "Rokid uses request and concurrency signals, not raw GPU-utilization thresholds, as the main elasticity trigger for online AI services.",
+    "AHPA is layered on top of Knative to pre-warm capacity before forecast traffic spikes arrive.",
+    "ResourcePolicy makes ECS the preferred baseline and ECI the burst tier so scale-in behavior remains deterministic."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/ai-2024-rokid-ack",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Rokid借助Knative实现AI应用Serverless化_人工智能与AI_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/ai-2024-rokid-ack",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Rokid said the real-time scene-experience business depended heavily on GPUs and needed both on-demand elasticity and second-level startup efficiency. (original: Rokid 尤为关注 GPU 资源的依赖性... 核心问题聚焦于以下两点：成本效益（按需弹性伸缩） 启动效率（实现秒级启动）。)",
+    "The company adopted ACK + Knative so services could scale on request or concurrency, support gray release and rollback, and mix ECS and ECI for cost and stability. (original: Rokid 选择了阿里云 ACK + Knative 的解决方案... 提供了基于请求数、并发等指标的自动弹性能力，并且通过多版本管理机制，可以方便地实现基于流量的灰度发布、快速回滚... 常态业务下使用 ECS 资源，在有突发业务流量的时候，通过 ECI 按需提供资源。)",
+    "ACK AHPA learns from historical ready times and metrics so pods can be expanded before traffic rises, addressing elasticity lag. (original: AHPA... 可以根据历史 Pod 的 Ready Time 以及历史 Metrics 自动学习规律，在业务量上涨之前的一个 Ready Time 开始扩容。)"
+  ],
+  "source_language": "zh"
+}

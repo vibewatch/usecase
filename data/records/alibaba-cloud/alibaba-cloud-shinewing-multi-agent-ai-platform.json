@@ -1,0 +1,109 @@
+{
+  "id": "alibaba-cloud-shinewing-multi-agent-ai-platform",
+  "slug": "alibaba-cloud-shinewing-multi-agent-ai-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "ShineWing (信永中和)",
+  "industry": "Commercial and Professional Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "ShineWing needed to move beyond isolated assistants and build a secure enterprise AI layer for document-heavy professional services. It had to coordinate multiple agents, unify AI assets, connect internal systems safely, and control cost and auditability across a growing multi-model estate.",
+  "solution_summary": "ShineWing built an internal multi-agent AI operating layer on Alibaba Cloud so employees could move from simple information lookup to governed task execution across audit, tax, consulting, and administrative workflows. AgentTeams acts as the orchestration plane: it exposes a unified entry point, recognizes user intent, routes requests to specialized agents for policy Q&A, OA integration, information retrieval, and document processing, and can decompose more complex tasks across several agents. Around that runtime, the firm centralized management of models, MCP servers, skills, and agent templates so permissions and reuse are handled consistently instead of in isolated projects. AI Gateway fronts the model layer with authentication, traffic control, failover between models, token accounting, and content-safety inspection, while end-to-end observability records agent runs, model usage, and abnormal behavior for audit and governance. The result is a secure enterprise AI base rather than a collection of disconnected assistants.",
+  "products_used": [
+    "AgentTeams",
+    "AI Gateway",
+    "MCP Server"
+  ],
+  "solution_components": [
+    {
+      "name": "AgentTeams",
+      "role": "Coordinates specialized agents and provides the unified employee entry point for AI services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AI Gateway",
+      "role": "Provides model access control, routing, failover, token accounting, and safety checks.",
+      "layer": "Governance"
+    },
+    {
+      "name": "MCP Server",
+      "role": "Turns internal systems into standardized capabilities that agents can invoke securely.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Employee requests enter a unified AI interface, where AgentTeams classifies the task and routes it to the right specialized agent or coordinates several agents together. Those agents call internal systems through MCP Server and use models protected by AI Gateway, while usage, exceptions, and token consumption are logged for governance and cost analysis.",
+  "integration_points": [
+    "OA systems",
+    "internal knowledge bases",
+    "document-processing workflows",
+    "policy Q&A services"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "ShineWing established a controlled enterprise AI foundation that gives employees a common AI service entrance, reduces the friction of finding internal information and invoking workflows, and lets the firm extend AI from information lookup into multi-step task execution. The project also proved the platform could be integrated and launched in a one-week final sprint.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "operates 110 offices in 23 countries and regions",
+    "has more than 12,000 employees",
+    "completed final joint integration and launch in 1 week"
+  ],
+  "architecture_clues": [
+    "The platform treats agents, models, MCP services, and templates as centrally governed AI assets rather than per-team experiments.",
+    "AI Gateway is used for both model failover and token-level cost observation, not just basic proxying.",
+    "The agent layer is tied directly into professional-services systems such as OA and knowledge bases."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2026-shinewing",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "信永中和基于阿里云AgentTeams与AI网关，一周快速上线多智能体AI平台_金融_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2026-shinewing",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "ShineWing said enterprise AI was moving from a single assistant to complex scenarios that required agent collaboration, unified asset management, and secure integration with OA and knowledge systems. (original: 多智能体协同难... AI 资产管理散... 需要将 AI 能力与内部 OA、知识库等核心业务系统安全连接。)",
+    "The company built multiple specialized agents for policy Q&A, OA integration, information lookup, and document processing, and AgentTeams can dispatch them or split complex tasks across several agents. (original: 构建了制度问答、OA 集成、信息查询、文档处理等多类专业 Agent。通过平台统一入口识别员工需求，自动调度相应的专业 Agent，或拆解复杂任务实现多 Agent 协同工作。)",
+    "In the final stage, both teams completed system integration, testing, tuning, and launch within one week. (original: 在项目最终关键阶段仅用一周时间完成系统联调、测试优化并正式上线。)"
+  ],
+  "source_language": "zh"
+}

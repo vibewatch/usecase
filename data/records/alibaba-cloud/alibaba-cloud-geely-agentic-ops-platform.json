@@ -1,0 +1,111 @@
+{
+  "id": "alibaba-cloud-geely-agentic-ops-platform",
+  "slug": "alibaba-cloud-geely-agentic-ops-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Geely Auto",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Geely's user-data systems were becoming too complex for manual operations after multi-cloud growth, cross-site deployments, and the addition of Zeekr into the group. Topology was opaque, logs and metrics stayed siloed, alert storms produced hundreds of signals per incident, and mean-time-to-recovery frequently stretched into hours instead of the desired minutes.",
+  "solution_summary": "Geely built an agentic-operations system on Alibaba Cloud around a four-layer model of data, modeling, diagnosis, and knowledge capture. Cloud Monitor 2.0 unifies metrics, logs, traces, events, and change records from scattered environments so operations intelligence starts from one data base instead of many fragmented sources. UModel then creates an operations digital twin by associating cloud resources, service topology, and Geely's internal business models in one context, which lets the intelligent agent follow impact paths and reason about likely root causes. On top of that model, STAROps automates evidence collection, filters large numbers of low-value alerts in seconds, and returns diagnosis paths or recovery ideas. Geely is also turning operational experience into reusable Skills, Runbooks, and healing commands so incident response becomes an asset the AI system can reuse instead of a one-time human effort.",
+  "products_used": [
+    "STAROps",
+    "Cloud Monitor 2.0",
+    "UModel",
+    "Log Service SLS",
+    "Application Real-Time Monitoring Service (ARMS)"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Monitor 2.0",
+      "role": "Provides the unified observability data base for AI-assisted operations analysis.",
+      "layer": "Governance"
+    },
+    {
+      "name": "UModel",
+      "role": "Builds the digital-twin model that links topology, resources, and business context for diagnosis.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "STAROps",
+      "role": "Runs agentic diagnosis, alert-noise reduction, and reusable operational skills.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Observability and change data from Geely's systems is unified in Cloud Monitor 2.0, associated into a digital twin through UModel, and then analyzed by STAROps for evidence gathering, alert filtering, diagnosis, and runbook-based healing suggestions. The outputs are fed back into operations teams and reusable skills for future incidents.",
+  "integration_points": [
+    "multi-cloud systems",
+    "cross-data-center services",
+    "incident runbooks",
+    "recovery strategies",
+    "test-environment integration debugging"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Geely is replacing the old monitor-alarm-ticket chain with a data-driven operations loop that can model dependencies, diagnose incidents faster, and codify operational know-how for reuse. Teams now treat AI operations as a strategic platform capability rather than only a help-desk assistant.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "manages hundreds of systems across clouds and sites",
+    "incident storms can produce hundreds of alerts at once",
+    "traditional recovery often took 1 to 2 hours",
+    "target service objective is 1 minute to detect, 5 minutes to locate, and 30 minutes to recover"
+  ],
+  "architecture_clues": [
+    "Geely separates the AIOps stack into data, modeling, diagnosis, and knowledge-accumulation layers instead of relying on one monolithic assistant.",
+    "UModel lets enterprise-specific topology and business models join cloud observability data in one diagnosis context.",
+    "Runbooks and healing commands are being promoted into reusable skills so future incidents can be automated more directly."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/automotive-2026-geely",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "吉利汽车基于STAROps 构建全域智能运维体系，从报警风暴到主动免疫_汽车_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/automotive-2026-geely",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Geely said topology had become a black box, data stayed isolated across logs, traces, and metrics, and alert storms could generate hundreds of alarms while recovery still took one or two hours. (original: 拓扑全是黑盒；各系统的日志、链路、指标各自为政... 监控屏瞬间涌出几百条告警... 平均恢复动辄一两个小时。)",
+    "Its solution is a four-layer intelligent-operations system of data, modeling, diagnosis, and knowledge capture built on Cloud Monitor 2.0, UModel, and STAROps. (original: 吉利基于阿里云可观测构建“数据—建模—诊断—沉淀”四层智能运维体系... 基于阿里云云监控 2.0... 通过 UModel 自动为云上资源建模... 围绕告警/异常自动收集证据。)",
+    "Geely wants the new architecture to support a golden SLA of 1 minute to detect, 5 minutes to locate, and 30 minutes to recover. (original: 传统应对方案很难支撑“1 分钟发现、5 分钟定位、30 分钟恢复”的黄金 SLA。)"
+  ],
+  "source_language": "zh"
+}

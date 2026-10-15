@@ -1,0 +1,134 @@
+{
+  "id": "alibaba-cloud-fintopia-skillops-platform",
+  "slug": "alibaba-cloud-fintopia-skillops-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Fintopia (瓴岳科技)",
+  "industry": "Financial Services",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Fintopia had already embedded AI skills across acquisition, risk review, settlement, operations, and internal support, but hundreds of skills were becoming fragmented assets. Teams kept rebuilding similar capabilities, release quality was hard to measure, and no one could clearly see which skills were installed, invoked, failing, or worth improving.",
+  "solution_summary": "Fintopia built a SkillOps control plane on top of Alibaba Cloud AgentLoop to turn scattered AI skills into governed enterprise assets. Developers discover reuse candidates through a skill marketplace, scaffold new skills from captured context, and publish directly from Git into a managed distribution flow instead of passing scripts around informally. The runtime spans a layered internal AI stack: a model plaza that routes across more than 50 models, an MCP plaza that standardizes connections to more than 90 internal systems and data platforms, a skill plaza that hosts more than 400 reusable business skills, and a plugin plaza that packages them for cross-team distribution. AgentLoop and its LoongSuite collector then capture real usage through local hooks, remove PII, attach metadata such as repo and branch for coding skills, and feed evaluation, regression, and release-gate loops so Fintopia can improve AI behavior with evidence instead of intuition.",
+  "products_used": [
+    "AgentLoop",
+    "LoongSuite Collector",
+    "Model Plaza",
+    "MCP Plaza",
+    "Skill Plaza",
+    "Plugin Plaza"
+  ],
+  "solution_components": [
+    {
+      "name": "AgentLoop",
+      "role": "Provides the observability, evaluation, audit, and optimization control plane for enterprise skills.",
+      "layer": "Governance"
+    },
+    {
+      "name": "LoongSuite Collector",
+      "role": "Collects real skill usage asynchronously from local environments and forwards redacted telemetry for evaluation.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Model Plaza",
+      "role": "Routes skill calls across dozens of foundation models through one managed access layer.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MCP Plaza",
+      "role": "Connects skills to internal systems and data platforms through standardized MCP integrations.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Skill Plaza",
+      "role": "Hosts reusable business logic as shareable skills for teams across the company.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Plugin Plaza",
+      "role": "Packages high-value skills for distribution across teams and user workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Employees and developers invoke skills through Fintopia's internal plazas, while AgentLoop captures traces, usage outcomes, and skill-specific metadata through LoongSuite. The collected data is desensitized, tagged back to the owning skill, scored by evaluators, and then fed into release gates and iteration loops before updated skills are republished.",
+  "integration_points": [
+    "Git repositories",
+    "internal data platforms",
+    "MCP-connected enterprise systems",
+    "Claude Code",
+    "Cursor",
+    "QoderWork"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Fintopia converted AI skills from loosely managed scripts into a measurable asset base. The company can now route developers toward reuse, reduce repetitive setup work, publish faster, and use real telemetry to decide which skills need optimization. It also established a governed layer spanning more than 50 models, more than 90 MCP integrations, more than 400 reusable skills, and more than 100 packaged plugins.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "registered users exceed 190 million globally",
+    "served more than 116 financial institutions",
+    "cumulative transaction volume exceeded RMB 570 billion",
+    "connected 50+ models",
+    "connected 90+ MCP integrations",
+    "hosted 400+ reusable skills",
+    "published 100+ plugins",
+    "creation stage removes about 80% of repeated configuration"
+  ],
+  "architecture_clues": [
+    "Fintopia splits enterprise AI assets into model, MCP, skill, and plugin plazas instead of treating skills as isolated prompts.",
+    "LoongSuite records extra metadata such as repo, branch, and base commit for coding skills so offline replay can reconstruct context.",
+    "Evaluation is a release gate: skills must prove quality with data before new versions are broadly distributed."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2026-fintopia",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "瓴岳科技基于 AgentLoop 的 skills 全生命周期管理实践_金融_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2026-fintopia",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Fintopia said AI skills had already sunk into the full internet-finance value chain and that the company had accumulated hundreds of high-frequency core skills. (original: AI Skill 已经下沉至互联网金融业务的全链路，每一个环节都有 Skill 在支撑真实工作。截至目前，瓴岳科技内部已沉淀数百个高频使用的核心 Skill。)",
+    "Its internal AI stack now includes a model plaza with 50+ models, an MCP plaza with 90+ internal connections, a skill plaza with 400+ skills, and a plugin plaza with 100+ plugins. (original: 模型广场回答“用什么模型”，统一接入并智能路由 50 多个模型；MCP 广场... 接入 90 多个内部系统与数据平台；Skill 广场... 已汇聚 400 多个 Skill；Plugin 广场... 已上架 100 多个 Plugin。)",
+    "The creation stage inherits context and can remove about 80% of repetitive configuration, while AgentLoop captures real usage with local hooks and zero manual instrumentation. (original: 在创建阶段... 一键生成完整的 Skill 工程包，消除约 80% 的重复配置... 基于 AgentLoop 的 LoongSuite 采集器，通过本地 Hook 静默采集、异步上报... 做到开发者“零埋点”。)"
+  ],
+  "source_language": "zh"
+}

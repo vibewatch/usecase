@@ -1,0 +1,112 @@
+{
+  "id": "alibaba-cloud-wandianzhang-retail-aiops",
+  "slug": "alibaba-cloud-wandianzhang-retail-aiops",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Wandianzhang (万店掌)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Wandianzhang had growing observability complexity across retail-AI products, but alert rules, dashboards, and infrastructure inspection still spanned multiple disconnected systems. Teams had to configure alarms in separate tools, write custom SQL for business dashboards, and inspect clusters manually to find capacity or health risks.",
+  "solution_summary": "Wandianzhang used Alibaba Cloud STAROps to turn its observability stack into an AI-assisted operations system. Cloud Monitor 2.0 became the unified alert-governance center for logs, Prometheus metrics, application monitoring, and cloud-product signals, while STAROps adds rule-inspection and governance suggestions so teams can reduce noise and keep alerting logic healthy over time. For business observability, STAROps applies NL2SQL to translate natural-language questions into operational dashboards, which removes much of the manual SQL work required to build event-center reports. The same platform also runs scheduled missions that inspect ACK clusters, application health, and cloud resources, with digital employees capable of running checks automatically and requesting human-in-the-loop support when needed. This gives Wandianzhang a single AI operations surface instead of multiple hand-maintained control paths.",
+  "products_used": [
+    "STAROps",
+    "Cloud Monitor 2.0",
+    "Log Service SLS",
+    "Application Real-Time Monitoring Service (ARMS)"
+  ],
+  "solution_components": [
+    {
+      "name": "STAROps",
+      "role": "Provides AI-driven alert governance, NL2SQL dashboards, inspection missions, and root-cause analysis.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Monitor 2.0",
+      "role": "Acts as the unified alarm-management layer across observability data sources.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Feeds logs into the unified observability and alerting system.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Supplies application-monitoring data used in AI-assisted operations workflows.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Logs, metrics, application signals, and cloud-resource events are unified in Cloud Monitor 2.0 and then analyzed by STAROps. Operators can ask natural-language questions to generate dashboards, while scheduled missions inspect ACK clusters and cloud services and feed findings back into operations and alert-governance workflows.",
+  "integration_points": [
+    "Prometheus metrics",
+    "application monitoring",
+    "ACK cluster inspections",
+    "event-center dashboards",
+    "retail AI platforms"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Wandianzhang gave its retail-AI platform a more unified and proactive operations model. Teams no longer have to bounce across tools for alarms or dashboard creation, and routine infrastructure and application checks can be delegated to AI-assisted missions before problems escalate.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "supports 500,000+ retail chain stores",
+    "market share exceeds 80% in the snack/fast-moving-consumer-goods segment"
+  ],
+  "architecture_clues": [
+    "The same STAROps layer handles alert governance, dashboard generation, cluster inspection, and root-cause analysis.",
+    "NL2SQL is used to turn operations questions into dashboards without hand-written SQL.",
+    "Long-running missions let agents perform recurring inspection work rather than only react to incidents."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2026-ovopark",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "万店掌通过STAROps实现数字门店业务智能运维_零售&电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2026-ovopark",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Wandianzhang said alarm rules, metrics, logs, and APM were spread across different systems, which made governance difficult and increased the risk of alert storms. (original: 可观测系统缺乏统一告警治理和管理平台，指标、日志、APM 等需要在不同系统上配置不同的告警规则... 容易造成错配、漏配和告警风暴产生。)",
+    "STAROps gives the team unified alarm governance, NL2SQL-generated dashboards, and scheduled missions for ACK, application, and resource inspections. (original: 通过 STAROps，完成告警治理、NL2SQL 实现业务看板、自动巡检和根因分析... ACK 集群巡检、应用健康巡检、资源健康巡检等工作。)",
+    "The company has already accumulated digital-operating experience across more than 500,000 retail chain stores and over 80% share in one major vertical. (original: 积累 500,000+ 零售连锁门店数字化经验，最高(零食快消)行业市场占有率超 80%。)"
+  ],
+  "source_language": "zh"
+}
