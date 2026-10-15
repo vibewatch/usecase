@@ -1,0 +1,149 @@
+{
+  "id": "tcs-thryv-internal-helpdesk-chatbot",
+  "slug": "tcs-thryv-internal-helpdesk-chatbot",
+  "vendor": "TCS",
+  "customer_name": "Thryv",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Thryv's internal staff relied on the helpdesk and intranet for routine company and HR questions, so support teams spent too much time answering repetitive requests, manually maintaining information, and triaging simple issues instead of handling higher-value work.",
+  "solution_summary": "TCS built an internal employee-support chatbot for Thryv with Microsoft Copilot Studio's generative AI and no-code tooling so staff could get HR, company, and basic IT answers without waiting on the helpdesk. The solution reads internal documents and intranet pages, interprets natural-language questions, and returns immediate responses inside Microsoft Teams, where employees already work. Power Platform integration connects the chatbot to internal and third-party systems, while ITSM integration lets it create, manage, and track trouble tickets when a request needs workflow follow-through rather than just an answer. TCS also automated multifactor-authentication resets and added live-agent escalation for complex issues, turning the bot into a production self-service layer that reduces repetitive tickets while keeping human support in the loop.",
+  "products_used": [
+    "Microsoft Copilot Studio",
+    "Power Platform",
+    "Microsoft Teams"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Copilot Studio",
+      "role": "Powers the GenAI chatbot that interprets employee questions and answers them from Thryv's internal content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power Platform",
+      "role": "Connects the chatbot to internal and third-party systems and supports no-code workflow extension.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Teams",
+      "role": "Hosts the chatbot in Thryv's collaboration environment so employees can use it in their normal workflow.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Employees ask natural-language questions in Microsoft Teams, Microsoft Copilot Studio retrieves and interprets relevant intranet pages and internal documents, and the chatbot returns immediate answers. When a request needs action, the flow branches through Power Platform and Thryv's ITSM integration to open or manage tickets, with live-agent escalation for more complex cases.",
+  "integration_points": [
+    "internal documents",
+    "company intranet pages",
+    "Thryv ITSM system",
+    "third-party systems",
+    "live agents"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Thryv reduced routine helpdesk and HR dependency by giving employees a production GenAI self-service channel for company and policy questions, faster troubleshooting, MFA reset support, and ticket initiation, improving response speed, lowering manual support effort, and creating a foundation for broader AI adoption.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The chatbot was embedded in Microsoft Teams instead of being launched as a separate portal.",
+    "The implementation includes ITSM ticket creation, management, and tracking in addition to question answering.",
+    "Live-agent escalation keeps a human handoff path for issues the chatbot should not complete alone.",
+    "TCS describes this as Thryv's first production-grade deployment of GenAI."
+  ],
+  "source_url": "https://www.tcs.com/what-we-do/industries/communications-media-information-services/case-study/automated-solution-improve-employee-productivity-cx",
+  "published_date": "2025-02-10",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-02-10",
+      "type": "Published on source page",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/industries/communications-media-information-services/case-study/automated-solution-improve-employee-productivity-cx",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "TCS Helps Thryv Improve Employee Productivity and CX",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/industries/communications-media-information-services/case-study/automated-solution-improve-employee-productivity-cx",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2025-02-10",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T12:25:46+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"TCS utilized Microsoft Copilot Studio's GenAI capabilities and no-code solutions to create a chatbot to deliver faster responses and enhance customer experience.\"",
+    "\"The chatbot accesses and interprets internal documents and intranet pages, delivering precise responses instantly\"",
+    "\"Seamlessly connects to Thryv’s information technology service management (ITSM) system for creating, managing, and tracking trouble tickets\"",
+    "\"Automated MFA resets: Simplifies multifactor authentication resets for new devices\"",
+    "\"This first production-grade deployment of Microsoft Copilot Studio’s GenAI positions Thryv as a leader in operational innovation, boosting productivity and transforming employee experience.\""
+  ]
+}
