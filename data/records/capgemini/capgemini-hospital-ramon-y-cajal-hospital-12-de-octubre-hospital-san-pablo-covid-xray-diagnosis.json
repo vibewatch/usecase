@@ -1,0 +1,167 @@
+{
+  "id": "capgemini-hospital-ramon-y-cajal-hospital-12-de-octubre-hospital-san-pablo-covid-xray-diagnosis",
+  "slug": "capgemini-hospital-ramon-y-cajal-hospital-12-de-octubre-hospital-san-pablo-covid-xray-diagnosis",
+  "vendor": "Capgemini",
+  "customer_name": "Hospital Ramón y Cajal, Hospital 12 de Octubre, and Hospital San Pablo",
+  "industry": "Healthcare",
+  "region": "Spain",
+  "company_size": "Unknown",
+  "business_problem": "The three hospitals needed a faster way to review chest X-rays during COVID surges because expert interpretation was time-intensive and specialist capacity was limited.",
+  "solution_summary": "Hospital Ramón y Cajal, Hospital 12 de Octubre, and Hospital San Pablo worked with Capgemini and a wider technology consortium to build a privacy-preserving AI proof of concept for COVID diagnosis from chest X-rays. Each hospital kept patient data locally while the hospitals and Capgemini developed a federated learning platform that let experts train computer vision models on scarce data sets and combine the learning into a single aggregate diagnosis model. Cisco and Intel supplied the computing environment for experimentation, and Intel Xeon Scalable processors with Software Guard Extensions protected encrypted aggregation tasks so identifiable patient data did not leave the hospitals. The resulting model screened symptomatic patients for COVID status, outperformed the best local models by 24%, and showed a path to helping hospitals with less X-ray expertise handle surges without compromising privacy.",
+  "products_used": [
+    "federated learning platform",
+    "computer vision model",
+    "Intel Xeon Scalable processors",
+    "Software Guard Extensions (SGX)"
+  ],
+  "solution_components": [
+    {
+      "name": "federated learning platform",
+      "role": "Coordinates multi-hospital model training so each site can contribute learning without moving patient data off site.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "computer vision model",
+      "role": "Analyzes chest X-rays to determine the COVID status of symptomatic patients.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Intel Xeon Scalable processors",
+      "role": "Provide the computing infrastructure used for experimentation and testing of the federated platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Software Guard Extensions (SGX)",
+      "role": "Protect encrypted aggregation tasks so model updates can be combined without exposing patient data.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Each hospital keeps chest X-ray data and local expertise on site, local training feeds a federated learning platform, encrypted aggregation on Intel SGX combines learning across the three hospitals, and the resulting computer vision model screens symptomatic patients for COVID without transferring identifiable patient information.",
+  "integration_points": [
+    "Hospital Ramón y Cajal",
+    "Hospital 12 de Octubre",
+    "Hospital San Pablo",
+    "Chest X-ray workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The consortium delivered a privacy-preserving diagnostic proof of concept that improved model performance by 24% over local baselines and created a practical foundation for helping additional hospitals handle diagnostic surges with less specialized expertise.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "24% increase in model performance relative to local models"
+  ],
+  "architecture_clues": [
+    "Patient data never left the hospitals",
+    "Encrypted aggregation used Intel Xeon Scalable processors with SGX",
+    "The engagement was delivered as a proof-of-concept before wider rollout",
+    "The consortium included Capgemini, Vodafone Spain, Intel, Cisco, Microsoft, and Gilead Sciences Spain"
+  ],
+  "source_url": "https://www.capgemini.com/news/client-stories/ai-and-computer-visioning-improve-covid-diagnoses/",
+  "published_date": "2023-05-26",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2023-05-26",
+      "type": "Published on source page",
+      "publisher": "Capgemini",
+      "url": "https://www.capgemini.com/news/client-stories/ai-and-computer-visioning-improve-covid-diagnoses/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "AI and computer visioning improve COVID diagnoses - Capgemini",
+      "publisher": "Capgemini",
+      "url": "https://www.capgemini.com/news/client-stories/ai-and-computer-visioning-improve-covid-diagnoses/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2023-05-26",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T11:50:27+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Together, the consortium members set about creating a proof-of-concept that would use artificial intelligence and computer vision to screen X-rays and determine a symptomatic patient’s COVID status.\"",
+    "\"This included a federated learning platform, developed through a collaboration between the hospitals and Capgemini, that would enable experts to train computer vision models with scarce data sets.\"",
+    "\"In the end, we made sure that patient data never lever left the hospitals.\"",
+    "\"Compared to the best available local models, the aggregate model achieved a 24% increase in diagnostic performance while leveraging common data.\""
+  ],
+  "is_sample": false
+}
