@@ -1,0 +1,161 @@
+{
+  "id": "bcg-zeiss-medical-technology-patient-inquiry-automation",
+  "slug": "bcg-zeiss-medical-technology-patient-inquiry-automation",
+  "vendor": "BCG",
+  "customer_name": "ZEISS Medical Technology",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "ZEISS Medical Technology needed a faster way for ophthalmologists and clinical staff to answer patient questions about elective treatments, while keeping every response accurate, empathetic, current, and grounded in approved medical-technology content.",
+  "solution_summary": "BCG worked with ZEISS Medical Technology to build a proof-of-concept generative-AI application for ophthalmology practices. After assessing a hundred possible GenAI use cases, the joint team selected patient-inquiry response generation and built the first version in eight weeks. The application ingests patient-submitted content forms and self-test forms, retrieves relevant facts from a library of approved Zeiss marketing and patient materials, and uses Azure OpenAI with LangChain, vector databases, and LLM agent techniques to draft responses. BCG and the Zeiss AI team refined the workflow in agile iterations using customer insights and tester feedback, while responsible-AI guardrails and human validation checked output quality. The result is a validated assistant that can produce personalized, patient-ready answers while staying grounded in approved source content.",
+  "products_used": [
+    "Azure OpenAI",
+    "LangChain",
+    "large language model (LLM) agent technologies",
+    "Vector databases"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure OpenAI",
+      "role": "Provides the foundation-model inference used to generate draft responses to patient questions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "LangChain",
+      "role": "Coordinates the prompt and application workflow between patient inputs, retrieved content, and model output generation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "large language model (LLM) agent technologies",
+      "role": "Guide the response-generation logic so the application can answer patient questions in a structured way.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Vector databases",
+      "role": "Store approved Zeiss materials so the application can retrieve grounded source content before generating answers.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Patient-submitted content forms and self-test forms enter the application, which retrieves relevant passages from approved Zeiss marketing and patient materials stored for RAG. LangChain and LLM agent logic orchestrate the workflow, Azure OpenAI generates draft responses, and validated outputs are returned to practices as patient-ready answers or drafts for review.",
+  "integration_points": [
+    "patient-submitted content forms",
+    "self-test forms",
+    "approved Zeiss marketing materials",
+    "approved Zeiss patient materials",
+    "ophthalmologists",
+    "practice managers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "ZEISS Medical Technology validated that a GenAI assistant could answer patient inquiries with high quality while reducing manual drafting for practices; test users were strongly positive, and with settings customization 93% of responses were judged ready to send without edits.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "a hundred possible GenAI use cases",
+    "in just eight weeks",
+    "79% of responses produced by the GenAI application were assessed as being good enough to send directly to patients without any edits",
+    "93% of responses were deemed patient-ready without needing any edits"
+  ],
+  "architecture_clues": [
+    "The system creates answers from a library of approved Zeiss marketing and patient materials.",
+    "BCG and the Zeiss AI team co-developed the application using Azure OpenAI, LangChain, and LLM agent technologies.",
+    "Responsible AI guardrails were used to validate outputs.",
+    "BCG used agile iterations with customer insights and tester feedback to refine the application.",
+    "The listed technologies included Retrieval Augmented Generation (RAG), vector databases, and chain-of-thought prompting."
+  ],
+  "source_url": "https://www.bcg.com/about/client-impact/expand-understanding-of-health-care-solutions",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2025-10-10",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.bcg.com/about/client-impact/expand-understanding-of-health-care-solutions",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Using GenAI to Understand Health Care Solutions | BCG",
+      "publisher": "Boston Consulting Group",
+      "url": "https://www.bcg.com/about/client-impact/expand-understanding-of-health-care-solutions",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T03:51:03+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"BCG helped Zeiss build a PoC GenAI application that generates responses to patient-submitted content forms and self-test forms\"",
+    "\"the solution was designed to create answers based on a library of approved Zeiss marketing and patient materials\"",
+    "\"Practice managers have praised the responses produced by the GenAI application\"",
+    "\"In early and limited evaluations, 79% of responses produced by the GenAI application were assessed as being good enough to send directly to patients without any edits\"",
+    "\"the percentage of responses deemed patient-ready without needing any edits jumped to 93%\"",
+    "\"we worked closely with Zeiss's AI team to co-develop the GenAI algorithm and application using Azure OpenAI, Langchain, and chain-of-thought agent technologies with responsible AI guardrails in place to validate outputs\""
+  ]
+}
