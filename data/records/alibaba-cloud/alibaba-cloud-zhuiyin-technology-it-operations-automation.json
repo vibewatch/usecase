@@ -1,0 +1,154 @@
+{
+  "id": "alibaba-cloud-zhuiyin-technology-it-operations-automation",
+  "slug": "alibaba-cloud-zhuiyin-technology-it-operations-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Zhuiyin Technology (追因科技)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Zhuiyin Technology had already built an agent for cross-border ecommerce analysis, but once the agent was exposed to customers, the team discovered three hard problems: results were hard to judge objectively, reasoning traces were opaque, and frequent data-source changes made it difficult to know whether model quality or tool behavior was improving or regressing. The business needed a scientific agent-operations loop rather than ad hoc debugging.",
+  "solution_summary": "Zhuiyin Technology used Alibaba Cloud AgentLoop as the operating system for continuous agent evaluation and improvement around its Trekin Agent. AgentLoop captures full trace IDs, waterfall-style reasoning trajectories, and per-step input or output details so the team can see exactly where an agent selected the wrong tool, misunderstood intent, or mishandled a data source. On top of that observability layer, built-in evaluators measure task completion, tool-call success, and execution efficiency, while prompt-defined custom evaluators let Zhuiyin encode domain rules such as requiring a particular knowledge-base document. The team also uses trajectory decomposition plus curated good, bad, and corner-case datasets to regression-test changes before rollout. That turns agent quality into a monitored production metric rather than a subjective impression and lets the company reuse the same AI assets across cross-border commerce and other sectors.",
+  "products_used": [
+    "AgentLoop",
+    "Trekin Agent"
+  ],
+  "solution_components": [
+    {
+      "name": "AgentLoop",
+      "role": "Provides the observability, evaluation, and continuous-improvement control plane for Trekin Agent.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Trekin Agent",
+      "role": "Executes cross-border ecommerce analysis tasks such as reports, alerts, and sales diagnostics.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business questions are sent to Trekin Agent, whose multi-step reasoning and tool usage are captured by AgentLoop as traces and trajectory data. The resulting logs, evaluator scores, and curated good or bad cases are then used to refine prompts, tools, and retrieval behavior before updated agent behavior is rolled back into production.",
+  "integration_points": [
+    "ERP systems",
+    "advertising backends",
+    "shop systems",
+    "knowledge-base documents",
+    "regression-test datasets"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Zhuiyin made agent quality observable and improvable instead of relying on intuition. After introducing AgentLoop, the company raised inference quality by 20%, reduced the need for manual rechecking of agent outputs, and built a repeatable evaluation asset base that can be reused as the business expands from cross-border ecommerce into logistics, trade services, and retail agent scenarios.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "inference quality improved 20%"
+  ],
+  "architecture_clues": [
+    "Trace IDs and waterfall-style trajectories are treated as first-class production data for agent debugging.",
+    "The platform mixes built-in evaluators with prompt-defined custom evaluators so domain rules can be tested continuously.",
+    "Good cases, bad cases, and corner cases are stored as regression assets rather than informal examples.",
+    "Agent quality improvements are reused across multiple industry verticals instead of remaining specific to one customer workflow."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-zhuiyin",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "追因科技基于AgentLoop科学提升Agent效果的实践_互联网&信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-zhuiyin",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:16+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Trekin Agent helps cross-border sellers automate reports, alerts, and business analysis by unifying data scattered across ERP, ad, and store systems. (original: 打造了超级智能体 Trekin Agent，为跨境卖家提供数据报表自动化、业务预警与销量分析、数据洞察分析、跨境工作流重构等 AI Agent 能力，帮助企业将分散在 ERP、广告后台、店铺系统中的数据统一起来。)",
+    "The team found that agent reasoning was a black box, reasoning paths were unclear, and data sources changed frequently. (original: 第一，Agent 推理是黑盒。... 第二，推理链路看不清。... 第三，数据源频繁变动。)",
+    "AgentLoop gives Zhuiyin full-stack agent observability, trace IDs, reasoning trajectories, evaluation, and asset management for continuous improvement. (original: AgentLoop 是阿里云面向企业级智能体的一站式自进化平台，提供 Agent 全栈观测与审计、Agent 评估与实验、Agent 资产管理与持续优化等核心能力。)",
+    "After the new workflow, inference quality improved by 20%, so operators no longer needed to manually recheck every agent output. (original: 推理质量提升 20%... 运营不再需要人工复核每一条输出。)"
+  ],
+  "source_language": "zh"
+}

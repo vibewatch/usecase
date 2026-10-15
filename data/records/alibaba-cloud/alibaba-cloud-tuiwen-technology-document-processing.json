@@ -1,0 +1,174 @@
+{
+  "id": "alibaba-cloud-tuiwen-technology-document-processing",
+  "slug": "alibaba-cloud-tuiwen-technology-document-processing",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Tuiwen Technology (推文科技)",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Tuiwen Technology had built AI systems for translating, generating, and distributing Chinese online literature overseas, but the platform needed much stronger monitoring and log retention as its scale grew. Containerized workloads were short-lived, logs could disappear with the containers, and the company needed a unified operations surface that could support both the AI pipeline and the surrounding export platform.",
+  "solution_summary": "Tuiwen Technology runs its web-novel export business on Alibaba Cloud using ECS and Log Service SLS as the operational foundation beneath its AI translation and publishing systems. The company's AI translation-generation-distribution pipeline automatically monitors, fetches, translates, and publishes licensed Chinese novels, while a separate AI production-distribution system can package books for rapid digital release. Because the workload is containerized and integrates additional services such as Flink, Function Compute, and WAF, Tuiwen needed a logging system that could persist short-lived operational traces and unify them across many components. SLS became that collection and analysis plane: it ingests K8s logs, application logs, and related service logs, generates monitoring reports, and supports alerting into collaboration tools so a small engineering team can keep the high-volume AI content-export pipeline stable without staffing a much larger operations function.",
+  "products_used": [
+    "Elastic Compute Service (ECS)",
+    "Log Service SLS",
+    "AI translation generation distribution system",
+    "AI production distribution system"
+  ],
+  "solution_components": [
+    {
+      "name": "Elastic Compute Service (ECS)",
+      "role": "Provides the cloud compute layer that runs Tuiwen's AI-driven translation and publishing services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Collects, retains, analyzes, and alerts on logs across containerized AI translation and distribution systems.",
+      "layer": "Governance"
+    },
+    {
+      "name": "AI translation generation distribution system",
+      "role": "Automatically monitors, grabs, translates, and publishes licensed Chinese web novels.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI production distribution system",
+      "role": "Packages and releases translated books at industrial scale for overseas channels.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Licensed Chinese novels are detected and ingested by Tuiwen's AI translation platform, translated and prepared for distribution, and then published to overseas reading channels. Throughout that process, ECS runs the services while SLS captures logs from Kubernetes workloads and related components so failures, anomalies, and performance issues can be identified and acted on quickly.",
+  "integration_points": [
+    "Kubernetes workloads",
+    "Flink",
+    "Function Compute",
+    "WAF",
+    "Feishu alerting",
+    "overseas ebook platforms"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Alibaba Cloud helped Tuiwen scale an AI-native content-export factory for online literature. The company can now translate and distribute content at industrial throughput while keeping platform operations manageable: the AI translation system reaches 3 seconds per chapter, 20 chapters per minute, and 20,000 to 30,000 chapters per day, while the AI publishing system can release 3,000+ books per month at far lower cost than manual workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "3 seconds per chapter",
+    "20 chapters per minute",
+    "20,000 to 30,000 chapters per day",
+    "translation cost reduced to 1% of the original level",
+    "15 minutes per book for AI production and distribution",
+    "3,000+ books published per month",
+    "industry efficiency improved 3,600x",
+    "about 4,000 novels updated daily"
+  ],
+  "architecture_clues": [
+    "The AI workflow is split between a translation-generation-distribution system and a separate production-distribution system.",
+    "Short-lived container logs are treated as a core operational risk, so centralized log collection is part of the architecture.",
+    "SLS aggregates logs not only from Kubernetes but also from adjacent services such as Flink, Function Compute, and WAF.",
+    "AI throughput and publishing throughput are both industrialized rather than handled as isolated translation jobs."
+  ],
+  "source_url": "https://enterprise.aliyun.com/customer/tuiwenkeji",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "推文科技",
+      "publisher": "Alibaba Cloud",
+      "url": "https://enterprise.aliyun.com/customer/tuiwenkeji",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:34:23+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Tuiwen built an AI system for web-novel exports that can automatically monitor, fetch, translate, and publish licensed Chinese novels. (original: 其AI翻译生成分发系统如今能够做到自动监测、抓取、翻译、发布获得版权的中文小说。)",
+    "The platform can translate one chapter in 3 seconds, 20 chapters in 1 minute, and 20,000 to 30,000 chapters per day, while cutting translation cost to 1% of the original level. (original: 能做到3秒钟1章，1分钟20章，每天能达到2到3万章... 翻译成本却降低至原来的1%。)",
+    "Its AI production and distribution system can publish more than 3,000 books in a month at 15 minutes per title, improving industry efficiency by 3,600x. (original: 其AI生产分发系统以15分钟/册的速度，单月即可出版发行3000多册小说，行业效率提高3600倍。)",
+    "Because containers were short-lived and many logs disappeared with them, Tuiwen chose SLS as the logging and monitoring layer for K8s and related services. (original: 但容器存活时间较短，业务日志稍纵即逝... 阿里云日志服务系统SLS可提供完整的K8s采集方案，简单配置即可应用。)"
+  ],
+  "source_language": "zh"
+}

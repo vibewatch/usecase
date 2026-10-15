@@ -1,0 +1,160 @@
+{
+  "id": "alibaba-cloud-wetech-risk-management",
+  "slug": "alibaba-cloud-wetech-risk-management",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "WeTech (微财)",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "WeTech relies on large-scale user data to evaluate lending risk, but as its business expanded, big-data model training became a bottleneck. The company needed a mature and reliable data-science platform that could break through single-machine training limits, improve training efficiency, and avoid the staffing and maintenance burden of building a full-featured model-training environment from scratch.",
+  "solution_summary": "WeTech standardized its machine-learning platform on Alibaba Cloud EMR Serverless Spark and OSS. Instead of managing long-lived compute clusters, the team uses the serverless Spark service as a unified execution layer for data processing, analysis, and machine-learning jobs, taking advantage of the Fusion engine, vectorized execution, and RSS enhancements to improve performance over open-source Spark. The platform is tightly integrated with the broader lakehouse environment: dw-shell handles data collection, Apache Paimon provides the lake storage format, and Spark, Flink, and Hive are combined to form a full data-lake ecosystem for training and monitoring scenarios. By using compute-storage separation with OSS and task-level elastic provisioning, WeTech can run large-scale risk-model training with much lower infrastructure overhead while still giving data scientists familiar Python, SQL, PySpark, notebook, and scheduling workflows.",
+  "products_used": [
+    "EMR Serverless Spark",
+    "Object Storage Service (OSS)",
+    "Apache Paimon"
+  ],
+  "solution_components": [
+    {
+      "name": "EMR Serverless Spark",
+      "role": "Provides the managed compute layer for data processing, analysis, and machine-learning training jobs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Supplies the decoupled storage layer that lowers cluster cost and supports the lakehouse architecture.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Apache Paimon",
+      "role": "Acts as the data-lake storage framework used with Spark, Flink, and Hive for WeTech's data platform.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Collected lending and user-behavior data is gathered through WeTech's ingestion tooling into the lakehouse, stored through OSS and Paimon, and then processed by EMR Serverless Spark for feature preparation, model training, and analytical jobs. The resulting models and datasets are used by WeTech's financial risk-evaluation workflows and related real-time monitoring or analysis scenarios.",
+  "integration_points": [
+    "dw-shell data-collection tooling",
+    "Spark jobs",
+    "Flink jobs",
+    "Hive jobs",
+    "risk-evaluation workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "WeTech replaced a heavier self-managed training approach with a managed lakehouse training stack that could scale with the business. The new platform delivered more than 3x engine performance versus the open-source baseline, second-level resource provisioning, and a complete migration of all big-data compute tasks to the cloud in roughly one month, while reducing overall storage and operations costs.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Fusion engine performance improved more than 3x versus open source",
+    "resource provisioning reached second-level speed",
+    "all big-data compute tasks were migrated in about 1 month"
+  ],
+  "architecture_clues": [
+    "WeTech uses one serverless Spark layer to cover data processing, analytics, and machine-learning jobs rather than separate engines for each.",
+    "The platform is built with compute-storage separation, with OSS as the storage substrate and Serverless Spark as the elastic compute tier.",
+    "Apache Paimon, Spark, Flink, and Hive are combined into a unified lakehouse ecosystem.",
+    "Built-in SQL editor and notebook tooling let data scientists work in the same managed environment as ETL developers."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/financial-services-2025-wetech",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云 EMR Serverless Spark 在微财机器学习场景下的应用",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/financial-services-2025-wetech",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:02:42+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "WeTech depends on big data to evaluate risk during the lending process, and the growing scale of its datasets made model training a bottleneck. (original: 微财依托大数据评估用户借款过程中的风险，随着微财业务的快速发展，积累了大量用户数据，大数据集的训练逐渐成为瓶颈。)",
+    "In the machine-learning scenario, the two core problems were breaking through single-machine training limits and improving training efficiency. (original: 在机器学习场景下需要解决的问题如下：一是要突破单机训练使用的数据规模的瓶颈。二是要提高训练的效率。)",
+    "WeTech chose EMR Serverless Spark because the managed platform unified data engineering and data science, and its Fusion engine, vectorized execution, and RSS capabilities stood out in evaluation. (original: 微财最终选择了阿里云 EMR Serverless Spark。作为一站式全托管湖仓分析平台，其自研 Fusion 引擎，内置高性能向量化计算和 RSS 能力，统一的数据工程和数据科学等，都是微财决定选择 Serverless Spark 的重要原因。)",
+    "For lake storage, WeTech adopted Apache Paimon and combined it with Spark, Flink, and Hive to form a complete data-lake ecosystem that already supports real-time monitoring and analysis scenarios. (original: 在数据入湖方面，微财采用了 Apache Paimon 作为数据湖存储框架，并集成了 Apache Spark、Flink 和 Hive 作为计算引擎，构建了一个完整的数据湖生态系统。)"
+  ],
+  "source_language": "zh"
+}

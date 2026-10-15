@@ -1,0 +1,181 @@
+{
+  "id": "alibaba-cloud-jingzhunxue-personalized-learning-assistant",
+  "slug": "alibaba-cloud-jingzhunxue-personalized-learning-assistant",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Jingzhunxue (精准学)",
+  "industry": "Education",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Jingzhunxue needed a low-latency, high-stability infrastructure for an AI tutoring experience that mixes real-time audio and video dialog, ASR, TTS, formula recognition, long-context reasoning, and strong safety controls. User traffic spikes heavily at night and on weekends, so the company also needed GPU elasticity and a way to choose and tune foundation models for educational accuracy and content safety.",
+  "solution_summary": "Jingzhunxue built its AI tutor stack on Alibaba Cloud around ECS, GPU cloud servers, SLS, ARMS, QwenMax, and Bailian. The infrastructure layer provides a stable elastic compute base with 99.975% SLA and 30-second scale-out for evening or weekend demand spikes, while SLS and ARMS give full-link observability so the team can identify bottlenecks and trigger what it calls compute self-healing before users feel service degradation. On the model side, the company is an early deep user of QwenMax and uses Bailian to train an education-specific model behind the Hanzue Teacher super-agent. That model stack handles personalized tutoring, AI homework correction, automatic question-bank extraction, and long-context educational dialog while integrating speech and teaching workflows. The result is a production tutoring system that mixes domain-tuned AI teaching capability with elastic infrastructure built for real-time interactive learning.",
+  "products_used": [
+    "Elastic Compute Service (ECS)",
+    "GPU cloud servers",
+    "Log Service SLS",
+    "Application Real-Time Monitoring Service (ARMS)",
+    "QwenMax",
+    "Bailian"
+  ],
+  "solution_components": [
+    {
+      "name": "Elastic Compute Service (ECS)",
+      "role": "Provides the stable elastic compute base for the real-time tutoring platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPU cloud servers",
+      "role": "Supply the accelerated compute used for deep-learning iteration and AI tutor inference.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Captures operational telemetry and supports rapid detection of AI-service bottlenecks.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Provides end-to-end observability and supports automatic expansion when demand spikes.",
+      "layer": "Governance"
+    },
+    {
+      "name": "QwenMax",
+      "role": "Acts as the core foundation model for tutoring, homework correction, and educational dialog understanding.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Bailian",
+      "role": "Hosts the education-vertical training flow used to build the Hanzue Teacher model stack.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Student voice and text interactions are processed through the tutoring stack, where speech tasks and educational dialog context are routed to the QwenMax and Bailian-trained model layer. Responses are returned to the learner in real time, while SLS and ARMS monitor the inference path and trigger rapid scaling when demand spikes at peak study periods.",
+  "integration_points": [
+    "ASR pipelines",
+    "TTS pipelines",
+    "question-bank extraction workflows",
+    "homework-correction workflows",
+    "real-time tutoring sessions"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Jingzhunxue turned its tutoring product into a real-time AI teaching service that can scale nationally. The platform holds response time to 1.2 to 1.8 seconds, scales within 30 seconds under demand spikes, reduces labor cost by 35%, lifts overall efficiency by 40%, and supports a tutoring experience designed to give many students personalized one-to-one guidance at a much lower delivery cost.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "response time is 1.2 to 1.8 seconds",
+    "infrastructure SLA is 99.975%",
+    "automatic expansion can complete within 30 seconds",
+    "labor cost reduced 35%",
+    "efficiency improved 40%"
+  ],
+  "architecture_clues": [
+    "Peak demand is highly time-dependent, so 30-second elastic expansion is treated as a core product requirement.",
+    "The tutoring stack combines infrastructure observability with an education-vertical model rather than using a generic chatbot directly.",
+    "QwenMax supplies the base reasoning layer, while Bailian is used to train a domain-specific education model for the super-agent.",
+    "The system handles multimodal tutoring tasks including dialog, speech, and structured educational content extraction."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/education-2025-91jzx",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "精准学携手阿里云打造AI教育全链条精准学习方案_教育_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/education-2025-91jzx",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:10+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The tutoring product must finish real-time audio-video dialog, ASR, TTS, and formula recognition in 1.2 to 1.8 seconds to match human conversational expectations. (original: 处理实时音视频对话、语音转文本（ASR）与文本转语音（TTS）转换... 且需在 1.2-1.8 秒内完成响应。)",
+    "Traffic surges by several multiples in the evening and across weekends, which means compute must expand instantly even when GPU resources are tight. (original: 晚上 6-10 点流量较白天骤增数倍，周末全天持续高峰，流量峰值可达日常的五六倍。)",
+    "Jingzhunxue uses ECS and GPU servers together with SLS and ARMS to build a stable elastic compute base and achieve 30-second scale-out plus compute self-healing. (original: 智能精准学依托阿里云 ECS 和 GPU 服务器，构建稳定弹性算力底座，通过 SLS、ARMS 监控实现 30 秒内自动扩容与“算力自愈”。)",
+    "The company deeply applies QwenMax and uses Bailian to train an education-vertical model behind Hanzue Teacher, which supports tutoring, homework correction, and question-bank extraction. (original: 智能精准学是首批深度应用通义千问 QwenMax 大模型的教育企业... 在通义大模型的基础和百炼平台能力训练教育垂直大模型。)"
+  ],
+  "source_language": "zh"
+}

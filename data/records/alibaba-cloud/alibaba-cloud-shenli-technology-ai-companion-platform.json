@@ -1,0 +1,166 @@
+{
+  "id": "alibaba-cloud-shenli-technology-ai-companion-platform",
+  "slug": "alibaba-cloud-shenli-technology-ai-companion-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Shenli Technology (深励科技)",
+  "industry": "Consumer Goods",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Shenli Technology wanted its AI companion products to feel faster, more consistent, and more emotionally believable as user volume grew. Earlier setups struggled with response latency in high-frequency interaction, limited handling of long-form or emotionally complex tasks, weak character consistency over long conversations, and high content-production cost for keeping products fresh.",
+  "solution_summary": "Shenli Technology redesigned its AI companion stack around a layered Qwen architecture delivered through Alibaba Cloud Bailian. Instead of sending every request to one model, the company routes routine high-frequency interactions to Qwen3-flash for low latency and concurrency, while longer story generation, emotional counseling, or more difficult reasoning tasks are escalated to Qwen3-plus and Qwen3-max. Those model outputs are then passed through Shenli's product-specific prompt engineering, memory strategy, and action-driving logic so the same base model family can power two different companion products: AI Xiyangyang for children and AI Kitty Walulu for young adults. The model layer is embedded across input understanding, scenario recognition, response orchestration, memory accumulation, action tags for the physical toy, and automated content generation, creating a closed loop that balances latency, cost, character consistency, and creative freshness.",
+  "products_used": [
+    "Bailian",
+    "Qwen3-flash",
+    "Qwen3-plus",
+    "Qwen3-max"
+  ],
+  "solution_components": [
+    {
+      "name": "Bailian",
+      "role": "Hosts the model-serving and orchestration environment for Shenli's AI companion products.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qwen3-flash",
+      "role": "Handles high-frequency everyday interactions that need fast response and strong concurrency.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen3-plus",
+      "role": "Supports more complex dialog and story-generation workloads when lightweight inference is not enough.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen3-max",
+      "role": "Provides the deepest reasoning for emotionally and narratively complex companion scenarios.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User voice or text inputs are routed into Bailian, where Shenli's scene-recognition logic decides whether the request should be handled by Qwen3-flash, Qwen3-plus, or Qwen3-max. The resulting outputs are then transformed by role prompts, memory policies, and action tags before they are returned to the physical or app-based companion experience.",
+  "integration_points": [
+    "AI Xiyangyang product",
+    "AI Kitty Walulu product",
+    "memory strategy engine",
+    "content-generation engine",
+    "action-tag control logic"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Shenli raised the quality and commercial competitiveness of its companion hardware by turning the model stack into a layered production system. Response speed improved 15%, complex task completion improved 15%, repurchase improved 5%, and daily usage time improved 10%, while automated script generation also reduced content-production cost and shortened feature-iteration cycles.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "response speed improved 15%",
+    "complex-task completion improved 15%",
+    "repurchase improved 5%",
+    "daily usage time improved 10%"
+  ],
+  "architecture_clues": [
+    "Different Qwen variants are selected dynamically by scenario instead of using one model for all interactions.",
+    "The same base models support multiple consumer products through differentiated prompts, memory policies, and action logic.",
+    "Model outputs include both language and action tags, allowing the physical companion device to react in character.",
+    "Automated content generation is treated as part of the runtime architecture, not only a back-office content tool."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-shenli",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "深励科技基于千问大模型“分层协同”架构，重构 AI 玩具的拟人化陪伴体验",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-shenli",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:00+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Shenli described its two flagship products as long-term AI companions that needed natural dialogue, emotional resonance, and differentiated product experiences. (original: 两款产品均以“长期陪伴”为核心，强调自然对话与情感共鸣。)",
+    "The company moved high-frequency interactions to Qwen3-flash and escalated long-story or emotional scenarios to Qwen3-plus and Qwen3-max. (original: 将日常高频交互迁移至 Qwen3-flash... 在长故事生成、情绪疏导等关键复杂场景中，动态调用 Qwen3-plus 与 Qwen3-max 协同处理。)",
+    "Shenli uses separate prompt engineering, memory strategy, and action-driving logic so two products can share one model base while preserving differentiated experiences. (original: 双方共享同一模型底座，但通过独立的提示工程、记忆策略与动作驱动逻辑，实现了“AI 喜羊羊”与“AI 小猫 walulu”的差异化体验。)",
+    "The new system improved response speed 15%, complex-task completion 15%, repurchase 5%, and daily usage time 10%. (original: 响应速度提升 15%... 复杂任务完成率提高 15%... 复购率与日均使用时长分别提升 5% 与 10%。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,171 @@
+{
+  "id": "alibaba-cloud-lemon-it-operations-automation",
+  "slug": "alibaba-cloud-lemon-it-operations-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Lemon (乐檬)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Lemon operates complex multitenant retail SaaS systems spanning POS, ERP, WMS, payment, and mini-program services for a huge store base. Alert rules were split across multiple tools, reporting and query work was too hard for business teams to consume directly, and root-cause analysis still required engineers to jump between systems and rely on expert intuition during incidents.",
+  "solution_summary": "Lemon upgraded its operations model around Alibaba Cloud Cloud Monitor 2.0 and STAROps. Existing logs, metrics, traces, and cloud-monitoring signals are ingested into the observability stack, where UModel correlates them into a digital-twin view of applications, services, resources, and operational relationships. On top of that model, STAROps provides alert-rule governance, event correlation, automated inspections, root-cause analysis, and digital-employee workflows driven by Agent and Mission mechanisms. The long-running Mission model lets Lemon schedule or trigger inspections, analyses, and change actions automatically, while HIL controls keep risky changes gated by human approval. Combined with Cloud Monitor 2.0 and SLS, the platform gives Lemon one governed observability plane for both business and system telemetry, so payment, checkout, store, and settlement incidents can be triaged faster and routine operations can move from manual checks into AI-assisted, repeatable automation.",
+  "products_used": [
+    "Cloud Monitor 2.0",
+    "STAROps",
+    "UModel",
+    "Log Service SLS"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Monitor 2.0",
+      "role": "Provides the unified telemetry and alerting foundation for system and business observability.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "STAROps",
+      "role": "Runs AI-driven alert governance, inspections, root-cause analysis, and digital-employee workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "UModel",
+      "role": "Builds the digital-twin model that links applications, resources, services, and operational context.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Stores and analyzes log data that feeds observability, inspections, and fault analysis.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Logs, metrics, traces, and cloud-monitoring signals from POS, ERP, WMS, payment, and related services flow into Cloud Monitor 2.0 and SLS, where UModel correlates them into a digital twin. STAROps consumes that model to deduplicate alerts, run inspections, trigger root-cause analysis, and create digital-employee workflows that guide or automate response actions.",
+  "integration_points": [
+    "POS SaaS systems",
+    "ERP systems",
+    "WMS systems",
+    "payment and settlement services",
+    "Prometheus metrics",
+    "APM traces"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Data Analytics",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Lemon moved retail SaaS operations from fragmented human-led monitoring toward a unified AI-assisted operating model. The company now uses a single observability and incident-analysis plane across services that support more than 200,000 stores and over 15,000 retail brands, and it can keep mission-based inspections, historical-difference reports, and digital-employee root-cause analysis running continuously so recovery work is pushed down to minute-level response instead of long manual investigations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "supports more than 200,000 stores",
+    "supports more than 15,000 retail brands",
+    "provides 7×24-hour service",
+    "average recovery time for checkout and payment chains was compressed to the minute level"
+  ],
+  "architecture_clues": [
+    "Observability spans both technical and business metrics rather than stopping at host and application monitoring.",
+    "UModel digital-twin correlation is used as the context layer for AI root-cause analysis and digital employees.",
+    "Mission supports scheduled or event-driven inspection and change workflows, with human-in-the-loop controls for risky actions.",
+    "The platform unifies previously separate alerts from SLS, Prometheus, APM, and cloud-product monitoring into one governed entry point."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2026-lemon",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "乐檬基于 STAROps 实现食品零售连锁智能运维自治_零售与电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2026-lemon",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:11+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Lemon needed not another monitoring tool but an intelligent operations system that could unify alerts, lower the barrier to consuming observability data, and let AI complete cross-system diagnosis. (original: 乐檬需要的不是再买一套监控工具，而是一套能统一告警入口、降低数据消费门槛、把防线前移、让 AI 完成跨系统定位的智能运维体系。)",
+    "Lemon chose Cloud Monitor 2.0 and STAROps, with UModel turning logs, metrics, and traces into an end-to-end digital twin. (original: 乐檬选择以阿里云云监控 2.0 以及全域智能运维平台 STAROps 为核心完成这次升级... STAROps 通过 UModel 可观测模型将其统一建模为全链路数字孪生。)",
+    "Mission lets digital employees run inspections, analyses, and change actions autonomously, while HIL approval protects risky operations. (original: 乐檬通过 STAROps 的长期任务（Mission）机制，让数字员工（Agent）按定时或事件驱动的方式自主执行巡检、分析与变更操作... 对于扩缩容、配置变更等高风险动作，Mission 内置的人工干预（HIL）机制会主动发起人工确认请求。)",
+    "When payment or checkout alarms fire, the digital employee can trigger rapid root-cause analysis across systems and help compress recovery time to the minute level. (original: 专属数字员工基于告警或问答直接触发快速根因分析... 收银与支付链路的平均恢复时间稳步压缩到分钟级。)"
+  ],
+  "source_language": "zh"
+}

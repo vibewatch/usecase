@@ -1,0 +1,181 @@
+{
+  "id": "alibaba-cloud-xpeng-autonomous-driving-compute-center",
+  "slug": "alibaba-cloud-xpeng-autonomous-driving-compute-center",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "XPeng (小鹏汽车)",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "XPeng needed an AI infrastructure base for autonomous-driving training, simulation, and connected-car data processing, but its data links were complex, GPU resources were underutilized, observability was incomplete, and the support stack had to serve many additional tools such as workflow orchestration and SRE systems. The company needed one cloud-native foundation that could run data, training, inference, and platform workloads together.",
+  "solution_summary": "XPeng and Alibaba Cloud built the Fuyao autonomous-driving compute center on a unified cloud-native stack centered on Container Service for Kubernetes (ACK). ACK runs data-processing and data-desensitization tasks, while Alibaba Cloud's cloud-native AI suite schedules and manages large-scale autonomous-driving training and simulation jobs. ACK GPU sharing and isolation improve accelerator utilization for those training workloads and also support NLP and automatic speech recognition inference tasks in XPeng's broader product organization. Around the runtime, Prometheus, ARMS, and SLS provide full-link observability, letting XPeng monitor both web or backend systems and model-serving or data pipelines through one telemetry surface. The same container platform also hosts support frameworks such as Airflow, Argo Workflows, Kubeflow Pipelines, and Arena, which means AI workloads and operational tooling share a common orchestration layer instead of being split across incompatible stacks.",
+  "products_used": [
+    "Container Service for Kubernetes (ACK)",
+    "Cloud-native AI suite",
+    "Prometheus",
+    "Application Real-Time Monitoring Service (ARMS)",
+    "Log Service SLS",
+    "Object Storage Service (OSS)",
+    "Container Registry ACR"
+  ],
+  "solution_components": [
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Acts as the common runtime for autonomous-driving data processing, support tooling, and AI workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud-native AI suite",
+      "role": "Schedules and manages large-scale autonomous-driving training and simulation jobs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Prometheus",
+      "role": "Collects metrics across the cloud-native platform so performance and stability issues can be observed quickly.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Adds application-level tracing and monitoring for the service landscape around the compute center.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Stores and analyzes operational logs for the compute center and related services.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Provides shared storage for data and artifacts in the autonomous-driving stack.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Container Registry ACR",
+      "role": "Distributes container images used by the autonomous-driving and support workloads.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Vehicle and platform data-processing tasks run on ACK, where desensitized data and training inputs are prepared and then scheduled into the cloud-native AI suite for simulation and autonomous-driving training. Model-serving and auxiliary inference workloads share the same cloud runtime, while Prometheus, ARMS, and SLS capture platform telemetry so engineers can monitor stability, capacity, and service behavior end to end.",
+  "integration_points": [
+    "data-desensitization tasks",
+    "autonomous-driving training jobs",
+    "simulation workflows",
+    "Airflow",
+    "Argo Workflows",
+    "Kubeflow Pipelines",
+    "Arena"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The Fuyao compute center gave XPeng a shared cloud-native base for autonomous-driving AI workloads and the surrounding platform services that support them. Alibaba Cloud improved GPU utilization, strengthened observability, reduced platform complexity, and established the compute foundation XPeng needs for large-scale training, simulation, and related inference tasks while lowering cost and operational friction.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "ACK is used as the common runtime for AI workloads and non-AI support tools such as workflow engines and SRE systems.",
+    "The cloud-native AI suite sits above ACK as the scheduler and management layer for large-scale autonomous-driving training and simulation.",
+    "ACK GPU sharing and isolation are explicitly used to improve utilization of accelerator resources.",
+    "Observability is built from Prometheus, ARMS, and SLS rather than isolated per-subsystem monitoring tools."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/automotive-2023-xiaopeng",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "小鹏携手阿里云共建自动驾驶智算中心“扶摇”_汽车行业-阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/automotive-2023-xiaopeng",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:04:08+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "XPeng said its autonomous-driving data links were long and fast-growing, AI resource utilization was low, and its technical support stack was too complex. (original: 数据处理链路复杂... 自动驾驶 AI 服务资源利用率低... 支撑平台技术栈复杂。)",
+    "ACK runs data-processing and data-desensitization tasks and provides elastic compute for real-time workloads. (original: 通过容器服务 ACK 运行数据处理和数据脱敏任务，为实时任务提供了弹性算力。)",
+    "The cloud-native AI suite supports XPeng's large-scale autonomous-driving training and simulation scheduling, and ACK GPU sharing improves utilization while also supporting NLP and ASR inference tasks. (original: 云原生 AI 套件不仅支持了小鹏汽车的自动驾驶大规模训练和仿真任务的调度和管理... ACK GPU 共享调度和隔离能力成倍地提高了 GPU 资源的利用率。)",
+    "XPeng also uses Airflow, Argo Workflows, Kubeflow Pipelines, and Arena on ACK so many business and support workloads can run on one technical stack. (original: 通过容器服务 ACK，小鹏汽车还使用了诸多技术处理工作流，例如 Airflow 工作流、分布式工作流 Argo 集群 Workflow、Kubeflow Pipelines、Arena 等。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,154 @@
+{
+  "id": "alibaba-cloud-shihuo-marketing-personalization",
+  "slug": "alibaba-cloud-shihuo-marketing-personalization",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Shihuo (识货)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Shihuo needed a more accurate and scalable way to match its product catalog against listings across many external commerce channels so users could compare prices and buy the right items. Its earlier approach of full-text retrieval plus manual review could not keep up with long-tail SKU growth, and the self-managed Milvus cluster it tried next introduced instability, higher operations complexity, and extra infrastructure work.",
+  "solution_summary": "Shihuo redesigned its commerce-matching pipeline around Alibaba Cloud Vector Search Service Milvus Edition and PAI-EAS. For hot products, the business can still preserve precise human curation, but at long-tail scale the platform now combines full-text retrieval, vector recall, and manual verification. Product data and cross-channel catalog signals are embedded with model services exposed through PAI-EAS, then stored in the managed Milvus service as the low-latency similarity-search layer that powers product association in the app. Moving from self-built Milvus to the managed service also gave Shihuo built-in monitoring, alerting, smoother capacity changes, and more predictable runtime behavior under sustained writes. The result is a retrieval architecture that improves matching quality for shopping decisions while keeping the vector platform much easier to operate as SKU counts and cross-channel comparisons continue to grow.",
+  "products_used": [
+    "Vector Search Service Milvus Edition",
+    "PAI-EAS"
+  ],
+  "solution_components": [
+    {
+      "name": "Vector Search Service Milvus Edition",
+      "role": "Stores product vectors and returns low-latency similarity matches for cross-channel product association.",
+      "layer": "Storage"
+    },
+    {
+      "name": "PAI-EAS",
+      "role": "Runs the embedding-model training and inference services used to generate vectors for retrieval.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Product records from Shihuo and external sales channels are converted into embeddings through PAI-EAS, written into the managed Milvus vector index, and then combined with full-text retrieval and human review to identify the correct cross-channel product matches shown in the app.",
+  "integration_points": [
+    "Shihuo app catalog",
+    "external sales platforms",
+    "manual review workflows",
+    "product-comparison views"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Shihuo improved product-association quality for long-tail commerce data while gaining a far more stable and supportable vector stack. Managed Milvus lifted QPS by around 10% in testing, kept CPU utilization stable near 50% at 2K TPS writes, and eliminated a large share of the hidden people cost that a self-operated vector cluster would have required.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "overall QPS improved about 10%",
+    "write throughput held at 2K TPS",
+    "managed-cluster CPU utilization stayed around 50%",
+    "self-managing the cluster would have required more than one-third of operations manpower"
+  ],
+  "architecture_clues": [
+    "The final retrieval path combines vector recall, full-text retrieval, and manual review rather than replacing all logic with embeddings.",
+    "PAI-EAS is used as the model online service for embedding-related training and inference tasks.",
+    "Milvus is consumed as a fully managed cloud-native service with built-in monitoring and smoother scaling controls.",
+    "The platform preserves human curation for hot products while using vectors to scale long-tail catalog coverage."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2024-shihuo",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "识货基于阿里云向量检索Milvus搭建电商领域的大规模向量数据检索平台_零售与电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2024-shihuo",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:31:55+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Shihuo moved from full-text matching plus manual review to a strategy that adds vector recall for higher accuracy on long-tail products. (original: 识货技术团队果断转向采用“向量检索结合全文检索以及人工审核”的策略，在线上业务中增加准确性更高的向量召回链路。)",
+    "The self-built Milvus cluster saw CPU utilization swing between 50% and 100%, so the team began looking for a more stable vector service. (original: 自建 Milvus 集群... CPU 使用率常在 50%~100% 的范围内大浮动波动... 因此，识货技术团队开始考虑稳定性更高的向量服务。)",
+    "Alibaba Cloud's managed Milvus is fully compatible with open source and can launch a retrieval cluster with one click while providing the surrounding operations infrastructure. (original: 阿里云向量检索服务 Milvus 版是 100% 兼容开源版的全托管产品，兼备了开源 Milvus 全部优势的同时，配套了完善的运维基建，可以一键拉起集群快速启用数据检索服务。)",
+    "Shihuo also uses PAI-EAS in parts of the embedding model training and inference flow, and PAI-EAS showed high-concurrency, low-latency advantages for search and recommendation. (original: 识货当前在其 Embedding 模型的训练与推理流程中... 在部分环节中还使用了阿里云 PAI-EAS... PAI-EAS 在搜索推荐场景下，体现出了高并发和低延迟的技术优势。)"
+  ],
+  "source_language": "zh"
+}

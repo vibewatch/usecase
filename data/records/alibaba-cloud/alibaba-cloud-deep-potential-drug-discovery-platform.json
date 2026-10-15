@@ -1,0 +1,178 @@
+{
+  "id": "alibaba-cloud-deep-potential-drug-discovery-platform",
+  "slug": "alibaba-cloud-deep-potential-drug-discovery-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Deep Potential (深势科技)",
+  "industry": "Healthcare",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Deep Potential needed infrastructure for AI-for-science workloads whose compute demand could spike to hundreds of thousands of cores and whose data path had to support heterogeneous compute pools, hot small files, rapid loading, and quota management. Its Bohrium and Hermite platforms needed storage and scheduling patterns that could keep scientific AI jobs fast and economical even under extreme elasticity.",
+  "solution_summary": "Deep Potential and Alibaba Cloud designed a layered data infrastructure for AI-driven scientific computing and drug design. Near the compute tier, Fluid turns high-speed media inside the cluster into a logical cache layer so model files and data can be loaded faster and images can be pulled quickly enough to launch Pods in seconds. Above that, a general-purpose NAS layer provides shared read or write acceleration for many clusters and helps absorb hotspots caused by huge numbers of small files. For long-term retention, multi-tier OSS stores model files, checkpoints, and datasets economically while still supporting cross-region loading through Alibaba Cloud's global network. Those layers back Deep Potential's Bohrium research cloud and Hermite drug-design platform, allowing the company to pool data across heterogeneous compute, schedule large elastic jobs, and move from experiment-heavy workflows toward model-driven scientific discovery.",
+  "products_used": [
+    "Fluid",
+    "NAS",
+    "Object Storage Service (OSS)",
+    "Container Service for Kubernetes (ACK)",
+    "Container Compute Service (ACS)",
+    "Elastic Compute Service (ECS)"
+  ],
+  "solution_components": [
+    {
+      "name": "Fluid",
+      "role": "Creates the near-compute logical cache layer that speeds data access and image pulls for scientific AI jobs.",
+      "layer": "Storage"
+    },
+    {
+      "name": "NAS",
+      "role": "Provides shared accelerated storage for many clusters and mitigates hot-small-file performance issues.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores model files, checkpoints, and datasets as the long-term low-cost data layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Runs containerized AI-for-science workloads that consume the layered storage design.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Container Compute Service (ACS)",
+      "role": "Adds elastic container compute capacity for scientific workloads that need rapid scale-out.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Elastic Compute Service (ECS)",
+      "role": "Provides additional compute resources that work with the broader AI-for-science infrastructure.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Scientific datasets, model files, and checkpoints are held in OSS, accelerated into NAS for multi-cluster sharing, and cached close to compute by Fluid when jobs are launched on ACK, ACS, and ECS. Those layers feed Bohrium and Hermite workflows so large-scale simulation, training, and drug-design tasks can load data quickly and schedule elastic compute resources efficiently.",
+  "integration_points": [
+    "Bohrium research cloud",
+    "Hermite drug-computation design platform",
+    "scientific datasets",
+    "model checkpoints",
+    "quota-management workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Alibaba Cloud helped Deep Potential turn AI-for-science infrastructure into a production system for industrial and biomedical R&D. The platform can handle hundreds of thousands of cores at peak, support cross-discipline data pooling, and shorten drug-screening and optimization cycles from years to months or even weeks while keeping storage and compute spending under tighter control.",
+  "outcome_category": [
+    "Speed to Market",
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "peak resource demand can reach hundreds of thousands of cores",
+    "phd and postdoc staff account for more than 35% of the company",
+    "drug screening and optimization can be shortened from years to months or weeks"
+  ],
+  "architecture_clues": [
+    "The infrastructure deliberately splits storage into near-compute cache, shared acceleration, and long-term archival layers.",
+    "Pod startup speed is treated as a scientific productivity bottleneck, so image caching is part of the data design.",
+    "The same storage design supports both AI model artifacts and domain datasets such as checkpoints and scientific corpora.",
+    "Elastic compute and data pooling are designed for heterogeneous AI-for-science workloads rather than one fixed model pipeline."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-dp-tec",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "AI 变革药物研发：深势科技基于阿里云存储服务的云原生实践之路",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-dp-tec",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:32:16+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Deep Potential said its scientific-computing workloads can demand hundreds of thousands of cores and must provision compute and data resources in sub-minute or even second-level windows. (original: 科学计算任务对资源的需求具有极致弹性，峰值资源需求可达数十万核，需要在亚分钟级甚至秒级完成计算和数据资源的准备。)",
+    "The AI-for-science workflow needed heterogeneous compute, pooled data, low-latency handling of hot small files, and unified dataset management. (original: AI for Science 全链路涉及多种异构算力和数据池化的需求... 需要对热点小文件实现低延迟加速，并且在高频弹性任务中实现数据的极速加载和统一的数据集管理。)",
+    "Deep Potential layered the infrastructure into a near-compute cache with Fluid, a shared acceleration layer with NAS, and a long-term storage layer with OSS. (original: 数据缓存层... 使用阿里云 Fluid... 共享加速层... 采用阿里云通用型 NAS 方案... 长期存储层... 采用阿里云多级 OSS 对象存储方案。)",
+    "With this platform, users can reduce drug screening and optimization work from years to months or even weeks. (original: 将原本需要数年才能完成的药物筛选和优化工作，用更大规模的算力协同调度缩短至几个月甚至几周。)"
+  ],
+  "source_language": "zh"
+}

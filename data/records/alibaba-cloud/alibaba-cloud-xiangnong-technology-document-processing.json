@@ -1,0 +1,190 @@
+{
+  "id": "alibaba-cloud-xiangnong-technology-document-processing",
+  "slug": "alibaba-cloud-xiangnong-technology-document-processing",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Xiangnong Technology (香侬科技)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "Xiangnong Technology needed a cost-effective but production-grade AI stack for Chinese NLP products that span writing assistance, document intelligence, public-opinion analysis, and government workflows. As a fast-growing startup, it could not afford to run its own datacenter, yet it still needed large-scale GPU training capacity, low-cost storage for massive text corpora, faster preprocessing, and stable monitoring as it turned research-led language models into enterprise services.",
+  "solution_summary": "Xiangnong Technology built its Chinese NLP platform on Alibaba Cloud instead of operating its own machine room. The company first moved workloads to Elastic Compute Service and self-managed Kubernetes, then adopted AKS as the business expanded so containerized model services could scale with less operations overhead. For deep-learning training and inference, Xiangnong uses GPU and AMD instances, with Object Storage Service acting as the shared corpus and artifact layer for large training sets. EMR handles preprocessing and analytics on raw language data before jobs are scheduled into the cloud AI system, while Cloud Monitor watches GPU utilization and alerts on runtime anomalies. Load balancing, autoscaling, and orchestration complete the delivery path so the same stack can support FireDragon Writing, intelligent document processing, smart Q&A engines, public-opinion monitoring, and public-sector applications such as the Yuhang District People's Congress suggestion-routing platform.",
+  "products_used": [
+    "GPU instances",
+    "AMD instances",
+    "Object Storage Service (OSS)",
+    "EMR",
+    "Elastic Compute Service (ECS)",
+    "AKS",
+    "Cloud Monitor"
+  ],
+  "solution_components": [
+    {
+      "name": "GPU instances",
+      "role": "Provide the accelerated training and inference capacity for Xiangnong's deep-learning NLP workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AMD instances",
+      "role": "Expand the compute pool for model training and other high-volume AI tasks that do not require the same GPU profile.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores large training corpora, intermediate datasets, and model artifacts at low cost.",
+      "layer": "Storage"
+    },
+    {
+      "name": "EMR",
+      "role": "Preprocesses and analyzes large text datasets before they are used by Xiangnong's NLP models.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Elastic Compute Service (ECS)",
+      "role": "Runs the core cloud hosts that support training jobs and production NLP services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AKS",
+      "role": "Orchestrates containerized NLP services and reduces the operations burden of scaling the AI platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Monitor",
+      "role": "Tracks GPU resources and service health so the team can keep the AI platform stable and secure.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Enterprise text, public-opinion, and domain datasets are stored in OSS, preprocessed in EMR, and then fed into GPU and AMD training jobs running on ECS and AKS. The trained models are exposed through load-balanced application services that power writing assistance, document processing, smart Q&A, and public-sector routing workflows, while Cloud Monitor feeds alerts and capacity signals back to the operations team.",
+  "integration_points": [
+    "enterprise document repositories",
+    "public-opinion data feeds",
+    "writing-assistant applications",
+    "smart Q&A services",
+    "government suggestion-routing systems"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Alibaba Cloud gave Xiangnong Technology a foundation that could turn Chinese NLP research into production services. The company scaled a portfolio covering writing assistance, intelligent document processing, smart Q&A, and public-sector workflow automation; grew FireDragon Writing registrations by 1500% in one year; and delivered a Yuhang District People's Congress suggestion-routing platform that cut a task from 3 minutes to 0.35 seconds and reduced total handling time from 8 hours to 5 minutes while keeping accuracy above 90%.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "FireDragon Writing registrations grew 1500% in one year",
+    "published 50+ top-conference papers",
+    "secured 70+ core patents",
+    "suggestion routing dropped from 3 minutes to 0.35 seconds",
+    "total handling time fell from 8 hours to 5 minutes",
+    "accuracy exceeded 90%"
+  ],
+  "architecture_clues": [
+    "The platform combines OSS for low-cost corpus storage with EMR preprocessing before training workloads run on GPU and AMD instances.",
+    "Xiangnong evolved from self-managed Kubernetes on ECS to AKS as the NLP service footprint expanded.",
+    "Cloud Monitor is used specifically for GPU monitoring and alerting rather than only generic host telemetry.",
+    "The same cloud AI stack supports consumer writing assistants, enterprise knowledge workflows, and public-sector routing systems."
+  ],
+  "source_url": "https://enterprise.aliyun.com/customer/xiangnongkeji",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "香侬科技_全流程智能计算平台_NLP_企业成长服务中心客户故事-阿里云",
+      "publisher": "Alibaba Cloud",
+      "url": "https://enterprise.aliyun.com/customer/xiangnongkeji",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:32:19+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Xiangnong uses Alibaba Cloud-recommended GPU and AMD instances for sustained deep-learning workloads, connects them with OSS and EMR, and built a complete cloud AI system with ECS, load balancing, autoscaling, and orchestration. (original: 持续且大量的人工神经网络计算的深度学习场景，香侬使用了阿里云推荐的GPU实例及AMD实例。搭配对象存储OSS，在数据层面互相打通，海量训练数据的低成本存储和访问要求得到了满足；通过EMR服务进行数据的预处理，分析效率得到了提升；通过云监控服务进行GPU资源的监控与告警，整个过程更加安全稳定；通过ECS、负载均衡、弹性伸缩、资源编排资源的支持，香侬科技快速在云端搭建了完整AI深度学习业务系统。)",
+    "Xiangnong said it is building industrial AI centered on language understanding, including public-opinion monitoring, intelligent document processing, smart Q&A engines, and intelligent data-governance platforms. (original: 香侬科技正在做的事情——提供以语言理解核心的产业AI技术。见微数据、舆情监控系统、智能文档处理平台、智能问答引擎、智能化数据治理平台在金融、司法、政务、新闻出版、教育各个行业遍地开花。)",
+    "FireDragon Writing can recommend writing materials, perform grammar and fact checks, verify consistency, and continue a story automatically when the writer gets stuck. (original: 火龙果写作... 自动推荐相关写作素材；... 可以帮助作者进行语法纠错、事实性核查、上下文一致性核查、标点格式检查... 当创作陷入瓶颈时，能够根据当前内容，自动生成原创情节进行续写。)",
+    "The Yuhang District People's Congress intelligent dispatching platform reduced a manual 3-minute information-processing task to 0.35 seconds and cut a full 8-hour workflow to 5 minutes with accuracy above 90%. (original: 2021年7月，香侬科技为杭州市余杭区人大办开发了“余杭区人大建议智能分发平台”，仅0.35秒就可以完成原本人工3分钟的信息处理工作，总用时从原本人工处理的8小时工作时间缩短到5分钟，准确率达到了90%以上。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,172 @@
+{
+  "id": "alibaba-cloud-zhiyi-technology-marketing-personalization",
+  "slug": "alibaba-cloud-zhiyi-technology-marketing-personalization",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Zhiyi Technology (知衣科技)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Zhiyi Technology needed to keep a fashion-intelligence platform responsive while running large-scale image-recognition, vector retrieval, trend analysis, and recommendation workflows. Its self-built CDH environment was complicated to operate, on-premises GPU servers created batch-recognition bottlenecks, and the business needed a data platform that could support visual search and fashion-trend insight at scale.",
+  "solution_summary": "Zhiyi Technology evolved its apparel-intelligence stack on Alibaba Cloud by moving heavy compute from a self-built CDH cluster into MaxCompute and DataWorks while using managed Elasticsearch with the Proxima vector engine for interactive analysis and image-based retrieval. Product and social-fashion images are labeled and converted into 256-dimensional vectors by self-developed computer-vision models trained on GPUs that pull annotated images from OSS. Those vectors are then used in visual-search and trend-analysis workflows, while DataWorks handles orchestration and MaxCompute runs the large-scale batch computations that would have been expensive to keep in the old CDH environment. Elasticsearch supports ad hoc search and multidimensional analysis for trend products such as Zhikuan, helping designers and brands explore style trends, discover hot items, and connect image-derived signals to downstream flexible supply-chain decisions.",
+  "products_used": [
+    "MaxCompute",
+    "DataWorks",
+    "Elasticsearch",
+    "Proxima vector engine",
+    "Object Storage Service (OSS)"
+  ],
+  "solution_components": [
+    {
+      "name": "MaxCompute",
+      "role": "Runs the large-scale batch-compute workloads behind Zhiyi's fashion-intelligence platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "DataWorks",
+      "role": "Orchestrates and schedules the data-development and data-processing workflows across the platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Elasticsearch",
+      "role": "Supports ad hoc search, multidimensional analysis, and vector-based fashion-intelligence retrieval.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Proxima vector engine",
+      "role": "Provides vector indexing and similarity retrieval for image-based search and analysis tasks.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores the annotated image assets used in model training.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Fashion images and related product data are labeled and stored in OSS, used to train vision models that generate 256-dimensional vectors, and then fed into Elasticsearch plus Proxima for image retrieval and interactive analysis. DataWorks schedules the workflows and MaxCompute handles the heavier batch computations that power fashion-trend, recommendation, and design-support features.",
+  "integration_points": [
+    "annotated image libraries",
+    "fashion trend-analysis products",
+    "designer workflows",
+    "flexible supply-chain decision systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Alibaba Cloud gave Zhiyi a more operable and scalable fashion-intelligence base. The company reduced the operational burden of self-built Hadoop infrastructure, sped up large-scale recognition and retrieval workflows, and kept image-derived trend signals available for products that support style discovery, intelligent recommendation, and downstream supply-chain planning across thousands of fashion brands.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "the company completed a RMB 200 million Series B financing round in 2021",
+    "vectors are represented in 256 dimensions",
+    "trend-analysis scans can approach the million-record scale"
+  ],
+  "architecture_clues": [
+    "The platform separates heavy batch compute on MaxCompute from interactive search and retrieval on Elasticsearch plus Proxima.",
+    "Annotated image assets remain in OSS and feed a supervised plus active-learning model-improvement loop.",
+    "DataWorks is treated as the workflow control plane for platform-wide data processing rather than a narrow ETL tool.",
+    "Visual search and trend analytics share the same image-embedding foundation."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-financial-services-2025-zhiyitech",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云大数据助力知衣科技打造 AI 服装行业核心竞争力",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-financial-services-2025-zhiyitech",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:04:50+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Zhiyi built a fashion-intelligence SaaS platform around image recognition, data mining, and intelligent recommendation for trend discovery and style suggestion. (original: 知衣凭借图像识别、数据挖掘、智能推荐等核心技术能力... 为服装企业和设计师提供流行趋势预测、设计赋能、款式智能推荐等核心功能。)",
+    "The earlier self-built CDH cluster was complex to operate, and on-premises GPU servers became a bottleneck for large batch image-recognition jobs. (original: 自建 CDH 集群运维比较复杂... 一次批量识别图片的工作量很大，线下的 GPU 服务器计算性能有瓶颈。)",
+    "To reduce operating complexity, Zhiyi migrated compute tasks to MaxCompute and used DataWorks for orchestration and scheduling. (original: 为了降低运维复杂度，知衣科技将计算任务迁移到 MaxCompute，直接基于 DataWorks 进行任务编排调度。)",
+    "Its core visual-search scenario converts each image into a 256-dimensional feature vector and uses Proxima for efficient vector indexing. (original: 将每一幅图抽象成高维（256 维）特征向量，然后将所有特征借助 Proxima 构建成高效的向量索引。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,169 @@
+{
+  "id": "alibaba-cloud-hello-group-customer-service-automation",
+  "slug": "alibaba-cloud-hello-group-customer-service-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Hello Group (哈啰集团)",
+  "industry": "Travel and Hospitality",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Hello Group was handling more than 500,000 service complaints a day across complex mobility transactions, but liability assignment was not accurate enough and customer-service operations were expensive. The company also wanted stronger pre-sales guidance for rental transactions so a large-model agent could improve GMV rather than only automate reactive support.",
+  "solution_summary": "Hello Group built a transaction robot on Alibaba Cloud Bailian using a portfolio of Qwen-Plus, Qwen-Turbo, and Qwen2-7B-Instruct models. The robot spans pre-sales, in-sales, and after-sales steps of the mobility transaction chain, combining user-intent recognition, multi-turn conversation, intelligent Q&A, and liability handling into one business-facing service. To make the system practical inside production workflows, the team introduced RAG, chain-of-thought, and tool-calling patterns so the agent can retrieve policy or scenario context, reason across transaction states, and take guided actions in support and sales flows. Instead of treating the LLM as a sidecar chatbot, Hello embedded the agent directly into the transaction process, using different Qwen models for responsiveness and capability tradeoffs. That design turned the robot into both a service-efficiency layer and a revenue-oriented guide for rental scenarios.",
+  "products_used": [
+    "Bailian",
+    "Qwen-Plus",
+    "Qwen-Turbo",
+    "Qwen2-7B-Instruct"
+  ],
+  "solution_components": [
+    {
+      "name": "Bailian",
+      "role": "Hosts and orchestrates the model portfolio and agent-building workflow for the transaction robot.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qwen-Plus",
+      "role": "Handles higher-complexity reasoning tasks inside the transaction robot.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen-Turbo",
+      "role": "Supports lower-latency conversation and response steps across the transaction chain.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Qwen2-7B-Instruct",
+      "role": "Provides additional model capacity for specialized transaction-robot tasks.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "User requests from pre-sales, order-processing, and after-sales scenarios are routed into the Bailian agent layer, where the appropriate Qwen model is selected. RAG and tool-calling components retrieve policy or order context, the agent reasons over the transaction state, and the output is returned as guidance, liability decisions, or customer-service responses embedded in the business workflow.",
+  "integration_points": [
+    "mobility transaction systems",
+    "rental-car sales workflows",
+    "customer-service operations",
+    "policy and knowledge retrieval",
+    "liability-processing rules"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Sales Automation"
+  ],
+  "business_outcome": "Hello Group turned the transaction robot into a full-chain service and growth lever. The Alibaba Cloud implementation reduced customer- service operating cost by more than 30%, improved rental-car GMV by 5% in guided sales scenarios, and lifted liability-decision accuracy to 87%+, which reduced complaints while improving the user experience across complex mobility transactions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Revenue Growth",
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "500,000+ complaints per day",
+    "customer-service operating cost reduced 30%+",
+    "rental-car GMV improved 5%",
+    "liability-decision accuracy reached 87%+"
+  ],
+  "architecture_clues": [
+    "Multiple Qwen models are used together so different transaction tasks can balance cost, latency, and reasoning depth.",
+    "RAG, chain-of-thought, and tool-calling are part of the production agent design rather than offline experimentation.",
+    "The agent is embedded directly into pre-sales, in-sales, and after-sales steps instead of being limited to a standalone chatbot.",
+    "The system targets both service-cost reduction and GMV growth in the same architecture."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-2024-hellobike",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "哈啰集团基于阿里云百炼打造大模型交易机器人_互联网_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-2024-hellobike",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:32:09+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Hello faced more than 500,000 complaints a day and complex order-processing flows, which drove up service cost and exposed inaccurate liability assignment. (original: 哈啰集团在出行领域客诉量每日高达 50 万+ 单，同时订单处理流程复杂，且判责准确率不高，导致客服人工运营成本较高。)",
+    "The team wanted a large-model transaction robot that would run through the whole chain from pre-sales to after-sales. (original: 客户希望开发一款基于大模型的交易机器人，贯穿在业务交易的售前售中售后各个环节。)",
+    "Hello combined Qwen-Plus, Qwen-Turbo, and Qwen2-7B-Instruct with RAG, COT, and TOOL techniques to build the agent and upgrade every link of the transaction robot. (original: 哈啰基于千问的 Qwen-Plus、Qwen-Turbo、Qwen2-7B-Instruct 等模型组合... 同时引入 RAG、COT、TOOL 等技术构建 Agent。)",
+    "The resulting system reduced customer-service operating cost by more than 30%, raised rental GMV by 5%, and pushed liability accuracy above 87%. (original: 哈啰出行客服运营成本降低 30%+... 租车 GMV 提升 5%... 判责准确率高达 87%+。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,164 @@
+{
+  "id": "alibaba-cloud-zhiyi-technology-supply-chain-optimization",
+  "slug": "alibaba-cloud-zhiyi-technology-supply-chain-optimization",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Zhiyi Technology (知衣科技)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Zhiyi Technology needed to match millions of product images against millions of overseas social-media assets so merchants could use creator content and trend signals for cross-border product-selection decisions. The scale of 10 million product vectors versus 2 million social-media query vectors made full matching extremely expensive, and the existing approach limited both freshness and the size of the content pool.",
+  "solution_summary": "Zhiyi Technology rebuilt its large-scale image-matching workflow on Alibaba Cloud MaxCompute vector search while preserving its own computer- vision models. Social-media images and product images are first cleaned and cropped so only the garment region is passed downstream, which reduces noise from people, backgrounds, and accessories. Zhiyi's self-developed CV model then labels the cropped images and generates feature vectors on GPU clusters. Instead of shipping those vectors into a separate external vector-retrieval stack, the company writes them directly into MaxCompute and uses VECTOR_SEARCH SQL to perform massive offline similarity matching. That lets the business keep the model layer in-house while outsourcing the heavy retrieval layer to managed infrastructure. The new pipeline lowers CPU and memory cost sharply, reduces operational burden, and makes high-frequency full matching practical enough for ongoing merchandising and trend-selection workflows.",
+  "products_used": [
+    "MaxCompute",
+    "GPU cluster",
+    "Self-developed CV model"
+  ],
+  "solution_components": [
+    {
+      "name": "MaxCompute",
+      "role": "Runs the large-scale offline vector retrieval layer that matches product and social-media content in batch.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPU cluster",
+      "role": "Runs Zhiyi's self-developed CV models for garment detection, labeling, and feature-vector generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Self-developed CV model",
+      "role": "Extracts clothing-region features and produces the vectors used for matching and trend analysis.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Product and overseas social-media images are cleaned, cropped to the garment region, and then processed by Zhiyi's CV model on GPU clusters to generate vectors. Those vectors are written into MaxCompute, where VECTOR_SEARCH SQL performs batch similarity matching so merchandising teams can connect products with creator content and trend signals for product-selection decisions.",
+  "integration_points": [
+    "overseas social-media content",
+    "product-image libraries",
+    "cross-border ecommerce selection workflows",
+    "merchant decision systems"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "The MaxCompute-based workflow removed a major scaling bottleneck from Zhiyi's matching engine. At the same vector scale, CPU consumption fell by about 73% and memory consumption by about 93%, which reduced retrieval cost by more than 70% and made it feasible to rerun full matching more often so merchants can use fresher off-site trend signals in product-selection decisions.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "resource consumption reduced more than 70%",
+    "10 million product-side 512-dimensional vectors",
+    "2 million social-media-side query vectors",
+    "CPU consumption fell about 73%",
+    "memory consumption fell about 93%",
+    "production cutover finished in about two weeks"
+  ],
+  "architecture_clues": [
+    "The workflow deliberately separates computer-vision understanding from the retrieval layer so the customer keeps its own model assets.",
+    "Image preprocessing crops garment regions before embedding generation to reduce noise from background elements.",
+    "Vector retrieval is executed in MaxCompute with SQL semantics instead of a separately operated ANN infrastructure tier.",
+    "The pipeline is optimized for high-frequency full reruns so trend freshness can influence merchandising decisions."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2026-zhiyitechnology",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "知衣科技基于MaxCompute向量检索，千万级匹配资源消耗降 70%+_零售&电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2026-zhiyitechnology",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:00+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Zhiyi needed to match about 10 million product vectors against about 2 million social-media query vectors in a single retrieval cycle. (original: 单轮检索中，商品侧约 1000 万条 512 维向量需与约 200 万条社媒侧查询向量完成全量匹配。)",
+    "The company defined the division of labor as self-developed models for understanding and MaxCompute for retrieval. (original: 知衣科技与阿里云大数据 AI 平台合作，确立了“自研模型负责理解、MaxCompute 负责检索”的技术分工。)",
+    "Zhiyi moved from Proxima to MaxCompute vector retrieval, keeping vectors in MaxCompute and using VECTOR_SEARCH SQL for batch similarity matching. (original: 知衣科技将原有的 Proxima 检索方案替换为 MaxCompute 提供的离线向量检索能力... 通过标准的 VECTOR_SEARCH SQL 函数完成向量批量相似度匹配。)",
+    "At the same retrieval scale, CPU consumption dropped about 73% and memory consumption about 93%. (original: MaxCompute 离线向量检索的 CPU 消耗下降约 73%，内存消耗下降约 93%。)"
+  ],
+  "source_language": "zh"
+}

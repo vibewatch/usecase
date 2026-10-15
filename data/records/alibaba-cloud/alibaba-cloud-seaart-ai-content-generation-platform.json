@@ -1,0 +1,169 @@
+{
+  "id": "alibaba-cloud-seaart-ai-content-generation-platform",
+  "slug": "alibaba-cloud-seaart-ai-content-generation-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "SeaArt AI (海艺 AI)",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "SeaArt AI had to serve a fast-growing generative-image platform with millions of active users, hundreds of thousands of models, and highly variable combinations of base models, LoRA adapters, and ControlNet pipelines. The company needed lower-latency inference, cheaper end-to-end model scheduling, and faster model reads so user experience would not collapse under queueing and asset churn.",
+  "solution_summary": "SeaArt AI rebuilt its image-generation serving path on Alibaba Cloud around DeepGPU, ACK AI Suite, Fluid, and OSS acceleration. DeepGPU improves single-node inference performance for the image-generation stack, reducing the compute cost of core model execution relative to both native PyTorch and xFormers-style baselines. To tackle end-to-end bottlenecks instead of only kernel speed, SeaArt also adopted Fluid as a distributed model-cache layer in the inference-node memory tier, where hot models can be expanded or replaced through LRU-style cache management. OSS Accelerator complements that layer by raising throughput for model reads when assets are not already resident in memory. Together those components let SeaArt serve a huge model catalog with much less waiting during model and LoRA switching, while preserving enough elasticity to support a global AI-creation platform whose asset inventory and concurrency requirements keep changing.",
+  "products_used": [
+    "DeepGPU",
+    "ACK AI Suite",
+    "Fluid",
+    "OSS Accelerator"
+  ],
+  "solution_components": [
+    {
+      "name": "DeepGPU",
+      "role": "Accelerates core image-generation inference so model execution is faster and more efficient.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ACK AI Suite",
+      "role": "Provides the cloud-native serving framework that hosts SeaArt's model-scheduling and inference workloads.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Fluid",
+      "role": "Adds a distributed in-memory model-cache layer that improves model and adapter read performance.",
+      "layer": "Storage"
+    },
+    {
+      "name": "OSS Accelerator",
+      "role": "Improves throughput when large model assets must be read from object storage into serving nodes.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "User prompts are routed into the ACK AI Suite serving layer, where the requested base models, LoRA adapters, and ControlNet assets are fetched either from Fluid's distributed cache or through OSS Accelerator. DeepGPU then executes the model inference path and returns images to the user-facing creation workflow with lower latency and less queue-induced degradation.",
+  "integration_points": [
+    "SeaArt model catalog",
+    "LoRA adapters",
+    "ControlNet pipelines",
+    "global user-facing image-generation workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Alibaba Cloud helped SeaArt move from queue-heavy image generation to a faster, more elastic serving stack. Model inference time fell to 3.95 seconds, end-to-end performance still improved more than 50% even after model-read overhead was counted, and the platform could keep serving more than 10 million active users across a catalog of over 300,000 models and more than 1 billion image-video assets.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "more than 10 million active users globally",
+    "more than 1 billion image and video assets",
+    "more than 300,000 models",
+    "inference time reduced to 3.95 seconds",
+    "overall model performance improved more than 50%",
+    "DeepGPU improved inference 2.5x to 6x versus native PyTorch and 1.5x to 2.3x versus xFormers"
+  ],
+  "architecture_clues": [
+    "The serving design optimizes both kernel execution speed and end-to-end model-read behavior instead of focusing on only one bottleneck.",
+    "Fluid is used as an in-memory distributed model cache with dynamic LRU-style replacement for hot models.",
+    "OSS Accelerator remains part of the critical path so uncached model assets can still be loaded efficiently.",
+    "The platform is built to support large combinations of base models, LoRA adapters, and ControlNet assets."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-2024-seaartai",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "端到端性能翻倍，阿里云助力海艺AI提升用户AI绘画体验_互联网_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-2024-seaartai",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:05:00+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "SeaArt AI serves more than 10 million active users worldwide, with more than 1 billion image and video assets and more than 300,000 models. (original: 目前，海艺 AI 在全球已积累超过 1000 万活跃用户... 拥有超过 10 亿的优质图像视频素材，模型数量超过 30 万。)",
+    "To handle diverse user requests, SeaArt needed an efficient and cost-effective inference cluster and had to optimize model scheduling plus read or write performance. (original: 海艺 AI 需要一套高效且具备性价比的解决方案来构建用户服务推理集群，这不仅需要在单点推理性能上进行极致优化，还需要进一步优化端到端多样模型组合的调度与读写能力。)",
+    "DeepGPU improved inference 2.5 to 6 times versus native PyTorch and 1.5 to 2.3 times versus xFormers. (original: DeepGPU 相较原生 PyTorch 推理性能提升 2.5-6 倍，相较社区级领先框架 xFormers 推理性能提升 1.5-2.3 倍。)",
+    "With DeepGPU plus Fluid and OSS acceleration, SeaArt reduced inference time to 3.95 seconds and still improved overall end-to-end performance by more than 50%. (original: 阿里云的 DeepGPU 方案，帮助海艺 AI 的推理耗时提升至 3.95 s... 对比原架构的 8-10 s 性能提升 50% 以上，端到端性能... 整体提升依然在 50% 以上。)"
+  ],
+  "source_language": "zh"
+}

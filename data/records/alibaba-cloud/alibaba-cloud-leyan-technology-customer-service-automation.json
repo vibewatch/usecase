@@ -1,0 +1,163 @@
+{
+  "id": "alibaba-cloud-leyan-technology-customer-service-automation",
+  "slug": "alibaba-cloud-leyan-technology-customer-service-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Leyan Technology (乐言科技)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Leyan Technology's intelligent customer-service robot had to route enormous amounts of dialog traffic for ecommerce brands, but the company's self-built Kafka environment was becoming expensive, hard to scale, and too inflexible for precision consumption. Because the same messaging backbone also served AI and data systems, instability or coarse-grained routing directly affected the performance and extensibility of its AI SaaS platform.",
+  "solution_summary": "Leyan Technology rebuilt the messaging core behind its AI customer-service platform on Alibaba Cloud's serverless RocketMQ service. The new architecture keeps dialog distribution as the central event fabric for the LeYu Zhuren ecommerce robot, but replaces self-operated Kafka clusters with a managed message layer that can handle traffic spikes, resource elasticity, and differentiated delivery rules with less manual work. Messages from ecommerce conversations and downstream AI or data services are routed through RocketMQ topics and tags so consumer applications can subscribe with stronger precision than the earlier pipe-like design allowed. This gives Leyan a more cloud-native control plane for strong-consistency or ordered workloads, lowers the burden of operating multiple clusters, and preserves a reliable backbone for NLP, knowledge-graph, deep-learning, and large-model workloads that sit above the queue layer in its broader AI SaaS stack.",
+  "products_used": [
+    "Message Queue for Apache RocketMQ Serverless",
+    "LeYu Zhuren",
+    "Leyan GPT"
+  ],
+  "solution_components": [
+    {
+      "name": "Message Queue for Apache RocketMQ Serverless",
+      "role": "Acts as the elastic event backbone for dialog distribution and downstream AI-service processing.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LeYu Zhuren",
+      "role": "Uses the queue backbone to receive customer requests and deliver AI-driven ecommerce customer-service responses.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Leyan GPT",
+      "role": "Extends the platform with large-model capabilities for industry solutions and new AI workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Buyer requests from ecommerce channels enter Leyan's customer-service platform, are distributed through RocketMQ, and then consumed by AI dialog, recommendation, and data services. The processed outputs flow back into customer-service conversations or related downstream systems, while tags and filtering rules determine which business components consume which message streams.",
+  "integration_points": [
+    "Tmall",
+    "Taobao",
+    "JD.com",
+    "AI data services",
+    "customer-service operations",
+    "cross-border ecommerce workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Leyan lowered infrastructure cost for its AI service backbone while making the platform more adaptable for high-volume ecommerce support and new business scenarios. The RocketMQ-based redesign reduced overall cost by 37%, preserved support for a service that handles more than 20 million interactions per day, and gave the company a more precise and extensible messaging layer for both domestic and cross-border AI commerce services.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "overall cost dropped 37%",
+    "LeYu Zhuren serves more than 20 million interactions per day",
+    "the company works with more than 60,000 ecommerce customers",
+    "cross-border AIGC solution serves more than 4 million overseas stores"
+  ],
+  "architecture_clues": [
+    "Dialog-message distribution is treated as the central event fabric for the AI customer-service robot.",
+    "RocketMQ is used for stronger precision consumption with tags and SQL-style filtering instead of a coarse message-pipe model.",
+    "The same backbone supports both customer-service traffic and AI or data-system integration workloads.",
+    "The platform evolved from self-built Kafka clusters to a managed serverless queue architecture to handle variable traffic more efficiently."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-leyantech",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "云原生加速电商行业赋能，云消息队列助力乐言科技降本37%_互联网与信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-leyantech",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:01:13+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Leyan's core business includes the LeYu Zhuren intelligent customer-service robot, which uses NLP, knowledge graphs, and deep learning to handle buyer consultations, issue resolution, recommendations, and relationship maintenance. (original: 其自主研发的电商智能客服机器人“乐语助人”... 基于自然语言处理、知识图谱、深度学习等人工智能技术，具备充分的语言理解能力，可以模拟金牌客服的回复逻辑，执行买家咨询接待、业务问题处理、智能推荐、客情维系等任务。)",
+    "Kafka also acted as the data channel among AI and big-data systems, so ensuring smooth messaging was critical to the broader platform. (original: Apache Kafka 还作为各数据系统（如 AI、大数据等）之间的数据通道。因此，确保其消息服务流程的顺畅至关重要。)",
+    "For business-decoupling and strong-consistency scenarios, Leyan adopted Alibaba Cloud RocketMQ Serverless to deliver higher reliability and deterministic behavior. (original: 针对侧重于业务解耦、涉及较多后置逻辑处理的场景（如强一致性、顺序消息等），采用阿里云消息队列 RocketMQ 版 Serverless 系列，以满足高可靠性与确定性需求。)",
+    "The new architecture cut cost by 37% while supporting an AI SaaS platform that already serves more than 20 million people a day and over 60,000 ecommerce customers. (original: 云消息队列助力乐言科技降本 37%... “乐语助人”每天服务超过 2000 万人次，与六万余家电商客户合作。)"
+  ],
+  "source_language": "zh"
+}

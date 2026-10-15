@@ -1,0 +1,171 @@
+{
+  "id": "alibaba-cloud-lenztech-real-time-analytics",
+  "slug": "alibaba-cloud-lenztech-real-time-analytics",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Lenztech (Trax China) (朗镜科技)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Lenztech had to process millions of retail shelf images and massive SKU catalogs every day while maintaining very high recognition accuracy and low latency. Complex in-store scenes, frequent model updates, and the need for better small-file handling meant the company needed a faster data pipeline, stronger inference performance, and higher GPU utilization without turning platform operations into a bottleneck.",
+  "solution_summary": "Lenztech and Alibaba Cloud upgraded the AI product-recognition platform behind Trax China's digital-shelf services with a layered cloud AI architecture. At the data-preparation tier, CPFS provides high-throughput, low-latency file storage so many workers can write images in parallel, while OSS keeps storage economics under control and lets image data move between cost and performance tiers. For inference, Lenztech connected its self-developed high-performance operator library to the DeepGPU toolkit, accelerating multiple computer-vision models so recognition jobs can hit both high-accuracy and low-latency targets. Around the serving layer, the team combined its existing containerized architecture with Alibaba Cloud's cloud-native AI suite so GPU sharing, memory isolation, and flexible scheduling policies can keep inference tasks stable even as model versions and workloads change quickly. The result is a faster, more economical vision platform for shelf and retail analytics.",
+  "products_used": [
+    "CPFS",
+    "Object Storage Service (OSS)",
+    "DeepGPU",
+    "Cloud-native AI suite"
+  ],
+  "solution_components": [
+    {
+      "name": "CPFS",
+      "role": "Provides the high-throughput parallel file layer for image preprocessing and small-file writes.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores image assets economically and works with CPFS to balance cost and performance.",
+      "layer": "Storage"
+    },
+    {
+      "name": "DeepGPU",
+      "role": "Accelerates the inference of Lenztech's computer-vision models to meet accuracy and latency goals.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud-native AI suite",
+      "role": "Adds GPU sharing, memory isolation, and scheduling controls for the containerized inference platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Retail images are written into CPFS and OSS, preprocessed for model input, and then sent to DeepGPU-accelerated computer-vision models on the cloud AI platform. The inference results are returned to retail analytics and shelf-monitoring services, while the cloud-native AI suite keeps GPU scheduling and model-serving resources stable as workloads and model versions evolve.",
+  "integration_points": [
+    "retail image-ingestion clients",
+    "digital-shelf monitoring services",
+    "consumer packaged goods brand analytics",
+    "containerized inference platform"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "The Alibaba Cloud redesign helped Lenztech speed up the core vision pipeline behind its digital-shelf services. Data-processing time improved by more than 50%, DeepGPU accelerated vision inference by as much as 4.60x, GPU-cluster utilization improved 30%, and the platform kept 97%+ recognition accuracy while ensuring more than 95% of complex flows completed within 10 seconds.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "data-processing time improved 50%+",
+    "small-file write latency above 100 ms fell below 5%",
+    "recognition accuracy exceeded 97%",
+    "95%+ of complex flows finished within 10 seconds",
+    "inference acceleration reached 1.12x to 4.60x",
+    "GPU-cluster utilization improved 30%"
+  ],
+  "architecture_clues": [
+    "The storage design deliberately separates high-performance preprocessing on CPFS from lower-cost storage on OSS.",
+    "DeepGPU is combined with Lenztech's own operator library rather than used as a black-box inference layer.",
+    "The serving platform remains containerized and is enhanced with cloud-native AI scheduling controls for GPU sharing and memory isolation.",
+    "The platform is tuned for both high-frequency model iteration and large daily image volumes across many retail categories."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/ai-2024-lenztech-trax",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云助力朗镜科技 AI 商品识别平台完成云原生架构升级",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/ai-2024-lenztech-trax",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:02:25+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Lenztech processes millions of images and massive SKU volumes every day, so the platform had to improve image handling speed and stay responsive in complex retail scenes. (original: 朗镜科技每日需处理数以百万计的图片及海量 SKU... 需要提升小文件处理能力，力求缩短下载延迟，实现即时响应。)",
+    "Using CPFS for parallel writes reduced the share of small-image writes with more than 100 ms latency to under 5% and lifted overall data-processing speed by more than 50%. (original: 采用阿里云的高性能文件存储 CPFS... 小文件图片百毫秒以上写入延迟占比减少到 5% 以内，整体数据处理时间提升 50% 以上。)",
+    "By combining its own operator library with DeepGPU, Lenztech accelerated multiple computer-vision models by 1.12x to 4.60x while serving daily recognition tasks. (original: 将上层模型算法推理能力与阿里云的 DeepGPU 工具包紧密结合... 成功实现了多个计算机视觉模型的推理加速，加速比区间达到 1.12 至 4.60 倍。)",
+    "The cloud-native AI suite raised overall GPU-cluster utilization by 30% and reduced the operations complexity of the AI cluster. (original: 该方案深度融合了 GPU 共享调度、显存隔离、灵活的调度策略等技术，将现有 GPU 集群利用率整体提升了 30%，显著简化了 AI 集群的运维复杂度。)"
+  ],
+  "source_language": "zh"
+}

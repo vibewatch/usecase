@@ -1,0 +1,158 @@
+{
+  "id": "alibaba-cloud-semir-fashion-design-generation",
+  "slug": "alibaba-cloud-semir-fashion-design-generation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Semir (森马)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Semir wanted to embed text-to-image AIGC deeply into fashion design and broader apparel workflows, but building a GPU cluster from scratch would have required large capital decisions, long procurement cycles, and ongoing isolation or scheduling work. The company needed an easier way to test and scale generative design without overcommitting to fixed infrastructure.",
+  "solution_summary": "Semir adopted Alibaba Cloud Function Compute as the serverless base for its AIGC design workflow and used Stable Diffusion as the image- generation engine. Function Compute provides virtualized GPU resources that can be scaled per request instead of through long-lived cluster planning, and it supports multiple card types plus very small 1 GB GPU slices so design workloads can start cheaply and scale only when needed. Around the model itself, Semir built AI inference applications and serving logic on top of the serverless runtime so designers could submit prompts, switch models without heavy tenant interference, and avoid the long queues common in shared local WebUI setups. Because the platform includes monitoring, logging, and alarm capabilities by default, the company could focus on testing how AIGC fits apparel design instead of first building a complex ops stack. The result was a practical, low-friction path from experimentation to production design support.",
+  "products_used": [
+    "Function Compute",
+    "Stable Diffusion",
+    "GPU resource pool"
+  ],
+  "solution_components": [
+    {
+      "name": "Function Compute",
+      "role": "Provides the serverless GPU runtime and scaling layer for Semir's AIGC design applications.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Stable Diffusion",
+      "role": "Generates apparel design images from prompts as the core AIGC model engine.",
+      "layer": "Compute"
+    },
+    {
+      "name": "GPU resource pool",
+      "role": "Supplies elastic virtualized GPU capacity, including small-slice configurations for cost-efficient inference.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Designers submit prompts into the Function Compute-based inference application, where Stable Diffusion loads on elastic GPU resources, generates candidate design drafts, and returns them to the apparel workflow. Monitoring and scaling are handled by the serverless platform so peak creative demand can be absorbed without a dedicated cluster-operations team.",
+  "integration_points": [
+    "designer prompt workflows",
+    "AIGC image-generation applications",
+    "apparel design-review processes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Semir moved AIGC apparel design from an expensive infrastructure decision into a practical production workflow. The serverless design stack can generate design drafts in 30 seconds, avoid the three-day turnaround common in earlier manual cycles, and keep GPU utilization above 70%, giving the company a faster and less risky path to applying AI across product design and related creative work.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "design drafts generated in 30 seconds",
+    "minimum GPU slice size is 1 GB",
+    "GPU utilization exceeded 70%",
+    "a process that previously took 3 days can now finish in 30 seconds"
+  ],
+  "architecture_clues": [
+    "The serving model is serverless rather than cluster-centric, which changes the cost structure of design experimentation.",
+    "Stable Diffusion is wrapped inside an inference application rather than exposed only as a shared WebUI.",
+    "Very small GPU slices allow low-cost design experimentation before scaling up to larger runs.",
+    "Semir relies on built-in logging, monitoring, and alarm features rather than standing up a separate operations stack first."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2024-semir",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "森马使用函数计算+ AIGC实现30秒出服装设计稿_零售与电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2024-semir",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:03:52+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Semir wanted to embed AI deeply into the apparel business chain from product design to marketing and after-sales service. (original: 森马希望迅速将 AI 技术深度融入到企业的核心业务流程中，实现服装行业中，从产品设计、生产制造、营销推广到售后服务的全链条智能化升级。)",
+    "The company saw self-built GPU clusters as expensive and difficult to operate, especially for an early-stage AIGC project. (original: 自建 GPU 集群成本高、运维难... 初始资源投入非常大，且后期的运维难题更是令众多企业望而却步。)",
+    "Function Compute provides elastic, pay-as-you-go virtualized GPU resources and supports very small 1 GB instances. (original: 函数计算... 对使用者提供弹性、按量的高度虚拟化的 GPU 算力集群... 支持单实例最小 1 GB 显存配置。)",
+    "Semir used Function Compute plus AIGC to produce apparel design drafts in 30 seconds. (original: 森马使用函数计算+ AIGC实现30秒出服装设计稿。)"
+  ],
+  "source_language": "zh"
+}
