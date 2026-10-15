@@ -1,0 +1,189 @@
+{
+  "id": "alibaba-cloud-eclicktech-agentic-ops-observability-platform",
+  "slug": "alibaba-cloud-eclicktech-agentic-ops-observability-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "ECLICKTECH (易点天下)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "ECLICKTECH's operations team had to manage a multi-cloud, multi-product environment that supported several lines of business, but its observability data, alerting systems, and AI tooling were fragmented across separate platforms and personal workspaces. That made end-to-end troubleshooting slow, prevented the team from turning individual agents and skills into shared organizational assets, and raised governance concerns around multi-agent execution, least-privilege access, auditability, and human fallback as the company tried to scale AI-assisted operations.",
+  "solution_summary": "ECLICKTECH rebuilt its intelligent operations architecture on Alibaba Cloud as a three-layer stack spanning business systems, a shared AI and data middle platform, and intelligent multi-cloud management infrastructure. Cloud Monitor 2.0, Managed Service for Prometheus, and Log Service SLS aggregate metrics, traces, logs, events, and alerts from multiple cloud products into one end-to-end observability view. AgentCore then serves as the control plane for operations agents and skills: it registers hosted and managed agents, routes requests with a Leader Agent, orchestrates multi-agent tasks, and connects through MCP to ContextDB so historical cases and operations knowledge can be reused. STAROps exposes those capabilities through natural-language workflows for tasks such as multi-account ECS metric onboarding, while AgentLoop records call chains, sessions, token usage, execution traces, audits, and evaluation results so the team can govern and continuously improve agent behavior.",
+  "products_used": [
+    "Cloud Monitor 2.0",
+    "Managed Service for Prometheus",
+    "Log Service SLS",
+    "STAROps",
+    "AgentCore",
+    "AgentLoop"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Monitor 2.0",
+      "role": "Aggregates multi-cloud operations telemetry into the shared observability base used for end-to-end monitoring.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Managed Service for Prometheus",
+      "role": "Collects and aggregates ECS and other infrastructure metrics for cross-account monitoring and delivery.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Stores logs and event data so operators and agents can investigate incidents from a unified view.",
+      "layer": "Storage"
+    },
+    {
+      "name": "STAROps",
+      "role": "Provides the natural-language operations interface for daily automation tasks and efficiency gains.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AgentCore",
+      "role": "Manages agent and skill registration, routing, orchestration, and lifecycle governance across the operations estate.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AgentLoop",
+      "role": "Captures execution traces, audits risk, and supports continuous evaluation of agents and skills.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Metrics, traces, logs, events, and alerts from ECLICKTECH's multi-cloud business systems and ECS accounts are aggregated through Cloud Monitor 2.0, Managed Service for Prometheus, and Log Service SLS into one observability plane. AgentCore registers agents and skills, lets a Leader Agent route requests, and connects to ContextDB over MCP for historical knowledge. STAROps exposes those capabilities through natural-language workflows, while AgentLoop records calls, tokens, and audit results for governance and improvement.",
+  "integration_points": [
+    "business systems",
+    "multi-cloud platforms",
+    "alerting systems",
+    "ContextDB knowledge base",
+    "internal systems",
+    "Feishu bot",
+    "multi-account ECS environments"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "ECLICKTECH replaced fragmented monitoring and individually managed AI tooling with an organization-wide intelligent operations loop. The unified observability foundation improved troubleshooting efficiency by giving teams one view from infrastructure to application, STAROps reduced repetitive work by turning multi-account ECS metric onboarding from a days-long manual process into an hours-long natural-language workflow, and AgentCore plus AgentLoop gave the company reusable agent governance, security scanning, auditability, and continuous evaluation for scaling multi-agent operations without duplicating skills.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "serves more than 10,000 enterprises and brands expanding overseas",
+    "connects more than 600,000 media outlets globally",
+    "covers 200+ countries and regions",
+    "multi-account ECS metric onboarding and aggregated delivery cycle was shortened from days to hours"
+  ],
+  "architecture_clues": [
+    "The overall AI architecture is organized into business systems, a unified AI and data middle platform, and intelligent multi-cloud management infrastructure.",
+    "A Leader Agent handles scenario recognition, intelligent routing, and multi-agent task orchestration inside AgentCore.",
+    "ContextDB is connected through MCP so agents can query historical cases and operations knowledge in real time.",
+    "AgentLoop records call chains, sessions, token consumption, and execution traces for audit and evaluation.",
+    "Feishu bot connectivity and internal-system integration are part of the governed agent-management layer."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-eclicktechsre",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "易点天下基于阿里云智能运维产品构建统一可观测与智能体治理体系",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-eclicktechsre",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T18:21:14+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    },
+    {
+      "id": "company-profile",
+      "title": "践行社会责任 走进易点天下",
+      "publisher": "ECLICKTECH",
+      "url": "https://www.eclicktech.com.cn/html/company/931.html",
+      "source_type": "Company profile",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T18:24:08+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "metrics"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "company-profile"
+    ],
+    "region": [
+      "company-profile"
+    ],
+    "company_size": [
+      "company-profile"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story",
+      "company-profile"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story",
+      "company-profile"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The company's overall AI architecture is divided into three layers: the business systems layer, the unified AI and data middle platform layer, and the intelligent multi-cloud management infrastructure layer, forming a closed loop in which the business calls downward and data feeds back upward. (original: 公司整体 AI 架构自上而下分为三层：业务系统层、统一 AI 中台与数据中台层、智能化多云管理基础设施层，形成业务向下调用、数据向上反馈的闭环体系。)",
+    "Alibaba Cloud aggregates multi-cloud operations data through a unified observability foundation, uses AgentCore to govern and orchestrate agents and skills, and relies on AgentLoop for end-to-end observation, risk auditing, and continuous evaluation. (original: 阿里云以统一可观测底座汇聚多云运维数据，通过 AgentCore 统一治理和编排 Agent 与 Skill，并借助 AgentLoop 实现全链路观测、风险审计和持续评估，形成“观测—智能—治理”一体化的智能运维闭环。)",
+    "By combining Cloud Monitor 2.0, Prometheus, and Log Service SLS, the company aggregates metrics, traces, logs, and events into a unified view that provides end-to-end observability from infrastructure to the application layer. (original: 结合阿里云云监控 2.0、Prometheus 和日志服务 SLS 等云产品，将指标、链路、日志、事件汇聚于统一视图，提供从基础设施到应用层的全链路、端到端的统一观测能力，打破多云环境下的数据孤岛。)",
+    "With the STAROps intelligent operations platform, natural-language capabilities are used for daily operations tasks, and multi-account ECS metric onboarding and aggregated delivery were shortened from days to hours. (original: 基于 STAROps 智能运维平台，借助自然语言能力完成日常运维任务。例如，多账号下的 ECS 指标批量接入 Prometheus 和聚合投递，以往需要人工逐台配置，工作周期从天级缩短到小时级，准备率和操作效率均大幅提升。)",
+    "Based on AgentCore, the company created a unified intelligent-operations entry point, connected multiple agents with internal systems and a Feishu bot, and applied skill security scanning so personal AI productivity practices could become organization-level agile assets. (original: 基于 AgentCore 构建了智能运维统一入口，实现所有运维 Agent 和 Skill 的全生命周期协同管理。完成了多 Agent 与内部系统的打通、飞书机器人对接、Skill 安全扫描等关键集成，将个人的 AI 提效实践真正转化为组织级的敏捷资产，有效避免了 Agent 和 Skill 的重复建设。)",
+    "The company says its headquarters are in Xi'an and it has subsidiaries in Beijing, Shanghai, Guangzhou, Hangzhou, Chengdu, Shenzhen, Hong Kong, South Korea, Japan, Germany, the United States, India, BVI, and the Cayman Islands. (original: 公司总部位于西安，并在北京、上海、广州、杭州、成都、深圳、香港、韩国、日本、德国、美国、印度、BVI、开曼等国家和地区设有子公司。)"
+  ],
+  "source_language": "zh"
+}
