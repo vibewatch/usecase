@@ -1,0 +1,121 @@
+{
+  "id": "alibaba-cloud-peoples-posts-and-telecommunications-press-llm-platform",
+  "slug": "alibaba-cloud-peoples-posts-and-telecommunications-press-llm-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "People's Posts and Telecommunications Press (人民邮电出版社有限公司)",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "People's Posts and Telecommunications Press had already launched multiple AI scenarios across content production, reader services, and public-interest education, but it needed one governed way to deploy and call Qwen3-family models across departments. The publisher wanted stable large-model access, unified scheduling and permissions, full-path observability, and a repeatable architecture template so new AI use cases could move from discussion to production without ad hoc infrastructure work.",
+  "solution_summary": "The publisher adopted Alibaba Cloud's Platform for AI (PAI) as an enterprise LLM foundation rather than provisioning each scenario separately. PAI Lingjun supplies the AI compute pool, while Model Gallery provides one-click deployment for the full Qwen3 family so teams can stand up model endpoints without rebuilding serving stacks. Around the model layer, ARMS-Prometheus adds end-to-end observability across resource usage, dashboards, and alerts, giving the team a single telemetry surface for AI workloads. AI Gateway becomes the unified external access layer, concentrating traffic governance, authentication, and authorization at the API edge and even converting existing HTTP APIs into MCP servers so older business capabilities can be reused inside new AI workflows. CADT large-model templates are then used to visualize, validate, parameterize, and batch deploy the architecture, turning LLM infrastructure into a repeatable publishing platform instead of a one-off project.",
+  "products_used": [
+    "Platform for AI (PAI)",
+    "PAI Lingjun",
+    "Model Gallery",
+    "ARMS-Prometheus",
+    "AI Gateway",
+    "Cloud Architecture Design Tool (CADT)"
+  ],
+  "solution_components": [
+    {
+      "name": "Platform for AI (PAI)",
+      "role": "Provides the enterprise foundation for model deployment, compute management, and permissions across AI workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PAI Lingjun",
+      "role": "Supplies the AI compute resources used to run Qwen3-family model deployments.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Model Gallery",
+      "role": "Lets the team deploy supported Qwen3 models quickly without rebuilding each serving stack from scratch.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ARMS-Prometheus",
+      "role": "Adds end-to-end observability and multi-dimensional analysis for AI resource and service behavior.",
+      "layer": "Governance"
+    },
+    {
+      "name": "AI Gateway",
+      "role": "Presents a unified model-access entry point with traffic governance, authentication, and HTTP-to-MCP conversion.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Cloud Architecture Design Tool (CADT)",
+      "role": "Provides visual architecture validation, parameter adjustment, and batch deployment for the large-model stack.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Publishing and reader-service applications call AI Gateway, which applies governance and routes traffic to Qwen3-family deployments running on PAI and PAI Lingjun. ARMS-Prometheus observes the full path, while CADT templates define and batch deploy the architecture so internal teams can reuse the same AI platform for new scenarios.",
+  "integration_points": [
+    "publishing workflows",
+    "reader-service applications",
+    "existing HTTP APIs converted to MCP servers",
+    "Qwen3 model endpoints"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "People's Posts and Telecommunications Press gained a faster path from AI idea to production deployment. Alibaba Cloud gave the publisher a visual, repeatable architecture for standing up Qwen-based services, unified access control for model endpoints, and observability needed to keep multi-model experimentation stable. That lets the team align full AI architectures more quickly, validate multi-model combinations with less manual infrastructure work, and accelerate AI innovation across publishing and reader-facing scenarios.",
+  "outcome_category": [
+    "Speed to Market",
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "PAI and Model Gallery form a reusable deployment layer for the Qwen3 model family rather than one-off endpoints.",
+    "AI Gateway centralizes traffic governance, access control, and HTTP-to-MCP conversion at the API boundary.",
+    "ARMS-Prometheus provides one observability surface for AI resource usage and service behavior.",
+    "CADT templates are used to visualize, validate, parameterize, and batch deploy the large-model architecture."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/culture-2025-ptpress",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "云速搭助力人民邮电出版社大模型业务快速上云_文化_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/culture-2025-ptpress",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:05+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The publisher said it already had multiple AI scenarios internally and externally and wanted to use Qwen3-family models to support unified scheduling and stable growth of those businesses. (original: 在公司内外部已经落地多个应用场景。希望利用 Qwen3 等模型能力，满足不同业务场景对模型的调用需求，支撑 AI 业务统一调度管理、稳定发展等。)",
+    "Alibaba Cloud proposed an enterprise visual deployment plan on PAI that uses Lingjun compute, AI observability, AI Gateway, and CADT to support one-click deployment of the full Qwen3 family. (original: 采用基于人工智能平台 PAI 的企业级 AI 可视化部署方案。利用 PAI 灵骏智算资源，结合 AI 可观测、AI 网关、云速搭 CADT 等云产品，支持 Qwen3 全系列模型一键部署。)",
+    "The implementation uses AI Gateway to centralize traffic governance and authentication at the API layer while converting existing HTTP APIs into MCP servers for rapid business innovation. (original: 基于 AI 网关，将流量治理、认证鉴权等管控能力集成至 API 层，统一对外提供模型访问入口；并提供 HTTP to MCP 的转换能力，将现有 API 自动转换为 MCP Server，支撑业务快速迭代与创新。)",
+    "PTPress said the PAI and CADT combination lets the enterprise visually build complete AI cloud architectures with upstream and downstream dependencies, improving deployment efficiency and accelerating innovation. (original: 基于阿里云 PAI 平台与云速搭 CADT，企业能够以可视化方式构建包含上下游依赖的完整 AI 云架构，实现架构方案的快速对齐与多模型的高效调试验证，从而提升部署效率和加速 AI 创新。)"
+  ],
+  "source_language": "zh"
+}

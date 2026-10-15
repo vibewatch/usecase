@@ -1,0 +1,118 @@
+{
+  "id": "alibaba-cloud-leapmotor-smart-cockpit-assistant",
+  "slug": "alibaba-cloud-leapmotor-smart-cockpit-assistant",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Leapmotor (零跑汽车)",
+  "industry": "Automotive",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Leapmotor wanted to turn its upgraded smart cockpit into a more natural AI interaction surface, but traditional fixed Q&A could not support open conversation, vehicle-how-to guidance, image generation, or broad knowledge queries. The automaker needed an architecture that could combine large-model dialogue, enterprise vehicle knowledge, internet knowledge, and visual generation inside one in-car assistant.",
+  "solution_summary": "Leapmotor used Alibaba Cloud Bailian as the application layer for a large-model cockpit assistant rather than bolting one feature onto its existing voice stack. Qwen models power open-ended multi-turn voice interaction so drivers can move beyond fixed command trees into natural chat, general knowledge questions, and richer help flows. The assistant retrieves from both Leapmotor's own vehicle knowledge base and a broader internet knowledge base, which lets the same interaction surface answer product-specific questions, explain vehicle functions, and support route-planning or media requests with more context. For visual features, the voice assistant can call Wanxiang through the cloud model layer to generate wallpapers from speech in seconds. Bailian's unified model foundation also gives Leapmotor an extensible application architecture, so new cockpit scenarios can be added and iterated without rebuilding the serving stack each time.",
+  "products_used": [
+    "Bailian",
+    "Qwen models",
+    "Wanxiang",
+    "enterprise knowledge base",
+    "internet knowledge base"
+  ],
+  "solution_components": [
+    {
+      "name": "Bailian",
+      "role": "Provides the large-model application platform that connects dialogue, retrieval, and generation functions inside the cockpit.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qwen models",
+      "role": "Handle open-ended voice dialogue, general knowledge Q&A, and vehicle-assistance reasoning in the cockpit.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Wanxiang",
+      "role": "Generates wallpapers from voice prompts as part of the entertainment experience in the vehicle cockpit.",
+      "layer": "Compute"
+    },
+    {
+      "name": "enterprise knowledge base",
+      "role": "Stores Leapmotor vehicle and feature knowledge that the cockpit assistant can retrieve during user interactions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "internet knowledge base",
+      "role": "Adds broader open-domain information to the same retrieval layer for richer in-car answers.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Voice requests enter the Bailian application layer, where Qwen models handle dialogue and retrieve context from Leapmotor's enterprise knowledge base and broader internet knowledge. For visual requests, the assistant invokes Wanxiang through the same cloud stack and returns generated cockpit wallpaper back to the in-car interface.",
+  "integration_points": [
+    "voice assistant",
+    "vehicle-function guidance",
+    "route-planning queries",
+    "media services",
+    "Leapmotor vehicle knowledge",
+    "internet knowledge"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Alibaba Cloud helped Leapmotor move from rigid voice commands to a more expressive AI cockpit experience. The production system now supports conversation, vehicle knowledge Q&A, route and feature guidance, and voice-driven image generation on one extensible model foundation, giving the automaker a faster path to add new in-car AI experiences while lowering the cost and complexity of expanding cockpit use cases.",
+  "outcome_category": [
+    "Customer Experience",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "A single Bailian foundation is reused across voice chat, retrieval, and image-generation scenarios in the cockpit.",
+    "The assistant combines enterprise and internet knowledge retrieval rather than relying only on one source.",
+    "Voice-driven image generation is treated as part of the production cockpit flow, not a disconnected demo feature.",
+    "The architecture is designed so new cockpit scenarios can be added on the same large-model base."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/ai-2024-leapmotor",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "零跑汽车基于百炼实现大模型落地零跑座舱_汽车_阿里客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/ai-2024-leapmotor",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:32:11+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "company_size"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Leapmotor said its latest OTA upgrade added a voice large-model function in the cockpit for chat, basic knowledge Q&A, and text-to-image scenarios. (original: 零跑汽车已对 OTA 功能完成大规模升级，携手阿里云首次在座舱场景中增加“语音大模型”功能，用于聊天、基础知识问答、文生图等场景。)",
+    "Qwen models let users hold open-ended multi-turn voice conversations and combine enterprise and internet knowledge bases for richer answers. (original: 阿里云千问大模型帮助零跑汽车改变了传统的固定形式的问答模式... 同时结合企业知识库和互联网知识库，满足用户多元化的需求。)",
+    "Leapmotor also uses voice to call Wanxiang for near-instant wallpaper generation and to support questions about vehicle functions and route planning. (original: 零跑采用语音助手调用云端千问系列大模型，帮助用户通用语音调用万相实现文生图换壁纸，实现秒级作图... 支持语音查找如何使用汽车功能、规划路径等功能。)",
+    "The company said Bailian gave it an open and extensible large-model application architecture that lowers the innovation threshold and cost of expanding cockpit AI scenarios. (original: 基于百炼平台，零跑汽车构建了开放、可扩展的大模型应用架构... 降低大模型应用的创新门槛与成本。)"
+  ],
+  "source_language": "zh"
+}

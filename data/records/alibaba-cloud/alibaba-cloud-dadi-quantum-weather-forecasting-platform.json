@@ -1,0 +1,141 @@
+{
+  "id": "alibaba-cloud-dadi-quantum-weather-forecasting-platform",
+  "slug": "alibaba-cloud-dadi-quantum-weather-forecasting-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Dadi Quantum (大地量子)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Dadi Quantum needed to turn PB-scale satellite, drone, and sensor data into precise weather and renewable-power forecasts, but training end-to-end AI meteorology models and serving a cloud-native spatial data platform required burst GPU compute, high-throughput shared storage, and low-cost long-term retention that a growing company could not provision efficiently on its own.",
+  "solution_summary": "Dadi Quantum built its AI remote-sensing stack on Alibaba Cloud so it could convert satellite, drone, and sensor data into weather and renewable-power forecasting services without carrying fixed infrastructure sized for peak training runs. Multi-source spatial data from NASA, the European Space Agency, and other providers is ingested into the company's cloud-native spatiotemporal PaaS, where proprietary algorithms grid, index, and organize the data pool for downstream model development and SDK access. On top of that data layer, Dadi Quantum trains end-to-end AI meteorology models for short-term weather prediction and site-level power forecasting, using Alibaba Cloud GPU instances for burst compute, CPFS for high-throughput low-latency training reads, and OSS for tiered long-term storage of massive historical datasets. Forecast outputs then feed renewable-energy planning, dispatch, and trading scenarios through the platform's SDK and application services.",
+  "products_used": [
+    "cloud-native spatiotemporal PaaS",
+    "SDK",
+    "AI meteorology model",
+    "Alibaba Cloud GPU instances",
+    "Object Storage Service (OSS)",
+    "Cloud Parallel File Storage (CPFS)"
+  ],
+  "solution_components": [
+    {
+      "name": "cloud-native spatiotemporal PaaS",
+      "role": "Provides the grid-managed spatial data platform that organizes multi-source remote-sensing data and exposes reusable services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "SDK",
+      "role": "Gives customers and application teams programmatic access to Dadi Quantum's spatial-data and forecasting services.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI meteorology model",
+      "role": "Generates short-term weather forecasts and renewable-power predictions from fused remote-sensing and sensor data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Alibaba Cloud GPU instances",
+      "role": "Supply elastic training compute for large AI weather models and other remote-sensing workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores massive historical satellite, drone, and sensor datasets with lower-cost tiered retention.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Parallel File Storage (CPFS)",
+      "role": "Provides the high-throughput, low-latency shared file access needed during AI model training.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Satellite, drone, and sensor feeds are ingested into Dadi Quantum's spatiotemporal PaaS, where proprietary algorithms grid and organize the data pool. AI meteorology models train on that corpus using GPU instances, CPFS, and OSS, and the resulting weather and power-forecast outputs are delivered through SDK and platform services to renewable-energy and other industry users.",
+  "integration_points": [
+    "NASA",
+    "European Space Agency",
+    "satellite data providers",
+    "drone data",
+    "sensor data",
+    "renewable-energy customers",
+    "power-trading workflows"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Risk Management"
+  ],
+  "business_outcome": "Alibaba Cloud gave Dadi Quantum an elastic foundation for commercial AI forecasting instead of forcing the company to overbuild local infrastructure. The platform can train large weather models with hundreds of CPUs and GPUs, keep vast historical datasets in lower-cost storage tiers, and deliver more precise 15-day weather and near-real-time power predictions that help renewable-energy customers improve planning, reduce grid-connection losses, and respond more confidently to electricity-market volatility.",
+  "outcome_category": [
+    "Scalability",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "PB-scale remote-sensing data",
+    "integrates nearly 100 satellite, drone, and sensor data sources",
+    "weather forecasts cover up to 15 days",
+    "satellite data synchronizes about every 5 minutes",
+    "single training runs can use hundreds of GPUs and CPUs"
+  ],
+  "architecture_clues": [
+    "The implementation separates a cloud-native spatiotemporal PaaS and SDK layer from the end-to-end AI meteorology model.",
+    "CPFS and OSS are paired so model training gets low-latency reads while long-term multi-source data stays cost efficient.",
+    "Near-real-time satellite updates are fed into downstream photovoltaic and wind-power forecasting services.",
+    "The same remote-sensing foundation is reused across agriculture, energy, environmental, and geospatial products."
+  ],
+  "source_url": "https://enterprise.aliyun.com/customer/dadiliangzi",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2024-11-13",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://enterprise.aliyun.com/customer/dadiliangzi",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "大地量子：云端探寻卫星遥感无限可能，寻找新能源领域第二曲线",
+      "publisher": "Alibaba Cloud",
+      "url": "https://enterprise.aliyun.com/customer/dadiliangzi",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:33:44+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Dadi Quantum said it uses AI and big data to combine remote-sensing satellites, drones, and sensor data, then applies proprietary algorithms to grid-manage the data for spatial big-data products. (original: 成立于2017年的大地量子通过AI、大数据等技术，融合了遥感卫星、无人机、传感器数据，利用自研算法对数据进行网格化管理，满足不同空间大数据产品开发的需求。)",
+    "The company built an end-to-end AI meteorology model, connected to NASA, the European Space Agency, and other major providers, and integrated nearly 100 kinds of satellite, drone, and sensor data. (original: 作为阿里云低碳科技加速器企业，大地量子的解题思路，是建立端到端的AI气象模型... 其已与NASA、欧空局等全球主流卫星数据供应商均建立了高效的数据获取通道，并整合了近百种卫星数据、无人机数据、传感器数据。)",
+    "Using satellite remote-sensing data synchronized about every five minutes, Dadi Quantum said its power-forecasting output can more accurately model photovoltaic generation changes caused by cloud movement. (original: 借助大约为5分钟一次实时同步的卫星遥感数据，大地量子所提供的功率预测，准确性无疑更高。)",
+    "Since 2021, Dadi Quantum has used Alibaba Cloud GPU instances, OSS, and CPFS; it said one training run can require hundreds of GPUs and CPUs, while CPFS provides high-throughput, low-latency access suited to AI training. (original: 从2021年其与阿里云展开合作，利用阿里云GPU实例、OSS存储产品、CPFS存储产品，构筑了高性能且灵活可靠的支撑体系... 一次训练都需要用到数百张GPU和CPU硬件... CPFS提供了适合于AI训练的高吞吐、低延时、大容量的数据访问能力。)"
+  ],
+  "source_language": "zh"
+}

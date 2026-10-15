@@ -1,0 +1,135 @@
+{
+  "id": "alibaba-cloud-tastien-it-operations-automation",
+  "slug": "alibaba-cloud-tastien-it-operations-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Tastien (塔斯汀)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Tastien had to manage alerts across a 10,000-store restaurant estate whose POS, supply-chain, membership, and online-ordering systems were monitored by disconnected tools. Repeated alert storms, fragmented telemetry, manual cross-platform investigation, and weak incident-history reuse made it hard to route incidents quickly or improve AI diagnosis over time.",
+  "solution_summary": "Tastien turned restaurant-operations alerting into an AI-assisted incident workflow with Alibaba Cloud Cloud Monitor 2.0 and STAROps. ARMS, CMS 1.0, SLS, Prometheus, certificate alerts, and custom business alarms are all ingested into CMS 2.0's unified event center, which replaces siloed alert channels with one normalized entry point. On top of that, Tastien added a low-code workflow layer that parses source-specific payloads, standardizes titles, severities, and resources, deduplicates repeated incidents, and routes alerts to the right Feishu groups and on-call schedules. STAROps then uses the alert context, log and monitoring data, and a service-specific root-cause library to produce AI diagnostics, let operators question incidents directly from the alert card, and run digital employees for recurring inspection and RCA work. Human feedback on actual root causes and AI accuracy is fed back into the same loop so the system improves instead of stopping at first-response automation.",
+  "products_used": [
+    "Cloud Monitor 2.0 (CMS 2.0)",
+    "low-code workflows",
+    "STAROps",
+    "Application Real-Time Monitoring Service (ARMS)",
+    "Log Service SLS",
+    "Prometheus"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Monitor 2.0 (CMS 2.0)",
+      "role": "Acts as the unified event center for multi-source alert ingestion and lifecycle governance.",
+      "layer": "Governance"
+    },
+    {
+      "name": "low-code workflows",
+      "role": "Normalize, deduplicate, route, and persist incidents across alert sources and collaboration channels.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "STAROps",
+      "role": "Provides AI root-cause analysis, digital-employee missions, and feedback-driven incident learning.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Supplies application telemetry used in alert correlation and AI-assisted diagnosis.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Stores and exposes log data used during root-cause analysis and incident review.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Prometheus",
+      "role": "Feeds infrastructure and service metrics into the unified alert and diagnosis pipeline.",
+      "layer": "Ingest"
+    }
+  ],
+  "data_flow": "Alerts from CMS, ARMS, SLS, Prometheus, certificate, and custom business sources enter CMS 2.0, where low-code workflows standardize fields, deduplicate incidents, and route live cards into Feishu. STAROps then reads the alert context together with logs, metrics, and historical root-cause entries, returns AI diagnosis to operators, and stores human feedback back into the same incident history for future reuse.",
+  "integration_points": [
+    "POS systems",
+    "supply-chain services",
+    "membership-marketing services",
+    "online-ordering services",
+    "Feishu",
+    "custom business alerts",
+    "certificate alerts"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Tastien gave its nationwide restaurant estate a repeatable way to turn noisy monitoring into actionable incidents. The new workflow compresses alert floods before they reach responders, cuts invalid alerts, shortens recovery time, and keeps structured root-cause history so each resolved incident improves the next diagnosis. Instead of relying on individual operator memory, the company can now reuse AI-assisted runbooks and feedback data across business lines.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "10,000+ stores",
+    "300+ cities",
+    "invalid alert rate decreased 15%",
+    "historical root-cause library covers 40 business scenarios",
+    "alert compression rate reached 95",
+    "average MTTR reduced 65"
+  ],
+  "architecture_clues": [
+    "CMS 2.0 is the single entry point for ARMS, CMS 1.0, SLS, Prometheus, custom, and certificate alerts.",
+    "Low-code workflows normalize fields, deduplicate incidents, route Feishu cards, and persist long-lived incident records.",
+    "AI diagnosis combines live alert context with a service-specific historical root-cause library and explicit human accuracy feedback.",
+    "STAROps Missions encode SRE skills into digital employees that run recurring inspections and structured RCA tasks."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2026-tasiting",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "塔斯汀基于云监控2.0和STAROps构建万店连锁的智能运维闭环实践_零售与电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2026-tasiting",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:18+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "company_size"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Tastien said its cloud operations environment produced complex multi-source alerts from Cloud Monitor, ARMS, SLS, custom business alarms, and certificate alarms, which raised the cost of configuration, notification, troubleshooting, and closed-loop management. (original: 企业告警来源复杂，包括云监控、ARMS、SLS、业务自定义告警、证书告警等，由于告警数据分散在不同系统... 导致告警配置、通知触达、响应排查、经验沉淀和闭环管理的成本不断增加。)",
+    "The joint implementation built one closed loop of CMS 2.0 alert intake, low-code workflow orchestration, automatic convergence, Feishu collaboration, STAROps AI analysis, root-cause supplementation, AI evaluation, and knowledge accumulation. (original: CMS 2.0 多源告警接入 → 低代码工作流编排 → 自动收敛 → 飞书协同 → STAROps AI 辅助分析 →补充根因信息 → 评价 AI → 经验沉淀。)",
+    "Operators can quote an alert card directly to ask AI for the cause, and the system automatically brings in current incident context, historical root causes, and STAROps diagnosis capability. (original: 直接引用卡片追问 AI，AI 自动查询历史根因以及调用 STAROps 根因诊断能力，给出结论，诊断过程实时输出，过程透明。)",
+    "Tastien records every incident as a trio of context, actual human root cause, and an AI-accurate or AI-inaccurate label so the diagnosis can improve with use. (original: 每一次诊断沉淀为（上下文、人工根因、评价）三元组... 只有两个选项——“AI 准”或“AI 不准”。)",
+    "The page reports an alert-compression rate of 95, historical root-cause coverage across 40 business scenarios, and a 65 reduction in MTTR. (original: 95 告警压缩率；40 历史根因库业务场景覆盖；65 MTTR 平均故障恢复时间缩短。)"
+  ],
+  "source_language": "zh"
+}

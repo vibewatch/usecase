@@ -1,0 +1,125 @@
+{
+  "id": "alibaba-cloud-liepin-recruitment-automation",
+  "slug": "alibaba-cloud-liepin-recruitment-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Liepin (猎聘)",
+  "industry": "Commercial and Professional Services",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Liepin wanted to push recruitment workflows toward more precise, AI-native operations, but keyword screening, manual candidate search, and slow response cycles were limiting matching quality and user experience. The platform needed a way to automate JD creation, job posting, talent matching, and interview summarization without reducing the specificity required by its recruiter-centered BHC model.",
+  "solution_summary": "Liepin worked with Alibaba Cloud Bailian and Qwen models to insert large-model reasoning into multiple steps of the recruitment chain instead of only adding a chatbot on top of search. The company uses Bailian-based prompt customization to generate and refine job descriptions, then reuses the same model layer in intelligent job posting, person-to-position matching, interview support, and summarization workflows. Because the platform serves enterprises, headhunters, and job seekers in one loop, the model outputs are designed to shorten matching time while keeping recommendations and communications more targeted than simple keyword filters allow. In practice, JD generation, matching, and interview summarization run as linked services on one LLM foundation rather than disconnected tools, which helps Liepin upgrade the recruitment process with shared prompts and model behavior while improving response quality for both recruiters and candidates.",
+  "products_used": [
+    "Bailian",
+    "Qwen models",
+    "prompt optimization workflow",
+    "intelligent job-posting workflow",
+    "candidate-matching service",
+    "interview summarization service"
+  ],
+  "solution_components": [
+    {
+      "name": "Bailian",
+      "role": "Acts as the large-model application platform that coordinates Liepin's recruitment AI workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Qwen models",
+      "role": "Provide the language understanding and generation used across JD creation, matching, and interview workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "prompt optimization workflow",
+      "role": "Customizes prompts so model behavior fits Liepin's recruitment-specific tasks and output quality needs.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "intelligent job-posting workflow",
+      "role": "Uses the model layer to generate and improve job descriptions and related posting content.",
+      "layer": "Serving"
+    },
+    {
+      "name": "candidate-matching service",
+      "role": "Applies the model stack to person-to-position matching so recruiters can find stronger candidates faster.",
+      "layer": "Serving"
+    },
+    {
+      "name": "interview summarization service",
+      "role": "Produces AI-assisted interview summaries to reduce repetitive recruiting work.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Recruiter requirements enter the Bailian application layer, where prompt-optimized Qwen models generate or refine job descriptions, then reuse the same context for intelligent posting, person-to-position matching, and interview-summary generation. Those outputs are returned to recruiters and platform users as part of one connected recruitment workflow.",
+  "integration_points": [
+    "enterprise recruiters",
+    "headhunters",
+    "job seekers",
+    "job-description workflows",
+    "position-matching workflows",
+    "interview processes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Liepin turned large models into a recruitment-operations layer rather than a demo feature. The deployment reduces repetitive screening and drafting work, speeds person-to-position matching, lowers errors from subjective manual filtering, and improves candidate experience by shortening response times across JD creation, matching, and interview-summary workflows.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "100 million+ high-quality talent profiles",
+    "210,000+ verified headhunter users",
+    "1.32 million+ verified enterprise customers"
+  ],
+  "architecture_clues": [
+    "One LLM foundation is reused across JD generation, intelligent job posting, candidate matching, and interview summaries.",
+    "Prompt optimization is part of the production design so model behavior fits recruitment-specific tasks.",
+    "The system is built around Liepin's BHC loop for enterprises, headhunters, and candidates rather than a simple two-sided marketplace."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-2024-liepin",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云百炼大模型与猎聘携手共同推动招聘领域AI技术的全面升级_人力资源与互联网_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-2024-liepin",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:03:11+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "company_size"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Liepin said recruitment platforms needed to move toward more fine-grained, efficient, and AI-oriented operations because manual keyword screening was slow, expensive, and often inaccurate. (original: 招聘平台需要向更细化多元、高效精准、AI 方向快速转型... 依赖关键词筛选等招聘作业模式，需要大量人工筛选... 人工搜索准确率低。)",
+    "The joint solution uses Bailian-provided Qwen models and custom prompt optimization to improve the full recruitment process. (original: 阿里云携猎聘基于千问大模型和百炼定制的 prompt 优化，通过 AI 生成并优化 JD，在智能岗位发布、人岗匹配、智能面试及摘要等场景，缩短人岗匹配时间，辅助提效。)",
+    "Liepin highlighted that the same AI workflow improves screening efficiency, lowers recruitment waste caused by human error, and raises candidate experience across the hiring chain. (original: 自动化工具可提升筛选工作的效率和准确性... 降低因人为错误导致的招聘成本浪费... 显著提升了招聘效率和候选人体验。)"
+  ],
+  "source_language": "zh"
+}

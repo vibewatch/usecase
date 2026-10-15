@@ -1,0 +1,115 @@
+{
+  "id": "alibaba-cloud-edoctor-medical-content-automation",
+  "slug": "alibaba-cloud-edoctor-medical-content-automation",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "eDoctor (翼多)",
+  "industry": "Healthcare",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "eDoctor needed to improve multilingual medical communication and content production without sacrificing rigor. International medical meetings required simultaneous translation and fast summaries, while the company also had to generate accurate medical content, subtitles, and searchable course assets at scale for pharmaceutical and healthcare audiences.",
+  "solution_summary": "eDoctor integrated Alibaba Cloud Bailian into its medical-marketing and medical-education platform so multilingual meetings, video courses, and medical content workflows could be handled on one AI stack. Bailian's multimodal models are used on live medical exchanges to generate subtitles, support simultaneous interpretation, and produce rapid meeting summaries that reduce language barriers in international collaboration. On the Tuomai platform, eDoctor also uses Bailian supervised fine-tuning (SFT) to adapt model behavior for medically rigorous content, improving correctness and tone instead of relying on generic responses. The same LLM layer extends into a content-creation center for medical UGC and into a course repository where Bailian Agent summarizes lesson essentials and powers site-wide retrieval across stored medical videos. That architecture makes translation, summarization, search, and content drafting reusable services inside one healthcare-information platform.",
+  "products_used": [
+    "Bailian multimodal models",
+    "Supervised Fine-Tuning (SFT)",
+    "Tuomai platform",
+    "Bailian Agent"
+  ],
+  "solution_components": [
+    {
+      "name": "Bailian multimodal models",
+      "role": "Handle speech, subtitle, translation, and summary generation for medical meetings and media assets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Supervised Fine-Tuning (SFT)",
+      "role": "Adapts the base model so generated medical content is more accurate and rigorous for healthcare use.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Tuomai platform",
+      "role": "Hosts the meeting, course, and medical-content workflows that consume Bailian outputs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Bailian Agent",
+      "role": "Summarizes course essentials and powers site-wide retrieval across stored medical learning content.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Live meeting audio, recorded courses, and medical content assets flow through Bailian multimodal models for transcription, translation, summarization, and content generation. SFT-tuned model behavior is then applied inside the Tuomai platform, where outputs are published to users or indexed by Bailian Agent for course summary and search workflows.",
+  "integration_points": [
+    "medical meetings",
+    "live medical video streams",
+    "medical video courses",
+    "medical UGC content creation",
+    "site-wide course search"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "eDoctor upgraded its healthcare-information products without scaling content labor linearly. Bailian reduced the manual effort required for subtitles, translation, summarization, and content drafting, improved the competitiveness of the Tuomai platform, and extended eDoctor's reach across medical meetings, live streams, and training assets while preserving the rigor required in medical communication.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "content-writing efficiency improved 3x",
+    "100,000+ live streams and courses processed"
+  ],
+  "architecture_clues": [
+    "The production design combines multimodal inference, supervised fine-tuning, and Agent-based retrieval instead of relying on a single generic model endpoint.",
+    "Course repositories are turned into a searchable knowledge layer by pairing stored media with AI summaries and retrieval.",
+    "Medical-content generation is tuned for correctness and rigor before outputs are exposed to users."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/health-care-2024-edoctor",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "翼多（eDoctor）携手阿里云百炼大模型赋能医学信息传播_医疗健康_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/health-care-2024-edoctor",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:04:59+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "eDoctor said language barriers in international pharmaceutical collaboration made simultaneous interpretation and meeting summarization necessary, while medically rigorous content remained hard to produce at high quality and speed. (original: 与国外药企的合作和医学交流存在障碍，影响合作效果，需要对医学交流等会议进行同声传译和会议总结。医学传播是极为严谨的场景，如何高效地输出正确、优质的医学内容存在挑战。)",
+    "Bailian's multimodal capabilities let eDoctor break language barriers in medical exchange and broaden the reach of medical video distribution. (original: 通过百炼大模型的多模态能力，eDoctor 在国际合作、医学交流中打破语言壁垒，增强了医学视频的传播广度。)",
+    "eDoctor fine-tuned Bailian on the Tuomai platform to improve the correctness and rigor of medical content and used the same model capability to upgrade its products. (original: eDoctor 基于阿里云百炼大模型调优能力（SFT），在拓麦平台进行医学内容优化，增强输出内容的正确性和严谨性，提升内容输出效率；基于阿里百炼大模型能力，赋能产品升级。)",
+    "The production stack now supports simultaneous interpretation, fast meeting summaries, course key-point summaries, site-wide search, and a medical UGC creation center. (original: 拓麦平台的会议同声传译... 快速会议总结。拓麦平台的医学视频课程... 结合阿里百炼 Agent 实现课程要义总结，全站检索。拓麦平台的内容创作中心... 结合百炼模型训练、Agent 产品提升用户产出效率。)"
+  ],
+  "source_language": "zh"
+}
