@@ -1,0 +1,79 @@
+{
+  "id": "accenture-bricorama-paint-advisor",
+  "slug": "accenture-bricorama-paint-advisor",
+  "vendor": "Accenture",
+  "customer_name": "Bricorama",
+  "industry": "Retail",
+  "region": "France",
+  "company_size": "Unknown",
+  "business_problem": "Bricorama wanted to help DIY customers make better painting decisions online, but shoppers often struggled to choose colors, estimate quantities, and visualize results confidently without expert guidance or a seamless link into ecommerce.",
+  "solution_summary": "Bricorama and Accenture built pAInt as a generative AI shopping assistant for paint-selection and project-planning workflows. The platform runs on Azure OpenAI Service and uses ChatGPT capabilities for natural-language conversation, letting shoppers describe their projects and receive guidance on color choices, quantities, tutorials, trends, and similar examples. Accenture and Bricorama trained the assistant on proprietary content such as paint-can labels and product information so recommendations stay tied to the retailer's available inventory instead of generic advice. The experience is integrated with Bricorama's ecommerce systems, allowing users to save projects to their profiles and add recommended products directly to wishlists or baskets. The implementation also includes responsible-AI safeguards that constrain responses to painting and home-improvement topics and keep the service aligned with GDPR.",
+  "products_used": [
+    "pAInt",
+    "Azure OpenAI Service",
+    "ChatGPT services"
+  ],
+  "solution_components": [
+    {
+      "name": "pAInt",
+      "role": "Serves as the customer-facing shopping assistant that guides painting projects through conversational support.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure OpenAI Service",
+      "role": "Hosts the generative AI capabilities used to understand project descriptions and generate tailored recommendations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ChatGPT services",
+      "role": "Provide the natural-language interaction and contextual understanding used throughout the paint-advice experience.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Customers describe a painting project to pAInt, which uses Azure OpenAI Service and ChatGPT capabilities together with Bricorama's proprietary paint and product content to generate recommendations. The assistant returns color suggestions, quantities, and related advice, then passes product choices into Bricorama's ecommerce flows so items can be saved to profiles, wishlists, or baskets for later purchase.",
+  "integration_points": [
+    "Bricorama ecommerce systems",
+    "user profiles",
+    "wishlists",
+    "shopping baskets",
+    "proprietary product and paint-label content"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "Bricorama improved shopper confidence and engagement, created a new advisory channel tied directly to commerce, and strengthened brand loyalty by helping customers move from project questions to product selection more easily.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "20% of users completed three pAInt experience modules",
+    "50% completed at least two",
+    "17 messages per discussion",
+    "within 24 hours"
+  ],
+  "architecture_clues": [
+    "The assistant is trained on Bricorama proprietary content such as paint-can labels.",
+    "Projects are saved into user profiles for later retrieval.",
+    "Recommendations can be pushed directly into wishlist and basket flows.",
+    "Responsible-AI safeguards limit responses to painting and home-improvement topics."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/ai-data/bricorama-getting-diy-advice-genai",
+  "published_date": "2026-05-22",
+  "published_date_source": "page metadata",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"pAInt was built on Azure OpenAI Service and leveraged the natural language interaction and contextual understanding capabilities of ChatGPT services.\"",
+    "\"we trained pAInt on Bricorama’s propriety content and documents, such as paint can labels.\"",
+    "\"As pAInt is fully integrated with Bricorama’s existing e-commerce systems, customers can easily add recommended products to their wishlist or basket.\"",
+    "\"We also applied a responsible AI approach with safeguards to limit the platform’s response to painting and home improvement information only\"",
+    "\"averaging 17 messages per discussion\""
+  ]
+}

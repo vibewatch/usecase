@@ -1,0 +1,86 @@
+{
+  "id": "accenture-telia-enterprise-metadata-generation",
+  "slug": "accenture-telia-enterprise-metadata-generation",
+  "vendor": "Accenture",
+  "customer_name": "Telia Company AB",
+  "industry": "Telecommunications",
+  "region": "Nordics",
+  "company_size": "Enterprise",
+  "business_problem": "Telia wanted to become a more data-led telecom operator, but one of its major data warehouses had metadata for only a tiny fraction of fields, making it hard for teams to find, understand, govern, and use information such as call records and customer interactions efficiently.",
+  "solution_summary": "Telia and Accenture built a generative AI metadata-enrichment workflow on Amazon Bedrock to make a large telecom data repository easier to use at scale. The implementation starts with prompts, examples, and warehouse context that Bedrock uses to generate tags and descriptions for missing metadata fields. Accenture applied the approach across 87,000 data fields, then stored the outputs in a centralized metadata repository so teams could search, interpret, and trust datasets more easily. The repository also strengthens governance by making assets easier to manage under privacy and regulatory controls. To keep quality high, the workflow includes a human-in-the-loop review model that flags AI-generated descriptions for Telia's data experts to verify and maintain. Accenture also provided training and change-management support so Telia could operate the solution independently and extend the same data foundation into later generative AI use cases for sales, service, and marketing.",
+  "products_used": [
+    "Amazon Bedrock",
+    "AI-generated metadata descriptions",
+    "centralized metadata repository",
+    "human-in-the-loop review system"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Generates metadata tags and descriptions for warehouse fields based on prompts and examples.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI-generated metadata descriptions",
+      "role": "Provide the detailed labels and summaries that make previously hard-to-understand data easier to use.",
+      "layer": "Serving"
+    },
+    {
+      "name": "centralized metadata repository",
+      "role": "Stores standardized descriptions so teams can find, understand, govern, and reuse data consistently.",
+      "layer": "Storage"
+    },
+    {
+      "name": "human-in-the-loop review system",
+      "role": "Flags AI-generated descriptions for expert validation so the metadata layer stays accurate and maintainable.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Data-field definitions from Telia's warehouse are passed to Amazon Bedrock with prompts and examples so the model can generate tags and descriptions for missing metadata. Those outputs are stored in a centralized metadata repository and flagged through a human-in-the-loop review system so Telia's experts can verify accuracy before teams across the company use the enriched repository for analysis, governance, and downstream AI use cases.",
+  "integration_points": [
+    "data warehouse fields",
+    "call records",
+    "customer interaction data",
+    "data-governance processes",
+    "Telia data expert review workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "Telia reduced the cost and time of metadata creation, made internal data easier to discover and use, improved governance and privacy management, and created a stronger data foundation for future sales, service, and marketing AI use cases.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Compliance"
+  ],
+  "metrics": [
+    "only 1% of its data had corresponding metadata",
+    "87,000 data fields",
+    "10,000 data engineer hours",
+    "€700,000 in data entry costs"
+  ],
+  "architecture_clues": [
+    "The workflow uses prompts and examples to generate metadata descriptions.",
+    "Outputs are stored in a centralized metadata repository.",
+    "AI-generated descriptions are flagged for human review.",
+    "The repository improves governance and privacy controls for confidential data."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/ai-data/telia-supercharges-its-data-with-gen-ai",
+  "published_date": "2026-05-22",
+  "published_date_source": "page metadata",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"only 1% of its data had corresponding metadata\"",
+    "\"leverage Amazon Bedrock, building an intelligent solution that updated tags and descriptions for 87,000 data fields\"",
+    "\"saving Telia 10,000 data engineer hours and €700,000 in data entry costs.\"",
+    "\"Accenture used Amazon Bedrock to analyze Telia’s data and automatically populate corresponding metadata descriptions.\"",
+    "\"It relies on a 'human-in-the-loop' review system that flags AI-generated column descriptions\""
+  ]
+}
