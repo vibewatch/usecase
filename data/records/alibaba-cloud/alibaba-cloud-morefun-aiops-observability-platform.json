@@ -1,0 +1,195 @@
+{
+  "id": "alibaba-cloud-morefun-aiops-observability-platform",
+  "slug": "alibaba-cloud-morefun-aiops-observability-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Morefun Entertainment Group (魔方文娱集团)",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Morefun's ticketing and event platforms needed to hit a 1-minute detection, 5-minute diagnosis, and 10-minute recovery target, but its older monitoring stack had blind spots, alert storms, fragmented trace and log tooling, and poor scalability under peak ticket-release traffic. The company also needed a way to turn large volumes of observability data into actionable incident intelligence instead of forcing engineers to correlate dashboards, traces, and logs manually.",
+  "solution_summary": "Morefun rebuilt its observability stack on Alibaba Cloud as an AIOps platform instead of separate monitoring tools. LoongCollector centralizes application logs into Log Service SLS, ARMS agents trace requests from page and API entry points through backend microservices, databases, caches, and message queues, and Managed Service for Prometheus collects infrastructure and container metrics across the fleet. Cloud Dial Test adds synthetic availability and latency checks from the user perspective, while Grafana surfaces shared dashboards. ARMS alert management normalizes multi-source alarms, routes them by business context, and preserves lifecycle records for SLO follow-up. On top of that observability data base, Morefun added an Observable MCP Server workflow that uses large-model reasoning to cluster related alarms, infer likely root causes, and generate diagnostic reports with remediation suggestions, turning incident response into an AI-assisted closed loop.",
+  "products_used": [
+    "Log Service SLS",
+    "Application Real-Time Monitoring Service (ARMS)",
+    "Managed Service for Prometheus",
+    "Cloud Dial Test",
+    "LoongCollector",
+    "Observable MCP Server",
+    "Grafana"
+  ],
+  "solution_components": [
+    {
+      "name": "LoongCollector",
+      "role": "Collects Morefun's containerized application logs and forwards them into the centralized observability stack.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Log Service SLS",
+      "role": "Stores and analyzes ticketing-platform logs so incidents can be queried, correlated, and investigated from one place.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Captures full request traces, performance breakdowns, and alert events across Morefun's application stack.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Managed Service for Prometheus",
+      "role": "Collects infrastructure, container, and middleware metrics for flexible drill-down analysis and alerting.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Cloud Dial Test",
+      "role": "Runs user-perspective synthetic checks to verify service availability and performance outside the data center boundary.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Grafana",
+      "role": "Presents unified observability dashboards for different business teams and operations war rooms.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Observable MCP Server",
+      "role": "Uses AI workflows to group alarms, summarize likely causes, and generate actionable incident reports for engineers.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Application logs are ingested by LoongCollector into SLS, traces are captured by ARMS agents, infrastructure and middleware metrics are written to Managed Service for Prometheus, and Cloud Dial Test adds external availability probes. Those streams are correlated in dashboards and alert pipelines, then Observable MCP Server applies large-model reasoning to cluster alarms, infer root causes, and emit diagnostic reports that guide follow-up actions.",
+  "integration_points": [
+    "ticketing platforms",
+    "API gateways",
+    "Java microservices",
+    "databases",
+    "Redis caches",
+    "message queues",
+    "enterprise chat notifications"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Morefun turned observability into an operating system for reliability engineering. Core-link monitoring coverage rose from 65% to 99.5%, average fault-detection time dropped from 8 minutes to under 1 minute, and root-cause location fell from 15 minutes to 8 minutes. The company also reduced alert noise, automated much of routine incident handling, cut off-hours compute cost and cold-data storage cost, and improved service stability for high-concurrency ticketing peaks.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "serves 30 million+ audience members",
+    "performances in 230+ cities",
+    "core-link monitoring coverage increased from 65% to 99.5%",
+    "average fault-detection time fell from 8 minutes to under 1 minute",
+    "root-cause location time fell from 15 minutes to 8 minutes",
+    "off-hours compute cost reduced 40%",
+    "high-frequency storage cost reduced 70%",
+    "overall alert volume reduced 85%",
+    "effective alerts increased to 90% of the total",
+    "60% of common faults now support automatic detection, diagnosis, and repair"
+  ],
+  "architecture_clues": [
+    "Logs, metrics, traces, and synthetic user checks are correlated instead of being stored in separate monitoring silos.",
+    "ARMS alert management is used as the central event router and lifecycle tracker for SLO-driven response.",
+    "Observable MCP Server turns alarm streams into AI-generated daily reports and remediation suggestions.",
+    "Grafana large-screen dashboards are part of the production operating model for major event traffic peaks."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/culture-2025-morefun",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "魔方文娱基于阿里云可观测产品构建下一代可观测体系",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/culture-2025-morefun",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:06+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Monitoring blind spots, alert storms, fragmented tracing, and scattered log queries were blocking Morefun's 1-minute detection, 5-minute diagnosis, and 10-minute recovery target. (original: 监控盲区导致关键链路异常无法及时捕获，而告警风暴则在故障发生时淹没有效信息，使值班人员陷入“告警疲劳”；故障定位仍高度依赖人工经验与跨系统手动排查，链路追踪碎片化、日志查询分散，极大拖慢响应节奏。)",
+    "Morefun built a unified panoramic observability architecture around Alibaba Cloud Log Service SLS, ARMS, Prometheus, and Cloud Dial Test. (original: 技术同学以阿里云可观测产品为核心构建了一体化、全栈覆盖的全景监控架构……日志服务 SLS、应用实时监控服务 ARMS、可观测监控 Prometheus 版、云拨测。)",
+    "The team introduced an AI-plus-observability workflow where a large model clusters cross-service alarms, infers likely causes, and generates daily visual reports with recommendations. (original: 通过融合大模型能力与全链路观测数据，构建基于 AI+ 可观测性（Observability）的智能运维工作流……通过大模型对跨服务、跨层级的告警进行归因聚类，识别出真正具有业务影响的共性问题，并在每日生成的个性化报告中呈现潜在根因推测以及可落地的优化建议。)",
+    "After the redesign, core-link monitoring coverage rose from 65% to 99.5%, fault detection dropped from 8 minutes to under 1 minute, root-cause location fell to 8 minutes, and overall alert volume dropped 85%. (original: 关键业务链路的监控覆盖率由原来的 65% 大幅提升至 99.5%……故障平均发现时间从 8 分钟缩短至 1 分钟以内；根因定位时间由 15 分钟压缩至 8 分钟……整体告警数量下降 85%。)"
+  ],
+  "source_language": "zh"
+}

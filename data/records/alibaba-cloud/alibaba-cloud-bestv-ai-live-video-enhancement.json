@@ -1,0 +1,159 @@
+{
+  "id": "alibaba-cloud-bestv-ai-live-video-enhancement",
+  "slug": "alibaba-cloud-bestv-ai-live-video-enhancement",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Bestv TV (百视TV)",
+  "industry": "Media and Entertainment",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Bestv TV needed to deliver smooth ultra-HD live broadcasts for sports events and exclusive performances even when network conditions fluctuated and very large audiences surged into streams at once. It also wanted to improve perceived picture quality for motion-heavy scenes and celebrity close-ups without forcing every broadcast to run at the highest possible bitrate.",
+  "solution_summary": "Bestv TV used Alibaba Cloud Video Live as the base for an AI-enhanced live-streaming workflow tuned for sports and performance events. Incoming live video is processed through Narrowband HD 2.0, which applies adaptive encoding to reduce bitrate and then uses generative detail restoration to recover visual clarity lost under constrained transmission conditions. For distribution and resilience, MediaUni supplies a globally scaled delivery fabric with thousands of nodes and large bandwidth reserves, plus disaster-recovery plans and automatic primary/backup stream switching when interruptions or frame-rate anomalies occur. Bestv also deploys custom transcoding templates and AI restoration models, using portrait-oriented settings for concerts and detail enhancement for basketball so faces, jersey numbers, floor textures, and court lines remain clearer. The design combines bandwidth efficiency, AI-based image restoration, and high-concurrency delivery in one production live-video pipeline.",
+  "products_used": [
+    "Video Live",
+    "Narrowband HD 2.0",
+    "MediaUni",
+    "AI restoration models"
+  ],
+  "solution_components": [
+    {
+      "name": "Video Live",
+      "role": "Provides the production live-streaming platform used to ingest, process, and deliver Bestv's event broadcasts.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Narrowband HD 2.0",
+      "role": "Applies adaptive encoding and generative detail restoration so lower-bitrate streams still retain strong visual quality.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MediaUni",
+      "role": "Supplies globally distributed delivery capacity, traffic preparation, and failover for large live events.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AI restoration models",
+      "role": "Enhance event-specific video details such as faces, jersey numbers, textures, and boundary lines during transcoding.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Live event streams enter Alibaba Cloud Video Live, where Narrowband HD 2.0 and custom AI restoration models transcode and enhance the video before MediaUni distributes it through the global delivery network. During peak events, reserved bandwidth and primary/backup streams keep the signal available while viewers receive clearer images at lower bitrates.",
+  "integration_points": [
+    "sports-event live streams",
+    "concert live streams",
+    "primary and backup streams",
+    "custom transcoding templates"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Media and Content",
+    "Cloud Native"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Bestv TV improved the visual experience of high-concurrency event streaming while keeping transmission stable under difficult network conditions. Alibaba Cloud's live-video stack let the platform combine lower-bitrate delivery with clearer images, stronger burst handling, and better resilience for major sports and entertainment broadcasts.",
+  "outcome_category": [
+    "Customer Experience",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "3,200+ global nodes",
+    "180+ TB bandwidth reserve",
+    "10-million-level concurrent viewers"
+  ],
+  "architecture_clues": [
+    "Generative detail restoration is applied after adaptive encoding so bandwidth can drop without giving up perceived clarity.",
+    "Primary and backup streams switch automatically when interruptions or frame-rate anomalies occur.",
+    "Bestv uses different transcoding templates and AI models for concerts and basketball broadcasts because the visual requirements differ by event type."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/culture-2023-bestv",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "百视TV基于视频直播支撑大型文体活动直播_文化产业行业-阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/culture-2023-bestv",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:04:41+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Bestv needed to keep sports and exclusive performance streams real-time and smooth even when motion was intense, venue conditions changed, and huge audience bursts arrived at once. (original: 针对体育赛事和独家演出直播等场景，画面切换更快、运动性更强，场地环境因素更多变……当百万受众瞬时涌入时，如何保障在超高清高并发情况下的直播零卡顿。)",
+    "Bestv used Narrowband HD 2.0 to lower bitrate with adaptive encoding and then restore clarity with generative detail repair. (original: 百视 TV 将阿里云的窄带高清 2.0 技术应用在了直播上，通过自适应编码能力，降低源流的码率，同时通过生成式细节修复能力，显著提升源流的画面清晰度。)",
+    "MediaUni provided 3,200-plus nodes, 180-plus TB of bandwidth reserve, and automatic primary/backup switching for large event broadcasts. (original: 全球 3200+ 节点、180+ TB 带宽储备……一旦直播过程中，遇到断流或帧率异常，配置的主备流将实现自动切换。)",
+    "Bestv also used event-specific transcoding templates and AI repair models to improve concert facial detail and basketball scene clarity. (original: 针对赛事和演唱会定制不同转码模板和 AI 修复模型，如针对演唱会的人像定制模板对偶像面部和肤色进行特殊处理……针对篮球直播赛事的转码模板和 AI 修复模型让球衣数字、地板纹理、球场边界线更加清晰。)"
+  ],
+  "source_language": "zh"
+}

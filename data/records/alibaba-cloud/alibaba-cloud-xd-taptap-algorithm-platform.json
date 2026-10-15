@@ -1,0 +1,184 @@
+{
+  "id": "alibaba-cloud-xd-taptap-algorithm-platform",
+  "slug": "alibaba-cloud-xd-taptap-algorithm-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "XD / TapTap (心动 / TapTap)",
+  "industry": "Media and Entertainment",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "TapTap's ad-driven recommendation, search, and content workflows depended on machine-learning models and NLP processing, but the older ECS-plus-Rundeck environment made deployments and service management too slow and expensive. The team needed a more elastic platform for automated model updates, experiment tracking, content parsing, and online estimation services while continuing to support Go-based services and fast release cycles for a globally used game community.",
+  "solution_summary": "XD moved TapTap's algorithm platform toward an all-on-serverless design using Function Compute (FC) and Serverless Application Engine (SAE). Model artifacts exported into OSS buckets trigger FC deployment workflows, so TensorFlow, PyTorch, and similar models can be published without separate engineering handoffs. An internal experiment-management service also runs on FC with HTTP triggers, recording training parameters and log addresses so model experiments stay traceable. New user posts are pushed through Kafka to an NLP parsing service, where event-driven execution invokes analysis only when content arrives and stores the results for later search use. The team also schedules FC jobs to pull unstructured billing data and aggregate MaxCompute and EAS consumption by task and model. On the serving side, SAE hosts shared estimation services used by search, recommendation, and advertising workloads, giving TapTap faster releases, microservice support, and lower operations overhead.",
+  "products_used": [
+    "Function Compute (FC)",
+    "Serverless Application Engine (SAE)",
+    "Object Storage Service (OSS)",
+    "Kafka",
+    "MaxCompute",
+    "Elastic Algorithm Service (EAS)"
+  ],
+  "solution_components": [
+    {
+      "name": "Function Compute (FC)",
+      "role": "Runs TapTap's event-driven model deployment, experiment-management, NLP parsing, and scheduled cost-statistics workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores exported model artifacts whose arrival triggers automated deployment and update jobs.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Kafka",
+      "role": "Streams newly created content into the NLP parsing workflow for downstream search enrichment.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "MaxCompute",
+      "role": "Provides a source for scheduled resource-consumption analysis tied to model and task cost management.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Elastic Algorithm Service (EAS)",
+      "role": "Supplies algorithm-service resource signals that are aggregated for model-cost monitoring and management.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Serverless Application Engine (SAE)",
+      "role": "Hosts the online estimation and microservice layer shared across search, recommendation, and advertising workloads.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Model artifacts are written to OSS and trigger FC-based deployment jobs, experiment submissions arrive through HTTP-triggered FC services that log parameters and log locations, and new user posts are pushed through Kafka into event-driven NLP analysis for search indexing. Processed signals and online prediction services are then served through SAE, while scheduled FC tasks aggregate MaxCompute and EAS consumption data for internal cost control.",
+  "integration_points": [
+    "TensorFlow models",
+    "PyTorch models",
+    "search systems",
+    "recommendation systems",
+    "advertising systems",
+    "internal experiment-management services",
+    "billing data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "TapTap gave its algorithm engineers a faster, lower-ops platform for model deployment, NLP enrichment, and online estimation. The serverless design let the company decouple triggering logic from business code, reduce infrastructure management, and support faster releases and elastic scaling for recommendation and advertising services that affect user experience and monetization.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "50 million monthly active users",
+    "38 games operated as of mid-2022",
+    "minute-level releases",
+    "second-level elastic scaling"
+  ],
+  "architecture_clues": [
+    "OSS-triggered model deployment lets algorithm engineers publish models without a separate manual deployment path.",
+    "Kafka-triggered NLP analysis is invoked per new post so the platform can align cost with content volume.",
+    "Scheduled FC jobs aggregate MaxCompute and EAS resource usage by task and model to improve cost transparency.",
+    "SAE is used for shared estimation services that support search, recommendation, and advertising scenarios."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2022-xd",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "心动 TapTap 算法平台的 Serverless 探索之路",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2022-xd",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:56+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "TapTap said its serverless work was driven by algorithm scenarios such as deep-learning-model updates and deployment, model-experiment records, and NLP analysis for new in-platform content. (original: 搜广推都依赖的深度学习模型自动化更新/部署，以及组内算法工程师都需要依赖的模型实验记录平台，还有站内新内容的一些 NLP 分析处理等。)",
+    "The team chose a Serverless architecture built from SAE and Function Compute because it could cover most business scenarios with lower operations cost than ECS plus self-built Kubernetes. (original: 心动技术团队选择了……Serverless 架构，使用 Serveless 应用引擎（SAE）和函数计算 FC……可以覆盖掉 TapTap 绝大多数的业务场景，实现所有应用服务 All On Serverless。)",
+    "When model files are exported to an OSS bucket, TapTap automatically triggers deployment and update services so algorithm engineers can publish models without depending on extra engineering staff. (original: 算法工程师在训练完自己的模型……只需要导出到指定的 OSS 存储空间 Bucket，就会触发模型的更新与部署服务。这样算法工程师在不依赖其他工程人力的情况下也能执行模型的部署、更新以及后续的弹性缩扩容。)",
+    "New posts are pushed through Kafka to NLP processing for later search use, and SAE gave TapTap minute-level releases plus second-level elastic scaling. (original: 当 TapTap 站内的用户发了一个新的帖子，会通过 Kafka 推送到 NLP 分析服务商进行 NLP 的处理与解析，存下来用于之后的搜索……不停机发布 + 分钟级上线……秒级弹性缩扩容。)"
+  ],
+  "source_language": "zh"
+}

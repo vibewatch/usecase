@@ -1,0 +1,175 @@
+{
+  "id": "alibaba-cloud-midea-building-technologies-iot-ai-lakehouse",
+  "slug": "alibaba-cloud-midea-building-technologies-iot-ai-lakehouse",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Midea Building Technologies (美的楼宇科技)",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Midea Building Technologies had a large and fast-growing stream of semi-structured IoT equipment data, but its earlier environment focused on storage and basic use rather than deeper analytical and AI-driven value extraction. The company needed a unified, elastic data platform that could support large-scale processing, real-time and historical data fusion, and AI-assisted analysis for energy management, equipment operations, and maintenance decisions.",
+  "solution_summary": "Midea Building Technologies built an IoT lakehouse on Alibaba Cloud around EMR Serverless Spark so building-equipment telemetry could be processed with both analytics and AI logic at production scale. Historical customer and device data is batch-loaded from relational systems into Hudi tables through Spark SQL, while real-time events are streamed through Cloud Kafka and written into the same Hudi tables with Spark Structured Streaming, giving the company one batch-and-stream data base. On top of that pipeline, PySpark jobs use PyArrow UDFs to call Midea's own algorithms and aggregate hundred-billion-scale records across million-dimensional feature spaces. DLF provides unified lakehouse management, and processed indicators are loaded into Serverless StarRocks for dashboards and reporting. The result is a managed Data+AI platform that combines IoT data engineering, lakehouse governance, and AI-assisted decision support in one architecture.",
+  "products_used": [
+    "EMR Serverless Spark",
+    "Hudi Lake",
+    "Data Lake Formation (DLF)",
+    "Cloud Kafka",
+    "Serverless StarRocks"
+  ],
+  "solution_components": [
+    {
+      "name": "EMR Serverless Spark",
+      "role": "Provides the managed compute layer for batch imports, streaming processing, and AI-oriented feature aggregation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Hudi Lake",
+      "role": "Stores unified historical and real-time IoT data in the lakehouse layer.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Kafka",
+      "role": "Carries real-time IoT events from the device platform into the streaming data pipeline.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Data Lake Formation (DLF)",
+      "role": "Provides centralized management for the lakehouse metadata and governance layer.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Serverless StarRocks",
+      "role": "Serves processed indicators to dashboards and reporting applications for business users.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Historical data is batch-imported from customer relational databases into Hudi tables with Spark SQL, while real-time IoT events flow through Cloud Kafka into Spark Structured Streaming and land in the same lakehouse tables. EMR Serverless Spark and PySpark UDFs aggregate and score the resulting data, then processed indicators are loaded into Serverless StarRocks for dashboards, reporting, and downstream data-science workflows.",
+  "integration_points": [
+    "customer relational databases",
+    "IoT platform",
+    "PySpark tasks",
+    "PyArrow UDFs",
+    "dashboards",
+    "reporting applications"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Midea turned a storage-heavy IoT environment into a governed Data+AI platform that can process large streams of equipment data faster and at lower cost. The new stack improved overall platform performance, reduced total cost, simplified the batch-and-stream pipeline, and gave the data team a more practical foundation for intelligent building operations and analytics.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "overall data-platform performance improved 50%",
+    "overall cost reduced 30%",
+    "aggregated 100-billion-scale data at million-level dimensionality",
+    "more than 3x performance advantage over open-source versions"
+  ],
+  "architecture_clues": [
+    "Historical and real-time IoT data are written into the same Hudi tables, so Midea runs a true batch-and-stream lakehouse pattern.",
+    "PyArrow UDFs are used to call Midea's own algorithms from PySpark jobs rather than keeping AI logic outside the data platform.",
+    "Serverless StarRocks is the serving layer for processed indicators, while DLF governs the lakehouse control plane."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/manufacturing-2025-mbt-midea",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "美的楼宇科技基于EMR Serverless Spark 构建 LakeHouse 湖仓数据平台",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/manufacturing-2025-mbt-midea",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:01:35+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Midea said its growing semi-structured IoT device data needed a unified elastic platform with data-science and AI support so the company could move beyond basic storage into intelligent mining. (original: 当前设备数据量庞大且持续增长、数据呈现半结构化特点……迫切需要构建一个统一且通用的 IoT 数据平台……还应具备强大的大规模数据处理能力以及数据科学和 AI 技术支持。)",
+    "The company used Serverless Spark PySpark tasks with PyArrow UDFs to call self-developed algorithms and aggregate 100-billion-scale data at million-level dimensionality. (original: 楼宇科技通过 Serverless Spark PySpark 任务，并基于 PyArrow UDF 调用自研算法实现了千亿级别数据在百万级维度的聚合。)",
+    "Historical data is batch-imported into Hudi with Spark SQL, while real-time IoT data is collected through Cloud Kafka and written into the same Hudi tables with Spark Structured Streaming. (original: 历史存量数据是通过 Spark SQL 以天为单位从不同客户关系数据库批量导入 Hudi Lake 表中；实时数据通过 IoT 平台采集到云 Kafka，经由 Spark Structured Streaming 消费后实时写入到 Hudi Lake 表中。)",
+    "After the redesign, platform performance improved 50%, overall cost fell 30%, and EMR Serverless Spark delivered more than 3 times the performance of open-source alternatives. (original: 数据平台整体性能提升 50……综合成本下降 30……相比开源版本 3 倍以上的性能优势。)"
+  ],
+  "source_language": "zh"
+}

@@ -1,0 +1,153 @@
+{
+  "id": "alibaba-cloud-infly-llm-data-preprocessing",
+  "slug": "alibaba-cloud-infly-llm-data-preprocessing",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Infly (无限光年)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Infly needed a scalable preprocessing environment for trustworthy large-model development. The company had to deduplicate very large text corpora, classify massive datasets, and filter low-quality training content before model training and fine-tuning, but those workloads required more elastic CPU capacity and better distributed operators than a conventional in-house pipeline could provide. The preprocessing stage was also important for controlling data redundancy and reducing privacy risk in downstream LLM training.",
+  "solution_summary": "Infly used Alibaba Cloud MaxCompute as the compute substrate for large-model data preparation so text quality work could scale with training demand. Raw corpora are staged in MaxCompute, which provides fully managed serverless CPU capacity for distributed preprocessing runs without self-managed clusters. On top of that base, MaxFrame supplies a distributed Python execution environment with built-in MinHash operators so very large text collections can be compared and cleaned in parallel. The same MaxFrame layer invokes FastText classification models so datasets can be categorized and scored before later training and fine-tuning stages. The design focuses on CPU-heavy data engineering rather than model inference: MaxCompute supplies elastic resources, MaxFrame runs deduplication and classification logic, and the cleaned outputs are handed to Infly's trustworthy-model training pipeline.",
+  "products_used": [
+    "MaxCompute",
+    "MaxFrame"
+  ],
+  "solution_components": [
+    {
+      "name": "MaxCompute",
+      "role": "Provides the managed elastic compute environment Infly uses to process very large LLM training datasets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "MaxFrame",
+      "role": "Runs distributed Python preprocessing jobs, including MinHash deduplication and FastText-based text classification, on top of MaxCompute.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Large text datasets are loaded into MaxCompute, where MaxFrame launches distributed MinHash deduplication and FastText classification jobs across elastic CPU capacity. The cleaned, deduplicated, and scored outputs are then passed to downstream large-model training and fine-tuning workflows so Infly can improve data quality before model development.",
+  "integration_points": [
+    "large text datasets",
+    "MinHash deduplication logic",
+    "FastText classification models",
+    "LLM training pipelines",
+    "model fine-tuning workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Infly turned LLM data preprocessing into a managed, high-scale workflow that can handle more data types and much larger text volumes before training. Using MaxCompute and MaxFrame let the team finish huge classification and scoring runs within an hour on thousands of CU of CPU resources, improve preprocessing efficiency, and create a more practical foundation for trustworthy-model development and commercialization.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "thousands of CU of CPU resources",
+    "classification and scoring for tens of billions of records completed within one hour"
+  ],
+  "architecture_clues": [
+    "The pipeline is CPU-centric because the bottleneck is preprocessing, deduplication, and classification rather than model serving.",
+    "MaxFrame's built-in MinHash operator is used to remove duplicate or highly similar text before training.",
+    "FastText classification is distributed through MaxFrame so dataset scoring can run at the same scale as deduplication."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/ai-2024-infly",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "无限光年基于阿里云大数据计算服务 MaxCompute 完成大规模的数据处理",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/ai-2024-infly",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:04:01+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Infly said text deduplication and text classification are indispensable steps in large-model data preprocessing because they improve data quality, training efficiency, and reliability. (original: 在大模型开发场景中，数据预处理是提高数据质量和模型性能的关键……文本去重、文本分类是大模型数据预处理中不可或缺的重要环节。)",
+    "The company chose Alibaba Cloud MaxCompute to run distributed processing for massive text datasets with elastic serverless CPU resources. (original: 面对海量文本数据集分布式计算处理的需求，无限光年选用了阿里云云原生大数据计算服务 MaxCompute。MaxCompute 提供了全托管 Severless 服务，面向大规模数据处理需求可快速提供海量、弹性 CPU 计算资源。)",
+    "MaxFrame's built-in distributed MinHash operator handled text deduplication, and the same framework distributed FastText classification across large text datasets. (original: MaxCompute 提供了分布式 Python 计算服务 MaxFrame，内置分布式 MinHash 文本去重算子……MaxFrame 支持分布式调用 FastText 文本分类等模型，从而分布式完成大规模文本数据集分类。)",
+    "With thousands of CU of CPU resources in production, Infly completed classification and scoring on tens of billions of records within one hour. (original: 在实际生产场景几千 CU 的 CPU 计算资源情况下，在一小时内即完成了几十亿条数据的分类、打分工作。)"
+  ],
+  "source_language": "zh"
+}

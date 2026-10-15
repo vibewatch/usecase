@@ -1,0 +1,173 @@
+{
+  "id": "alibaba-cloud-g-town-ai-digital-platform",
+  "slug": "alibaba-cloud-g-town-ai-digital-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "G-Town (海牙湾)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Mid-market",
+  "business_problem": "G-Town was scaling an AI-driven digital platform used for customer-lifecycle experience and supply-chain decision support, but the older ECS-based architecture wasted resources, could not react quickly enough to short traffic surges, and required manual, error-prone deployments. The company also lacked consistent observability and needed a safer release model for continuously changing business services.",
+  "solution_summary": "G-Town rebuilt the runtime for its AI digital platform on Alibaba Cloud around Serverless Application Engine (SAE) and the cloud-native API gateway so services could scale and release faster without heavy infrastructure management. Business services are deployed to SAE, where load-driven scaling handles short peaks and can shrink idle workloads to one instance, while CPU Burst and Dragonwell JDK reduce Java startup overhead. The CI/CD pipeline was refactored around kubectl-sae, YAML-defined service specs, and one-click deployments so packaging, upload, rollback, and gray rollout could be automated instead of managed node by node. In front of those services, the MSE gateway provides routing, security controls, rate limiting, and gray-release policy management, while monitoring and log services improve diagnosis. The result is a serverless application platform that underpins G-Town's machine-learning-driven digital services while reducing operational drag.",
+  "products_used": [
+    "Serverless Application Engine (SAE)",
+    "Cloud-native API Gateway (MSE Gateway)",
+    "Application Real-Time Monitoring Service",
+    "Log Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Serverless Application Engine (SAE)",
+      "role": "Runs G-Town's AI-platform application services with automatic scaling, release controls, and high-availability support.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud-native API Gateway (MSE Gateway)",
+      "role": "Handles routing, security policy, and gray-release traffic management in front of the platform services.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service",
+      "role": "Provides integrated runtime visibility so the team can identify faults and performance issues quickly.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Log Service",
+      "role": "Centralizes operational logs that support troubleshooting and service analysis across the serverless environment.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Business requests for G-Town's AI digital platform enter through the MSE gateway, which applies routing and traffic policies before sending them to SAE-hosted application services. SAE scales those services according to load, while monitoring signals and logs flow into Alibaba Cloud observability services so releases, incidents, and high-traffic events can be diagnosed and tuned more quickly.",
+  "integration_points": [
+    "CI/CD systems",
+    "YAML deployment specifications",
+    "Shell deployment scripts",
+    "points-mall services",
+    "installment-mall services"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Supply Chain Optimization",
+    "Marketing Personalization"
+  ],
+  "business_outcome": "G-Town completed a full architecture upgrade in two months and gave its AI digital platform a more elastic and controllable runtime. Resource utilization rose, idle spend fell, releases sped up from hours to minutes, and the team improved stability for bursty business events. The serverless stack also made it easier to keep iterating on digital services tied to customer-lifecycle optimization and supply-chain decision support.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "team size is nearly 300 people",
+    "cost savings exceeded 60%",
+    "overall work efficiency improved 40%",
+    "iteration speed improved 3x",
+    "CPU utilization rose from below 20% to above 50%",
+    "application startup time improved by more than 30%",
+    "system stability improved from 99.5% to 99.99%"
+  ],
+  "architecture_clues": [
+    "SAE can shrink workloads to one instance during low-traffic periods and use CPU Burst during startup spikes.",
+    "kubectl-sae plus YAML-defined service specs is part of the production release path for JAR applications.",
+    "MSE gateway is used for routing, DDoS protection, rate limiting, and gray-release traffic control in front of business services.",
+    "The source describes the application platform in detail but does not disclose the internal model stack behind G-Town's AI services."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-g-town",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "阿里云Serverless助力海牙湾构建智能化 AI 数字化平台_互联网&信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-g-town",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:42+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "G-Town said it is building a next-generation AI digital platform that uses intelligent algorithms and machine learning to improve full-lifecycle user experience and supply-chain decision making. (original: 公司正加速构建新一代 AI 数字化平台，通过智能算法优化和机器学习技术，持续提升用户全生命周期体验与供应链智能决策能力。)",
+    "The old ECS-based architecture had CPU utilization below 20%, poor elasticity for 1-2 hour peaks, and manual node-by-node release work. (original: 部分服务器 CPU 利用率长期低于 20%……传统云主机架构难以应对业务流量的波峰波谷（高峰期仅持续 1-2 小时）……应用发版需根据 ECS 服务器应用负载情况逐一分发。)",
+    "G-Town moved to SAE and the cloud-native API gateway so services could scale automatically, release with canary and full-link gray strategies, and recover quickly across availability zones. (original: SAE 支持根据业务负载自动调整实例数量……SAE 通过分批发布、金丝雀发布和全链路灰度发布……SAE 天然支持多可用区部署和同可用区亲和特性。)",
+    "After the migration, cost savings exceeded 60%, overall work efficiency improved 40%, iteration speed improved 3 times, and system stability rose from 99.5% to 99.99%. (original: 成本节约超 60%……整体工作效率提升 40%……迭代速度提升 3 倍……系统稳定性从 99.5% 提升至 99.99%。)"
+  ],
+  "source_language": "zh"
+}

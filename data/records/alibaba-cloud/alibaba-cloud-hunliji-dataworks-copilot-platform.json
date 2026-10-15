@@ -1,0 +1,201 @@
+{
+  "id": "alibaba-cloud-hunliji-dataworks-copilot-platform",
+  "slug": "alibaba-cloud-hunliji-dataworks-copilot-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Hunliji (婚礼纪)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Hunliji's wedding-services platform had outgrown a self-built data warehouse. The company needed to process hundreds of millions of behavioral events per day, manage large image assets, and support marketing, order, risk-control, and payment workloads, but its earlier stack suffered from unclear lineage, inconsistent metrics, unstable scheduling, and too little automation for multi-engine data development. It also wanted an AI-assisted way to generate and optimize SQL, manage complex workflows, and improve developer productivity across a growing lakehouse estate.",
+  "solution_summary": "Hunliji rebuilt its data estate on Alibaba Cloud around DataWorks so operational analytics and AI-assisted development could run on one governed lakehouse platform. Logs and business data are integrated through DataWorks into an OSS-HDFS data lake, where offline pipelines use Spark and Hive for layered warehouse processing while real-time streams land in Paimon through Flink. Trino and Doris provide interactive analysis for downstream users, and the new Data Studio plus workflow capabilities orchestrate multi-engine jobs, Python tasks, and lineage-aware scheduling from one control plane. The AI layer comes from DataWorks Copilot, which lets engineers generate, correct, optimize, and translate SQL or UDF logic with natural-language interaction, and also supports table discovery, table creation, and engine-parameter guidance. The result is a governed Data+AI environment that supports marketing analytics, user insight, risk monitoring, and merchant operations at production scale.",
+  "products_used": [
+    "DataWorks",
+    "OSS-HDFS data lake",
+    "Spark",
+    "Hive",
+    "Flink",
+    "Paimon",
+    "Trino",
+    "Doris",
+    "DataWorks Copilot"
+  ],
+  "solution_components": [
+    {
+      "name": "DataWorks",
+      "role": "Provides the central development, scheduling, modeling, governance, and workflow control plane for Hunliji's enterprise data platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "OSS-HDFS data lake",
+      "role": "Stores integrated log and business data for downstream offline and real-time lakehouse processing.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Spark",
+      "role": "Runs offline transformation and layered processing jobs over large-scale platform data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Hive",
+      "role": "Supports warehouse-style offline processing on top of the governed data model.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Flink",
+      "role": "Streams real-time data into the lakehouse so fresh operational data can be analyzed continuously.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Paimon",
+      "role": "Acts as the real-time lakehouse table format for streaming data landed by Flink.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Trino",
+      "role": "Provides interactive analytics over processed data for business and engineering teams.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Doris",
+      "role": "Serves processed analytical outputs for downstream decision support and operational reporting.",
+      "layer": "Serving"
+    },
+    {
+      "name": "DataWorks Copilot",
+      "role": "Uses natural-language interaction to generate, optimize, convert, and troubleshoot data-development logic for engineers."
+    }
+  ],
+  "data_flow": "Hunliji integrates log and business data through DataWorks into an OSS-HDFS data lake, processes offline layers with Spark and Hive, and streams real-time events through Flink into Paimon tables. Trino and Doris expose processed datasets for analysis and reporting, while DataWorks workflows orchestrate the jobs and DataWorks Copilot helps engineers generate SQL, convert code, and resolve development issues across the same governed environment.",
+  "integration_points": [
+    "user-behavior logs",
+    "marketing systems",
+    "order systems",
+    "risk-control services",
+    "payment services",
+    "merchant operations",
+    "VR venue experiences"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Data Lake / Data Warehouse Modernization",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Hunliji moved from a brittle self-built warehouse to a governed lakehouse platform that can support high-volume wedding-industry data operations and AI-assisted engineering from one environment. The redesign gave the team clearer lineage, more flexible Python and workflow execution, faster multi-engine development, and a practical Copilot layer for SQL generation, optimization, and diagnostics. That lets the platform keep supporting user insight, advertising, merchant service, and risk-control scenarios at growing scale.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "serves 20 million+ couples per year",
+    "works with 200,000+ merchants",
+    "processes 400-500 million user-behavior log records per day",
+    "manages tens of millions of bridal image assets",
+    "annual transaction flow is at the 10-billion-plus level",
+    "supports millisecond-level coupon verification"
+  ],
+  "architecture_clues": [
+    "Hunliji uses a lakehouse pattern with offline Spark and Hive plus real-time Flink to Paimon.",
+    "The same DataWorks control plane handles modeling, scheduling, workflows, lineage, data quality, and AI-assisted development.",
+    "DataWorks Copilot is used in production for SQL generation, optimization, code conversion, table discovery, and engine guidance rather than as a demo feature."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-hunliji",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "婚礼纪_计算平台客户案例_产线_DataWorks",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2025-hunliji",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:54+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Hunliji said it handles 400-500 million user-behavior logs per day, tens of millions of image assets, and 10-billion-plus annual transaction flow across marketing, order, risk-control, and payment scenarios. (original: 日均处理 4-5 亿条用户行为日志……管理千万级婚纱影像资产库……年承载超百亿级交易流水，实现毫秒级优惠核销、智能商家结算及动态风控监测。)",
+    "The company rebuilt its data platform with DataWorks, using DataWorks integration into an OSS-HDFS lake, Spark and Hive for offline layers, Flink into Paimon for real-time flows, and Trino plus Doris for interactive analysis. (original: 日志数据、业务数据通过 DataWorks 数据集成进入 OSS-HDFS 数据湖，离线链路通过 Spark、Hive 引擎根据规范的数据模型进行分层加工，实时数据通过 Flink 实时进入 Paimon 数据湖，构建湖仓一体方案，上层采用 Trino、Doris 进行交互式分析。)",
+    "DataWorks workflows and the new Data Studio gave Hunliji automated multi-engine orchestration, while Copilot was used for SQL generation, correction, optimization, code conversion, smart table discovery, and table creation. (original: 婚礼纪使用工作流……包括编排多种大数据和 AI 引擎的数据开发节点……婚礼纪借助 DataWorks Copilot 智能助手通过自然语言交互完成更为复杂的 SQL 代码生成、优化、测试等操作……智能找表、智能建表、生成表结构。)",
+    "Hunliji said the new platform would keep supporting precision marketing optimization, intelligent ad delivery, transaction risk control, and user-behavior insight while deepening Data+AI exploration. (original: 成功实现了对多源异构数据的高效汇聚与深度分析，全面赋能精准营销策略优化、智能广告投放、交易风险控制及用户行为洞察等核心业务场景。)"
+  ],
+  "source_language": "zh"
+}
