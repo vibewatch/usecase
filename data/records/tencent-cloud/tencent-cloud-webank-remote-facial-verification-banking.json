@@ -1,0 +1,164 @@
+{
+  "id": "tencent-cloud-webank-remote-facial-verification-banking",
+  "slug": "tencent-cloud-webank-remote-facial-verification-banking",
+  "vendor": "Tencent Cloud",
+  "customer_name": "WeBank (微众银行)",
+  "industry": "Financial Services",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "WeBank needed to launch and scale an internet-only banking model quickly while keeping infrastructure cost under control and making remote customer identity verification trustworthy enough for core account-opening and card-binding workflows.",
+  "solution_summary": "WeBank used Tencent Cloud to build a de-IOE banking architecture that combined cloud infrastructure with AI-based remote identity verification. The platform runs in Tencent Cloud's finance-compliance environment, with TDSQL supporting account and transaction workloads while dedicated lines, VPN, private networking, BGP connectivity, and CDN provide secure low-latency access for customers and institutional exchanges. For onboarding and second-bank-card binding, Tencent YouTu supplies lip-reading liveness detection and facial recognition so users can be verified remotely instead of visiting offline branches. That identity step feeds directly into digital banking workflows, preserving an online service model without dropping core security controls. The result is a cloud-native banking stack that cut account-management cost by 80%, improved response performance, and delivered verification accuracy above 95% with an error rate below one per thousand.",
+  "products_used": [
+    "Tencent YouTu",
+    "TDSQL",
+    "Private Network",
+    "Dedicated Line Access",
+    "VPN",
+    "CDN"
+  ],
+  "solution_components": [
+    {
+      "name": "Tencent YouTu",
+      "role": "Provides facial recognition and lip-reading liveness detection for remote identity verification.",
+      "layer": "Compute"
+    },
+    {
+      "name": "TDSQL",
+      "role": "Stores banking data on a financial-grade database platform with multi-site disaster-recovery support.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Private Network",
+      "role": "Connects cloud resources in an isolated environment for secure banking operations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Dedicated Line Access",
+      "role": "Links the bank to nearby Tencent Cloud nodes and external institutions with higher-performance network paths.",
+      "layer": "Serving"
+    },
+    {
+      "name": "VPN",
+      "role": "Extends secure connectivity between private-network resources and other environments in the hybrid architecture.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CDN",
+      "role": "Publishes user-facing content to edge nodes so banking users can access services with lower latency and higher success rates.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Customer account-opening and second-card-binding requests enter WeBank's online channels, Tencent YouTu runs remote liveness and facial-verification checks, verified customer and transaction data are stored in TDSQL, and dedicated lines, VPN, private networking, and CDN keep customer access and institutional data exchange secure and responsive.",
+  "integration_points": [
+    "Remote account opening",
+    "Second bank-card binding",
+    "Other financial institutions",
+    "Third-party payment companies"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cybersecurity",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "WeBank launched an all-cloud banking model with lower operating cost, faster network response, and production facial-verification workflows that let customers complete key identity checks remotely instead of relying on offline processing.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience",
+    "Risk Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "Account-management cost fell by 80%.",
+    "Remote identity verification achieved more than 95% accuracy.",
+    "Remote identity verification kept the error rate below 0.1%.",
+    "Average public-network latency fell from 100ms to 20ms.",
+    "DDoS protection provided 20Gbps of scrubbing capacity."
+  ],
+  "architecture_clues": [
+    "The platform was built as a de-IOE, fully cloud-based banking architecture.",
+    "TDSQL is described as supporting daily transaction volumes in the billions with strong synchronous multi-site disaster recovery.",
+    "BGP connectivity spans 17 major domestic ISPs and supports 100 million connections with 6 million concurrent requests."
+  ],
+  "source_url": "https://cloud.tencent.com/customer/wzyh",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Webank微众银行",
+      "publisher": "Tencent Cloud",
+      "url": "https://cloud.tencent.com/customer/wzyh",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-12T06:03:49+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "source_language": "zh",
+  "evidence_quotes": [
+    "WeBank quickly launched as the world's first fully cloud-based bank and reduced account-management cost by 80%, while also using facial-verification technology from Tencent Financial Cloud to create innovative online workflows. (original: 微众银行通过腾讯云，构建全新去IOE高扩展性架构，快速开业成为全球首家全云上银行，并降低80%账户管理成本，同时采用金融云的人脸核身等新技术，打造创新的互联网业务流程。)",
+    "When users bind a second bank card, Tencent YouTu's lip-reading liveness detection and facial-recognition technology enabled remote identity verification with accuracy above 95% and an error rate below one per thousand. (original: 通过使用腾讯优图独创的结合唇语的活体检测技术以及世界领先的人脸识别技术，银行在用户身份远程识别中达到了95%以上的准确率以及低于千分之一的错误率。)",
+    "TDSQL cut database spending by more than 50% compared with traditional databases and has supported daily transaction volumes in the billions with zero-failure operation for years. (original: 数据库则采用了腾讯云金融级数据库TDSQL，光是这一项支出，相比传统数据库就节约了50%以上的成本。TDSql一直成熟应用于腾讯内部的交易和支付体系中，成功支持日十亿的交易量，支撑了数亿用户多年来0故障运营。)",
+    "Cross-region traffic scheduling shortened average public-network latency from 100ms to 20ms and protected stable business operations. (original: 通过跨地域流量调度技术，公网的平均时延从100ms缩短至20ms，保障用户业务的稳定运营。)"
+  ]
+}
