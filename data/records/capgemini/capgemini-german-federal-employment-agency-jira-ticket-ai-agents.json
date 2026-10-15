@@ -1,0 +1,195 @@
+{
+  "slug": "capgemini-german-federal-employment-agency-jira-ticket-ai-agents",
+  "customer_name": "German Federal Employment Agency",
+  "industry": "Public Sector",
+  "region": "Germany",
+  "company_size": "Public sector",
+  "business_problem": "The BA needed a privacy-compliant way to reduce the manual effort of turning Requests for Change and user stories into high-quality Jira tickets under increasing workload and limited staff capacity.",
+  "solution_summary": "The German Federal Employment Agency worked with Capgemini to automate RFC and user-story conversion into Jira tickets using a coordinated on-premises multi-agent architecture. Incoming change requests are first analyzed by a reader agent, then broken into steps by a planner agent, transformed into structured Jira content by a creator agent, and checked for consistency and duplicates by a reviewer agent before human approval. The deployment was built to manage large RFC documents and LLM token limits while fitting the agency’s privacy and security requirements. After pilot integration with selected departments, the system was fully connected to the agency’s local Jira environment and orchestrated with CrewAI using privacy-compliant models including Aleph Alpha, LLaMA, and Mistral. This lets the BA keep all data on premises while automating repetitive formatting, summarization, and copy-paste work so staff can focus on oversight and decision-making.",
+  "products_used": [
+    "reader agent",
+    "planner agent",
+    "creator agent",
+    "reviewer agent",
+    "Jira",
+    "CrewAI",
+    "Aleph Alpha",
+    "LLaMA",
+    "Mistral"
+  ],
+  "solution_components": [
+    {
+      "name": "reader agent",
+      "role": "Analyzes Requests for Change and user stories to extract the information needed for ticket creation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "planner agent",
+      "role": "Breaks the extracted request into actionable steps for ticket generation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "creator agent",
+      "role": "Generates the Jira ticket title, description, category, and metadata.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "reviewer agent",
+      "role": "Checks generated tickets for consistency and duplicates before human approval.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Jira",
+      "role": "Serves as the agency’s local ticketing environment where the generated work items are created and managed.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CrewAI",
+      "role": "Coordinates the specialized AI agents inside the agency’s on-premises architecture.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Aleph Alpha",
+      "role": "Provides privacy-compliant model capability for the on-premises ticketing workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "LLaMA",
+      "role": "Provides privacy-compliant model capability for the on-premises ticketing workflow.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Mistral",
+      "role": "Provides privacy-compliant model capability for the on-premises ticketing workflow.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "RFCs and user stories are read and extracted by the reader agent, decomposed by the planner agent, turned into structured Jira tickets by the creator agent, checked by the reviewer agent, and then sent to human reviewers before entering the agency’s local Jira instance.",
+  "integration_points": [
+    "Local Jira environment",
+    "Requests for Change (RFCs)",
+    "User stories",
+    "Agency secure IT architecture"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "The BA automated most ticket creation work, reduced manual effort on summarizing and formatting, and established a reusable on-premises AI agent pattern that fits public-sector privacy and security requirements.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Scalability"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Runs fully on premises",
+    "Human-in-the-loop approval remains in place",
+    "Mechanisms were added to handle large RFC documents and LLM token limits",
+    "Integrated into the agency’s secure local Jira environment"
+  ],
+  "evidence_quotes": [
+    "\"Capgemini and the BA developed a multi-agent AI system that automatically transforms Requests for Change and user stories into Jira tickets, supported by human oversight.\"",
+    "\"Today, the system is fully integrated into the BA’s local Jira instance and operates entirely on-premises.\"",
+    "\"Privacy-compliant models such as Aleph Alpha, LLaMA, and Mistral are orchestrated via CrewAI, an open-source platform for multi-agent coordination.\""
+  ],
+  "id": "capgemini-german-federal-employment-agency-jira-ticket-ai-agents",
+  "vendor": "Capgemini",
+  "source_url": "https://www.capgemini.com/in-en/news/client-stories/the-german-federal-employment-agency-automates-jira-processes-with-ai-agents/",
+  "published_date": "2025-12-05",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-12-05",
+      "type": "Published on source page",
+      "publisher": "Capgemini",
+      "url": "https://www.capgemini.com/in-en/news/client-stories/the-german-federal-employment-agency-automates-jira-processes-with-ai-agents/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "The German Federal Employment Agency automates Jira processes with AI agents - Capgemini India",
+      "publisher": "Capgemini",
+      "url": "https://www.capgemini.com/in-en/news/client-stories/the-german-federal-employment-agency-automates-jira-processes-with-ai-agents/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2025-12-05",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T08:28:02+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "is_sample": false
+}
