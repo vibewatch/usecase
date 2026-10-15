@@ -1,0 +1,139 @@
+{
+  "id": "ey-microsoft-spend-risk-monitoring",
+  "slug": "ey-microsoft-spend-risk-monitoring",
+  "vendor": "EY",
+  "customer_name": "Microsoft",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Microsoft wanted to modernize corporate spend-risk monitoring because existing compliance testing was siloed across organizations, relied on random sampling and periodic reviews, and made it hard to spot anomalies quickly or manage policies consistently across its global footprint.",
+  "solution_summary": "Microsoft expanded its longstanding relationship with EY to build the Spend Risk Monitoring Modernization program around EY Virtual, a microservices-based continuous monitoring platform on Microsoft Azure Data Factory. EY configured the Spend Analytics application to ingest Microsoft's global spending transactions, test them against risk triggers and signals, and use advanced analytics, AI and machine learning to identify anomalous activity. High-risk items flow into EY Controls, which runs on Microsoft Dynamics 365 and Power Automate so review teams can investigate and report findings without manual handoffs. Power BI provides reporting back to Microsoft, while feedback loops from completed reviews are fed back into EY Virtual to improve future screening. The result is an end-to-end, automated compliance workflow that replaces fragmented sampling with real-time risk-based monitoring across territories, business units and controls.",
+  "products_used": [
+    "EY Virtual",
+    "Spend Analytics",
+    "Microsoft Azure Data Factory",
+    "EY Controls",
+    "Microsoft Dynamics 365",
+    "Power Automate",
+    "Power BI"
+  ],
+  "solution_components": [
+    {
+      "name": "EY Virtual",
+      "role": "Acts as the continuous monitoring platform that ingests global spend data and runs anomaly detection for compliance risks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Spend Analytics",
+      "role": "Applies spend-focused analytics and risk logic to identify high-risk transactions for review.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Azure Data Factory",
+      "role": "Connects and ingests Microsoft's transaction data into the EY Virtual monitoring workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "EY Controls",
+      "role": "Routes flagged anomalies into the managed workflow for investigation, review and reporting.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Dynamics 365",
+      "role": "Provides the workflow foundation used by EY Controls for processing reviewed transactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Power Automate",
+      "role": "Automates handoffs and processing steps inside the anomaly-review workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Power BI",
+      "role": "Returns compliance and anomaly reporting to Microsoft in a visualized format.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Transaction data from Microsoft business units is ingested through Azure Data Factory into EY Virtual, where Spend Analytics tests each record against risk triggers and machine learning signals. High-risk anomalies move into EY Controls on Dynamics 365 and Power Automate for human review, Power BI reports the results, and the completed outcomes feed back into EY Virtual to refine future screening.",
+  "integration_points": [
+    "Microsoft business-unit transaction systems",
+    "risk triggers and signals",
+    "EY review teams worldwide",
+    "Microsoft reporting stakeholders"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "Microsoft replaced fragmented random sampling with a scalable risk-based monitoring program that reviews global spend in real time, focuses reviewers on the riskiest transactions, consolidates siloed compliance programs, and removes substantial manual effort while improving coverage and consistency.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [
+    "data selection population of 600 anomalous transactions",
+    "reviews 100% of invoices across the enterprise",
+    "taking out more than 10,000 hours of work annually across its business"
+  ],
+  "architecture_clues": [
+    "EY Virtual is described as a microservices-based continuous monitoring platform built on Microsoft Azure Data Factory.",
+    "The workflow combines anomaly detection with EY Controls on Dynamics 365, Power Automate and Power BI reporting.",
+    "Machine learning outputs are fed back into EY Virtual so screening can refine itself over time.",
+    "The Spend Analytics application was customized to monitor Microsoft's spending globally."
+  ],
+  "source_url": "https://www.ey.com/en_gl/insights/tmt/using-technology-to-control-spending-risk-in-a-fastmoving-environment",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2024-04-22",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.ey.com/en_gl/insights/tmt/using-technology-to-control-spending-risk-in-a-fastmoving-environment",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Using technology to control spending risk in a fast-moving environment | EY - Global",
+      "publisher": "EY",
+      "url": "https://www.ey.com/en_gl/insights/tmt/using-technology-to-control-spending-risk-in-a-fastmoving-environment",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T05:25:56+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"EY's forensic analytics-powered continuous monitoring platform, EY Virtual, built on the Microsoft Azure stack.\"",
+    "\"EY Virtual takes in all of those transactions, tests them against all of the risk triggers and signals, and provides us very quickly with a data selection population of 600 anomalous transactions.\"",
+    "\"EY Virtual's Azure AI-enabled testing reviews 100% of invoices across the enterprise and identifies high-risk anomalies for human review.\"",
+    "\"Today, Microsoft can risk-rate its global spending in a fraction of the time previously achievable.\"",
+    "\"All while consolidating its existing siloed compliance programs into a single integrated process, taking out more than 10,000 hours of work annually across its business.\""
+  ]
+}

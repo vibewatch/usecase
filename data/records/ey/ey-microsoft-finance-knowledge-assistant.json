@@ -1,0 +1,135 @@
+{
+  "id": "ey-microsoft-finance-knowledge-assistant",
+  "slug": "ey-microsoft-finance-knowledge-assistant",
+  "vendor": "EY",
+  "customer_name": "Microsoft",
+  "industry": "Software / SaaS",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "Microsoft's finance organization wanted to improve data literacy and speed product-launch work, but critical knowledge was spread across tens of thousands of historical financial documents and disparate databases, making it slow to retrieve requirements, compare prior launches and turn finance data into actionable insight.",
+  "solution_summary": "Microsoft and EY built two connected generative AI applications to modernize finance operations. Replay AI became a centralized ecosystem of AI-based applications linked to different finance databases so teams could reuse summarization, extraction and analysis capabilities instead of rebuilding them project by project. Natural language processing converts business questions into SQL queries, making reports, charts and trend analysis available to nontechnical users. In parallel, Finance Launch AI uses a large language model and a knowledge library of historical launch artifacts - including Excel, Word, PDF, PowerPoint, email, JPEG, OneNote and Visio files - to answer launch questions, surface comparable prior launches, identify stakeholders and draft initial finance requirements. Retrieval-augmented generation keeps both systems grounded in trusted internal sources, giving Microsoft's finance team a scalable knowledge layer for launches, analytics and faster MVP development.",
+  "products_used": [
+    "Replay AI",
+    "Finance Launch AI",
+    "knowledge library",
+    "Natural Language Processing (NLP)",
+    "Retrieval-augmented generation (RAG)"
+  ],
+  "solution_components": [
+    {
+      "name": "Replay AI",
+      "role": "Hosts reusable AI applications connected to finance databases for summarization, extraction and analysis.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Finance Launch AI",
+      "role": "Provides a chat-based assistant that retrieves launch knowledge and drafts finance requirements for new product introductions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "knowledge library",
+      "role": "Stores historical launch and finance documents in multiple formats so the AI applications can query trusted internal information.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Natural Language Processing (NLP)",
+      "role": "Transforms finance users' natural-language questions into SQL queries and structured analysis outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Retrieval-augmented generation (RAG)",
+      "role": "Grounds both AI systems in trusted source material to improve response quality and reliability.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Historical finance documents and launch artifacts are collected into a knowledge library connected to Replay AI and Finance Launch AI. Users ask questions in natural language, NLP turns queries into database instructions and analytical outputs, RAG retrieves trusted source material, and the assistants return summaries, requirements, comparable launches and reports for finance teams.",
+  "integration_points": [
+    "finance databases",
+    "Excel",
+    "Word",
+    "PDF",
+    "PowerPoint",
+    "email",
+    "JPEG",
+    "OneNote",
+    "Visio"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Microsoft's finance team gained reusable AI applications that cut launch and analytics cycle times, improve access to institutional knowledge and let more employees retrieve trusted finance information without waiting on specialists or rebuilding tooling from scratch.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Scalability"
+  ],
+  "metrics": [
+    "over 100 employees are now utilizing Finance Launch AI",
+    "reducing the time required to gather finance requirements for new product introductions from 6-8 weeks to just 3-4 weeks",
+    "Replay AI reduces AI application MVP development from four months to six weeks",
+    "75% reduction in time for MVP development",
+    "50% reduction in the time required to gather finance requirements for new product introductions"
+  ],
+  "architecture_clues": [
+    "Replay AI is a centralized ecosystem of AI applications linked to different finance databases.",
+    "Finance Launch AI uses a large language model over a knowledge library containing Office documents, images and email.",
+    "NLP translates user questions into SQL queries and report outputs.",
+    "RAG was implemented across both systems to keep responses grounded in trusted information."
+  ],
+  "source_url": "https://www.ey.com/en_gl/insights/consulting/how-ai-innovation-powers-microsoft-s-finance-journey",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2025-11-14",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.ey.com/en_gl/insights/consulting/how-ai-innovation-powers-microsoft-s-finance-journey",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How AI innovation powers Microsoft's finance journey | EY - Global",
+      "publisher": "EY",
+      "url": "https://www.ey.com/en_gl/insights/consulting/how-ai-innovation-powers-microsoft-s-finance-journey",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T05:25:52+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Microsoft set out to enhance data literacy and harness institutional expertise by consolidating tens of thousands of detailed historical financial documents into a single knowledge library that can be queried in natural language.\"",
+    "\"Microsoft's work to bring AI-enabled efficiency to the finance function began with two parallel efforts, Replay AI and Finance Launch AI.\"",
+    "\"Finance Launch AI is a chat-based application powered by a large language model designed to simplify essential financial processes.\"",
+    "\"Retrieval-augmented generation (RAG) was implemented to enhance the performance of both Replay AI and Finance Launch AI by confirming that the systems reference trusted sources of information.\"",
+    "\"Finance Launch AI enabled a 50% reduction in the time required to gather finance requirements for new product introductions.\""
+  ]
+}

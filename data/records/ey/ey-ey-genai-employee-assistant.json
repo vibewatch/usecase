@@ -1,0 +1,148 @@
+{
+  "id": "ey-ey-genai-employee-assistant",
+  "slug": "ey-ey-genai-employee-assistant",
+  "vendor": "EY",
+  "customer_name": "EY",
+  "industry": "Commercial and Professional Services",
+  "region": "global",
+  "company_size": "Enterprise",
+  "business_problem": "EY wanted enterprise-scale generative AI that employees could use in a private, secure environment, but off-the-shelf tools lacked EY-specific context and raised data privacy, information security, governance and executive alignment concerns that could stall adoption.",
+  "solution_summary": "EY chose to build EY.ai EYQ as a custom generative AI ecosystem instead of buying consumer-grade tools. The platform was developed in quick phases and is powered by EY Fabric, whose reusable cloud, data, intelligence, development and experience components gave teams a scalable foundation. EYQ began with a secure ChatGPT-like experience, then expanded into domain-specific conversational agents that answer questions in areas such as HR and client delivery using EY knowledge and data. A robust orchestration framework decides which agents, or which combination of agents, should respond based on user context, while prompt management lets users improve and share prompts through a centralized library. Shared workspaces make EYQ a multiuser collaborator, and developer environments let technologists publish new copilots from Microsoft Copilot Studio into the ecosystem. Microsoft Azure and Azure OpenAI service provide the core infrastructure for one of EY's largest private GenAI environments.",
+  "products_used": [
+    "EY.ai EYQ",
+    "EY Fabric",
+    "Microsoft Azure",
+    "Azure OpenAI service",
+    "domain-specific conversational agents",
+    "orchestration framework",
+    "shared workspaces",
+    "Microsoft Copilot Studio"
+  ],
+  "solution_components": [
+    {
+      "name": "EY.ai EYQ",
+      "role": "Provides the secure employee-facing GenAI experience and hosts the broader internal AI ecosystem.",
+      "layer": "Serving"
+    },
+    {
+      "name": "EY Fabric",
+      "role": "Supplies the reusable cloud, data, intelligence and development foundation for rapid enterprise scaling.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Hosts the private enterprise infrastructure that runs EYQ at global scale.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure OpenAI service",
+      "role": "Provides the core LLM capabilities behind EYQ's conversational experiences.",
+      "layer": "Compute"
+    },
+    {
+      "name": "domain-specific conversational agents",
+      "role": "Answer specialized questions using context from HR, delivery and other internal domains.",
+      "layer": "Serving"
+    },
+    {
+      "name": "orchestration framework",
+      "role": "Selects and coordinates the best agent or agent combination for each user request.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "shared workspaces",
+      "role": "Let multiple EY users collaborate with EYQ inside a shared conversation and work context.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Copilot Studio",
+      "role": "Enables teams to build new copilots that can be published into EYQ's ecosystem.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "EY knowledge, data and domain context are routed through EY Fabric into EYQ's private Azure and Azure OpenAI environment. The orchestration framework selects the relevant conversational agents, prompt management improves user inputs, shared workspaces support team collaboration, and new copilots built in Copilot Studio can be published back into the ecosystem.",
+  "integration_points": [
+    "HR domain knowledge",
+    "client engagement and delivery processes",
+    "70 different applications and information sources",
+    "Microsoft Copilot Studio",
+    "EY knowledge and data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "EY established a secure enterprise GenAI platform with broad adoption, faster internal knowledge access, shared collaboration patterns and a reusable foundation for new agents and copilots, helping the firm operate more like an AI-first organization without compromising governance or brand safety.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "proof of concept (POC) in approximately four weeks",
+    "launched to 300,000 EY people",
+    "more than 116 million prompts processed to date",
+    "81% adoption rate"
+  ],
+  "architecture_clues": [
+    "EYQ is powered by EY Fabric and built on Microsoft Azure and its OpenAI service.",
+    "Domain-specific agents were added after the initial ChatGPT-like deployment to infuse EY-specific knowledge and data.",
+    "An orchestration framework can invoke multiple agents in a single conversation based on user context.",
+    "Shared workspaces and Copilot Studio publication flows extend EYQ from single-user chat into a broader collaboration and development platform."
+  ],
+  "source_url": "https://www.ey.com/en_gl/insights/ai/how-ey-is-unlocking-the-next-iteration-of-genai-advancement-with-eyq",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2025-04-24",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.ey.com/en_gl/insights/ai/how-ey-is-unlocking-the-next-iteration-of-genai-advancement-with-eyq",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Case study: EY realizes GenAI leap with EYQ | EY - Global",
+      "publisher": "EY",
+      "url": "https://www.ey.com/en_gl/insights/ai/how-ey-is-unlocking-the-next-iteration-of-genai-advancement-with-eyq",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T05:25:53+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The POC was successfully launched to 300,000 EY people, providing them with a secure, private environment to experience the capabilities of GenAI.\"",
+    "\"EYQ is powered by EY Fabric, a global foundational technology platform.\"",
+    "\"Built on Microsoft Azure and its OpenAI service, EYQ is one of the largest private, secure GenAI enterprise ecosystems globally.\"",
+    "\"The impressive user adoption rate of EY.ai EYQ has surpassed 81% across the EY organization, with more than 116 million prompts processed to date.\"",
+    "\"This framework intelligently manages the integration and interaction of related domain-specific agents based on user-provided context.\""
+  ]
+}
