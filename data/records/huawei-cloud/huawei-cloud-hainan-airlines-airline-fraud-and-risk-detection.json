@@ -1,0 +1,118 @@
+{
+  "id": "huawei-cloud-hainan-airlines-airline-fraud-and-risk-detection",
+  "slug": "huawei-cloud-hainan-airlines-airline-fraud-and-risk-detection",
+  "vendor": "Huawei Cloud",
+  "customer_name": "Hainan Airlines (海南航空股份有限公司)",
+  "industry": "Travel and Hospitality",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Hainan Airlines needed to stop scraping, fake seat holds, and marketing abuse across its digital channels because those attacks were raising costs, destabilizing pricing, and hurting direct-sales conversion.",
+  "solution_summary": "Hainan Airlines deployed Dingxiang's intelligent risk-control stack to stop bots and abuse across airfare search, seat inventory, and marketing workflows. The core intelligent risk-control platform combines multi-dimensional business data to score traffic and identify risky behavior in real time. Around that core, the airline added an intelligent CAPTCHA service for human-versus-bot verification and a device-fingerprint tool that creates a unique identifier for each device so spoofed clients can be detected even when they rotate accounts or requests. Query, booking, and campaign interactions are evaluated by the risk engine, which can block malicious crawling, false seat holds, and promotional abuse while allowing normal passengers to continue with minimal friction. The deployment stabilizes the airline's pricing system by cutting invalid query traffic and gives operations teams a common fraud-response layer instead of manual review across separate channels.",
+  "products_used": [
+    "Dingxiang intelligent risk-control platform",
+    "intelligent CAPTCHA tool",
+    "device fingerprint tool"
+  ],
+  "solution_components": [
+    {
+      "name": "Dingxiang intelligent risk-control platform",
+      "role": "Scores traffic and business activity from multiple data dimensions to identify risky airline interactions.",
+      "layer": "Serving"
+    },
+    {
+      "name": "intelligent CAPTCHA tool",
+      "role": "Performs human-versus-bot verification to block automated abuse in airline workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "device fingerprint tool",
+      "role": "Generates unique device identifiers so spoofed clients and repeated abuse can be detected.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Ticket-query, seat-booking, and campaign requests are combined with device signals and other business data, then checked by device fingerprinting, CAPTCHA, and the intelligent risk-control platform. The risk engine decides whether to block or allow the interaction, reducing scraping, fake seat holds, and fraudulent campaign activity before those requests affect pricing or customer experience.",
+  "integration_points": [
+    "ticket-query systems",
+    "seat-booking workflows",
+    "marketing campaign systems",
+    "OTA traffic"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cybersecurity"
+  ],
+  "use_case_category": [
+    "Risk Management",
+    "Fraud Detection"
+  ],
+  "business_outcome": "The system reduced abusive traffic and fraudulent activity, stabilized airfare-query operations, and improved legitimate customer experience while saving the airline substantial operating cost.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "more than RMB 5 million in annual losses from ticket-information scraping",
+    "direct-sales rate was below 50%",
+    "more than RMB 10 million in annual marketing losses from abuse",
+    "saved several million yuan in operating costs",
+    "overall flight-query costs decreased by 90%"
+  ],
+  "architecture_clues": [
+    "The risk engine combines multi-dimensional business data for automated risk judgment.",
+    "Human verification and device fingerprinting are separate control layers around the scoring platform.",
+    "The deployment targets scraping, fake seat holds, and promotional abuse in airline digital channels."
+  ],
+  "source_url": "https://www.huaweicloud.com/cases/hnair.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2025-08-05",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.huaweicloud.com/cases/hnair.html",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "海南航空股份有限公司_客户案例-华为云",
+      "publisher": "Huawei Cloud",
+      "url": "https://www.huaweicloud.com/cases/hnair.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T22:00:08+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Third-party OTA companies scraped airline ticket information and caused annual economic losses of more than RMB 5 million. (original: 第三方OTA公司爬取航司票务信息，每年造成经济损失500万以上。)\"",
+    "\"Third-party OTA companies held seats maliciously, which sharply reduced conversion and kept the direct-sales rate well below 50%. (original: 第三方OTA公司实占、虚占航班座位，导致销售转化率大幅降低，直销率远低于50%。)\"",
+    "\"Marketing abuse such as coupon farming caused annual losses of more than RMB 10 million. (original: 薅羊毛等营销作弊行为，每年给航司造成1000万以上的营销费用损失。)\"",
+    "\"The intelligent risk-control platform combines multi-dimensional business data to judge risk intelligently. (original: 结合多维度业务数据，智能判断风险。)\"",
+    "\"The Dingxiang intelligent risk-control platform helped Hainan Airlines identify risk precisely, save several million yuan in operating costs, reduce overall flight-query fees by 90%, and improve normal users' query efficiency and experience. (original: 顶象智能风控平台助力海航精准识别风险，节省运营成本数百万元，航班查询费用整体下降90%，同时提升了正常用户的航班查询效率及体验。)\""
+  ],
+  "source_language": "zh"
+}
