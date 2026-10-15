@@ -1,0 +1,147 @@
+{
+  "id": "atos-misumi-usa-agentic-email-routing-and-document-extraction",
+  "slug": "atos-misumi-usa-agentic-email-routing-and-document-extraction",
+  "vendor": "Atos",
+  "customer_name": "Misumi USA",
+  "industry": "Manufacturing",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Misumi USA needed to handle about 2,000 inbound emails and more than 3,000 attached documents each day, but manual routing and document handling caused frequent misrouting, slowed order and quote processing, and made it hard to move away from legacy third-party services. Customers also struggled with an engineering-based configurator that supports 80 sextillion possible product combinations, while onboarding new web product categories took 3–6 weeks because critical knowledge was siloed.",
+  "solution_summary": "Atos and Misumi designed a multi-part AI architecture around customer communications and e-commerce operations. Inbound emails and quote or order requests are classified with Claude 3.5 Sonnet on Amazon Bedrock so work can be routed automatically instead of triaged by hand. Bedrock Data Automation extracts key fields from more than 3,000 attached documents per day. A daily customer-data feed lands in Amazon S3 so the workflow can identify and code customers without constant API calls. Misumi's homegrown content management system was re-architected to use AI for duplicate-attribute detection and better data grouping, while Amazon Connect supports technical-support interactions and AWS Lambda / API gateway enables real-time CAD generation and UI updates in the React-based frontend. Together these components turn high-volume manual routing, extraction, and configuration work into agentic workflows.",
+  "products_used": [
+    "Amazon Bedrock",
+    "Claude 3.5 Sonnet",
+    "Bedrock Data Automation",
+    "Amazon S3",
+    "Amazon Connect",
+    "AWS Lambda / API gateway"
+  ],
+  "solution_components": [
+    {
+      "name": "Amazon Bedrock",
+      "role": "Hosts the AI-driven workflow for parametric search, email classification, and document automation across Misumi's routing process.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Claude 3.5 Sonnet",
+      "role": "Classifies inbound emails to identify orders and quote requests for automatic routing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Bedrock Data Automation",
+      "role": "Extracts critical data from the thousands of attached documents that arrive with customer emails each day.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon S3",
+      "role": "Stores the daily customer lookup feed used to identify and code customers without repeated API calls.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Amazon Connect",
+      "role": "Supports technical-support call flows and provides a path for additional agentic voice AI integration.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS Lambda / API gateway",
+      "role": "Enables real-time CAD generation and frontend UI updates in the React-based experience.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer emails and attachments enter Amazon Bedrock workflows, where Claude 3.5 Sonnet classifies requests and Bedrock Data Automation extracts document data. The process enriches requests with daily customer records stored in Amazon S3, then routes work into Misumi's in-house order, quote, CMS, and frontend experiences, while Amazon Connect and AWS Lambda / API gateway handle support interactions and real-time UI actions.",
+  "integration_points": [
+    "Inbound customer emails",
+    "Attached order and quote documents",
+    "Daily customer database extracts",
+    "Misumi's homegrown content management system",
+    "Technical support calls",
+    "React-based frontend"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing"
+  ],
+  "business_outcome": "Misumi automated high-volume email routing and document handling, achieved 80% classification accuracy in proof-of-concept testing, reduced the projected web category transformation timeline from 14 years to 2 years, and gained greater operational control by bringing specialized automation capabilities in house.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "14 years reduced to 2 years for web category transformation",
+    "2,000 emails and 3,000+ documents processed daily through automated routing workflows",
+    "80% classification accuracy achieved during proof-of-concept testing",
+    "80 sextillion product configurations supported through scalable AI-enabled processes"
+  ],
+  "architecture_clues": [
+    "A daily customer feed is loaded into Amazon S3 instead of relying on constant API calls",
+    "Misumi's homegrown CMS was re-architected to use AI for duplicate-attribute detection and data grouping",
+    "AWS Lambda / API gateway powers real-time CAD generation and frontend UI updates",
+    "The program transitions work from legacy third-party services to in-house automation capabilities"
+  ],
+  "source_url": "https://atos.net/en/client-success/client-stories/misumi-usa-automating-with-amazon-bedrock",
+  "published_date": "2026-07-29",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-07-29",
+      "type": "Published on source page",
+      "publisher": "Atos",
+      "url": "https://atos.net/en/client-success/client-stories/misumi-usa-automating-with-amazon-bedrock",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-07-29",
+      "type": "Sitemap last modified",
+      "publisher": "Atos",
+      "url": "https://atos.net/en/client-success/client-stories/misumi-usa-automating-with-amazon-bedrock",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Misumi USA: Automating industrial component configuration and order routing with Amazon Bedrock - Atos",
+      "publisher": "Atos",
+      "url": "https://atos.net/en/client-success/client-stories/misumi-usa-automating-with-amazon-bedrock",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-07-29",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T08:48:55+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "published_date",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The team used Claude 3.5 Sonnet to automatically identify orders and quote requests from inbound emails, achieving 80% accuracy in the initial phase\"",
+    "\"Bedrock Data Automation was implemented to extract critical data from the 3,000+ documents attached to emails daily\"",
+    "\"the team built a daily data feed into an S3 database, allowing the system to automatically identify and code customers\"",
+    "\"Customers navigating Misumi's engineering-based product configurator faced ... 80 sextillion possible configurations\"",
+    "\"The solution targeted cutting the timeline for web category transformation from a projected 14 years down to just 2 years.\""
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "id": "atos-talgo-predictive-train-maintenance",
+  "slug": "atos-talgo-predictive-train-maintenance",
+  "vendor": "Atos",
+  "customer_name": "Talgo",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Talgo needed a fleet monitoring system that could ingest train telemetry in real time, handle communication failures, process about 5GB of signal data per train per day, present operational information to engineers in less than one second, and scale to additional train series without bespoke redevelopment. The company also wanted to move maintenance from fixed preventive schedules toward predictive and condition-based interventions.",
+  "solution_summary": "Atos and Talgo built TSMART, a fleet monitoring and predictive-maintenance platform for high-speed trains, using Google Cloud capabilities for data storage, real-time data processing, advanced geo analytics, and machine learning. Telemetry from trains is streamed into the platform in real time, where TSMART handles more than 30,000 signals per second per train from 100 trains around the world and processes roughly 5GB of data per train per day. Processed signals are exposed to maintenance engineers through engineer cockpit visualization screens with end-to-end latency of about one second. On top of the streaming layer, Talgo and Atos added condition-based and predictive maintenance capabilities delivered through an MLOps architecture so the team can monitor system health, predict equipment lifespan, increase inspection frequency, and detect failures earlier. Additional modules cover event analysis, gauge monitoring, configuration monitoring, graphing, notifications, and administration.",
+  "products_used": [
+    "TSMART",
+    "Google Cloud",
+    "MLOps architecture",
+    "engineer cockpit visualization screens"
+  ],
+  "solution_components": [
+    {
+      "name": "TSMART",
+      "role": "Acts as the fleet monitoring platform that ingests, analyzes, and operationalizes real-time train telemetry.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Google Cloud",
+      "role": "Provides the data storage, real-time processing, geo analytics, and machine-learning backbone behind TSMART."
+    },
+    {
+      "name": "MLOps architecture",
+      "role": "Delivers predictive-maintenance models in an agile way so Talgo can monitor system health and predict equipment lifespan.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "engineer cockpit visualization screens",
+      "role": "Expose real-time and historical dashboards so engineers can investigate alarms, events, and signals.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Train telemetry streams into TSMART in real time, where Google Cloud storage and processing services handle signal ingestion, analytics, and machine-learning workloads. Predictive-maintenance models delivered through the MLOps architecture evaluate equipment health and expected lifespan, then engineer cockpit screens present alarms, events, geolocation, and signal values with about one second of end-to-end latency for maintenance decisions.",
+  "integration_points": [
+    "Real-time train telemetry",
+    "Maintenance engineers",
+    "Geolocation data",
+    "Alarm and event streams",
+    "Train configuration data"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Talgo used TSMART to shift maintenance toward predictive and condition-based operations, improving fleet reliability, availability, and maintainability while reducing unplanned failures and saving inspection effort. The platform now supports proactive intervention before trains reach maintenance bases and can be extended to new train series or packaged as a service for third parties.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "15% improved fleet reliability",
+    "5% improved availability",
+    "10% improved maintainability",
+    "99% fleet availability",
+    "200 hours of maintenance inspection time projected to be saved per train per year",
+    "30,000 signals per second per train from 100 trains around the world",
+    "around 5GB of data per train per day",
+    "end-to-end latency of around one second from signal arrival to display"
+  ],
+  "architecture_clues": [
+    "Google Cloud is used for data storage, real-time processing, advanced geo analytics, and machine learning",
+    "TSMART handles more than 30,000 signals per second per train across 100 trains worldwide",
+    "Predictive maintenance is delivered through an MLOps architecture",
+    "The platform includes event analysis, gauge monitoring, train data graphing, notification management, and configuration monitoring",
+    "Talgo can extend the system to new train series or package it as a service"
+  ],
+  "source_url": "https://atos.net/en/client-success/client-stories/data-and-analytics-talgo",
+  "published_date": "2025-10-29",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-10-29",
+      "type": "Published on source page",
+      "publisher": "Atos",
+      "url": "https://atos.net/en/client-success/client-stories/data-and-analytics-talgo",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-01-27",
+      "type": "Sitemap last modified",
+      "publisher": "Atos",
+      "url": "https://atos.net/en/client-success/client-stories/data-and-analytics-talgo",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Smarter train operations for Talgo with data and AI - Atos",
+      "publisher": "Atos",
+      "url": "https://atos.net/en/client-success/client-stories/data-and-analytics-talgo",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2025-10-29",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T08:48:55+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "published_date",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The data and analytics platform behind TSMART was developed using Google Cloud capabilities for data storage, real-time data processing, advanced geo analytics and machine learning.\"",
+    "\"Currently, the system manages streaming and analysis of more than 30,000 signals per second per train from 100 trains around the world\"",
+    "\"The data is ingested in real time and presented to users in friendly visualizations, maintaining end-to-end latency of around one second from signal arrival to display\"",
+    "\"The predictive maintenance is not only based on AI models and rules. It was also delivered from an MLOps architecture\"",
+    "\"200 hours of maintenance inspection time projected to be saved per train per year\""
+  ]
+}
