@@ -1,0 +1,208 @@
+{
+  "id": "tcs-tata-projects-tender-document-processing",
+  "slug": "tcs-tata-projects-tender-document-processing",
+  "vendor": "TCS",
+  "source_url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tcs-helps-tata-projects-revolutionize-document-processing",
+  "published_date": "2026-01-06",
+  "published_date_source": "page metadata",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "customer_name": "Tata Projects Limited",
+  "industry": "Real Estate and Construction",
+  "region": "Unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Tata Projects had to review 1,000-2,000 page tender packages with non-standard terms, scanned tables, and frequent corrigenda, so manual analysis took more than four days per bid and made it difficult to spot risk and respond quickly enough to stay competitive.",
+  "solution_summary": "Tata Projects and TCS built TenderSummAIze, a generative AI tender-management portal on Microsoft Azure that turns bulky infrastructure bid documents into structured, searchable working material for legal and contracts teams. Tender files and scanned pages are processed with Document Intelligence and Microsoft Azure OpenAI so the system can chunk clauses semantically, map corrigenda back to the original document set, answer tender questions, and generate tailored summaries. Microsoft Azure Durable Functions orchestrates the long-running workflow, while Cosmos DB and Microsoft Azure Queue hold state and scale data movement across the pipeline. The portal lets teams upload, review, query, summarize, and track tenders through one interface, replacing reactive document reading with a governed AI workflow that surfaces liabilities and key terms in time for faster bid decisions.",
+  "products_used": [
+    "TenderSummAIze",
+    "Microsoft Azure OpenAI",
+    "Document Intelligence",
+    "Microsoft Azure Durable Functions",
+    "Cosmos DB",
+    "Microsoft Azure Queue"
+  ],
+  "solution_components": [
+    {
+      "name": "TenderSummAIze",
+      "role": "Provides the portal where legal and contracts teams upload, review, query, summarize, and track tender documents.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Azure OpenAI",
+      "role": "Supplies the generative AI capabilities used for question answering, semantic chunking, and summary generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Document Intelligence",
+      "role": "Extracts and structures text from complex tender documents and scanned content.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Microsoft Azure Durable Functions",
+      "role": "Coordinates the long-running tender analysis tasks and workflow steps.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cosmos DB",
+      "role": "Stores tender data and analysis state so teams can keep a single source of truth across updates.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Microsoft Azure Queue",
+      "role": "Scales data movement and task execution across the tender-processing pipeline.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Tender documents, scanned pages, and corrigenda are uploaded into TenderSummAIze, where Document Intelligence extracts content and Microsoft Azure OpenAI organizes clauses, highlights liabilities, answers questions, and produces summaries. Durable Functions and Azure Queue orchestrate the long-running steps, Cosmos DB maintains the working state and document lineage, and legal and contracts teams consume the results through the portal for faster bid decisions.",
+  "integration_points": [
+    "tender documents",
+    "scanned documents",
+    "corrigenda and addenda",
+    "legal teams",
+    "contracts teams"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "TenderSummAIze gave Tata Projects a faster and more reliable bid-preparation workflow, reducing manual review time, increasing accuracy, and helping the company evaluate more tenders with the same teams while shifting effort from clerical document handling to strategic commercial analysis.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "1,000-2,000 pages of dense, sometimes unstructured documentation",
+    "Processes over 250 pages of tender documents in under 25 minutes",
+    "Over 50% reduction in manual effort: Processing time reduced from four days to less than two days",
+    "Over 60% improvement in document accuracy",
+    "30% faster contract decisioning",
+    "Over 20% improvement in bid handling capacity",
+    "over 200 associates",
+    "more than 40 large-scale infrastructure tenders"
+  ],
+  "architecture_clues": [
+    "The workflow semantically chunks clauses and maps corrigenda back to original documents.",
+    "Prompt engineering standardizes business terms and canned summaries for different tender questions.",
+    "Cosmos DB and Microsoft Azure Queue provide the scalable data-management backbone.",
+    "The portal maintains audit trails while keeping teams on a single working version of tender changes."
+  ],
+  "evidence_quotes": [
+    "\"The solution leverages a robust tech stack, including Microsoft Azure OpenAI and Document Intelligence, for advanced natural language processing, Microsoft Azure Durable Functions for reliable long-running tasks, Cosmos DB and Microsoft Azure Queue for scalable data management\"",
+    "\"Processes over 250 pages of tender documents in under 25 minutes\"",
+    "\"Over 50% reduction in manual effort: Processing time reduced from four days to less than two days\"",
+    "\"Over 60% improvement in document accuracy\"",
+    "\"Over 20% improvement in bid handling capacity thus impacting competitiveness\""
+  ],
+  "date_evidence": [
+    {
+      "date": "2026-01-06",
+      "type": "Published on source page",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tcs-helps-tata-projects-revolutionize-document-processing",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-01-08",
+      "type": "Sitemap last modified",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tcs-helps-tata-projects-revolutionize-document-processing",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "TCS Helps Tata Projects Revolutionize Document Processing",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tcs-helps-tata-projects-revolutionize-document-processing",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-01-06",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T09:19:40+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "is_sample": false
+}

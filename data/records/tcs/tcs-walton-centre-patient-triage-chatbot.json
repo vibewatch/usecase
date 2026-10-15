@@ -1,0 +1,193 @@
+{
+  "id": "tcs-walton-centre-patient-triage-chatbot",
+  "slug": "tcs-walton-centre-patient-triage-chatbot",
+  "vendor": "TCS",
+  "source_url": "https://www.tcs.com/what-we-do/industries/public-services/case-study/walton-centre-migraine-conversational-chatbot",
+  "published_date": "2024-07-17",
+  "published_date_source": "page metadata",
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "customer_name": "The Walton Centre NHS Foundation Trust",
+  "industry": "Healthcare",
+  "region": "United Kingdom",
+  "company_size": "Public sector",
+  "business_problem": "The Walton Centre faced long waits and inefficient headache referral intake because clinicians spent large portions of first appointments collecting basic history manually, delaying treatment and making it hard to triage urgent cases quickly enough.",
+  "solution_summary": "The Walton Centre and TCS implemented a website-based conversational AI service to move headache triage and history collection upstream of the first specialist appointment. Patients use the AI chatbot to answer clinician-authored structured questions and provide additional details in natural conversation, while the service captures the response flow as a structured patient summary. TCS built the solution with AWS support and connected the output directly to the trust's electronic medical record system so consultants can review symptoms, history, and red flags before the first face-to-face visit. That architecture lets the trust standardize data capture, keep records secure, and reduce paper-based handling while giving clinicians a governed digital intake process that can identify severe cases earlier and shorten time spent on administrative questioning during appointments.",
+  "products_used": [
+    "AI chatbot",
+    "AWS",
+    "patient summary report",
+    "electronic medical record system"
+  ],
+  "solution_components": [
+    {
+      "name": "AI chatbot",
+      "role": "Conducts the conversational intake flow for headache patients and captures structured and natural-language answers.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS",
+      "role": "Provides the cloud foundation for the chatbot service that the trust runs on its website.",
+      "layer": "Compute"
+    },
+    {
+      "name": "patient summary report",
+      "role": "Packages the captured symptoms, medication details, and history for consultant review before the first appointment.",
+      "layer": "Serving"
+    },
+    {
+      "name": "electronic medical record system",
+      "role": "Stores the secured patient summary so clinicians can access it inside the trust's existing workflow.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Patients interact with the AI chatbot on The Walton Centre website, answering clinician-prepared questions and adding extra details through natural conversation. The service turns that intake into a structured patient summary report, then sends the report securely into the electronic medical record system so consultants can review the case before the first in-person appointment.",
+  "integration_points": [
+    "The Walton Centre website",
+    "structured clinician questions",
+    "electronic medical record system",
+    "consultant workflow"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "The Walton Centre improved the patient intake experience, gave clinicians earlier visibility into headache cases, reduced appointment time spent on history taking, captured almost all required referral information digitally, and created a more secure and consistent pathway into specialist neurology care.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "covering a population of 3.5 million",
+    "receives 350-450 neurology referrals per week",
+    "a three-month average waiting time to be seen by a consultant",
+    "Specialist clinicians typically spend 40% or more of their time gathering and validating basic information",
+    "The overall appointment time for the first appointment can be reduced by 40%.",
+    "Assuming more than 99% of headaches are primary headaches",
+    "for the 1% who may have a severe condition",
+    "Capturing 95% of the required information through the AI chatbot service"
+  ],
+  "architecture_clues": [
+    "The conversation flow follows structured questions prepared and reviewed by Walton Centre clinicians.",
+    "Natural-language follow-up is used to capture additional patient details beyond the fixed workflow.",
+    "The service writes a secured summary directly into the electronic medical record system.",
+    "The digital intake path reduces paper handling while supporting GDPR-compliant data capture."
+  ],
+  "evidence_quotes": [
+    "\"The collaboration resulted in a chatbot service, employing conversational AI to address headache-related concerns.\"",
+    "\"Once the patient completes the entire flow, the output captured by this service (a patient summary) is sent to the electronic medical record system\"",
+    "\"The overall appointment time for the first appointment (typically focused on history taking) can be reduced by 40%.\"",
+    "\"Capturing 95% of the required information through the AI chatbot service enhances clinicians' overall efficiency\"",
+    "\"Our AI-supported chatbot captures over 95% of the key information needed to provide specialist advice to these patients\""
+  ],
+  "date_evidence": [
+    {
+      "date": "2024-07-17",
+      "type": "Published on source page",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/industries/public-services/case-study/walton-centre-migraine-conversational-chatbot",
+      "authority": "First-party"
+    },
+    {
+      "date": "2025-11-07",
+      "type": "Sitemap last modified",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/industries/public-services/case-study/walton-centre-migraine-conversational-chatbot",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Conversational chatbot helps alleviate strain for Walton Centre",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/industries/public-services/case-study/walton-centre-migraine-conversational-chatbot",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2024-07-17",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T09:22:20+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "is_sample": false
+}
