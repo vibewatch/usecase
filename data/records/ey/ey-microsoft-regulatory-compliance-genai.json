@@ -1,0 +1,94 @@
+{
+  "vendor": "EY",
+  "id": "ey-microsoft-regulatory-compliance-genai",
+  "slug": "ey-microsoft-regulatory-compliance-genai",
+  "customer_name": "Microsoft",
+  "industry": "Software / SaaS",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Microsoft's Corporate, External, and Legal Affairs team needed to keep up with changing regulations across many jurisdictions, but reviewing new rules, assessing policy impact, drafting guidance and communicating next steps required substantial manual legal effort and created adoption concerns around using AI in sensitive compliance work.",
+  "solution_summary": "EY Law and Microsoft CELA built a generative AI workflow for regulatory compliance that combines Azure AI services, legal domain design and iterative user feedback. After a workshop spanning data strategy, privacy, confidentiality and legal-business requirements, the teams integrated a conversational assistant with the EY Global Tax Platform and powered it with Microsoft Azure Open AI and Microsoft Semantic Kernel. The resulting proof of concept was designed to ingest new regulations, summarize them, identify next steps, draft stakeholder email templates, populate Microsoft's implementation-guidance form, compare regulatory requirements with company policy and track version changes over time. Microsoft and EY refined the solution through a four-month pilot with rapid sprints and user input, producing reusable skillsets for document understanding, automated document generation, predictive action and version tracking that can be applied to additional legal use cases.",
+  "products_used": [
+    "EY Global Tax Platform",
+    "Microsoft Azure Open AI",
+    "Microsoft Semantic Kernel",
+    "conversational assistant"
+  ],
+  "solution_components": [
+    {
+      "name": "EY Global Tax Platform",
+      "role": "Hosts the workflow where regulatory-compliance tasks are automated and coordinated.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Microsoft Azure Open AI",
+      "role": "Provides the generative AI capability used to summarize regulations and draft legal outputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Microsoft Semantic Kernel",
+      "role": "Helps orchestrate the conversational assistant's prompts and actions within the solution.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "conversational assistant",
+      "role": "Ingests regulations and produces summaries, guidance drafts, comparisons and change analysis for lawyers.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "New regulations are ingested into the conversational assistant running on Azure Open AI and Semantic Kernel within the EY Global Tax Platform. The system summarizes the text, extracts obligations, drafts implementation guidance and stakeholder communications, compares rules with Microsoft policy and tracks changes between versions for CELA users.",
+  "integration_points": [
+    "CELA Technology & Operations",
+    "Microsoft policy",
+    "stakeholder email workflows",
+    "implementation guidance form",
+    "joint hackathon"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "Document Processing"
+  ],
+  "business_outcome": "Microsoft reduced manual legal effort around regulatory intake and analysis, created reusable GenAI skills for compliance workflows and built a trusted pattern for expanding legal AI use cases without sacrificing user confidence or oversight.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "over 250 potential use cases",
+    "four months of development"
+  ],
+  "architecture_clues": [
+    "The solution was integrated with the EY Global Tax Platform rather than built as a standalone demo.",
+    "Azure Open AI and Semantic Kernel were the core AI services in the proof of concept.",
+    "The workflow automates summarization, guidance drafting, policy comparison and version tracking as separate capabilities.",
+    "Microsoft and EY iterated through a hackathon, pilot implementation and multiple feedback sprints."
+  ],
+  "source_url": "https://www.ey.com/en_gl/insights/law/how-microsoft-streamlined-regulatory-compliance-with-gen-ai",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2024-11-04",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.ey.com/en_gl/insights/law/how-microsoft-streamlined-regulatory-compliance-with-gen-ai",
+      "authority": "Independent"
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"This tool is powered by Microsoft Azure Open AI and Microsoft Semantic Kernel\"",
+    "\"an AI tool that is integrated with the EY Global Tax Platform and systematically deploys GenAI to automate and improve tasks\"",
+    "\"The key capabilities developed ... include: Summarizing regulations ... Drafting implementation guidance ... Comparing Microsoft policy against new regulation ... Analyzing different versions.\"",
+    "\"transforming a task that previously took hours to minutes\"",
+    "\"The work also resulted in four primary, scalable GenAI skillsets\""
+  ]
+}
