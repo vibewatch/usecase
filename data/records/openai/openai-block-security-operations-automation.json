@@ -1,0 +1,172 @@
+{
+  "id": "openai-block-security-operations-automation",
+  "slug": "openai-block-security-operations-automation",
+  "vendor": "OpenAI",
+  "customer_name": "Block",
+  "industry": "Financial Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Block needed to shrink the time required to tune detections, investigate alerts, and move from a high-level vulnerability description to a validated patch, while reducing the analyst effort consumed by false positives and repetitive security investigations.",
+  "solution_summary": "Block built an AI-assisted security operations workflow around OpenAI Daybreak, Codex, and its own security harness so vulnerability discovery, detection tuning, investigation, and remediation could run much faster without removing human oversight. Every investigation stores raw query evidence, which lets the team replay a proposed detection change against seven months of production telemetry in under an hour instead of manually requerying hundreds of older cases. Daybreak also helps connect signals across endpoint and identity logs, surfacing broader attack paths that would remain invisible inside any single tool. During red-team exercises, the system chained together SQL injection, privilege escalation, foothold establishment, credential enumeration, and pivots to other systems in about two hours. Codex then helps turn high-level vulnerabilities into proposed patches that humans review, validate, and deploy.",
+  "products_used": [
+    "OpenAI Daybreak",
+    "Codex",
+    "Block security harness"
+  ],
+  "solution_components": [
+    {
+      "name": "OpenAI Daybreak",
+      "role": "Coordinates AI-assisted detection tuning, investigation planning, threat hunting, and attack-path analysis across Block's security workflows.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Codex",
+      "role": "Generates and iterates on proposed code patches from high-level vulnerability descriptions before human validation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Block security harness",
+      "role": "Routes tasks to the right models and enforces hooks for humans or agents to take over and verify work when appropriate.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Investigation evidence, seven months of telemetry, vulnerability descriptions, endpoint alerts, and identity logs flow into Block's Daybreak-based security harness. The harness routes work to the right models, Daybreak analyzes cross-system signals and proposed detection changes, Codex drafts patches, and human reviewers confirm exploitability and approve deployment.",
+  "integration_points": [
+    "Seven months of production telemetry",
+    "Raw query evidence from prior investigations",
+    "Endpoint alerts",
+    "Identity logs",
+    "Red-team exercise workflows",
+    "Human security reviewers"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cybersecurity",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "Security and Compliance",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Block now replays detection changes against months of telemetry in under an hour, generates automated patch proposals in 18 minutes during red-team exercises, returns roughly 600 analyst-hours per quarter from false-positive triage, and completes about 1,100 analyst-hours of investigations each quarter with AI assistance.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Less than 1 hour to replay a proposed detection change against seven months of telemetry",
+    "18 minutes from submitting a high-level vulnerability to an automated proposed patch",
+    "~600 analyst-hours per quarter handed back from false-positive triage",
+    "~1,100 analyst-hours of investigation completed each quarter",
+    "50% boost to triage throughput",
+    "50% increase in intelligence gathering and investigations"
+  ],
+  "architecture_clues": [
+    "Every investigation stores raw query evidence for later replay against proposed detection changes.",
+    "Block's security harness routes different jobs to different models instead of always using the latest model.",
+    "The system includes hooks for humans to take over tasks or for agents to verify each other's work.",
+    "Daybreak can join signals across products such as endpoint telemetry and identity logs to uncover larger campaigns.",
+    "Humans still confirm exploitability, review proposed patches, and guide deployment."
+  ],
+  "source_url": "https://openai.com/index/block-ai-powered-security/",
+  "published_date": "2026-10-14",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2026-10-14",
+      "type": "Published on source page",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/block-ai-powered-security/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How Block is building AI-powered security with OpenAI technology | OpenAI",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/block-ai-powered-security/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-10-14",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-15T00:30:07+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"For example, for detection tuning, every investigation stores its raw query evidence, so the team can now replay a proposed detection change against seven months of production telemetry in under an hour.\"",
+    "\"The automated triage system has resulted in faster work (and more of it) getting done. Block’s security team has seen a 50% boost to triage throughput, a 50% increase in intelligence gathering and investigations, and an entirely new autonomous hunting capability.\"",
+    "\"This performs ~1,100 analyst-hours of investigation per quarter, because every alert now gets a full, deep investigation across all elements the alert involves.\"",
+    "\"In recent red team exercises, the time from submitting a high-level vulnerability to an automated proposed patch was 18 minutes.\"",
+    "\"You propose a patch, you confirm exploitability, and then you verify that you have fixed it, with a human in the loop guiding it and deploying the code changes.\""
+  ]
+}

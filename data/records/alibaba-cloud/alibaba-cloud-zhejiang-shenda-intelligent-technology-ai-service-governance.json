@@ -1,0 +1,160 @@
+{
+  "id": "alibaba-cloud-zhejiang-shenda-intelligent-technology-ai-service-governance",
+  "slug": "alibaba-cloud-zhejiang-shenda-intelligent-technology-ai-service-governance",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Zhejiang Shenda Intelligent Technology Co., Ltd. (浙江深大智能科技有限公司)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Unknown",
+  "business_problem": "Shenda Intelligent needed to reduce the risk of all-at-once releases, prevent service avalanches during holiday traffic surges, eliminate the operational bottlenecks of a self-managed Nacos cluster, and free engineering time for AI-agent, intelligent-customer-service, and crowd-forecasting initiatives.",
+  "solution_summary": "Zhejiang Shenda Intelligent Technology Co., Ltd. rebuilt its tourism-platform foundation on Alibaba Cloud so it could operate high-concurrency scenic-ticketing and guidance systems while moving faster on AI applications. The company adopted Microservices Engine (MSE) as the control plane for lossless instance offlining, gradual traffic warmup, and full-link canary routing, which let new versions and freshly scaled instances absorb traffic safely during holiday peaks. Shenda also migrated its self-managed Nacos cluster to MSE's managed Nacos so service registry and configuration no longer bottlenecked microservice stability. Running on Container Service for Kubernetes (ACK), the platform uses MSE's AI-native service governance to register AI components through MCP and hot-update prompts and model parameters without restarts, while Application Real-Time Monitoring Service (ARMS) and Log Service provide the telemetry needed to spot faults quickly and keep releases stable.",
+  "products_used": [
+    "Microservices Engine (MSE)",
+    "Container Service for Kubernetes (ACK)",
+    "Application Real-Time Monitoring Service (ARMS)",
+    "Log Service"
+  ],
+  "solution_components": [
+    {
+      "name": "Microservices Engine (MSE)",
+      "role": "Handles service governance, lossless instance offlining, traffic warmup, full-link canary routing, and managed Nacos-based discovery and configuration.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Runs the microservices workloads and supports multi-cluster, highly available deployment of the smart-tourism platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Application Real-Time Monitoring Service (ARMS)",
+      "role": "Monitors application behavior in real time so the team can detect and troubleshoot service issues faster.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Log Service",
+      "role": "Stores centralized service and operations logs used for troubleshooting, release assurance, and operational analysis.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Traffic for ticketing, guidance, and crowd-management services runs on ACK. MSE routes tagged canary traffic and gradually warms new instances before they take full production load, while managed Nacos inside MSE maintains service discovery and AI-component configuration. ARMS and Log Service collect runtime telemetry so releases and scaling events can be monitored and corrected quickly.",
+  "integration_points": [
+    "Scenic-spot ticketing systems",
+    "Smart guide services",
+    "Crowd-management modules",
+    "AI agents",
+    "Intelligent customer service",
+    "Crowd-forecasting services"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Native",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Application Refactoring"
+  ],
+  "business_outcome": "Shenda Intelligent raised core-system availability to more than 99.95%, improved service stability by 60%, cut operations labor by 60%, increased cloud resource utilization by 30%, raised development iteration speed by 50%, and gave engineers more time to build AI-driven smart-tourism capabilities.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Core-system availability reached 99.95%+",
+    "Service stability improved by 60%",
+    "Release risk reduced by 90%+",
+    "Development iteration speed improved by 50%",
+    "Operations labor input reduced by 60%",
+    "Cloud resource utilization improved by 30%",
+    "Managed Nacos provides 99.99% high availability"
+  ],
+  "architecture_clues": [
+    "MSE uses lossless offlining and traffic warmup so cold instances are not overwhelmed during scaling events.",
+    "Full-link label routing enables real-traffic validation for canary releases.",
+    "The team migrated a self-built Nacos cluster to managed Nacos on MSE.",
+    "Nacos 3.0 is used for MCP-based AI service registration and discovery plus hot updates to prompts and model parameters.",
+    "ACK integration supports cross-cluster synchronization and future evolution toward Service Mesh."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/travel-and-hospitality-2026-sendinfo",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "深大智能基于MSE构建高可用微服务，服务稳定性能提升60%_文旅_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/travel-and-hospitality-2026-sendinfo",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-14T21:59:44+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Traditional operations could not support intelligent transformation because engineers were tied up in middleware maintenance, incident response, and release assurance instead of AI agents, intelligent customer service, and crowd forecasting. (original: 大量人力被消耗在基础中间件维护、故障排查和发布保障上，无法聚焦于更具价值的 AI Agent 开发、智能客服、客流预测等创新业务。)\"",
+    "\"MSE provides lossless offlining and traffic warmup so even during million-QPS holiday peaks, elastic scaling and version updates can remain stable. (original: MSE 提供无损下线能力，在应用停止前自动摘除服务注册并等待存量请求处理完毕；同时利用流量预热（Warmup）能力，在新实例启动后逐步导入流量。即使在国庆、春节等百万级 QPS 业务高峰期进行弹性扩缩容，系统依然平稳运行。)\"",
+    "\"Using MSE's full-link canary release, Shenda tags specific traffic and routes it precisely to new-version services for live validation, reducing release risk by more than 90%. (original: 借助 MSE 的全链路灰度发布能力，深大智能通过为特定流量打标，精准将流量路由至新版本服务进行真实验证，其余用户仍使用稳定版本。发布风险降低 90%+。)\"",
+    "\"After migrating self-built Nacos to managed Nacos on MSE, the company gained 99.99% high availability and AI-native governance such as MCP-based AI service registration and dynamic prompt and parameter hot updates. (original: 深大智能将自建 Nacos 集群迁移至 MSE 托管版 Nacos，获得 99.99% 高可用保障。利用 Nacos 3.0 内置的 MCP 服务注册与发现能力，统一纳管 AI 组件；支持动态 Prompt 与参数热更新，无需重启即可实时调整大模型参数。)\"",
+    "\"Core-system availability reached more than 99.95%, service stability improved by 60%, development iteration speed improved by 50%, operations labor input fell by 60%, and cloud resource utilization improved by 30%. (original: 核心系统可用性达 99.95%+，服务稳定性提升 60%。发布效率倍增：高频发布零回滚、零事故，研发迭代速度提升 50%。成本优化：运维人力投入减少 60%，云资源利用率提升 30%。)\""
+  ],
+  "source_language": "zh"
+}
