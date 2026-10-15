@@ -1,0 +1,160 @@
+{
+  "id": "cognizant-royal-london-group-marketing-compliance-genai",
+  "slug": "cognizant-royal-london-group-marketing-compliance-genai",
+  "vendor": "Cognizant",
+  "customer_name": "Royal London Group",
+  "industry": "Financial Services",
+  "region": "United Kingdom",
+  "company_size": "Unknown",
+  "business_problem": "Royal London Group needed to review thousands of regulated marketing assets faster while maintaining compliance with FCA Consumer Duty requirements and reducing the burden on human reviewers.",
+  "solution_summary": "Cognizant and Royal London Group implemented a governed generative AI review assistant to shorten the compliance cycle for regulated marketing content. The solution uses Microsoft Azure’s OpenAI LLM inside a modular assistant split into three personas—Creator, Refiner and Approver—so content generation, improvement and approval follow explicit stages instead of a single opaque model call. That persona-based architecture mirrors Royal London Group’s existing content workflow and makes outputs easier to audit. Each asset moves through the assistant under human-in-the-loop controls, with subject matter experts performing the final review before anything is approved. Cognizant also refined the assistant through stakeholder feedback, quality assurance checks and scaled evaluation, while embedding generative AI skills inside Royal London teams so the process can be reused economically in a highly regulated environment.",
+  "products_used": [
+    "Microsoft Azure’s OpenAI LLM",
+    "Creator",
+    "Refiner",
+    "Approver",
+    "final SME review"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Azure’s OpenAI LLM",
+      "role": "Provides the foundation model used to analyze and rewrite regulated marketing content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Creator",
+      "role": "Handles the content-creation stage inside the assistant’s governed workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Refiner",
+      "role": "Improves draft content before approval so quality and compliance feedback can be applied in sequence.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Approver",
+      "role": "Checks content in the approval stage so outputs align with governance expectations before human signoff.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "final SME review",
+      "role": "Keeps human subject matter experts in the loop for the last compliance decision on each asset.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Regulated marketing assets enter the modular assistant, where the Creator, Refiner and Approver personas apply staged Azure OpenAI processing rather than a single model pass. Outputs are then checked by human subject matter experts in the final SME review, and the assistant is continuously refined through stakeholder feedback, QA checks and scaled evaluation.",
+  "technical_area": [
+    "Generative AI / LLM",
+    "Security and Compliance"
+  ],
+  "use_case_category": [
+    "Security and Compliance"
+  ],
+  "business_outcome": "Royal London Group reduced the time spent reviewing regulated marketing assets, eased manual reviewer workload and established a scalable, auditable model for using generative AI in a regulated content process.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Compliance",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "thousands of regulated marketing assets",
+    "4.2 hours reduced per asset review time"
+  ],
+  "architecture_clues": [
+    "The assistant uses three personas to mirror Royal London Group’s traditional content workflow.",
+    "Human oversight remained central, with every AI-generated output undergoing final SME review.",
+    "Quality assurance checks and scaled evaluation were part of the refinement loop before reuse at scale.",
+    "The implementation focused on transparency and auditability for a regulated insurer."
+  ],
+  "source_url": "https://www.cognizant.com/us/en/case-studies/royal-london-group-responsible-ai-in-practice",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-02-07",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://www.cognizant.com/us/en/case-studies/royal-london-group-responsible-ai-in-practice",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Royal London Group—Responsible AI in practice | Cognizant",
+      "publisher": "Cognizant",
+      "url": "https://www.cognizant.com/us/en/case-studies/royal-london-group-responsible-ai-in-practice",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T09:48:10+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“Use generative AI to accelerate the approvals cycle for regulated marketing content, ensuring compliance and reducing the workload of human reviewers.”",
+    "“A modular assistant was developed using Microsoft Azure’s OpenAI LLM, split into three personas— Approver Refiner, and Creator —each with a distinct role in the content lifecycle.”",
+    "“This cognitive architecture ensured transparency, auditability, and alignment with governance standards.”",
+    "“Human oversight remained central, with all AI-generated content undergoing final SME review.”",
+    "“Review time reduced by 4.2 hours per asset”"
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "id": "cognizant-eintrachttech-stadium-visitor-flow-analytics",
+  "slug": "cognizant-eintrachttech-stadium-visitor-flow-analytics",
+  "vendor": "Cognizant",
+  "customer_name": "EintrachtTech",
+  "industry": "Media and Entertainment",
+  "region": "Germany",
+  "company_size": "Unknown",
+  "business_problem": "EintrachtTech needed to reduce queues, crowding risk and lost concession revenue at Deutsche Bank Park by understanding visitor flow at gates and kiosks in real time.",
+  "solution_summary": "Cognizant acted as integration lead for EintrachtTech's visitor-flow platform at Deutsche Bank Park, using cameras and AI to estimate queues at gates and kiosks in real time. Footage from monitored areas feeds a visual sensing platform whose model calculates likely wait times rather than simply counting bodies. The deployment required repeated tuning of camera positions and model behavior so it could separate queuing from loitering, distinguish people wearing similar fan gear, and handle umbrellas and darkness on match days. Wait-time outputs are shown on screens above kiosks and can also help staff respond to congestion. Because the model follows faces to estimate flow, the pipeline was built with GDPR controls: test data was retained for 72 hours to train the models, while live data is anonymized and deleted immediately after processing. The result is an operational blend of computer-vision inference, queue analytics and privacy controls for stadium operations.",
+  "products_used": [
+    "visual sensing platform",
+    "cameras",
+    "AI model",
+    "screens above the kiosks"
+  ],
+  "solution_components": [
+    {
+      "name": "visual sensing platform",
+      "role": "Coordinates the visitor-flow solution and turns camera feeds into actionable wait-time estimates.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "cameras",
+      "role": "Capture real-time footage at stadium gates and kiosks for the flow-management model.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AI model",
+      "role": "Analyzes movement patterns and estimates how long individuals will wait under different crowd conditions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "screens above the kiosks",
+      "role": "Display predicted wait times to help visitors choose lines and help staff manage congestion.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Real-time camera footage from gates and kiosks feeds the visual sensing platform, where an AI model estimates queue lengths and wait times. The outputs are shown on screens above kiosks and can also be used to direct stadium staff toward congestion points, while privacy controls anonymize live facial metadata and delete it immediately after processing.",
+  "integration_points": [
+    "gates",
+    "kiosks",
+    "Deutsche Bank Park staff",
+    "Deutsche Bank Park"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "IoT"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "EintrachtTech improved crowd management with more accurate wait-time estimates, reduced queue friction for fans, lowered operational risk in busy areas and created additional revenue potential by cutting concession abandonment.",
+  "outcome_category": [
+    "Customer Experience",
+    "Revenue Growth",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Up to 60,100 football fans",
+    "Over 2 million annual visitors",
+    "Over 90% accuracy",
+    "420,000-square-meter venue",
+    "72 hours"
+  ],
+  "architecture_clues": [
+    "The model had to distinguish between people queuing and people loitering in the same area.",
+    "Camera locations and angles were repeatedly tuned before the monitoring points were finalized.",
+    "Test data was retained for 72 hours for model training, while live data is deleted immediately after processing.",
+    "The design explicitly anonymizes facial metadata to comply with GDPR rather than performing facial recognition."
+  ],
+  "source_url": "https://www.cognizant.com/us/en/case-studies/eintrachttech-implements-an-ai-powered-visitor-flow-management-system",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-08-24",
+      "type": "Sitemap last modified",
+      "publisher": "Cognizant",
+      "url": "https://www.cognizant.com/us-en-sitemap.xml",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "EintrachtTech implements an AI-powered visitor flow management system | Cognizant",
+      "publisher": "Cognizant",
+      "url": "https://www.cognizant.com/us/en/case-studies/eintrachttech-implements-an-ai-powered-visitor-flow-management-system",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-15T09:47:33+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“Real-time footage from cameras at gates and kiosks would feed data protection compliance into an AI model trained to analyze visitor flow.”",
+    "“The estimated waiting times calculated from this data are displayed on screens above the kiosks.”",
+    "“While test data was kept for 72 hours to train the models, live data is deleted immediately after processing, in compliance with the EU General Data Protection Regulation (GDPR).”",
+    "“After testing at multiple games, the solution achieved over 90% accuracy in predicting wait times”",
+    "“up to 60,100 fans to the stadium”"
+  ]
+}
