@@ -1,0 +1,118 @@
+{
+  "id": "accenture-dg-mare-generative-ai-code-refactoring",
+  "slug": "accenture-dg-mare-generative-ai-code-refactoring",
+  "vendor": "Accenture",
+  "customer_name": "Directorate-General for Maritime Affairs and Fisheries (DG MARE)",
+  "industry": "Public Sector",
+  "region": "European Union",
+  "company_size": "Public sector",
+  "business_problem": "DG MARE needed to modernize siloed fisheries applications and thousands of legacy business rules quickly enough to support better maritime enforcement, but manual refactoring would have taken too long and delayed the broader cloud transformation.",
+  "solution_summary": "Accenture is helping DG MARE migrate fisheries and maritime applications to AWS and uses a generative AI refactoring tool to accelerate one of the hardest parts of the program: rewriting more than 2,000 legacy business rules for the cloud. DG MARE's applications manage vessel locations, fish-catch declarations, and related regulatory data from EU member states and third countries. The target state is Ocean Store, a unified platform that consolidates previously siloed application data for analysis and transparency. To speed the move, Accenture built a large-language-model-based tool that reads DG MARE's existing rule logic, codebase, and documentation, then generates cloud-ready code for the business-rule engine. Developers validate and correct the generated output where needed, while the unified platform creates room for additional analytics such as detecting unusual vessel behavior. The combination of cloud migration, data unification, and LLM-assisted refactoring gives DG MARE a faster path to modern enforcement technology.",
+  "products_used": [
+    "Ocean Store",
+    "business rule engine",
+    "generative AI tool",
+    "large language models",
+    "AWS cloud platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Ocean Store",
+      "role": "Acts as the unified data platform that consolidates previously siloed fisheries application data.",
+      "layer": "Storage"
+    },
+    {
+      "name": "business rule engine",
+      "role": "Executes the fisheries-validation logic that must be rewritten for the cloud platform.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "generative AI tool",
+      "role": "Uses DG MARE code and documentation to generate cloud-ready replacements for legacy rules.",
+      "layer": "Compute"
+    },
+    {
+      "name": "large language models",
+      "role": "Interpret existing rule logic so the refactoring tool can produce new code quickly.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS cloud platform",
+      "role": "Hosts the target application environment after the migration from legacy systems.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Fishing-vessel and catch-declaration data from member states feeds DG MARE applications that are being consolidated into Ocean Store. In parallel, legacy business rules and documentation are passed to the LLM-based refactoring tool, which generates cloud-ready code that developers validate before the new rule engine runs on AWS.",
+  "integration_points": [
+    "fish catch declarations",
+    "fishing vessel locations",
+    "27 European Union member states",
+    "non-member third party countries"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Cloud Migration",
+    "Application Modernization",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "DG MARE sharply reduced the time needed to modernize legacy rules, improved the foundation for maritime analytics, and created a more agile public-service platform for fisheries oversight and data-driven enforcement.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "more than 2,000 business rules",
+    "12,000 person-days",
+    "just one minute",
+    "90% accuracy"
+  ],
+  "architecture_clues": [
+    "The target platform is called Ocean Store.",
+    "The generative AI tool uses DG MARE's existing codebase and documentation as grounding context.",
+    "Unified fisheries data is intended to support future analytics on suspicious vessel behavior."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/public-service/harnessing-ai-safeguard-fisheries",
+  "published_date": "2024-02-08",
+  "published_date_source": "page metadata",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Safeguarding Maritime with AI Algorithms | Case Study | Accenture",
+      "publisher": "Accenture",
+      "url": "https://www.accenture.com/en/case-studies/public-service/harnessing-ai-safeguard-fisheries",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2024-02-08",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T06:18:48+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The result of the cloud migration will be a single platform, called Ocean Store, that unifies and integrates all the data from the legacy applications.\"",
+    "\"we developed a generative AI tool that uses large language models to understand the rules' logic and automatically generate new, cloud-ready code\"",
+    "\"it uses DG MARE's existing codebase and documentation, enabling high-quality code\"",
+    "\"the tool can refactor each rule in just one minute with 90% accuracy\""
+  ]
+}

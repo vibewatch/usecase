@@ -1,0 +1,118 @@
+{
+  "id": "accenture-singapore-ministry-of-manpower-employment-dispute-resolution-automation",
+  "slug": "accenture-singapore-ministry-of-manpower-employment-dispute-resolution-automation",
+  "vendor": "Accenture",
+  "customer_name": "Singapore Ministry of Manpower",
+  "industry": "Public Sector",
+  "region": "Singapore",
+  "company_size": "Public sector",
+  "business_problem": "Singapore's Ministry of Manpower needed to handle a growing volume of employment disputes faster and with less manual effort while keeping the process accessible, multilingual, and compliant for workers, employers, and mediators.",
+  "solution_summary": "Accenture helped Singapore's Ministry of Manpower and the Tripartite Alliance for Dispute Management build EmPOWER, a cloud-native dispute-resolution platform that digitizes the end-to-end claims journey. The solution combines AWS cloud-native services, a Google Dialogflow CX chatbot, PEGA case management, SingPass authentication, and self-help tools such as e-calculators and eligibility checks. Claimants start in the chatbot, which answers questions, pre-populates claim details, and passes structured inputs into the portal and workflow engine. PEGA then orchestrates case handling, routing, and officer actions, while data is stored locally in Singapore to satisfy sovereignty and public-sector security requirements. The result is a multilingual, guided process that reduces form-filling friction, limits manual errors, and gives officers cleaner data and faster case progression from intake through resolution.",
+  "products_used": [
+    "EmPOWER",
+    "AWS cloud-native services",
+    "Google Dialogflow CX chatbot",
+    "PEGA case management platform",
+    "SingPass"
+  ],
+  "solution_components": [
+    {
+      "name": "EmPOWER",
+      "role": "Serves as the shared digital platform for guided claim intake, dispute handling, and resolution workflows.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AWS cloud-native services",
+      "role": "Provide the cloud foundation that hosts and scales the dispute-resolution platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Dialogflow CX chatbot",
+      "role": "Handles multilingual claimant interactions and captures structured information before a case is submitted.",
+      "layer": "Serving"
+    },
+    {
+      "name": "PEGA case management platform",
+      "role": "Routes, tracks, and manages dispute cases from intake through officer resolution steps.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "SingPass",
+      "role": "Authenticates claimants and connects the chatbot and portal to Singapore's trusted digital identity system.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Claimants authenticate with SingPass, interact with the Dialogflow CX chatbot, and use calculators and eligibility checks before their answers are passed into EmPOWER and PEGA. Case data is then routed through officer workflows on AWS and stored locally in Singapore for secure, compliant dispute processing.",
+  "integration_points": [
+    "Tripartite Alliance for Dispute Management (TADM)",
+    "SingPass",
+    "employment claim portal",
+    "e-calculators",
+    "eligibility checks"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "MOM and TADM reduced friction for claimants, shortened case turnaround, increased self-service adoption, and created a repeatable digital process that improves public-service accessibility while saving staff and user time.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "41% increase in e-file cases",
+    "28% of cases not requiring in-person mediation",
+    "35k user hours saved annually",
+    "just 4 weeks (2x faster than manual processing!)",
+    "available in five languages, covering 95% of Singapore's claimants"
+  ],
+  "architecture_clues": [
+    "All data is stored locally in Singapore to meet government security and compliance standards.",
+    "Chatbot inputs are pre-populated into the claim portal and PEGA workflows.",
+    "Self-help tools are embedded in the digital journey to improve data quality before submission."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/cloud/digital-solutions-dispute-resolution",
+  "published_date": "2026-05-15",
+  "published_date_source": "page metadata",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Digital Solutions for Dispute Resolution | Accenture",
+      "publisher": "Accenture",
+      "url": "https://www.accenture.com/en/case-studies/cloud/digital-solutions-dispute-resolution",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-05-15",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T04:12:54+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The system integrates AWS cloud-native services, Google Dialogflow CX chatbot, and the PEGA case management platform to streamline case handling from start to finish, minimizing human errors.\"",
+    "\"Chatbot integration with PEGA pre-populates user inputs, cutting form-filling time by one-third.\"",
+    "\"All data is stored locally in Singapore to meet government security and compliance standards.\"",
+    "\"Let's look back at how EmPOWER resolved Fred's case in just 4 weeks (2x faster than manual processing!).\""
+  ]
+}

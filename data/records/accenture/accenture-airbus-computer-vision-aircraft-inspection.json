@@ -1,0 +1,107 @@
+{
+  "id": "accenture-airbus-computer-vision-aircraft-inspection",
+  "slug": "accenture-airbus-computer-vision-aircraft-inspection",
+  "vendor": "Accenture",
+  "customer_name": "Airbus",
+  "industry": "Manufacturing",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "Airbus wanted to reduce the manual effort and inconsistency involved in tracking major assembly steps and inspecting aircraft builds, where technicians had to watch, remember, and log work by hand.",
+  "solution_summary": "Accenture Labs and the Airbus China Innovation Centre built a computer-vision inspection workflow that analyzes aircraft-assembly video feeds to detect completed tasks and manufacturing issues automatically. The program started as a proof of concept focused on final aircraft assembly, where manual logging and human judgment slowed the inspection process. Airbus specialists supplied manufacturing-domain knowledge and data requirements, while Accenture researchers created both a custom data annotation tool and a deep-learning AI model tuned for Airbus video. Treating the source material as video rather than disconnected frames allowed the team to annotate more data at scale and train the model faster. In production use, the system reads live or recorded video feeds, recognizes assembly milestones such as wing attachment, timestamps the events, and flags issues for follow-up. The result is a more automated quality-inspection flow that improves consistency, reduces manual effort, and frees technicians to focus on higher-value work.",
+  "products_used": [
+    "video feeds",
+    "data annotation tool",
+    "deep-learning AI",
+    "AI-driven solution"
+  ],
+  "solution_components": [
+    {
+      "name": "video feeds",
+      "role": "Provide the visual input used to monitor aircraft assembly and inspection steps.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "data annotation tool",
+      "role": "Speeds the labeling of Airbus manufacturing video so training data can be prepared at scale.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "deep-learning AI",
+      "role": "Recognizes completed assembly tasks and detects manufacturing issues from motion in the video stream.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI-driven solution",
+      "role": "Logs, timestamps, and reports inspection events so technicians can monitor quality more efficiently.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Video feeds from final assembly are annotated with the custom tool and used to train the deep-learning model. Once deployed, the AI analyzes incoming footage, identifies completed assembly steps and inspection issues, and produces timestamps and outputs that technicians can use in the manufacturing workflow.",
+  "integration_points": [
+    "Airbus China Innovation Centre",
+    "final assembly process",
+    "inspection workflow"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Airbus improved inspection speed and consistency, reduced manual tracking effort, and created a computer-vision workflow that can surface assembly events and issues more accurately during manufacturing.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "over a million video segments",
+    "hundreds of images per minute to millions of images per minute"
+  ],
+  "architecture_clues": [
+    "The model works on video sequences rather than isolated image frames.",
+    "The AI timestamps assembly milestones such as wing attachment.",
+    "The solution was co-developed by Airbus domain experts and Accenture Labs researchers."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/technology/airbus",
+  "published_date": "2023-03-07",
+  "published_date_source": "page metadata",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Computer Vision Manufacturing | Airbus Case Study | Accenture",
+      "publisher": "Accenture",
+      "url": "https://www.accenture.com/en/case-studies/technology/airbus",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2023-03-07",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T06:18:48+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Automating aircraft inspection with AI and computer vision.\"",
+    "\"utilized their expertise in AI and computer vision to develop a new AI as well as a special data annotation tool\"",
+    "\"The solution uses video feeds to automatically detect manufacturing issues in the plane's final assembly.\"",
+    "\"The deep-learning AI recognizes when tasks have been completed through motion.\""
+  ]
+}

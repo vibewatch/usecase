@@ -1,0 +1,115 @@
+{
+  "id": "accenture-wwf-germany-ghost-net-detection",
+  "slug": "accenture-wwf-germany-ghost-net-detection",
+  "vendor": "Accenture",
+  "customer_name": "WWF Germany",
+  "industry": "Nonprofit",
+  "region": "Germany",
+  "company_size": "Unknown",
+  "business_problem": "WWF Germany needed a faster, more reliable way to find ghost nets hidden in large volumes of archived sonar data because manual review was slow, costly, and too inconsistent to support large-scale recovery operations.",
+  "solution_summary": "WWF Germany partnered with Accenture and Microsoft's AI for Good Lab to create GhostNetZero, an AI-powered platform that turns raw sonar scans into usable recovery targets for ghost-net removal teams. Sonar data from scientific surveys, seabed mapping, and navigation programs is uploaded into the platform instead of being left in archives. AI models scan the files, identify suspicious patterns that may indicate lost fishing gear, and flag candidate targets for marine experts to validate. Confirmed locations are then logged, mapped, and shared through a dashboard that expands as new data donors contribute files across countries. The system creates a shared knowledge base of underwater hazards while keeping participation simple through secure architecture and live dashboards. By combining sonar ingestion, AI detection, expert validation, and shared mapping, GhostNetZero shifts ghost-net recovery from manual footage review to a repeatable digital workflow that is easier to scale region by region.",
+  "products_used": [
+    "GhostNetZero",
+    "sonar scans",
+    "AI model",
+    "dashboard",
+    "shared knowledge base"
+  ],
+  "solution_components": [
+    {
+      "name": "GhostNetZero",
+      "role": "Provides the platform where sonar data is uploaded, analyzed, and shared with recovery partners.",
+      "layer": "Serving"
+    },
+    {
+      "name": "sonar scans",
+      "role": "Supply the underwater data that the AI system analyzes to locate ghost nets.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AI model",
+      "role": "Flags suspicious areas in sonar files so experts can focus on likely ghost-net targets.",
+      "layer": "Compute"
+    },
+    {
+      "name": "dashboard",
+      "role": "Shows flagged and validated ghost-net locations across countries to participating users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "shared knowledge base",
+      "role": "Stores confirmed targets and expands the map of underwater hazards as more data is validated.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Research and survey organizations upload sonar scans to GhostNetZero, where AI models analyze files and flag likely ghost-net targets. Marine experts validate those hits, and confirmed targets are logged and mapped in the platform dashboard so recovery teams and new partners can act on the growing shared data set.",
+  "integration_points": [
+    "research institutes",
+    "universities",
+    "private AUV companies",
+    "government bodies",
+    "non-government bodies"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "WWF Germany reduced the labor needed to inspect sonar data, improved detection accuracy, and created a scalable collaboration model that helps turn previously unused survey data into actionable recovery work for ghost-net removal.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "75,000 kilometers of purse seine nets (large circular surface nets) lost to the ocean each year",
+    "~95% detection accuracy in AI model precision in identifying ghost nets"
+  ],
+  "architecture_clues": [
+    "AI detections are validated by marine experts before targets are logged.",
+    "The platform uses secure architecture and live dashboards for participant access.",
+    "An offline, air-gapped mode is being evaluated as a future capability for sensitive hydrographic data."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/song/wwf-germany-hunts-ghost-nets-using-ai",
+  "published_date": "2026-02-28",
+  "published_date_source": "page metadata",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "WWF Germany Uses AI to Hunt Ghost Nets | Accenture",
+      "publisher": "Accenture",
+      "url": "https://www.accenture.com/en/case-studies/song/wwf-germany-hunts-ghost-nets-using-ai",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-02-28",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T06:18:44+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"GhostNetZero—an AI-powered platform that transforms sonar scans into precise recovery targets\"",
+    "\"AI scans files, flags suspicious areas, and sends them to marine experts for validation.\"",
+    "\"Confirmed targets are logged and mapped, building a shared knowledge base of underwater hazards.\"",
+    "\"~95% detection accuracy in AI model precision in identifying ghost nets\""
+  ]
+}

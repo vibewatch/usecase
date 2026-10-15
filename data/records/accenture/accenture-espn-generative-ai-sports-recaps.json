@@ -1,0 +1,111 @@
+{
+  "id": "accenture-espn-generative-ai-sports-recaps",
+  "slug": "accenture-espn-generative-ai-sports-recaps",
+  "vendor": "Accenture",
+  "customer_name": "ESPN",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "ESPN wanted to expand sports coverage for smaller leagues and more teams, but editorial processes could not scale written recaps fast enough to serve every fan segment economically.",
+  "solution_summary": "Accenture helped ESPN build a generative AI content workflow that produces game recaps for leagues that previously received less written coverage. The solution ingests ESPN and league-licensed sports data including box scores, play-by-play feeds, rosters, standings, schedule pages, and audio transcripts when they are available. That data is processed by a gen AI summarization layer that drafts recap narratives designed to help fans quickly understand what happened in each match. The output is not published autonomously: ESPN editors review and refine the generated copy before it appears on ESPN.com and the ESPN app, preserving editorial control while increasing throughput. By combining structured sports data, optional transcript inputs, AI drafting, and human review, ESPN created a scalable publishing pipeline that broadens coverage without requiring a linear increase in newsroom labor.",
+  "products_used": [
+    "gen AI solution",
+    "ESPN and league-licensed data",
+    "audio transcripts",
+    "ESPN editors review workflow",
+    "ESPN.com and the ESPN app"
+  ],
+  "solution_components": [
+    {
+      "name": "gen AI solution",
+      "role": "Generates draft game recap narratives from structured match data and transcript inputs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ESPN and league-licensed data",
+      "role": "Provide box scores, play-by-play records, rosters, standings, and schedules used to ground each recap.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "audio transcripts",
+      "role": "Add supporting game context when transcripts are available for the summarization workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "ESPN editors review workflow",
+      "role": "Applies human review before AI-written recaps are approved for publication.",
+      "layer": "Governance"
+    },
+    {
+      "name": "ESPN.com and the ESPN app",
+      "role": "Serve the finished recaps to fans across ESPN's digital channels.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Licensed game data and available audio transcripts are gathered for each match, passed through ESPN's gen AI recap workflow, and then reviewed by editors before publication. Approved recaps are distributed through ESPN.com and the ESPN app to extend coverage across more sports and teams.",
+  "integration_points": [
+    "Premier Lacrosse League",
+    "National Women's Soccer League",
+    "ESPN.com",
+    "ESPN app"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Media and Content",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "ESPN can create more sports coverage for underserved leagues, deliver more personalized fan experiences, and expand recap production without scaling editorial headcount one story at a time.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The recap workflow uses a combination of structured sports data and audio transcripts.",
+    "Editors remain in the loop before publication.",
+    "Outputs are published to ESPN.com and the ESPN app."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/ai-data/espn-scores-with-generative-ai",
+  "published_date": "2024-10-03",
+  "published_date_source": "page metadata",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Generative AI in Sports | ESPN Case Study | Accenture",
+      "publisher": "Accenture",
+      "url": "https://www.accenture.com/en/case-studies/ai-data/espn-scores-with-generative-ai",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2024-10-03",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T06:18:45+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"the use of generative AI (gen AI) to provide coverage of more sports for more fans\"",
+    "\"The solution leverages a dataset that includes a combination of ESPN and league-licensed data such as box scores, play-by-play data, rosters, standings and schedule pages, and audio transcripts (where available).\"",
+    "\"ESPN editors review the content before it is published on ESPN.com and the ESPN app.\"",
+    "\"Through the power of gen AI, ESPN is scaling the creation and distribution of content to fans across an even wider variety of sports games and moments\""
+  ]
+}

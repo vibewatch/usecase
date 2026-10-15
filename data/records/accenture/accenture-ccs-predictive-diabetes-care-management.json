@@ -1,0 +1,117 @@
+{
+  "id": "accenture-ccs-predictive-diabetes-care-management",
+  "slug": "accenture-ccs-predictive-diabetes-care-management",
+  "vendor": "Accenture",
+  "customer_name": "CCS",
+  "industry": "Healthcare",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "CCS had decades of proprietary diabetes-care data but needed a practical way to turn it into earlier, more personalized interventions that would improve adherence and reduce the cost of chronic-care management.",
+  "solution_summary": "Accenture worked with CCS to build a predictive care-management stack centered on two linked assets: the Customer Analytics Record (CAR) and PropheSee, an AI-powered predictive model. The team first analyzed more than two decades of CCS internal data and combined it with social determinants of health information to create a longitudinal patient view in CAR. That unified data foundation was integrated with CCS's existing Azure Data Lake environment so predictive models could be trained and operationalized without rebuilding the broader data estate. Multiple models were evaluated before the team selected a winning model that predicts patient behavior almost three months in advance. CAR data then feeds intervention programs and outreach messaging so CCS can target high-risk patients earlier, tailor engagement, and support treatment adherence with a more proactive chronic-care operating model.",
+  "products_used": [
+    "Customer Analytics Record (CAR)",
+    "PropheSee",
+    "Azure Data Lake",
+    "social determinants of health information",
+    "intervention messaging programs"
+  ],
+  "solution_components": [
+    {
+      "name": "Customer Analytics Record (CAR)",
+      "role": "Creates a longitudinal patient record that unifies CCS data for predictive care and outreach decisions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "PropheSee",
+      "role": "Runs predictive models that estimate patient behavior and adherence risk weeks in advance.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure Data Lake",
+      "role": "Hosts the broader data environment into which the predictive program integrates.",
+      "layer": "Storage"
+    },
+    {
+      "name": "social determinants of health information",
+      "role": "Augments CCS internal records with external context used to improve prediction quality.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "intervention messaging programs",
+      "role": "Turn predictive outputs into patient outreach that encourages adherence and follow-through.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "CCS internal records and social determinants of health data are combined into CAR and connected to Azure Data Lake. Predictive models in PropheSee score patient behavior and adherence risk, and those outputs trigger intervention programs and messages that help care teams reach high-risk patients earlier.",
+  "integration_points": [
+    "CCS internal data",
+    "social determinants of health information",
+    "Azure Data Lake",
+    "patient outreach programs"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "CCS moved from retrospective reporting to earlier intervention, improving patient adherence, enabling more informed care-management decisions, and lowering avoidable costs for high-risk diabetes populations.",
+  "outcome_category": [
+    "Risk Reduction",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "50% Improved adherence in targeted, high-risk patient cohorts",
+    "85% Accuracy predicting patient behavior almost 3 months in advance",
+    "up to US$2,200 per patient per year"
+  ],
+  "architecture_clues": [
+    "The predictive program integrates into CCS's existing Azure Data Lake environment.",
+    "The model uses a longitudinal patient record built from internal and external data.",
+    "Multiple predictive models were evaluated before production selection."
+  ],
+  "source_url": "https://www.accenture.com/en/case-studies/ai-data/ccs-turning-wealth-information-action-for-patients",
+  "published_date": "2024-10-04",
+  "published_date_source": "page metadata",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Predictive AI for Diabetes Care | CCS Case Study | Accenture",
+      "publisher": "Accenture",
+      "url": "https://www.accenture.com/en/case-studies/ai-data/ccs-turning-wealth-information-action-for-patients",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2024-10-04",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-15T06:18:45+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"CCS and Accenture are revolutionizing patient care through PropheSee, an AI-powered predictive model\"",
+    "\"develop a Customer Analytics Record (CAR) ... and an AI-powered predictive model using advanced analytics\"",
+    "\"The team combined CCS's internal data and social determinants of health information\"",
+    "\"the \"winning’ model achieving an impressive 85% accuracy in predicting patient behavior almost three months in advance\""
+  ]
+}
