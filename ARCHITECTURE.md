@@ -172,6 +172,7 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | [`merge_records.py`](pipeline/usecase_intel/merge_records.py) | Walk `data/records/**/*.json`, optionally fold in samples, dedupe by `id`, attach matching date provenance from triage, write a single array | Date provenance is attached only when the ledger date exactly matches the authored date |
 | [`seed.py`](pipeline/usecase_intel/seed.py) | `enrich_scores` + `upsert_records` | Recomputes every score and breakdown on every build so stale authored scores cannot survive |
 | [`export.py`](pipeline/usecase_intel/export.py) | Round-trip records out of SQLite, reattaching multi-value lists via the KV table | Order is `vendor, customer_name` for deterministic diffs |
+| [`analytics.py`](pipeline/usecase_intel/analytics.py) | Compute multi-dimensional analytics (`data/analytics.generated.json`) and verify vendor logos in `public/logos/vendors/` | Runs automatically in `npm run data:build`; powers `/analytics.json`, `/insights/`, and entity dossiers |
 
 ### Astro dashboard (`src/`)
 
@@ -181,10 +182,12 @@ deliberate trade-off — the dataset prizes signal-to-noise over volume.
 | [`src/pages/insights.astro`](src/pages/insights.astro) | Decision-oriented analytics: evidence coverage, source bias/concentration, median segment benchmarks, architecture coverage, confirmed-date trends, ranked dimensions, and heatmaps |
 | [`src/pages/cases/[slug].astro`](src/pages/cases/[slug].astro) | Compact per-record research brief with grouped outcome, solution, architecture, evidence, related records, and a folded score/provenance workspace |
 | [`src/pages/data.json.ts`](src/pages/data.json.ts) | Static downloadable export of the complete normalized dataset |
+| [`src/pages/analytics.json.ts`](src/pages/analytics.json.ts) | Static downloadable export of pre-computed multi-dimensional analytics |
 | [`src/pages/feed.xml.ts`](src/pages/feed.xml.ts) | RSS feed ordered by collection time for update notifications |
 | [`src/layouts/BaseLayout.astro`](src/layouts/BaseLayout.astro) | Site chrome. Banner is dynamic: real vs sample counts come from `caseStudies` so the UI never lies |
 | [`src/lib/caseStudies.ts`](src/lib/caseStudies.ts) | The single import point for the dataset (`data/case-studies.generated.json`). If you want to read records anywhere in `src/`, import from here |
-| [`src/lib/analytics.ts`](src/lib/analytics.ts) | Pure aggregation helpers: `uniqueSorted`, `flattenValues`, `countValues`, `topValues`, `buildMatrix`, `averageConfidence`, `maturityDistribution`, `formatPercent`, `formatDate` (defensive — unparseable dates fall through to the raw string), `isParseableDate` |
+| [`src/lib/generatedAnalytics.ts`](src/lib/generatedAnalytics.ts) | Typed loader and lookup helpers (`getVendorDossier`, `getUseCaseDossier`, `getIndustryDossier`) for `data/analytics.generated.json` |
+| [`src/lib/analytics.ts`](src/lib/analytics.ts) | Pure aggregation helpers: `uniqueSorted`, `flattenValues`, `countValues`, `topValues`, `buildMatrix`, `formatPercent`, `formatDate` (defensive — unparseable dates fall through to the raw string), `isParseableDate` |
 | [`src/lib/types.ts`](src/lib/types.ts) | `CaseStudyRecord` and dashboard view models. **The TypeScript schema is the single source of truth that has to stay in sync with `models.py` and `storage.py`.** |
 | [`src/styles/global.css`](src/styles/global.css) | All styling. Hand-rolled CSS; no Tailwind. Global width, gutter, spacing, type-scale, radius, section, panel, and card tokens define a compact standard shared by every page; case details add only research-brief-specific grouping. |
 
@@ -410,14 +413,14 @@ These are intentional gaps, not unknowns. See the matching section in
 usecase/
 ├── README.md                              quickstart
 ├── ARCHITECTURE.md                        this file
-├── DESIGN.md                              external Miro design-system reference
+├── docs/                                  detailed engineering & UI documentation
 ├── taxonomy.json                          controlled vocabulary
 ├── astro.config.mjs · tsconfig.json · package.json
-├── public/                                static assets served as-is
+├── public/                                static assets + official vendor logos
 ├── src/
 │   ├── layouts/BaseLayout.astro
-│   ├── lib/{analytics,caseStudies,types}.ts
-│   ├── pages/index.astro · cases/[slug].astro
+│   ├── lib/{analytics,caseStudies,generatedAnalytics,vendors,icons,types}.ts
+│   ├── pages/index.astro · insights.astro · [facet]/ · cases/[slug].astro
 │   └── styles/global.css
 ├── pipeline/usecase_intel/                Python pipeline (one module per stage)
 ├── .agents/skills/case-study-extraction/  extraction contract
@@ -431,6 +434,7 @@ usecase/
     ├── extract_jobs/<vendor>/<sha>.json   build artifact
     ├── case-studies.merged.json           build artifact
     ├── case-studies.generated.json        dashboard input (build artifact)
+    ├── analytics.generated.json           multi-dimensional analytics (build artifact)
     └── usecase_intel.sqlite               build artifact
 ```
 

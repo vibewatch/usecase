@@ -31,11 +31,6 @@ export function topValues(values: string[], limit = 10): CountItem[] {
   return countValues(values).slice(0, limit);
 }
 
-export function averageConfidence(records: CaseStudyRecord[]): number {
-  if (records.length === 0) return 0;
-  return records.reduce((sum, record) => sum + record.confidence_score, 0) / records.length;
-}
-
 export function maturityLabel(score: number): string {
   if (score >= 5) return 'Deployment evidenced';
   if (score >= 3) return 'Implementation described';
@@ -47,13 +42,6 @@ export function valueLabel(score: number): string {
   if (score >= 60) return "Strong reference";
   if (score >= 40) return "Useful but limited";
   return "Limited customer evidence";
-}
-
-export function maturityDistribution(records: CaseStudyRecord[]): CountItem[] {
-  return countValues(
-    records.map((record) => maturityLabel(record.maturity_score)),
-    records.length
-  );
 }
 
 export function buildMatrix(
@@ -144,15 +132,6 @@ export function groupComponentsByLayer(
     });
 }
 
-export function componentLayerCounts(records: CaseStudyRecord[]): CountItem[] {
-  const layers = records.flatMap((record) =>
-    solutionComponents(record)
-      .map((component) => component.layer?.trim())
-      .filter((layer): layer is string => Boolean(layer)),
-  );
-  return countValues(layers);
-}
-
 /** Sort key that puts records with an unknown publish date last. */
 export function recencyKey(record: CaseStudyRecord): string {
   if (isParseableDate(record.published_date)) return record.published_date;
@@ -199,10 +178,6 @@ export function headlineMetric(record: CaseStudyRecord): string {
   const raw = record.metrics.find((metric) => /\d/.test(metric)) ?? record.metrics[0] ?? "";
   if (raw.length <= 115) return raw;
   return `${raw.slice(0, 112).replace(/\s+\S*$/, "")}…`;
-}
-
-export function integrationPointCounts(records: CaseStudyRecord[]): CountItem[] {
-  return countValues(records.flatMap((record) => record.integration_points ?? []));
 }
 
 export function sourceReferences(record: CaseStudyRecord): SourceReference[] {

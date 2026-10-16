@@ -52,12 +52,6 @@ export function weekLabel(week: string): string {
   return `${day.format(start)} – ${day.format(end)}, ${end.getUTCFullYear()}`;
 }
 
-export function weekShortLabel(week: string): string {
-  const start = weekStart(week);
-  if (!start) return "Undated";
-  return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", timeZone: "UTC" }).format(start);
-}
-
 export function recordWeek(record: CaseStudyRecord): string {
   return record.collected_week || UNDATED_WEEK;
 }

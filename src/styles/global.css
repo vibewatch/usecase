@@ -130,7 +130,7 @@ table,
 dd,
 .kpi dd,
 .hub-card__badge,
-.hub-card__count,
+.hub-card__kpi-val,
 .vendor-mini-pill__count,
 .chip__count,
 .facet__count,
@@ -3668,42 +3668,6 @@ a.chip--glass:hover {
   color: var(--ink);
 }
 
-.hub-card__arrow {
-  font-family: var(--font-mono);
-  font-size: 15px;
-  color: var(--ink-4);
-  transition: transform 0.15s ease, color 0.15s ease;
-}
-
-.hub-card:hover .hub-card__arrow {
-  transform: translateX(3px);
-  color: var(--accent-ink);
-}
-
-.hub-card__count {
-  font-family: var(--font-mono);
-  font-size: 11.5px;
-  color: var(--ink-3);
-}
-
-.hub-card__stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 12.5px;
-  color: var(--ink-3);
-}
-
-.hub-card__stats span {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.hub-card__stats svg {
-  color: var(--teal-ink);
-}
-
 .hub-card__tags {
   display: flex;
   flex-wrap: wrap;
@@ -3722,15 +3686,6 @@ a.chip--glass:hover {
   margin-top: auto;
   padding-top: 10px;
   border-top: 1px dashed var(--hairline-strong);
-}
-
-.hub-card__vendors-label {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-3);
 }
 
 .hub-card__vendor-pills {
@@ -3772,21 +3727,6 @@ a.chip--glass:hover {
   font-size: 10.5px;
   font-weight: 500;
   color: var(--ink-3);
-}
-
-.hub-card__bar {
-  height: 6px;
-  margin-top: auto;
-  border-radius: 2px;
-  background: var(--chart-track);
-  overflow: hidden;
-}
-
-.hub-card__bar span {
-  display: block;
-  height: 100%;
-  border-radius: 0 2px 2px 0;
-  background: var(--series-1);
 }
 
 /* --- Spotlight, Directory Toolbar, Dossiers & Granular Insights ------------- */

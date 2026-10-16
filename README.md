@@ -11,7 +11,13 @@ skill. Records are merged, seeded into SQLite, and re-exported as the JSON
 the dashboard reads.
 
 For the full system design (data flow, component responsibilities, schemas,
-extension recipes, and known design debt) see [ARCHITECTURE.md](ARCHITECTURE.md).
+extension recipes, and known design debt) see [ARCHITECTURE.md](ARCHITECTURE.md)
+and the detailed engineering guides in [`docs/`](docs/README.md):
+
+- [`docs/architecture.md`](docs/architecture.md) — System Architecture, Data Model & Storage Layer
+- [`docs/pipeline-and-workflows.md`](docs/pipeline-and-workflows.md) — Ingestion Pipeline, Multi-Stage Triage, Enrichment & CI/CD Workflows
+- [`docs/analytics-and-intelligence.md`](docs/analytics-and-intelligence.md) — Multi-Dimensional Analytics Engine, ROI Benchmarks & Architecture Stack Taxonomy
+- [`docs/ui-and-design-system.md`](docs/ui-and-design-system.md) — Mona Sans Design System, Official Brand Logos & Directory/Dossier Components
 
 ## Evidence, provenance, and scoring
 
@@ -52,7 +58,8 @@ not independent verification of vendor claims and do not predict guaranteed
 ROI.
 
 The deployed site also publishes the complete normalized dataset at
-`/data.json` and the latest collected stories as RSS at `/feed.xml`.
+`/data.json`, pre-computed multi-dimensional analytics at `/analytics.json`,
+and the latest collected stories as RSS at `/feed.xml`.
 
 ## Solution depth
 
@@ -91,7 +98,8 @@ npm run data:enrich-dates     # queue publisher-date research jobs
 npm run data:validate-enrichment # validate the company enrichment ledger
 npm run data:merge      # fold data/records/**/*.json + samples → data/case-studies.merged.json
 npm run data:partition  # assign records to collection weeks → data/weekly/** (+ stamp generated JSON)
-npm run data:build      # merge → seed SQLite → export → partition
+npm run data:analytics  # compute multi-dimensional analytics (data/analytics.generated.json) + verify vendor logos
+npm run data:build      # merge → seed SQLite → export → partition → analytics
 ```
 
 For an undated story, inspect the browser-rendered original before searching
@@ -268,15 +276,16 @@ outputs belong under `data/diagrams/` and are ignored by git.
 - `src/components/` — `CaseCard` (also the client-side card template),
   `CaseListing`, `Pagination`, `BarList`, `BenchmarkTable`.
 - `src/scripts/cards.ts` — builds result cards in the browser from search metadata.
-- `src/lib/` — `caseStudies.ts` data import, `analytics.ts` aggregations,
+- `src/lib/` — `caseStudies.ts` data import, `generatedAnalytics.ts` pre-computed
+  multi-dimensional analytics loader, `analytics.ts` aggregations,
   `facets.ts` facet grouping/slugs/sorting, `weeks.ts` week grouping + card
-  projection, `paths.ts` base-path-aware links, `vendors.ts` vendor marks,
-  `types.ts` schema.
+  projection, `paths.ts` base-path-aware links, `vendors.ts` official vendor
+  logo mapping (`public/logos/vendors/`), `icons.ts` category icons, `types.ts` schema.
 - `taxonomy.json` — canonical vocabulary for vendors / industries / technical
-  areas / use cases / outcomes.
+  areas / use cases / outcomes / component layers.
 - `pipeline/usecase_intel/` — `discover`, `fetch`, `probe`, `clean`, `media`,
-  `extract`, `merge_records`, `seed`, `scoring`, `export`, `partition`, plus `fetch_client`,
-  `settings`, `utils`, and `config/host-strategies.json`.
+  `extract`, `merge_records`, `seed`, `scoring`, `export`, `partition`, `analytics`,
+  plus `fetch_client`, `settings`, `utils`, and `config/host-strategies.json`.
 - `requirements.txt` — Python extraction dependencies (`beautifulsoup4`,
   `playwright`, `pypdf`) used by the fetch/extract pipeline.
 - `data/sources.json` — vendor source config (sitemaps, index pages, regex
@@ -289,11 +298,12 @@ outputs belong under `data/diagrams/` and are ignored by git.
 - `data/case-studies.sample.json` — synthetic seed records (`is_sample: true`).
 - `data/case-studies.generated.json` — built artifact consumed by the
   dashboard (gitignored).
+- `data/analytics.generated.json` — built multi-dimensional analytics consumed by
+  the dashboard and exported at `/analytics.json` (gitignored).
 - `data/usecase_intel.sqlite` — built SQLite database (gitignored).
 - `.agents/skills/` — agent skills. `case-study-extraction` is the active
   record-authoring contract; URL fetching now lives in Python.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — system architecture: data flow,
   component boundaries, schemas, extension recipes, known design debt.
-- `DESIGN.md` — external design-system reference (Miro) that informed the
-  original dashboard styling. The current UI uses its own night/gradient theme
-  defined in `src/styles/global.css`.
+- [`docs/`](docs/README.md) — comprehensive documentation on architecture,
+  pipeline & CI workflows, multi-dimensional analytics, and UI design system.
