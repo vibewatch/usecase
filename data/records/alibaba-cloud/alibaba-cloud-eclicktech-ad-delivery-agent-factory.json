@@ -1,0 +1,215 @@
+{
+  "id": "alibaba-cloud-eclicktech-ad-delivery-agent-factory",
+  "slug": "alibaba-cloud-eclicktech-ad-delivery-agent-factory",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "ECLICKTECH (易点天下)",
+  "industry": "Software / SaaS",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "ECLICKTECH needed to industrialize AI-driven advertising operations, but media-delivery workflows were still long, manual, and heavily dependent on senior operators for anomaly diagnosis and creative adaptation. As more agents entered production, the company also faced duplicated experimentation across business lines, weak runtime visibility, poor reuse of expert knowledge, and no unified governance model for multi-agent approvals, permissions, and traceability.",
+  "solution_summary": "ECLICKTECH expanded its unified AI middle platform AdClaw with Alibaba Cloud AgentCore and AgentLoop to create an always-on ad-delivery agent factory. The architecture has three layers: business systems, a unified AI and data middle platform, and intelligent multi-cloud infrastructure. ACK runs the runtime environment, OSS stores shared data and assets, and ACR manages container images. On top of that base, skills, MCP connectors, knowledge services, and business tools become reusable capabilities, while an agent layer handles routing and task execution and a collaboration layer coordinates multi-agent flows plus human confirmation nodes. AgentCore provides model management, skill orchestration, MCP integration, AgentTeam collaboration, and credential governance. AgentLoop records model inference, tool use, RAG and memory activity, and sub-agent traces, then feeds Golden Set, Bad Case, Agent-as-a-Judge, and business-evaluator loops for continuous optimization.",
+  "products_used": [
+    "AdClaw",
+    "AgentCore",
+    "AgentLoop",
+    "Container Service for Kubernetes (ACK)",
+    "Object Storage Service (OSS)",
+    "Container Registry (ACR)",
+    "Higress AI Gateway"
+  ],
+  "solution_components": [
+    {
+      "name": "AdClaw",
+      "role": "Acts as ECLICKTECH's unified AI middle platform for advertising-delivery agent applications and lifecycle management.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AgentCore",
+      "role": "Provides model management, skill orchestration, MCP integration, agent-team collaboration, and permission governance.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AgentLoop",
+      "role": "Captures traces, token usage, evaluations, and optimization signals for production multi-agent workloads.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Container Service for Kubernetes (ACK)",
+      "role": "Hosts the production runtime environment for the agent factory and supporting services.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Object Storage Service (OSS)",
+      "role": "Stores shared data and assets used by the AI middle platform and agent workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Container Registry (ACR)",
+      "role": "Manages the container images that package the production agent workloads.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Higress AI Gateway",
+      "role": "Provides the gateway layer for AI service access within the advertising-agent stack.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Business-system requests enter AdClaw, where AgentCore routes them into reusable skills, MCP connectors, knowledge services, and business tools running on the ACK-based platform. Shared data and assets are held in OSS and packaged workloads are managed through ACR. AgentLoop records model inference, tool calls, RAG or memory activity, and sub-agent traces, and the resulting evaluation data feeds Golden Set and Bad Case loops before optimized outputs return to advertising operators.",
+  "integration_points": [
+    "business systems layer",
+    "AI middle platform AdClaw",
+    "data middle platform",
+    "MCP connectors",
+    "knowledge services",
+    "business tools",
+    "human confirmation nodes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform",
+    "Media and Content"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "ECLICKTECH moved beyond demo agents into a continuously running production system for advertising operations. The company says AI now covers about half of core execution work, single-operator efficiency has improved by more than 40%, diagnosis that once took hours can now be narrowed to minutes, and standardized skills plus a shared AgentCore base make it faster and cheaper to extend the model to additional business lines.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Risk Reduction",
+    "Revenue Growth"
+  ],
+  "metrics": [
+    "AI covers about 50% of core execution work",
+    "more than 100 daily-active agents",
+    "more than 130 MCPs",
+    "more than 1,500 Skills",
+    "Q2 token consumption grew more than 3x quarter over quarter",
+    "single-operator efficiency improved more than 40%",
+    "diagnosis time improved from hours to minutes",
+    "serves more than 10,000 enterprises and brands",
+    "connects more than 600,000 media outlets globally"
+  ],
+  "architecture_clues": [
+    "The AI architecture is explicitly split into business systems, a unified AI and data middle platform, and intelligent multi-cloud management infrastructure.",
+    "ACK carries the runtime environment, OSS manages shared data and assets, and ACR manages the container images for production deployment.",
+    "The capability layer is built from skills, MCP connectors, knowledge services, and business tools, while a higher agent layer handles routing and execution.",
+    "The collaboration layer includes multi-agent workflows and human confirmation nodes rather than fully opaque automation.",
+    "AgentLoop captures model inference, tool calls, RAG and memory signals, and sub-agent trajectories, then feeds Golden Set, Bad Case, Agent-as-a-Judge, and business-evaluator loops."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-eclicktech",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "基于AgentLoop与AgentCore构建广告投放智能体工厂_互联网与信息技术_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-eclicktech",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-16T06:22:05+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    },
+    {
+      "id": "company-profile",
+      "title": "走进易点天下",
+      "publisher": "ECLICKTECH",
+      "url": "https://www.eclicktech.com.cn/html/company/931.html",
+      "source_type": "Company profile",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "unknown",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "metrics"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "company-profile"
+    ],
+    "region": [
+      "company-profile"
+    ],
+    "company_size": [
+      "company-profile"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story",
+      "company-profile"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story",
+      "company-profile"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "ECLICKTECH said the advertising-delivery workflow was long, manual, and heavily dependent on senior operators, and that duplicated agent experiments, weak observability, and missing governance made scale hard. (original: 广告投放业务链路长、人工操作多、异常排查高度依赖资深运营经验... 各业务线在早期探索 Agent 能力时，容易产生重复投入、无法复用的问题；二是多智能体进入生产环境后，运行过程不可见... 四是跨业务线的多 Agent 协作缺乏统一的构建底座和治理机制。)",
+    "The company describes a three-layer AI architecture of business systems, a unified AI and data middle platform, and intelligent multi-cloud management infrastructure. (original: 公司整体 AI 架构自上而下分为三层：业务系统层、统一 AI 中台与数据中台层、智能化多云管理基础设施层，形成业务向下调用、数据向上反馈的闭环体系。)",
+    "Alibaba Cloud says ACK carries the runtime environment, OSS manages data and assets, ACR manages container images, the capability layer accumulates Skills, MCP, knowledge services, and business tools, and the collaboration layer carries multi-agent flows plus human confirmation nodes. (original: 底层由 ACK 承载运行环境，OSS 管理数据与资产，ACR 管理容器镜像；能力层沉淀 Skill、MCP、知识服务和业务工具，Agent 层负责路由与任务执行，协同层承载多 Agent 流程及人工确认节点。)",
+    "AgentLoop unifies runtime data for model inference, tool calls, RAG and memory, and sub-agent traces, then uses Golden Set, Bad Case, Agent-as-a-Judge, and business evaluators to create an observation-evaluation-optimization flywheel. (original: 将模型推理、工具调用、RAG 与记忆、子 Agent 轨迹等关键运行数据统一接入... 历史数据沉淀为 Golden Set 与 Bad Case 库，结合 Agent-as-a-Judge 与业务评估器... 形成“观测—评估—优化”的数据飞轮。)",
+    "ECLICKTECH says its AI system is no longer a lab demo: it runs more than 100 daily-active agents with more than 130 MCPs and more than 1,500 Skills in production, AI already covers about 50% of core execution work, and single-operator efficiency has improved by more than 40%. (original: 我们的 AI 已经不是跑在实验室里的 Demo，而是一座 7×24 运转的广告投放 Agent 黑灯工厂：日活 Agent 超 100 个，130 余个 MCP、1500 余个 Skill 在生产环境持续运行... AI 已覆盖约 50% 的核心执行类工作... 单运营人均效率提升 40% 以上。)",
+    "The company profile says ECLICKTECH is headquartered in Xi'an, serves more than 10,000 enterprises and brands, and connects more than 600,000 media outlets globally. (original: 公司总部位于西安... 服务超过一万家出海企业与品牌，链接全球六十万以上媒体。)"
+  ],
+  "source_language": "zh"
+}

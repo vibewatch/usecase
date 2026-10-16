@@ -1,0 +1,177 @@
+{
+  "id": "alibaba-cloud-topsports-enterprise-agent-operations-platform",
+  "slug": "alibaba-cloud-topsports-enterprise-agent-operations-platform",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "TOPSPORTS (滔搏)",
+  "industry": "Retail",
+  "region": "China",
+  "company_size": "Enterprise",
+  "business_problem": "TOPSPORTS wanted to scale enterprise AI agents beyond isolated pilots, but every new agent risked recreating the same knowledge, data, tools, and skills in separate silos. Business-analysis, membership, and marketing teams also lacked one control plane for coordinating complex tasks, enforcing cross-role permissions, measuring production value, tracing failures across models and tools, and assigning clear ownership for ongoing optimization.",
+  "solution_summary": "TOPSPORTS used Alibaba Cloud AgentCore as the operating base for enterprise agent delivery and governance. At the bottom of the stack, the company organizes knowledge, business data, MCP connectors, and API tools as reusable resources rather than rebuilding them for each workflow. Above that resource layer, reusable skills package common tasks such as product lookup, inventory lookup, member segmentation, and anomaly attribution. Specialized agents for operations, merchandise, coaching, membership, and marketing are then assembled into teams around shared business goals. Employees interact through the TOPSPORTS AI Assistant, while a Team Leader decomposes requests, routes work to the right agents, and merges results. AgentCore provides asset management plus workspace, team, role, and credential controls, and AgentLoop adds usage observation, token tracking, trace analysis, evaluation, and iterative optimization across the full agent lifecycle.",
+  "products_used": [
+    "TOPSPORTS AI Assistant",
+    "AgentCore",
+    "Reusable Skills",
+    "MCP tools",
+    "AgentLoop"
+  ],
+  "solution_components": [
+    {
+      "name": "TOPSPORTS AI Assistant",
+      "role": "Serves as the employee-facing entry point where users submit business requests without having to choose a specific specialist agent.",
+      "layer": "Serving"
+    },
+    {
+      "name": "AgentCore",
+      "role": "Provides the shared build, runtime, collaboration, and governance base for enterprise agents, skills, tools, and credentials.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Reusable Skills",
+      "role": "Package repeatable capabilities such as product lookup, inventory lookup, member segmentation, and anomaly attribution for reuse across agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "MCP tools",
+      "role": "Connect the agent system to underlying business data and tools so agent teams can act on operational and membership tasks.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "AgentLoop",
+      "role": "Captures token usage, execution traces, evaluation signals, and optimization feedback for governed production operation.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Knowledge assets, business data, MCP connectors, and API tools are exposed as reusable resources and wrapped into skills inside AgentCore. A user submits a request to the TOPSPORTS AI Assistant, the Team Leader decomposes it, specialist agents invoke the needed skills and tools, and the combined result is returned to the user. AgentLoop records usage, traces, and evaluation feedback so the workflow can be governed and improved.",
+  "integration_points": [
+    "business data sources",
+    "API tools",
+    "product lookup services",
+    "inventory lookup services",
+    "member segmentation workflows",
+    "anomaly attribution workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Marketing Personalization",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "TOPSPORTS moved from isolated single-agent deployments to a governed collaborative system that lowers the barrier to using expert capabilities, shortens the cycle from insight to action, and turns business and IT co-operation into reusable enterprise intelligence assets. The company reports that business-analysis work can now be completed in 20 minutes and customer reactivation has improved to 12%.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "business analysis time reduced to 20 minutes",
+    "customer reactivation rate increased to 12%",
+    "maintains long-term partnerships with more than 20 sports brands",
+    "connects with more than 90 million accumulated users"
+  ],
+  "architecture_clues": [
+    "The architecture separates foundational resources, reusable skills, specialist agents, and the employee-facing assistant instead of embedding all logic in one agent.",
+    "AgentCore uses workspace, team, role, and credential management to enforce organizational boundaries across cross-functional agents.",
+    "A Team Leader decomposes requests and coordinates specialist agents around one business target before results are merged.",
+    "AgentLoop is used for token-consumption observation, trace analysis, evaluation, and continuous optimization across the agent lifecycle."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/retail-2026-topsports",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "滔搏基于 AgentCore 实现企业级智能体规模化运营_零售与电商_阿里云客户案例",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/retail-2026-topsports",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-16T06:21:59+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "TOPSPORTS said enterprise-scale agent operations become harder as agent counts grow, creating duplicated construction, coordination difficulty, permission-governance needs, weak measurement, tracing gaps, and unclear operating ownership. (original: 滔搏企业级 Agent 规模化运营的过程中，Agent 数量的增加同时会放大建设、治理和运营等方面的问题，有如下六大难点：重复建设... 协作困难... 权限治理... 效果衡量... 问题定位... 协同运营。)",
+    "AgentCore is used as the enterprise operating base, covering agent construction and runtime, collaboration and governance, and observation and evaluation across the full lifecycle. (original: 以阿里云 AgentCore 为企业级 Agent 运营底座，AgentCore 围绕着 Agent 的构建与运行、协作与治理、观测与评估，支撑 Agent 全生命周期治理。)",
+    "The lowest resource layer contains knowledge, business data, and MCP and API tools, then reusable skills, then specialist agents for operations, merchandise, coaching, membership, and marketing that can form teams around one business goal. (original: 最底层资源是知识、业务数据，以及 MCP、API 工具，资源之上是可复用的 Skill。比如商品查询、库存查询、会员分群、异常归因。再往上，经营、商品、陪练、会员和营销等专业 Agent，可以围绕一个业务目标组成团队。)",
+    "Users submit requests through the TOPSPORTS AI Assistant, and a Team Leader decomposes tasks, dispatches capabilities, and aggregates the results. (original: 用户通过滔搏 AI 助手提出需求，背后由 Team Leader 分解任务、调度能力，再汇总结果。)",
+    "TOPSPORTS reports that business-analysis time was reduced to 20 minutes and customer reactivation improved to 12%. (original: 缩短到 20 分钟 经营分析耗时；提升到 12% 顾客唤醒率。)"
+  ],
+  "source_language": "zh"
+}
