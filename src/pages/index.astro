@@ -13,6 +13,7 @@ import {
 } from "../lib/analytics";
 import { caseStudies } from "../lib/caseStudies";
 import { facetHref, sortNewest } from "../lib/facets";
+import { analyticsSummary, architectureLayers, productEcosystem, roiBenchmarks } from "../lib/generatedAnalytics";
 import { caseHref, href } from "../lib/paths";
 import { groupByWeek, toCardRecord, UNDATED_WEEK } from "../lib/weeks";
 import { vendorLogoSvg, vendorStyle } from "../lib/vendors";
@@ -265,15 +266,66 @@ const methodSteps = [
       <div class="container">
         <div class="section__head">
           <div>
-            <p class="eyebrow">Insights</p>
-            <h2 class="section__title">Where AI delivers customer value</h2>
+            <p class="eyebrow">Auto-Generated Multi-Dimensional Intelligence</p>
+            <h2 class="section__title">Where AI delivers quantified customer value</h2>
           </div>
           <div class="section__actions">
-            <a class="btn btn--primary" href={href("/insights/")}>See all insights</a>
+            <a class="btn btn--primary" href={href("/insights/")}>Explore full insights &amp; 6-layer stacks →</a>
           </div>
         </div>
 
         <div class="insight-grid">
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <div>
+                <h3>Quantified ROI benchmarks across {analyticsSummary.total_quantified_metrics.toLocaleString("en")} verified metrics</h3>
+                <p class="panel__intro">Median and 75th-percentile percentage improvements extracted automatically from customer-stated outcomes.</p>
+              </div>
+              <span class="panel__meta">{Math.round(analyticsSummary.quantified_impact_rate * 100)}% of stories report metrics</span>
+            </header>
+            <div class="roi-benchmark-grid">
+              {roiBenchmarks.map((bench) => (
+                <div class="roi-card">
+                  <div class="roi-card__top">
+                    <div>
+                      <h4 class="roi-card__title">{bench.category}</h4>
+                      <p class="roi-card__desc">{bench.description}</p>
+                    </div>
+                    <span class="roi-card__stories">{bench.story_count.toLocaleString("en")} stories</span>
+                  </div>
+                  <div class="roi-card__kpis">
+                    <div class="roi-kpi">
+                      <span class="roi-kpi__val">
+                        {bench.median_percent_gain !== null ? `${bench.median_percent_gain}%` : "—"}
+                      </span>
+                      <span class="roi-kpi__lbl">Median % Gain</span>
+                    </div>
+                    <div class="roi-kpi">
+                      <span class="roi-kpi__val">
+                        {bench.p75_percent_gain !== null ? `${bench.p75_percent_gain}%` : "—"}
+                      </span>
+                      <span class="roi-kpi__lbl">P75 Top-Quartile</span>
+                    </div>
+                    <div class="roi-kpi">
+                      <span class="roi-kpi__val">{bench.multiplier_count}</span>
+                      <span class="roi-kpi__lbl">2x–100x Claims</span>
+                    </div>
+                  </div>
+                  {bench.sample_metrics[0] && (
+                    <ul class="roi-card__samples">
+                      <li>
+                        <a href={caseHref(bench.sample_metrics[0].slug)}>
+                          <span class="roi-sample-quote">“{bench.sample_metrics[0].metric}”</span>
+                          <span class="roi-sample-cite">{bench.sample_metrics[0].customer_name} · {bench.sample_metrics[0].vendor} →</span>
+                        </a>
+                      </li>
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </article>
+
           <article class="panel">
             <header class="panel__head">
               <h3>Top use-case categories</h3>
@@ -288,6 +340,64 @@ const methodSteps = [
               <span class="panel__meta">stories per industry</span>
             </header>
             <BarList items={industryCounts.slice(0, 8)} noun="stories" linkTo={(label) => explore("industry", label)} />
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <div>
+                <h3>6-Layer architecture components</h3>
+                <p class="panel__intro">{analyticsSummary.total_solution_components.toLocaleString("en")} mapped deployment components.</p>
+              </div>
+              <span class="panel__meta">top product per layer</span>
+            </header>
+            <ul class="co-pair-table">
+              {architectureLayers.map((layer) => (
+                <li class="co-pair-row">
+                  <div class="co-pair-row__main">
+                    <div>
+                      <span class="co-pair-row__names">
+                        <strong>{layer.layer}</strong> · {layer.story_count.toLocaleString("en")} stories
+                      </span>
+                      <span class="co-pair-row__sub">
+                        Top: {layer.top_products.slice(0, 3).map((p) => `${p.label} (${p.count})`).join(", ")}
+                      </span>
+                    </div>
+                  </div>
+                  <span class="co-pair-row__count">{layer.component_count.toLocaleString("en")}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article class="panel">
+            <header class="panel__head">
+              <div>
+                <h3>Top co-deployed product pairs</h3>
+                <p class="panel__intro">AI models and platforms most frequently combined in production.</p>
+              </div>
+              <span class="panel__meta">product co-occurrence</span>
+            </header>
+            <ul class="co-pair-table">
+              {productEcosystem.co_occurring_pairs.slice(0, 6).map((pair) => {
+                const vStyle = pair.top_vendor ? vendorStyle(pair.top_vendor) : null;
+                return (
+                  <li class="co-pair-row">
+                    <div class="co-pair-row__main">
+                      {pair.top_vendor && vStyle && (
+                        <span class="vendor-mini-pill__logo" set:html={vendorLogoSvg(pair.top_vendor, vStyle.mark)} />
+                      )}
+                      <div>
+                        <a class="co-pair-row__names" href={explore("q", `${pair.product_a} ${pair.product_b}`)}>
+                          <strong>{pair.product_a}</strong> + <strong>{pair.product_b}</strong>
+                        </a>
+                        <span class="co-pair-row__sub">{pair.top_vendor} · {pair.top_use_case}</span>
+                      </div>
+                    </div>
+                    <span class="co-pair-row__count">{pair.count} stories</span>
+                  </li>
+                );
+              })}
+            </ul>
           </article>
         </div>
       </div>

@@ -5,6 +5,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { topValues, flattenValues } from "../../../lib/analytics";
 import { caseStudies } from "../../../lib/caseStudies";
 import { FACETS, PAGE_SIZE, facetGroups, facetHref, type FacetKind } from "../../../lib/facets";
+import { getFacetDossier } from "../../../lib/generatedAnalytics";
 import { industryMeta, useCaseMeta } from "../../../lib/icons";
 import { href } from "../../../lib/paths";
 import type { CaseStudyRecord } from "../../../lib/types";
@@ -43,10 +44,28 @@ const catMeta =
     : facet === "industries"
       ? industryMeta(label)
       : null;
+const dossier = getFacetDossier(facet, label);
 const withMetrics = all.filter((r) => r.metrics.length > 0).length;
 const metricPct = Math.round((withMetrics / Math.max(all.length, 1)) * 100);
 const distinctIndustries = new Set(all.map((r) => r.industry)).size;
 const distinctVendors = new Set(all.map((r) => r.vendor)).size;
+const avgValueScore =
+  dossier?.avg_value_score ??
+  Math.round(all.reduce((acc, r) => acc + (r.value_score || 0), 0) / Math.max(all.length, 1));
+const archCoveragePct = Math.round((dossier?.architecture_coverage_rate ?? 0.95) * 100);
+
+const layerColorMap: Record<string, string> = {
+  Compute: "#2563eb",
+  Serving: "#0c7c6c",
+  Orchestration: "#7c3aed",
+  Storage: "#d97706",
+  Governance: "#dc2626",
+  Ingest: "#0891b2",
+};
+const maxLayerCount = Math.max(
+  1,
+  ...(dossier?.architecture_layers?.map((l) => l.component_count) ?? [1]),
+);
 ---
 
 <BaseLayout title={`${label} use cases${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""} | Use Case Intelligence`} description={`${page.total} real-world customer use cases for ${label}.`}>
@@ -70,15 +89,42 @@ const distinctVendors = new Set(all.map((r) => r.vendor)).size;
             </span>
           ) : null}
           <div>
-            {vendorInfo && <span class="page-hero__kicker">{vendorInfo.category}</span>}
+            {vendorInfo && (
+              <span class="page-hero__kicker">
+                {vendorInfo.category}{vendorInfo.domain ? ` · ${vendorInfo.domain}` : ""}
+              </span>
+            )}
             <h1 class="page-hero__title">{label}</h1>
           </div>
         </div>
 
         <p class="hero__lead">
           {catMeta ? `${catMeta.summary} ` : ""}
-          {page.total.toLocaleString("en")} verified customer use {page.total === 1 ? "case" : "cases"} ({metricPct}% with quantified impact · {facet === "vendors" ? `${distinctIndustries} industries` : `${distinctVendors} vendors`}).
+          {page.total.toLocaleString("en")} verified customer use {page.total === 1 ? "case" : "cases"} ({metricPct}% with quantified ROI · Avg Value Score {avgValueScore} · {archCoveragePct}% with mapped architecture components).
         </p>
+
+        <dl class="kpi-row">
+          <div class="kpi">
+            <dt>Verified stories</dt>
+            <dd>{page.total.toLocaleString("en")}</dd>
+          </div>
+          <div class="kpi">
+            <dt>Quantified ROI</dt>
+            <dd>{metricPct}%</dd>
+          </div>
+          <div class="kpi">
+            <dt>Avg value score</dt>
+            <dd>{avgValueScore}</dd>
+          </div>
+          <div class="kpi">
+            <dt>{facet === "vendors" ? "Industries served" : "Vendors deployed"}</dt>
+            <dd>{facet === "vendors" ? distinctIndustries : distinctVendors}</dd>
+          </div>
+          <div class="kpi">
+            <dt>Distinct products</dt>
+            <dd>{(dossier?.distinct_products_count ?? dossier?.top_products?.length ?? 0).toLocaleString("en")}</dd>
+          </div>
+        </dl>
 
         <div class="hero__quick">
           <span>{facet === "use-cases" ? "Top vendors:" : "Top use cases:"}</span>
@@ -90,10 +136,179 @@ const distinctVendors = new Set(all.map((r) => r.vendor)).size;
               {item.label} · {item.count}
             </a>
           ))}
-          <a class="chip chip--glass" href={href(`/explore/?${exploreParam}=${encodeURIComponent(label)}`)}>Filter further →</a>
+          <a class="chip chip--glass" href={href(`/explore/?${exploreParam}=${encodeURIComponent(label)}`)}>Filter in Explorer →</a>
         </div>
       </div>
     </section>
+
+    {page.currentPage === 1 && dossier && (
+      <section class="section section--compact section--dossier">
+        <div class="container">
+          <div class="dossier-grid">
+            <!-- Panel 1: 6-Layer Architecture Stack -->
+            <div class="dossier-card">
+              <div class="dossier-card__head">
+                <span class="dossier-card__kicker">Architecture Stack Signature</span>
+                <h2 class="dossier-card__title">6-Layer Production Component Breakdown</h2>
+              </div>
+              {dossier.architecture_layers.length > 0 ? (
+                <div class="dossier-layers">
+                  {dossier.architecture_layers.map((layer) => (
+                    <div class="dossier-layer-row">
+                      <div class="dossier-layer-row__meta">
+                        <span class="dossier-layer-row__name">
+                          <span class="arch-legend-dot" style={`background:${layerColorMap[layer.layer] || "#64748b"}`}></span>
+                          {layer.layer}
+                        </span>
+                        <span class="dossier-layer-row__count">
+                          {layer.component_count} components · {layer.story_count} stories
+                        </span>
+                      </div>
+                      <div class="dossier-layer-row__bar">
+                        <span
+                          style={`width: ${Math.max(5, (layer.component_count / maxLayerCount) * 100)}%; background: ${layerColorMap[layer.layer] || "#64748b"}`}
+                        />
+                      </div>
+                      {layer.top_products.length > 0 && (
+                        <div class="dossier-layer-row__prods">
+                          {layer.top_products.slice(0, 3).map((p) => (
+                            <span class="hub-product-pill hub-product-pill--xs">
+                              <span class="hub-product-pill__name">{p.label}</span>
+                              <span class="hub-product-pill__cnt">{p.count}</span>
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p class="muted">No layer-mapped components recorded yet.</p>
+              )}
+            </div>
+
+            <!-- Panel 2: Top Deployed Products & Co-occurring Pairs -->
+            <div class="dossier-card">
+              <div class="dossier-card__head">
+                <span class="dossier-card__kicker">Product & Model Ecosystem</span>
+                <h2 class="dossier-card__title">Most Deployed Products & Co-occurring Pairs</h2>
+              </div>
+              {dossier.top_products.length > 0 && (
+                <div class="dossier-block">
+                  <span class="dossier-subhead">Top named products & AI models</span>
+                  <div class="hub-product-pills">
+                    {dossier.top_products.slice(0, 8).map((prod) => (
+                      <span class="hub-product-pill">
+                        <span class="hub-product-pill__name">{prod.label}</span>
+                        <span class="hub-product-pill__cnt">{prod.count}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {dossier.co_occurring_pairs.length > 0 && (
+                <div class="dossier-block">
+                  <span class="dossier-subhead">Most frequent co-deployed product pairs</span>
+                  <ul class="dossier-pair-list">
+                    {dossier.co_occurring_pairs.slice(0, 5).map((pair) => (
+                      <li class="dossier-pair-item">
+                        <span class="dossier-pair-name">
+                          <strong>{pair.product_a}</strong> + <strong>{pair.product_b}</strong>
+                        </span>
+                        <span class="dossier-pair-badge">{pair.count} stories</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <!-- Panel 3: Cross-Dimension Adoption & Scale -->
+            <div class="dossier-card">
+              <div class="dossier-card__head">
+                <span class="dossier-card__kicker">Adoption Footprint</span>
+                <h2 class="dossier-card__title">Sector, Region & Organization Scale</h2>
+              </div>
+              <div class="dossier-block">
+                <span class="dossier-subhead">
+                  {facet === "industries" ? "Leading AI use cases" : "Top adopting industries"}
+                </span>
+                <div class="hub-card__tags">
+                  {(facet === "industries" ? dossier.top_use_cases : dossier.top_industries).slice(0, 5).map((item) => (
+                    <a
+                      class="tag tag--link"
+                      href={facetHref(facet === "industries" ? "use-cases" : "industries", item.label)}
+                    >
+                      {item.label} ({item.count})
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div class="dossier-split">
+                <div>
+                  <span class="dossier-subhead">Geographic footprint</span>
+                  <ul class="dossier-mini-list">
+                    {dossier.macro_regions.slice(0, 4).map((reg) => (
+                      <li>
+                        <span>{reg.label}</span>
+                        <strong>{reg.count} ({Math.round(reg.share * 100)}%)</strong>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <span class="dossier-subhead">Organization scale</span>
+                  <ul class="dossier-mini-list">
+                    {dossier.company_sizes.slice(0, 4).map((sz) => (
+                      <li>
+                        <span>{sz.label}</span>
+                        <strong>{sz.count} ({Math.round(sz.share * 100)}%)</strong>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Panel 4: Quantified Outcome Benchmarks -->
+            <div class="dossier-card">
+              <div class="dossier-card__head">
+                <span class="dossier-card__kicker">Verified Business Impact</span>
+                <h2 class="dossier-card__title">Outcome Categories & Customer ROI Proof</h2>
+              </div>
+              {dossier.top_outcomes.length > 0 && (
+                <div class="dossier-block">
+                  <span class="dossier-subhead">Primary outcome drivers</span>
+                  <div class="hub-card__tags">
+                    {dossier.top_outcomes.slice(0, 4).map((out) => (
+                      <span class="tag">{out.label} ({out.count})</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {dossier.sample_metrics.length > 0 && (
+                <div class="dossier-block">
+                  <span class="dossier-subhead">Sample verified customer metrics</span>
+                  <ul class="dossier-metric-list">
+                    {dossier.sample_metrics.slice(0, 3).map((m) => (
+                      <li>
+                        <a class="dossier-metric-item" href={href(`/cases/${m.slug}/`)}>
+                          <span class="dossier-metric-quote">“{m.metric}”</span>
+                          <span class="dossier-metric-cite">
+                            {m.customer_name} · {m.vendor} →
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
     <section class="section section--compact">
       <div class="container">
         <CaseListing

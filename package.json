@@ -19,7 +19,8 @@
     "data:validate-enrichment": "python3 -m pipeline.usecase_intel.company_enrichment validate",
     "data:merge": "python3 -m pipeline.usecase_intel.merge_records --prune-duplicates",
     "data:partition": "python3 -m pipeline.usecase_intel.partition",
-    "data:build": "npm run data:merge && npm run data:seed && npm run data:export && npm run data:partition"
+    "data:analytics": "python3 -m pipeline.usecase_intel.analytics",
+    "data:build": "npm run data:merge && npm run data:seed && npm run data:export && npm run data:partition && npm run data:analytics"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",

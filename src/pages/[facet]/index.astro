@@ -4,7 +4,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { flattenValues, topValues } from "../../lib/analytics";
 import { caseStudies } from "../../lib/caseStudies";
 import { FACETS, facetGroups, facetHref, type FacetKind } from "../../lib/facets";
+import { analyticsSummary, getFacetDossier } from "../../lib/generatedAnalytics";
 import { industryMeta, useCaseMeta } from "../../lib/icons";
+import { href } from "../../lib/paths";
 import { vendorLogoSvg, vendorStyle } from "../../lib/vendors";
 
 export const getStaticPaths = (() =>
@@ -20,19 +22,34 @@ const metricRate = Math.round((totalWithMetrics / Math.max(caseStudies.length, 1
 
 const heroSubtitle: Record<FacetKind, string> = {
   vendors:
-    "Explore AI customer implementations across cloud hyperscalers, frontier AI labs, data platforms, China cloud providers, and global consulting firms.",
+    "Compare official AI vendor ecosystems across cloud hyperscalers, frontier model labs, lakehouse platforms, China cloud providers, and global consulting leaders—benchmarked by deployed products, 6-layer architecture depth, and quantified customer ROI.",
   "use-cases":
-    "Production AI patterns normalized from first-party customer stories—complete with leading vendors, quantified outcomes, and architecture depth.",
+    "Production AI implementation patterns normalized from 2,600+ first-party customer stories—complete with leading vendors, deployed AI models & services, 6-layer architecture signatures, and verified outcome metrics.",
   industries:
-    "Compare how enterprise sectors deploy generative AI, machine learning, and data platforms in production.",
+    "Cross-sector intelligence showing how 20 global industries deploy generative AI, machine learning, and data platforms in production—with vendor share, core AI patterns, and quantified business impact.",
+};
+
+const useCaseCluster = (name: string): string => {
+  const n = name.toLowerCase();
+  if (n.includes("copilot") || n.includes("chatbot") || n.includes("content") || n.includes("knowledge") || n.includes("code") || n.includes("translation")) {
+    return "GenAI, Copilots & Assistants";
+  }
+  if (n.includes("forecast") || n.includes("fraud") || n.includes("recommend") || n.includes("vision") || n.includes("healthcare") || n.includes("Maintenance".toLowerCase())) {
+    return "Predictive ML & Vision";
+  }
+  if (n.includes("customer") || n.includes("sales") || n.includes("marketing") || n.includes("personal")) {
+    return "Customer & Revenue AI";
+  }
+  return "Data, Automation & Ops";
 };
 
 const enrichedGroups = groups.map((group) => {
   const count = group.records.length;
   const withMetrics = group.records.filter((r) => r.metrics.length > 0).length;
   const impactPct = Math.round((withMetrics / Math.max(count, 1)) * 100);
-  const topVendors = topValues(group.records.map((r) => r.vendor), 3);
-  const topUseCases = topValues(flattenValues(group.records, (r) => r.use_case_category), 2);
+  const topVendors = topValues(group.records.map((r) => r.vendor), 4);
+  const topUseCases = topValues(flattenValues(group.records, (r) => r.use_case_category), 3);
+  const topIndustries = topValues(group.records.map((r) => r.industry), 3);
   const distinctIndustries = new Set(group.records.map((r) => r.industry)).size;
   const distinctVendors = new Set(group.records.map((r) => r.vendor)).size;
   const vendorInfo = facet === "vendors" ? vendorStyle(group.value) : null;
@@ -42,23 +59,76 @@ const enrichedGroups = groups.map((group) => {
       : facet === "industries"
         ? industryMeta(group.value)
         : null;
+  const dossier = getFacetDossier(facet, group.value);
+  const avgValueScore =
+    dossier?.avg_value_score ??
+    Math.round(
+      group.records.reduce((acc, r) => acc + (r.value_score || 0), 0) / Math.max(count, 1),
+    );
+  const topProducts = dossier?.top_products?.slice(0, 4) ?? [];
+  const topPairs = dossier?.co_occurring_pairs?.slice(0, 2) ?? [];
+  const archLayers = dossier?.architecture_layers ?? [];
+  const totalLayerComponents = archLayers.reduce((acc, l) => acc + l.component_count, 0) || 1;
+  const flagshipCase = dossier?.top_cases?.[0] ?? null;
+  const sampleMetric = dossier?.sample_metrics?.[0] ?? null;
+  const filterCat =
+    facet === "vendors"
+      ? vendorInfo?.category || "Other"
+      : facet === "use-cases"
+        ? useCaseCluster(group.value)
+        : "All";
+  const searchBlob = [
+    group.value,
+    vendorInfo?.category || "",
+    vendorInfo?.domain || "",
+    catMeta?.summary || "",
+    ...topProducts.map((p) => p.label),
+    ...topUseCases.map((u) => u.label),
+    ...topVendors.map((v) => v.label),
+    ...topIndustries.map((i) => i.label),
+  ]
+    .join(" ")
+    .toLowerCase();
+
   return {
     ...group,
     count,
+    sharePct: ((count / Math.max(caseStudies.length, 1)) * 100).toFixed(1),
     impactPct,
+    avgValueScore,
     topVendors,
     topUseCases,
+    topIndustries,
+    topProducts,
+    topPairs,
+    archLayers,
+    totalLayerComponents,
+    flagshipCase,
+    sampleMetric,
     distinctIndustries,
     distinctVendors,
     vendorInfo,
     catMeta,
+    filterCat,
+    searchBlob,
   };
 });
 
-const vendorCategories =
-  facet === "vendors"
-    ? Array.from(new Set(enrichedGroups.map((g) => g.vendorInfo?.category || "Other")))
+const filterCategories =
+  facet === "vendors" || facet === "use-cases"
+    ? Array.from(new Set(enrichedGroups.map((g) => g.filterCat)))
     : [];
+
+const spotlightGroups = enrichedGroups.slice(0, 4);
+
+const layerColorMap: Record<string, string> = {
+  Compute: "#2563eb",
+  Serving: "#0c7c6c",
+  Orchestration: "#7c3aed",
+  Storage: "#d97706",
+  Governance: "#dc2626",
+  Ingest: "#0891b2",
+};
 ---
 
 <BaseLayout title={`${plural} | Use Case Intelligence`} description={`Customer use cases grouped by ${plural.toLowerCase()}.`}>
@@ -67,7 +137,7 @@ const vendorCategories =
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="container page-hero__inner">
-        <p class="eyebrow eyebrow--light">Browse by {FACETS[facet].label.toLowerCase()}</p>
+        <p class="eyebrow eyebrow--light">Multi-Dimensional Intelligence · Browse by {FACETS[facet].label.toLowerCase()}</p>
         <h1 class="page-hero__title">{plural}</h1>
         <p class="hero__lead">{heroSubtitle[facet]}</p>
         <dl class="kpi-row">
@@ -76,20 +146,20 @@ const vendorCategories =
             <dd>{groups.length}</dd>
           </div>
           <div class="kpi">
-            <dt>Customer stories</dt>
+            <dt>Verified stories</dt>
             <dd>{caseStudies.length.toLocaleString("en")}</dd>
           </div>
           <div class="kpi">
-            <dt>With quantified impact</dt>
+            <dt>Quantified ROI</dt>
             <dd>{metricRate}%</dd>
           </div>
           <div class="kpi">
-            <dt>Largest {FACETS[facet].label.toLowerCase()}</dt>
-            <dd>{groups[0]?.records.length.toLocaleString("en") ?? 0}</dd>
+            <dt>Tracked AI products</dt>
+            <dd>{analyticsSummary.total_unique_products.toLocaleString("en")}</dd>
           </div>
           <div class="kpi">
-            <dt>Updated</dt>
-            <dd>Daily</dd>
+            <dt>Mapped components</dt>
+            <dd>{analyticsSummary.total_solution_components.toLocaleString("en")}</dd>
           </div>
         </dl>
       </div>
@@ -97,25 +167,193 @@ const vendorCategories =
 
     <section class="section section--compact">
       <div class="container">
-        {facet === "vendors" && (
-          <div class="hub-filter-bar" data-vendor-filter-bar>
-            <button type="button" class="chip chip--filter is-active" data-vendor-cat="all">
-              All vendors <span class="chip__count">{enrichedGroups.length}</span>
-            </button>
-            {vendorCategories.map((cat) => {
-              const catCount = enrichedGroups.filter((g) => g.vendorInfo?.category === cat).length;
-              return (
-                <button type="button" class="chip chip--filter" data-vendor-cat={cat}>
-                  {cat} <span class="chip__count">{catCount}</span>
-                </button>
-              );
-            })}
+        <!-- Spotlight Row for Top 4 Leaders -->
+        <div class="hub-spotlight">
+          <div class="hub-spotlight__head">
+            <div>
+              <p class="section__kicker">
+                {facet === "vendors"
+                  ? "Ecosystem Leaders"
+                  : facet === "use-cases"
+                    ? "Most Deployed Production Patterns"
+                    : "Most Active Enterprise Sectors"}
+              </p>
+              <h2 class="section__title">
+                {facet === "vendors"
+                  ? "Top AI vendors by production volume & stack depth"
+                  : facet === "use-cases"
+                    ? "Core AI patterns driving enterprise ROI"
+                    : "Leading industries by verified AI adoption"}
+              </h2>
+            </div>
+            <a class="section__link" href={href("/insights/")}>
+              Full cross-dimensional benchmarks →
+            </a>
           </div>
-        )}
 
-        <ul class:list={["hub-grid", `hub-grid--${facet}`]}>
+          <div class="hub-spotlight__grid">
+            {spotlightGroups.map((group, idx) => (
+              <div
+                class="spotlight-card"
+                style={`--card-accent: ${group.vendorInfo?.color ?? group.catMeta?.accent ?? "#0c7c6c"}`}
+              >
+                <div class="spotlight-card__top">
+                  <a class="spotlight-card__identity" href={facetHref(facet, group.value)}>
+                    {facet === "vendors" && group.vendorInfo ? (
+                      <span class="spotlight-card__logo" set:html={vendorLogoSvg(group.value, group.vendorInfo.mark)} />
+                    ) : (
+                      <span class="spotlight-card__icon" style={`--icon-accent: ${group.catMeta?.accent ?? "#0c7c6c"}`}>
+                        <svg viewBox="0 0 20 20" width="22" height="22" aria-hidden="true" set:html={group.catMeta?.svg ?? ""} />
+                      </span>
+                    )}
+                    <div class="spotlight-card__titles">
+                      <span class="spotlight-card__rank">#{idx + 1} · {group.filterCat !== "All" ? group.filterCat : `${group.sharePct}% of catalog`}</span>
+                      <h3 class="spotlight-card__name">{group.value}</h3>
+                      {group.vendorInfo?.domain && (
+                        <span class="spotlight-card__domain">{group.vendorInfo.domain}</span>
+                      )}
+                    </div>
+                  </a>
+                  <div class="spotlight-card__count-box">
+                    <span class="spotlight-card__count-num">{group.count.toLocaleString("en")}</span>
+                    <span class="spotlight-card__count-label">stories ({group.sharePct}%)</span>
+                  </div>
+                </div>
+
+                <div class="spotlight-card__metrics">
+                  <div class="spotlight-metric">
+                    <span class="spotlight-metric__val">{group.impactPct}%</span>
+                    <span class="spotlight-metric__lbl">Quantified ROI</span>
+                  </div>
+                  <div class="spotlight-metric">
+                    <span class="spotlight-metric__val">{group.avgValueScore}</span>
+                    <span class="spotlight-metric__lbl">Avg Value Score</span>
+                  </div>
+                  <div class="spotlight-metric">
+                    <span class="spotlight-metric__val">
+                      {facet === "vendors" ? group.distinctIndustries : group.distinctVendors}
+                    </span>
+                    <span class="spotlight-metric__lbl">
+                      {facet === "vendors" ? "Industries" : "Vendors"}
+                    </span>
+                  </div>
+                </div>
+
+                {group.topProducts.length > 0 && (
+                  <div class="spotlight-card__block">
+                    <span class="spotlight-card__subhead">Top deployed AI products & models</span>
+                    <div class="hub-product-pills">
+                      {group.topProducts.slice(0, 3).map((prod) => (
+                        <span class="hub-product-pill">
+                          <span class="hub-product-pill__name">{prod.label}</span>
+                          <span class="hub-product-pill__cnt">{prod.count}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {group.archLayers.length > 0 && (
+                  <div class="spotlight-card__block">
+                    <div class="arch-mini-head">
+                      <span class="spotlight-card__subhead">6-Layer architecture signature</span>
+                      <span class="arch-mini-dominant">
+                        {group.archLayers[0]?.layer} ({Math.round((group.archLayers[0]?.component_count / group.totalLayerComponents) * 100)}%)
+                      </span>
+                    </div>
+                    <div class="arch-mini-bar" title="6-Layer Architecture Distribution">
+                      {group.archLayers.map((layer) => (
+                        <span
+                          class="arch-mini-bar__seg"
+                          style={`width: ${Math.max(4, (layer.component_count / group.totalLayerComponents) * 100)}%; background: ${layerColorMap[layer.layer] || "#64748b"}`}
+                          title={`${layer.layer}: ${layer.component_count} components (${layer.story_count} stories)`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {group.sampleMetric && (
+                  <a class="spotlight-card__proof" href={href(`/cases/${group.sampleMetric.slug}/`)}>
+                    <span class="spotlight-card__proof-quote">“{group.sampleMetric.metric}”</span>
+                    <span class="spotlight-card__proof-cite">
+                      {group.sampleMetric.customer_name} →
+                    </span>
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Interactive Search, Sort & Filter Toolbar -->
+        <div class="hub-toolbar" data-hub-toolbar>
+          <div class="hub-toolbar__top">
+            <div class="hub-search">
+              <svg class="hub-search__icon" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true">
+                <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7" />
+                <path d="M12.8 12.8 17 17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+              </svg>
+              <input
+                type="search"
+                class="hub-search__input"
+                data-hub-search
+                placeholder={`Filter ${plural.toLowerCase()} by name, deployed product (e.g. Gemini, Bedrock, Unity Catalog), or sector…`}
+                aria-label={`Search ${plural}`}
+              />
+              <span class="hub-search__status" data-hub-status>
+                Showing <strong>{enrichedGroups.length}</strong> of {enrichedGroups.length}
+              </span>
+            </div>
+
+            <div class="hub-sort" role="group" aria-label="Sort directory">
+              <span class="hub-sort__label">Sort:</span>
+              <button type="button" class="hub-sort__btn is-active" data-hub-sort="count">Most stories</button>
+              <button type="button" class="hub-sort__btn" data-hub-sort="value">Value score</button>
+              <button type="button" class="hub-sort__btn" data-hub-sort="roi">Quantified ROI %</button>
+              <button type="button" class="hub-sort__btn" data-hub-sort="name">A–Z</button>
+            </div>
+          </div>
+
+          {filterCategories.length > 0 && (
+            <div class="hub-filter-bar" data-vendor-filter-bar>
+              <button type="button" class="chip chip--filter is-active" data-vendor-cat="all">
+                All {plural.toLowerCase()} <span class="chip__count">{enrichedGroups.length}</span>
+              </button>
+              {filterCategories.map((cat) => {
+                const catCount = enrichedGroups.filter((g) => g.filterCat === cat).length;
+                return (
+                  <button type="button" class="chip chip--filter" data-vendor-cat={cat}>
+                    {cat} <span class="chip__count">{catCount}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        <!-- Legend for 6-Layer Architecture Mini Bar -->
+        <div class="arch-legend-strip" aria-label="Architecture Layer Legend">
+          <span class="arch-legend-strip__title">6-Layer Stack Key:</span>
+          {Object.entries(layerColorMap).map(([layerName, color]) => (
+            <span class="arch-legend-item">
+              <span class="arch-legend-dot" style={`background:${color}`}></span>
+              {layerName}
+            </span>
+          ))}
+        </div>
+
+        <!-- Complete Directory Grid -->
+        <ul class:list={["hub-grid", `hub-grid--${facet}`]} data-hub-grid>
           {enrichedGroups.map((group) => (
-            <li data-vendor-card-cat={group.vendorInfo?.category}>
+            <li
+              data-vendor-card-cat={group.filterCat}
+              data-search={group.searchBlob}
+              data-count={group.count}
+              data-value={group.avgValueScore}
+              data-roi={group.impactPct}
+              data-name={group.value.toLowerCase()}
+            >
               {facet === "vendors" && group.vendorInfo ? (
                 <a
                   class="hub-card hub-card--vendor"
@@ -126,33 +364,77 @@ const vendorCategories =
                     <span class="hub-card__logo" set:html={vendorLogoSvg(group.value, group.vendorInfo.mark)} />
                     <div class="hub-card__title-wrap">
                       <span class="hub-card__name">{group.value}</span>
-                      <span class="hub-card__category">{group.vendorInfo.category}</span>
+                      <span class="hub-card__category">
+                        {group.vendorInfo.category}
+                        {group.vendorInfo.domain ? ` · ${group.vendorInfo.domain}` : ""}
+                      </span>
                     </div>
-                    <span class="hub-card__badge">{group.count.toLocaleString("en")}</span>
-                  </div>
-
-                  <div class="hub-card__stats">
-                    <span>
-                      <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M2.5 13.5V6.8l3.6 2V6.8l3.6 2V4.5h3.8v9H2.5Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-                      {group.distinctIndustries} {group.distinctIndustries === 1 ? "industry" : "industries"}
-                    </span>
-                    <span>
-                      <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M2.5 12.5 6.5 8l2.8 2.8L13.8 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      {group.impactPct}% with metrics
+                    <span class="hub-card__badge" title={`${group.count} verified customer stories (${group.sharePct}% of catalog)`}>
+                      {group.count.toLocaleString("en")}
                     </span>
                   </div>
 
-                  {group.topUseCases.length > 0 && (
-                    <div class="hub-card__tags">
-                      {group.topUseCases.map((uc) => (
-                        <span class="tag">{uc.label}</span>
-                      ))}
+                  <div class="hub-card__kpi-strip">
+                    <div class="hub-card__kpi">
+                      <span class="hub-card__kpi-val">{group.impactPct}%</span>
+                      <span class="hub-card__kpi-lbl">Quantified ROI</span>
+                    </div>
+                    <div class="hub-card__kpi">
+                      <span class="hub-card__kpi-val">{group.avgValueScore}</span>
+                      <span class="hub-card__kpi-lbl">Value Score</span>
+                    </div>
+                    <div class="hub-card__kpi">
+                      <span class="hub-card__kpi-val">{group.distinctIndustries}</span>
+                      <span class="hub-card__kpi-lbl">{group.distinctIndustries === 1 ? "Sector" : "Sectors"}</span>
+                    </div>
+                  </div>
+
+                  {group.topProducts.length > 0 && (
+                    <div class="hub-card__section">
+                      <span class="hub-card__section-label">Top deployed products & models</span>
+                      <div class="hub-product-pills">
+                        {group.topProducts.slice(0, 3).map((prod) => (
+                          <span class="hub-product-pill">
+                            <span class="hub-product-pill__name">{prod.label}</span>
+                            <span class="hub-product-pill__cnt">{prod.count}</span>
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
 
-                  <span class="hub-card__bar" aria-hidden="true">
-                    <span style={`width: ${Math.max(4, (group.count / max) * 100)}%; background: ${group.vendorInfo.color}`}></span>
-                  </span>
+                  {group.topUseCases.length > 0 && (
+                    <div class="hub-card__section">
+                      <span class="hub-card__section-label">Leading AI patterns</span>
+                      <div class="hub-card__tags">
+                        {group.topUseCases.slice(0, 2).map((uc) => (
+                          <span class="tag">{uc.label} ({uc.count})</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {group.archLayers.length > 0 && (
+                    <div class="hub-card__arch">
+                      <div class="arch-mini-bar">
+                        {group.archLayers.map((layer) => (
+                          <span
+                            class="arch-mini-bar__seg"
+                            style={`width: ${Math.max(4, (layer.component_count / group.totalLayerComponents) * 100)}%; background: ${layerColorMap[layer.layer] || "#64748b"}`}
+                            title={`${layer.layer}: ${layer.component_count} components`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {group.flagshipCase && (
+                    <div class="hub-card__footer-case">
+                      <span class="hub-card__footer-label">Flagship:</span>
+                      <span class="hub-card__footer-customer">{group.flagshipCase.customer_name}</span>
+                      <span class="hub-card__footer-arrow" aria-hidden="true">→</span>
+                    </div>
+                  )}
                 </a>
               ) : (
                 <a
@@ -166,20 +448,37 @@ const vendorCategories =
                     </span>
                     <div class="hub-card__title-wrap">
                       <span class="hub-card__name">{group.value}</span>
-                      <span class="hub-card__count">
-                        {group.count.toLocaleString("en")} use {group.count === 1 ? "case" : "cases"} · {group.impactPct}% quantified
+                      <span class="hub-card__category">
+                        {facet === "use-cases" ? group.filterCat : `${group.distinctVendors} technology vendors`}
                       </span>
                     </div>
-                    <span class="hub-card__arrow" aria-hidden="true">→</span>
+                    <span class="hub-card__badge">
+                      {group.count.toLocaleString("en")}
+                    </span>
                   </div>
 
                   {group.catMeta?.summary && <p class="hub-card__desc">{group.catMeta.summary}</p>}
 
+                  <div class="hub-card__kpi-strip">
+                    <div class="hub-card__kpi">
+                      <span class="hub-card__kpi-val">{group.impactPct}%</span>
+                      <span class="hub-card__kpi-lbl">Quantified ROI</span>
+                    </div>
+                    <div class="hub-card__kpi">
+                      <span class="hub-card__kpi-val">{group.avgValueScore}</span>
+                      <span class="hub-card__kpi-lbl">Value Score</span>
+                    </div>
+                    <div class="hub-card__kpi">
+                      <span class="hub-card__kpi-val">{group.distinctVendors}</span>
+                      <span class="hub-card__kpi-lbl">Vendors</span>
+                    </div>
+                  </div>
+
                   {group.topVendors.length > 0 && (
                     <div class="hub-card__vendors">
-                      <span class="hub-card__vendors-label">Top vendors</span>
+                      <span class="hub-card__section-label">Leading vendors</span>
                       <div class="hub-card__vendor-pills">
-                        {group.topVendors.map((v) => {
+                        {group.topVendors.slice(0, 3).map((v) => {
                           const vStyle = vendorStyle(v.label);
                           return (
                             <span class="vendor-mini-pill">
@@ -193,9 +492,33 @@ const vendorCategories =
                     </div>
                   )}
 
-                  <span class="hub-card__bar" aria-hidden="true">
-                    <span style={`width: ${Math.max(4, (group.count / max) * 100)}%; background: ${group.catMeta?.accent ?? "var(--series-1)"}`}></span>
-                  </span>
+                  {group.topProducts.length > 0 && (
+                    <div class="hub-card__section">
+                      <span class="hub-card__section-label">Most deployed products & models</span>
+                      <div class="hub-product-pills">
+                        {group.topProducts.slice(0, 3).map((prod) => (
+                          <span class="hub-product-pill">
+                            <span class="hub-product-pill__name">{prod.label}</span>
+                            <span class="hub-product-pill__cnt">{prod.count}</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {group.archLayers.length > 0 && (
+                    <div class="hub-card__arch">
+                      <div class="arch-mini-bar">
+                        {group.archLayers.map((layer) => (
+                          <span
+                            class="arch-mini-bar__seg"
+                            style={`width: ${Math.max(4, (layer.component_count / group.totalLayerComponents) * 100)}%; background: ${layerColorMap[layer.layer] || "#64748b"}`}
+                            title={`${layer.layer}: ${layer.component_count} components`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </a>
               )}
             </li>
@@ -205,23 +528,75 @@ const vendorCategories =
     </section>
   </main>
 
-  {facet === "vendors" && (
-    <script>
-      const bar = document.querySelector("[data-vendor-filter-bar]");
-      if (bar) {
-        const buttons = Array.from(bar.querySelectorAll<HTMLButtonElement>("[data-vendor-cat]"));
-        const cards = Array.from(document.querySelectorAll<HTMLLIElement>("[data-vendor-card-cat]"));
-        for (const btn of buttons) {
-          btn.addEventListener("click", () => {
-            const cat = btn.dataset.vendorCat || "all";
-            for (const b of buttons) b.classList.toggle("is-active", b === btn);
-            for (const card of cards) {
-              card.hidden = cat !== "all" && card.dataset.vendorCardCat !== cat;
-            }
-          });
+  <script>
+    const grid = document.querySelector<HTMLUListElement>("[data-hub-grid]");
+    const searchInput = document.querySelector<HTMLInputElement>("[data-hub-search]");
+    const statusEl = document.querySelector<HTMLElement>("[data-hub-status]");
+    const catButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-vendor-cat]"));
+    const sortButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-hub-sort]"));
+
+    if (grid) {
+      const items = Array.from(grid.querySelectorAll<HTMLLIElement>("li[data-count]"));
+      const total = items.length;
+      let activeCat = "all";
+      let activeSort = "count";
+      let query = "";
+
+      const applyState = () => {
+        let visibleCount = 0;
+        for (const item of items) {
+          const catMatch = activeCat === "all" || item.dataset.vendorCardCat === activeCat;
+          const searchMatch = !query || (item.dataset.search || "").includes(query);
+          const show = catMatch && searchMatch;
+          item.hidden = !show;
+          if (show) visibleCount += 1;
         }
+
+        const sorted = [...items].sort((a, b) => {
+          if (activeSort === "name") {
+            return (a.dataset.name || "").localeCompare(b.dataset.name || "");
+          }
+          if (activeSort === "value") {
+            return Number(b.dataset.value || 0) - Number(a.dataset.value || 0) || Number(b.dataset.count || 0) - Number(a.dataset.count || 0);
+          }
+          if (activeSort === "roi") {
+            return Number(b.dataset.roi || 0) - Number(a.dataset.roi || 0) || Number(b.dataset.count || 0) - Number(a.dataset.count || 0);
+          }
+          return Number(b.dataset.count || 0) - Number(a.dataset.count || 0);
+        });
+
+        for (const item of sorted) {
+          grid.appendChild(item);
+        }
+
+        if (statusEl) {
+          statusEl.innerHTML = `Showing <strong>${visibleCount}</strong> of ${total}`;
+        }
+      };
+
+      for (const btn of catButtons) {
+        btn.addEventListener("click", () => {
+          activeCat = btn.dataset.vendorCat || "all";
+          for (const b of catButtons) b.classList.toggle("is-active", b === btn);
+          applyState();
+        });
       }
-    </script>
-  )}
+
+      for (const btn of sortButtons) {
+        btn.addEventListener("click", () => {
+          activeSort = btn.dataset.hubSort || "count";
+          for (const b of sortButtons) b.classList.toggle("is-active", b === btn);
+          applyState();
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          query = searchInput.value.trim().toLowerCase();
+          applyState();
+        });
+      }
+    }
+  </script>
 </BaseLayout>
 

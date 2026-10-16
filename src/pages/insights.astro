@@ -5,8 +5,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Heatmap from "../components/Heatmap.astro";
 import { countValues, flattenValues, topValues } from "../lib/analytics";
 import { caseStudies } from "../lib/caseStudies";
+import {
+  analyticsSummary,
+  architectureLayers,
+  geographyAndScale,
+  productEcosystem,
+  roiBenchmarks,
+} from "../lib/generatedAnalytics";
 import { href } from "../lib/paths";
 import type { CaseStudyRecord } from "../lib/types";
+import { vendorLogoSvg, vendorStyle } from "../lib/vendors";
 import taxonomy from "../../taxonomy.json";
 
 const records = caseStudies.filter((record) => !record.is_sample);
@@ -92,25 +100,35 @@ const quarterMax = quarters.reduce((highest, entry) => Math.max(highest, entry.c
 
 const heatUseCases = useCases.slice(0, 10).map((entry) => entry.label);
 const heatVendors = vendors.slice(0, 12).map((entry) => entry.label);
+
+const layerColorMap: Record<string, string> = {
+  Compute: "#2563eb",
+  Serving: "#0c7c6c",
+  Orchestration: "#7c3aed",
+  Storage: "#d97706",
+  Governance: "#dc2626",
+  Ingest: "#0891b2",
+};
+const maxArchComponents = Math.max(1, ...architectureLayers.map((l) => l.component_count));
 ---
 
 <BaseLayout title="Insights | Use Case Intelligence" description={`What ${records.length.toLocaleString("en")} real-world AI customer stories say about use cases, industries, vendors, products and outcomes.`}>
   <main>
     <section class="page-hero">
       <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container page-hero__inner">
-        <p class="eyebrow eyebrow--light">Insights</p>
+        <p class="eyebrow eyebrow--light">Workflow-Automated Multi-Dimensional Intelligence</p>
         <h1 class="page-hero__title">Where AI delivers customer value</h1>
         <p class="hero__lead">
-          Aggregated across {records.length.toLocaleString("en")} customer stories from {vendors.length} vendors and {industries.length} industries.
-          Click any bar to open those stories in the explorer.
+          Auto-computed on every ingestion run across {records.length.toLocaleString("en")} customer stories, {analyticsSummary.total_unique_products.toLocaleString("en")} named products, {analyticsSummary.total_solution_components.toLocaleString("en")} architecture components, and {analyticsSummary.total_quantified_metrics.toLocaleString("en")} customer-reported metrics.
         </p>
         <dl class="kpi-row">
           <div class="kpi"><dt>Customer stories</dt><dd>{records.length.toLocaleString("en")}</dd></div>
-          <div class="kpi"><dt>Vendors</dt><dd>{vendors.length}</dd></div>
-          <div class="kpi"><dt>Industries</dt><dd>{industries.length}</dd></div>
-          <div class="kpi"><dt>Use-case categories</dt><dd>{useCases.length}</dd></div>
-          <div class="kpi"><dt>With quantified impact</dt><dd>{percent(rate(withImpact))}</dd></div>
+          <div class="kpi"><dt>Tracked AI products</dt><dd>{analyticsSummary.total_unique_products.toLocaleString("en")}</dd></div>
+          <div class="kpi"><dt>Architecture components</dt><dd>{analyticsSummary.total_solution_components.toLocaleString("en")}</dd></div>
+          <div class="kpi"><dt>Quantified metrics</dt><dd>{analyticsSummary.total_quantified_metrics.toLocaleString("en")}</dd></div>
+          <div class="kpi"><dt>Quantified ROI rate</dt><dd>{percent(rate(withImpact))}</dd></div>
         </dl>
       </div>
     </section>
@@ -118,6 +136,219 @@ const heatVendors = vendors.slice(0, 12).map((entry) => entry.label);
     <section class="section section--compact">
       <div class="container">
         <div class="insight-grid">
+          <!-- NEW: Quantified ROI Benchmarks (Median / P75 % Gains & Multipliers) -->
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <div>
+                <h3>Quantified ROI &amp; outcome benchmarks</h3>
+                <p class="panel__intro">
+                  Parsed from {analyticsSummary.total_quantified_metrics.toLocaleString("en")} customer-stated metrics across {analyticsSummary.quantified_impact_count.toLocaleString("en")} stories—distilling median percentage gains, 75th-percentile performance, and multiplier claims (`2x–100x`).
+                </p>
+              </div>
+              <span class="panel__meta">auto-generated via pipeline</span>
+            </header>
+            <div class="roi-benchmark-grid">
+              {roiBenchmarks.map((bench) => (
+                <div class="roi-card">
+                  <div class="roi-card__top">
+                    <div>
+                      <h4 class="roi-card__title">{bench.category}</h4>
+                      <p class="roi-card__desc">{bench.description}</p>
+                    </div>
+                    <span class="roi-card__stories">
+                      {bench.story_count.toLocaleString("en")} stories
+                    </span>
+                  </div>
+                  <div class="roi-card__kpis">
+                    <div class="roi-kpi">
+                      <span class="roi-kpi__val">
+                        {bench.median_percent_gain !== null ? `${bench.median_percent_gain}%` : "—"}
+                      </span>
+                      <span class="roi-kpi__lbl">Median % Gain</span>
+                    </div>
+                    <div class="roi-kpi">
+                      <span class="roi-kpi__val">
+                        {bench.p75_percent_gain !== null ? `${bench.p75_percent_gain}%` : "—"}
+                      </span>
+                      <span class="roi-kpi__lbl">P75 Top-Quartile</span>
+                    </div>
+                    <div class="roi-kpi">
+                      <span class="roi-kpi__val">{bench.multiplier_count}</span>
+                      <span class="roi-kpi__lbl">2x–100x Claims</span>
+                    </div>
+                  </div>
+                  {bench.top_use_cases.length > 0 && (
+                    <div class="roi-card__tags">
+                      {bench.top_use_cases.slice(0, 3).map((uc) => (
+                        <a class="tag tag--link" href={explore("usecase", uc.label)}>
+                          {uc.label} ({uc.count})
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  {bench.sample_metrics.length > 0 && (
+                    <ul class="roi-card__samples">
+                      {bench.sample_metrics.slice(0, 2).map((sm) => (
+                        <li>
+                          <a href={href(`/cases/${sm.slug}/`)}>
+                            <span class="roi-sample-quote">“{sm.metric}”</span>
+                            <span class="roi-sample-cite">{sm.customer_name} · {sm.vendor} →</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <!-- NEW: 6-Layer Enterprise Architecture Stack Deep-Dive -->
+          <article class="panel panel--wide">
+            <header class="panel__head">
+              <div>
+                <h3>6-Layer enterprise AI architecture anatomy</h3>
+                <p class="panel__intro">
+                  Granular breakdown of {analyticsSummary.total_solution_components.toLocaleString("en")} deployment components mapped across Ingest, Compute, Storage, Serving, Orchestration, and Governance—showing the most deployed products and vendors in each layer.
+                </p>
+              </div>
+              <span class="panel__meta">{analyticsSummary.architecture_coverage_count.toLocaleString("en")} architecture-mapped stories</span>
+            </header>
+            <div class="arch-deep-grid">
+              {architectureLayers.map((layer) => (
+                <div class="arch-layer-card" style={`--layer-accent: ${layerColorMap[layer.layer] || "#0c7c6c"}`}>
+                  <div class="arch-layer-card__head">
+                    <span class="arch-layer-card__title">
+                      <span class="arch-legend-dot" style={`background:${layerColorMap[layer.layer] || "#0c7c6c"}`}></span>
+                      {layer.layer}
+                    </span>
+                    <span class="arch-layer-card__badge">
+                      {layer.component_count.toLocaleString("en")} components · {Math.round(layer.story_share * 100)}% of stories
+                    </span>
+                  </div>
+                  <div class="dossier-layer-row__bar">
+                    <span
+                      style={`width: ${Math.max(6, (layer.component_count / maxArchComponents) * 100)}%; background: ${layerColorMap[layer.layer] || "#0c7c6c"}`}
+                    />
+                  </div>
+                  <div class="arch-layer-card__section">
+                    <span class="dossier-subhead">Top products in {layer.layer}</span>
+                    <div class="hub-product-pills">
+                      {layer.top_products.slice(0, 5).map((p) => (
+                        <a class="hub-product-pill" href={explore("q", p.label)}>
+                          <span class="hub-product-pill__name">{p.label}</span>
+                          <span class="hub-product-pill__cnt">{p.count}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  {layer.top_vendors && layer.top_vendors.length > 0 && (
+                    <div class="arch-layer-card__section">
+                      <span class="dossier-subhead">Leading vendors in {layer.layer}</span>
+                      <div class="hub-card__vendor-pills">
+                        {layer.top_vendors.slice(0, 3).map((v) => {
+                          const vStyle = vendorStyle(v.label);
+                          return (
+                            <a class="vendor-mini-pill" href={explore("vendor", v.label)}>
+                              <span class="vendor-mini-pill__logo" set:html={vendorLogoSvg(v.label, vStyle.mark)} />
+                              <span class="vendor-mini-pill__name">{v.label}</span>
+                              <span class="vendor-mini-pill__count">{v.count}</span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </article>
+
+          <!-- NEW: Co-occurring Product & Model Pairs -->
+          <article class="panel">
+            <header class="panel__head">
+              <div>
+                <h3>Co-deployed product &amp; model pairs</h3>
+                <p class="panel__intro">Products and AI models most frequently wired together in the same production architecture.</p>
+              </div>
+              <span class="panel__meta">top 12 combinations</span>
+            </header>
+            <ul class="co-pair-table">
+              {productEcosystem.co_occurring_pairs.slice(0, 12).map((pair) => {
+                const vStyle = pair.top_vendor ? vendorStyle(pair.top_vendor) : null;
+                return (
+                  <li class="co-pair-row">
+                    <div class="co-pair-row__main">
+                      {pair.top_vendor && vStyle && (
+                        <span class="vendor-mini-pill__logo" set:html={vendorLogoSvg(pair.top_vendor, vStyle.mark)} />
+                      )}
+                      <div>
+                        <a class="co-pair-row__names" href={explore("q", `${pair.product_a} ${pair.product_b}`)}>
+                          <strong>{pair.product_a}</strong> + <strong>{pair.product_b}</strong>
+                        </a>
+                        <span class="co-pair-row__sub">
+                          {pair.top_vendor ? `${pair.top_vendor} · ` : ""}{pair.top_use_case || "Production AI"}
+                        </span>
+                      </div>
+                    </div>
+                    <span class="co-pair-row__count">{pair.count} stories</span>
+                  </li>
+                );
+              })}
+            </ul>
+          </article>
+
+          <!-- NEW: Global Macro-Regions & Organization Scale -->
+          <article class="panel">
+            <header class="panel__head">
+              <div>
+                <h3>Global geography &amp; organization scale</h3>
+                <p class="panel__intro">Cross-regional AI adoption and organization size distribution across the corpus.</p>
+              </div>
+              <span class="panel__meta">macro-regions &amp; scale</span>
+            </header>
+            <div class="geo-scale-stack">
+              <div>
+                <span class="dossier-subhead">Macro-regional distribution &amp; top vendors</span>
+                <ul class="geo-region-list">
+                  {geographyAndScale.macro_regions.map((reg) => (
+                    <li class="geo-region-item">
+                      <div class="geo-region-item__top">
+                        <strong>{reg.region}</strong>
+                        <span>{reg.count.toLocaleString("en")} stories ({Math.round(reg.share * 100)}%) · {Math.round(reg.quantified_rate * 100)}% ROI</span>
+                      </div>
+                      <div class="hub-card__vendor-pills">
+                        {reg.top_vendors.slice(0, 3).map((v) => {
+                          const vStyle = vendorStyle(v.label);
+                          return (
+                            <span class="vendor-mini-pill">
+                              <span class="vendor-mini-pill__logo" set:html={vendorLogoSvg(v.label, vStyle.mark)} />
+                              <span class="vendor-mini-pill__name">{v.label}</span>
+                              <span class="vendor-mini-pill__count">{v.count}</span>
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <span class="dossier-subhead">Organization scale breakdown</span>
+                <div class="scale-pill-grid">
+                  {geographyAndScale.company_sizes.map((sz) => (
+                    <div class="scale-pill-card">
+                      <span class="scale-pill-card__name">{sz.company_size}</span>
+                      <strong class="scale-pill-card__cnt">{sz.count.toLocaleString("en")}</strong>
+                      <span class="scale-pill-card__meta">
+                        {Math.round(sz.share * 100)}% share · Avg Value {sz.avg_value_score}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
           <article class="panel">
             <header class="panel__head">
               <div>
