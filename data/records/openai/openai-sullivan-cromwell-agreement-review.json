@@ -1,0 +1,157 @@
+{
+  "id": "openai-sullivan-cromwell-agreement-review",
+  "slug": "openai-sullivan-cromwell-agreement-review",
+  "vendor": "OpenAI",
+  "customer_name": "Sullivan & Cromwell",
+  "industry": "Commercial and Professional Services",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Sullivan & Cromwell needed to review draft agreements against relevant precedents, client priorities, and market practice in one workflow so lawyers could do deeper legal analysis without losing transparency into sources, uncertainty, or final human judgment.",
+  "solution_summary": "In collaboration with OpenAI, Sullivan & Cromwell built Agreement Analyzer to concentrate agreement review in a single AI-assisted workflow. A lawyer inputs a draft agreement, then adds selected precedents, a negotiating playbook with firm and client positions, and market-practice context. Agreement Analyzer uses ChatGPT Enterprise to run multiple review cycles from different perspectives, compare corresponding provisions across precedents, surface clause interactions, and synthesize the findings into a memorandum plus proposed tracked changes. The implementation emphasizes transparency rather than autonomous action: supporting authority and sources remain visible so claims about market practice can be inspected, refined, accepted, or rejected by a lawyer. The system evolved from a single-user proof of concept into a parallelized, multi-lawyer tool that brings more of the firm's internal expertise into complex agreement analysis while keeping lawyers responsible for final judgment.",
+  "products_used": [
+    "Agreement Analyzer",
+    "ChatGPT Enterprise"
+  ],
+  "solution_components": [
+    {
+      "name": "Agreement Analyzer",
+      "role": "Orchestrates agreement review by combining draft agreements, precedents, playbooks, and synthesized model output in a lawyer-facing workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ChatGPT Enterprise",
+      "role": "Performs the multi-perspective analysis and helps generate the memorandum and proposed tracked changes for lawyer review.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "A lawyer uploads a draft agreement into Agreement Analyzer, adds selected precedents plus a negotiating playbook with firm and client positions and market-practice context, and sends the package through multiple ChatGPT Enterprise review cycles. Agreement Analyzer synthesizes the results and returns a memorandum and proposed tracked changes with supporting authority for a lawyer to inspect, adapt, or reject.",
+  "integration_points": [
+    "Draft agreements",
+    "Curated firm precedents",
+    "Negotiating playbooks",
+    "Client positions",
+    "Market-practice information"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "Agreement Analyzer helps Sullivan & Cromwell lawyers identify potential issues, compare terms across precedents, produce proposed changes with visible supporting authority, and spend more time on the legal questions where human judgment matters most while delivering a higher-quality product for clients.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Agreement Analyzer started as a single-user proof of concept built with Codex before OpenAI helped turn it into a multi-lawyer tool.",
+    "The application integrates Sullivan & Cromwell workflows, curated firm precedents, negotiating playbooks, and ChatGPT Enterprise.",
+    "Lawyers can add selected precedents plus firm and client positions and market-practice information for each review.",
+    "The tool performs multiple review cycles from different perspectives, synthesizes the outputs, and returns a memorandum with proposed tracked changes.",
+    "The workflow is designed to keep sources and uncertainty visible so lawyers can inspect the authority behind market-practice claims."
+  ],
+  "source_url": "https://openai.com/index/sullivan-cromwell/",
+  "published_date": "2026-10-15",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2026-10-15",
+      "type": "Published on source page",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/sullivan-cromwell/",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-16",
+      "type": "Sitemap last modified",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/sullivan-cromwell/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Sullivan & Cromwell brings legal expertise into agreement review | OpenAI",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/sullivan-cromwell/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-10-15",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-16T00:30:27+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The firm's Agreement Analyzer brings those inputs into a single review workflow, producing analysis and proposed changes that lawyers can inspect and refine.\"",
+    "\"Sullivan & Cromwell partner John Savva developed Agreement Analyzer as a single-user proof of concept built with Codex.\"",
+    "\"Agreement Analyzer integrates Sullivan & Cromwell's workflows, curated firm precedents, negotiating playbooks and ChatGPT Enterprise.\"",
+    "\"The tool performs multiple review cycles from different perspectives, synthesizes the outputs, helps identify potential issues and returns a memorandum and proposed tracked changes for a lawyer to review, adapt or reject.\"",
+    "\"If an AI tool makes a claim about market practice, you need to be able to see the source of that information.\""
+  ]
+}
