@@ -196,7 +196,9 @@ export function relatedRecords(
 
 /** Headline metric for a card: prefer one that contains a number. */
 export function headlineMetric(record: CaseStudyRecord): string {
-  return record.metrics.find((metric) => /\d/.test(metric)) ?? record.metrics[0] ?? "";
+  const raw = record.metrics.find((metric) => /\d/.test(metric)) ?? record.metrics[0] ?? "";
+  if (raw.length <= 115) return raw;
+  return `${raw.slice(0, 112).replace(/\s+\S*$/, "")}…`;
 }
 
 export function integrationPointCounts(records: CaseStudyRecord[]): CountItem[] {
@@ -210,5 +212,13 @@ export function sourceReferences(record: CaseStudyRecord): SourceReference[] {
 export function dateDisplay(record: CaseStudyRecord): string {
   if (isParseableDate(record.published_date)) return formatDate(record.published_date);
   const evidence = record.date_evidence?.find((item) => isParseableDate(item.date));
-  return evidence ? `${evidence.type}: ${formatDate(evidence.date)}` : "";
+  if (!evidence) return "";
+  const shortLabel: Record<string, string> = {
+    "First archived": "Archived",
+    "Sitemap last modified": "Modified",
+    "Unverified extracted date": "Est.",
+    "Publisher catalog date": "Catalog",
+  };
+  const prefix = shortLabel[evidence.type] ?? evidence.type;
+  return `${prefix} · ${formatDate(evidence.date)}`;
 }

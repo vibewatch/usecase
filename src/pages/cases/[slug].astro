@@ -15,7 +15,7 @@ import {
 } from "../../lib/analytics";
 import { href } from "../../lib/paths";
 import type { CaseStudyRecord } from "../../lib/types";
-import { vendorStyle } from "../../lib/vendors";
+import { vendorLogoSvg, vendorStyle } from "../../lib/vendors";
 import { toCardRecord } from "../../lib/weeks";
 import { facetHref, newestKey, publishedYear } from "../../lib/facets";
 import taxonomy from "../../../taxonomy.json";
@@ -138,10 +138,10 @@ const searchMeta: Record<string, string> = {
             <span aria-current="page">{record.customer_name}</span>
           </nav>
           <div class="detail-hero__chips">
-            <span class="vendor-tag vendor-tag--glass">
-              <span class="vendor-tag__mark" style={`--vendor: ${vendor.color}`}>{vendor.mark}</span>
+            <a class="vendor-tag vendor-tag--glass" href={facetHref("vendors", record.vendor)}>
+              <span class="vendor-tag__mark" style={`--vendor: ${vendor.color}`} set:html={vendorLogoSvg(record.vendor, vendor.mark)} />
               {record.vendor}
-            </span>
+            </a>
             <span class="chip chip--glass">{record.industry}</span>
             {!isUnknown(record.region) && <span class="chip chip--glass">{record.region}</span>}
             {translatedFrom && <span class="chip chip--glass" title="This summary was translated to English from the original story">Translated from {translatedFrom}</span>}

@@ -5,8 +5,10 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { topValues, flattenValues } from "../../../lib/analytics";
 import { caseStudies } from "../../../lib/caseStudies";
 import { FACETS, PAGE_SIZE, facetGroups, facetHref, type FacetKind } from "../../../lib/facets";
+import { industryMeta, useCaseMeta } from "../../../lib/icons";
 import { href } from "../../../lib/paths";
 import type { CaseStudyRecord } from "../../../lib/types";
+import { vendorLogoSvg, vendorStyle } from "../../../lib/vendors";
 
 // One paginated hub per facet value: /vendors/aws/, /industries/retail/2/, …
 export const getStaticPaths = (({ paginate }) =>
@@ -33,24 +35,60 @@ const related =
     ? topValues(all.map((record) => record.vendor), 6)
     : topValues(flattenValues(all, (record) => record.use_case_category), 6);
 const relatedKind: FacetKind = facet === "use-cases" ? "vendors" : "use-cases";
+
+const vendorInfo = facet === "vendors" ? vendorStyle(label) : null;
+const catMeta =
+  facet === "use-cases"
+    ? useCaseMeta(label)
+    : facet === "industries"
+      ? industryMeta(label)
+      : null;
+const withMetrics = all.filter((r) => r.metrics.length > 0).length;
+const metricPct = Math.round((withMetrics / Math.max(all.length, 1)) * 100);
+const distinctIndustries = new Set(all.map((r) => r.industry)).size;
+const distinctVendors = new Set(all.map((r) => r.vendor)).size;
 ---
 
 <BaseLayout title={`${label} use cases${page.currentPage > 1 ? ` — page ${page.currentPage}` : ""} | Use Case Intelligence`} description={`${page.total} real-world customer use cases for ${label}.`}>
   <main>
     <section class="page-hero">
       <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
       <div class="container page-hero__inner">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href={href("/")}>Home</a><span aria-hidden="true">/</span>
           <a href={href(`/${facet}/`)}>{FACETS[facet].plural}</a><span aria-hidden="true">/</span>
           <span aria-current="page">{label}</span>
         </nav>
-        <h1 class="page-hero__title">{label}</h1>
-        <p class="hero__lead">{page.total.toLocaleString("en")} customer use cases, newest first.</p>
+
+        <div class="page-hero__identity">
+          {facet === "vendors" && vendorInfo ? (
+            <span class="page-hero__logo" set:html={vendorLogoSvg(label, vendorInfo.mark)} />
+          ) : catMeta ? (
+            <span class="page-hero__icon" style={`--icon-accent: ${catMeta.accent}`}>
+              <svg viewBox="0 0 20 20" width="26" height="26" aria-hidden="true" set:html={catMeta.svg} />
+            </span>
+          ) : null}
+          <div>
+            {vendorInfo && <span class="page-hero__kicker">{vendorInfo.category}</span>}
+            <h1 class="page-hero__title">{label}</h1>
+          </div>
+        </div>
+
+        <p class="hero__lead">
+          {catMeta ? `${catMeta.summary} ` : ""}
+          {page.total.toLocaleString("en")} verified customer use {page.total === 1 ? "case" : "cases"} ({metricPct}% with quantified impact · {facet === "vendors" ? `${distinctIndustries} industries` : `${distinctVendors} vendors`}).
+        </p>
+
         <div class="hero__quick">
           <span>{facet === "use-cases" ? "Top vendors:" : "Top use cases:"}</span>
           {related.map((item) => (
-            <a class="chip chip--glass" href={facetHref(relatedKind, item.label)}>{item.label} · {item.count}</a>
+            <a class="chip chip--glass" href={facetHref(relatedKind, item.label)}>
+              {relatedKind === "vendors" && (
+                <span class="chip__vendor-logo" set:html={vendorLogoSvg(item.label, vendorStyle(item.label).mark)} />
+              )}
+              {item.label} · {item.count}
+            </a>
           ))}
           <a class="chip chip--glass" href={href(`/explore/?${exploreParam}=${encodeURIComponent(label)}`)}>Filter further →</a>
         </div>
@@ -70,3 +108,4 @@ const relatedKind: FacetKind = facet === "use-cases" ? "vendors" : "use-cases";
     </section>
   </main>
 </BaseLayout>
+

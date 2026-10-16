@@ -15,7 +15,7 @@ import { caseStudies } from "../lib/caseStudies";
 import { facetHref, sortNewest } from "../lib/facets";
 import { caseHref, href } from "../lib/paths";
 import { groupByWeek, toCardRecord, UNDATED_WEEK } from "../lib/weeks";
-import { vendorStyle } from "../lib/vendors";
+import { vendorLogoSvg, vendorStyle } from "../lib/vendors";
 
 // Insights describe the real market signal; synthetic seed rows only count
 // when nothing has been extracted yet.
@@ -52,10 +52,26 @@ const quickUseCases = topUseCases.slice(0, 5);
 const explore = (param: string, value: string) => href(`/explore/?${param}=${encodeURIComponent(value)}`);
 
 const methodSteps = [
-  { title: "Track", text: "New customer stories are picked up from leading cloud and AI vendors every day, newest first." },
-  { title: "Trace", text: "Claims are linked to named sources, publication dates and retrieval timestamps so provenance stays visible." },
-  { title: "Score", text: "Evidence confidence and customer reference value are scored separately with a visible, deterministic rubric." },
-  { title: "Compare", text: "Use consistent problems, architectures, products and outcomes to find repeatable patterns—not just polished stories." },
+  {
+    title: "Track",
+    text: "New customer stories are picked up from leading cloud and AI vendors every day, newest first.",
+    svg: `<circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 5v3.2l2.2 1.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>`,
+  },
+  {
+    title: "Trace",
+    text: "Claims are linked to named sources, publication dates and retrieval timestamps so provenance stays visible.",
+    svg: `<path d="M6.5 9.5 5 11a2.5 2.5 0 1 1-3.5-3.5l2.2-2.2a2.5 2.5 0 0 1 3.5 0M9.5 6.5 11 5a2.5 2.5 0 1 1 3.5 3.5l-2.2 2.2a2.5 2.5 0 0 1-3.5 0M6.2 9.8l3.6-3.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>`,
+  },
+  {
+    title: "Score",
+    text: "Evidence confidence and customer reference value are scored separately with a visible, deterministic rubric.",
+    svg: `<path d="M8 2.2 13.2 4.2v4c0 3.4-2.2 5.6-5.2 6.6-3-1-5.2-3.2-5.2-6.6v-4L8 2.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m6 8.2 1.5 1.5 2.8-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>`,
+  },
+  {
+    title: "Compare",
+    text: "Use consistent problems, architectures, products and outcomes to find repeatable patterns—not just polished stories.",
+    svg: `<rect x="2.2" y="3" width="4.8" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="3" width="4.8" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>`,
+  },
 ];
 ---
 
@@ -106,7 +122,7 @@ const methodSteps = [
               return (
                 <li>
                   <a class="latest-item" href={caseHref(record.slug)}>
-                    <span class="vendor-tag__mark vendor-tag__mark--lg" style={`--vendor: ${style.color}`}>{style.mark}</span>
+                    <span class="vendor-tag__mark vendor-tag__mark--lg" style={`--vendor: ${style.color}`} set:html={vendorLogoSvg(record.vendor, style.mark)} />
                     <span class="latest-item__body">
                       <span class="latest-item__title">{record.customer_name}</span>
                       <span class="latest-item__meta">{record.vendor} · {record.use_case_category[0] ?? record.industry}</span>
@@ -150,7 +166,7 @@ const methodSteps = [
             return (
               <li>
                 <a class="vendor-strip__item" href={facetHref("vendors", entry.label)}>
-                  <span class="vendor-tag__mark" style={`--vendor: ${style.color}`}>{style.mark}</span>
+                  <span class="vendor-tag__mark" style={`--vendor: ${style.color}`} set:html={vendorLogoSvg(entry.label, style.mark)} />
                   <span>{entry.label}</span>
                   <span class="vendor-strip__count">{entry.count}</span>
                 </a>
@@ -181,17 +197,32 @@ const methodSteps = [
         </div>
         <div class="decision-grid">
           <article class="decision-card">
-            <span class="decision-card__index">01</span>
+            <div class="decision-card__top">
+              <span class="decision-card__index">01</span>
+              <span class="decision-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="18" height="18"><circle cx="10" cy="7" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M4.2 16.5a5.8 5.8 0 0 1 11.6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+            </div>
             <h3>Who it is for</h3>
             <p>AI strategy, product, architecture, sales and research teams evaluating what has actually been deployed for customers like theirs.</p>
           </article>
           <article class="decision-card">
-            <span class="decision-card__index">02</span>
+            <div class="decision-card__top">
+              <span class="decision-card__index">02</span>
+              <span class="decision-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="18" height="18"><path d="M3.5 5.5h13M5.5 10h9M8 14.5h4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+            </div>
             <h3>How to use it</h3>
             <p>Filter by industry or use case, compare customer reference value, inspect the confidence breakdown, and open the cited sources before making a recommendation.</p>
           </article>
           <article class="decision-card decision-card--data">
-            <span class="decision-card__index">03</span>
+            <div class="decision-card__top">
+              <span class="decision-card__index">03</span>
+              <span class="decision-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" width="18" height="18"><circle cx="5" cy="15" r="1.8" fill="currentColor"/><path d="M3.5 9.5A7 7 0 0 1 10.5 16.5M3.5 4.5a12 12 0 0 1 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+            </div>
             <h3>How to stay current</h3>
             <p>Subscribe to RSS for newly collected stories; the catalog refreshes daily and retains retrieval timestamps.</p>
             <div class="decision-card__actions">
@@ -276,7 +307,12 @@ const methodSteps = [
         <ol class="steps">
           {methodSteps.map((step, index) => (
             <li class="step">
-              <span class="step__index">{String(index + 1).padStart(2, "0")}</span>
+              <div class="step__head">
+                <span class="step__index">{String(index + 1).padStart(2, "0")}</span>
+                <span class="step__icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" width="18" height="18" set:html={step.svg} />
+                </span>
+              </div>
               <h3>{step.title}</h3>
               <p>{step.text}</p>
             </li>

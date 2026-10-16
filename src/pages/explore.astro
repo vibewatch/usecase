@@ -6,6 +6,7 @@ import { countValues, flattenValues } from "../lib/analytics";
 import { caseStudies } from "../lib/caseStudies";
 import { PAGE_SIZE, publishedYear, sortNewest } from "../lib/facets";
 import { href } from "../lib/paths";
+import { vendorLogoSvg, vendorStyle } from "../lib/vendors";
 import { toCardRecord, type CardRecord } from "../lib/weeks";
 
 // Facet groups mirror the data-pagefind-filter names set on each case page.
@@ -62,7 +63,12 @@ const BLANK_CARD: CardRecord = {
                   <li class:list={["facet__item", { "is-overflow": position >= VISIBLE_VALUES }]}>
                     <label>
                       <input type="checkbox" name={group.key} value={item.label} data-facet-input={group.key} />
-                      <span class="facet__label">{item.label}</span>
+                      <span class="facet__label">
+                        {group.key === "vendor" && (
+                          <span class="facet__vendor-logo" set:html={vendorLogoSvg(item.label, vendorStyle(item.label).mark)} />
+                        )}
+                        <span>{item.label}</span>
+                      </span>
                       <span class="facet__count" data-count>{item.count}</span>
                     </label>
                   </li>

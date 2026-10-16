@@ -1,5 +1,6 @@
 // Client-side card rendering shared by the explore page. Cards are cloned from
 // the server-rendered <CaseCard> template so markup stays in one place.
+import { vendorLogoSvg } from "../lib/vendors";
 
 export interface CardData {
   url: string;
@@ -48,7 +49,7 @@ export function buildCard(template: HTMLTemplateElement, card: CardData): HTMLAn
   const node = prototype.cloneNode(true) as HTMLAnchorElement;
   node.href = card.url;
   const mark = slot(node, "mark");
-  mark.textContent = card.vendorMark;
+  mark.innerHTML = vendorLogoSvg(card.vendor, card.vendorMark);
   mark.style.setProperty("--vendor", card.vendorColor);
   slot(node, "vendor").textContent = card.vendor;
   slot(node, "sample").hidden = !card.sample;
