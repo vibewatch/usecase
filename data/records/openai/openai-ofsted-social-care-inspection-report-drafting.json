@@ -1,0 +1,177 @@
+{
+  "id": "openai-ofsted-social-care-inspection-report-drafting",
+  "slug": "openai-ofsted-social-care-inspection-report-drafting",
+  "vendor": "OpenAI",
+  "customer_name": "Ofsted",
+  "industry": "Public Sector",
+  "region": "England",
+  "company_size": "Public sector",
+  "business_problem": "Ofsted inspectors manually drafted children's home inspection reports from written inspection evidence, which consumed inspector time and created challenges around drafting speed, formatting consistency, and first-draft quality.",
+  "solution_summary": "Ofsted built a report-drafting workflow to turn children's home inspection evidence into suggested wording for inspectors rather than a final regulatory decision. Inspectors enter their judgement in a web interface and submit written evidence gathered in OneNote and exported as PDF. The interface calls an API, and Python scripts act as the intermediary layer: they clean text by expanding common acronyms, sequence three report-drafting prompts, and run additional house-style prompts. The core generation step uses ChatGPT 4.1 Mini from OpenAI, hosted in internal Azure instances, with text held temporarily in RAM during processing. The system collates model outputs into a Word document covering three report sections, then passes that draft into Cygnum for the normal reporting workflow. Human inspectors remain responsible for review, editing, version control, and quality assurance, and the service does not retain input data for model training or long-term storage.",
+  "products_used": [
+    "OneNote",
+    "Python",
+    "ChatGPT 4.1 Mini",
+    "Internal Azure Instances",
+    "Cygnum"
+  ],
+  "solution_components": [
+    {
+      "name": "OneNote",
+      "role": "Provides the inspectors' source notes that are exported as PDF for the drafting workflow.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Python",
+      "role": "Acts as the intermediary that cleans text, manages prompt sequencing, and handles LLM calls.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ChatGPT 4.1 Mini",
+      "role": "Generates draft wording for report sections and applies house-style prompting.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Internal Azure Instances",
+      "role": "Hosts the ChatGPT 4.1 Mini models used for report drafting and house styling."
+    },
+    {
+      "name": "Cygnum",
+      "role": "Receives the generated draft document in Ofsted's report management workflow.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Inspectors collect evidence during children's home inspections, capture notes in OneNote, and export the evidence as a PDF. An internal web interface sends the inspector's judgement and PDF text through an API to Python scripts, which clean acronyms and orchestrate prompt calls to ChatGPT 4.1 Mini. The generated section drafts are collated into a Word document and uploaded into Cygnum for inspector review and QA.",
+  "integration_points": [
+    "OneNote",
+    "Cygnum"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Ofsted expected the tool to produce structured first drafts faster, improve consistency and quality in draft reports, and free inspector capacity for evaluative work, but it retired the project after beta testing rather than progressing it further.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Phase: Retired after beta testing.",
+    "The workflow uses a web interface connected to an API and Python intermediary scripts.",
+    "Text data is temporarily held in CPU memory (RAM) during processing.",
+    "The model architecture uses three report-drafting prompts plus additional house-styling prompts.",
+    "Temperature is minimized and model output is in JSON format.",
+    "Generated report drafts during testing are logged and retained internally for 6 months.",
+    "If live, the service was anticipated to run several hundred times per week.",
+    "Input data is not retained by the model and is not used for model training."
+  ],
+  "source_url": "https://www.gov.uk/algorithmic-transparency-records/ai-writing-assistant-social-care",
+  "published_date": "2025-11-10",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-11-10",
+      "type": "Published on source page",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/ai-writing-assistant-social-care",
+      "authority": "First-party"
+    },
+    {
+      "date": "2025-11-12",
+      "type": "Publisher catalog date",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/ai-writing-assistant-social-care",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-16",
+      "type": "Sitemap last modified",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/ai-writing-assistant-social-care",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Ofsted: AI Writing Assistant (Social Care) - GOV.UK",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/ai-writing-assistant-social-care",
+      "source_type": "Customer-published story",
+      "authority": "First-party",
+      "published_date": "2025-11-10",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-19T04:16:51+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The project aims to drive efficiency in the inspection process by deploying a self-serve assistant for inspectors that creates suggested wording for 3 sections of a children's home full inspection report based on written inspection evidence using a Large Language Model (LLM).\"",
+    "\"Through a web interface these inspectors will provide a judgement alongside inspection evidence they gather in OneNote exported as a PDF. The web interface will connect to an API where Python will act as an intermediary for their text data to be processed by a Large Language Model (LLM) in OpenAI's ChatGPT family.\"",
+    "\"At present, the Python pipeline feeds a locally stored PDF document of text data into ChatGPT 4.1 Mini (an LLM by OpenAI) with some data cleaning to replace common acronyms with their full form.\"",
+    "\"These outputs are then collated in a Word document with a heading for each section. This document is then passed through a series of house styling prompts, applying rules to each section.\"",
+    "\"The suggested wording for 3 sections of the report is output as a Word document that can be uploaded to our report management system Cygnum.\"",
+    "\"Following the beta phase of testing, Ofsted chose not to progress this project further - record updated to 'retired'.\""
+  ],
+  "source_type": "company"
+}

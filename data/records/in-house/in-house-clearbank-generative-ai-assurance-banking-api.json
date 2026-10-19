@@ -1,0 +1,176 @@
+{
+  "id": "in-house-clearbank-generative-ai-assurance-banking-api",
+  "slug": "in-house-clearbank-generative-ai-assurance-banking-api",
+  "vendor": "In-house",
+  "customer_name": "ClearBank",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "ClearBank needed to deploy multiple generative AI use cases for banking API workflows in a regulated financial environment while safeguarding security, robustness, transparency, bias control, and regulatory alignment.",
+  "solution_summary": "ClearBank describes an in-house generative AI implementation for regulated banking API workflows built around Large Language Models (LLMs) and retrieval augmented generation (RAG) architecture. The system ingests internal policies, policy and client documents, and client transactional enquiries or complaints into separate pipelines for enquiry monitoring, policy review, and client screening. RAG is used to ground outputs in source documents, while the generative models run on ClearBank's internal infrastructure rather than an external shared service. An evaluation pipeline continuously measures document specificity, precision, QA correctness, hallucinations, toxicity, and, for summarisation use cases, ROUGE. A model experiment tracking system records the exact base model version used for each output so end users can trace responses. Domain experts remain in the loop to provide real-time feedback, identify bias, and help product owners tune models and refine input documents under a single assurance approach.",
+  "products_used": [
+    "Large Language Models (LLMs)",
+    "retrieval augmented generation (RAG) architecture",
+    "evaluation pipeline",
+    "model experiment tracking system"
+  ],
+  "solution_components": [
+    {
+      "name": "Large Language Models (LLMs)",
+      "role": "Generate and summarise responses for enquiry monitoring, policy review, and client screening workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "retrieval augmented generation (RAG) architecture",
+      "role": "Grounds each pipeline output in source documents so responses can be traced back to internal content.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "evaluation pipeline",
+      "role": "Evaluates document specificity, precision, QA correctness, hallucinations, toxicity, and summarisation quality across ClearBank's generative AI pipelines.",
+      "layer": "Governance"
+    },
+    {
+      "name": "model experiment tracking system",
+      "role": "Records the exact base model version used for each output so end users can inspect model lineage.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Client transactional requests, complaints, internal policies, and policy or client documents are ingested into ClearBank's generative AI pipelines. RAG retrieves supporting source material for the LLMs, which generate monitoring, review, screening, or summarised outputs on internal infrastructure. The evaluation pipeline and model experiment tracking system then measure quality, log model versions, and support end-user traceability, while domain experts feed back tuning signals.",
+  "integration_points": [
+    "ClearBank API",
+    "client transactional requests",
+    "complaints workflows",
+    "internal policies",
+    "policy documents",
+    "client documents",
+    "domain expert feedback loop"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "ClearBank reports that a single continuous evaluation and traceability approach helps it make better decisions, optimise processes, improve security, and maintain regulatory alignment while deploying generative AI securely and transparently with minimal bias.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Generative models are implemented on ClearBank's internal infrastructure.",
+    "RAG is used so each pipeline output can be traced to source documents.",
+    "The evaluation pipeline tracks document specificity, precision, QA correctness, hallucinations, and toxicity.",
+    "ROUGE is used for document summarisation-based use cases.",
+    "A model experiment tracking system exposes the exact base model version used for end-user outputs.",
+    "Human evaluators and domain experts remain in the loop for feedback, bias review, and model tuning."
+  ],
+  "source_url": "https://www.gov.uk/ai-assurance-techniques/clearbank-safeguarding-generative-ai-use-cases-in-a-regulated-fintech-banking-api",
+  "published_date": "2024-04-09",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2024-04-09",
+      "type": "Published on source page",
+      "publisher": "Department for Science, Innovation and Technology",
+      "url": "https://www.gov.uk/ai-assurance-techniques/clearbank-safeguarding-generative-ai-use-cases-in-a-regulated-fintech-banking-api",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-16",
+      "type": "Sitemap last modified",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/ai-assurance-techniques/clearbank-safeguarding-generative-ai-use-cases-in-a-regulated-fintech-banking-api",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "ClearBank: Safeguarding generative AI use cases in a regulated fintech banking API - GOV.UK",
+      "publisher": "Department for Science, Innovation and Technology",
+      "url": "https://www.gov.uk/ai-assurance-techniques/clearbank-safeguarding-generative-ai-use-cases-in-a-regulated-fintech-banking-api",
+      "source_type": "Government-published case study",
+      "authority": "Independent",
+      "published_date": "2024-04-09",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-19T04:17:20+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Generative AI such as Large Language Models (LLMs) with retrieval augmented generation (RAG) architecture have potentially transformative use cases in the Fintech domain of banking APIs.\"",
+    "\"By implementing our generative models on our internal infrastructure, and by constantly evaluating and monitoring generative AI use case pipelines within the ClearBank API, our domain experts can give real time feedback and tune our models in a safeguarded environment.\"",
+    "\"With RAG and internally implemented generative AI models, we can trace the source documents for each pipeline output for our generative AI use cases, and with our model experiment tracking system supply the end user with the exact base model version used.\"",
+    "\"We routinely evaluate and track each pipeline with retrieval and response evaluation methods to assess document specificity, precision, QA correctness, hallucinations, and toxicity.\"",
+    "\"We achieve a high level of service through optimising processes, improving security, and ensuring regulatory compliance through a single assurance model monitoring approach for all our generative AI use cases.\""
+  ],
+  "source_type": "company"
+}

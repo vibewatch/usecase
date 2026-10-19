@@ -1,0 +1,154 @@
+{
+  "id": "philips-hospices-civils-de-lyon-radiology-ai-workflow-automation",
+  "slug": "philips-hospices-civils-de-lyon-radiology-ai-workflow-automation",
+  "vendor": "Philips",
+  "customer_name": "Hospices Civils de Lyon (HCL)",
+  "industry": "Healthcare",
+  "region": "France",
+  "company_size": "Unknown",
+  "business_problem": "The radiology team wanted to automate time-consuming image analysis tasks so radiologists could spend less time drawing contours and more time with patients, while also using image classification to narrow CT scan coverage and reduce unnecessary X-ray exposure.",
+  "solution_summary": "Hospices Civils de Lyon (HCL) worked with Philips to embed AI into radiology workflows inside Philips Advanced Visualization Workspace, the post-processing platform used by radiologists. CT studies are brought into the workspace, where co-developed algorithms first classify the relevant anatomy so technicians can limit scans to the needed region, then segment structures and disease burden for follow-up and reporting. The source says applications created through the partnership were productized in Advanced Visualization Workspace, including CT Pulmo Auto Results, CT Scanner Console, and CT Liver Analysis. HCL also used lung segmentation together with a dedicated lung parenchyma analysis module to quantify emphysema and COVID-19 lesions, and used AI to quantify pulmonary fibrosis progression in seconds rather than manual multi-hour review. Results are returned to clinicians inside the Philips software so contours, percentages, and measurements can support diagnosis, reporting, and patient discussions. The source does not name a separate storage tier or third-party integrations.",
+  "products_used": [
+    "Advanced Visualization Workspace",
+    "CT Pulmo Auto Results",
+    "CT Scanner Console",
+    "CT Liver Analysis"
+  ],
+  "solution_components": [
+    {
+      "name": "Advanced Visualization Workspace",
+      "role": "Radiologist-facing image post-processing platform where the co-developed AI applications are delivered and their results are reviewed.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CT Pulmo Auto Results",
+      "role": "One of the co-developed CT applications productized in Advanced Visualization Workspace to automate pulmonary imaging results workflows.",
+      "layer": "Compute"
+    },
+    {
+      "name": "CT Scanner Console",
+      "role": "One of the co-developed applications included in Advanced Visualization Workspace for CT workflow support.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CT Liver Analysis",
+      "role": "One of the co-developed applications included in Advanced Visualization Workspace for liver image analysis.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "CT images from chest, cardiac, and other radiology exams are processed in Philips Advanced Visualization Workspace. AI models classify the region of interest, segment lungs and aneurysm anatomy, and calculate percentages or other measurements for emphysema, COVID-19 lesions, and pulmonary fibrosis progression. Those outputs are then shown back to radiologists inside the Philips workflow for reporting and patient follow-up.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "HCL reduced manual contouring and quantification work, enabling radiologists to spend more time with patients; the team also reported lower CT radiation exposure through better scan targeting and faster longitudinal assessment of lung disease.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "The radiology department of Hôpital de la Croix-Rousse has over 100 staff members, diagnosing more than 100,000 annually.",
+    "Reducing the margin could reduce the X-ray dose on average by 20 per cent.",
+    "Using AI, we can now quantify the decay of the lung in a matter of seconds. By hand, it takes several hours per patient.",
+    "With AI, those five minutes are reduced to a few seconds.",
+    "This means we can spend over twice as much time with our patients."
+  ],
+  "architecture_clues": [
+    "Partnership agreement signed in 2016 around stroke, cardiovascular, and AI co-creation research pillars.",
+    "Two PhD students, two Philips researchers and an innovation account manager worked on-site in Lyon.",
+    "Some described features are investigational research and may not be commercially available or cleared for clinical use."
+  ],
+  "source_url": "https://www.philips.com/a-w/about/news/archive/case-studies/co-creating-ai-solutions-that-free-up-time-to-spend-with-patients.html",
+  "published_date": "2025-07-11",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-07-11",
+      "type": "Published on source page",
+      "publisher": "Philips",
+      "url": "https://www.philips.com/a-w/about/news/archive/case-studies/co-creating-ai-solutions-that-free-up-time-to-spend-with-patients.html",
+      "authority": "First-party"
+    },
+    {
+      "date": "2025-11-25",
+      "type": "Sitemap last modified",
+      "publisher": "Philips",
+      "url": "https://www.philips.com/a-w/about/news/archive/case-studies/co-creating-ai-solutions-that-free-up-time-to-spend-with-patients.html",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Co-creating AI solutions that free up time to spend with patients - Case study | Philips",
+      "publisher": "Philips",
+      "url": "https://www.philips.com/a-w/about/news/archive/case-studies/co-creating-ai-solutions-that-free-up-time-to-spend-with-patients.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2025-07-11",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-19T04:17:23+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“We needed to free up time to spend with patients. Every minute of drawing circles on images is a minute that cannot be spent talking to a patient, explaining their medical condition, or answering questions.”",
+    "“Reducing the margin could reduce the X-ray dose on average by 20 per cent.”",
+    "“Using AI, we can now quantify the decay of the lung in a matter of seconds. By hand, it takes several hours per patient.”",
+    "“With AI, those five minutes are reduced to a few seconds. This means we can spend over twice as much time with our patients, discussing the outcome, answering questions, and offering explanations.”",
+    "“HCL and Philips collaborated on the development of several algorithms and applications that are now part of Advanced Visualization Workspace, including CT Pulmo Auto Results, CT Scanner Console, and CT Liver Analysis.”"
+  ],
+  "source_type": "company"
+}

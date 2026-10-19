@@ -1,0 +1,136 @@
+{
+  "id": "microsoft-mercedes-amg-petronas-f1-team-race-strategy-ai",
+  "slug": "microsoft-mercedes-amg-petronas-f1-team-race-strategy-ai",
+  "vendor": "Microsoft",
+  "customer_name": "Mercedes-AMG PETRONAS F1 Team",
+  "industry": "Automotive",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Mercedes-AMG PETRONAS F1 Team needs to make race-day tire and pit-stop decisions in seconds while accounting for weather, tire degradation, telemetry, and rival behavior; prior simulation turnaround was too slow to support live strategy changes at trackside.",
+  "solution_summary": "Mercedes-AMG PETRONAS F1 Team uses Microsoft Azure Batch to scale race-strategy analytics during Grand Prix weekends. Strategists ingest live inputs including rival-car pace, tire behavior, local weather radar, forecast updates, and each Mercedes driver's telemetry, then run full-race simulations that model every lap, pit stop, and overtake under different tire and weather scenarios. Azure Batch provides burst compute so the team can execute thousands to millions of runs in parallel, both before the race and from the pit wall during Sunday competition, instead of waiting up to an hour for Saturday-night processing. Results are fed back to strategists, who update models live and translate the outputs into concrete tire, pit-stop, and undercut decisions for drivers and pit crew. The source does not name a dedicated storage tier; the described architecture is centered on cloud compute returning decision support in seconds at trackside.",
+  "products_used": [
+    "Azure Batch"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure Batch",
+      "role": "Runs large numbers of parallel race simulations so strategists can test scenarios and get trackside decision support during a Grand Prix.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Weather radar, forecast updates, rival-car pace data, tire-degradation observations, and Mercedes telemetry are fed into strategy models that simulate complete races. Azure Batch runs thousands to millions of parallel scenarios and returns results in seconds to the strategy team at trackside, where they update models live and convert the outputs into pit-stop and tire calls communicated to engineers, drivers, and the pit crew.",
+  "integration_points": [
+    "Local weather radar data",
+    "Weather forecasts",
+    "Driver telemetry from Mercedes race cars",
+    "Rival-car pace and race data",
+    "Pit wall intercom and radio communications to engineers and drivers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Azure Batch reduced simulation turnaround from up to an hour to seconds, allowing Mercedes strategists to run far more scenarios during live races and support winning in-race calls such as the Miami undercut that helped Kimi Antonelli take the lead.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "\"thousands and thousands, if not millions, of these races\"",
+    "\"could take up to an hour, sometimes more\"",
+    "\"those same simulations can take seconds\""
+  ],
+  "architecture_clues": [
+    "Azure Batch is used to scale compute during live race operations, not just pre-race analysis.",
+    "The strategy team runs end-to-end race simulations covering every lap, pit stop, and overtake.",
+    "Simulation results are consumed directly from the pit wall during Sunday races.",
+    "The source describes live model updates but does not name a storage platform or data warehouse."
+  ],
+  "source_url": "https://news.microsoft.com/microsoft-signal/magazine/issue/06/the-winning-formula-formula-one-data-ai-microsoft-interview/",
+  "published_date": "2026-09-16",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-09-16",
+      "type": "Published on source page",
+      "publisher": "Microsoft",
+      "url": "https://news.microsoft.com/microsoft-signal/magazine/issue/06/the-winning-formula-formula-one-data-ai-microsoft-interview/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How AI is Helping Formula One Teams Win | Signal magazine",
+      "publisher": "Microsoft",
+      "url": "https://news.microsoft.com/microsoft-signal/magazine/issue/06/the-winning-formula-formula-one-data-ai-microsoft-interview/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-09-16",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-19T04:16:38+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Machine learning, as McMillan calls it, has always been a huge part of his job\"",
+    "\"Using Azure Batch, they can run huge numbers of race simulations simultaneously, testing multiple scenarios before, and even during, a Grand Prix\"",
+    "\"Azure Batch has revolutionized our race strategy – scaling thousands of simulations in real time, we can ramp up massive compute during the race so we get… insight when it matters most\"",
+    "\"In the past, McMillan might run the simulations on a Saturday night while the team was at dinner, which could take up to an hour, sometimes more. Now those same simulations can take seconds and be run from the side of the track\"",
+    "\"He goes to his trackside console and assesses the data – from the other cars, from the weather forecasts and from Antonelli’s own telemetry readings\""
+  ],
+  "source_type": "company"
+}
