@@ -40,11 +40,11 @@ on:
         description: "Copilot model for screening and extraction"
         type: choice
         options:
-          - "gpt-5.4"
+          - "gpt-6-luna"
           - "gpt-6.1-sol"
           - "grok-4.7"
         required: false
-        default: "gpt-5.4"
+        default: "gpt-6-luna"
 
 permissions:
   contents: write
@@ -120,7 +120,7 @@ jobs:
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_PAT }}
           REFRESH: ${{ github.event.inputs.refresh || 'true' }}
           LIMIT: ${{ github.event.inputs.limit || '150' }}
-          MODEL: ${{ github.event.inputs.model || 'gpt-5.4' }}
+          MODEL: ${{ github.event.inputs.model || 'gpt-6-luna' }}
         run: |
           set -uo pipefail
           mkdir -p /tmp/newsroom-logs

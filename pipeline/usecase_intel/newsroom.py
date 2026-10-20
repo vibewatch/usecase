@@ -91,9 +91,9 @@ def _append(path: Path, row: dict[str, Any], lock: threading.Lock) -> None:
             out.write(json.dumps(row, ensure_ascii=False) + "\n")
 
 
-def _copilot(prompt: str, model: str = "gpt-5.4", timeout: int = 900) -> str:
+def _copilot(prompt: str, model: str = "gpt-6-luna", timeout: int = 900) -> str:
     result = subprocess.run(
-        ["copilot", "-p", prompt, "-s", "--model", model, "--no-custom-instructions", "--no-ask-user", "--no-color", "--no-auto-update"],
+        ["copilot", "-p", prompt, "-s", "--model", model, "--effort", "high", "--no-custom-instructions", "--no-ask-user", "--no-color", "--no-auto-update"],
         capture_output=True, text=True, timeout=timeout,
     )
     return result.stdout
@@ -465,7 +465,7 @@ def prescreen(batch_size: int = 40, workers: int = 6) -> None:
     log(f"prescreen: {sum(1 for r in rows if r['story'])} likely stories of {len(rows)} screened")
 
 
-def author(workers: int = 6, model: str = "gpt-5.4", limit: Optional[int] = None) -> None:
+def author(workers: int = 6, model: str = "gpt-6-luna", limit: Optional[int] = None) -> None:
     from .models import normalize_record
     from .settings import RECORDS_ROOT
     from .triage import reject
@@ -594,7 +594,7 @@ if __name__ == "__main__":
     p = sub.add_parser("dates"); p.add_argument("--limit", type=int)
     sub.add_parser("bundle")
     sub.add_parser("prescreen")
-    p = sub.add_parser("author"); p.add_argument("--workers", type=int, default=6); p.add_argument("--model", default="gpt-5.4"); p.add_argument("--limit", type=int)
+    p = sub.add_parser("author"); p.add_argument("--workers", type=int, default=6); p.add_argument("--model", default="gpt-6-luna"); p.add_argument("--limit", type=int)
     sub.add_parser("status")
     sub.add_parser("compact")
     args = parser.parse_args()

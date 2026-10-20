@@ -87,8 +87,8 @@ jobs:
         run: |
           set -euo pipefail
           copilot --yolo --autopilot \
-            --model gpt-5.4 \
-            --effort xhigh \
+            --model gpt-6-luna \
+            --effort high \
             --agent "UseCase Enrichment" \
             -p "Research and apply a bounded enrichment batch. Combined cap: ${{ steps.inputs.outputs.cap }}. Follow the source hierarchy strictly, retain Unknown when evidence is insufficient, then validate and rebuild. Do not run git commands."
 

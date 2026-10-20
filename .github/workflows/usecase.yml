@@ -54,12 +54,12 @@ on:
         description: "Copilot model to use (effort is derived automatically)"
         type: choice
         options:
-          - "gpt-5.4"
+          - "gpt-6-luna"
           - "grok-4.7"
           - "gpt-6.1-sol"
           - "gpt-6-sol"
         required: false
-        default: "gpt-5.4"
+        default: "gpt-6-luna"
 
 permissions:
   contents: write
@@ -154,7 +154,7 @@ jobs:
             echo "Invalid shard '$SHARD'; expected I/N such as 2/3." >&2
             exit 2
           fi
-          MODEL="${RAW_MODEL:-gpt-5.4}"
+          MODEL="${RAW_MODEL:-gpt-6-luna}"
 
           if ! [[ "$CAP" =~ ^([1-9]|[1-4][0-9]|50)$ ]]; then
             echo "Invalid cap '$CAP'; expected an integer from 1 to 50." >&2
@@ -180,9 +180,9 @@ jobs:
             grok-4.7)          EFFORT="high" ;;
             gpt-6.1-sol)       EFFORT="high" ;;
             gpt-6-sol)         EFFORT="high" ;;
-            gpt-5.4)           EFFORT="xhigh" ;;
+            gpt-6-luna)        EFFORT="high" ;;
             *)
-              echo "Invalid model '$MODEL'; allowed: gpt-5.4, grok-4.7, gpt-6.1-sol, gpt-6-sol." >&2
+              echo "Invalid model '$MODEL'; allowed: gpt-6-luna, grok-4.7, gpt-6.1-sol, gpt-6-sol." >&2
               exit 2
               ;;
           esac
