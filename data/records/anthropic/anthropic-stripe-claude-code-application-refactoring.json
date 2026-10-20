@@ -1,0 +1,146 @@
+{
+  "id": "anthropic-stripe-claude-code-application-refactoring",
+  "slug": "anthropic-stripe-claude-code-application-refactoring",
+  "vendor": "Anthropic",
+  "customer_name": "Stripe",
+  "industry": "Software / SaaS",
+  "region": "North America",
+  "company_size": "Enterprise",
+  "business_problem": "Stripe needed a CLI-native coding assistant that met enterprise security requirements and could be safely distributed to engineers without exposing corporate laptops to unapproved JavaScript packages or an unmanaged npm dependency chain.",
+  "solution_summary": "Stripe's developer infrastructure team chose Claude Code for engineers who prefer a command-line workflow and worked with Anthropic over two to three months to produce a signed enterprise binary. The binary bypasses Claude Code's npm dependency chain, addressing concerns about supply-chain attacks from random JavaScript packages on corporate laptops. Stripe distributes it through its internal mechanism, pre-installed on laptops and development boxes and pre-configured with rules, tokens, and authentication, so engineers can use it without self-service accounts or setup. Engineers supply repository and documentation context; Claude Code understands the codebase, edits files, and runs commands while developers review and adapt outputs. The article reports a concrete Scala-to-Java migration using Claude models and describes training, all-hands, and team-level sharing to improve use. The story does not specify a separate data store or an automated deployment flow.",
+  "products_used": [
+    "Claude Code",
+    "Claude models"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Code",
+      "role": "Provides a CLI-native coding assistant that reads Stripe codebases, edits files, and runs commands."
+    },
+    {
+      "name": "Claude models",
+      "role": "Assist Stripe engineers with code changes, including the reported Scala-to-Java migration."
+    }
+  ],
+  "data_flow": "Stripe engineers use pre-installed, pre-configured Claude Code with their codebase and internal documentation as context; Claude Code edits files and runs commands, and engineers review resulting changes. For a Scala-to-Java migration, Claude models converted 10,000 lines and enabled an upgrade to a newer JDK.",
+  "integration_points": [
+    "Stripe codebases",
+    "Stripe internal documentation",
+    "Stripe developer laptops and development boxes"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Stripe deployed Claude Code to 1,370 engineers through a zero-configuration enterprise rollout. One team migrated 10,000 lines of Scala to Java in four days, work estimated at ten engineering weeks by hand, enabling an upgrade to a newer JDK. Engineers reported higher satisfaction with their tooling, and Stripe is exploring agent-based incident detection and resolution.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "1,370 engineers using Claude Code",
+    "10,000 lines of code migrated in 4 days",
+    "A Scala-to-Java migration using Claude models that would have taken an estimated 10 engineering weeks by hand",
+    "two to three months of testing and iteration"
+  ],
+  "architecture_clues": [
+    "Anthropic produced a signed enterprise binary that bypassed the npm dependency chain.",
+    "Claude Code was pre-installed on laptops and development boxes and pre-configured with rules, tokens, and authentication.",
+    "Stripe reports 5.5 nines of reliability and is exploring agents for incident detection and resolution."
+  ],
+  "source_url": "https://claude.com/customers/stripe",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-03-10",
+      "type": "First archived",
+      "publisher": "Internet Archive",
+      "url": "https://web.archive.org/web/*/https://claude.com/customers/stripe",
+      "authority": "Independent"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Stripe Claude Code case study",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/customers/stripe",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-20T18:17:02+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Deployed Claude Code to 1,370 engineers with a zero-configuration setup that works immediately on every developer's machine",
+    "Migrated 10,000 lines of Scala to Java in four days, a project estimated at ten engineering weeks without AI assistance",
+    "It's pre-installed on everyone's laptop. It's pre-installed on everyone's development box. It's pre-configured with the rules, the tokens, the authentication."
+  ]
+}
