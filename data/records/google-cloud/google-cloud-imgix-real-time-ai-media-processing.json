@@ -1,0 +1,165 @@
+{
+  "id": "google-cloud-imgix-real-time-ai-media-processing",
+  "slug": "google-cloud-imgix-real-time-ai-media-processing",
+  "vendor": "Google Cloud",
+  "customer_name": "Imgix",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Imgix's private data centers lacked the elasticity and capacity to process thousands of concurrent, just-in-time image and video transformation requests. Maintaining physical infrastructure also diverted its lean engineering team from product development, while slow processing could affect customer experiences.",
+  "solution_summary": "Imgix accepts customer requests for just-in-time image and video transformation, avoiding pre-rendering and storing every asset variant. Its core workload runs on Compute Engine G4 VMs with NVIDIA RTX PRO 6000 Blackwell GPUs, processing concurrent pixel-manipulation tasks and serving the resulting media; Imgix reports it changed virtually no application code. Gemini models assess whether a request needs an AI feature before triggering more expensive vision processing, supporting smart cropping and highlight extraction. Cloud Storage provides a dedicated cache for video assets that customers can warm before requesting playback. Cloud Spanner backs request operations with single-digit-millisecond responses, while BigQuery combines pipeline data for analysis of system performance and customer usage. Terraform on Google Cloud automates deployment of the stack across regions. The case does not name upstream media stores, external application integrations, or the specific vision models.",
+  "products_used": [
+    "AI Hypercomputer",
+    "Compute Engine G4 VMs",
+    "NVIDIA RTX PRO 6000 Blackwell GPUs",
+    "Gemini models",
+    "Cloud Storage",
+    "Cloud Spanner",
+    "BigQuery",
+    "Terraform on Google Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "AI Hypercomputer",
+      "role": "Provides the full-stack GPU-based environment Imgix uses for real-time media processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Compute Engine G4 VMs",
+      "role": "Run Imgix's image and video transformation workload on Google Cloud.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA RTX PRO 6000 Blackwell GPUs",
+      "role": "Accelerate the pixel manipulation required for Imgix's real-time media requests.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini models",
+      "role": "Determine whether an image or video request needs an AI feature before routing it to heavier processing.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Caches video assets so customers can warm them before playback requests.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Spanner",
+      "role": "Supports database operations that need consistent, single-digit-millisecond response times.",
+      "layer": "Storage"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Combines data from multiple pipelines for analysis of system performance and customer usage.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Terraform on Google Cloud",
+      "role": "Automates standing up and deploying Imgix's stack into different regions.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Customer image and video requests trigger just-in-time transformations on Compute Engine G4 VMs; Gemini models decide whether to invoke an AI feature before heavier processing. Video assets can be warmed in Cloud Storage for delivery. Cloud Spanner supports request-time database operations, while data from multiple pipelines is consolidated in BigQuery for performance and usage analysis.",
+  "integration_points": [],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM",
+    "Media and Content"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Imgix cut media-processing latency, increased throughput per compute node, maintained fast database responses at scale, reduced infrastructure-management and on-call burden, and enabled engineers to focus more on product features.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "50%+ reduction in processing latency, from 100 ms to <50 ms",
+    "5-6x increase in workload throughput per compute node",
+    "Single-digit millisecond response times maintained at scale",
+    "over eight billion images and videos daily",
+    "more than 60,000 happy customers"
+  ],
+  "architecture_clues": [
+    "GPU-based full-stack environment on Google Cloud",
+    "Terraform deploys the stack into different regions",
+    "Handles thousands of concurrent transformation requests and more than 150 visual filters",
+    "Imgix reports virtually no core application code changes for the G4 transition"
+  ],
+  "source_url": "https://cloud.google.com/customers/imgix",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Imgix case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/imgix",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-22T06:22:11+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "To process images instantly rather than pre-rendering and storing asset variations",
+    "we use Gemini to figure out, ‘Hey, does this image or video even need this AI feature?’",
+    "50%+ reduction in processing latency, from 100 ms to <50 ms",
+    "5-6x increase in workload throughput per compute node",
+    "Cloud Spanner to deliver consistent single-digit millisecond response times during high-volume requests"
+  ]
+}
