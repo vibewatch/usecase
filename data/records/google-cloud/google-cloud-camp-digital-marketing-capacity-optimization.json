@@ -1,0 +1,142 @@
+{
+  "id": "google-cloud-camp-digital-marketing-capacity-optimization",
+  "slug": "google-cloud-camp-digital-marketing-capacity-optimization",
+  "vendor": "Google Cloud",
+  "customer_name": "CAMP Digital",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Home-services contractors can waste digital ad spend when static campaigns send leads to fully booked businesses, while cancellations leave scheduling gaps. CAMP Digital needed a foundation that could ingest operational data, evaluate business patterns, and make campaign adjustments at scale without manual delay.",
+  "solution_summary": "CAMP Digital connects home-services operational data—including job patterns, live technician availability, customer databases, and ad spend—with campaign workflows that otherwise rely on static budgets and manual changes. BigQuery stores and processes structured historical and customer data; key operational signals refresh every 15 minutes so agents can query current capacity and spend. Gemini, specifically the page's cited Gemini 3.6 Flash model, supports agent-to-agent workflows for text summarization, sentiment analysis, and data enrichment. Agents assess schedules, weather-driven service demand, and seasonality, then adjust ad spend, geographic service areas, and promotions—or scale spend back when calendars fill. A specialized workflow agent analyzes customer service calls for missed booking opportunities. The platform also provides plain-language recommendations for human oversight. Cloud Run is named as part of the solution foundation, though the page does not specify its role.",
+  "products_used": [
+    "Gemini",
+    "BigQuery",
+    "Cloud Run"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "The cited Gemini 3.6 Flash model supports agent-to-agent workflows for summarization, sentiment analysis, data enrichment, and account decisions.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores and processes structured historical and customer data, including job patterns and live contractor availability, for agent queries.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Is named as one of the Google Cloud solutions used in the platform foundation; the story does not describe its specific function."
+    }
+  ],
+  "data_flow": "Contractor job patterns, live availability, customer databases, and ad-spend data are stored and processed in BigQuery, with many signals refreshed every 15 minutes. Gemini-powered agents query the structured data, perform summarization, sentiment analysis, and enrichment, then recommend or execute campaign and geographic adjustments; a specialized agent also analyzes service calls for missed bookings.",
+  "integration_points": [
+    "Contractor operational data, including job patterns and live technician availability",
+    "Customer databases",
+    "Digital advertising spend and campaigns",
+    "Customer service calls"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Marketing Personalization"
+  ],
+  "business_outcome": "CAMP Digital automated routine campaign work, matched marketing activity to contractor capacity, helped contractors identify missed booking opportunities, and supported new business without additional headcount. The platform was developed for less than 3% of the agency's annual revenue, and the team shifted a division toward strategic work with zero layoffs.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Revenue Growth",
+    "Scalability"
+  ],
+  "metrics": [
+    "every fifteen minutes",
+    "thousands of automated campaign adjustments every month",
+    "in seconds",
+    "less than 3% of its annual revenue",
+    "without having to hire additional headcount",
+    "zero layoffs"
+  ],
+  "architecture_clues": [
+    "Agent-to-agent workflows perform text summarization, sentiment analysis, and data enrichment",
+    "Campaigns are adjusted against live contractor capacity, weather events, and seasonal demand",
+    "Plain-language recommendations provide human-in-the-loop oversight",
+    "A specialized workflow agent analyzes customer service calls for missed booking opportunities"
+  ],
+  "source_url": "https://cloud.google.com/customers/campdigital",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "CAMP Digital case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/campdigital",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-23T00:32:09+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Static ad spend may drive traffic to a fully booked business or leave scheduling gaps from last minute cancellations.",
+    "The team stores and processes structured historical data as well as customer data such as job patterns, live contractor availability, and customer databases in BigQuery that its AI can search in seconds.",
+    "Many of these vital data points are also automatically refreshed every fifteen minutes to ensure information such as customers’ ad spend is up-to-date for agents.",
+    "This structured data feeds into Gemini and its models, specifically Gemini 3.6 Flash, to orchestrate agent-to-agent workflows, including text summarization, sentiment analysis, and data enrichment.",
+    "The company was also able to develop and launch the agentic platform using less than 3% of its annual revenue.",
+    "These expanded agentic solutions have also allowed the team to support new business without having to hire additional headcount. By automating repetitive manual work, the team shifted an entire division into more strategic roles with zero layoffs."
+  ]
+}
