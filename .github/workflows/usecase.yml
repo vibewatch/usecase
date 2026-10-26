@@ -55,9 +55,6 @@ on:
         type: choice
         options:
           - "gpt-6-luna"
-          - "grok-4.7"
-          - "gpt-6.1-sol"
-          - "gpt-6-sol"
         required: false
         default: "gpt-6-luna"
 
@@ -177,12 +174,9 @@ jobs:
             fi
           fi
           case "$MODEL" in
-            grok-4.7)          EFFORT="high" ;;
-            gpt-6.1-sol)       EFFORT="high" ;;
-            gpt-6-sol)         EFFORT="high" ;;
             gpt-6-luna)        EFFORT="high" ;;
             *)
-              echo "Invalid model '$MODEL'; allowed: gpt-6-luna, grok-4.7, gpt-6.1-sol, gpt-6-sol." >&2
+              echo "Invalid model '$MODEL'; allowed: gpt-6-luna." >&2
               exit 2
               ;;
           esac

@@ -41,8 +41,6 @@ on:
         type: choice
         options:
           - "gpt-6-luna"
-          - "gpt-6.1-sol"
-          - "grok-4.7"
         required: false
         default: "gpt-6-luna"
 
@@ -123,6 +121,10 @@ jobs:
           MODEL: ${{ github.event.inputs.model || 'gpt-6-luna' }}
         run: |
           set -uo pipefail
+          if [ "$MODEL" != "gpt-6-luna" ]; then
+            echo "Invalid model '$MODEL'; allowed: gpt-6-luna." >&2
+            exit 2
+          fi
           mkdir -p /tmp/newsroom-logs
           # Detailed output stays on the runner; only aggregate "<stage>: k=v" lines are shown.
           stage() {
