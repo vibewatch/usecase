@@ -5,7 +5,7 @@
 # rebuild dashboard data. CI installs dependencies, invokes the agent,
 # rebuilds and commits any new records.
 #
-# Scheduled runs fire four times a day (00/06/12/18 UTC) with cap 40 to work
+# Scheduled runs fire once a day (00:00 UTC) with cap 40 to work
 # through the triaged backlog (data/triage.jsonl keeps, best score first); once
 # the backlog is drained they only pick up newly published stories. The commit
 # each run pushes touches data/records/**, which triggers `pages.yml` to
@@ -22,7 +22,7 @@ run-name: "UseCase Intel Â· ${{ github.event.inputs.vendor || 'all vendors' }} Â
 
 on:
   schedule:
-    - cron: "0 0,6,12,18 * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       cap:
