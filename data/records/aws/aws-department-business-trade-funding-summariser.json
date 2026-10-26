@@ -1,0 +1,219 @@
+{
+  "id": "aws-department-business-trade-funding-summariser",
+  "slug": "aws-department-business-trade-funding-summariser",
+  "vendor": "AWS",
+  "customer_name": "Department for Business and Trade",
+  "industry": "Public Sector",
+  "region": "Great Britain",
+  "company_size": "Public sector",
+  "business_problem": "Business decision makers had to review multiple websites, including information irrelevant to their circumstances, to find funding support. The department wanted to surface relevant opportunities and summaries based on a user's location, business sector, business age, and revenue.",
+  "solution_summary": "DBT's BGS pipeline gathers funding-opportunity text from Innovate UK and GOV.UK (including the GOV.UK Content API) using scheduled Elastic Container Service tasks coordinated by Amazon Eventbridge. Scraped text is cleaned by the Presidio PII scrubber, enriched with opportunity and date metadata, split into 300-word chunks with 20-word overlap, embedded by Amazon Titan Text Embeddings v2, and stored in an OpenSearch vector database. On a user request from business.gov.uk, API Gateway and Simple Queue Service (SQS) route session inputs to Lambda functions, which map predefined answers, retrieve relevant documents, and call Amazon Bedrock. Anthropic Claude 3.7 Sonnet generates personalized funding summaries; output is HTML-formatted and returned with source links. A temporary cache supports repeat requests, while samples and feedback go to DBT's internal workspace for monthly evaluation.",
+  "products_used": [
+    "Elastic Container Service (ESCS)",
+    "Amazon Eventbridge",
+    "GOV.UK Content API",
+    "Presidio PII scrubber",
+    "Amazon Titan Text Embeddings v2",
+    "OpenSearch vector database",
+    "API Gateway",
+    "Simple Queue Service (SQS)",
+    "Lambda",
+    "Amazon Bedrock",
+    "Anthropic Claude 3.7 Sonnet"
+  ],
+  "solution_components": [
+    {
+      "name": "Elastic Container Service (ESCS)",
+      "role": "Runs scheduled tasks that gather and scrape funding-opportunity data.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Eventbridge",
+      "role": "Schedules the data-gathering tasks.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "GOV.UK Content API",
+      "role": "Provides GOV.UK finance and support content for the data-gathering process.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "Presidio PII scrubber",
+      "role": "Removes personally identifiable information from scraped data before it is stored.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Amazon Titan Text Embeddings v2",
+      "role": "Creates embeddings of source documents and user input for vector search.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenSearch vector database",
+      "role": "Stores embedded, chunked opportunity content for retrieval.",
+      "layer": "Storage"
+    },
+    {
+      "name": "API Gateway",
+      "role": "Receives client API requests containing user inputs.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Simple Queue Service (SQS)",
+      "role": "Manages traffic from the front end to the backend process.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Lambda",
+      "role": "Runs the backend code that processes requests and interacts with Bedrock.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Bedrock",
+      "role": "Provides the model interaction used to generate funding summaries.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Anthropic Claude 3.7 Sonnet",
+      "role": "Generates personalized summaries of relevant funding opportunities.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Scheduled ECS tasks gather Innovate UK and GOV.UK opportunity pages, including through the GOV.UK Content API; Catapult UK is also named as a backend data source. Presidio removes PII, then content is chunked, embedded with Titan Text Embeddings v2, and stored in OpenSearch. business.gov.uk sends predefined session inputs through API Gateway and SQS to Lambda; the backend retrieves relevant documents and sends context and a prompt to Bedrock/Claude 3.7 Sonnet. HTML-formatted summaries and source links return to the user; samples and feedback are transferred to DBT's internal workspace.",
+  "integration_points": [
+    "business.gov.uk client website",
+    "Innovate UK opportunities pages",
+    "GOV.UK finance and support for business pages",
+    "GOV.UK Content API",
+    "Catapult UK",
+    "DBT internal data workspace for monitoring and evaluation"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The tool is intended to save time and improve visibility of relevant funding support by presenting personalized summaries. The source reports no measured operational outcomes and says the tool is not yet deployed in a production environment.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "circa 100 pages each 400 to 800 words",
+    "approx. 280 pages 200 to 500 words",
+    "300 word chunks with 20 word overlap",
+    "every 24 hours",
+    "random sample of 100 responses",
+    "High BERT score (>0.8, for precision, recall and F1 score)",
+    "thousands on a monthly basis when live"
+  ],
+  "architecture_clues": [
+    "The record lists the system phase as Public Beta.",
+    "The tool is currently not deployed in a production environment.",
+    "Source data is refreshed daily, overwriting previous data.",
+    "User inputs and generated responses are stored in a temporary cache; a sample and user feedback may be transferred for internal evaluation."
+  ],
+  "source_url": "https://www.gov.uk/algorithmic-transparency-records/dbt-business-growth-service-ai-summariser",
+  "published_date": "2025-10-16",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-10-16",
+      "type": "Published on source page",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/dbt-business-growth-service-ai-summariser",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-23",
+      "type": "Sitemap last modified",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/dbt-business-growth-service-ai-summariser",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "DBT: Business Growth Service AI Summariser",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/dbt-business-growth-service-ai-summariser",
+      "source_type": "Government algorithmic transparency record",
+      "authority": "First-party",
+      "published_date": "2025-10-16",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-26T04:13:55+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Users previously would need to review multiple websites to check if any support was available for their Business, likely requiring the user to read content that was not relevant to them.",
+    "These embeddings are used in a vector search to find the most relevant documents to a user input.",
+    "The information received from the client is converted into a prompt and sent to Bedrock.",
+    "This tool provides a time saving for the user seeking information and provides greater visibility of available relevant funding support to users.",
+    "The model was able to perform well with no links being hallucinated/modified from the original source link."
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,167 @@
+{
+  "id": "openai-oak-national-academy-ai-lesson-assistant",
+  "slug": "openai-oak-national-academy-ai-lesson-assistant",
+  "vendor": "OpenAI",
+  "customer_name": "Oak National Academy",
+  "industry": "Education",
+  "region": "UK",
+  "company_size": "Public sector",
+  "business_problem": "Teachers previously adapted Oak’s pre-made lessons manually, with no automated tool to help personalize or create lesson resources for their classes, adding to preparation workload.",
+  "solution_summary": "Teachers interact with Aila (Oak’s AI Lesson Assistant) through a chat stream, starting with a subject, key stage or title; Aila creates and saves a lesson-plan skeleton, asks GPT-4o to classify the title, and then generates JSON updates that are patched into the plan. For retrieval, Oak lesson records are ingested into the Aila database and embedded through OpenAI; a vectorised subset of Oak’s corpus supports similarity search. Cohere Rerank ranks the retrieved candidates, and teachers can select a lesson as a content anchor that is included with the current plan in later GPT-4o prompts. A separate asynchronous LLM moderates lesson content without lesson context. The completed plan can be downloaded as editable lesson resources, including quizzes, slides and worksheets, with teachers reviewing and modifying content throughout.",
+  "products_used": [
+    "Aila (Oak’s AI Lesson Assistant)",
+    "GPT-4o",
+    "OpenAI",
+    "Aila database",
+    "Cohere Rerank"
+  ],
+  "solution_components": [
+    {
+      "name": "Aila (Oak’s AI Lesson Assistant)",
+      "role": "Provides the teacher-facing chat and lesson-editing workflow, and presents generated lesson resources.",
+      "layer": "Serving"
+    },
+    {
+      "name": "GPT-4o",
+      "role": "Classifies lesson titles and generates initial lesson plans and JSON updates from teacher input and lesson context.",
+      "layer": "Compute"
+    },
+    {
+      "name": "OpenAI",
+      "role": "Generates embeddings for Oak lesson data to support similarity search.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Aila database",
+      "role": "Stores ingested Oak lessons and their embeddings for retrieval.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cohere Rerank",
+      "role": "Reranks lessons returned by vector search so teachers see the most relevant candidates.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Oak lesson records are ingested into the Aila database, where OpenAI-generated embeddings support vector search. Aila retrieves similar lessons from the vectorised corpus, sends candidates to Cohere Rerank, and presents ranked lessons for teacher selection. Selected lesson context and teacher chat input are sent to GPT-4o; its JSON updates are patched into the plan. A separate asynchronous moderation LLM checks lesson content.",
+  "integration_points": [
+    "Oak National Academy Open API (lesson data source)",
+    "Oak National Academy website and lesson corpus",
+    "OpenAI (GPT-4o and embedding generation)",
+    "Cohere Rerank"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Designed to save teachers time by speeding up lesson-plan generation and making it easier to personalize resources for their classes; the source reports no measured outcome.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "Oak’s lesson corpus currently includes approximately 10,000 lessons.",
+    "Approximately one-third of teachers in the England use Oak products at least every six months."
+  ],
+  "architecture_clues": [
+    "Public Beta",
+    "GPT-4o model version: gpt-4o-2024-08-06",
+    "Cohere Rerank model version: rerank-english-v3.0",
+    "Moderation runs asynchronously using a separate LLM instance without contextual awareness of the lesson."
+  ],
+  "source_url": "https://www.gov.uk/algorithmic-transparency-records/oak-national-academy-aila-oaks-ai-lesson-assistant",
+  "published_date": "2024-12-17",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2024-12-17",
+      "type": "Published on source page",
+      "publisher": "Cabinet Office, Department for Science, Innovation and Technology, and Government Digital Service",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/oak-national-academy-aila-oaks-ai-lesson-assistant",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Oak National Academy: Aila (Oak's AI Lesson Assistant)",
+      "publisher": "Cabinet Office, Department for Science, Innovation and Technology, and Government Digital Service",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/oak-national-academy-aila-oaks-ai-lesson-assistant",
+      "source_type": "Government-published algorithmic transparency record",
+      "authority": "First-party",
+      "published_date": "2024-12-17",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-26T04:14:17+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "This is an AI lesson assistant for UK teachers to create lesson resources personalised for their classes, with the aim of reducing teacher workload.",
+    "User interaction with Aila happens through a large-language model (LLM) chat stream (currently OpenAI’s GPT-4o).",
+    "Once found, the application then ranks them using Cohere Rerank",
+    "The ingestion process involves taking each lesson, storing it in the Aila database and adding embeddings through OpenAI to allow the model to search for similiar lessons.",
+    "The specific benefits are the speed at which Aila can generate full lesson plans, being able to use Oak’s corpus of lessons as a starting point"
+  ],
+  "source_type": "company"
+}

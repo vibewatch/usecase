@@ -1,0 +1,204 @@
+{
+  "id": "microsoft-fcdo-consular-digital-triage-written-enquiries-llm",
+  "slug": "microsoft-fcdo-consular-digital-triage-written-enquiries-llm",
+  "vendor": "Microsoft",
+  "customer_name": "Foreign, Commonwealth and Development Office",
+  "industry": "Public Sector",
+  "region": "UK",
+  "company_size": "Public sector",
+  "business_problem": "FCDO Consular Services receives approximately 100,000 written enquiries from the public every year. Users may struggle to find the right route or guidance, while staff need to focus on enquiries requiring the most help.",
+  "solution_summary": "Users enter a written question in the FCDO triage web app; Azure Cognitive Services redacts personal information before any prompt is sent to Azure OpenAI. Azure OpenAI GPT 3.5 breaks the text into up to three component questions. For each, an embeddings similarity search shortlists up to three approved templates; Azure OpenAI GPT 4 then uses the questions, shortlisted templates, identifiers and RAG selection guidance to choose template IDs, while GPT 3.5 selects topic IDs. The web app resolves those IDs to pre-approved guidance and topics rather than displaying generated prose, and users can still submit a case for human review. Consular staff maintain templates through a restricted management tool. Separately, redacted audit records, form submissions, page views and feedback are held in an RDS (PostgreSQL) database, exported as CSV to encrypted AWS S3 and processed in a data pipeline for accuracy analysis. Historical enquiries remain in the Microsoft Dynamics-based response service.",
+  "products_used": [
+    "Azure Cognitive Services",
+    "Azure OpenAI GPT 3.5",
+    "Azure OpenAI GPT 4",
+    "RDS (PostgreSQL)",
+    "AWS S3",
+    "Microsoft Dynamics-based written enquiries response service",
+    "Triage web app",
+    "Triage management tool"
+  ],
+  "solution_components": [
+    {
+      "name": "Azure Cognitive Services",
+      "role": "Removes personal information from user questions before they are included in prompts sent to Azure OpenAI.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure OpenAI GPT 3.5",
+      "role": "Breaks user text into component questions and selects topics corresponding to what the user appears to be asking.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Azure OpenAI GPT 4",
+      "role": "Uses the questions, shortlisted templates and RAG guidance to select template identifiers.",
+      "layer": "Compute"
+    },
+    {
+      "name": "RDS (PostgreSQL)",
+      "role": "Stores redacted enquiry search results, form submissions, page views and user feedback audit records.",
+      "layer": "Storage"
+    },
+    {
+      "name": "AWS S3",
+      "role": "Stores encrypted CSV exports of triage audit data for processing and accuracy analysis.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Microsoft Dynamics-based written enquiries response service",
+      "role": "Keeps the original written-enquiry dataset used by FCDO staff and suppliers.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Triage web app",
+      "role": "Displays the approved templates and topics corresponding to the identifiers returned by the models.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Triage management tool",
+      "role": "Lets a limited group of consular staff add or remove templates.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A user question is redacted by Azure Cognitive Services, then GPT 3.5 decomposes it; embeddings similarity search retrieves up to three templates per question, GPT 4 selects template IDs, and GPT 3.5 selects topic IDs for the web app to display as approved content. Separately, redacted search results, form submissions, page views and feedback flow to RDS (PostgreSQL), are exported as CSV to encrypted AWS S3, and enter a data pipeline for accuracy analysis.",
+  "integration_points": [
+    "FCDO approved template library",
+    "FCDO topic headings",
+    "Triage web app",
+    "Microsoft Dynamics-based written enquiries response service",
+    "FCDO staff review of submitted enquiries",
+    "AWS S3 audit-data export and analysis pipeline"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Provides users with faster responses and signposting to relevant services and guidance, while helping FCDO focus on users who need the most help. Users can escalate to a human-reviewed written enquiry.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "approximately 100,000 written enquiries from the public every year",
+    "76% to 81% of enquiries",
+    "approximately 600 anonymised text-based test questions",
+    "30 days as standard",
+    "maximum of 6 months"
+  ],
+  "architecture_clues": [
+    "Beta/Pilot phase.",
+    "GPT-4-32k, version 0613, and GPT-3.5-Turbo, version 1106.",
+    "The LLM returns template and topic identifier numbers; the web app displays matching approved content rather than generated text.",
+    "Monthly spot-checks and review of cases escalated to staff are used to monitor performance.",
+    "Azure stores logs of OpenAI data for up to 30 days for human abuse monitoring."
+  ],
+  "source_url": "https://www.gov.uk/algorithmic-transparency-records/fcdo-consular-digital-triage-written-enquiries-llm",
+  "published_date": "2024-12-17",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2024-12-17",
+      "type": "Published on source page",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/fcdo-consular-digital-triage-written-enquiries-llm",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-23",
+      "type": "Sitemap last modified",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/fcdo-consular-digital-triage-written-enquiries-llm",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "FCDO: Consular Digital Triage - Written Enquiries LLM",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/fcdo-consular-digital-triage-written-enquiries-llm",
+      "source_type": "Government algorithmic transparency record",
+      "authority": "First-party",
+      "published_date": "2024-12-17",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-26T04:14:06+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "FCDO Consular Services receives approximately 100,000 written enquiries from the public every year.",
+    "The text submitted by the user is then broken down by a GPT 3.5 model to identify the 3 most significant component question(s).",
+    "Azure Cognitive Services - used to remove personal data from text sent by the user to the AI.",
+    "Depending on the batch, the tool provided the correct response for 76% to 81% of enquiries.",
+    "Users are able to easily submit a written enquiry to FCDO, which will be reviewed and responded to by a human, if they are unhappy with the response they receive from the tool."
+  ],
+  "source_type": "company"
+}

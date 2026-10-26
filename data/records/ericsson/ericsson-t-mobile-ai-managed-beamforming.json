@@ -1,0 +1,142 @@
+{
+  "id": "ericsson-t-mobile-ai-managed-beamforming",
+  "slug": "ericsson-t-mobile-ai-managed-beamforming",
+  "vendor": "Ericsson",
+  "customer_name": "T-Mobile",
+  "industry": "Telecommunications",
+  "region": "New York City, United States",
+  "company_size": "Unknown",
+  "business_problem": "SRS resources are finite and were historically allocated through fixed rules, limiting the network’s ability to adapt resource allocation to changing demand, especially during peak hours.",
+  "solution_summary": "T-Mobile is trialing AI-Managed Beamforming at newly activated New York City sites using live network traffic. Phones send Sounding Reference Signals (SRS), which provide information about radio paths affected by buildings, movement, distance, and interference; T-Mobile’s live network data is also used to train and tune a supervised-learning model. The model runs directly on Ericsson’s optimized RAN compute and silicon, predicts where demand is rising, and dynamically shifts finite SRS resources toward areas with greater expected impact. The network then uses that allocation to schedule traffic, aim beams, coordinate antennas, manage power, and tune connections, improving service during peak demand. The source describes radio-data input, model processing, and network-side use, but does not identify a separate storage layer or downstream software integration.",
+  "products_used": [
+    "AI-Managed Beamforming",
+    "Ericsson’s optimized RAN compute and silicon"
+  ],
+  "solution_components": [
+    {
+      "name": "AI-Managed Beamforming",
+      "role": "Uses a supervised-learning model to predict rising demand and dynamically shift SRS resources where they can have the most impact.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Ericsson’s optimized RAN compute and silicon",
+      "role": "Runs the AI-Managed Beamforming model directly in the radio access network.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Phones send SRS signals that describe radio conditions, while T-Mobile live network data is used to train and tune the supervised-learning model. Running on Ericsson’s optimized RAN compute and silicon, the model predicts rising demand and shifts SRS resources; the network uses the allocation to schedule traffic, aim beams, coordinate antennas, manage power, and tune connections. No separate storage tier is described.",
+  "integration_points": [
+    "SRS signals sent by phones",
+    "T-Mobile live network traffic and data",
+    "Ericsson RAN compute and silicon"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "unknown"
+  ],
+  "business_outcome": "During peak demand, the capability improved network performance and efficiency, helping the network put capacity where needed and deliver better performance for customers.",
+  "outcome_category": [
+    "Customer Experience"
+  ],
+  "metrics": [
+    "approximately 50% increase in advanced beamforming using full-band SRS",
+    "16% improvement in downlink user throughput",
+    "12% improvement in spectral efficiency",
+    "10% increase in downlink data volume"
+  ],
+  "architecture_clues": [
+    "Large-scale commercial trials using live network traffic",
+    "Trials at newly activated New York City sites",
+    "Model runs directly on Ericsson’s optimized RAN compute and silicon"
+  ],
+  "source_url": "https://www.t-mobile.com/news/network/5g-advanced-in-action-better-experiences-t-mobile-puts-ai-to-work-for-customers",
+  "published_date": "2026-10-20",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-10-20",
+      "type": "Sitemap last modified",
+      "publisher": "T-Mobile",
+      "url": "https://www.t-mobile.com/news/network/5g-advanced-in-action-better-experiences-t-mobile-puts-ai-to-work-for-customers",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "5G Advanced in Action, Better Experiences: T‑Mobile Puts AI to Work for Customers - T‑Mobile Newsroom",
+      "publisher": "T-Mobile",
+      "url": "https://www.t-mobile.com/news/network/5g-advanced-in-action-better-experiences-t-mobile-puts-ai-to-work-for-customers",
+      "source_type": "Company-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "sitemap",
+      "retrieved_at": "2026-10-26T04:12:59+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "region"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Using a supervised-learning model trained on T‑Mobile’s live network data and running directly on Ericsson’s optimized RAN compute and silicon, the capability predicts where demand is rising and dynamically shifts SRS resources where they can have the most impact.",
+    "SRS resources are finite, and historically they have been allocated through fixed rules.",
+    "16% improvement in downlink user throughput",
+    "12% improvement in spectral efficiency",
+    "10% increase in downlink data volume"
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,163 @@
+{
+  "id": "cognizant-food-standards-agency-fhrs-ai-inspection-prioritization",
+  "slug": "cognizant-food-standards-agency-fhrs-ai-inspection-prioritization",
+  "vendor": "Cognizant",
+  "customer_name": "Food Standards Agency (FSA)",
+  "industry": "Public Sector",
+  "region": "England, Wales, and Northern Ireland",
+  "company_size": "Public sector",
+  "business_problem": "Local authorities were receiving more new-business registrations and business changes than before the pandemic, increasing the number of food businesses awaiting inspection. Their manual triage processes varied and were labour intensive, making it harder to prioritize limited inspection resources.",
+  "solution_summary": "The FHRS AI MVP combines FSA internal Food Hygiene Rating Scheme (FHRS) records with 2011 Census data and geographic and business data from HERE API; the dataset has approximately 120 descriptors covering business, authority, demographic, socioeconomic, size, and operating-hours attributes. Data scientists collate and prepare the sources for a LightGBM model, trained to classify whether businesses awaiting inspection are compliant and predict their food hygiene rating (0–5). Data is stored in a secure government cloud, with internal-data access controlled by the FSA security team; no storage product or detailed hosting architecture is identified. The model is integrated into the FHRS AI web application, which presents predictions in a table, interactive map, or CSV download to authorized local-authority users. Access is limited by local-authority remit, and Environmental Health Officers are expected to combine predictions with local knowledge rather than use automated decisions.",
+  "products_used": [
+    "LightGBM",
+    "HERE API",
+    "FHRS AI web application"
+  ],
+  "solution_components": [
+    {
+      "name": "LightGBM",
+      "role": "The model framework classifies businesses as compliant or not and predicts their food hygiene rating.",
+      "layer": "Compute"
+    },
+    {
+      "name": "HERE API",
+      "role": "Provides geographic data used to prepare the model dataset.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "FHRS AI web application",
+      "role": "Presents predictions to authorized local-authority users in a table, map, or CSV download.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "FSA FHRS records, 2011 Census data, and HERE API data are collated and prepared as model features; LightGBM predicts compliance and an FHRS rating for businesses awaiting inspection. The record says data is stored in a secure government cloud. Predictions are delivered through the FHRS AI web application as a table, map, or CSV to authorized local-authority users, who combine them with their own knowledge.",
+  "integration_points": [
+    "FSA internal Food Hygiene Rating Scheme data",
+    "2011 UK Census data",
+    "HERE API",
+    "Local authorities and their Environmental Health Officers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Risk Management"
+  ],
+  "business_outcome": "The expected benefit is more efficient prioritization of inspections, particularly for businesses awaiting their first inspection, helping local authorities use limited resources more effectively. The page reports no measured outcomes.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "The dataset contains approximately 120 data descriptors.",
+    "Data is stored in a secure government cloud; the storage product is not identified.",
+    "The transparency record lists the service phase as Retired."
+  ],
+  "source_url": "https://www.gov.uk/algorithmic-transparency-records/food-standards-agency-food-hygiene-rating-scheme-ai",
+  "published_date": "2024-02-29",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2024-02-29",
+      "type": "Published on source page",
+      "publisher": "Cabinet Office, Department for Science, Innovation and Technology, and Government Digital Service",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/food-standards-agency-food-hygiene-rating-scheme-ai",
+      "authority": "First-party"
+    },
+    {
+      "date": "2022-07-06",
+      "type": "Publisher catalog date",
+      "publisher": "Cabinet Office, Department for Science, Innovation and Technology, and Government Digital Service",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/food-standards-agency-food-hygiene-rating-scheme-ai",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-23",
+      "type": "Sitemap last modified",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/food-standards-agency-food-hygiene-rating-scheme-ai",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Food Standards Agency: Food Hygiene Rating Scheme – AI - GOV.UK",
+      "publisher": "Cabinet Office, Department for Science, Innovation and Technology, and Government Digital Service",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/food-standards-agency-food-hygiene-rating-scheme-ai",
+      "source_type": "Government algorithmic transparency record",
+      "authority": "First-party",
+      "published_date": "2024-02-29",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-26T04:13:02+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "architecture_clues",
+        "published_date",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The tool is made up of a machine learning model, integrated into a web application.",
+    "A machine learning framework called LightGBM was used to develop the FHRS AI model.",
+    "This model was trained on data from three sources: internal Food Standards Agency (FSA) FHRS data, publicly available Census data from the 2011 census and open data from HERE API.",
+    "The primary benefit the tool is expected to deliver is increased efficiency for local authorities in prioritising and inspecting food businesses.",
+    "This process should be a collaborative interface between the system and human decision maker to avoid any automated decision making."
+  ],
+  "source_type": "company"
+}

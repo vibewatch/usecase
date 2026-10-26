@@ -1,0 +1,153 @@
+{
+  "id": "nvidia-santander-banking-ai-model-optimization",
+  "slug": "nvidia-santander-banking-ai-model-optimization",
+  "vendor": "NVIDIA",
+  "customer_name": "Banco Santander",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Santander is moving from large general-purpose models toward smaller models specialized for banking tasks, seeking to identify the best model for each workload while maintaining performance and reducing serving costs.",
+  "solution_summary": "Through Santander AI Lab, the bank evaluates open-weight models against banking tasks in its internally built Model Arena, then specializes models for targeted workloads with NVIDIA NeMo Customizer. For structured-data banking workloads, Santander uses NVIDIA Kumo models to develop predictive intelligence for agentic services. Inference is being industrialized within Santander's own architecture using NVIDIA Dynamo-Triton; the article attributes serving-cost reductions to this approach. Model Arena is also being developed to design, simulate, evaluate, and supervise banking agents, alongside performance engineering and adversarial testing in controlled environments before successful capabilities scale across the bank. The source identifies structured banking data and banking/customer-service tasks, but does not specify ingestion mechanisms, storage systems, deployment topology, or particular downstream application integrations.",
+  "products_used": [
+    "Model Arena",
+    "NVIDIA NeMo Customizer",
+    "NVIDIA Kumo",
+    "NVIDIA Dynamo-Triton"
+  ],
+  "solution_components": [
+    {
+      "name": "Model Arena",
+      "role": "Santander uses this internally built capability to evaluate open-weight models against banking tasks and to design, simulate, evaluate, and supervise banking agents.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "NVIDIA NeMo Customizer",
+      "role": "Santander uses it to specialize models for targeted banking workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Kumo",
+      "role": "Santander uses its open-weight foundation models for structured-data banking workloads and predictive intelligence for agentic services.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Dynamo-Triton",
+      "role": "Santander uses it to industrialize inference within its own architecture.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Santander's structured banking data supports predictive intelligence developed with NVIDIA Kumo for agentic services. Open-weight models are evaluated against banking tasks in Model Arena and specialized with NVIDIA NeMo Customizer; inference is then industrialized through NVIDIA Dynamo-Triton for banking workloads, including experimental customer-service use cases. The source does not identify specific ingestion or storage systems.",
+  "integration_points": [
+    "Santander structured banking data",
+    "Banking applications and workloads",
+    "Customer-service interactions"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "In an experimental customer-service use case, Santander improved conversation quality while reducing costs by more than 50%. Selected experimental use cases also reduced serving costs while maintaining strong performance.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "from around €5 per interaction to approximately €0.03",
+    "more than 50%"
+  ],
+  "architecture_clues": [
+    "Inference is being industrialized within Santander's own architecture.",
+    "Model and agent evaluation, performance engineering, and adversarial testing take place in controlled environments.",
+    "Santander is moving from large general-purpose models toward smaller, specialized models."
+  ],
+  "source_url": "https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure",
+  "published_date": "2026-10-19",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-10-19",
+      "type": "Published on source page",
+      "publisher": "Santander",
+      "url": "https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Santander builds AI capabilities that improve performance and lower costs using NVIDIA AI infrastructure",
+      "publisher": "Santander",
+      "url": "https://www.santander.com/en/press-room/press-releases/2026/10/santander-builds-ai-capabilities-that-improve-performance-and-lower-costs-using-nvidia-ai-infrastructure",
+      "source_type": "Customer-published story",
+      "authority": "First-party",
+      "published_date": "2026-10-19",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-26T04:12:57+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Santander has built Model Arena to evaluate open-weight models against banking tasks.",
+    "specialising models using NVIDIA NeMo Customizer.",
+    "industrialising inference within Santander's own architecture using NVIDIA Dynamo-Triton",
+    "reduced serving costs from around €5 per interaction to approximately €0.03 while maintaining strong performance.",
+    "in an experimental customer-service use case, Santander improved conversation quality while reducing costs by more than 50%."
+  ],
+  "source_type": "company"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "aws-disclosure-and-barring-service-barring-referral-ai-summary-tool",
+  "slug": "aws-disclosure-and-barring-service-barring-referral-ai-summary-tool",
+  "vendor": "AWS",
+  "customer_name": "Disclosure and Barring Service (DBS), Home Office",
+  "source_type": "company",
+  "industry": "Public Sector",
+  "region": "UK",
+  "company_size": "Public sector",
+  "business_problem": "Caseworkers manually sift through large volumes of unstructured and fragmented referral evidence, making it time-consuming to orient themselves and review cases as workload grows.",
+  "solution_summary": "Referral documents from the Barring Referral Service portal are coordinated by the Referral AI Summary Orchestrator on AWS Step function. AWS Lambda ingestion validates files, extracts text, transcribes images and captures metadata; Amazon Textract extracts form and table data. AWS Bedrock hosts pre-trained OpenAI GPT OSS 120B and Nvidia nemotron nano 12b for language reasoning and image description; Amazon Titan Embedding v2 creates vectors, and Amazon OpenSearch stores embeddings and metadata for hybrid semantic and keyword retrieval. The Summary Generation Lambda retrieves evidence, prompts the LLM and produces schema-validated RAG answers, with Bedrock automated reasoning and contextual grounding checks. The PDF Generation Lambda renders structured JSON through HTML templates and stores the PDF in the BRS clean S3 bucket. The PDF is attached to the caseworker system, where staff verify citations against source documents and retain decision authority; models are not trained or fine-tuned.",
+  "products_used": [
+    "AWS Step function",
+    "AWS Lambda",
+    "Amazon Textract",
+    "AWS Bedrock",
+    "OpenAI GPT OSS 120B",
+    "Nvidia nemotron nano 12b",
+    "Amazon Titan Embedding v2",
+    "Amazon OpenSearch",
+    "S3"
+  ],
+  "solution_components": [
+    {
+      "name": "AWS Step function",
+      "role": "Coordinates document ingestion, summary generation and PDF generation.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AWS Lambda",
+      "role": "Runs the ingestion, summary-generation and PDF-generation functions.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon Textract",
+      "role": "Extracts structured information such as forms and tables from referral documents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AWS Bedrock",
+      "role": "Hosts the foundation models and provides automated reasoning and contextual grounding checks.",
+      "layer": "Serving"
+    },
+    {
+      "name": "OpenAI GPT OSS 120B",
+      "role": "Generates text completions for the referral summaries.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Nvidia nemotron nano 12b",
+      "role": "Provides image captioning for the referral-summary workflow.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Amazon Titan Embedding v2",
+      "role": "Generates embeddings for document content and prompts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon OpenSearch",
+      "role": "Stores document embeddings and metadata for hybrid semantic and keyword search.",
+      "layer": "Storage"
+    },
+    {
+      "name": "S3",
+      "role": "Stores referral data in private buckets and generated PDFs in the BRS clean bucket.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "Referral documents submitted through the Barring Referral Service portal are prepared by the ingestion Lambda, with Amazon Textract extracting structured content. Amazon Titan Embedding v2 creates embeddings that, with metadata, are stored in Amazon OpenSearch for retrieval. The Summary Generation Lambda retrieves evidence and invokes AWS Bedrock models using RAG; the PDF Generation Lambda renders the structured output and stores it in the BRS clean S3 bucket. The summary is attached to the caseworker system for citation checks against source documents.",
+  "integration_points": [
+    "Barring Referral Service digital portal (referral-document source)",
+    "Caseworker system (receives the generated summary)",
+    "Reply (development, delivery and maintenance provider)"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Evaluation demonstrated faster case orientation while maintaining citation traceability. The tool is intended to reduce evidence-navigation, review and narrative-drafting time; caseworkers continue to review evidence and make all decisions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "full triage team (~16)",
+    "approx 1,200 cases per month",
+    "15 anonymised redacted training cases",
+    "approx 140 cases of production data"
+  ],
+  "architecture_clues": [
+    "Public Beta deployment.",
+    "Foundation models are pre-trained, hosted and managed by AWS Bedrock; they are not trained, fine-tuned or optimised for this tool.",
+    "Private S3 buckets use encryption at rest, restricted IAM permissions and MFA.",
+    "Access to sensitive data is restricted to DBS staff; exceptional supplier access requires explicit approval, time limits and audit."
+  ],
+  "source_url": "https://www.gov.uk/algorithmic-transparency-records/disclosure-and-barring-service-barring-referral-ai-summary-tool",
+  "published_date": "2026-10-14",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2026-10-14",
+      "type": "Published on source page",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/disclosure-and-barring-service-barring-referral-ai-summary-tool",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-23",
+      "type": "Sitemap last modified",
+      "publisher": "GOV.UK",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/disclosure-and-barring-service-barring-referral-ai-summary-tool",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Disclosure and Barring Service Barring Referral AI Summary Tool - GOV.UK",
+      "publisher": "Cabinet Office, Department for Science, Innovation and Technology, and Government Digital Service",
+      "url": "https://www.gov.uk/algorithmic-transparency-records/disclosure-and-barring-service-barring-referral-ai-summary-tool",
+      "source_type": "Government-published algorithmic transparency record",
+      "authority": "First-party",
+      "published_date": "2026-10-14",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-26T04:13:07+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "At present caseworkers have to manually sift through large volumes of unstructured evidence.",
+    "Referral AI Summary Orchestrator: AWS Step function that coordinates Document Ingestion, Summary Generation and Pdf Generation",
+    "Amazon OpenSearch: Stores document embeddings and metadata, enabling hybrid semantic and keyword search.",
+    "All outputs are produced using a Retrieval-Augmented Generation (RAG) approach, where the model answers a predefined set of questions using only the evidence snippets supplied in the prompt.",
+    "PDF Generation Lambda: Renders structured JSON summaries into HTML templates and converts them into final PDF documents stored in BRS clean bucket.",
+    "Evaluation demonstrated that AI-generated summaries supported faster case orientation while maintaining traceability through citations.",
+    "The tool is to be used by the full triage team (~16) for all of their cases. They recieve approx 1,200 cases per month"
+  ]
+}
