@@ -1,0 +1,164 @@
+{
+  "id": "google-cloud-hematogenix-precision-oncology-ai-research",
+  "slug": "google-cloud-hematogenix-precision-oncology-ai-research",
+  "vendor": "Google Cloud",
+  "customer_name": "Hematogenix",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Hematogenix's fixed on-premises compute infrastructure bottlenecked its AI initiatives and could not support large training runs across its proprietary multimodal oncology dataset while meeting strict data-governance requirements.",
+  "solution_summary": "Hematogenix moved its proprietary multimodal oncology data and AI research from fixed on-premises infrastructure to Google Cloud, where resources can be provisioned on demand and released when jobs finish. Engineers use Workbench to curate datasets in BigQuery and run small experiments, including genetic-mutation prediction, before expanding validated work into production pipelines. Compute Engine supplies scalable compute, while Google Kubernetes Engine supports resource provisioning and parallel project execution. The source also names Gemini and Model Garden on the Gemini platform among the data and AI tools used, but does not detail their individual roles. Capacity grew from 16 on-premises GPUs to hundreds on demand; HIPAA, GDPR, and ISO compliance were among the reasons for the move. The page does not specify data ingestion or model-serving topology.",
+  "products_used": [
+    "Compute Engine",
+    "BigQuery",
+    "Workbench",
+    "Gemini",
+    "Google Kubernetes Engine",
+    "Model Garden on Gemini platform"
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "Provides on-demand compute capacity for Hematogenix's AI research workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Holds curated oncology datasets used by engineers for experiments such as genetic-mutation prediction.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Workbench",
+      "role": "Lets machine-learning engineers curate BigQuery datasets and run small-scale experiments."
+    },
+    {
+      "name": "Gemini",
+      "role": "Named among the Google Cloud data and AI tools Hematogenix uses in its research pipelines."
+    },
+    {
+      "name": "Google Kubernetes Engine",
+      "role": "Helps provision resources and run parallel research projects.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Model Garden on Gemini platform",
+      "role": "Named as part of the toolset used alongside Google Kubernetes Engine for research-project execution."
+    }
+  ],
+  "data_flow": "Machine-learning engineers curate the proprietary oncology datasets in BigQuery through Workbench and run small experiments such as genetic-mutation prediction. Once validated, experiments expand into production pipelines using on-demand Google Cloud resources; Compute Engine and Google Kubernetes Engine provide scalable capacity. The page does not describe the original data-ingestion path or model-serving topology.",
+  "integration_points": [
+    "Hematogenix's proprietary multimodal oncology dataset"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Hematogenix increased AI compute capacity, shortened sample-processing and experiment turnaround times, and enabled faster oncology research intended to get diagnostic results and therapies to patients sooner.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Scaled AI compute 10x",
+    "Reduced sample processing time by 80-90%",
+    "Cut ML experiment cycles from 3-4 weeks to just one week",
+    "Upgrading from 16 on-premise GPUs to hundreds on demand",
+    "More than 100 PhDs and MDs"
+  ],
+  "architecture_clues": [
+    "Proprietary multimodal dataset contains millions of samples and over a trillion data points",
+    "On-demand compute is provisioned for jobs and spun down when they finish",
+    "Google Cloud selected for HIPAA, GDPR, and ISO compliance"
+  ],
+  "source_url": "https://cloud.google.com/customers/hematogenix",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Hematogenix case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/hematogenix",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-27T00:45:19+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Machine learning engineers use Workbench to rapidly curate datasets in BigQuery and run small-scale experiments, such as predicting genetic mutations.",
+    "Hematogenix to scale its compute capacity by nearly 10x, upgrading from 16 on-premise GPUs to hundreds on demand.",
+    "Custom in-house models trained on Google Cloud have driven an 80% to 90% reduction in turnaround time for critical sample processing workflows."
+  ]
+}

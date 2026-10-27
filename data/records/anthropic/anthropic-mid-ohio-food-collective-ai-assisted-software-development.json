@@ -1,0 +1,168 @@
+{
+  "id": "anthropic-mid-ohio-food-collective-ai-assisted-software-development",
+  "slug": "anthropic-mid-ohio-food-collective-ai-assisted-software-development",
+  "vendor": "Anthropic",
+  "customer_name": "Mid-Ohio Food Collective",
+  "industry": "Nonprofit",
+  "region": "Ohio, United States",
+  "company_size": "Unknown",
+  "business_problem": "Mid-Ohio Food Collective had limited engineering capacity to improve FreshTrak and adapt it to each food bank's state-specific eligibility, reporting, and consent rules, slowing feature delivery and expansion to more food banks.",
+  "solution_summary": "Mid-Ohio Food Collective uses Claude to accelerate development and expansion of FreshTrak, its food-bank platform. Given the existing codebase and a new state's rules, Claude Code produced a working, tested implementation; engineers and program staff validate each rule, and Claude Tag works through the codebase from Slack to open a pull request. Human approval, automated tests, and Claude-assisted review precede the CI/CD pipeline. Claude Code supports larger refactors and multi-service changes in a codebase more than 15 years old, while Claude Design combines Figma designs with interview requirements to create a shared UI system. The team also used Claude to build mobile-app flows and APIs and integrate FreshTrak Health referrals from partner health systems, record Farmacy visits, and send outcomes to care teams. The story does not detail hosting or storage.",
+  "products_used": [
+    "Claude Code",
+    "Claude Tag",
+    "Claude Design",
+    "Claude Developer Platform",
+    "Claude API"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude Code",
+      "role": "Reads the FreshTrak codebase to implement state-specific rules and supports refactors, migrations, and multi-service changes."
+    },
+    {
+      "name": "Claude Tag",
+      "role": "Works through the FreshTrak codebase from Slack, opens pull requests, and supports review before changes reach CI/CD."
+    },
+    {
+      "name": "Claude Design",
+      "role": "Combines Figma designs and customer-interview requirements into a shared design system and modern interface."
+    },
+    {
+      "name": "Claude Developer Platform",
+      "role": "Supports the team's recurring research environment and is the planned platform for a neighbor-facing assistant."
+    },
+    {
+      "name": "Claude API",
+      "role": "Powers a recurring research environment that scans news and publications for developments affecting food banking."
+    }
+  ],
+  "data_flow": "A developer or support teammate briefs Claude Tag in Slack; it examines the FreshTrak codebase and opens a pull request. A human engineer reviews the change, automated tests run, and Claude-assisted review occurs before CI/CD. Separately, partner health-system referrals linked to electronic health records enter FreshTrak Health, where visits are recorded and outcomes are sent back to care teams.",
+  "integration_points": [
+    "Slack",
+    "Figma",
+    "CI/CD pipeline",
+    "Partner health systems and their electronic health records",
+    "FreshTrak Health"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Application Modernization"
+  ],
+  "use_case_category": [
+    "Application Refactoring"
+  ],
+  "business_outcome": "Claude helped the Food Collective deliver software features faster, reduce the manual effort needed to adapt FreshTrak for other states and food banks, and bring product ideas into production that the team previously lacked capacity to pursue.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "Ships new features from idea to production in 24 to 36 hours, down from two to three months",
+    "FreshTrak runs at some 2,500 pantries, soup kitchens, shelters and food banks",
+    "35,000 families a day on average",
+    "More than 12.5 million household visits a year",
+    "Cut onboarding and training time for partner food banks by 50%",
+    "A technical support team member's first pull request went to production in under 12 hours",
+    "FreshTrak has logged 68 million visits since launch"
+  ],
+  "architecture_clues": [
+    "FreshTrak codebase is more than 15 years old",
+    "Human review, automated tests, and at least one round of Claude-assisted pull-request review are required before merge",
+    "State-specific eligibility logic, reporting formats, and consent language are reviewed by program staff"
+  ],
+  "source_url": "https://claude.com/customers/mid-ohio-food-collective",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Mid-Ohio Food Collective Claude case study | Claude by Anthropic | Claude by Anthropic",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/customers/mid-ohio-food-collective",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-27T00:45:20+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Given the full FreshTrak codebase and a new state's regulations, Claude Code produced a working, tested implementation that respected how the platform was already built.",
+    "Engineers brief Claude Tag in Slack, and it works through the FreshTrak codebase, opens a pull request, and takes the team through rounds of review before anything reaches the CI/CD pipeline.",
+    "Ships new features from idea to production in 24 to 36 hours, down from two to three months."
+  ]
+}
