@@ -1,0 +1,158 @@
+{
+  "id": "cohere-ada-ai-agent-retrieval",
+  "slug": "cohere-ada-ai-agent-retrieval",
+  "vendor": "Cohere",
+  "customer_name": "Ada",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Ada's voice-support agents needed an online retrieval path that met a tighter latency budget while maintaining answer quality and multi-region, multi-tenant scale. Offline customer knowledge-base indexing also needed efficient bulk embedding.",
+  "solution_summary": "Ada split retrieval into separate online and offline workloads after benchmarking four embedding approaches against quality, latency, and scale. For offline knowledge-base indexing, Cohere Model Vault runs bulk embedding and ingestion on Cohere-managed dedicated infrastructure. For live retrieval, Ada self-hosts Cohere Embed on dedicated Amazon SageMaker AI instances, where the model converts customer content and queries into numerical representations for semantic matching. SageMaker AI's proximity to Ada's services helps fit the voice latency budget; Model Vault's managed autoscaling handles republishing spikes. Embed's native compression reduces vector storage needs without a measurable retrieval loss. Retrieved knowledge feeds Ada's Reasoning Engine so customer-specific AI agents can answer support conversations. The page names no vector database or separate query service.",
+  "products_used": [
+    "Cohere Model Vault",
+    "Cohere Embed",
+    "Amazon SageMaker AI",
+    "Ada's Reasoning Engine"
+  ],
+  "solution_components": [
+    {
+      "name": "Cohere Model Vault",
+      "role": "Runs private, bulk embedding and ingestion for offline customer knowledge-base indexing on Cohere-managed infrastructure.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cohere Embed",
+      "role": "Converts customer content and live queries into numerical representations for semantic retrieval.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Amazon SageMaker AI",
+      "role": "Hosts Ada's dedicated online Cohere Embed deployment for latency-sensitive retrieval.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Ada's Reasoning Engine",
+      "role": "Uses retrieved customer-specific information to support Ada's AI agents during customer-service conversations.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "For offline indexing, customer knowledge-base content is bulk-embedded through Cohere Model Vault. During live voice support, customer content and queries are represented by Cohere Embed on dedicated Amazon SageMaker AI instances; semantically relevant information is retrieved for the customer-specific agent running on Ada's Reasoning Engine to answer the conversation.",
+  "integration_points": [
+    "Ada's customer-specific knowledge bases",
+    "Ada's Reasoning Engine",
+    "Live voice customer-service conversations",
+    "Ada's existing AWS environment"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Cohere Embed on SageMaker AI delivered faster online retrieval with strong recall for Ada's agents, while Model Vault improved offline embedding cost efficiency. Native compression reduced vector storage needs without measurable retrieval degradation, supporting Ada's goal of successful customer resolutions.",
+  "outcome_category": [
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "90.7% top-10 recall",
+    "77 milliseconds (ms) median retrieval latency",
+    "approximately 2.7x greater throughput-per-dollar for offline embedding",
+    "4x reduction in vector storage footprint with no measurable retrieval degradation",
+    "15,000 evaluation queries"
+  ],
+  "architecture_clues": [
+    "Ada benchmarked four embedding approaches against online and offline workloads.",
+    "Cohere Model Vault uses dedicated Cohere-managed infrastructure and a managed autoscaler.",
+    "Cohere Embed runs on dedicated Amazon SageMaker AI instances for the online path.",
+    "The system serves thousands of customer knowledge bases, some containing tens of thousands of articles."
+  ],
+  "source_url": "https://cohere.com/customer-stories/ada",
+  "published_date": "2026-10-27",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2026-10-27",
+      "type": "Published on source page",
+      "publisher": "Cohere",
+      "url": "https://cohere.com/customer-stories/ada",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "AI agent retrieval: How Ada scales with Cohere | Cohere",
+      "publisher": "Cohere",
+      "url": "https://cohere.com/customer-stories/ada",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-10-27",
+      "published_date_source": "page",
+      "retrieved_at": "2026-10-28T00:36:39+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "For its online retrieval path, Ada self-hosts Cohere Embed on dedicated Amazon SageMaker AI instances.",
+    "With Cohere Embed on SageMaker AI, Ada achieved median retrieval latency of 77 milliseconds (ms).",
+    "For offline workloads, Model Vault delivered approximately 2.7x greater throughput-per-dollar than Ada's self-hosted setup.",
+    "The team reduced its vector storage footprint by 4x with no measurable retrieval degradation."
+  ]
+}

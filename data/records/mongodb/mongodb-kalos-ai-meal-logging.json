@@ -1,0 +1,168 @@
+{
+  "id": "mongodb-kalos-ai-meal-logging",
+  "slug": "mongodb-kalos-ai-meal-logging",
+  "vendor": "MongoDB",
+  "customer_name": "Kalos Personal Training",
+  "industry": "Travel and Hospitality",
+  "region": "Canada",
+  "company_size": "SMB",
+  "business_problem": "Kalos ran bookings, payroll, client tracking, and nutrition tracking from spreadsheets and manual processes. Its two coaches needed a shared platform for clients, trainers, and studio administrators without a dedicated operations team or a long infrastructure build.",
+  "solution_summary": "Kalos replaced spreadsheet-based bookings, payroll, client tracking, and nutrition logging with a web and iOS platform built around MongoDB Atlas. The team models nested training sessions and programs as documents, sharing TypeScript types and Zod schemas across an Express API and its web and mobile frontends. MongoDB Atlas stores operational records; transactions support payroll accuracy and session-balance changes create audit entries. For meal logging, clients photograph food or enter a short description, an unspecified LLM returns a nutritional breakdown, and corrections are saved back in MongoDB. Kalos runs alongside Google Cloud, Cloud Run, and Firebase Auth; updates reach client devices within seconds. The source does not identify the LLM provider or a separate vector-search component.",
+  "products_used": [
+    "MongoDB Atlas",
+    "Google Cloud",
+    "Cloud Run",
+    "Firebase Auth",
+    "Express API"
+  ],
+  "solution_components": [
+    {
+      "name": "MongoDB Atlas",
+      "role": "Stores the studio's training, program, client, and business records using a flexible document model.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Google Cloud",
+      "role": "Provides the cloud environment used alongside MongoDB Atlas for Kalos's application stack."
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Runs application services for the web and iOS platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Firebase Auth",
+      "role": "Provides authentication for the platform's clients, trainers, and administrators.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Express API",
+      "role": "Connects the platform frontends to shared application types, schemas, and MongoDB-backed workflows.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Clients photograph a meal or enter a short description; an LLM call returns a nutritional breakdown that is logged in the day's tracking, and corrections are stored back in MongoDB. Training, program, and session records are written through the Express API to MongoDB Atlas and appear on client devices within seconds.",
+  "integration_points": [
+    "Client meal photographs and descriptions",
+    "Kalos web and iOS applications",
+    "Express API",
+    "Google Cloud Run",
+    "Firebase Auth"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [],
+  "business_outcome": "Kalos moved from Google Sheets to a live iOS app and web platform in six weeks. The platform supports approximately 100 active clients, provides clients with up to seven years of training history, and is estimated to save $3,000-$5,000 per year compared with an off-the-shelf gym platform.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "six weeks",
+    "$3K-5K a year",
+    "around 100 active clients",
+    "up to 7 years of history",
+    "more than 100 TestFlight builds",
+    "tens of thousands of documents across roughly 40 collections",
+    "within seconds"
+  ],
+  "architecture_clues": [
+    "Nested training sessions and programs are modeled as MongoDB documents.",
+    "TypeScript types and Zod schemas are shared across the Express API and both frontends.",
+    "Multi-document transactions support payroll accuracy, and session-balance changes produce audit records.",
+    "The platform runs on a single MongoDB Atlas cluster across roughly 40 collections."
+  ],
+  "source_url": "https://www.mongodb.com/solutions/customer-case-studies/kalos",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-10-26",
+      "type": "Sitemap last modified",
+      "publisher": "MongoDB",
+      "url": "https://www.mongodb.com/solutions/customer-case-studies/kalos",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Kalos Personal Training Builds Studio Platform on MongoDB | MongoDB",
+      "publisher": "MongoDB",
+      "url": "https://www.mongodb.com/solutions/customer-case-studies/kalos",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-28T00:36:39+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Kalos built a web and iOS platform on MongoDB Atlas.",
+    "A client photographs a meal or types a short description of what they ate, and an LLM call returns a full nutritional breakdown logged straight into that day's tracking.",
+    "In six weeks we went from a Google Sheets workflow to a live iOS app and a full web platform.",
+    "Kalos estimates it saves $3,000 to $5,000 a year compared to what an off-the-shelf gym platform would cost.",
+    "When a trainer logs a session or updates a program, it appears on the client's device within seconds."
+  ]
+}
