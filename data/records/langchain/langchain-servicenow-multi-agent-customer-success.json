@@ -1,0 +1,122 @@
+{
+  "id": "langchain-servicenow-multi-agent-customer-success",
+  "slug": "langchain-servicenow-multi-agent-customer-success",
+  "vendor": "LangChain",
+  "customer_name": "ServiceNow",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "ServiceNow's agents were fragmented across the platform without a unified orchestration layer, making it difficult to coordinate workflows spanning lead qualification, sales, onboarding, adoption, renewal, and customer advocacy.",
+  "solution_summary": "ServiceNow's AI team is building a multi-agent system for sales and customer-success workflows using LangGraph for orchestration and LangSmith for observability and evaluation. A supervisor coordinates specialized agents activated by customer signals and lifecycle stages; agents can identify leads and opportunities, prepare communications, monitor application usage, and recommend next actions. LangGraph's map-reduce graphs, Send API, and reusable subgraphs support modular coordination, while human-in-the-loop controls let engineers pause, approve, rewind, or restart steps during development. LangSmith records inputs, outputs, context, latency, and token counts, and supports task-specific evaluators and datasets. ServiceNow is testing the system with QA engineers; the source does not describe a completed production rollout or measured business outcomes.",
+  "products_used": [
+    "LangGraph",
+    "LangSmith"
+  ],
+  "solution_components": [
+    {
+      "name": "LangGraph",
+      "role": "Coordinates a supervisor and specialized agents using modular graphs, subgraphs, triggers, and human-in-the-loop controls.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Traces agent inputs and outputs and supports custom evaluation, datasets, and regression testing.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Customer and lifecycle signals activate specialized agents coordinated by a LangGraph supervisor; agents prepare recommendations and actions for sales or customer-success staff. LangSmith captures each step's inputs, outputs, context, latency, and token counts, which the team uses to debug and evaluate agent behavior.",
+  "integration_points": [
+    "ServiceNow platform applications",
+    "ServiceNow knowledge graph",
+    "Model Context Protocol (MCP)",
+    "Account Executive and Customer Success Manager workflows",
+    "Customer lifecycle signals and application-usage data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Sales Automation"
+  ],
+  "business_outcome": "The system is intended to unify agent work across the customer lifecycle and help sellers and customer-success managers identify opportunities, prepare customer communications, and support adoption; it remains in testing in the source account.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Supervisor agent coordinates specialized subagents",
+    "LangGraph map-reduce graphs, Send API, and subgraphs are used",
+    "Human-in-the-loop controls support pausing, approval, rewind, and restart",
+    "ServiceNow reports a testing phase with QA engineers rather than a completed production rollout"
+  ],
+  "source_url": "https://blog.langchain.com/customers-servicenow/",
+  "published_date": "2025-11-17",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-11-17",
+      "type": "Published on source page",
+      "publisher": "LangChain",
+      "url": "https://blog.langchain.com/customers-servicenow/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How ServiceNow uses LangSmith to get visibility into its customer success agents",
+      "publisher": "LangChain",
+      "url": "https://blog.langchain.com/customers-servicenow/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2025-11-17",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-29T00:36:11+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“The architecture uses a supervisor agent for orchestration, with multiple specialized subagents handling specific tasks.”",
+    "“ServiceNow has integrated their knowledge graph and Model Context Protocol (MCP) with LangGraph to create a comprehensive technology stack for agent orchestration across their platform.”",
+    "“ServiceNow is currently in the testing phase with QA engineers evaluating agent performance.”"
+  ]
+}

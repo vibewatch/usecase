@@ -1,0 +1,168 @@
+{
+  "id": "google-cloud-rosebud-ai-game-generation",
+  "slug": "google-cloud-rosebud-ai-game-generation",
+  "vendor": "Google Cloud",
+  "customer_name": "Rosebud AI",
+  "industry": "Media and Entertainment",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Rosebud AI wanted to let people create, refine, and publish playable 2D and 3D games without coding expertise, while supporting real-time interactions, variable traffic, and affordable generation of code and creative assets.",
+  "solution_summary": "Rosebud AI consolidated its infrastructure on Google Cloud and uses Gemini models to turn natural-language game ideas into playable projects. A conversational agent guides users through a questionnaire, then a one-shot generator creates an initial game; Gemini 3 Flash is the primary generation model, while Gemini embeddings support 3D-asset retrieval and reranking. Cloud Run scales compute for traffic spikes, Cloud Tasks moves long-running builds off the browser request path, and Cloud Storage and Cloud SQL preserve project state so users can return to their work. Vision AI moderates images against Rosebud's content standards. The platform supports interactive browser games, but the source does not disclose a detailed data-ingestion or model-serving topology.",
+  "products_used": [
+    "Google Cloud",
+    "Gemini platform",
+    "Gemini 3 Flash",
+    "Gemini embeddings",
+    "Cloud Run",
+    "Cloud Tasks",
+    "Cloud Storage",
+    "Cloud SQL",
+    "Vision AI"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Cloud",
+      "role": "Provides the consolidated cloud infrastructure for Rosebud's game-creation platform."
+    },
+    {
+      "name": "Gemini platform",
+      "role": "Supports the conversational agent and generation workflows that interpret user game concepts.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini 3 Flash",
+      "role": "Serves as the primary model for fast, cost-conscious game generation.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini embeddings",
+      "role": "Power retrieval and reranking of existing 3D assets for generated games.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Dynamically scales platform compute to handle traffic surges.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Tasks",
+      "role": "Moves long-running game-build jobs off the main web path to keep the browser interface responsive.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Helps manage users' project state so they can return to their workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud SQL",
+      "role": "Helps manage users' project state so they can return to their workflows.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Vision AI",
+      "role": "Moderates images according to Rosebud's content standards.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "A user describes a game idea in the browser; a Gemini conversational agent helps refine it and a one-shot generator creates a playable version. Gemini embeddings retrieve and rerank existing 3D assets. Cloud Tasks offloads long builds, Cloud Run scales the service, Cloud Storage and Cloud SQL retain project state, and Vision AI moderates images.",
+  "integration_points": [
+    "Rosebud browser-based game-creation platform",
+    "User prompts and real-time audio, visual, and button inputs",
+    "Existing 3D asset collection",
+    "Cloud Storage and Cloud SQL project-state services"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "unknown"
+  ],
+  "business_outcome": "Rosebud reduces the time and technical skills needed to create playable games, while its cloud and AI stack supports millions of user-created games and traffic fluctuations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "More than 2.5 million user-created games",
+    "Average estimated cost of $0.12 per Gemini Flash model orchestrated generation request",
+    "Approximately 80% of 3D asset needs met using existing 3D assets",
+    "Cloud Run handles 100x+ traffic surges",
+    "Creators can generate and play a V1 game in less than two minutes",
+    "98.7% of one-shot generations used Gemini models in a 72-hour snapshot captured in June 2026"
+  ],
+  "architecture_clues": [
+    "Platform supports browser-based interactive games and real-time inputs",
+    "Three engineers support more than 2.5 million user-created games",
+    "Existing-asset retrieval and reranking reduce regeneration of 3D assets"
+  ],
+  "source_url": "https://cloud.google.com/customers/rosebudai",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Rosebud AI case study",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/rosebudai",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-29T00:36:04+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "region"
+      ]
+    }
+  ],
+  "field_sources": {
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“When a user would enter a prompt into Rosebud, a Gemini-powered conversational agent could walk them through a questionnaire to flesh out their concept.”",
+    "“It also uses Gemini embeddings to power 3D asset retrieval and a reranking engine.”",
+    "“Cloud Run helps the company dynamically scale compute resources to absorb 100x+ traffic surges effortlessly.”",
+    "“Cloud Storage and Cloud SQL help manage project states, so users can return to their workflows when they choose.”"
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "google-cloud-business-capital-ai-underwriting",
+  "slug": "google-cloud-business-capital-ai-underwriting",
+  "vendor": "Google Cloud",
+  "customer_name": "Business Capital",
+  "industry": "Financial Services",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Business Capital's underwriting and sales teams could not quickly retrieve more than 15 years of deal history, merchant notes, and business intelligence scattered across Salesforce, email, and internal records; manual document review and on-premises infrastructure also slowed operations.",
+  "solution_summary": "Business Capital moved its infrastructure to Google Cloud and uses managed Compute Engine and Cloud Run services, while Gemini provides natural-language access to its historical business information. Salesforce data lands continuously in BigQuery, merchant documents are retained in Cloud Storage, and employees query the unified data through tools they already use in Google Workspace. Gemini retrieves relevant statements, historical deals, and supporting details for underwriters and answers sales representatives' questions about past deal performance. The source also describes automatic extraction from bank-statement pages and existing cloud access controls, encryption, and audit records. It does not disclose a specific model version or detailed search-index design.",
+  "products_used": [
+    "Google Cloud",
+    "Compute Engine",
+    "Cloud Run",
+    "Salesforce",
+    "BigQuery",
+    "Cloud Storage",
+    "Gemini",
+    "Google Workspace"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Cloud",
+      "role": "Hosts Business Capital's cloud infrastructure after the company moved away from on-premises hosting."
+    },
+    {
+      "name": "Compute Engine",
+      "role": "Provides managed cloud infrastructure used to support Business Capital's platform.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Cloud Run",
+      "role": "Provides managed cloud services so the technical team no longer has to maintain hardware.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Salesforce",
+      "role": "Supplies deal data that is continuously loaded into BigQuery.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "BigQuery",
+      "role": "Stores Salesforce data as part of the unified, searchable business-data environment.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Cloud Storage",
+      "role": "Retains merchant documents, including bank statements used in underwriting.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini",
+      "role": "Lets employees query historical data in natural language and automatically reads and extracts information from bank-statement pages.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Google Workspace",
+      "role": "Provides the tools through which employees access Gemini and the unified information.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Salesforce data lands continuously in BigQuery, while merchant documents are retained in Cloud Storage. Gemini searches and analyzes this information in response to natural-language questions in Google Workspace, surfacing historical deals and extracting bank-statement details for underwriters and sales representatives.",
+  "integration_points": [
+    "Salesforce",
+    "Google Workspace",
+    "Business Capital email and internal records",
+    "Merchant bank statements and other documents",
+    "Underwriting and sales workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Enterprise Knowledge Search",
+    "Risk Management"
+  ],
+  "business_outcome": "Gemini helps Business Capital make underwriting decisions faster, increase weekly submission capacity without additional headcount, reduce manual data-search work for sales, and lower infrastructure costs.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "50% reduction in loan decision turnaround time",
+    "40% increase in weekly underwriting submissions",
+    "30% reduction in cloud infrastructure costs",
+    "86% reduction in document review time per submission",
+    "45% reduction in requests to operations for historical deal searches",
+    "About two hours of search time saved per employee every week",
+    "Sales representative ramp-up time reduced from six weeks to three"
+  ],
+  "architecture_clues": [
+    "Salesforce data lands continuously in BigQuery",
+    "Merchant documents are securely retained in Cloud Storage",
+    "Gemini processes roughly 40,000 bank-statement pages per month",
+    "Google Cloud access controls, encryption, and audit records support handling of sensitive financial information"
+  ],
+  "source_url": "https://cloud.google.com/customers/businesscapital",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Business Capital case study",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/businesscapital",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-29T00:36:04+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "region"
+      ]
+    }
+  ],
+  "field_sources": {
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“Data from Salesforce now lands continuously in BigQuery, while merchant documents are securely retained in Cloud Storage.”",
+    "“The system automatically reads and extracts data from roughly 40,000 bank statement pages per month, cutting document review time to just six minutes.”",
+    "“Business Capital has reduced underwriting decision turnarounds by up to 50%.”"
+  ]
+}

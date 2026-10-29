@@ -1,0 +1,146 @@
+{
+  "id": "langchain-dun-bradstreet-conversational-business-insights",
+  "slug": "langchain-dun-bradstreet-conversational-business-insights",
+  "vendor": "LangChain",
+  "customer_name": "Dun & Bradstreet",
+  "industry": "Commercial and Professional Services",
+  "region": "Global",
+  "company_size": "Unknown",
+  "business_problem": "Customers needed trusted answers from Dun & Bradstreet's extensive business data without manually searching multiple products and datasets, and high-stakes questions required transparent reasoning and data lineage.",
+  "solution_summary": "Dun & Bradstreet built ChatD&B as a conversational assistant that gives users real-time access to structured and unstructured business information. LangChain's agent framework connects language-model interactions to data blocks and traditional tools such as APIs, allowing the assistant to answer complex questions across business entities and domains including credit risk, sales, supply chain, and KYC. The system can explain which data informed an answer, while dynamic entitlements tailor access to users. LangSmith gives the data science team step-by-step traces, query comparisons, testing, and LLM-judge evaluation to improve groundedness and consistency. The source describes access to Dun & Bradstreet's curated business data but does not identify a specific model provider or disclose the retrieval and storage architecture.",
+  "products_used": [
+    "ChatD&B",
+    "LangChain",
+    "LangSmith",
+    "Dun & Bradstreet Data Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "ChatD&B",
+      "role": "Provides customers a conversational interface for querying Dun & Bradstreet business insights.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangChain",
+      "role": "Connects language-model interactions to data blocks and APIs so autonomous agents can retrieve and explain business information.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "LangSmith",
+      "role": "Traces agent decisions and supports testing, query comparison, and LLM-judge evaluation.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Dun & Bradstreet Data Cloud",
+      "role": "Provides the curated business data and entity information that underpins ChatD&B insights.",
+      "layer": "Storage"
+    }
+  ],
+  "data_flow": "A customer asks ChatD&B a business question; LangChain-enabled agents access relevant data blocks and APIs across structured and unstructured sources, then return an answer with its supporting data lineage. LangSmith traces the agent's steps and supports evaluation of response quality.",
+  "integration_points": [
+    "Dun & Bradstreet Data Cloud and curated business data",
+    "Traditional tools and APIs",
+    "Structured and unstructured data sources",
+    "Customer data entitlements"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search",
+    "Risk Management"
+  ],
+  "business_outcome": "ChatD&B lets customers retrieve and understand business insights conversationally, with source lineage and less manual searching across products and datasets.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Dun & Bradstreet's Data Cloud consists of 580+ million business entities",
+    "Serves over 240,000 clients in 200+ countries"
+  ],
+  "architecture_clues": [
+    "ChatD&B accesses structured and unstructured sources in real time",
+    "Dynamic data entitlements personalize the user experience",
+    "LangSmith traces agent decisions and supports LLM-judge evaluation"
+  ],
+  "source_url": "https://blog.langchain.dev/customers-dun-bradstreet/",
+  "published_date": "2024-11-18",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2024-11-18",
+      "type": "Published on source page",
+      "publisher": "LangChain",
+      "url": "https://blog.langchain.dev/customers-dun-bradstreet/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How Dun & Bradstreet’s ChatD&B uses LangChain and LangSmith to deliver trusted, data-driven AI insights",
+      "publisher": "LangChain",
+      "url": "https://blog.langchain.dev/customers-dun-bradstreet/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2024-11-18",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-29T00:36:08+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "region",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“ChatD&B provides users with real-time access to a vast array of diverse data sources, including structured and unstructured formats.”",
+    "“The ‘show your work’ framework make data sources and lineage explainable in ChatD&B so our users have the confidence in the quality and validity of the information presented.”",
+    "“LangSmith allows the team to see and monitor every decision made, compare new queries with historical data, and assess the overall quality of the responses.”"
+  ]
+}

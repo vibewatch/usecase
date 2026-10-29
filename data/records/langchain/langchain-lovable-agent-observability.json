@@ -1,0 +1,112 @@
+{
+  "id": "langchain-lovable-agent-observability",
+  "slug": "langchain-lovable-agent-observability",
+  "vendor": "LangChain",
+  "customer_name": "Lovable",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "As Lovable's AI-powered software-building platform grew, its team needed visibility into production agent interactions to diagnose issues, understand component behavior, and iterate on features efficiently.",
+  "solution_summary": "Lovable uses LangSmith to inspect and monitor the agentic interactions behind its AI-powered software-building platform. An admin-only control lets team members open a prompt in LangSmith, and its low-level API lets Lovable locate a production session and review the sequence of agent actions. Monitoring charts expose metric spikes, after which developers can inspect traces to identify bottlenecks and the components involved. The source describes LangSmith as an observability and debugging layer; it does not identify Lovable's model provider, data ingestion pipeline, or trace-storage design. Lovable reports that this visibility has improved debugging and supported faster resolution and continued agent iteration, while the platform itself lets users build applications through chat.",
+  "products_used": [
+    "LangSmith"
+  ],
+  "solution_components": [
+    {
+      "name": "LangSmith",
+      "role": "Provides production agent traces, monitoring charts, and session-level inspection so Lovable developers can diagnose and improve agent workflows.",
+      "layer": "Governance"
+    }
+  ],
+  "data_flow": "Lovable's production agent activity is associated with sessions in LangSmith; developers open a prompt or locate a session, inspect the sequence of agent actions and trace details, and use monitoring charts to find issues and improve workflows.",
+  "integration_points": [
+    "Lovable's production AI agent application",
+    "Lovable's admin-only prompt-to-LangSmith control",
+    "GitHub, where Lovable's code is stored"
+  ],
+  "technical_area": [
+    "Generative AI / LLM"
+  ],
+  "use_case_category": [
+    "unknown"
+  ],
+  "business_outcome": "LangSmith gives Lovable's developers visibility into agent behavior, helping them diagnose issues, improve debugging, collaborate, and continue iterating on the product.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "An admin-only button opens a prompt in LangSmith",
+    "LangSmith's low-level API can locate production sessions",
+    "Monitoring charts reveal metric spikes and allow developers to inspect problematic traces"
+  ],
+  "source_url": "https://blog.langchain.dev/customers-lovable/",
+  "published_date": "2025-03-25",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2025-03-25",
+      "type": "Published on source page",
+      "publisher": "LangChain",
+      "url": "https://blog.langchain.dev/customers-lovable/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How Lovable uses LangSmith to debug & monitor agents in production",
+      "publisher": "LangChain",
+      "url": "https://blog.langchain.dev/customers-lovable/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2025-03-25",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-10-29T00:36:11+00:00",
+      "supports": [
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "“By combining multiple requests in LangSmith with its low-level API, Lovable could pinpoint any session in production and instantly review the sequence of actions taken during the application's development.”",
+    "“Monitoring charts allowed Lovable to quickly see any spikes in metrics, and then double-click into any problematic traces to find the culprit.”",
+    "“LangSmith enabled Lovable to introspect anything in the agentic chain, reducing time spent diagnosing issues and speeding up resolution time.”"
+  ]
+}
