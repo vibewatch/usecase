@@ -1,0 +1,127 @@
+{
+  "id": "google-cloud-best-buy-conversational-analytics",
+  "slug": "google-cloud-best-buy-conversational-analytics",
+  "vendor": "Google Cloud",
+  "customer_name": "Best Buy",
+  "industry": "Retail",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "Best Buy's business teams often needed technical colleagues to write SQL queries or build custom dashboards when existing reports did not answer follow-up questions, slowing analysis and decision-making.",
+  "solution_summary": "Best Buy already operates automated data pipelines across enterprise domains and stores analytics data in BigQuery. When reports could not answer follow-up questions, users relied on colleagues to write SQL or build dashboards. Best Buy added Conversational Analytics, whose conversational data agents interface directly with the BigQuery datasets so business teams can ask natural-language questions and continue with multi-turn follow-ups against data they are authorized to access. The workflow reduces requests for new queries or dashboards, while platform administrators control agent creation, dataset authorization, and resource-level sharing; data-protection controls guard sensitive attributes. Best Buy and Google Cloud engineers refined knowledge sources and guardrails, validating answers against historical sales records to improve accuracy. The source does not describe changes to ingestion or storage architecture beyond existing pipelines and BigQuery.",
+  "products_used": [
+    "BigQuery",
+    "Conversational Analytics"
+  ],
+  "solution_components": [
+    {
+      "name": "BigQuery",
+      "role": "Stores the enterprise datasets that Best Buy's conversational agents query.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Conversational Analytics",
+      "role": "Provides conversational data agents for natural-language, multi-turn exploration of authorized BigQuery data.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Existing automated pipelines populate Best Buy's enterprise BigQuery datasets; Conversational Analytics agents query those datasets in natural-language, multi-turn sessions and return answers to business users, subject to dataset authorization, role-based access, and data-protection controls.",
+  "integration_points": [],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics"
+  ],
+  "use_case_category": [
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Business users can explore data themselves, reducing dependence on technical teams and shortening decision cycles. Best Buy says this supports more self-sufficient, confident, and faster planning and operational decisions.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Conversational agents interface directly with enterprise BigQuery datasets.",
+    "Agent creation is restricted to platform administrators; dataset authorization and resource-level sharing govern access.",
+    "Answers are validated against established historical sales records."
+  ],
+  "source_url": "https://cloud.google.com/customers/bestbuybq",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Best Buy case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/bestbuybq",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-10-30T00:37:48+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Best Buy deployed intelligent conversational data agents that interface directly with enterprise BigQuery datasets.",
+    "business users can engage in natural language and explore the data they already have access to.",
+    "The validation approach has improved response accuracy and built confidence among business teams."
+  ]
+}
