@@ -1,0 +1,146 @@
+{
+  "id": "microsoft-mv-transportation-predictive-maintenance",
+  "slug": "microsoft-mv-transportation-predictive-maintenance",
+  "vendor": "Microsoft",
+  "customer_name": "MV Transportation",
+  "industry": "Logistics",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "MV faced high safety-related costs and wanted to use data science to improve operations. For vehicle maintenance, it sought to identify likely failures sooner and adjust maintenance schedules rather than wait for buses to break down.",
+  "solution_summary": "MV Transportation applies AI in vehicle-safety scoring and predictive maintenance. For maintenance, it analyzes ten years of work-order history together with real-time vehicle telematics, including oil temperature and battery voltage sent through two data ports on each vehicle. The data goes to Microsoft Azure, where machine learning predicts which vehicles are most likely to fail; staff use those predictions to adjust maintenance schedules and repair buses before failure. The source also says AI evaluates camera-triggered events such as hard braking, rapid acceleration and sudden turns, and daily driver scores can trigger retraining or removal from the road. It does not identify a camera-analysis product, a named Azure machine-learning service, or the storage and data-serving architecture.",
+  "products_used": [
+    "Microsoft Azure"
+  ],
+  "solution_components": [
+    {
+      "name": "Microsoft Azure",
+      "role": "Runs the machine-learning analysis of vehicle work-order history and telematics to predict which vehicles are most likely to fail.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Ten years of work-order history and real-time vehicle telematics, including oil temperature and battery voltage, are sent from vehicle data ports to the Azure public cloud. Machine learning predicts likely vehicle failures, and MV uses the predictions to adjust maintenance schedules and repair buses before failure.",
+  "integration_points": [
+    "Vehicle telematics data ports",
+    "Vehicle work-order history",
+    "Vehicle cameras"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Predictive Maintenance"
+  ],
+  "business_outcome": "MV reports that its insurance rates dropped by more than $20 million after 18 months in the context of its AI-based driver evaluation. Predictive maintenance enables the company to adjust maintenance schedules and repair buses before failure.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "After 18 months, MV’s insurance rates have dropped by more than $20 million."
+  ],
+  "architecture_clues": [
+    "Two data ports on each vehicle send real-time telematics to the cloud.",
+    "Cameras are installed in 80 percent of vehicles and are triggered by events such as hard braking, rapid acceleration or sudden turning."
+  ],
+  "source_url": "https://dxc.com/insights/knowledge-base/paper/how-data-science-is-driving-digital-transformation-at-mv-transportation",
+  "published_date": "2026-02-09",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-02-09",
+      "type": "Published on source page",
+      "publisher": "DXC Technology",
+      "url": "https://dxc.com/insights/knowledge-base/paper/how-data-science-is-driving-digital-transformation-at-mv-transportation",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-28",
+      "type": "Sitemap last modified",
+      "publisher": "DXC Technology",
+      "url": "https://dxc.com/insights/knowledge-base/paper/how-data-science-is-driving-digital-transformation-at-mv-transportation",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How data science is driving digital transformation at MV Transportation | DXC Technology Insights",
+      "publisher": "DXC Technology",
+      "url": "https://dxc.com/insights/knowledge-base/paper/how-data-science-is-driving-digital-transformation-at-mv-transportation",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-02-09",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-11-02T04:20:59+00:00",
+      "supports": [
+        "customer_name",
+        "company_size",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "We take 10 years of work order history and analyze it, using standard tools in the Microsoft Azure cloud.",
+    "We also have two data ports on the vehicles that send real-time telematics back to the cloud.",
+    "Then we use machine learning in the Azure public cloud to make predictions on which vehicles are most likely to fail.",
+    "We use AI to help us evaluate these actions. Drivers are scored every day on their performance",
+    "After 18 months, MV’s insurance rates have dropped by more than $20 million."
+  ],
+  "source_type": "company"
+}

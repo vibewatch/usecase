@@ -1,0 +1,163 @@
+{
+  "id": "nvidia-tcs-telecom-field-audit-engineering-assurance",
+  "slug": "nvidia-tcs-telecom-field-audit-engineering-assurance",
+  "vendor": "NVIDIA",
+  "customer_name": "Tata Consultancy Services (TCS)",
+  "industry": "Commercial and Professional Services",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Telecom field audits rely on manual review of fragmented photographs, engineering documents, and site information, making it difficult to verify that deployed equipment conforms to approved designs and installation standards at scale.",
+  "solution_summary": "TCS evaluated NVIDIA Nemotron 3.5 Super VL in a telecom field-audit workflow ingesting photos, engineering drawings, inventories, site metadata, and installation standards. Document processing extracts text, tables, layout regions, and evidence coordinates, then routes schedules, layouts, and AC/DC schematics to relevant rules. Automated labeling pipelines using NVIDIA Physical AI Data Factory Blueprint adapt the model to customer equipment, targeting canonical IDs, evidence spans, and confidence. At inference, Nemotron returns ranked equipment candidates with visual/OCR evidence; normalization checks aliases, part numbers, and customer taxonomy. An audit engine compares observed configurations with approved designs and presents pass/fail findings, missing assets, deviations, and evidence references for human review. An authoritative catalog maintains datasheets, manuals, installation guides, and revisions. No separate data store or production serving platform is identified.",
+  "products_used": [
+    "NVIDIA Nemotron 3.5 Super VL",
+    "NVIDIA Physical AI Data Factory Blueprint"
+  ],
+  "solution_components": [
+    {
+      "name": "NVIDIA Nemotron 3.5 Super VL",
+      "role": "The evaluated multimodal model identifies equipment in field imagery and returns ranked candidates with confidence and visual or OCR evidence.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA Physical AI Data Factory Blueprint",
+      "role": "It is used in automated labeling pipelines to prepare customer-equipment targets for model adaptation."
+    }
+  ],
+  "data_flow": "Field photos, engineering drawing packs, inventories, site metadata, and standards enter document processing for extraction and page routing. The model identifies equipment and returns visual/OCR evidence; normalization checks candidates against customer taxonomy and an authoritative catalog. The audit engine compares observed configurations with approved designs and sends structured findings and evidence references to qualified reviewers, with ambiguous or low-confidence cases routed for human review.",
+  "integration_points": [
+    "Field operations photographs, including cabinet interiors and nameplate crops",
+    "Engineering drawing packs, including equipment schedules, layouts, and AC/DC schematics",
+    "Equipment inventories, site metadata, and installation standards",
+    "Authoritative customer catalog containing datasheets, manuals, installation guides, and revision history",
+    "Qualified engineering reviewers"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Security and Compliance"
+  ],
+  "business_outcome": "The evaluation reported higher benchmark accuracy and lower inference latency than comparable models. The article describes faster work-order acceptance, less manual checking and rework, and stronger contractor auditability as intended operational benefits; it does not report measured production impact.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction",
+    "Compliance",
+    "Speed to Market",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "89.1% accuracy (compared to 73.9% for comparable models)",
+    "Average latency per task: 5.04 seconds versus 29.70 seconds for a comparable model setup",
+    "about 5.9x latency reduction",
+    "Accuracy (Macro): 82.2% versus 74.7%",
+    "Medium-difficulty task accuracy: 97.6% versus 80.5%",
+    "Complex state classification: 100.0% accuracy versus 66.7%",
+    "up to 100.0% accuracy",
+    "20% to 22% improvement over the baseline model"
+  ],
+  "architecture_clues": [
+    "Evaluated under early access on dedicated infrastructure.",
+    "Customer-specific domain adaptation targets canonical product IDs, evidence spans, and confidence levels.",
+    "Uses confidence thresholds, exception routing, deterministic validation, and qualified human review.",
+    "No separate data-store or production serving platform is identified."
+  ],
+  "source_url": "https://www.tcs.com/insights/blogs/multimodal-ai-reliable-evidence-based-engineering-assurance",
+  "published_date": "2026-10-27",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-10-27",
+      "type": "Published on source page",
+      "publisher": "Tata Consultancy Services",
+      "url": "https://www.tcs.com/insights/blogs/multimodal-ai-reliable-evidence-based-engineering-assurance",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-28",
+      "type": "Sitemap last modified",
+      "publisher": "Tata Consultancy Services",
+      "url": "https://www.tcs.com/insights/blogs/multimodal-ai-reliable-evidence-based-engineering-assurance",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Multimodal AI for Reliable, Evidence-based Engineering Assurance",
+      "publisher": "Tata Consultancy Services",
+      "url": "https://www.tcs.com/insights/blogs/multimodal-ai-reliable-evidence-based-engineering-assurance",
+      "source_type": "Company-published use-case article",
+      "authority": "First-party",
+      "published_date": "2026-10-27",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-11-02T04:21:14+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "TCS evaluated NVIDIA Nemotron 3.5 Super VL for a multimodal field-audit workflow",
+    "The pipeline ingests field operations photographs, cabinet interiors, nameplate crops, engineering drawing packs, equipment inventories, site metadata, and installation standards.",
+    "NVIDIA Nemotron 3.5 Super VL delivered an 89.1% accuracy ... with an average inference latency of 5.04 seconds per task",
+    "Human review is a control, not a fallback"
+  ],
+  "source_type": "company"
+}
