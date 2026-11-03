@@ -1,0 +1,119 @@
+{
+  "id": "alibaba-cloud-hegui-technology-ai-operations",
+  "slug": "alibaba-cloud-hegui-technology-ai-operations",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Hegui Technology (和贵科技)",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Hegui Technology's multi-tenant SaaS operations faced fragmented logs, metrics, and traces across technology stacks, growing alert volumes that required noise reduction and prioritization, and inspections and root-cause diagnosis that depended on senior engineers' experience. The company sought to detect risks proactively and automate cross-system diagnosis.",
+  "solution_summary": "Hegui Technology's multi-tenant SaaS operations rely on Cloud Monitor 2.0 to collect and standardize logs, metrics, and traces from Alibaba Cloud products, microservices, and cloud resources, giving operators a shared view of end-to-end commerce and membership flows. STAROps adds AI-assisted operations: hourly inspection jobs on core paths detect potential anomalies, perform root-cause analysis, and generate reports for targeted remediation. When alerts trigger, STAROps summarizes events, identifies noise, helps optimize alert rules, and associates alerts with AI diagnosis so on-call staff can locate key issues and receive actionable guidance in the same operational workflow. Hegui codifies senior engineers' inspection and diagnosis procedures as STAROps digital-employee rules and long-running tasks, supporting consistent response and reuse of expertise. No data store, underlying model, or external API is named.",
+  "products_used": [
+    "Cloud Monitor 2.0",
+    "STAROps"
+  ],
+  "solution_components": [
+    {
+      "name": "Cloud Monitor 2.0",
+      "role": "Collects and standardizes logs, metrics, and traces from cloud products, microservices, and cloud resources.",
+      "layer": "Ingest"
+    },
+    {
+      "name": "STAROps",
+      "role": "Runs proactive AI inspections, summarizes alerts, and performs root-cause diagnosis to guide operations staff."
+    }
+  ],
+  "data_flow": "Logs, metrics, and traces from cloud products, microservices, and cloud resources are collected and standardized in Cloud Monitor 2.0. STAROps runs hourly inspections and analyzes alerts and root causes, producing reports and actionable guidance for operations staff.",
+  "integration_points": [
+    "Cloud products and cloud resources emitting logs, metrics, and traces",
+    "Hegui Technology's microservices and core SaaS services, including Hema Zhilian and Feima Field Service"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Hegui Technology reports that AI inspections and alert diagnosis move risk handling earlier, shorten alert response, preserve stable operation of core SaaS services, reuse senior engineers' expertise, and shorten new-hire ramp-up.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "Core-path alert-handling SOP coverage approaches 100%",
+    "Troubleshooting experience reused 100%",
+    "New-hire ramp-up time shortened by about 50%"
+  ],
+  "architecture_clues": [
+    "SaaS services use a multi-tenant architecture with microservice clusters.",
+    "STAROps schedules hourly inspections on core service paths.",
+    "Senior engineers' inspection and diagnosis procedures are stored as STAROps digital-employee rules and long-running tasks."
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-hegui-technology",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_language": "zh",
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Hegui Technology uses Cloud Monitor 2.0 and STAROps for proactive intelligent operations transformation",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/internet-and-info-tech-2026-hegui-technology",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-03T00:30:58+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Cloud Monitor 2.0 centrally ingests and standardizes logs, metrics, and traces from cloud products, microservices, and cloud resources (original: 依托云监控 2.0 集中接入并标准化处理云产品、微服务和云资源的日志、指标与链路数据)",
+    "STAROps schedules hourly inspection tasks on core paths, automatically detects potential anomalies, completes root-cause analysis, and produces inspection reports (original: 通过 STAROps 对核心链路设置按小时巡检任务，自动发现潜在异常并完成根因分析，输出巡检报告)",
+    "New-hire ramp-up time shortened by about 50% (original: 新人上手周期缩短 50%)"
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "id": "google-cloud-haya-therapeutics-literature-synthesis",
+  "slug": "google-cloud-haya-therapeutics-literature-synthesis",
+  "vendor": "Google Cloud",
+  "customer_name": "HAYA Therapeutics",
+  "industry": "Healthcare",
+  "region": "Switzerland, United States",
+  "company_size": "Unknown",
+  "business_problem": "HAYA Therapeutics' on-premises hardware constrained the processing of high-resolution multiomics data, leaving data scientists competing for compute and spending time managing servers. Manual synthesis of scientific literature, patents, and clinical trials could take weeks, while an on-premises AI system would be costly and difficult to scale securely.",
+  "solution_summary": "HAYA Therapeutics uses Google Cloud for two linked workloads. For computational biology, automated pipelines ingest and preprocess expanding high-resolution multiomics and single-cell datasets, with Compute Engine providing compute for intensive workflows and elastic capacity for data bursts. Separately, HAYA and partner Zazmic built an in-house agent framework with Gemini; researchers use no-code visual interfaces to deploy agents that search and summarize unstructured scientific articles, patents, and clinical trials. Gemini's federated search reaches external public sources without requiring HAYA to centralize all source data first, and the resulting summaries support interpretation of discovered regulatory-RNA targets. Researchers use the outputs in biological analysis and hypothesis testing. The story does not identify a storage product, specific external-source API, or separate serving system, so those implementation details remain unspecified.",
+  "products_used": [
+    "Compute Engine",
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Compute Engine",
+      "role": "Runs HAYA's intensive computational-biology and data-preprocessing workflows without the former on-premises hardware limits.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Gemini",
+      "role": "Powers agents that federate searches and summarize scientific literature, patents, and clinical trials for researchers."
+    }
+  ],
+  "data_flow": "High-resolution multiomics and single-cell datasets are ingested and preprocessed on Google Cloud using Compute Engine. In a separate literature workflow, Gemini agents federate searches across external scientific articles, patents, and clinical-trial sources, then summarize results for researchers; the page says these sources need not be centralized and does not identify a storage tier.",
+  "integration_points": [
+    "External scientific articles",
+    "Patents",
+    "Clinical trials"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "HAYA reports faster multiomics processing and literature synthesis, fewer hardware bottlenecks, and more researcher time for biological analysis and drug-discovery work.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Scalability"
+  ],
+  "metrics": [
+    "30% faster multiomics data processing",
+    "10x faster scientific literature synthesis"
+  ],
+  "architecture_clues": [
+    "Automated pipelines scale compute resources for data bursts.",
+    "Gemini agents use federated search across external public sources without centralizing all source data.",
+    "Researchers deploy agents through no-code visual interfaces."
+  ],
+  "source_url": "https://cloud.google.com/customers/haya-therapeutics",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "HAYA Therapeutics case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/haya-therapeutics",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-03T00:30:58+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "30% faster multiomics data processing with automated pipelines",
+    "10x faster scientific literature synthesis with Gemini",
+    "Using federated search with Gemini, the company searches securely across external public sources."
+  ]
+}
