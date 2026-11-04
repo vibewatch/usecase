@@ -1,0 +1,184 @@
+{
+  "id": "databricks-megacable-real-time-ai-agent-context",
+  "slug": "databricks-megacable-real-time-ai-agent-context",
+  "vendor": "Databricks",
+  "customer_name": "Megacable",
+  "industry": "Telecommunications",
+  "region": "Mexico",
+  "company_size": "Unknown",
+  "business_problem": "Megacable's business teams waited days or weeks for IT to answer data questions, while legacy APIs took 1 to 2 minutes to return subscriber context to live voice agents and could stop responding at peak call volumes.",
+  "solution_summary": "Megacable runs the Databricks Data + AI Platform on AWS to serve two connected workloads: self-service analytics and low-latency context for AI voice agents. Source-system data is transformed through bronze, silver and gold layers, curated as governed tables in Unity Catalog, and published to Lakebase Postgres as agent-ready subscriber context. The agents retrieve balances, debt details and offers through data APIs during calls; Lakebase separates compute from storage and autoscaling keeps those APIs responsive at peak traffic. In parallel, business data owners use Genie Agents for operational questions and Genie One skills to bind business context to approved data sources and return consistent KPI answers; Genie Code assists engineers, while AI/BI Dashboards combine census and customer records for prospect mapping. Dedicated API schemas and per-agent service principals constrain access.",
+  "products_used": [
+    "Databricks Data + AI Platform",
+    "AWS",
+    "Lakebase Postgres",
+    "Unity Catalog",
+    "Genie Agents",
+    "Genie One",
+    "Genie Code",
+    "AI/BI Dashboards"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Data + AI Platform",
+      "role": "Provides the governed data and real-time AI foundation deployed by Megacable."
+    },
+    {
+      "name": "AWS",
+      "role": "Hosts Megacable's Databricks deployment."
+    },
+    {
+      "name": "Lakebase Postgres",
+      "role": "Stores agent-ready subscriber context and serves it to voice agents through low-latency APIs.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Catalogs and governs the curated tables used by business data owners.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Genie Agents",
+      "role": "Let contact center and finance teams ask operational questions about their data."
+    },
+    {
+      "name": "Genie One",
+      "role": "Uses skills that pair business context with data sources to return consistent answers to company-wide questions."
+    },
+    {
+      "name": "Genie Code",
+      "role": "Helps data engineers develop against Megacable's notebooks and platform objects."
+    },
+    {
+      "name": "AI/BI Dashboards",
+      "role": "Combine census and customer records to map prospects by region and exclude existing customers."
+    }
+  ],
+  "data_flow": "Source-system data moves through bronze, silver and gold layers, is curated in Unity Catalog, and is published to Lakebase Postgres. AI voice agents retrieve subscriber context through data APIs; business users query governed data with Genie Agents and Genie One, while census and customer records feed AI/BI Dashboards.",
+  "integration_points": [
+    "Megacable source systems",
+    "AI voice agents accessing Lakebase data APIs",
+    "National census data",
+    "Customer records",
+    "Revenue assurance dashboards"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "Data Analytics",
+    "Data Platform",
+    "Contact Center"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "Enterprise Knowledge Search",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "AI agents now retrieve subscriber context in milliseconds at low cost, while self-service Genie tools let business teams answer data questions without waiting in IT ticket queues. Contact center teams identified the leading call driver, and finance teams use Genie Agents to detect revenue anomalies.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "1-2 minutes → milliseconds",
+    "<$1,000/month",
+    "hundreds of thousands of customers",
+    "thousands of concurrent users",
+    "Weeks → minutes"
+  ],
+  "architecture_clues": [
+    "Source data passes through bronze, silver and gold layers.",
+    "Lakebase Postgres separates compute from storage and scales automatically.",
+    "Megacable exposes a dedicated API schema and assigns each agent its own service principal."
+  ],
+  "source_url": "https://www.databricks.com/customers/megacable",
+  "published_date": "2026-11-02",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-11-02",
+      "type": "Published on source page",
+      "publisher": "Databricks",
+      "url": "https://www.databricks.com/customers/megacable",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Megacable Powers Real-Time AI With Lakebase and Genie | Databricks",
+      "publisher": "Databricks",
+      "url": "https://www.databricks.com/customers/megacable",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-11-02",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-11-04T00:32:03+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Data moves from source systems through bronze, silver and gold layers before being published to Lakebase.",
+    "Subscriber context retrieval dropped from 1 to 2 minutes to milliseconds during live calls, while Lakebase serves hundreds of thousands of subscribers and thousands of concurrent users for under $1,000 a month.",
+    "Dedicated API schemas and per-agent service principals constrain access."
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "id": "tcs-tata-chemicals-generative-ai-maintenance",
+  "slug": "tcs-tata-chemicals-generative-ai-maintenance",
+  "vendor": "TCS",
+  "customer_name": "Tata Chemicals Limited",
+  "industry": "Manufacturing",
+  "region": "India",
+  "company_size": "Unknown",
+  "business_problem": "Tata Chemicals technicians had to navigate extensive maintenance documentation for complex equipment spanning generations of engineering, which slowed fault resolution and made onboarding difficult.",
+  "solution_summary": "Tata Chemicals deployed Samartha Sarathi, a GenAI advisor for factory technicians, using Microsoft Azure and Azure OpenAI to make maintenance knowledge conversational. The project digitizes manuals, specifications, SOPs and troubleshooting guides into searchable content; technicians use free-text chat or voice-in/voice-out to ask about machine operation, diagnose faults, explore root causes and get recommended fixes. Azure OpenAI responses can include tagged equipment images, and Azure Translation services, fine-tuned for Gujarati, localize guidance for technicians. The implementation began with auto-packer troubleshooting and is extending to drives, generators, filtration-plant automation and instruments. The source does not identify a specific document-ingestion, vector-store, or data-management product, so those lower-level components are not inferred.",
+  "products_used": [
+    "Samartha Sarathi",
+    "Microsoft Azure",
+    "Azure OpenAI",
+    "Azure Translation services"
+  ],
+  "solution_components": [
+    {
+      "name": "Samartha Sarathi",
+      "role": "Provides technicians with an AI advisor for equipment troubleshooting and maintenance guidance."
+    },
+    {
+      "name": "Microsoft Azure",
+      "role": "Provides the cloud capabilities used to build the tailored generative AI solution."
+    },
+    {
+      "name": "Azure OpenAI",
+      "role": "Generates conversational answers and troubleshooting guidance from maintenance knowledge.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Azure Translation services",
+      "role": "Localizes technical guidance for technicians, with support fine-tuned for Gujarati.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Maintenance manuals, specifications, SOPs and troubleshooting guides are digitized and made searchable. Technicians submit free-text or voice questions; Azure OpenAI provides guidance, tagged equipment images can add visual context, and Azure Translation services localize responses for Gujarati-speaking users.",
+  "integration_points": [
+    "Equipment manuals, specifications, SOPs and troubleshooting guides",
+    "Tagged machinery images",
+    "Technician voice input and output"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "Samartha Sarathi improves technician productivity by making maintenance knowledge easier to access and enabling 20% faster repairs with reduced mean time to resolution. TCS also reports reduced downtime and increased production-line availability.",
+  "outcome_category": [
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "20% faster repairs"
+  ],
+  "architecture_clues": [
+    "Supports free-text and voice-in/voice-out interaction.",
+    "Responses can include tagged machinery images.",
+    "Azure Translation services were fine-tuned to support Gujarati."
+  ],
+  "source_url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tata-chemicals-reimagines-plant-maintenance-generative-ai",
+  "published_date": "2026-11-02",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-11-02",
+      "type": "Published on source page",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tata-chemicals-reimagines-plant-maintenance-generative-ai",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Tata Chemicals Reimagines Plant Maintenance with Generative AI",
+      "publisher": "TCS",
+      "url": "https://www.tcs.com/what-we-do/services/cloud/case-study/tata-chemicals-reimagines-plant-maintenance-generative-ai",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-11-02",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-11-04T00:32:05+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "This solution is designed to streamline documentation access, enhance fault detection, and improve workforce competency across diverse manufacturing locations.",
+    "Azure OpenAI responses are enhanced with tagged images of machinery.",
+    "This resulted in 20% faster repairs and reduced MTTR."
+  ]
+}
