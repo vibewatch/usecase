@@ -1,0 +1,144 @@
+{
+  "id": "google-cloud-national-laboratory-of-the-rockies-autonomous-microscopy",
+  "slug": "google-cloud-national-laboratory-of-the-rockies-autonomous-microscopy",
+  "vendor": "Google Cloud",
+  "customer_name": "National Laboratory of the Rockies",
+  "industry": "Public Sector",
+  "region": "Golden, Colorado, United States",
+  "company_size": "Public sector",
+  "business_problem": "Researchers at the Department of Energy's National Laboratory of the Rockies spent more than 90 minutes calibrating a transmission electron microscope, making dozens of manual adjustments. Subjective image assessment and repetitive operations slowed materials research and could allow important signals to be missed.",
+  "solution_summary": "NLR replaced lengthy manual microscope setup and subjective focusing with an autonomous agentic system built on Gemini and described as running on Google Cloud. Researchers issue plain-language instructions; a router directs questions to a conversational agent and hardware requests to a control agent. For physical actions, the control layer is limited to approved instrument commands and presents its plan for researcher approval before movement. The agents ground decisions in a live retrieval-augmented knowledge base built from laboratory documentation, microscope manuals, and prior experimental results, while interpreting microscope images, spectra, instrument settings, and computed clarity metrics. The workflow can calibrate and navigate instruments, then support unattended overnight testing. The page does not identify separate ingestion, storage, or Google Cloud service products, so those infrastructure details are left unspecified.",
+  "products_used": [
+    "Gemini"
+  ],
+  "solution_components": [
+    {
+      "name": "Gemini",
+      "role": "Reasons over laboratory documentation and multimodal instrument data to guide microscope workflows.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Microscope images, spectra, live instrument parameters, laboratory documentation, manuals, and prior experimental results ground a live retrieval-augmented knowledge base; the agentic system uses Gemini to reason over them, routes hardware requests through an approved-command control layer, and presents a proposed plan for researcher approval before controlling the microscope.",
+  "integration_points": [
+    "Transmission electron microscopes",
+    "Laboratory instrument data",
+    "Laboratory documentation and instrument manuals",
+    "Prior experimental results"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [],
+  "business_outcome": "The autonomous workflow accelerates materials discovery by reducing microscope calibration and focusing work and enabling extended unattended runs, while keeping researchers in control of consequential actions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "8x from 90+ minutes to 13 minutes",
+    "96% reduction in manual microscope focusing steps",
+    "50x efficiency gain in instrument navigation and imaging",
+    "12+ hours of automated testing after hours on Gemini"
+  ],
+  "architecture_clues": [
+    "A router agent delegates between conversational and control agents.",
+    "The live RAG knowledge base uses laboratory instrument data and documentation.",
+    "Hardware control is restricted to approved instrument commands and requires researcher approval."
+  ],
+  "source_url": "https://cloud.google.com/customers/national-laboratory-of-the-rockies",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "National Laboratory of the Rockies case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/national-laboratory-of-the-rockies",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-05T00:32:07+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Before deploying Google AI, calibrating a single transmission electron microscope could take more than 90 minutes, requiring dozens of manual lens and beam adjustments.",
+    "The platform enables scientists to direct complex laboratory equipment using natural language prompts in Gemini, transforming AI into an agentic system that executes physical tasks.",
+    "The platform proposes a plan, shows its reasoning, and waits for approval before anything moves.",
+    "The agentic architecture underlying NLR's autonomous workflows. A router agent delegates between conversational and control agents, both grounded in a live RAG knowledge base built from the lab's own instrument data and documentation.",
+    "For instrument navigation and imaging, operators achieved a 50-fold efficiency gain by executing interactions through the platform."
+  ]
+}
