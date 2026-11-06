@@ -1,0 +1,154 @@
+{
+  "id": "google-cloud-chargepoint-ai-data-assistant",
+  "slug": "google-cloud-chargepoint-ai-data-assistant",
+  "vendor": "Google Cloud",
+  "customer_name": "ChargePoint",
+  "industry": "Energy",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "ChargePoint's charging-session data was fragmented across seven systems, resulting in slow queries, infrastructure maintenance overhead, and difficulty scaling analytics as data volumes grew.",
+  "solution_summary": "ChargePoint consolidated its global EV charging data lake from seven systems onto Snowflake AI Data Cloud running on Google Cloud. The unified Snowflake dataset supports the company's growing charging-session data and provides native access to Gemini models without the latency and cost of moving data across cloud regions. ChargePoint embedded a natural-language Data Assistant in its application for workplace charging administrators, fleet managers, and commercial operators. Gemini Flash and Pro translate questions into data queries, run automated safety checks, and return real-time visualizations so customers can inspect charger uptime, high-traffic locations, and fleet-routing opportunities. The story describes the unified data platform and its application-facing assistant, but does not identify source-system products, ingestion tooling, or the specific query and visualization services.",
+  "products_used": [
+    "Google Cloud",
+    "Snowflake AI Data Cloud",
+    "Gemini Flash",
+    "Gemini Pro"
+  ],
+  "solution_components": [
+    {
+      "name": "Google Cloud",
+      "role": "Hosts ChargePoint's Snowflake environment and provides native access to Gemini models in the same cloud ecosystem.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowflake AI Data Cloud",
+      "role": "Consolidates ChargePoint's fragmented EV charging data into a unified dataset for analytics.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Gemini Flash",
+      "role": "Powers the natural-language Data Assistant that interprets customer questions and produces data insights."
+    },
+    {
+      "name": "Gemini Pro",
+      "role": "Powers the natural-language Data Assistant that interprets customer questions and produces data insights."
+    }
+  ],
+  "data_flow": "ChargePoint consolidates charging-session data from seven legacy systems into Snowflake AI Data Cloud on Google Cloud. In the embedded Data Assistant, Gemini translates a user's natural-language question into a query against the Snowflake dataset, performs safety checks, and returns real-time visualizations in the ChargePoint application.",
+  "integration_points": [
+    "ChargePoint application",
+    "Workplace charging administrators, fleet managers, and commercial operators"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Real-time Analytics",
+    "Data Lake / Data Warehouse Modernization"
+  ],
+  "business_outcome": "ChargePoint consolidated seven data platforms into one, supports 40% year-over-year charging-session data growth with high performance and scaling, and provides customers natural-language self-service analytics. The transition also freed data analysts from manually preparing reports so they could move into data engineering work.",
+  "outcome_category": [
+    "Scalability",
+    "Productivity Improvement",
+    "Customer Experience",
+    "Cost Reduction"
+  ],
+  "metrics": [
+    "Consolidated seven data platforms onto one platform",
+    "Supports 40% annual session data growth with high performance and simple scaling",
+    "Migrated data without user disruption",
+    "Data analysts transitioned to data engineering"
+  ],
+  "architecture_clues": [
+    "Snowflake AI Data Cloud runs on Google Cloud to avoid latency and data-transfer costs across regions.",
+    "The natural-language Data Assistant is embedded in the ChargePoint application.",
+    "Gemini Flash and Pro perform query interpretation, automated safety checks, and response visualization."
+  ],
+  "source_url": "https://cloud.google.com/customers/chargepoint",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "ChargePoint case study | Google Cloud",
+      "publisher": "Google Cloud",
+      "url": "https://cloud.google.com/customers/chargepoint",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-06T00:36:49+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "evidence_quotes"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "evidence_quotes": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "Historically, the company's data was fragmented across seven systems.",
+    "Gemini translates those natural language requests into complex data queries against Snowflake's unified dataset, conducts automated safety checks, and returns real-time visualizations and charts.",
+    "supports 40% year-over-year growth in charging session data",
+    "Data analysts who spent their days manually building reports for internal stakeholders have transitioned into full-fledged data engineers"
+  ]
+}
