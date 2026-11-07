@@ -1,0 +1,172 @@
+{
+  "id": "databricks-aurasell-real-time-ai-sales-agent-serving",
+  "slug": "databricks-aurasell-real-time-ai-sales-agent-serving",
+  "vendor": "Databricks",
+  "customer_name": "Aurasell",
+  "industry": "Software / SaaS",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Aurasell's AI agents and dashboards generate roughly 300 to 400 queries per second, but its traditional data warehouse averaged one-to-two-second query times and required multiple clusters for concurrency. Copying data to a separate serving system risked silos, inconsistent answers, and restricted joins.",
+  "solution_summary": "Aurasell keeps its data in the Databricks Lakehouse and uses Lakehouse//RT as the real-time serving tier for AI agents and in-product dashboards. The team routes 80% of analytics and data-discovery queries to Lakehouse//RT; a single cluster handles 300 concurrent queries that previously required multiple warehouse clusters. Unity Catalog governs the shared data copy, so agents can join tables without replicating hot data into an external serving store. Unity Gateway handles AI model routing on the same platform. This avoids data migration and a separate serving layer while supporting millisecond query response. The source does not identify the upstream systems feeding the lakehouse or the exact ingestion implementation.",
+  "products_used": [
+    "Databricks Lakehouse",
+    "Lakehouse//RT",
+    "Unity Catalog",
+    "Unity Gateway"
+  ],
+  "solution_components": [
+    {
+      "name": "Databricks Lakehouse",
+      "role": "Holds Aurasell's data as the shared data foundation for analytics and AI workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Lakehouse//RT",
+      "role": "Serves real-time analytics and data-discovery queries from agents and in-product dashboards.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Unity Catalog",
+      "role": "Governed the single copy of data that agents query and join across tables.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Unity Gateway",
+      "role": "Routes AI model requests within Aurasell's consolidated platform.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "Aurasell keeps its data in the Databricks Lakehouse; AI model requests are routed through Unity Gateway, while analytics and data-discovery queries from agents and in-product dashboards go to Lakehouse//RT. Unity Catalog governs the shared data copy that agents query directly, avoiding replication to an external serving store.",
+  "integration_points": [
+    "Aurasell AI agents",
+    "Aurasell in-product dashboards"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Data Analytics",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Sales Automation",
+    "Real-time Analytics"
+  ],
+  "business_outcome": "Aurasell reduced real-time serving costs by 7x, achieved query latency of 50 to 300 milliseconds at p90 depending on workload, and eliminated the separate real-time serving layer while keeping agents on one governed copy of data.",
+  "outcome_category": [
+    "Cost Reduction",
+    "Scalability",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "7x lower serving cost",
+    "Up to 5x faster queries",
+    "50 to 300 milliseconds at p90",
+    "one-to-two-second average",
+    "300 to 400 queries per second",
+    "80% of analytics and data discovery queries",
+    "300 concurrent queries",
+    "950 million+ contacts",
+    "84 million+ accounts"
+  ],
+  "architecture_clues": [
+    "A single Lakehouse//RT cluster handles 300 concurrent queries.",
+    "Agents and dashboards generate roughly 300 to 400 queries per second around the clock.",
+    "Aurasell's platform includes 950 million+ contacts and 84 million+ accounts out of the box."
+  ],
+  "source_url": "https://www.databricks.com/customers/aurasell",
+  "published_date": "2026-11-06",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-11-06",
+      "type": "Published on source page",
+      "publisher": "Databricks",
+      "url": "https://www.databricks.com/customers/aurasell",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Aurasell powers AI sales agents 5x faster, at 7x lower cost with Lakehouse//RT | Databricks",
+      "publisher": "Databricks",
+      "url": "https://www.databricks.com/customers/aurasell",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-11-06",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-11-07T00:33:58+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "technical_area",
+        "use_case_category",
+        "business_outcome",
+        "outcome_category",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "technical_area": [
+      "primary-story"
+    ],
+    "use_case_category": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "outcome_category": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "A single Lakehouse//RT cluster handles 300 concurrent queries that previously required multiple warehouse clusters.",
+    "Aurasell reduced real-time serving costs by 7x.",
+    "Queries now return in 50 to 300 milliseconds at p90 depending on workload complexity."
+  ]
+}
