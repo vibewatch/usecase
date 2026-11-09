@@ -1,0 +1,196 @@
+{
+  "id": "in-house-geico-cdp-ai-copilot-natural-language-graph-query",
+  "slug": "in-house-geico-cdp-ai-copilot-natural-language-graph-query",
+  "vendor": "In-house",
+  "customer_name": "GEICO",
+  "source_type": "company",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "GEICO's customer data platform contained interconnected policies, claims, quotes, and relationships, but internal teams needed API integrations or deep schema knowledge to query it. This limited access, slowed answers, and made teams dependent on engineering for routine data questions.",
+  "solution_summary": "GEICO built CDP AI-Copilot in-house for natural-language access to its transactional customer graph and metadata catalog. For evaluation, six months of production history was snapshotted to a GEICO training cluster and PII-masked; the production copilot accesses CDP graph and metadata APIs. The intent layer embeds a curated query set with nomic 1.5 and stores examples in PG vector, retrieving similar prompts at runtime. GEICO-approved LLMs receive retrieved examples, graph schema and rules to generate GraphQL; a custom Java Spring Boot orchestrator classifies intent, selects graph or metadata tools, executes queries, and formats results, while governance enforces role entitlements, rate limits, validation and PII masking. CDP Self-Serve UI serves conversational answers, tables, CSV exports and interactive graph views rendered with React. LangChain powered an early Python POC before production moved to Java Spring Boot. The first release targets the transactional graph layer; OLAP and agent-to-agent workflows are described as future extensions.",
+  "products_used": [
+    "CDP AI-Copilot",
+    "CDP graph database",
+    "CDP metadata catalog",
+    "nomic 1.5",
+    "PG vector",
+    "GEICO-approved LLMs",
+    "Custom Java Spring Boot layer",
+    "CDP Self-Serve UI",
+    "React",
+    "LangChain"
+  ],
+  "solution_components": [
+    {
+      "name": "CDP AI-Copilot",
+      "role": "Provides GEICO teams with a production chatbot for natural-language questions about CDP customer relationships.",
+      "layer": "Serving"
+    },
+    {
+      "name": "CDP graph database",
+      "role": "Stores the transactional customer relationships queried by the copilot.",
+      "layer": "Storage"
+    },
+    {
+      "name": "CDP metadata catalog",
+      "role": "Provides metadata used to ground AI queries and govern data access.",
+      "layer": "Storage"
+    },
+    {
+      "name": "nomic 1.5",
+      "role": "Embeds curated query examples for similarity-based intent gathering.",
+      "layer": "Compute"
+    },
+    {
+      "name": "PG vector",
+      "role": "Stores embedded query examples and returns similar examples for user questions.",
+      "layer": "Storage"
+    },
+    {
+      "name": "GEICO-approved LLMs",
+      "role": "Use retrieved examples, graph schema, and rules to generate GraphQL and conversational responses.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Custom Java Spring Boot layer",
+      "role": "Orchestrates intent classification, tool selection, graph-query execution, and response formatting in production.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "CDP Self-Serve UI",
+      "role": "Presents chatbot responses and graph exploration to human users.",
+      "layer": "Serving"
+    },
+    {
+      "name": "React",
+      "role": "Renders interactive graph visualizations in the user interface.",
+      "layer": "Serving"
+    },
+    {
+      "name": "LangChain",
+      "role": "Powered an early Python proof of concept before production orchestration moved to Java Spring Boot.",
+      "layer": "Orchestration"
+    }
+  ],
+  "data_flow": "User questions pass access checks, then an intent service retrieves similar examples from PG vector and supplies them with graph schema and rules to a GEICO-approved LLM for GraphQL generation. The Java Spring Boot orchestrator executes against the CDP graph or metadata APIs; returned results are validated and role-based PII masking is applied before the UI serves summaries, tables, CSVs, or React graph visualizations.",
+  "integration_points": [
+    "GEICO CDP transactional graph database",
+    "CDP metadata catalog APIs",
+    "GEICO-approved LLMs",
+    "CDP Self-Serve UI",
+    "MCP access path for GEICO AI agents, described as future agent-to-agent support"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The production chatbot lets internal teams ask plain-English questions about CDP data and receive answers in seconds. The article reports different accuracy figures in different places: 99% in the subtitle, >99% in the comparison table, and 99.99% in a section heading. It also reports a V1 time-to-market estimate of ~3 months for the in-house path versus ~6 to 9 months for the vendor path.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "99% Accuracy",
+    ">99%",
+    "99.99% AI Accuracy",
+    "~77% (eventually got to 90%)",
+    "~3 months",
+    "~6 to 9 months"
+  ],
+  "architecture_clues": [
+    "The first release covers the transactional graph layer; the aggregation/OLAP query layer was still in progress.",
+    "Six months of historical production data was snapshotted into a training cluster with PII masked."
+  ],
+  "source_url": "https://www.geico.com/techblog/ai-chatbot-for-cdp-without-a-vendor-part-1/",
+  "published_date": "2026-11-03",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2026-11-03",
+      "type": "Published on source page",
+      "publisher": "GEICO",
+      "url": "https://www.geico.com/techblog/ai-chatbot-for-cdp-without-a-vendor-part-1/",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "How we built an AI solution for GEICO CDP",
+      "publisher": "GEICO",
+      "url": "https://www.geico.com/techblog/ai-chatbot-for-cdp-without-a-vendor-part-1/",
+      "source_type": "Company-published implementation story",
+      "authority": "First-party",
+      "published_date": "2026-11-03",
+      "published_date_source": "page",
+      "retrieved_at": "2026-11-09T04:04:31+00:00",
+      "supports": [
+        "customer_name",
+        "vendor",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "The result is CDP AI-Copilot: a production chatbot that lets GEICO teams ask plain-English questions about complex customer relationships across policies, claims, and quotes, and get answers in seconds.",
+    "We passed the curated query set in advance through an embedding model (nomic 1.5) and stored similar queries in a vector DB (PG vector).",
+    "LangChain powered an early Python POC for our AI solution, but production needed tighter integration, so we moved to a custom Java Spring Boot layer.",
+    "99.99% AI Accuracy without any LLM training for less $$",
+    "Query accuracy: Vendor POC ~77% (eventually got to 90%); In-House POC >99%."
+  ]
+}

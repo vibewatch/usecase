@@ -1,0 +1,147 @@
+{
+  "id": "nvidia-mastercard-nvidia-transaction-insights",
+  "slug": "nvidia-mastercard-nvidia-transaction-insights",
+  "vendor": "NVIDIA",
+  "source_type": "company",
+  "customer_name": "Mastercard",
+  "industry": "Financial Services",
+  "region": "unknown",
+  "company_size": "Unknown",
+  "business_problem": "Mastercard is developing a model to learn patterns from anonymized payment transactions and predict future transactions. Its cybersecurity models can flag legitimate, infrequent high-value purchases as potential fraud, and the company is exploring whether a new model can identify those transactions more accurately.",
+  "solution_summary": "Mastercard is training a large tabular model (LTM) on payment data, starting with billions of anonymized transactions after removing personal data. The model learns from structured transaction tables with limited human feature engineering and is intended to predict future transactions and derive commerce insights. NVIDIA's accelerated AI platform powers data processing for the model; Mastercard also credits Databricks capabilities, without identifying a specific Databricks service or role. The source does not identify a storage system or explain persistence. Tests compare the LTM with standard machine-learning techniques and report stronger identification of legitimate, infrequent high-value purchases that can trigger false positives. Mastercard plans to combine the LTM with existing cybersecurity AI models and is developing APIs and toolkits for internal teams; neither production integration nor those access interfaces is described as deployed.",
+  "products_used": [
+    "Mastercard large tabular model (LTM)",
+    "NVIDIA accelerated computing platform",
+    "Databricks capabilities"
+  ],
+  "solution_components": [
+    {
+      "name": "Mastercard large tabular model (LTM)",
+      "role": "Learns patterns from anonymized structured transactions to predict future transactions and generate commerce insights.",
+      "layer": "Compute"
+    },
+    {
+      "name": "NVIDIA accelerated computing platform",
+      "role": "Powers data processing for Mastercard's model training work.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Databricks capabilities",
+      "role": "Are cited as part of Mastercard's development work, but the specific service and function are not identified."
+    }
+  ],
+  "data_flow": "Mastercard removes personal data from transaction records, then uses the anonymized structured transactions to train the LTM with NVIDIA accelerated computing. The model produces transaction predictions and insights; combining it with existing cybersecurity models and providing internal access through APIs and toolkits are planned or in development. The storage tier is not specified.",
+  "integration_points": [
+    "Mastercard anonymized transaction data",
+    "NVIDIA accelerated computing platform",
+    "Databricks capabilities",
+    "Mastercard's existing cybersecurity AI models and cyber tools (planned hybrid integration)",
+    "APIs and toolkits for internal teams (in development)"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Fraud Detection"
+  ],
+  "business_outcome": "In experiments, the model outperformed standard industry machine-learning techniques and better identified legitimate, infrequent high-value transactions that existing models may flag as false positives. Broader cybersecurity benefits are prospective.",
+  "outcome_category": [
+    "Risk Reduction"
+  ],
+  "metrics": [],
+  "architecture_clues": [
+    "Training starts with billions of anonymized transactions.",
+    "Planned expansion to hundreds of billions of payment transactions and additional merchant location, fraud, authorization, chargeback, and loyalty data.",
+    "Mastercard says it currently maintains thousands of AI models for different markets, use cases, or customers."
+  ],
+  "source_url": "https://www.mastercard.com/mea/ar/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+  "published_date": "2026-03-17",
+  "published_date_source": "page metadata",
+  "date_evidence": [
+    {
+      "date": "2026-03-17",
+      "type": "Published on source page",
+      "publisher": "Mastercard",
+      "url": "https://www.mastercard.com/mea/ar/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-11-07",
+      "type": "Sitemap last modified",
+      "publisher": "Mastercard",
+      "url": "https://www.mastercard.com/mea/ar/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Inside Mastercard’s new gen AI engine | Mastercard MEA Regional",
+      "publisher": "Mastercard",
+      "url": "https://www.mastercard.com/mea/ar/news-and-trends/stories/2026/mastercard-new-generative-ai-model.html",
+      "source_type": "Company-published story",
+      "authority": "First-party",
+      "published_date": "2026-03-17",
+      "published_date_source": "page metadata",
+      "retrieved_at": "2026-11-09T04:06:52+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "vendor": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "We are training our foundation model on Mastercard’s unique datasets, starting with billions of transactions.",
+    "To protect user privacy, we remove all personal data from these transactions.",
+    "This work is powered by Nvidia’s advanced accelerated computing platform.",
+    "In our experiments, our foundation model can better identify these legitimate transactions.",
+    "We’re developing APIs and toolkits to give teams across Mastercard access to this new foundation model."
+  ]
+}
