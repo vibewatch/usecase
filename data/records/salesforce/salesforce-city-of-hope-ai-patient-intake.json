@@ -1,0 +1,136 @@
+{
+  "id": "salesforce-city-of-hope-ai-patient-intake",
+  "slug": "salesforce-city-of-hope-ai-patient-intake",
+  "vendor": "Salesforce",
+  "customer_name": "City of Hope",
+  "industry": "Healthcare",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "City of Hope needed to let prospective patients begin intake after hours and on weekends without adding staff or taking patient-access representatives away from phone support. Existing chat in some markets depended on daytime call-center availability, while patient access teams needed to avoid repeatedly collecting information patients had already provided.",
+  "solution_summary": "City of Hope added an Agentforce chat intake experience to its existing Salesforce-supported patient intake process. The agent collects preliminary demographic and registration information and gives patients instructions for tasks such as uploading an insurance card, allowing them to begin when they are available rather than waiting for staffed phone or chat hours. Patient responses are saved as records in the Salesforce environment, and a conversation summary gives patient access representatives context for the next step. Marketing Cloud uses appointment creation or new patient information in Salesforce to trigger automated journeys, welcome kits and follow-up communications; Tableau supports operational analysis. Staff refine prompts and language, and cases needing additional help are routed to the contact center or followed up by representatives. The source describes this intake and handoff flow, but not the underlying AI model or data-storage implementation.",
+  "products_used": [
+    "Health Cloud",
+    "Marketing Cloud",
+    "Tableau",
+    "Agentforce",
+    "Sales Cloud",
+    "Service Cloud"
+  ],
+  "solution_components": [
+    {
+      "name": "Agentforce",
+      "role": "Collects preliminary patient intake information through an automated chat and provides instructions for tasks such as uploading an insurance card.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Health Cloud",
+      "role": "Listed by Salesforce as a product used by City of Hope; the source does not specify its role in the intake workflow."
+    },
+    {
+      "name": "Marketing Cloud",
+      "role": "Runs automated patient journeys, welcome kits and follow-up communications triggered by appointments or patient information entering Salesforce.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Tableau",
+      "role": "Provides analytics to help City of Hope understand performance across its operations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Sales Cloud",
+      "role": "Listed by Salesforce as a product used by City of Hope; the source does not specify its role in the intake workflow."
+    },
+    {
+      "name": "Service Cloud",
+      "role": "Listed by Salesforce as a product used by City of Hope; the source does not specify its role in the intake workflow."
+    }
+  ],
+  "data_flow": "Patients provide preliminary demographic and registration information in an Agentforce chat and receive insurance-card upload instructions; their responses are saved as records in City of Hope's Salesforce environment, with a conversation summary available to patient access representatives. Appointments or new patient information in Salesforce trigger Marketing Cloud journeys, and Tableau is used to analyze operations. Interactions needing additional support are handed to the contact center or patient access team.",
+  "integration_points": [
+    "City of Hope's Salesforce patient intake environment",
+    "Marketing Cloud patient communications",
+    "Patient access representatives and contact center"
+  ],
+  "technical_area": [
+    "AI and Machine Learning",
+    "Contact Center",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation"
+  ],
+  "business_outcome": "Agentforce lets patients begin the intake process outside staffed hours, reduces reliance on manual chat interactions and helps representatives continue the conversation with information patients have already shared. Salesforce's reported results include 43% of Agentforce-scheduled appointments occurring outside business hours and 3.5% of total appointments being initiated through Agentforce in a four-week period.",
+  "outcome_category": [
+    "Customer Experience",
+    "Productivity Improvement"
+  ],
+  "metrics": [
+    "43% of Agentforce-scheduled appointments are outside business hours",
+    "3.5% of total appointments were initiated through Agentforce in a 4-week period"
+  ],
+  "architecture_clues": [
+    "The agent extends an existing Salesforce-supported patient intake process rather than creating a separate channel workflow.",
+    "Patient answers are saved as Salesforce records, and a conversation summary is available to staff.",
+    "City of Hope refined agent prompts and routes interactions requiring additional support to staff."
+  ],
+  "source_url": "https://www.salesforce.com/customer-stories/cityofhope/",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Intake agent helps City of Hope extend cancer care beyond the clinic",
+      "publisher": "Salesforce",
+      "url": "https://www.salesforce.com/customer-stories/cityofhope/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-10T00:33:58+00:00",
+      "supports": [
+        "customer_name",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "business_outcome",
+        "metrics",
+        "industry",
+        "region",
+        "company_size"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "43% of Agentforce-scheduled appointments are outside business hours.",
+    "3.5% of total appointments initiated through Agentforce in a 4-week period.",
+    "Patient responses are saved as records and a conversation summary gives representatives a clear view of what the patient has already input.",
+    "When appointments are created or patient information enters Salesforce, it triggers relevant patient communications in Marketing Cloud."
+  ]
+}
