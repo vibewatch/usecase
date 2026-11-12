@@ -16,9 +16,11 @@ from pathlib import Path
 from typing import Any
 
 from .company_enrichment import apply_company_enrichment, load_company_enrichments
+from .discover import compact_discovery_state
 from .settings import (
     COMPANY_ENRICHMENT_PATH,
     DISCOVERED_URLS_PATH,
+    DISCOVERY_STATE_PATH,
     MERGED_CASE_STUDIES_PATH,
     RECORDS_ROOT,
     TRIAGE_PATH,
@@ -295,7 +297,11 @@ def main() -> None:
         action="store_true",
         help="Delete record files that duplicate a richer record for the same source_url",
     )
+    parser.add_argument("--discovery-state", type=Path, default=DISCOVERY_STATE_PATH)
     args = parser.parse_args()
+
+    if args.prune_duplicates and args.discovery_state.exists():
+        compact_discovery_state(args.discovery_state)
 
     counts = merge_records(
         records_root=args.records_root,

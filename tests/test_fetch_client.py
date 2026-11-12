@@ -163,6 +163,54 @@ class FetchClientTests(unittest.TestCase):
         self.assertEqual(kwargs["extra_headers"]["Accept"], "application/json")
         sleep.assert_called_once_with(0.25)
 
+    def test_conditional_fetch_returns_304_without_clobbering_cache(self) -> None:
+        import tempfile
+        from pathlib import Path
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = Path(tmp)
+            client = FetchClient(user_agent="test", per_host_delay_seconds=0, cache_dir=cache_dir)
+            url = "https://example.com/sitemap.xml"
+            cache_file = client._cache_path(url)
+            assert cache_file is not None
+            cache_file.write_bytes(b"<urlset>cached</urlset>")
+
+            not_modified = FetchResult(
+                url=url,
+                status=304,
+                body=b"",
+                content_type="",
+                sha256="empty",
+                from_cache=False,
+                etag='"v1"',
+            )
+            with patch.object(client, "fetch_once", return_value=not_modified) as fetch_once:
+                fetched = client.fetch(
+                    url,
+                    use_cache=True,
+                    if_none_match='"v1"',
+                    if_modified_since="Wed, 12 Nov 2026 00:00:00 GMT",
+                    max_cache_age_seconds=-1,
+                )
+
+            self.assertEqual(fetched.status, 304)
+            self.assertEqual(fetch_once.call_count, 1)
+            self.assertEqual(
+                fetch_once.call_args.kwargs["extra_headers"],
+                {
+                    "If-None-Match": '"v1"',
+                    "If-Modified-Since": "Wed, 12 Nov 2026 00:00:00 GMT",
+                },
+            )
+            self.assertEqual(cache_file.read_bytes(), b"<urlset>cached</urlset>")
+
+    def test_enable_wayback_false_omits_wayback_from_fallback_plan(self) -> None:
+        client = FetchClient(user_agent="test", per_host_delay_seconds=0, enable_wayback=False)
+        sources = [attempt.source for attempt in client._fallback_plan("https://example.com/sitemap.xml")]
+
+        self.assertNotIn("wayback", sources)
+        self.assertIn("reader", sources)
+
 
 if __name__ == "__main__":
     unittest.main()

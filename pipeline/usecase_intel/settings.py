@@ -12,6 +12,7 @@ DEFAULT_TIMEOUT_SECONDS = 30.0
 
 SOURCES_PATH = Path("data/sources.json")
 DISCOVERED_URLS_PATH = Path("data/discovered_urls.jsonl")
+DISCOVERY_STATE_PATH = Path("data/discovery_state.jsonl")
 FETCH_MANIFEST_PATH = Path("data/fetch_manifest.jsonl")
 RAW_CONTENT_ROOT = Path("data/raw_content")
 HTTP_CACHE_DIR = Path("data/http_cache")

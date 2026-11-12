@@ -122,6 +122,8 @@ def wayback_url(url: str) -> str:
 
 
 def looks_blocked(result: "FetchResult") -> bool:
+    if result.status == 304:
+        return False
     if result.status in BOT_CHALLENGE_STATUSES:
         return True
     sample = result.body[:1_000_000].decode("utf-8", errors="ignore").lower()
@@ -241,6 +243,8 @@ class FetchResult:
     retrieval_source: str = "origin"
     profile: str = "default"
     retry_after_seconds: Optional[float] = None
+    etag: Optional[str] = None
+    last_modified: Optional[str] = None
 
 
 class FetchClient:
@@ -254,6 +258,7 @@ class FetchClient:
         rate_limit_retries: int = 2,
         max_retry_delay_seconds: float = 60.0,
         enable_browser: bool = True,
+        enable_wayback: bool = True,
     ) -> None:
         self.user_agent = user_agent
         self.per_host_delay = per_host_delay_seconds
@@ -263,6 +268,7 @@ class FetchClient:
         self.rate_limit_retries = rate_limit_retries
         self.max_retry_delay_seconds = max_retry_delay_seconds
         self.enable_browser = enable_browser
+        self.enable_wayback = enable_wayback
         self._browser_fetcher: Optional[BrowserFetcher] = None
         self._last_request: dict[str, float] = {}
         if cache_dir is not None:
@@ -333,6 +339,8 @@ class FetchClient:
                 content_type = response.headers.get("Content-Type", "")
                 content_encoding = (response.headers.get("Content-Encoding") or "").lower()
                 retry_after = _retry_after_seconds(response.headers.get("Retry-After"))
+                etag = response.headers.get("ETag")
+                last_modified = response.headers.get("Last-Modified")
                 final_url = response.geturl()
         except HTTPError as exc:
             raw = _read_limited(exc, self.max_response_bytes)
@@ -340,6 +348,8 @@ class FetchClient:
             content_type = exc.headers.get("Content-Type", "") if exc.headers else ""
             content_encoding = (exc.headers.get("Content-Encoding") or "").lower() if exc.headers else ""
             retry_after = _retry_after_seconds(exc.headers.get("Retry-After")) if exc.headers else None
+            etag = exc.headers.get("ETag") if exc.headers else None
+            last_modified = exc.headers.get("Last-Modified") if exc.headers else None
             final_url = exc.geturl()
 
         if content_encoding == "gzip" or url.endswith(".gz"):
@@ -359,9 +369,16 @@ class FetchClient:
             retrieval_source=source,
             profile=profile,
             retry_after_seconds=retry_after,
+            etag=etag,
+            last_modified=last_modified,
         )
 
-    def fetch_once(self, attempt: FetchAttempt) -> FetchResult:
+    def fetch_once(
+        self,
+        attempt: FetchAttempt,
+        *,
+        extra_headers: Optional[dict[str, str]] = None,
+    ) -> FetchResult:
         url = attempt.url
         parts = urlparse(url)
         if not parts.scheme or not parts.netloc:
@@ -392,6 +409,7 @@ class FetchClient:
             url,
             profile=attempt.profile,
             source=attempt.source,
+            extra_headers=extra_headers,
         )
 
     def post_json(self, url: str, payload: object) -> FetchResult:
@@ -427,7 +445,7 @@ class FetchClient:
                 plan.append(FetchAttempt(url, "desktop-chrome", "browser"))
             elif kind == "reader":
                 plan.append(FetchAttempt(reader_url(url), "default", "reader"))
-            elif kind == "wayback":
+            elif kind == "wayback" and self.enable_wayback:
                 plan.append(FetchAttempt(wayback_url(url), "default", "wayback"))
 
         if not plan:
@@ -440,30 +458,52 @@ class FetchClient:
         browser_attempt = FetchAttempt(url, "desktop-chrome", "browser")
         if self.enable_browser and browser_attempt not in plan:
             plan.append(browser_attempt)
-        for fallback_url, source in [(reader_url(url), "reader"), (wayback_url(url), "wayback")]:
+        external_fallbacks = [(reader_url(url), "reader")]
+        if self.enable_wayback:
+            external_fallbacks.append((wayback_url(url), "wayback"))
+        for fallback_url, source in external_fallbacks:
             attempt = FetchAttempt(fallback_url, "default", source)
             if attempt not in plan:
                 plan.append(attempt)
 
         return plan
 
-    def fetch(self, url: str, *, use_cache: bool = True) -> FetchResult:
+    def fetch(
+        self,
+        url: str,
+        *,
+        use_cache: bool = True,
+        if_none_match: Optional[str] = None,
+        if_modified_since: Optional[str] = None,
+        max_cache_age_seconds: Optional[float] = None,
+    ) -> FetchResult:
         parts = urlparse(url)
         if not parts.scheme or not parts.netloc:
             raise ValueError(f"invalid url: {url}")
 
         cache_path = self._cache_path(url) if use_cache else None
         if cache_path is not None and cache_path.exists():
-            body = cache_path.read_bytes()
-            return FetchResult(
-                url=url,
-                status=200,
-                body=body,
-                content_type="application/octet-stream",
-                sha256=hashlib.sha256(body).hexdigest(),
-                from_cache=True,
-                final_url=url,
+            is_fresh = (
+                max_cache_age_seconds is None
+                or (time.time() - cache_path.stat().st_mtime) <= max_cache_age_seconds
             )
+            if is_fresh:
+                body = cache_path.read_bytes()
+                return FetchResult(
+                    url=url,
+                    status=200,
+                    body=body,
+                    content_type="application/octet-stream",
+                    sha256=hashlib.sha256(body).hexdigest(),
+                    from_cache=True,
+                    final_url=url,
+                )
+
+        conditional_headers: dict[str, str] = {}
+        if if_none_match:
+            conditional_headers["If-None-Match"] = if_none_match
+        if if_modified_since:
+            conditional_headers["If-Modified-Since"] = if_modified_since
 
         last_result: Optional[FetchResult] = None
         last_error: Optional[Exception] = None
@@ -471,7 +511,10 @@ class FetchClient:
             result: Optional[FetchResult] = None
             for retry in range(self.rate_limit_retries + 1):
                 try:
-                    result = self.fetch_once(attempt)
+                    if conditional_headers and attempt.source == "origin":
+                        result = self.fetch_once(attempt, extra_headers=conditional_headers)
+                    else:
+                        result = self.fetch_once(attempt)
                 except Exception as exc:  # noqa: BLE001
                     last_error = exc
                     result = None
@@ -488,6 +531,10 @@ class FetchClient:
             if result is None:
                 continue
             last_result = result
+            if result.status == 304:
+                if cache_path is not None and cache_path.exists():
+                    cache_path.touch()
+                return result
             if 200 <= result.status < 400 and not looks_blocked(result):
                 if cache_path is not None and attempt.source == "origin":
                     cache_path.write_bytes(result.body)

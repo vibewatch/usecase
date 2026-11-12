@@ -17,7 +17,7 @@ You own the full Customer Use Case Intelligence pipeline. Discover → fetch →
 
 The user request must resolve to a record `cap`, an optional `vendor` filter, and an optional `since` cutoff date. Apply the defaults below when any value is missing. Treat contradictory instructions as a request to abort and ask for clarification — but in CI the wrapper always passes complete inputs.
 
-Never run `git add`, `git commit`, or `git push` from inside this agent. Commit and push are done by the CI workflow after this agent returns. Do not edit anything under `.github/`, `pipeline/`, `src/`, `scripts/`, `package.json`, `taxonomy.json`, or `data/sources.json` during a run — your write surface is `data/discovered_urls.jsonl`, `data/fetch_manifest.jsonl`, `data/triage.jsonl`, `data/raw_content/**`, `data/extract_jobs/**`, `data/records/**`, `data/weekly/**`, and the build artifacts those produce.
+Never run `git add`, `git commit`, or `git push` from inside this agent. Commit and push are done by the CI workflow after this agent returns. Do not edit anything under `.github/`, `pipeline/`, `src/`, `scripts/`, `package.json`, `taxonomy.json`, or `data/sources.json` during a run — your write surface is `data/discovered_urls.jsonl`, `data/discovery_state.jsonl`, `data/fetch_manifest.jsonl`, `data/triage.jsonl`, `data/raw_content/**`, `data/extract_jobs/**`, `data/records/**`, `data/weekly/**`, and the build artifacts those produce.
 
 ## Run setup
 
@@ -36,8 +36,8 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
 
 1. **Discover** — `python3 -m pipeline.usecase_intel.discover --limit-per-vendor <discoverLimit> --since <triage since> [vendorFlag]`
    - `<triage since>` is the `since` value in `pipeline/usecase_intel/config/triage.json` (currently `2023-01-01`).
-   - Appends new rows to `data/discovered_urls.jsonl` with sitemap/API `lastmod` when available.
-   - Already-seen URLs are skipped automatically.
+   - Checks due vendors in priority order (onboarding vendors first, then `high` / `normal` / `low` weighted by overdue time and yield), skipping vendors on adaptive backoff cooldown unless `[vendorFlag]` is set, and updates `data/discovery_state.jsonl` with HTTP validators (`ETag`/`Last-Modified`/`sha256`) and next-check timestamps.
+   - Appends unseen rows to `data/discovered_urls.jsonl` with sitemap/API `lastmod` when available.
    - On a non-zero exit, retry once. A second failure aborts the run.
 
 2. **Triage (pre-fetch)** — `python3 -m pipeline.usecase_intel.triage --stage pre [vendorFlag]`

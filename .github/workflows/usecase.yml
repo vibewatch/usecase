@@ -219,7 +219,7 @@ jobs:
           git config user.name "usecase-intel-bot"
           git config user.email "usecase-intel-bot@users.noreply.github.com"
           BRANCH="${{ github.ref_name }}"
-          LEDGERS="data/triage.jsonl data/discovered_urls.jsonl data/fetch_manifest.jsonl"
+          LEDGERS="data/triage.jsonl data/discovered_urls.jsonl data/discovery_state.jsonl data/fetch_manifest.jsonl"
           git add data/records data/weekly public/logos/vendors $LEDGERS
           if git diff --cached --quiet; then
             echo "No new records this run."
@@ -240,7 +240,7 @@ jobs:
               exit 1
             fi
             npm run --silent data:build >/dev/null
-            git add -A data/records data/weekly public/logos/vendors   # data:merge prunes duplicate extractions of one story
+            git add -A data/records data/weekly public/logos/vendors data/discovery_state.jsonl   # data:merge prunes duplicate extractions & compacts discovery state
             git diff --cached --quiet || git commit -q --amend --no-edit
             if git push -q origin "HEAD:$BRANCH"; then
               echo "Pushed on attempt $attempt."
