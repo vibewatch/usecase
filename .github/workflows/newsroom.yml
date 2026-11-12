@@ -6,7 +6,7 @@
 # discovered, judged, screened or rejected) is carried between runs as an
 # encrypted file on the `newsroom-state` branch, replaced on every run so the
 # history does not grow. Only the resulting public stories are committed to
-# main (data/records/**), which triggers the Pages deploy.
+# main (data/records/**); Pages follows successful runs via workflow_run.
 #
 # This repository is public, and so are its Actions logs: every stage writes
 # its detailed output (company names, URLs) to a file on the runner, and only
@@ -14,7 +14,6 @@
 #
 # Required secrets:
 # - COPILOT_PAT         Copilot-licensed token for the Copilot CLI (screening + extraction).
-# - USECASE_PAT         repo write token, so the records commit triggers the deploy.
 # - NEWSROOM_COMPANIES  gzip+base64 company list (see above).
 # - NEWSROOM_STATE_KEY  passphrase for the encrypted crawl state.
 
@@ -62,13 +61,12 @@ jobs:
       - name: Verify secrets
         env:
           COPILOT_PAT: ${{ secrets.COPILOT_PAT }}
-          USECASE_PAT: ${{ secrets.USECASE_PAT }}
           NEWSROOM_COMPANIES: ${{ secrets.NEWSROOM_COMPANIES }}
           NEWSROOM_STATE_KEY: ${{ secrets.NEWSROOM_STATE_KEY }}
         run: |
           set -euo pipefail
           missing=0
-          for name in COPILOT_PAT USECASE_PAT NEWSROOM_COMPANIES NEWSROOM_STATE_KEY; do
+          for name in COPILOT_PAT NEWSROOM_COMPANIES NEWSROOM_STATE_KEY; do
             if [ -z "${!name:-}" ]; then echo "Missing required secret: $name" >&2; missing=1; fi
           done
           exit "$missing"
@@ -78,7 +76,6 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-          token: ${{ secrets.USECASE_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6

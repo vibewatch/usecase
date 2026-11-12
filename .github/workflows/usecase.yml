@@ -8,14 +8,13 @@
 # Scheduled runs fire once a day (00:00 UTC) with cap 40 to work
 # through the triaged backlog (data/triage.jsonl keeps, best score first); once
 # the backlog is drained they only pick up newly published stories. The commit
-# each run pushes touches data/records/**, which triggers `pages.yml` to
-# redeploy the GitHub Pages dashboard.
+# each run pushes touches data/records/**; `pages.yml` follows successful
+# runs to redeploy the GitHub Pages dashboard.
 #
 # Required secrets / setup:
 # - COPILOT_PAT — PAT for a Copilot-licensed account; passed to the Copilot CLI.
-# - USECASE_PAT — PAT with repo write access for checkout/push so downstream
-#   deploys trigger on the commit (built-in GITHUB_TOKEN commits do not
-#   trigger other workflows).
+# Checkout and push use the job-scoped GITHUB_TOKEN. Pages follows via
+# workflow_run because GITHUB_TOKEN pushes do not trigger push workflows.
 
 name: UseCase Intel — discover, extract, and publish records
 run-name: "UseCase Intel · ${{ github.event.inputs.vendor || 'all vendors' }} · cap ${{ github.event.inputs.cap || '40' }}${{ github.event.inputs.shard && format(' · shard {0}', github.event.inputs.shard) || '' }}"
@@ -79,16 +78,11 @@ jobs:
       - name: Verify secrets
         env:
           COPILOT_PAT: ${{ secrets.COPILOT_PAT }}
-          USECASE_PAT: ${{ secrets.USECASE_PAT }}
         run: |
           set -euo pipefail
           missing=0
           if [ -z "${COPILOT_PAT:-}" ]; then
             echo "Missing required secret: COPILOT_PAT" >&2
-            missing=1
-          fi
-          if [ -z "${USECASE_PAT:-}" ]; then
-            echo "Missing required secret: USECASE_PAT" >&2
             missing=1
           fi
           exit "$missing"
@@ -100,7 +94,6 @@ jobs:
           # another must see that run's records, or it repeats the same work.
           ref: ${{ github.ref_name }}
           fetch-depth: 0
-          token: ${{ secrets.USECASE_PAT }}
 
       - name: Snapshot data/records
         run: |

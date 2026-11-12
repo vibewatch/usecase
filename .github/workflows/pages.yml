@@ -1,8 +1,8 @@
 # Build the dashboard from data/records/** and publish it to GitHub Pages.
 #
 # Runs on every push to main that touches records or site code — including the
-# daily commit made by `usecase.yml` (pushed with USECASE_PAT, so it triggers
-# this workflow) — and on demand.
+# successful publishing workflows (whose GITHUB_TOKEN pushes do not trigger
+# push workflows) — and on demand.
 #
 # One-time setup: Settings → Pages → Build and deployment → Source: "GitHub Actions",
 # custom domain usecase.genisisiq.com (DNS: CNAME usecase → vibewatch.github.io).
@@ -27,6 +27,13 @@ on:
       - "package-lock.json"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "UseCase Intel — discover, extract, and publish records"
+      - "Enrich company and date evidence"
+      - "Newsroom — AI use cases from company websites"
+    types: [completed]
+    branches: [main]
 
 permissions:
   contents: read
@@ -39,6 +46,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     defaults:
@@ -47,6 +55,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          # workflow_run.head_sha precedes any data committed by that run.
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
