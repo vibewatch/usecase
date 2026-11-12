@@ -71,10 +71,7 @@ Run the stages in order. Each stage is resumable — if you re-run the agent aft
    10. Stop authoring once the count of newly written records reaches `cap`.
 
 7. **Rebuild dashboard data** — run, in order:
-   - `npm run data:merge` (folds `data/records/**/*.json` + samples into `data/case-studies.merged.json`; bad records are skipped with a warning printed to stderr — capture and surface any such warnings in your summary)
-   - `python3 -m pipeline.usecase_intel.seed data/case-studies.merged.json data/usecase_intel.sqlite`
-   - `python3 -m pipeline.usecase_intel.export data/usecase_intel.sqlite data/case-studies.generated.json`
-   - `npm run data:partition` (assigns each record to the ISO week it was first collected and rewrites `data/weekly/**`; existing assignments are preserved)
+   - `npm run data:build` (merges records, seeds and exports the dataset, partitions weekly records, and generates the analytics artifact required by the site; capture and surface any merge warnings in your summary)
    - `npm run build` (runs `astro check && astro build && pagefind --site dist` — must finish with `0 errors, 0 warnings, 0 hints`)
 
    If `npm run build` reports errors that point at a specific record (e.g. a malformed `data/records/*/foo.json` propagated through to the dashboard), identify the offending file, delete it from `data/records/`, redo this entire step 7 once. If the second attempt still fails, abort and include the error output in your summary. Do not delete files under `data/records/` that the build did not flag.

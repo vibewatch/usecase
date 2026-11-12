@@ -203,7 +203,7 @@ jobs:
             --model "${{ steps.inputs.outputs.model }}" \
             --effort "${{ steps.inputs.outputs.effort }}" \
             --agent "UseCase Intel" \
-            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE}${SHARD_CLAUSE} Orchestrate every stage yourself: discover, triage (pre), fetch, triage (post), extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:merge / seed / export / partition / npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
+            -p "Run the full UseCase Intel pipeline. cap: ${{ steps.inputs.outputs.cap }}. discoverLimit: ${{ steps.inputs.outputs.discoverLimit }}.${VENDOR_CLAUSE}${SINCE_CLAUSE}${SHARD_CLAUSE} Orchestrate every stage yourself: discover, triage (pre), fetch, triage (post), extract, author up to cap records by applying the case-study-extraction skill to each new prompt bundle, then rebuild via npm run data:build followed by npm run build. Do not invoke UseCase Intel recursively. Do not run git add or git commit."
 
       - name: Rebuild dashboard data (safety net)
         run: |
