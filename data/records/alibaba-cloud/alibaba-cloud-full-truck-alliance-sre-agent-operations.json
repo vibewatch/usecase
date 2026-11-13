@@ -1,0 +1,148 @@
+{
+  "id": "alibaba-cloud-full-truck-alliance-sre-agent-operations",
+  "slug": "alibaba-cloud-full-truck-alliance-sre-agent-operations",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Full Truck Alliance (满帮)",
+  "industry": "Logistics",
+  "region": "Unknown",
+  "company_size": "Unknown",
+  "business_problem": "Full Truck Alliance's reliability engineers had to correlate incident information across multiple tools and applications, identify business ownership and root causes, and coordinate remediation manually. Production use of agents also required verifiable evidence, access controls, approval, and rollback boundaries.",
+  "solution_summary": "Full Truck Alliance adopted Alibaba Cloud AgentCore as the shared runtime and governance foundation for an SRE digital human, retaining its own specialist tools and operational knowledge. The agent connects to systems such as Lanyedao and Hubble through MCP, uses Skills to capture diagnostic procedures, and coordinates specialist agents for knowledge matching, trace evidence, and analysis. AgentCore provides execution isolation, orchestration, and access controls; the agent combines application and interface records, business relationships, call traces, changes, and metrics to narrow root-cause investigations. A scheduled inspection runs every ten minutes and can send status or risk cards through DingTalk. Deterministic queries and rules handle basic metrics while the agent analyzes and summarizes evidence for human review. Production remediation remains governed by approvals and tested playbooks.",
+  "products_used": [
+    "AgentCore",
+    "AgentLoop",
+    "Hubble",
+    "Lanyedao (柳叶刀)",
+    "DingTalk"
+  ],
+  "solution_components": [
+    {
+      "name": "AgentCore",
+      "role": "Runs and governs the SRE agents, providing collaboration, isolation, and controlled access to operational tools.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AgentLoop",
+      "role": "Provides observation and optimization support for agent execution."
+    },
+    {
+      "name": "Hubble",
+      "role": "Provides application call-chain evidence used in inspections and root-cause analysis."
+    },
+    {
+      "name": "Lanyedao (柳叶刀)",
+      "role": "Receives identified operational risks for governance and tracking."
+    },
+    {
+      "name": "DingTalk",
+      "role": "Delivers inspection status, risk cards, diagnoses, and recommended actions to staff.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "AgentCore agents use MCP to gather operational evidence from Hubble, Lanyedao, code scans, and rules; knowledge and traces inform diagnosis, which is reviewed by staff and risks are sent through DingTalk or into Lanyedao for governance.",
+  "integration_points": [
+    "Hubble call-chain system",
+    "Lanyedao risk-management platform",
+    "Code scanning and rules engines",
+    "DingTalk",
+    "MCP-connected operational tools"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "DevOps"
+  ],
+  "use_case_category": [
+    "IT Operations Automation"
+  ],
+  "business_outcome": "Root-cause analysis covers core business chains with a median localization time of one minute and accuracy above 90%. The agent helps staff spend less time collecting cross-platform information and preserves human review for production actions.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "One engineer needed to monitor 5 systems in a typical duty scenario",
+    "One emergency response required opening 6 platforms",
+    "Daily inspection runs every 10 minutes",
+    "Median root-cause localization time of 1 minute",
+    "Root-cause analysis accuracy greater than 90%"
+  ],
+  "architecture_clues": [
+    "Production actions require approval, tested playbooks, execution records, and rollback",
+    "Data queries and deterministic metric checks use code and rules; agents handle orchestration and evidence-based analysis",
+    "Self-recovery remains in development and is limited to four predefined action classes"
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/transportation-2026-fulltruck-alliance",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Full Truck Alliance builds a production SRE digital human on Alibaba Cloud AgentCore",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/transportation-2026-fulltruck-alliance",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-12T05:21:01+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "source_language": "zh",
+  "evidence_quotes": [
+    "Root-cause analysis has achieved a median localization time of one minute and accuracy above 90% on core chains (original: 根因分析已覆盖核心链路，定位耗时中位数为 1 分钟，根因分析准确率 大于 90%).",
+    "The duty engineer can verify related objects, diagnostic evidence, and recommended actions before proceeding (original: 值班人员能够核对关联对象、诊断依据与建议动作，再推进后续处置)."
+  ]
+}

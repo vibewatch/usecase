@@ -1,0 +1,165 @@
+{
+  "id": "servicenow-medtronic-ai-hr-assistant",
+  "slug": "servicenow-medtronic-ai-hr-assistant",
+  "vendor": "ServiceNow",
+  "customer_name": "Medtronic",
+  "industry": "Manufacturing",
+  "region": "Global",
+  "company_size": "Enterprise",
+  "business_problem": "Medtronic employees work under different country, contract, and regulatory arrangements, making a single HR knowledge base insufficient. The company needed a relevant, self-service way to answer routine HR questions and complete tasks for a global, largely deskless workforce.",
+  "solution_summary": "Medtronic launched HRmony, an AI assistant built on Moveworks and delivered through ServiceNow HR Service Delivery. HRmony grounds responses in Medtronic's organizational structure, policy library, Workday, and business rules so it can personalize answers and complete routine tasks. For performance goal setting, an employee describes priorities in conversation; the assistant creates structured goals, asks for approval to submit them to Workday, notifies the manager, summarizes the goals, and offers meeting times. Routine cases can be submitted, resolved, and closed end to end, while questions requiring judgment are routed to people. Manufacturing employees can reach HRmony through QR codes at sites without leaving the production floor. More than 60 use cases were live within the first year.",
+  "products_used": [
+    "HRmony",
+    "Moveworks",
+    "ServiceNow HR Service Delivery",
+    "Workday"
+  ],
+  "solution_components": [
+    {
+      "name": "HRmony",
+      "role": "Provides personalized AI support and completes routine HR requests through conversation.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Moveworks",
+      "role": "Provides the AI assistant technology on which HRmony is built.",
+      "layer": "Compute"
+    },
+    {
+      "name": "ServiceNow HR Service Delivery",
+      "role": "Delivers the assistant through Medtronic's HR service workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Workday",
+      "role": "Receives approved employee goals and provides HR system context.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "HRmony uses Medtronic's org chart, policy library, Workday, and rules to interpret an employee request; it prepares a response or task, requests approval where needed, updates Workday, and routes complex cases to human staff.",
+  "integration_points": [
+    "Workday",
+    "Medtronic organizational chart",
+    "HR policy library",
+    "HR service workflows",
+    "QR-code access at manufacturing sites",
+    "Manager calendars"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "ERP / CRM"
+  ],
+  "use_case_category": [
+    "Customer Service Automation",
+    "IT Operations Automation"
+  ],
+  "business_outcome": "HRmony deflects 80% of HR tickets, has saved 6,000 hours, and supports employees across the global workforce. More than 60 AI use cases were in production within the first year, with human judgment retained for complex matters.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Customer Experience",
+    "Scalability"
+  ],
+  "metrics": [
+    "80% of HR tickets deflected",
+    "6K hours saved",
+    "95,000+ employees reached",
+    "200 custom AI use cases in roadmap",
+    "60+ use cases live in production within the first year",
+    "More than half of the workforce is deskless"
+  ],
+  "architecture_clues": [
+    "Assistant is grounded in policy, organization, and Workday context",
+    "Routine tasks follow predefined workflows and compliance rules",
+    "Human agents retain complex and ethically significant decisions",
+    "Employees can access the assistant through QR codes at manufacturing sites"
+  ],
+  "source_url": "https://www.servicenow.com/customers/medtronic.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-11-12",
+      "type": "Sitemap last modified",
+      "publisher": "ServiceNow",
+      "url": "https://www.servicenow.com/customers/medtronic.html",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Medtronic’s HR rules vary by country. Its AI helps find what applies.",
+      "publisher": "ServiceNow",
+      "url": "https://www.servicenow.com/customers/medtronic.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-13T00:37:22+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "company_size",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "company_size": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"HRmony handles routine requests end to end: submitting them, resolving them, closing them out.\"",
+    "\"The platform has saved 6,000 hours\""
+  ]
+}

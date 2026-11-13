@@ -1,0 +1,161 @@
+{
+  "id": "alibaba-cloud-yingkang-life-enterprise-agent-os",
+  "slug": "alibaba-cloud-yingkang-life-enterprise-agent-os",
+  "vendor": "Alibaba Cloud",
+  "customer_name": "Yingkang Life (盈康一生)",
+  "industry": "Healthcare",
+  "region": "Unknown",
+  "company_size": "Enterprise",
+  "business_problem": "Yingkang Life needed to move agents from demonstrations into reliable production for a health ecosystem serving more than 13,000 employees. It needed stable quality, scale, cost control, auditability, and clear permission boundaries so agents could participate safely in medical and organizational workflows.",
+  "solution_summary": "Yingkang Life built Xiaoying Agent OS on Alibaba Cloud's Agentic Cloud foundation, using AgentCore for agent execution and governance and AgentLoop for observation and optimization. The AI Gateway handles authentication and routing; Bailian provides multimodal foundation models; Supabase, APIs, and MCP connect business systems, data, and tools; and IAM establishes user-agent identity, least privilege, and revocable authorization. AgentCore supplies isolated sandboxes, multi-tenant workspaces, orchestration, and release gates, while AgentLoop traces tasks and feeds failures and successful runs into evaluation and review. Agents use data and capability maps to collaborate in approved applications, with human review, rollback, and audit trails. The platform is used as a shared employee AI entry point for office work, application creation, and coding.",
+  "products_used": [
+    "AgentCore",
+    "AgentLoop",
+    "Alibaba Cloud AI Gateway",
+    "Bailian large model service",
+    "IAM",
+    "Supabase",
+    "Qoder"
+  ],
+  "solution_components": [
+    {
+      "name": "AgentCore",
+      "role": "Runs and orchestrates agents in isolated, multi-tenant environments with versioning and release controls.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "AgentLoop",
+      "role": "Traces agent execution and supports evaluation, diagnosis, and iterative improvement.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Alibaba Cloud AI Gateway",
+      "role": "Provides unified authentication and model routing for agent requests.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Bailian large model service",
+      "role": "Supplies the large and multimodal models used by the enterprise agents.",
+      "layer": "Compute"
+    },
+    {
+      "name": "IAM",
+      "role": "Controls user and agent identities, permissions, and revocation.",
+      "layer": "Governance"
+    },
+    {
+      "name": "Supabase",
+      "role": "Connects business data and systems to the agent applications."
+    },
+    {
+      "name": "Qoder",
+      "role": "Supports employee code creation and collaboration through the shared AI entry point."
+    }
+  ],
+  "data_flow": "Business information and tools connect through Supabase, APIs, and MCP; requests pass through the AI Gateway to models and agents running in AgentCore. AgentLoop records traces and evaluation results, while IAM constrains access and human approval gates changes before release.",
+  "integration_points": [
+    "Business systems through APIs and MCP",
+    "Supabase",
+    "Alibaba Cloud IAM",
+    "Employee office, application-building, and coding workflows"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Cloud Native"
+  ],
+  "use_case_category": [
+    "IT Operations Automation",
+    "Enterprise Knowledge Search"
+  ],
+  "business_outcome": "The platform became a shared AI entry point for over 13,000 employees. In nearly three months, employees created 465 AI-native applications; the company estimates model-routing improvements can reduce model-call costs by 30.97%.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Scalability"
+  ],
+  "metrics": [
+    "More than 13,000 employees served",
+    "7,721 high-quality conversation scenarios accumulated in nearly 3 months",
+    "465 AI-native applications incubated",
+    "Estimated 30.97% reduction in model-call costs"
+  ],
+  "architecture_clues": [
+    "Agent execution uses millisecond-level isolated sandboxes and remote workspaces",
+    "Release gates support human confirmation, rollback, and audit",
+    "User and agent identities use least-privilege authorization and dynamic credentials"
+  ],
+  "source_url": "https://www.aliyun.com/customer-stories/health-care-2026-haier",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "Yingkang Life and Alibaba Cloud build an enterprise Agent OS",
+      "publisher": "Alibaba Cloud",
+      "url": "https://www.aliyun.com/customer-stories/health-care-2026-haier",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-13T00:38:33+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "source_language": "zh",
+  "evidence_quotes": [
+    "The employee is transformed from an AI user into an application co-creator (original: 员工从 AI 使用者转变为应用共创者).",
+    "AgentCore and AgentLoop form a feedback loop of use observation, evaluation and review, and iteration on new requirements (original: AgentCore × AgentLoop 形成“使用观测 → 评估复盘 → 新需求迭代”的反馈回路)."
+  ]
+}

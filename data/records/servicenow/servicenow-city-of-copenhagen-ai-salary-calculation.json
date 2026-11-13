@@ -1,0 +1,144 @@
+{
+  "id": "servicenow-city-of-copenhagen-ai-salary-calculation",
+  "slug": "servicenow-city-of-copenhagen-ai-salary-calculation",
+  "vendor": "ServiceNow",
+  "customer_name": "City of Copenhagen",
+  "industry": "Public Sector",
+  "region": "Denmark",
+  "company_size": "Public sector",
+  "business_problem": "The City of Copenhagen had to calculate salaries for 30,000 annual hires under dozens of labor agreements, hundreds of salary grades, and wage subsidies. Manual interpretation was slow and created a risk of overpayment.",
+  "solution_summary": "The city added ServiceNow AI Agents to its existing HR Service Delivery platform to interpret candidate résumés and recommend salary ranges under a governed workflow. The AI reads résumé information in different formats and applies relevant employment rules, while deterministic calculation logic performs the exact mathematical steps so results remain traceable. Recruiters review each recommendation before an offer, and payroll specialists handle exceptions and compliance rather than manually processing every document. During the pilot, up to eight specialists checked calculations, reported errors, and helped refine prompts and knowledge articles; the regular user group later grew to 30. The design keeps humans responsible for decisions and uses scripted logic when computation should be deterministic. The source does not identify a model or résumé-storage architecture.",
+  "products_used": [
+    "ServiceNow HR Service Delivery",
+    "ServiceNow AI Agents"
+  ],
+  "solution_components": [
+    {
+      "name": "ServiceNow HR Service Delivery",
+      "role": "Hosts the employee and payroll service workflow used to process HR cases.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "ServiceNow AI Agents",
+      "role": "Interpret résumé content and recommend applicable salary ranges for recruiter review.",
+      "layer": "Compute"
+    }
+  ],
+  "data_flow": "Candidate résumés enter the HR workflow; AI agents interpret employment history and applicable rules, deterministic logic calculates salary figures, and recruiters verify recommendations before offers are made.",
+  "integration_points": [
+    "ServiceNow HR case-management workflow",
+    "Résumé documents in multiple formats",
+    "Labor agreements and salary rules",
+    "Knowledge articles"
+  ],
+  "technical_area": [
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing"
+  ],
+  "business_outcome": "Salary calculations fell from 10 minutes to under two minutes. The city reports saving 3,000–4,000 hours in the simplest cases and redeploying 2.5 FTEs to higher-value work while keeping human review of recommendations.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Risk Reduction"
+  ],
+  "metrics": [
+    "2 minutes to do salary calculations, down from 10 minutes",
+    "3,000–4,000 hours saved from eliminating manual salary interpretation",
+    "2.5 FTEs redeployed to higher-value work",
+    "Approximately 75% of new-hire salary calculations completed 2 days faster",
+    "30,000 annual new hires",
+    "57 labor agreements",
+    "442 salary grades",
+    "928 wage subsidies"
+  ],
+  "architecture_clues": [
+    "AI interprets source information while deterministic logic performs exact calculations",
+    "Recruiter review is required before salary recommendations result in offers",
+    "Pilot calculations were checked by up to eight specialists and refined through feedback"
+  ],
+  "source_url": "https://www.servicenow.com/customers/city-of-copenhagen.html",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [
+    {
+      "date": "2026-10-29",
+      "type": "Sitemap last modified",
+      "publisher": "ServiceNow",
+      "url": "https://www.servicenow.com/customers/city-of-copenhagen.html",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "City of Copenhagen",
+      "publisher": "ServiceNow",
+      "url": "https://www.servicenow.com/customers/city-of-copenhagen.html",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-13T00:37:37+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"The solution, ServiceNow AI Agents that read résumés in any format, interpret each candidate’s prior experience, and recommend a salary range within a governed workflow.\"",
+    "\"Salary calculations have dropped from 10 minutes to less than two minutes.\""
+  ]
+}

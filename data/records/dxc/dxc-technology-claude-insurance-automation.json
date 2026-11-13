@@ -1,0 +1,165 @@
+{
+  "id": "dxc-technology-claude-insurance-automation",
+  "slug": "dxc-technology-claude-insurance-automation",
+  "vendor": "DXC",
+  "customer_name": "DXC Technology",
+  "industry": "Software / SaaS",
+  "region": "United States",
+  "company_size": "Enterprise",
+  "business_problem": "Insurance operations at DXC's scale depend on judgment across large volumes of paper and digital submissions, claims, and regulatory rules. Manual document handling and slow rule changes created backlogs, errors, and high effort for claims and underwriting experts.",
+  "solution_summary": "DXC runs Anthropic's Claude within Assure, its API-driven insurance orchestration platform, to support document intelligence, underwriting, claims, and compliance. Claude classifies incoming documents, extracts policy, party, amount, and date details, and flags exceptions for people. Workflow orchestration routes decisions to the appropriate staff, while purpose-built Smart Apps handle focused tasks such as first notice of loss and workers' compensation calculations. For regulated decisions, actions are logged, traceable, and replayable; agents operate within authority levels and humans review material decisions. Assure routes simpler work to lighter model tiers and longer claims files to frontier models. DXC employees also use Claude Code to build these capabilities. The deployment has reduced document backlogs and accelerated regulatory-rule updates.",
+  "products_used": [
+    "Claude",
+    "Assure",
+    "Smart Apps",
+    "Claude Code"
+  ],
+  "solution_components": [
+    {
+      "name": "Claude",
+      "role": "Reads and reasons over insurance documents, structures claims and submissions, and supports regulated calculations.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Assure",
+      "role": "Orchestrates Claude-powered insurance workflows and routes work across document intelligence, underwriting, smart applications, and compliance.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Smart Apps",
+      "role": "Provide purpose-built agents for individual insurance tasks such as first notice of loss and benefits calculations.",
+      "layer": "Serving"
+    },
+    {
+      "name": "Claude Code",
+      "role": "Supports DXC field development engineers building Claude-powered insurance capabilities."
+    }
+  ],
+  "data_flow": "Claims and underwriting documents enter Assure, where Claude classifies and extracts details; workflow orchestration sends exceptions to human reviewers and Smart Apps perform specific tasks, with actions logged for audit and replay.",
+  "integration_points": [
+    "Insurance carriers and brokers using DXC platforms",
+    "Claims and underwriting document intake by email, fax, paper, and phone",
+    "Existing DXC insurance solution portfolio"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Risk Management"
+  ],
+  "business_outcome": "DXC reduced claims document backlogs from days to minutes and embedded regulatory changes in days rather than the historical 12–18 months. A workers' compensation Smart App was stood up in eight hours and was 80% correct on its first pass.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Speed to Market",
+    "Compliance",
+    "Customer Experience"
+  ],
+  "metrics": [
+    "Claims document backlogs reduced from days to minutes",
+    "Documents classified in under a second",
+    "Regulatory rules embedded in days rather than 12 to 18 months",
+    "Working benefits calculation stood up in eight hours",
+    "80% correct on the first pass",
+    "Claude-powered capabilities scaled to thousands of employees across a 14,000-person insurance business",
+    "DXC platforms support 1,100 insurance customers"
+  ],
+  "architecture_clues": [
+    "Assure is API-driven and integrates with DXC's existing solution portfolio",
+    "Work is routed across model tiers based on task complexity",
+    "Every agent action is logged, traceable, and replayable for regulators",
+    "Human checkpoints remain for decisions with material legal or financial weight"
+  ],
+  "source_url": "https://dxc.com/insights/customer-stories/dxc-claude-insurance-backbone",
+  "published_date": "2026-10-15",
+  "published_date_source": "page",
+  "date_evidence": [
+    {
+      "date": "2026-10-15",
+      "type": "Published on source page",
+      "publisher": "DXC Technology",
+      "url": "https://dxc.com/insights/customer-stories/dxc-claude-insurance-backbone",
+      "authority": "First-party"
+    },
+    {
+      "date": "2026-10-15",
+      "type": "Sitemap last modified",
+      "publisher": "DXC Technology",
+      "url": "https://dxc.com/insights/customer-stories/dxc-claude-insurance-backbone",
+      "authority": "First-party"
+    }
+  ],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "DXC brings Claude to the insurance backbone running billions of policies",
+      "publisher": "DXC Technology",
+      "url": "https://dxc.com/insights/customer-stories/dxc-claude-insurance-backbone",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "2026-10-15",
+      "published_date_source": "page",
+      "retrieved_at": "2026-11-13T00:37:53+00:00",
+      "supports": [
+        "customer_name",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues",
+        "published_date"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ],
+    "published_date": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Assure is the orchestration platform that ties that portfolio together, and Claude now runs inside every layer of it, from reading claims documents to logging every action an agent takes for regulators.\"",
+    "\"The workers’ comp Smart App running on Claude was 80% right on the first pass.\""
+  ]
+}

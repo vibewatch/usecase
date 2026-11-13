@@ -1,0 +1,167 @@
+{
+  "id": "snowflake-general-dynamics-mission-systems-ai-quote-processing",
+  "slug": "snowflake-general-dynamics-mission-systems-ai-quote-processing",
+  "vendor": "Snowflake",
+  "customer_name": "General Dynamics Mission Systems",
+  "industry": "Public Sector",
+  "region": "United States",
+  "company_size": "Unknown",
+  "business_problem": "General Dynamics Mission Systems processed highly variable supplier quotations and contract documents across about 30,000 vendors. Legacy data architecture and internal language models made document parsing unreliable, while manual entry and machine-learning maintenance diverted a small data-science team from higher-value work.",
+  "solution_summary": "General Dynamics Mission Systems uses Snowflake AI Data Cloud and Cortex AI Functions to automate sales-quotation processing. Quotations are uploaded as PDFs; Snowflake AI_PARSE_DOCUMENT and AI_COMPLETE extract relevant information from unstructured documents, while Streams and Tasks transform the results and write them to Salesforce. The workflow processes points of interest and updates Salesforce within two minutes, reducing manual data entry and improving turnaround for buyers and vendors. GDMS also uses Snowflake to ingest software-licensing and usage data for spend analytics, and the platform reduces the team's effort spent troubleshooting ML dependencies. The source identifies Cortex AI and document functions but does not specify the exact LLM used for each quote or the detailed schema of Salesforce records.",
+  "products_used": [
+    "Snowflake AI Data Cloud",
+    "Snowflake Cortex AI",
+    "Snowflake Cortex AI Functions",
+    "AI_PARSE_DOCUMENT",
+    "AI_COMPLETE",
+    "Snowflake Streams and Tasks",
+    "Salesforce"
+  ],
+  "solution_components": [
+    {
+      "name": "Snowflake AI Data Cloud",
+      "role": "Provides the governed data platform on which GDMS runs its AI and machine-learning workloads.",
+      "layer": "Storage"
+    },
+    {
+      "name": "Snowflake Cortex AI",
+      "role": "Provides the AI capabilities GDMS selected for document parsing and language-model workloads.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowflake Cortex AI Functions",
+      "role": "Parse unstructured PDF quotations and extract structured information with AI.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI_PARSE_DOCUMENT",
+      "role": "Reads document content from uploaded quotation PDFs.",
+      "layer": "Compute"
+    },
+    {
+      "name": "AI_COMPLETE",
+      "role": "Generates standardized model output from extracted quotation content.",
+      "layer": "Compute"
+    },
+    {
+      "name": "Snowflake Streams and Tasks",
+      "role": "Transform quotation data and automate the processing workflow.",
+      "layer": "Orchestration"
+    },
+    {
+      "name": "Salesforce",
+      "role": "Receives extracted and processed quotation information.",
+      "layer": "Serving"
+    }
+  ],
+  "data_flow": "Supplier quotation PDFs are uploaded to Snowflake; Cortex AI Functions parse and extract relevant content, Streams and Tasks transform and orchestrate the workflow, and the resulting quotation data is written to Salesforce.",
+  "integration_points": [
+    "Supplier quotations and contract documents in PDF",
+    "Approximately 30,000 vendors",
+    "Salesforce",
+    "Software licensing and usage data"
+  ],
+  "technical_area": [
+    "Generative AI / LLM",
+    "AI and Machine Learning",
+    "Data Platform"
+  ],
+  "use_case_category": [
+    "Document Processing",
+    "Sales Automation"
+  ],
+  "business_outcome": "The quotation workflow runs up to 120 times faster, with extraction and Salesforce updates occurring within two minutes of upload. GDMS expects more than $1.3 million in annual productivity savings and reports less effort maintaining ML dependencies.",
+  "outcome_category": [
+    "Productivity Improvement",
+    "Cost Reduction",
+    "Speed to Market"
+  ],
+  "metrics": [
+    "$1.3M+ expected annual productivity savings from improved sales quotation processing",
+    "Up to 120x faster workflow to extract and save data from complex sales quotations",
+    "Outputs written to Salesforce within 2 minutes of quotation upload",
+    "Approximately 30,000 vendors"
+  ],
+  "architecture_clues": [
+    "FedRAMP compliance requirements influenced platform selection",
+    "AI_PARSE_DOCUMENT and AI_COMPLETE process unstructured PDFs",
+    "Snowflake Streams and Tasks automate transformation and Salesforce updates",
+    "Additional legal discovery and forecasting applications are described as planned, not deployed"
+  ],
+  "source_url": "https://www.snowflake.com/en/customers/all-customers/case-study/general-dynamics-mission-systems/",
+  "published_date": "unknown",
+  "published_date_source": "unknown",
+  "date_evidence": [],
+  "source_references": [
+    {
+      "id": "primary-story",
+      "title": "General Dynamics Mission Systems Projects Millions in Savings with Snowflake AI",
+      "publisher": "Snowflake",
+      "url": "https://www.snowflake.com/en/customers/all-customers/case-study/general-dynamics-mission-systems/",
+      "source_type": "Vendor-published customer story",
+      "authority": "First-party",
+      "published_date": "unknown",
+      "published_date_source": "unknown",
+      "retrieved_at": "2026-11-12T05:21:03+00:00",
+      "supports": [
+        "customer_name",
+        "industry",
+        "region",
+        "business_problem",
+        "solution_summary",
+        "products_used",
+        "solution_components",
+        "data_flow",
+        "integration_points",
+        "business_outcome",
+        "metrics",
+        "architecture_clues"
+      ]
+    }
+  ],
+  "field_sources": {
+    "customer_name": [
+      "primary-story"
+    ],
+    "industry": [
+      "primary-story"
+    ],
+    "region": [
+      "primary-story"
+    ],
+    "business_problem": [
+      "primary-story"
+    ],
+    "solution_summary": [
+      "primary-story"
+    ],
+    "products_used": [
+      "primary-story"
+    ],
+    "solution_components": [
+      "primary-story"
+    ],
+    "data_flow": [
+      "primary-story"
+    ],
+    "integration_points": [
+      "primary-story"
+    ],
+    "business_outcome": [
+      "primary-story"
+    ],
+    "metrics": [
+      "primary-story"
+    ],
+    "architecture_clues": [
+      "primary-story"
+    ]
+  },
+  "confidence_score": 0.0,
+  "maturity_score": 0,
+  "value_score": 0,
+  "evidence_quotes": [
+    "\"Extracting points of interest and writing outputs to Salesforce occurs within 2 minutes of quotation upload.\"",
+    "\"GDMS anticipates over $1.3 million in annual productivity savings from its reimagined approach to sales quotation processing.\""
+  ]
+}
